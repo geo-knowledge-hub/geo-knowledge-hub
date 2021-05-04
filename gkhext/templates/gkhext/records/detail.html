@@ -1,11 +1,11 @@
 {#
-  Copyright (C) 2020-2021 CERN.
-  Copyright (C) 2020-2021 Northwestern University.
-  Copyright (C) 2021 TU Wien.
-  Copyright (C) 2021 Graz University of Technology.
+Copyright (C) 2020-2021 CERN.
+Copyright (C) 2020-2021 Northwestern University.
+Copyright (C) 2021 TU Wien.
+Copyright (C) 2021 Graz University of Technology.
 
-  Invenio RDM Records is free software; you can redistribute it and/or modify
-  it under the terms of the MIT License; see LICENSE file for more details.
+Invenio RDM Records is free software; you can redistribute it and/or modify
+it under the terms of the MIT License; see LICENSE file for more details.
 #}
 
 {%- extends config.BASE_TEMPLATE %}
@@ -21,7 +21,8 @@
   {% if permissions is defined and permissions.can_edit %}
   <div class="ui warning flashed top-attached manage message">
     <div class="ui container">
-      <div id="recordManagement" data-record='{{ record | tojson }}' data-permissions='{{ permissions | tojson }}'></div>
+      <div id="recordManagement" data-record='{{ record | tojson }}'
+           data-permissions='{{ permissions | tojson }}'></div>
     </div>
   </div>
   {% endif %}
@@ -32,9 +33,9 @@
         <div class="column">
           <div class="row">
             <p>
-            {% trans link_start=('<a href="' + record.links.latest_html + '"><b>')|safe, link_end='</b></a>'|safe %}
-            There is a {{ link_start }}newer version{{ link_end }} of the record available.
-            {% endtrans %}
+              {% trans link_start=('<a href="' + record.links.latest_html + '"><b>')|safe, link_end='</b></a>'|safe %}
+              There is a {{ link_start }}newer version{{ link_end }} of the record available.
+              {% endtrans %}
             </p>
           </div>
         </div>
@@ -75,35 +76,54 @@
 
         {%- include "invenio_app_rdm/records/details/subjects.html" %}
         <div class="top-padded">
-        {%- include "invenio_app_rdm/records/details/description.html" %}
+          {%- include "invenio_app_rdm/records/details/description.html" %}
         </div>
         <div class="top-padded">
-        {%- include "invenio_app_rdm/records/details/licenses.html" %}
+          {%- include "invenio_app_rdm/records/details/licenses.html" %}
         </div>
         {%- endblock record_content -%}
+
+        {%- block gkpackage -%}
+        <!-- ToDo: Check if resource is a knowledge package -->
+
+        <dt><b>{{ _('Knowledge Package Resources')}}</b></dt>
+        <hr class="thin-line"></hr>
+
+        <div class="ui padded grid">
+          {% for item in related_records_informations %}
+          <div class="four wide column">
+            <div class="ui segment">
+              <a href="{{ item['url'] }}" target="_blank">{{ item['title'] }}</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {%- endblock gkpackage -%}
+
         {# files #}
         {%- block record_files -%}
         {%- if files is not none -%}
-          {%- if files.enabled and record|can_list_files %}
-            {%- set default_preview = files.default_preview %}
-            {%- set files = files|order_entries %}
-            {%- if files|has_previewable_files -%}
-              {%- set default_preview_file = files|select_preview_file(default_preview=default_preview) %}
-              {{ preview_file_box(default_preview_file, pid) }}
-            {%- endif -%}
-            {{ file_list_box(files, pid) }}
-          {% endif %}
+        {%- if files.enabled and record|can_list_files %}
+        {%- set default_preview = files.default_preview %}
+        {%- set files = files|order_entries %}
+        {%- if files|has_previewable_files -%}
+        {%- set default_preview_file = files|select_preview_file(default_preview=default_preview) %}
+        {{ preview_file_box(default_preview_file, pid) }}
+        {%- endif -%}
+        {{ file_list_box(files, pid) }}
+        {% endif %}
         {%- else -%}
-          {# TODO: come up with a proper display #}
-          <div>Sorry, the files are restricted!</div>
+        {# TODO: come up with a proper display #}
+        <div>Sorry, the files are restricted!</div>
         {%- endif -%}
         {%- endblock record_files -%}
         {%- block record_details -%}
         {# More details #}
         <div class="top-padded">
-        {%- include "invenio_app_rdm/records/details/details.html" %}
+          {%- include "invenio_app_rdm/records/details/details.html" %}
         </div>
         {%- endblock record_details -%}
+
         {%- block record_footer -%}
         <div class="ui grid">
           <div class="two column row top-bottom-padded font-small">
@@ -118,6 +138,7 @@
           </div>
         </div>
         {%- endblock record_footer -%}
+
         {%- block jump -%}
         <div class="ui grid">
           <div class="centered row" id="jump-btn">
