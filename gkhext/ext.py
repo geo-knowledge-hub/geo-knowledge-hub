@@ -11,6 +11,7 @@
 from flask_babelex import gettext as _
 
 from . import config
+from .views import record_detail_page_render
 
 
 class GKHubExt(object):
@@ -27,6 +28,10 @@ class GKHubExt(object):
 
     def init_app(self, app):
         """Flask application initialization."""
+
+        # register new renders
+        app.add_url_rule("/records/<pid_value>", "record_detail", record_detail_page_render)
+
         self.init_config(app)
         app.extensions['geo-knowledge-hub-ext'] = self
 

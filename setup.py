@@ -40,7 +40,6 @@ install_requires = [
 
 packages = find_packages()
 
-
 # Get the version string. Cannot be done with import!
 g = {}
 with open(os.path.join('gkhext', 'version.py'), 'rt') as fp:
@@ -66,10 +65,13 @@ setup(
             'gkhext = gkhext:GKHubExt',
         ],
         'invenio_base.blueprints': [
-            'gkhext = gkhext.views:blueprint',
+            'gkhext = gkhext.views:generate_ui_bp',
         ],
         'invenio_i18n.translations': [
             'messages = gkhext',
+        ],
+        "invenio_config.module": [
+            "gkhext = gkhext.config",
         ],
         # TODO: Edit these entry points to fit your needs.
         # 'invenio_access.actions': [],
