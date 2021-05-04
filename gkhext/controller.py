@@ -33,3 +33,4 @@ def get_related_resources_metadata(record_metadata: Dict) -> List:
     for related_record in related_identifiers:
         record_details: Dict = get_related_resource_information(related_record)
         related_resources_metadata.append(record_details)
+    return related_resources_metadata
