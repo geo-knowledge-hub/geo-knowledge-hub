@@ -36,6 +36,8 @@ setup_requires = [
 
 install_requires = [
     'invenio-i18n>=1.2.0',
+    'crossrefapi==1.5.0',
+    'kaptan==0.5.12'
 ]
 
 packages = find_packages()
