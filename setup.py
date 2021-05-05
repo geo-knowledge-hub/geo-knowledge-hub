@@ -36,10 +36,11 @@ setup_requires = [
 
 install_requires = [
     'invenio-i18n>=1.2.0',
+    'crossrefapi==1.5.0',
+    'kaptan==0.5.12'
 ]
 
 packages = find_packages()
-
 
 # Get the version string. Cannot be done with import!
 g = {}
@@ -66,10 +67,13 @@ setup(
             'gkhext = gkhext:GKHubExt',
         ],
         'invenio_base.blueprints': [
-            'gkhext = gkhext.views:blueprint',
+            'gkhext = gkhext.views:generate_ui_bp',
         ],
         'invenio_i18n.translations': [
             'messages = gkhext',
+        ],
+        "invenio_config.module": [
+            "gkhext = gkhext.config",
         ],
         # TODO: Edit these entry points to fit your needs.
         # 'invenio_access.actions': [],
