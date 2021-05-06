@@ -11,7 +11,7 @@
 from typing import Dict
 
 import kaptan
-from invenio_app_rdm.records_ui.views.decorators import pass_record
+from invenio_app_rdm.records_ui.views.decorators import pass_record_latest
 
 from .config import GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME as metadata_field_by_scheme
 
@@ -55,7 +55,7 @@ def _get_url_metadata(identifier_url) -> Dict:
     metadata. In the future, this will be change to use only DOI
     """
 
-    @pass_record
+    @pass_record_latest
     def record_object_by_id(record=None, pid_value=None):
         return record
 

@@ -14,7 +14,7 @@ from elasticsearch_dsl.utils import AttrDict
 from flask import Blueprint, render_template
 from invenio_app_rdm.records_ui.views.decorators import (
     pass_record_files,
-    pass_record,
+    pass_record_latest,
 )
 from invenio_rdm_records.resources.serializers import UIJSONSerializer
 
@@ -45,7 +45,7 @@ def generate_ui_bp(flask_app):
     return bp
 
 
-@pass_record
+@pass_record_latest
 @pass_record_files
 def record_detail_page_render(record=None, files=None, pid_value=None, is_preview=False):
     """Function to render landing page (Record detail page)
