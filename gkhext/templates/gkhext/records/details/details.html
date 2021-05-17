@@ -1,0 +1,47 @@
+<hr class="thin-line"></hr>
+        <div class="ui padded grid">
+          {% for item in related_records_informations %}
+          <div class="four wide column">
+            <div class="ui segment">
+              {% if item['resource_type'] in [ 'knowledge'] %}
+               <i class="archive icon"></i>
+              {% elif item['resource_type'] in [ 'publication'] %}
+               <i class="file alternate icon"></i>
+              {% elif item['resource_type'] in [ 'dataset'] %}
+              <i class="database icon"></i>
+              {% elif item['resource_type'] in [ 'software'] %}
+              <i class="code icon"></i>
+              {% elif item['resource_type'] in [ 'software'] %}
+              <i class="code icon"></i>
+              {%- else %}
+              <i class="cog icon"></i>
+              {%- endif %}
+              <a href="{{ item['url'] }}" target="_blank">{{ item['title'] }}</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+<!--{%- for related in record.related_identifiers %}-->
+<!--      {% if related.resource_type.type in [ "publication"] %}-->
+<!--    <li>-->
+<!--        <i class="file alternate icon"></i>-->
+<!--    <a href="{{related.identifier}}" target="_blank"> {{related.identifier}} </a>-->
+<!--    </li>-->
+<!--      {%- elif related.resource_type.type in [ "software"] %}-->
+<!--      <li>-->
+<!--        <i class="code icon"></i>-->
+<!--    <a href="{{related.identifier}}" target="_blank"> {{related.identifier}} </a>-->
+<!--    </li>-->
+<!--      {%- elif related.resource_type.type in [ "dataset"] %}-->
+<!--      <li>-->
+<!--        <i class="database icon"></i>-->
+<!--    <a href="{related.identifier}}" target="_blank"> {{related.identifier}} </a>-->
+<!--    </li>-->
+<!--      {%- else %}-->
+<!--      <li>-->
+<!--        <i class="cog icon"></i>-->
+<!--    <a href="{{related.identifier}}" target="_blank"> {{related.identifier}} </a>-->
+<!--    </li>-->
+<!--      {%- endif %}-->
+<!--    {%- endfor %}-->
