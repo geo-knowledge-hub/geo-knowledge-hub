@@ -20,3 +20,4 @@ include .tx/config
 prune docs/_build
 recursive-include .github/workflows *.yml
 recursive-include gkhext/translations *.po *.pot *.mo
+recursive-include gkhext *.html
