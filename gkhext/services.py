@@ -37,18 +37,18 @@ def _metadata_builder(metadata: Dict, scheme) -> Dict:
     }
 
 
+# def _get_doi_metadata(identifier_doi) -> Dict:
+#     """DOI Metadata Retriever
+#     """
+#     from crossref.restful import Works
+#
+#     works_obj = Works()
+#     metadata = works_obj.doi(identifier_doi)
+#
+#     return _metadata_builder(metadata, scheme="doi")
+
+
 def _get_doi_metadata(identifier_doi) -> Dict:
-    """DOI Metadata Retriever
-    """
-    from crossref.restful import Works
-
-    works_obj = Works()
-    metadata = works_obj.doi(identifier_doi)
-
-    return _metadata_builder(metadata, scheme="doi")
-
-
-def _get_url_metadata(identifier_url) -> Dict:
     """InvenioRDM Internal Metadata Retriever
 
     See: This is a temporary function that uses a InvenioRDM as a identifier to retrieve
@@ -59,15 +59,14 @@ def _get_url_metadata(identifier_url) -> Dict:
     def record_object_by_id(record=None, pid_value=None):
         return record
 
-    pid_value = identifier_url.rsplit('/', 1)[-1]
+    pid_value = identifier_doi.rsplit('.', 1)[-1]
     record = record_object_by_id(pid_value=pid_value)
 
-    return _metadata_builder(record.to_dict(), scheme="url")
+    return _metadata_builder(record.to_dict(), scheme="doi")
 
 
 METADATA_SERVICE = {
-    "doi": _get_doi_metadata,
-    "url": _get_url_metadata
+    "doi": _get_doi_metadata
 }
 
 

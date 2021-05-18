@@ -18,13 +18,9 @@ GEO_KNOWLEDGE_HUB_EXT_BASE_TEMPLATE = 'gkhext/base.html'
 """Default base template for the demo page."""
 
 GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {
-    "doi": {  # assume that doi is an external
-        "title": "title.0",  # first title in the title array
-        "description": "abstract",
-        "url": "URL"
-    },
-    "url": {  # assume that url is an geo knowledge hub record
+    "doi": {  # test if this works with an internal fake doi
         "title": "metadata.title",
+        "resource_type": "metadata.resource_type.type",
         "description": "metadata.description",
         "url": "links.self_html"
     }
