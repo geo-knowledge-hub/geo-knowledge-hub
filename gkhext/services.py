@@ -71,6 +71,6 @@ def get_related_resource_information(related_resource_document: Dict):
         Dict: Returns a dict the retrieved metadata
     """
 
-    return METADATA_SERVICE[
-        related_resource_document["scheme"]
-    ](related_resource_document["identifier"])
+    strategy = METADATA_SERVICE.get(related_resource_document["scheme"])
+
+    return None if strategy is None else strategy(related_resource_document["identifier"])
