@@ -11,9 +11,9 @@
 from typing import Dict
 
 import kaptan
-from invenio_app_rdm.records_ui.views.decorators import pass_record_latest
 
 from .config import GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME as metadata_field_by_scheme
+from .search import search_record_by_doi
 
 
 def _metadata_builder(metadata: Dict, scheme) -> Dict:
@@ -37,17 +37,6 @@ def _metadata_builder(metadata: Dict, scheme) -> Dict:
     }
 
 
-# def _get_doi_metadata(identifier_doi) -> Dict:
-#     """DOI Metadata Retriever
-#     """
-#     from crossref.restful import Works
-#
-#     works_obj = Works()
-#     metadata = works_obj.doi(identifier_doi)
-#
-#     return _metadata_builder(metadata, scheme="doi")
-
-
 def _get_doi_metadata(identifier_doi) -> Dict:
     """InvenioRDM Internal Metadata Retriever
 
@@ -55,16 +44,18 @@ def _get_doi_metadata(identifier_doi) -> Dict:
     metadata. In the future, this will be change to use only DOI
     """
 
-    @pass_record_latest
-    def record_object_by_id(record=None, pid_value=None):
-        return record
+    record_metadata = None
+    record = search_record_by_doi(identifier_doi)
 
-    pid_value = identifier_doi.rsplit('.', 1)[-1]
-    record = record_object_by_id(pid_value=pid_value)
+    if record:
+        record_metadata = _metadata_builder(record[0], scheme="doi")
+        record_metadata["url"] = f"/records/{record[0]['id']}"
 
-    return _metadata_builder(record.to_dict(), scheme="doi")
+    return record_metadata
 
 
+# Strategy pattern:
+#   More patterns and behaviors for information retrieval can be added
 METADATA_SERVICE = {
     "doi": _get_doi_metadata
 }
