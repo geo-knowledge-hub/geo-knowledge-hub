@@ -11,6 +11,7 @@
 from typing import Dict
 
 import kaptan
+from invenio_rdm_records.resources.serializers import UIJSONSerializer
 
 from .config import GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME as metadata_field_by_scheme
 from .search import search_record_by_doi
@@ -31,9 +32,12 @@ def _metadata_builder(metadata: Dict, scheme) -> Dict:
     _config.import_config(metadata)
 
     return {
-        metadata_field: _config.get(
-            metadata_field_for_scheme[metadata_field]
-        ) for metadata_field in metadata_field_for_scheme.keys()
+        **{
+            metadata_field: _config.get(
+                metadata_field_for_scheme[metadata_field]
+            ) for metadata_field in metadata_field_for_scheme.keys()
+        },
+        "ui": UIJSONSerializer().serialize_object_to_dict(metadata).get("ui")
     }
 
 
