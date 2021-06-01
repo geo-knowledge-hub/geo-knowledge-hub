@@ -26,6 +26,9 @@
         <span>{{ creator['person_or_org']['name'] }};</span>
         {% endfor %}
       </div>
+      <div class="description">
+        {{ " ".join(item['ui']['description_stripped'].split(" ")[0:50]) }}...
+      </div>
     </div>
   </a>
 
