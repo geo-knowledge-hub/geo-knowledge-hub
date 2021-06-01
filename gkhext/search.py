@@ -8,6 +8,7 @@
 
 """GEO Knowledge Hub extension for InvenioRDM"""
 
+from typing import Dict
 from typing import List
 
 from invenio_search import current_search_client
@@ -21,7 +22,7 @@ def _to_record(query_result) -> List:
     return [r["_source"] for r in records] if records else []
 
 
-def search_record_by_doi(identifier_doi: str) -> List:
+def search_record_by_doi(identifier_doi: str) -> List[Dict]:
     """Retrieves record using DOI identifier
     Args:
         identifier_doi (str): Record DOI Identifier

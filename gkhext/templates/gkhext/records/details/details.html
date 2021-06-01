@@ -1,47 +1,36 @@
-<hr class="thin-line"></hr>
-        <div class="ui padded grid">
-          {% for item in related_records_informations %}
-          <div class="four wide column">
-            <div class="ui segment">
-              {% if item['resource_type'] in [ 'knowledge'] %}
-               <i class="archive icon"></i>
-              {% elif item['resource_type'] in [ 'publication'] %}
-               <i class="file alternate icon"></i>
-              {% elif item['resource_type'] in [ 'dataset'] %}
-              <i class="database icon"></i>
-              {% elif item['resource_type'] in [ 'software'] %}
-              <i class="code icon"></i>
-              {% elif item['resource_type'] in [ 'software'] %}
-              <i class="code icon"></i>
-              {%- else %}
-              <i class="cog icon"></i>
-              {%- endif %}
-              <a href="{{ item['url'] }}" target="_blank">{{ item['title'] }}</a>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
+<hr class="thin-line"/>
+<div class="ui divided link relaxed items" style="height: 270px; overflow: auto;">
+  {% for item in related_records_informations %}
 
-<!--{%- for related in record.related_identifiers %}-->
-<!--      {% if related.resource_type.type in [ "publication"] %}-->
-<!--    <li>-->
-<!--        <i class="file alternate icon"></i>-->
-<!--    <a href="{{related.identifier}}" target="_blank"> {{related.identifier}} </a>-->
-<!--    </li>-->
-<!--      {%- elif related.resource_type.type in [ "software"] %}-->
-<!--      <li>-->
-<!--        <i class="code icon"></i>-->
-<!--    <a href="{{related.identifier}}" target="_blank"> {{related.identifier}} </a>-->
-<!--    </li>-->
-<!--      {%- elif related.resource_type.type in [ "dataset"] %}-->
-<!--      <li>-->
-<!--        <i class="database icon"></i>-->
-<!--    <a href="{related.identifier}}" target="_blank"> {{related.identifier}} </a>-->
-<!--    </li>-->
-<!--      {%- else %}-->
-<!--      <li>-->
-<!--        <i class="cog icon"></i>-->
-<!--    <a href="{{related.identifier}}" target="_blank"> {{related.identifier}} </a>-->
-<!--    </li>-->
-<!--      {%- endif %}-->
-<!--    {%- endfor %}-->
+  <a href="{{ item['url'] }}" class="item">
+    <div class="content">
+      <div class="extra labels-actions">
+        <div class="ui blue tiny label">
+          {{ item['ui']['publication_date_l10n_medium'] }}
+        </div>
+        <div class="ui grey tiny label">
+          {{ item['ui']['resource_type'] }}
+        </div>
+        <div class="ui tiny label access-status {{ item['ui']['access_status']['id'] }}">
+          <i class="icon {{ item['ui']['access_status']['icon'] }}">
+            {{ item['ui']['access_status']['title_l10n'] }}
+          </i>
+        </div>
+      </div>
+      <div class="header">
+        {{ item['title'] }}
+      </div>
+      <div class="meta">
+        {# first three authors #}
+        {% for creator in item['ui']['creators']['creators'][0:3] %}
+        <span>{{ creator['person_or_org']['name'] }};</span>
+        {% endfor %}
+      </div>
+      <div class="description">
+        {{ " ".join(item['ui']['description_stripped'].split(" ")[0:50]) }}...
+      </div>
+    </div>
+  </a>
+
+  {% endfor %}
+</div>
