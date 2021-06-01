@@ -21,8 +21,7 @@ GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {
     "doi": {  # test if this works with an internal fake doi
         "title": "metadata.title",
         "resource_type": "metadata.resource_type.type",
-        "description": "metadata.description",
-        "url": "links.self_html"
+        "description": "metadata.description"
     }
 }
 """Default values to load from metadata by scheme type."""

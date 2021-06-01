@@ -8,7 +8,7 @@
 
 """GEO Knowledge Hub extension for InvenioRDM"""
 
-from typing import Dict
+from typing import Dict, Union
 from typing import List
 
 from .services import get_related_resource_information
@@ -31,6 +31,6 @@ def get_related_resources_metadata(record_metadata: Dict) -> List:
     related_identifiers = record_metadata["related_identifiers"]
 
     for related_record in related_identifiers:
-        record_details: Dict = get_related_resource_information(related_record)
+        record_details: Union[Dict, None] = get_related_resource_information(related_record)
         related_resources_metadata.append(record_details)
-    return related_resources_metadata
+    return list(filter(lambda x: x is not None, related_resources_metadata))
