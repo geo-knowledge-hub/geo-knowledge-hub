@@ -18,7 +18,35 @@ it under the terms of the MIT License; see LICENSE file for more details.
 
 {%- block page_body %}
 <div class="banners">
-  {% if permissions is defined and permissions.can_edit %}
+  {% if is_preview %}
+  <div class="ui info flashed top-attached manage message">
+    <div class="ui container">
+      <div class="ui relaxed grid">
+        <div class="column">
+          <div class="row">
+            <div class="header">
+              <i class="eye icon"></i> Preview
+            </div>
+            <p>
+              {% if record.is_published %}
+              You are previewing changes that have not yet been published.
+              {% endif %}
+
+              {% if not record.is_published and record.versions.index == 1 %}
+              You are previewing a new record that has not yet been published.
+              {% endif %}
+
+              {% if not record.is_published and record.versions.index > 1 %}
+              You are previewing a new record version that has not yet been published.
+              {% endif %}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% if permissions is defined and permissions.can_edit and not is_preview %}
   <div class="ui warning flashed top-attached manage message">
     <div class="ui container">
       <div id="recordManagement" data-record='{{ record | tojson }}'
@@ -26,7 +54,7 @@ it under the terms of the MIT License; see LICENSE file for more details.
     </div>
   </div>
   {% endif %}
-  {% if not record.versions.is_latest %}
+  {% if (not record.versions.is_latest and not is_preview) or (is_preview and not record.versions.is_latest_draft) %}
   <div class="ui warning flashed top-attached manage message">
     <div class="ui container">
       <div class="ui relaxed grid">
@@ -50,6 +78,15 @@ it under the terms of the MIT License; see LICENSE file for more details.
   <div class="ui relaxed grid">
     <div class="two column row top-padded">
       <div class="eleven wide column">
+        {% if record.access.record == 'restricted' %}
+        <div class="ui {{ record.ui.access_status.message_class }} message">
+          <strong><i class="{{ record.ui.access_status.icon }} icon"></i>{{ record.ui.access_status.title_l10n
+            }}</strong> {{ record.ui.access_status.description_l10n }}
+          {% if record.access.embargo.reason %}
+          <p>Reason: {{ record.access.embargo.reason }}</p>
+          {% endif %}
+        </div>
+        {% endif %}
         {%- block record_body -%}
         {%- block record_header -%}
         <div class="ui grid middle aligned">
@@ -59,10 +96,12 @@ it under the terms of the MIT License; see LICENSE file for more details.
               <span class="label text-muted"> | Version {{ record.ui.version }}</span>
             </div>
             <div class="right floated right aligned column">
-              <span class="ui label small grey">{{ record.ui.resource_type }}</span>
-              <!--TODO: Re-enable in next releases-->
-              <!-- <span class="ui label small access-right {{ 'unlock' }}">
-                <i class="icon {{ 'unlock' }}"></i>{{ _("Open Access") }}</span> -->
+              <span class="ui label small grey">{{ record.ui.resource_type['id'] }}</span>
+              <span class="ui label small access-status {{ record.ui.access_status.id }}"
+                    data-tooltip="{{ record.ui.access_status.description_l10n }}" data-inverted="">
+                {% if record.ui.access_status.icon %}<i class="icon {{ record.ui.access_status.icon }}"></i>{% endif %}
+                {{ record.ui.access_status.title_l10n }}
+              </span>
             </div>
           </div>
         </div>
@@ -73,7 +112,7 @@ it under the terms of the MIT License; see LICENSE file for more details.
         {%- endblock record_title -%}
         {%- block record_content -%}
         <p>{%- include "invenio_app_rdm/records/details/contributors.html" %}</p>
-
+        <p>{%- include "invenio_app_rdm/records/details/doi.html" %}</p>
         {%- include "invenio_app_rdm/records/details/subjects.html" %}
         <div class="top-padded">
           {%- include "invenio_app_rdm/records/details/description.html" %}
