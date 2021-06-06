@@ -20,7 +20,7 @@ GEO_KNOWLEDGE_HUB_EXT_BASE_TEMPLATE = 'gkhext/base.html'
 GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {
     "doi": {  # test if this works with an internal fake doi
         "title": "metadata.title",
-        "resource_type": "metadata.resource_type.type",
+        "resource_type": "metadata.resource_type.id",
         "description": "metadata.description"
     }
 }
