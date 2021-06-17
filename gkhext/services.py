@@ -6,7 +6,7 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-"""GEO Knowledge Hub extension for InvenioRDM"""
+"""GEO Knowledge Hub View services"""
 
 from typing import Dict
 
