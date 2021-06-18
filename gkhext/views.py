@@ -26,7 +26,10 @@ from invenio_app_rdm.records_ui.views.decorators import (
 )
 from invenio_rdm_records.resources.serializers import UIJSONSerializer
 
-from .controller import get_related_resources_metadata
+from .controller import (
+    get_related_resources_metadata,
+    current_user_invenio_profile
+)
 from .forms import RequestAccessForm
 
 
@@ -70,6 +73,8 @@ def record_detail_page_render(record=None, files=None, pid_value=None, is_previe
     files_dict = None if files is None else files.to_dict()
     related_records_informations = get_related_resources_metadata(record.to_dict()["metadata"])
 
+    current_user_profile = current_user_invenio_profile()
+
     return render_template(
         "gkhext/records/detail.html",
         record=UIJSONSerializer().serialize_object_to_dict(record.to_dict()),
@@ -78,6 +83,7 @@ def record_detail_page_render(record=None, files=None, pid_value=None, is_previe
         permissions=record.has_permissions_to(['edit', 'new_version', 'manage',
                                                'update_draft', 'read_files']),
         is_preview=is_preview,
+        current_user_profile=current_user_profile,
         related_records_informations=related_records_informations
     )
 
