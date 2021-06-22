@@ -36,7 +36,7 @@ setup_requires = [
 
 install_requires = [
     'invenio-i18n>=1.2.0',
-    'crossrefapi==1.5.0',
+    'Flask-Discussion==0.1.1',
     'kaptan==0.5.12'
 ]
 
@@ -63,6 +63,14 @@ setup(
     include_package_data=True,
     platforms='any',
     entry_points={
+        'invenio_access.actions': [
+            'geo-community'
+            ' = gkhext.security.actions:community_action',
+            'geo-knowledge-provider'
+            ' = gkhext.security.actions:kprovider_action',
+            'geo-secretariat'
+            ' = gkhext.security.actions:secretariat_action'
+        ],
         'invenio_base.apps': [
             'gkhext = gkhext:GKHubExt',
         ],

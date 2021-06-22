@@ -34,3 +34,55 @@
 
   {% endfor %}
 </div>
+
+{% if current_user_profile.is_authenticated %}
+<hr class="thin-line"/>
+{% import "flask_discussion/helper.html" as discussion %}
+
+{{ discussion.render_comments(
+    title=record.metadata.title,
+    identifier=record.ui.resource_type['id'],
+    url="{{ record.links.latest_html }}"
+  )
+}}
+
+<script>
+    // temporary solution
+    // in future, "isso comment engine" will be directly integrated with Invenio RDM App
+
+    let placeholders = [
+      {
+        "name": "Name",
+        "value": "{{ current_user_profile.name }}"
+      },
+      {
+        "name": "E-mail",
+        "value": "{{ current_user_profile.email }}"
+      },
+      {
+        "name": "Website (optional)",
+        "value": "{{ record.links.latest_html }}"
+      }
+    ];
+
+    let placeholderProcessor = function(placeholder) {
+        let el = $(`*[placeholder="${placeholder.name}"]`);
+
+        // hides elements
+        el.hide()
+
+        // set value
+        el[0].value = placeholder.value
+      };
+
+    window.addEventListener('load', function() {
+      // get elements
+      placeholders.forEach(placeholderProcessor);
+
+      // reply observer
+      $(".reply").click(function(x) {
+        placeholders.forEach(placeholderProcessor);
+      });
+    });
+</script>
+{% endif %}
