@@ -31,6 +31,7 @@ from .controller import (
     current_user_invenio_profile
 )
 from .forms import RequestAccessForm
+from .security.actions import secretariat_permission
 
 
 def generate_ui_bp(flask_app):
@@ -89,6 +90,17 @@ def record_detail_page_render(record=None, files=None, pid_value=None, is_previe
 
 
 #
+# Communities pages
+#
+def communities_frontpage():
+    """Communities index page."""
+    return render_template(
+        "gkhext/communities/frontpage.html",
+        is_user_allowed_to_create_new_community=secretariat_permission.can()
+    )
+
+
+#
 # Forms views
 #
 def request_access_view():
@@ -102,7 +114,7 @@ def request_access_view():
             f"Geo Knowledge Hub Registration",
             recipients=[
                 current_app.config.get(
-                    "GEO_MAIL_DEFAULT_RECEIVER"
+                    "GEO_KNOWLEDGE_HUB_EXT_DEFAULT_MAIL_RECEIVER"
                 ),
                 form.email.data
             ],
@@ -170,11 +182,7 @@ deposit_views = [
 # Communities pages
 #
 
-from invenio_communities.views.communities import (
-    communities_new
-)
-
-from .security.actions import secretariat_permission
+from invenio_communities.views.communities import communities_new
 
 
 @secretariat_permission.require(http_exception=403)

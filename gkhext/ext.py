@@ -103,6 +103,9 @@ class GKHubExt(object):
             "GET", "POST"
         ])
 
+        from .views import communities_frontpage
+        app.add_url_rule("/communities/", "communities_frontpage", communities_frontpage)
+
     def _filter_record_service_config(self, app, service_config_cls):
         """Filter record service config based on app global config.
         See:
