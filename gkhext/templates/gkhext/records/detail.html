@@ -129,8 +129,8 @@ it under the terms of the MIT License; see LICENSE file for more details.
         {# record has files AND user can see files #}
         {%- set files = files|order_entries %}
         {%- if files|has_previewable_files -%}
-        <dt><b>{{ _('Preview files:')}}</b></dt>
-        <hr class="thin-line"></hr>
+        <h3 class="ui header"> {{ _('Associated files')}} </h3>
+        <div class="ui divider"></div>
         {%-set preview_file = files|select_preview_file(default_preview=record.files.default_preview) %}
         {{ preview_file_box(preview_file, pid, is_preview, record) }}
         {%- endif -%}
@@ -160,12 +160,11 @@ it under the terms of the MIT License; see LICENSE file for more details.
         {%- endblock record_files -%}
 
         {%- block gkpackage -%}
-        <!-- ToDo: Check if resource is a knowledge package -->
-        {% if record.metadata.resource_type.type in [ "knowledge" ] %}
-        <dt><b>{{ _('Elements of the Knowledge Package:')}}</b></dt>
+        {% if record.metadata.resource_type.id in [ "knowledge" ] %}
+        <h3 class="ui header"> {{ _('Elements of the Knowledge Package')}} </h3>
         {%- include "gkhext/records/details/details.html" %}
         {%- else %}
-        <dt><b>{{ _('This resource is part of the following Knowledge Package(s):')}}</b></dt>
+        <h3 class="ui header">{{ _('This resource is part of the following Knowledge Package')}}</h3>
         {%- include "gkhext/records/details/details.html" %}
         {%- endif %}
         {%- endblock gkpackage -%}
