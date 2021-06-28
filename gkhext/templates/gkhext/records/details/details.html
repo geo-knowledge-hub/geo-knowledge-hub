@@ -1,4 +1,4 @@
-<hr class="thin-line"/>
+<div class="ui divider"></div>
 <div class="ui divided link relaxed items" style="height: 270px; overflow: auto;">
   {% for item in related_records_informations %}
 
@@ -17,7 +17,7 @@
           </i>
         </div>
       </div>
-      <div class="header">
+      <div class="header" style="font-size: 1.2em">
         {{ item['title'] }}
       </div>
       <div class="meta">
@@ -35,15 +35,18 @@
   {% endfor %}
 </div>
 
-{% if current_user_profile.is_authenticated %}
-<hr class="thin-line"/>
+<div class="ui divider"></div>
+
+<h3 class="ui header"> {{ _('Question and Answers')}} </h3>
+
+{% if current_user_profile.is_authenticated and current_user_profile.name != None %}
 {% import "flask_discussion/helper.html" as discussion %}
 
-{{ discussion.render_comments(
-    title=record.metadata.title,
+{{ discussion.render_comments
+(   title=record.metadata.title,
     identifier=record.ui.resource_type['id'],
     url="{{ record.links.latest_html }}"
-  )
+)
 }}
 
 <script>
@@ -79,10 +82,24 @@
       // get elements
       placeholders.forEach(placeholderProcessor);
 
-      // reply observer
-      $(".reply").click(function(x) {
-        placeholders.forEach(placeholderProcessor);
-      });
+      $("#isso-thread").click(function(x) {
+         placeholders.forEach(placeholderProcessor);
+      })
     });
 </script>
+
+{% else %}
+
+  <div class="ui info message">
+    <div class="header">
+        Do you want to interact with the community?
+    </div>
+
+    {% if current_user_profile.name == None %}
+      <p>Before you can comment, it is necessary for you to complete your registration. Please complete your registration in the <a href="/account/settings/profile/">account settings.</a></p>
+
+    {% elif not current_user_profile.is_authenticated %}
+      <p>You must register on the Geo Knowledge Hub. <a href="/signup">Click here</a> to register now or <a href="/login">Log in</a></p>
+    {% endif %}
+  </div>
 {% endif %}
