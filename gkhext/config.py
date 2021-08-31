@@ -17,6 +17,15 @@ GEO_KNOWLEDGE_HUB_EXT_DEFAULT_VALUE = 'foobar'
 GEO_KNOWLEDGE_HUB_EXT_BASE_TEMPLATE = 'gkhext/base.html'
 """Default base template for the demo page."""
 
+# THEME_FRONTPAGE_TEMPLATE = 'gkhext/frontpage/frontpage.html'
+# """Frontpage template."""
+
+# THEME_HEADER_TEMPLATE = 'gkhext/frontpage/header.html'
+# """Header base template."""
+
+# THEME_FOOTER_TEMPLATE = 'gkhext/frontpage/footer.html'
+# """Footer base template."""
+
 GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {
     "doi": {  # test if this works with an internal fake doi
         "title": "metadata.title",
@@ -32,6 +41,7 @@ RECORDS_PERMISSIONS_RECORD_POLICY = (
 """Policy settings"""
 
 GEO_KNOWLEDGE_HUB_EXT_DEFAULT_MAIL_RECEIVER = "geo-email-default"
+
 
 #     Flask-Mail
 # ===================
