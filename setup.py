@@ -83,9 +83,6 @@ setup(
         "invenio_config.module": [
             "gkhext = gkhext.config",
         ],
-        "invenio_assets.webpack": [
-            "gkhext_theme = gkhext.webpack:theme",
-        ],
         # TODO: Edit these entry points to fit your needs.
         # 'invenio_access.actions': [],
         # 'invenio_admin.actions': [],
