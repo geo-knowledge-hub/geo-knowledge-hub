@@ -11,7 +11,19 @@
 from typing import Dict
 from typing import List
 
+from elasticsearch_dsl.query import Q
+from invenio_search.api import RecordsSearch
 from invenio_search import current_search_client
+
+
+class FrontpageRecordsSearch(RecordsSearch):
+    class Meta:
+        index = "rdmrecords-records"
+        default_filter = (
+            Q("term", **{"access.record": "public"}) &
+            Q("term", **{"is_published": True}) &
+            Q("term", **{"metadata.resource_type.id": "knowledge"})
+        )
 
 
 def _to_record(query_result) -> List:
