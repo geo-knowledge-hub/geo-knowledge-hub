@@ -1,55 +1,63 @@
 <div class="ui divider"></div>
-<div class="ui divided link relaxed items" style="height: 270px; overflow: auto;">
-  {% for item in related_records_informations %}
 
-  <a href="{{ item['url'] }}" class="item">
-    <div class="content">
-      <div class="extra labels-actions">
-        <div class="ui blue tiny label">
-          {{ item['ui']['publication_date_l10n_medium'] }}
-        </div>
-        <div class="ui grey tiny label">
-          {{ item['ui']['resource_type']['title_l10n'] }}
-        </div>
-        <div class="ui tiny label access-status {{ item['ui']['access_status']['id'] }}">
-          <i class="icon {{ item['ui']['access_status']['icon'] }}">
-            {{ item['ui']['access_status']['title_l10n'] }}
-          </i>
-        </div>
-      </div>
-      <div class="header" style="font-size: 1.2em">
-        {{ item['title'] }}
-      </div>
-      <div class="meta">
-        {# first three authors #}
-        {% for creator in item['ui']['creators']['creators'][0:3] %}
-        <span>{{ creator['person_or_org']['name'] }};</span>
-        {% endfor %}
-      </div>
-      <div class="description">
-        {{ " ".join(item['ui']['description_stripped'].split(" ")[0:50]) }}...
-      </div>
+<div class="ui accordion panel open" id="preview" href="#collapsablePreview">
+  <div class="title panel-heading open active">
+    Knowledges
+    <i class="ui angle icon down"></i>
+  </div>
+  <div class="content active" style="height: 17rem; overflow: auto; width: auto">
+    <div class="ui divided link relaxed items" style="padding: 20px">
+      {% for item in related_records_informations %}
+
+        <a href="{{ item['url'] }}" class="item">
+          <div class="content">
+            <div class="extra labels-actions">
+              <div class="ui blue tiny label">
+                {{ item['ui']['publication_date_l10n_medium'] }}
+              </div>
+              <div class="ui grey tiny label">
+                {{ item['ui']['resource_type']['title_l10n'] }}
+              </div>
+              <div class="ui tiny label access-status {{ item['ui']['access_status']['id'] }}">
+                <i class="icon {{ item['ui']['access_status']['icon'] }}">
+                  {{ item['ui']['access_status']['title_l10n'] }}
+                </i>
+              </div>
+            </div>
+            <div class="header" style="font-size: 1.2em">
+              {{ item['title'] }}
+            </div>
+            <div class="meta">
+              {# first three authors #}
+              {% for creator in item['ui']['creators']['creators'][0:3] %}
+                <span>{{ creator['person_or_org']['name'] }};</span>
+              {% endfor %}
+            </div>
+            <div class="description">
+              {{ " ".join(item['ui']['description_stripped'].split(" ")[0:50]) }}...
+            </div>
+          </div>
+        </a>
+
+      {% endfor %}
     </div>
-  </a>
-
-  {% endfor %}
+  </div>
 </div>
 
 <div class="ui divider"></div>
 
-<h3 class="ui header"> {{ _('Question and Answers')}} </h3>
+<h3 class="ui header"> {{ _('Question and Answers') }} </h3>
 
 {% if current_user_profile.is_authenticated and current_user_profile.name != None %}
-{% import "flask_discussion/helper.html" as discussion %}
+  {% import "flask_discussion/helper.html" as discussion %}
 
-{{ discussion.render_comments
+  {{ discussion.render_comments
 (   title=record.metadata.title,
     identifier=record.ui.resource_type['id'],
     url="{{ record.links.latest_html }}"
-)
-}}
+) }}
 
-<script>
+  <script>
     // temporary solution
     // in future, "isso comment engine" will be directly integrated with Invenio RDM App
 
@@ -68,38 +76,40 @@
       }
     ];
 
-    let placeholderProcessor = function(placeholder) {
-        let el = $(`*[placeholder="${placeholder.name}"]`);
+    let placeholderProcessor = function (placeholder) {
+      let el = $(`*[placeholder="${placeholder.name}"]`);
 
-        // hides elements
-        el.hide()
+      // hides elements
+      el.hide()
 
-        // set value
-        el[0].value = placeholder.value
-      };
+      // set value
+      el[0].value = placeholder.value
+    };
 
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
       // get elements
       placeholders.forEach(placeholderProcessor);
 
-      $("#isso-thread").click(function(x) {
-         placeholders.forEach(placeholderProcessor);
+      $("#isso-thread").click(function (x) {
+        placeholders.forEach(placeholderProcessor);
       })
     });
-</script>
+  </script>
 
 {% else %}
 
   <div class="ui info message">
     <div class="header">
-        Do you want to interact with the community?
+      Do you want to interact with the community?
     </div>
 
     {% if current_user_profile.name == None %}
-      <p>Before you can comment, it is necessary for you to complete your registration. Please complete your registration in the <a href="/account/settings/profile/">account settings.</a></p>
+      <p>Before you can comment, it is necessary for you to complete your registration. Please complete your
+        registration in the <a href="/account/settings/profile/">account settings.</a></p>
 
     {% elif not current_user_profile.is_authenticated %}
-      <p>You must register on the Geo Knowledge Hub. <a href="/signup">Click here</a> to register now or <a href="/login">Log in</a></p>
+      <p>You must register on the Geo Knowledge Hub. <a href="/signup">Click here</a> to register now or <a
+        href="/login">Log in</a></p>
     {% endif %}
   </div>
 {% endif %}

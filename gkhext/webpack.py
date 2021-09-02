@@ -2,12 +2,12 @@ from invenio_assets.webpack import WebpackThemeBundle
 
 theme = WebpackThemeBundle(
     __name__,
-    'assets',
-    default='semantic-ui',
+    "assets",
+    default="semantic-ui",
     themes={
-        'semantic-ui': dict(
+        "semantic-ui": dict(
             entry={
-                'gkhub-module': './gkhub-module.js'
+                "invenio-app-rdm-deposit-gkhub": "./js/deposit/index.js"
             },
             dependencies={
                 "@babel/runtime": "^7.9.0",
@@ -26,10 +26,8 @@ theme = WebpackThemeBundle(
                 "i18next": "^20.3.1",
                 "react-i18next": "^11.11.3",
                 "i18next-browser-languagedetector": "^6.1.1",
-                'react-copy-to-clipboard': '^5.0.3',
-                'react-slick': '^0.28.1'
+                'react-copy-to-clipboard': '^5.0.3'
             }
         )
     }
 )
-

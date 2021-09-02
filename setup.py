@@ -82,8 +82,7 @@ setup(
         ],
         "invenio_config.module": [
             "gkhext = gkhext.config",
-        ],
-        # TODO: Edit these entry points to fit your needs.
+        ]
         # 'invenio_access.actions': [],
         # 'invenio_admin.actions': [],
         # 'invenio_assets.bundles': [],
