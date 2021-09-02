@@ -10,7 +10,6 @@
 
 from typing import Dict
 
-from .search import FrontpageRecordsSearch
 from elasticsearch_dsl.utils import AttrDict
 from flask import (
     request,
@@ -32,6 +31,7 @@ from .controller import (
     current_user_invenio_profile
 )
 from .forms import RequestAccessForm
+from .search import FrontpageRecordsSearch
 from .security.actions import secretariat_permission
 
 
@@ -106,9 +106,12 @@ def front_page():
     latest_records = FrontpageRecordsSearch()[:3].sort("-created").execute()
     latest_records = [UIJSONSerializer().serialize_object_to_dict(r.to_dict()) for r in latest_records]
 
+    is_knowledge_provider = kprovider_permission.can()
+
     return render_template(
         "gkhext/frontpage.html",
-        latest_records=latest_records
+        latest_records=latest_records,
+        is_knowledge_provider=is_knowledge_provider
     )
 
 
@@ -116,17 +119,21 @@ def about_page():
     """Render the about page"""
     return render_template("gkhext/about.html")
 
+
 def discover_page():
     """Render the discover page"""
     return render_template("gkhext/discover.html")
+
 
 def contribute_page():
     """Render the contribute page"""
     return render_template("gkhext/contribute.html")
 
+
 def engage_page():
     """Render the engagement page"""
     return render_template("gkhext/engage.html")
+
 
 #
 # Forms views
