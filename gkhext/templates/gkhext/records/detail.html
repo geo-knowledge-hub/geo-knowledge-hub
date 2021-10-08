@@ -162,11 +162,19 @@ it under the terms of the MIT License; see LICENSE file for more details.
 
             {%- block gkpackage -%}
               {% if record.metadata.resource_type.id in [ "knowledge" ] %}
-                <h3 class="ui header"> {{ _('Elements of the Knowledge Package') }} </h3>
-                {%- include "gkhext/records/details/details.html" %}
+                {% if related_records_informations %}
+                  <h3 class="ui header"> {{ _('Elements of the Knowledge Package') }} </h3>
+                  {%- include "gkhext/records/details/details.html" %}
+                {%- else %}
+                  <h4 class="ui header">{{ _('The package is empty') }}</h3>
+                {%- endif %}
               {%- else %}
-                <h3 class="ui header">{{ _('This resource is part of the following Knowledge Package') }}</h3>
-                {%- include "gkhext/records/details/details.html" %}
+                {% if related_records_informations %}
+                  <h3 class="ui header">{{ _('This resource is part of the following Knowledge Package') }}</h3>
+                  {%- include "gkhext/records/details/details.html" %}
+                {%- else %}
+                  <h4 class="ui header">{{ _('No Knowledge Package associated with this resource.') }}</h3>
+                {%- endif %}
               {%- endif %}
             {%- endblock gkpackage -%}
 

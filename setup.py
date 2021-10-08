@@ -82,6 +82,9 @@ setup(
         ],
         "invenio_config.module": [
             "gkhext = gkhext.config",
+        ],
+        'invenio_assets.webpack': [
+            'invenio_assets_gkhub_deposit_theme = gkhext.webpack:theme'
         ]
         # 'invenio_access.actions': [],
         # 'invenio_admin.actions': [],

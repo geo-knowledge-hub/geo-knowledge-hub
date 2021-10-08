@@ -19,11 +19,13 @@ from flask import (
     current_app,
     render_template,
 )
+from flask_login import login_required
 from flask_mail import Message
 from invenio_app_rdm.records_ui.views.decorators import (
     pass_record_files,
-    pass_record_latest,
+    pass_record_latest, pass_draft, pass_draft_files,
 )
+from invenio_app_rdm.records_ui.views.deposits import get_form_config, get_search_url, new_record
 from invenio_rdm_records.resources.serializers import UIJSONSerializer
 
 from .controller import (
@@ -195,6 +197,38 @@ def deposit_search_permissioned():
     return deposit_search()
 
 
+@login_required
+@kprovider_permission.require(http_exception=403)
+def new_deposit_page():
+    """Deposit page"""
+    return render_template(
+        "gkhext/records/deposit.html",
+        forms_config=get_form_config(createUrl=("/api/records")),
+        searchbar_config=dict(searchUrl=get_search_url()),
+        record=new_record(),
+        files=dict(
+            default_preview=None, entries=[], links={}
+        ), )
+
+
+@login_required
+@kprovider_permission.require(http_exception=403)
+@pass_draft
+@pass_draft_files
+def geo_deposit_edit_new(draft=None, draft_files=None, pid_value=None):
+    """Edit an existing deposit."""
+    serializer = UIJSONSerializer()
+    record = serializer.serialize_object_to_dict(draft.to_dict())
+
+    return render_template(
+        "gkhext/records/deposit.html",
+        forms_config=get_form_config(apiUrl=f"/api/records/{pid_value}/draft"),
+        record=record,
+        files=draft_files.to_dict(),
+        searchbar_config=dict(searchUrl=get_search_url()),
+        permissions=draft.has_permissions_to(['new_version'])
+    )
+
 deposit_views = [
     {
         "endpoint": "/uploads",
@@ -204,19 +238,18 @@ deposit_views = [
     {
         "endpoint": "/uploads/new",
         "name": "geo_deposit_create",
-        "func": deposit_create_permissioned
+        "func": new_deposit_page
     },
     {
         "endpoint": "/uploads/<pid_value>",
         "name": "geo_deposit_edit",
-        "func": deposit_edit_permissioned
+        "func": geo_deposit_edit_new
     }
 ]
 
 #
 # Communities pages
 #
-
 from invenio_communities.views.communities import communities_new
 
 

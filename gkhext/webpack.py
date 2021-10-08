@@ -7,7 +7,7 @@ theme = WebpackThemeBundle(
     themes={
         "semantic-ui": dict(
             entry={
-                "invenio-app-rdm-deposit-gkhub": "./js/deposit/index.js"
+                "invenio-app-rdm-deposit-gkhub": './js/multiform/index.js'
             },
             dependencies={
                 "@babel/runtime": "^7.9.0",
@@ -26,7 +26,12 @@ theme = WebpackThemeBundle(
                 "i18next": "^20.3.1",
                 "react-i18next": "^11.11.3",
                 "i18next-browser-languagedetector": "^6.1.1",
-                'react-copy-to-clipboard': '^5.0.3'
+                'react-copy-to-clipboard': '^5.0.3',
+                '@brainhubeu/react-carousel': '^2.0.4',
+                'react-searchkit': '^1.0.0-alpha.17',
+                'react-overridable': '^0.0.3',
+                'sweetalert2': '^11.1.7',
+                'sweetalert2-react-content': '^4.1.1'
             }
         )
     }
