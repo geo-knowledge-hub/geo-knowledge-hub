@@ -1,4 +1,10 @@
+
+import os
+import invenio_app_rdm
+
 from invenio_assets.webpack import WebpackThemeBundle
+
+INVENIO_APP_RDM_THEME = "theme/assets/semantic-ui/js/invenio_app_rdm"
 
 theme = WebpackThemeBundle(
     __name__,
@@ -7,7 +13,8 @@ theme = WebpackThemeBundle(
     themes={
         "semantic-ui": dict(
             entry={
-                "invenio-app-rdm-deposit-gkhub": './js/multiform/index.js'
+                "invenio-app-rdm-deposit-gkhub": './js/multiform/index.js',
+                "invenio-app-rdm-user-records-search-gkhub": "./js/user_records_search/index.js"
             },
             dependencies={
                 "@babel/runtime": "^7.9.0",
@@ -32,6 +39,9 @@ theme = WebpackThemeBundle(
                 'react-overridable': '^0.0.3',
                 'sweetalert2': '^11.1.7',
                 'sweetalert2-react-content': '^4.1.1'
+            },
+            aliases={
+                "@invenio-app-rdm": "js/invenio_app_rdm"
             }
         )
     }
