@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React, { Fragment } from "react";
 
 import _get from "lodash/get";
@@ -35,12 +36,21 @@ import { GeoDepositFormApp } from "../GeoDepositFormApp";
 import { DepositFormStepButton } from "./DepositFormStepButton";
 
 import { i18next } from "@translations/invenio_app_rdm/i18next";
+import { KNOWLEDGE_PACKAGE } from '../resources/types';
+import { KnowledgePackageField } from './KnowledgePackage';
 
 export class FullDepositForm extends BaseDepositForm {
   constructor(props) {
     super(props);
 
-    this.vocabularyResourceTypes = this.libraryVocabulariesHandler.filterResourceByType(props.resourceType);
+    // checking if the resourceType is defined. If false, all resource types (except knowledge packages) are accepted.
+    if (_.isNil(props.resourceType)) {
+      this.vocabularyResourceTypes = this.libraryVocabulariesHandler.filterResourcesByInvalidTypes([KNOWLEDGE_PACKAGE]);
+    } else {
+      this.vocabularyResourceTypes = this.libraryVocabulariesHandler.filterResourceByType(props.resourceType);
+    }
+
+    this.isResourcePackage = props.isResourcePackage || false;
   }
 
   render() {
@@ -142,6 +152,36 @@ export class FullDepositForm extends BaseDepositForm {
                       />
 
                       <PublicationDateField required />
+
+                      {
+                        this.isResourcePackage && <KnowledgePackageField
+                          fieldPath={"metadata.related_identifiers"}
+                          label={"Associated Knowledge Package"}
+                          labelIcon={"box"}
+                          searchConfig={{
+                            searchApi: {
+                              axios: {
+                                headers: {
+                                  Accept: "application/vnd.inveniordm.v1+json",
+                                },
+                                url: "/api/records",
+                                withCredentials: true,
+                              },
+                            },
+                            initialQueryState: {
+                              filters: [],
+                            },
+                          }}
+                          serializeKnowledgePackage={(result) => {
+                            return {
+                              "identifier": result.pids.doi.identifier,
+                              "relation_type": "ispartof",
+                              "resource_type": "knowledge",
+                              "scheme": "doi"
+                            };
+                          }}
+                        />
+                      }
                     </Segment>
 
                   </AccordionField>

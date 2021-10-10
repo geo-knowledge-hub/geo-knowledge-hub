@@ -138,10 +138,14 @@ export class KnowledgePackageDepositApp extends Component {
             sidebarMenuRef: this.sidebarMenuRef
         };
 
-        let isKnowledgePackage = true;
-        if (this.depositConfigHandler.props.record.id != null) {
-            if (this.depositConfigHandler.props.record.metadata.resource_type.title.en !== KNOWLEDGE_PACKAGE) {
-                isKnowledgePackage = false;
+        let isKnowledgePackage = false;
+        let resourceType = this.depositConfigHandler.props.record.metadata.resource_type;
+
+        console.log(resourceType);
+
+        if (!_.isNil(resourceType)) {
+            if (resourceType.title.en === KNOWLEDGE_PACKAGE) {
+                isKnowledgePackage = true;
             }
         }
 

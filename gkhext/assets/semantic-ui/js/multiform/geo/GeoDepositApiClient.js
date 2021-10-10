@@ -16,7 +16,18 @@ export class GeoDepositApiClient extends DepositApiClient {
   }
 
   async createDraftFromApi(recordId) {
-    const recordIdUrl = `/api/records/${recordId}/draft`
+    const recordIdUrl = `/api/records/${recordId}/draft`;
     return this.createResponse(() => axiosWithconfig.post(recordIdUrl));
   }
+
+  async getLatestRecordVersion(recordId) {
+    const recordIdUrl = `/api/records/${recordId}/versions/latest`;
+    return this.createResponse(() => axiosWithconfig.get(recordIdUrl));
+  }
+
+  async saveAndPublish(draft) {
+    await this.save(draft);
+    await this.publish(draft);
+  }
+
 }

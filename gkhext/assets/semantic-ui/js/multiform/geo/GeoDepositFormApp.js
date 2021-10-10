@@ -7,7 +7,7 @@ export class GeoDepositFormApp extends DepositFormApp {
         const apiClientConfig = props.apiClientConfig || props.config;
 
         // preparing the new instance controller
-        let controller;
+        let controller = null;
         if (props.controller) {
             const apiClient = new GeoDepositApiClient(apiClientConfig.createUrl);
             const fileUploader = new DepositFileUploader(apiClient, props.config);
