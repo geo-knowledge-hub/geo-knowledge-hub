@@ -1,10 +1,4 @@
-
-import os
-import invenio_app_rdm
-
 from invenio_assets.webpack import WebpackThemeBundle
-
-INVENIO_APP_RDM_THEME = "theme/assets/semantic-ui/js/invenio_app_rdm"
 
 theme = WebpackThemeBundle(
     __name__,
