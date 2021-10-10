@@ -33,7 +33,7 @@ const initialState = {
   sortOrder: 'asc',
   layout: 'list',
   page: 1,
-  size: 999,
+  size: 75,
 };
 
 export class KnowledgePackageSelectorModal extends Component {
@@ -89,8 +89,8 @@ export class KnowledgePackageSelectorModal extends Component {
               <Grid.Column floated="left">
                 <Header as="h2">
                   {this.props.action === ModalActions.ADD
-                    ? `Associate to a Knowledge Package`
-                    : `Change the associated Knowledge Package`}
+                    ? `Add Knowledge Package`
+                    : `Change the Knowledge Package`}
                 </Header>
               </Grid.Column>
             </Grid>
@@ -132,6 +132,16 @@ export class KnowledgePackageSelectorModal extends Component {
                           })}
                         />
                       </ResultsLoader>
+
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row>
+                    <Grid.Column textAlign="center">
+                      <Pagination options={{
+                        size: "mini",
+                        showFirst: false,
+                        showLast: false,
+                      }} />
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>

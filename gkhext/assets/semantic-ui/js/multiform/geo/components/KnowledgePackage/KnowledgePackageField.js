@@ -166,7 +166,8 @@ class KnowledgePackageFieldForm extends Component {
       return !_.isEmpty(x.identifier);
     });
 
-    this.bulkKnowledgePackageSearch(_.map(getIn(values, fieldPath, []), "identifier"));
+    if (_.isEmpty(this.queriedPackages))
+      this.bulkKnowledgePackageSearch(_.map(getIn(values, fieldPath, []), "identifier"));
 
     return (
       <DndProvider backend={HTML5Backend}>

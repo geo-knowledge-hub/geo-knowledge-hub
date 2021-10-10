@@ -164,7 +164,7 @@ export class FullDepositForm extends BaseDepositForm {
                                 headers: {
                                   Accept: "application/vnd.inveniordm.v1+json",
                                 },
-                                url: "/api/records",
+                                url: "/api/user/records",
                                 withCredentials: true,
                               },
                             },

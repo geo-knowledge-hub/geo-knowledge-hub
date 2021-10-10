@@ -6,7 +6,10 @@
 // under the terms of the MIT License; see LICENSE file for more details.
 
 import React from 'react';
+
 import _get from 'lodash/get';
+import _isNil from "lodash/isNil";
+
 import { FastField } from 'formik';
 import { withState } from 'react-searchkit';
 import { Item, Header, Radio, Image } from 'semantic-ui-react';
@@ -30,7 +33,11 @@ export const KnowledgePackageResults = withState(
           <Item.Group>
             {results.data.hits.map((result) => {
               // ToDo: Find a solution that uses less client/server resources.
-              if (result.metadata.resource_type.title.en !== KNOWLEDGE_PACKAGE) return;
+              if (
+                result.is_published !== true ||
+                _isNil(_get(result.metadata.resource_type, "title.en", null)) ||
+                _get(result.metadata.resource_type, "title.en", null) !== KNOWLEDGE_PACKAGE
+              ) return;
 
               const title = result["metadata"]['title'];
               const description = result["metadata"]['description'];
