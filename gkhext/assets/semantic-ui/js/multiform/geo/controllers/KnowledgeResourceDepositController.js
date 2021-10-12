@@ -1,5 +1,7 @@
 
+import _isNil from "lodash/isNil";
 import _isEmpty from 'lodash/isEmpty';
+
 import { BaseGeoDepositController } from "./BaseGeoDepositController";
 
 import { geoGlobalStore } from '../../configStore';
@@ -8,9 +10,15 @@ import { ACTION_CREATE_SUCCEEDED, ACTION_KPACKAGE_RESOURCE_PUBLISH_SUCCEEDED } f
 
 export class KnowledgeResourceDepositController extends BaseGeoDepositController {
 
-  async createResourceDraft(draft, knowledgePackageDOI, { store }) {
+  checkResourceDraftFiles(draft) {
+    if (_isNil(draft.files))
+      return { ...draft, files: { enabled: false } }
+    return draft;
+  }
+
+  async prepareResourceDraft(draft, knowledgePackageDOI, { store }) {
     const recordSerializer = store.config.recordSerializer;
-    const payload = recordSerializer.serialize(draft);
+    let payload = recordSerializer.serialize(draft);
 
     // Adding related identifier to the draft
     payload.metadata.related_identifiers = [
@@ -26,7 +34,16 @@ export class KnowledgeResourceDepositController extends BaseGeoDepositController
       }
     ];
 
-    const response = await this.apiClient.create(payload);
+    // checking files
+    payload = this.checkResourceDraftFiles(payload);
+
+    // send to API (if necessary, draft is created)
+    let response = null;
+
+    if (!super.draftAlreadyCreated(payload))
+      response = await this.apiClient.create(payload);
+    else
+      response = await this.apiClient.save(payload);
 
     // TODO: Deal with case when create fails using formik.setErrors(errors);
     store.dispatch({
@@ -51,8 +68,8 @@ export class KnowledgeResourceDepositController extends BaseGeoDepositController
     // Knowledge Package PID (DOI)
     const knowledgePackageDOI = knowledgePackage.pids.doi.identifier;
 
-    // creating the draft the knowledge resource
-    let response = await this.createResourceDraft(draft, knowledgePackageDOI, { store });
+    // creating the knowledge resource draft
+    let response = await this.prepareResourceDraft(draft, knowledgePackageDOI, { store });
 
     // publishing
     const publishedDraft = await super.publishDraft(response.data, { formik, store });

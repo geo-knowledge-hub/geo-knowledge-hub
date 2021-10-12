@@ -18,7 +18,8 @@ import {
   LicenseField,
   SaveButton,
   PublishButton,
-  FileUploader
+  FileUploader,
+  DepositFormTitle
 } from "react-invenio-deposit";
 
 import {
@@ -28,16 +29,19 @@ import {
   Divider,
   Ref,
   Sticky,
-  Card
+  Card,
+  Button
 } from "semantic-ui-react";
 
 import { BaseDepositForm } from "./BaseDepositForm";
 import { GeoDepositFormApp } from "../GeoDepositFormApp";
 import { DepositFormStepButton } from "./DepositFormStepButton";
 
-import { i18next } from "@translations/invenio_app_rdm/i18next";
+import { RelatedResourceField } from "./fields/RelatedIdentifiersField";
+
 import { KNOWLEDGE_PACKAGE } from '../resources/types';
 import { KnowledgePackageField } from './KnowledgePackage';
+import { i18next } from "@translations/invenio_app_rdm/i18next";
 
 export class FullDepositForm extends BaseDepositForm {
   constructor(props) {
@@ -63,11 +67,22 @@ export class FullDepositForm extends BaseDepositForm {
         permissions={this.depositConfigHandler.props.permissions}
       >
         <Container style={{ marginTop: "2rem", }}>
+          <Grid>
+            <Grid.Row >
+              <Grid.Column style={{ marginLeft: "2.5rem", }}>
+                {this.isResourcePackage &&
+                  <div style={{ marginBottom: "0.5rem" }}>
+                    <DepositFormTitle />
+                  </div>
+                }
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+
           <Segment vertical>
             <Grid>
               <Grid.Row centered>
                 <Grid.Column width={10}>
-
                   <AccordionField
                     fieldPath=""
                     active={!this.props.isRecordPublished}
@@ -283,24 +298,57 @@ export class FullDepositForm extends BaseDepositForm {
                     />
                   </AccordionField>
 
+                  <AccordionField
+                    fieldPath=""
+                    active={!this.props.isRecordPublished}
+                    label={"Related resources"}
+                    ui={this.depositConfigHandler.accordionStyle}
+                  >
+                    <RelatedResourceField
+                      options={this.libraryVocabulariesHandler.vocabularies.metadata.identifiers}
+                    />
+                    <br />
+                  </AccordionField>
+
                 </Grid.Column>
                 <Ref innerRef={this.props.contextInfo.sidebarMenuRef}>
                   <Grid.Column width={5} className="deposit-sidebar">
                     <Sticky context={this.props.contextInfo.sidebarMenuRef} offset={20}>
                       <Card className="actions">
                         <Card.Content>
-                          <div className="sidebar-buttons">
-                            <SaveButton fluid className="save-button" />
-                          </div>
-                          <PublishButton fluid />
-
+                          {!this.isResourcePackage ? (
+                            <Grid>
+                              <Grid.Row columns={2}>
+                                <Grid.Column>
+                                  <SaveButton fluid />
+                                </Grid.Column>
+                                <Grid.Column>
+                                  <PublishButton fluid />
+                                </Grid.Column>
+                              </Grid.Row>
+                            </Grid>
+                          ) : (
+                            <div>
+                              <div className="sidebar-buttons">
+                                <SaveButton fluid className="save-button" />
+                              </div>
+                              <PublishButton fluid />
+                            </div>)
+                          }
                         </Card.Content>
                       </Card>
-
-                      {/* <AccessRightField
-                        label={i18next.t('Visibility')}
-                        labelIcon={"shield"}
-                      /> */}
+                      {!this.isResourcePackage &&
+                        <Card className="actions">
+                          <Card.Content>
+                            <Button
+                              fluid
+                              content="Go to Knowledge Package"
+                              href={_.get(this.depositConfigHandler.props.record, "links.latest_html")}
+                              disabled={!this.props.isRecordPublished}
+                            />
+                          </Card.Content>
+                        </Card>
+                      }
                     </Sticky>
                   </Grid.Column>
                 </Ref>

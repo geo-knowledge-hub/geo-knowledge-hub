@@ -98,7 +98,6 @@ class KnowledgePackageFieldForm extends Component {
   }
 
   knowledgePackageResolver(knowledgePackageIdentifier) {
-
     if (!knowledgePackageIdentifier)
       return null;
 
@@ -160,11 +159,6 @@ class KnowledgePackageFieldForm extends Component {
 
       uiValues.splice(index, 1, UIserialize(selectedKnowledgePackage));
     };
-
-    // removing invalid values relation values
-    values.metadata.related_identifiers = values.metadata.related_identifiers.filter(x => {
-      return !_.isEmpty(x.identifier);
-    });
 
     if (_.isEmpty(this.queriedPackages))
       this.bulkKnowledgePackageSearch(_.map(getIn(values, fieldPath, []), "identifier"));

@@ -9,6 +9,7 @@ import React from 'react';
 
 import _get from 'lodash/get';
 import _isNil from "lodash/isNil";
+import _truncate from "lodash/truncate";
 
 import { FastField } from 'formik';
 import { withState } from 'react-searchkit';
@@ -40,7 +41,7 @@ export const KnowledgePackageResults = withState(
               ) return;
 
               const title = result["metadata"]['title'];
-              const description = result["metadata"]['description'];
+              const description = _truncate(result["metadata"]['description'], { length: 315 });
               const identifier = result["pids"]["doi"]["identifier"];
 
               return (
