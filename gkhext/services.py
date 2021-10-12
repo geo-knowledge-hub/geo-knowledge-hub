@@ -10,7 +10,7 @@
 
 from typing import Dict
 
-import kaptan
+from pydash import py_
 from invenio_rdm_records.resources.serializers import UIJSONSerializer
 
 from .config import GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME as metadata_field_by_scheme
@@ -25,17 +25,12 @@ def _metadata_builder(metadata: Dict, scheme) -> Dict:
     Returns:
         Dict: Dictionary with standard metadata
     """
-
     metadata_field_for_scheme = metadata_field_by_scheme.get(scheme)
-
-    _config = kaptan.Kaptan()
-    _config.import_config(metadata)
 
     return {
         **{
-            metadata_field: _config.get(
-                metadata_field_for_scheme[metadata_field]
-            ) for metadata_field in metadata_field_for_scheme.keys()
+            metadata_field: py_.get(metadata, metadata_field_for_scheme[metadata_field], "")
+            for metadata_field in metadata_field_for_scheme.keys()
         },
         "ui": UIJSONSerializer().serialize_object_to_dict(metadata).get("ui")
     }
@@ -52,8 +47,8 @@ def _get_doi_metadata(identifier_doi) -> Dict:
     record = search_record_by_doi(identifier_doi)
 
     if record:
-        record_metadata = _metadata_builder(record[0], scheme="doi")
-        record_metadata["url"] = f"/records/{record[0]['id']}"
+        record_metadata = _metadata_builder(record[-1], scheme="doi")
+        record_metadata["url"] = f"/records/{record[-1]['id']}"
 
     return record_metadata
 

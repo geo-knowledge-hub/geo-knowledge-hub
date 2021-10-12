@@ -3,71 +3,76 @@
 <div class="ui accordion panel open" id="preview" href="#collapsablePreview">
   <div class="title panel-heading open active">
     {%- if record.metadata.resource_type.id in [ "knowledge" ] %}
-      Components
+    Components
     {%- else %}
-      Packages
+    Packages
     {%- endif %}
     <i class="ui angle icon down"></i>
   </div>
-  {%- if record.metadata.resource_type.id in [ "knowledge" ] %}
-    <div class="content active" style="height: 40rem; overflow: auto; width: auto">
-  {%- else %}
-    <div class="content active" style="overflow: auto; width: auto">
-  {%- endif %}
-  <div class="ui divided link relaxed items" style="padding: 20px">
-    {% for item in related_records_informations %}
+    {% if ( (related_records_informations | length == 0) and (related_records_informations | length < 4) ) %}
+      <div class="content active" style="height: 21rem; overflow: auto; width: auto">
+    {% elif ( (related_records_informations | length > 1) and (related_records_informations | length < 4) ) %}
+      <div class="content active" style="height: {{ related_records_informations | length * 11.5 }}rem; overflow: auto; width: auto">
+    {% else %}
+      <div class="content active" style="overflow: auto; width: auto">
+    {% endif %}
+      <div class="ui divided link relaxed items" style="padding: 20px">
+        {% if related_records_informations %}
+          {% for item in related_records_informations %}
 
-      <a href="{{ item['url'] }}" class="item">
-        <div class="content">
-          <div class="extra labels-actions">
-            <div class="ui blue tiny label">
-              {{ item['ui']['publication_date_l10n_medium'] }}
+        <a href="{{ item['url'] }}" class="item">
+          <div class="content">
+            <div class="extra labels-actions">
+              <div class="ui blue tiny label">
+                {{ item['ui']['publication_date_l10n_medium'] }}
+              </div>
+              <div class="ui grey tiny label">
+                {{ item['ui']['resource_type']['title_l10n'] }}
+              </div>
+              <div class="ui tiny label access-status {{ item['ui']['access_status']['id'] }}">
+                <i class="icon {{ item['ui']['access_status']['icon'] }}">
+                  {{ item['ui']['access_status']['title_l10n'] }}
+                </i>
+              </div>
             </div>
-            <div class="ui grey tiny label">
-              {{ item['ui']['resource_type']['title_l10n'] }}
+            <div class="header" style="font-size: 1.2em">
+              {{ item['title'] }}
             </div>
-            <div class="ui tiny label access-status {{ item['ui']['access_status']['id'] }}">
-              <i class="icon {{ item['ui']['access_status']['icon'] }}">
-                {{ item['ui']['access_status']['title_l10n'] }}
-              </i>
-            </div>
-          </div>
-          <div class="header" style="font-size: 1.2em">
-            {{ item['title'] }}
-          </div>
-          <div class="meta">
-            {# first three authors #}
-            {% for creator in item['ui']['creators']['creators'][0:3] %}
+            <div class="meta">
+              {# first three authors #}
+              {% for creator in item['ui']['creators']['creators'][0:3] %}
               <span>{{ creator['person_or_org']['name'] }};</span>
-            {% endfor %}
+              {% endfor %}
+            </div>
+            <div class="description">
+              {{ " ".join(item['ui'].get('description_stripped', '').split(" ")[0:50]) }}...
+            </div>
           </div>
-          <div class="description">
-            {{ " ".join(item['ui']['description_stripped'].split(" ")[0:50]) }}...
-          </div>
-        </div>
-      </a>
+        </a>
 
-    {% endfor %}
-  </div>
-  </div>
+        {% endfor %}
+        {%- else %}
+          {%- include "gkhext/records/details/no_record_message.html" %}
+        {% endif %}
+      </div>
+    </div>
   </div>
 
   <div class="ui divider"></div>
-
   <h3 class="ui header"> {{ _('Question and Answers') }} </h3>
 
   {% if current_user_profile.is_authenticated and current_user_profile.name != None %}
-    {% import "flask_discussion/helper.html" as discussion %}
+  {% import "flask_discussion/helper.html" as discussion %}
 
-    {{ discussion.render_comments
-(   title=record.metadata.title,
-    identifier=record.ui.resource_type['id'],
-    url="{{ record.links.latest_html }}"
-) }}
+  {{ discussion.render_comments
+  ( title=record.metadata.title,
+  identifier=record.ui.resource_type['id'],
+  url="{{ record.links.latest_html }}"
+  ) }}
 
-    <script>
+  <script>
       // temporary solution
-      // in future, "isso comment engine" will be directly integrated with Invenio RDM App
+      // in future, "isso comment engine" will be directly integrated with Invenio App RDM
 
       let placeholders = [
         {
@@ -102,22 +107,23 @@
           placeholders.forEach(placeholderProcessor);
         })
       });
-    </script>
+
+  </script>
 
   {% else %}
 
-    <div class="ui info message">
-      <div class="header">
-        Do you want to interact with the community?
-      </div>
-
-      {% if current_user_profile.name == None %}
-        <p>Before you can comment, it is necessary for you to complete your registration. Please complete your
-          registration in the <a href="/account/settings/profile/">account settings.</a></p>
-
-      {% elif not current_user_profile.is_authenticated %}
-        <p>You must register on the Geo Knowledge Hub. <a href="/signup">Click here</a> to register now or <a
-          href="/login">Log in</a></p>
-      {% endif %}
+  <div class="ui info message">
+    <div class="header">
+      Do you want to interact with the community?
     </div>
+
+    {% if current_user_profile.name == None %}
+    <p>Before you can comment, it is necessary for you to complete your registration. Please complete your
+      registration in the <a href="/account/settings/profile/">account settings.</a></p>
+
+    {% elif not current_user_profile.is_authenticated %}
+    <p>You must register on the Geo Knowledge Hub. <a href="/signup">Click here</a> to register now or <a
+      href="/login">Log in</a></p>
+    {% endif %}
+  </div>
   {% endif %}
