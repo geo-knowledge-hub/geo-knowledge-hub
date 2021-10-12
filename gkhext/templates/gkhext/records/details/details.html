@@ -11,10 +11,10 @@
   </div>
     {% if ( (related_records_informations | length == 0) and (related_records_informations | length < 4) ) %}
       <div class="content active" style="height: 21rem; overflow: auto; width: auto">
-    {% elif ( (related_records_informations | length > 1) and (related_records_informations | length < 4) ) %}
-      <div class="content active" style="height: {{ related_records_informations | length * 11.5 }}rem; overflow: auto; width: auto">
-    {% else %}
+    {% elif ( (related_records_informations | length >= 1) and (related_records_informations | length <= 3) ) %}
       <div class="content active" style="overflow: auto; width: auto">
+    {% else %}
+      <div class="content active" style="height: 45rem; overflow: auto; width: auto">
     {% endif %}
       <div class="ui divided link relaxed items" style="padding: 20px">
         {% if related_records_informations %}

@@ -105,6 +105,7 @@ def record_detail_page_render(record=None, files=None, pid_value=None, is_previe
     related_records_informations = get_related_resources_metadata(record.to_dict()["metadata"])
 
     current_user_profile = current_user_invenio_profile()
+    is_knowledge_provider = kprovider_permission.can()
 
     related_identifiers = py_.get(record.data, "metadata.related_identifiers", [])
     related_identifiers = related_identifiers_url_by_scheme(related_identifiers)
@@ -119,7 +120,8 @@ def record_detail_page_render(record=None, files=None, pid_value=None, is_previe
         is_preview=is_preview,
         current_user_profile=current_user_profile,
         related_records_informations=related_records_informations,
-        related_identifiers=related_identifiers
+        related_identifiers=related_identifiers,
+        is_knowledge_provider=is_knowledge_provider
     )
 
 
