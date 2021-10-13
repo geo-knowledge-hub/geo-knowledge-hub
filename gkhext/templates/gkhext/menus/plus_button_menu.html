@@ -1,0 +1,17 @@
+{%- if current_user.is_authenticated and is_knowledge_provider %}
+{%- set plus_menu_items = current_menu.submenu('plus').children %}
+{%- if plus_menu_items %}
+  <div class="rdm-plus-menu ui dropdown floating">
+    <i class="fitted plus icon inverted"></i>
+    <i class="fitted dropdown icon inverted"></i>
+    <div class="menu">
+      {%- for item in plus_menu_items if item.visible %}
+        <a class="item"
+           style="color:black;"
+           href="{{ item.url }}">{{ item.text|safe }}
+        </a>
+      {%- endfor %}
+    </div>
+  </div>
+{% endif %}
+{%- endif %}
