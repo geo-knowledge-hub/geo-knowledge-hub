@@ -50,6 +50,11 @@ def generate_ui_bp(flask_app):
         template_folder="templates",
     )
 
+    @flask_app.context_processor
+    def define_user_profile():
+        return { "is_knowledge_provider": kprovider_permission.can(),
+                 "current_user_profile": current_user_invenio_profile()}
+
     @bp.before_app_first_request
     def init_menu():
         """Initialize menu before first request."""
@@ -89,12 +94,6 @@ def generate_ui_bp(flask_app):
 
 
 """New Geo Knowledge Pages"""
-
-
-#
-# Record views
-#
-
 @pass_record_or_draft
 @pass_record_files
 def record_detail_page_render(record=None, files=None, pid_value=None, is_preview=False):
@@ -104,24 +103,20 @@ def record_detail_page_render(record=None, files=None, pid_value=None, is_previe
     files_dict = None if files is None else files.to_dict()
     related_records_informations = get_related_resources_metadata(record.to_dict()["metadata"])
 
-    current_user_profile = current_user_invenio_profile()
-    is_knowledge_provider = kprovider_permission.can()
-
     related_identifiers = py_.get(record.data, "metadata.related_identifiers", [])
     related_identifiers = related_identifiers_url_by_scheme(related_identifiers)
 
     return render_template(
         "gkhext/records/detail.html",
-        record=UIJSONSerializer().serialize_object_to_dict(record.to_dict()),
         pid=pid_value,
         files=files_dict,
-        permissions=record.has_permissions_to(['edit', 'new_version', 'manage',
-                                               'update_draft', 'read_files']),
         is_preview=is_preview,
-        current_user_profile=current_user_profile,
-        related_records_informations=related_records_informations,
         related_identifiers=related_identifiers,
-        is_knowledge_provider=is_knowledge_provider
+        related_records_informations=related_records_informations,
+        record=UIJSONSerializer().serialize_object_to_dict(record.to_dict()),
+
+        permissions=record.has_permissions_to(['edit', 'new_version', 'manage',
+                                               'update_draft', 'read_files'])
     )
 
 
@@ -230,7 +225,7 @@ def deposit_search():
     """List of user deposits page."""
     return render_template(
         "gkhext/records/search_deposit.html",
-        searchbar_config=dict(searchUrl=get_search_url()),
+        searchbar_config=dict(searchUrl=get_search_url())
     )
 
 
