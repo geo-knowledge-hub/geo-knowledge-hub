@@ -1,3 +1,7 @@
+
+import Swal from 'sweetalert2';
+
+import { connect } from "react-redux";
 import React, { Fragment } from "react";
 
 import {
@@ -11,7 +15,6 @@ import {
     VersionField,
     LicenseField,
     FileUploader,
-    PublishButton,
     PIDField
 } from "react-invenio-deposit";
 
@@ -29,21 +32,15 @@ import { GeoDepositFormApp } from "../../GeoDepositFormApp";
 import { KnowledgeResourceDepositController } from "../../controllers/KnowledgeResourceDepositController";
 
 import { i18next } from "@translations/invenio_app_rdm/i18next";
+import { CustomRDMPublishButton } from "../buttons/CustomRDMPublishButton";
 
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 import { geoGlobalContext, geoGlobalStore } from "../../../configStore";
-import { connect } from "react-redux";
 import { ACTION_KPACKAGE_RESOURCE_PUBLISH_SUCCEEDED_FINISH } from "../../state/types";
-
-const MySwal = withReactContent(Swal)
-
 
 class BaseModalFormTabs {
 
     constructor(depositConfigHandler, vocabularyResourceTypes, libraryVocabulariesHandler) {
         // defining configuration properties
-
         this.depositConfigHandler = depositConfigHandler || {};
         this.vocabularyResourceTypes = vocabularyResourceTypes || {};
         this.libraryVocabulariesHandler = libraryVocabulariesHandler || {};
@@ -311,7 +308,7 @@ export class BaseModalFormComponent extends BaseDepositForm {
 
         if (resourcePublishIsPublished) {
             // showing message to user 
-            MySwal.fire({
+            Swal.fire({
                 icon: 'success',
                 title: 'Resource successfully added',
                 showConfirmButton: false,
@@ -365,7 +362,7 @@ export class BaseModalFormComponent extends BaseDepositForm {
                                 <Grid.Row centered style={{ height: '5rem', marginTop: "1.2rem", }}>
                                     <Divider />
                                     <Grid.Column width={3} centered>
-                                        <PublishButton fluid />
+                                        <CustomRDMPublishButton fluid/>
                                     </Grid.Column>
                                 </Grid.Row>
                             </Grid>

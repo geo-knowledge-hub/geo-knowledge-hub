@@ -1,5 +1,5 @@
 /*
- * This file is part of Invenio.
+ * This file is adapted from Invenio Software.
  * Copyright (C) 2020-2021 CERN.
  * Copyright (C) 2020-2021 Northwestern University.
  *
