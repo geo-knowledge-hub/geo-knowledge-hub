@@ -356,12 +356,14 @@ export class FullDepositForm extends BaseDepositForm {
             </Grid>
           </Segment>
 
-          <Segment vertical align="center">
-            <DepositFormStepButton
-              next={this.props.contextInfo.stepHandler.next}
-              isNextActivated={this.props.isRecordPublished}
-            />
-          </Segment>
+          {!this.isResourcePackage && (
+            <Segment vertical align="center">
+              <DepositFormStepButton
+                next={this.props.contextInfo.stepHandler.next}
+                isNextActivated={this.props.isRecordPublished}
+              />
+            </Segment>
+          )}
 
         </Container>
       </GeoDepositFormApp>
