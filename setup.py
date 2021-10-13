@@ -37,7 +37,7 @@ setup_requires = [
 install_requires = [
     'invenio-i18n>=1.2.0',
     'Flask-Discussion==0.1.1',
-    'kaptan==0.5.12'
+    'pydash>=5.1.0'
 ]
 
 packages = find_packages()
