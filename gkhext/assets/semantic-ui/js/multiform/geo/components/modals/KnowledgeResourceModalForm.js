@@ -37,7 +37,7 @@ import { CustomRDMPublishButton } from "../buttons/CustomRDMPublishButton";
 import { geoGlobalContext, geoGlobalStore } from "../../../configStore";
 import { ACTION_KPACKAGE_RESOURCE_PUBLISH_SUCCEEDED_FINISH } from "../../state/types";
 
-class BaseModalFormTabs {
+class KnowledgeResourceFormTabs {
 
     constructor(depositConfigHandler, vocabularyResourceTypes, libraryVocabulariesHandler) {
         // defining configuration properties
@@ -293,15 +293,15 @@ class BaseModalFormTabs {
 }
 
 
-export class BaseModalFormComponent extends BaseDepositForm {
+export class KnowledgeResourceModalFormComponent extends BaseDepositForm {
     constructor(props) {
         super(props);
     }
 
     render() {
-        const baseModalFormTabs = new BaseModalFormTabs(this.props.depositConfigHandler,
+        const knowledgeResourceFormTabs = new KnowledgeResourceFormTabs(this.props.depositConfigHandler,
             this.props.vocabularyResourceTypes, this.props.libraryVocabulariesHandler);
-        const ModalFormTabs = baseModalFormTabs.generateTabMenu();
+        const ModalFormTabs = knowledgeResourceFormTabs.generateTabMenu();
 
         // extracting state
         const { resourcePublishIsPublished } = this.props;
@@ -381,6 +381,6 @@ const mapStateToProps = (state) => ({
     resourcePublishIsPublished: state.resourcePublishIsPublished
 });
 
-export const BaseModalForm = connect(
+export const KnowledgeResourceModalForm = connect(
     mapStateToProps, null, null, { context: geoGlobalContext }
-)(BaseModalFormComponent);
+)(KnowledgeResourceModalFormComponent);

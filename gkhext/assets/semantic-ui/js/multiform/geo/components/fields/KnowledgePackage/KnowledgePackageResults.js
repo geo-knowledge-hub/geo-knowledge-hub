@@ -15,7 +15,7 @@ import { FastField } from 'formik';
 import { withState } from 'react-searchkit';
 import { Item, Header, Radio, Image } from 'semantic-ui-react';
 
-import { KNOWLEDGE_PACKAGE } from '../../resources/types';
+import { KNOWLEDGE_PACKAGE } from '../../../resources/types';
 
 export const KnowledgePackageResults = withState(
   ({ currentResultsState: results, serializeKnowledgePackage }) => {

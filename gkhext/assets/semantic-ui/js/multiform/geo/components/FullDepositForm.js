@@ -40,8 +40,8 @@ import { DepositFormStepButton } from "./DepositFormStepButton";
 import { RelatedResourceField } from "./fields/RelatedIdentifiersField";
 
 import { KNOWLEDGE_PACKAGE } from '../resources/types';
-import { KnowledgePackageField } from './KnowledgePackage';
 import { i18next } from "@translations/invenio_app_rdm/i18next";
+import { KnowledgePackageField } from './fields/KnowledgePackage';
 
 export class FullDepositForm extends BaseDepositForm {
   constructor(props) {

@@ -22,7 +22,7 @@ import { RDMRecordResultsListItem } from "./search/RDMRecordResultsListItem";
 import { RDMRecordSearchBarElement } from "./search/RDMRecordSearchBarElement";
 import { RelatedResourcesSearchConfig } from "./search/config";
 import { ElasticSearchQueryBuilder } from "../ElasticSearchQueryBuilder";
-import { BaseModalForm } from "./modals/BaseModalForm";
+import { KnowledgeResourceModalForm } from "./modals/KnowledgeResourceModalForm";
 
 
 
@@ -83,7 +83,7 @@ export class DataForm extends BaseDepositForm {
           </Segment>
         </Container>
 
-        <BaseModalForm
+        <KnowledgeResourceModalForm
           modalName={"Data register"}
           isModalOpen={this.state.isModalOpen}
           modalWindowHandler={this.modalWindowHandler}

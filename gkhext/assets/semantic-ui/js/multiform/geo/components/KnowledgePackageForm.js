@@ -1,17 +1,18 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { connect } from "react-redux";
 
 import _get from "lodash/get";
-import _isEmpty from 'lodash/isEmpty';
+import _isEmpty from "lodash/isEmpty";
 
 import { KNOWLEDGE_PACKAGE } from "../resources/types";
 
 import { BaseDepositForm } from "./BaseDepositForm";
+import { FullDepositForm } from "./FullDepositForm";
+
 import { KnowledgePackageDepositController } from "../controllers/KnowledgePackageDepositController";
 
-import { connect } from 'react-redux'
-import { ACTION_SAVE_KNOWLEDGE_PACKAGE } from "../state/types";
 import { geoGlobalContext } from "../../configStore";
-import { FullDepositForm } from "./FullDepositForm";
+import { ACTION_SAVE_KNOWLEDGE_PACKAGE } from "../state/types";
 
 export class KnowledgePackageFormComponent extends BaseDepositForm {
   constructor(props) {

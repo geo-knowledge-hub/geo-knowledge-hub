@@ -1,5 +1,6 @@
 import _ from 'lodash'
-import React, { Component, createRef, Fragment } from 'react';
+import { Provider } from "react-redux";
+import React, { Component, createRef } from 'react';
 
 import { Container } from "semantic-ui-react";
 import { DepositStep } from "./geo/components/DepositStep";
@@ -9,16 +10,16 @@ import { GlobalDndContext } from "./geo/DNDGlobalContextHandler";
 import { DepositConfigHandler } from "./geo/DepositConfigHandler";
 import { LibraryVocabularyHandler } from "./geo/LibraryVocabularyHandler";
 
-import { Provider } from "react-redux";
-import { geoGlobalContext, geoGlobalStore } from "./configStore";
-
 import { DataForm } from "./geo/components/DataForm";
+import { OthersForm } from './geo/components/OthersForm';
 import { SoftwareForm } from "./geo/components/SoftwareForm";
 import { PublicationsForm } from "./geo/components/PublicationsForm";
+
 import { KnowledgePackageForm } from "./geo/components/KnowledgePackageForm";
-import { EditResourceForm } from './geo/components/EditResourceForm';
+import { KnowledgeResourceForm } from './geo/components/KnowledgeResourceForm';
+
 import { KNOWLEDGE_PACKAGE } from './geo/resources/types';
-import { OthersForm } from './geo/components/OthersForm';
+import { geoGlobalContext, geoGlobalStore } from "./configStore";
 
 
 class KnowledgePackageDepositSteps extends Component {
@@ -141,8 +142,6 @@ export class KnowledgePackageDepositApp extends Component {
         let isKnowledgePackage = false;
         let resourceType = this.depositConfigHandler.props.record.metadata.resource_type;
 
-        console.log(resourceType);
-
         if (!_.isNil(resourceType)) {
             if (resourceType.title.en === KNOWLEDGE_PACKAGE) {
                 isKnowledgePackage = true;
@@ -168,12 +167,12 @@ export class KnowledgePackageDepositApp extends Component {
         } else {
             return (
                 <Provider store={geoGlobalStore} context={geoGlobalContext}>
-                    <EditResourceForm
+                    <KnowledgeResourceForm
                         contextInfo={contextInfo}
                         depositConfigHandler={this.depositConfigHandler}
                         libraryVocabulariesHandler={this.libraryVocabulariesHandler}
                     >
-                    </EditResourceForm>
+                    </KnowledgeResourceForm>
                 </Provider>
             );
         }

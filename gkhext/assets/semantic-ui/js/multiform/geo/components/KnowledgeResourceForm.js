@@ -9,7 +9,7 @@ import { BaseDepositForm } from "./BaseDepositForm";
 import { FullDepositForm } from "./FullDepositForm";
 import { UniqueKnowledgeResourceDepositController } from '../controllers/UniqueKnowledgeResourceDepositController';
 
-export class EditResourceForm extends BaseDepositForm {
+export class KnowledgeResourceForm extends BaseDepositForm {
   constructor(props) {
     super(props);
   }

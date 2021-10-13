@@ -6,24 +6,24 @@ import {
   Segment
 } from "semantic-ui-react";
 
-import _cloneDeep from 'lodash/cloneDeep';
-import { OverridableContext } from 'react-overridable';
+import _cloneDeep from "lodash/cloneDeep";
+import { OverridableContext } from "react-overridable";
 
 import React, { Fragment } from "react";
 
 import { BaseDepositForm } from "./BaseDepositForm";
 import { DepositFormStepButton } from "./DepositFormStepButton";
 
-import { DATA, KNOWLEDGE_PACKAGE, PUBLICATIONS, SOFTWARE } from "../resources/types/index";
+import { KnowledgeResourceModalForm } from "./modals/KnowledgeResourceModalForm";
 
-import { RelatedResources } from "./search/RelatedResources";
 import { RDMEmptyResults } from "./search/RDMEmptyResults";
-import { RDMRecordResultsListItem } from "./search/RDMRecordResultsListItem";
-import { RDMRecordSearchBarElement } from "./search/RDMRecordSearchBarElement";
+import { RelatedResources } from "./search/RelatedResources";
 import { RelatedResourcesSearchConfig } from "./search/config";
 import { ElasticSearchQueryBuilder } from "../ElasticSearchQueryBuilder";
-import { BaseModalForm } from "./modals/BaseModalForm";
+import { RDMRecordResultsListItem } from "./search/RDMRecordResultsListItem";
+import { RDMRecordSearchBarElement } from "./search/RDMRecordSearchBarElement";
 
+import { DATA, KNOWLEDGE_PACKAGE, PUBLICATIONS, SOFTWARE } from "../resources/types/index";
 
 
 export class OthersForm extends BaseDepositForm {
@@ -86,7 +86,7 @@ export class OthersForm extends BaseDepositForm {
           </Segment>
         </Container>
 
-        <BaseModalForm
+        <KnowledgeResourceModalForm
           modalName={"Others resources register"}
           isModalOpen={this.state.isModalOpen}
           modalWindowHandler={this.modalWindowHandler}

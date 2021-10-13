@@ -1,3 +1,4 @@
+import { connect } from "react-redux";
 import React, { Component } from "react";
 
 import {
@@ -14,8 +15,8 @@ import { Grid, Button, Segment } from "semantic-ui-react";
 import { ResultLoader } from "./RDMRecordResultsListItem";
 
 import { i18next } from "@translations/invenio_app_rdm/i18next";
+
 import { geoGlobalContext } from "../../../configStore";
-import { connect } from "react-redux";
 
 // redux store config
 const mapStateToProps = (state) => ({
