@@ -34,6 +34,7 @@ GEO_KNOWLEDGE_HUB_EXT_SIDE_BAR_ELEMENTS = [
 
 GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {
     "doi": {
+        "id": "id",
         "title": "metadata.title",
         "resource_type": "metadata.resource_type.title.en",
         "description": "metadata.description"

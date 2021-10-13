@@ -8,6 +8,7 @@
 
 """GEO Knowledge Hub extension for InvenioRDM"""
 
+from pydash import py_
 from typing import Dict
 
 from elasticsearch_dsl.utils import AttrDict
@@ -52,8 +53,8 @@ def generate_ui_bp(flask_app):
 
     @flask_app.context_processor
     def define_user_profile():
-        return { "is_knowledge_provider": kprovider_permission.can(),
-                 "current_user_profile": current_user_invenio_profile()}
+        return {"is_knowledge_provider": kprovider_permission.can(),
+                "current_user_profile": current_user_invenio_profile()}
 
     @bp.before_app_first_request
     def init_menu():
@@ -93,7 +94,9 @@ def generate_ui_bp(flask_app):
     return bp
 
 
-"""New Geo Knowledge Pages"""
+#
+# New Geo Knowledge Pages
+#
 @pass_record_or_draft
 @pass_record_files
 def record_detail_page_render(record=None, files=None, pid_value=None, is_preview=False):
@@ -105,6 +108,13 @@ def record_detail_page_render(record=None, files=None, pid_value=None, is_previe
 
     related_identifiers = py_.get(record.data, "metadata.related_identifiers", [])
     related_identifiers = related_identifiers_url_by_scheme(related_identifiers)
+
+    # removing all related resource that is a knowledge resource
+    related_identifiers = py_.filter(
+        related_identifiers, lambda x: x["identifier"].split("/")[-1] not in py_.map(
+            related_records_informations, lambda y: y["id"]
+        )
+    )
 
     return render_template(
         "gkhext/records/detail.html",
