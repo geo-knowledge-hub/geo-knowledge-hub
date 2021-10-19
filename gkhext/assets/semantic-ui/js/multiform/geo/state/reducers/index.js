@@ -1,6 +1,10 @@
 import {
+    ACTION_SAVE_KNOWLEDGE_ENABLE,
+    ACTION_SAVE_KNOWLEDGE_DISABLE,
+
     ACTION_SAVE_KNOWLEDGE_PACKAGE,
-    ACTION_KPACKAGE_RESOURCE_PUBLISH_SUCCEEDED, 
+
+    ACTION_KPACKAGE_RESOURCE_PUBLISH_SUCCEEDED,
     ACTION_KPACKAGE_RESOURCE_PUBLISH_SUCCEEDED_FINISH
 } from "../types";
 
@@ -21,6 +25,16 @@ export default (state = {}, action) => {
                 ...state,
                 resourcePublishIsPublished: false
             };
+        case ACTION_SAVE_KNOWLEDGE_ENABLE:
+            return {
+                ...state,
+                knowledgeResourceIsSubmitted: true
+            };
+        case ACTION_SAVE_KNOWLEDGE_DISABLE:
+            return {
+                ...state,
+                knowledgeResourceIsSubmitted: false
+            }
         default:
             return state;
     }

@@ -13,8 +13,9 @@ import { ActionButton } from 'react-invenio-forms';
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 import { Icon, Button, Modal, Message } from 'semantic-ui-react';
 
+import { geoGlobalStore } from '../../../configStore';
 
-import { FORM_PUBLISHING, FORM_ACTION_EVENT_EMITTED } from "../../state/types";
+import { FORM_PUBLISHING, FORM_ACTION_EVENT_EMITTED, ACTION_SAVE_KNOWLEDGE_ENABLE } from "../../state/types";
 
 
 export class CustomRDMPublishButtonComponent extends Component {
@@ -29,6 +30,12 @@ export class CustomRDMPublishButtonComponent extends Component {
             this.props;
 
         const handlePublish = (event, formik) => {
+            // temporary solution (dispatch action to communicate with modal)
+            // FIXME: In the future, change this to a more general solution
+            geoGlobalStore.dispatch({
+                type: ACTION_SAVE_KNOWLEDGE_ENABLE
+            });
+
             publishClick(event, formik);
             this.handleClose();
         };

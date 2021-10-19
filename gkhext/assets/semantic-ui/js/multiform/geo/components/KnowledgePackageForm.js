@@ -4,21 +4,19 @@ import { connect } from "react-redux";
 import _get from "lodash/get";
 import _isEmpty from "lodash/isEmpty";
 
-import { KNOWLEDGE_PACKAGE } from "../resources/types";
-
 import { BaseDepositForm } from "./BaseDepositForm";
 import { FullDepositForm } from "./FullDepositForm";
 
-import { KnowledgePackageDepositController } from "../controllers/KnowledgePackageDepositController";
+import { KNOWLEDGE_PACKAGE_ID } from "../resources/types";
 
 import { geoGlobalContext } from "../../configStore";
 import { ACTION_SAVE_KNOWLEDGE_PACKAGE } from "../state/types";
 
+import { KnowledgePackageDepositController } from "../controllers/KnowledgePackageDepositController";
+
 export class KnowledgePackageFormComponent extends BaseDepositForm {
   constructor(props) {
     super(props);
-
-    this.vocabularyResourceTypes = this.libraryVocabulariesHandler.filterResourceByType(KNOWLEDGE_PACKAGE);
   }
 
   render() {
@@ -33,7 +31,7 @@ export class KnowledgePackageFormComponent extends BaseDepositForm {
 
     return (
       <FullDepositForm
-        resourceType={KNOWLEDGE_PACKAGE}
+        resourceType={KNOWLEDGE_PACKAGE_ID}
         contextInfo={this.props.contextInfo}
         isRecordPublished={isRecordPublished}
         controller={KnowledgePackageDepositController}

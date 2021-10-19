@@ -22,6 +22,7 @@ export class KnowledgeResourceDepositController extends BaseGeoDepositController
 
     // Adding related identifier to the draft
     payload.metadata.related_identifiers = [
+      ...payload.metadata.related_identifiers || [],
       {
         "identifier": knowledgePackageDOI,
         "relation_type": {
@@ -48,7 +49,7 @@ export class KnowledgeResourceDepositController extends BaseGeoDepositController
     // TODO: Deal with case when create fails using formik.setErrors(errors);
     store.dispatch({
       type: ACTION_CREATE_SUCCEEDED,
-      payload: { data: recordSerializer.deserialize(response.data) },
+      payload: { data: draft }, // to avoid form cleaning in case of user errors
     });
 
     return response;
@@ -106,7 +107,6 @@ export class KnowledgeResourceDepositController extends BaseGeoDepositController
           type: ACTION_KPACKAGE_RESOURCE_PUBLISH_SUCCEEDED
         });
       };
-
     }
     return publishedDraft;
   }

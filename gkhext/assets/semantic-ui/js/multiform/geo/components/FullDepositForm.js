@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import React, { Fragment } from "react";
+import React from "react";
 
 import _get from "lodash/get";
 import _isEmpty from 'lodash/isEmpty';
@@ -9,7 +9,6 @@ import {
   DescriptionsField,
   SubjectsField,
   TitlesField,
-  PIDField,
   ResourceTypeField,
   PublicationDateField,
   CreatibutorsField,
@@ -19,7 +18,8 @@ import {
   SaveButton,
   PublishButton,
   FileUploader,
-  DepositFormTitle
+  DepositFormTitle,
+  FormFeedback
 } from "react-invenio-deposit";
 
 import {
@@ -48,16 +48,23 @@ export class FullDepositForm extends BaseDepositForm {
     super(props);
 
     // checking if the resourceType is defined. If false, all resource types (except knowledge packages) are accepted.
+    this.resourceTypeWithoutKnowledgePackages = this.libraryVocabulariesHandler.filterResourcesByInvalidTypes([KNOWLEDGE_PACKAGE]);
     if (_.isNil(props.resourceType)) {
-      this.vocabularyResourceTypes = this.libraryVocabulariesHandler.filterResourcesByInvalidTypes([KNOWLEDGE_PACKAGE]);
+      this.vocabularyResourceTypes = this.resourceTypeWithoutKnowledgePackages
     } else {
-      this.vocabularyResourceTypes = this.libraryVocabulariesHandler.filterResourceByType(props.resourceType);
+      this.vocabularyResourceTypes = this.libraryVocabulariesHandler.filterResourceById(props.resourceType);
     }
 
     this.isResourcePackage = props.isResourcePackage || false;
   }
 
   render() {
+    // preparing the identifiers object (without the knowledge package)
+    const identifiers = {
+      ...this.libraryVocabulariesHandler.vocabularies.metadata.identifiers,
+      resource_type: this.resourceTypeWithoutKnowledgePackages
+    }
+
     return (
       <GeoDepositFormApp
         controller={this.props.controller}
@@ -67,6 +74,13 @@ export class FullDepositForm extends BaseDepositForm {
         permissions={this.depositConfigHandler.props.permissions}
       >
         <Container style={{ marginTop: "2rem", }}>
+          <Grid>
+            <Grid.Row >
+              <Grid.Column style={{ marginLeft: "2.5rem", }} width={15}>
+                <FormFeedback fieldPath="message" />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
           <Grid>
             <Grid.Row >
               <Grid.Column style={{ marginLeft: "2.5rem", }}>
@@ -114,25 +128,6 @@ export class FullDepositForm extends BaseDepositForm {
                         ],
                       }}
                     />
-                    {this.depositConfigHandler.config.pids.map((pid) => (
-                      <Fragment key={pid.scheme}>
-                        <PIDField
-                          btnLabelGetPID={pid.btn_label_get_pid}
-                          canBeManaged={pid.can_be_managed}
-                          canBeUnmanaged={pid.can_be_unmanaged}
-                          fieldPath={`pids.${pid.scheme}`}
-                          isEditingPublishedRecord={
-                            this.depositConfigHandler.props.record.is_published === true // is_published is `null` at first upload
-                          }
-                          managedHelpText={pid.managed_help_text}
-                          pidLabel={pid.pid_label}
-                          pidPlaceholder={pid.pid_placeholder}
-                          pidType={pid.scheme}
-                          unmanagedHelpText={pid.unmanaged_help_text}
-                        />
-                        <Divider />
-                      </Fragment>
-                    ))}
 
                     <Segment vertical>
                       <SubjectsField
@@ -305,7 +300,7 @@ export class FullDepositForm extends BaseDepositForm {
                     ui={this.depositConfigHandler.accordionStyle}
                   >
                     <RelatedResourceField
-                      options={this.libraryVocabulariesHandler.vocabularies.metadata.identifiers}
+                      options={identifiers}
                     />
                     <br />
                   </AccordionField>

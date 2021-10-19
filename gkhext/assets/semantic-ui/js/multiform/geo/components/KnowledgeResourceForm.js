@@ -16,7 +16,7 @@ export class KnowledgeResourceForm extends BaseDepositForm {
 
   render() {
     // assuming that the resource is already published
-    let resourceType = _.get(this.depositConfigHandler.props.record.metadata.resource_type, "title.en");
+    let resourceType = _.get(this.depositConfigHandler.props.record.metadata.resource_type, "id");
 
     return (
       <FullDepositForm

@@ -2,7 +2,7 @@
 import Swal from 'sweetalert2';
 
 import { connect } from "react-redux";
-import React, { Fragment } from "react";
+import React, { Component } from "react";
 
 import {
     DescriptionsField,
@@ -15,7 +15,7 @@ import {
     VersionField,
     LicenseField,
     FileUploader,
-    PIDField
+    FormFeedback
 } from "react-invenio-deposit";
 
 import {
@@ -34,41 +34,50 @@ import { KnowledgeResourceDepositController } from "../../controllers/KnowledgeR
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 import { CustomRDMPublishButton } from "../buttons/CustomRDMPublishButton";
 
+import { RelatedResourceField } from "../fields/RelatedIdentifiersField";
+
 import { geoGlobalContext, geoGlobalStore } from "../../../configStore";
-import { ACTION_KPACKAGE_RESOURCE_PUBLISH_SUCCEEDED_FINISH } from "../../state/types";
+import { ACTION_KPACKAGE_RESOURCE_PUBLISH_SUCCEEDED_FINISH, ACTION_SAVE_KNOWLEDGE_DISABLE } from "../../state/types";
 
-class KnowledgeResourceFormTabs {
 
-    constructor(depositConfigHandler, vocabularyResourceTypes, libraryVocabulariesHandler) {
+class KnowledgeResourceFormTabsComponent extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { activeIndex: 0 };
+
         // defining configuration properties
-        this.depositConfigHandler = depositConfigHandler || {};
-        this.vocabularyResourceTypes = vocabularyResourceTypes || {};
-        this.libraryVocabulariesHandler = libraryVocabulariesHandler || {};
+        this.depositConfigHandler = props.depositConfigHandler || {};
+        this.vocabularyResourceTypes = props.vocabularyResourceTypes || {};
+        this.libraryVocabulariesHandler = props.libraryVocabulariesHandler || {};
     }
 
-    generateTabMenu() {
+    handleChange = (e, data) => {
+        this.setState(data);
+    }
 
-        // defining the default pid for the new records
-        const pids = [
-            {
-                btn_label_discard_pid: "Discard the reserved DOI",
-                btn_label_get_pid: "Get a DOI now!",
-                can_be_managed: true,
-                can_be_unmanaged: true,
-                managed_help_text: "Reserve a DOI or leave this field blank to have one automatically assigned when publishing.",
-                pid_label: "DOI",
-                pid_placeholder: "10.1234/datacite.123456",
-                scheme: "doi",
-                unmanaged_help_text: "Copy and paste here your DOI"
-            }
-        ]
+    render() {
+        if (this.props.knowledgeResourceIsSubmitted) {
+            this.setState((previousState) => {
+                return {
+                    ...previousState,
+                    activeIndex: 0
+                }
+            });
+
+            // temporary solution (dispatch action to communicate with modal)
+            // FIXME: In the future, change this to a more general solution
+            geoGlobalStore.dispatch({
+                type: ACTION_SAVE_KNOWLEDGE_DISABLE
+            });
+        }
 
         const panes = [
             {
                 menuItem: "1. Basic description",
                 render: () =>
                     <Tab.Pane>
-
+                        <FormFeedback fieldPath="message" />
                         <Grid>
 
                             <Grid.Row centered>
@@ -107,38 +116,7 @@ class KnowledgeResourceFormTabs {
                     </Tab.Pane>
             },
             {
-                menuItem: "2. DOI minting",
-                render: () =>
-                    <Tab.Pane>
-                        <Grid>
-                            <Grid.Row centered>
-                                <Grid.Column width={16}>
-                                    {pids.map((pid) => (
-                                        <Fragment key={pid.scheme}>
-                                            <PIDField
-                                                btnLabelGetPID={pid.btn_label_get_pid}
-                                                canBeManaged={pid.can_be_managed}
-                                                canBeUnmanaged={pid.can_be_unmanaged}
-                                                fieldPath={`pids.${pid.scheme}`}
-                                                isEditingPublishedRecord={
-                                                    null // is_published is `null` at first upload
-                                                }
-                                                managedHelpText={pid.managed_help_text}
-                                                pidLabel={pid.pid_label}
-                                                pidPlaceholder={pid.pid_placeholder}
-                                                pidType={pid.scheme}
-                                                unmanagedHelpText={pid.unmanaged_help_text}
-                                            />
-                                            <Divider />
-                                        </Fragment>
-                                    ))}
-                                </Grid.Column>
-                            </Grid.Row>
-                        </Grid>
-                    </Tab.Pane>
-            },
-            {
-                menuItem: "3. Additional informations",
+                menuItem: "2. Additional informations",
                 render: () =>
                     <Tab.Pane>
                         <Grid>
@@ -190,7 +168,7 @@ class KnowledgeResourceFormTabs {
                     </Tab.Pane>
             },
             {
-                menuItem: "4. People",
+                menuItem: "3. People",
                 render: () =>
                     <Tab.Pane>
                         <Grid columns={2} divided>
@@ -225,7 +203,7 @@ class KnowledgeResourceFormTabs {
                     </Tab.Pane>
             },
             {
-                menuItem: "5. Files",
+                menuItem: "4. Files",
                 render: () =>
                     <Tab.Pane>
                         <Grid verticalAlign='middle' centered>
@@ -244,7 +222,7 @@ class KnowledgeResourceFormTabs {
                     </Tab.Pane>
             },
             {
-                menuItem: "6. Licenses and version",
+                menuItem: "5. Licenses and version",
                 render: () =>
                     <Tab.Pane>
                         <Grid>
@@ -283,14 +261,43 @@ class KnowledgeResourceFormTabs {
                             </Grid.Row>
                         </Grid>
                     </Tab.Pane>
+            },
+            {
+                menuItem: "6. Related resources",
+                render: () =>
+                    <Tab.Pane>
+                        <Grid>
+                            <Grid.Row centered>
+                                <Grid.Column width={16}>
+                                    <RelatedResourceField
+                                        options={this.libraryVocabulariesHandler.vocabularies.metadata.identifiers}
+                                    />
+                                </Grid.Column>
+                            </Grid.Row>
+                        </Grid>
+                    </Tab.Pane>
             }
         ];
-        return () => (
-            <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+
+        return (
+            <Tab
+                menu={{ secondary: true, pointing: true }}
+                panes={panes}
+                onTabChange={this.handleChange}
+                activeIndex={this.state.activeIndex}
+            />
         )
     }
-
 }
+
+// redux store config
+const mapStateToPropsTabs = (state) => ({
+    knowledgeResourceIsSubmitted: state.knowledgeResourceIsSubmitted
+});
+
+export const KnowledgeResourceFormTabs = connect(
+    mapStateToPropsTabs, null, null, { context: geoGlobalContext }
+)(KnowledgeResourceFormTabsComponent);
 
 
 export class KnowledgeResourceModalFormComponent extends BaseDepositForm {
@@ -299,15 +306,11 @@ export class KnowledgeResourceModalFormComponent extends BaseDepositForm {
     }
 
     render() {
-        const knowledgeResourceFormTabs = new KnowledgeResourceFormTabs(this.props.depositConfigHandler,
-            this.props.vocabularyResourceTypes, this.props.libraryVocabulariesHandler);
-        const ModalFormTabs = knowledgeResourceFormTabs.generateTabMenu();
-
         // extracting state
         const { resourcePublishIsPublished } = this.props;
 
         if (resourcePublishIsPublished) {
-            // showing message to user 
+            // showing message to user
             Swal.fire({
                 icon: 'success',
                 title: 'Resource successfully added',
@@ -347,7 +350,11 @@ export class KnowledgeResourceModalFormComponent extends BaseDepositForm {
                                     <Grid>
                                         <Grid.Row centered>
                                             <Grid.Column width={15}>
-                                                <ModalFormTabs />
+                                                <KnowledgeResourceFormTabs
+                                                    depositConfigHandler={this.props.depositConfigHandler}
+                                                    vocabularyResourceTypes={this.props.vocabularyResourceTypes}
+                                                    libraryVocabulariesHandler={this.props.libraryVocabulariesHandler}
+                                                />
                                             </Grid.Column>
                                         </Grid.Row>
                                     </Grid>
@@ -362,13 +369,12 @@ export class KnowledgeResourceModalFormComponent extends BaseDepositForm {
                                 <Grid.Row centered style={{ height: '5rem', marginTop: "1.2rem", }}>
                                     <Divider />
                                     <Grid.Column width={3} centered>
-                                        <CustomRDMPublishButton fluid/>
+                                        <CustomRDMPublishButton fluid />
                                     </Grid.Column>
                                 </Grid.Row>
                             </Grid>
                         </Container>
                     </Modal.Actions>
-
                 </GeoDepositFormApp>
             </Modal>
         );
@@ -378,7 +384,8 @@ export class KnowledgeResourceModalFormComponent extends BaseDepositForm {
 // redux store config
 const mapStateToProps = (state) => ({
     knowledgePackage: state.knowledgePackage,
-    resourcePublishIsPublished: state.resourcePublishIsPublished
+    resourcePublishIsPublished: state.resourcePublishIsPublished,
+    knowledgeResourceIsSubmitted: state.knowledgeResourceIsSubmitted
 });
 
 export const KnowledgeResourceModalForm = connect(

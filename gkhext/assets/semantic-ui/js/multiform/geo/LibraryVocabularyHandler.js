@@ -105,6 +105,17 @@ export class LibraryVocabularyHandler {
     };
 
     /**
+     * Filter a specific resource id.
+     * @param {string} id resource id
+     * @returns object with the resource type properties or null
+     */
+     filterResourceById = (id) => {
+        return this.vocabularies.metadata.resource_type.filter((value) => {
+            if (value.id === id) return value;
+        });
+    };
+
+    /**
    * Filter resource types by removing the invalid types
    * @param {Array} types Array with the Resource types that should be not returned
    * @returns {Array} Array with all valid types (where valid is valus that is not included in `types`)
