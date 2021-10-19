@@ -8,6 +8,8 @@
 
 """GEO Knowledge Hub extension for InvenioRDM"""
 
+from flask import g
+
 from pydash import py_
 from typing import Dict
 
@@ -53,7 +55,11 @@ def generate_ui_bp(flask_app):
 
     @flask_app.context_processor
     def define_user_profile():
-        return {"is_knowledge_provider": kprovider_permission.can(),
+        is_knowledge_provider = False
+        if "identity" in g:
+            is_knowledge_provider = kprovider_permission.can()
+
+        return {"is_knowledge_provider": is_knowledge_provider,
                 "current_user_profile": current_user_invenio_profile()}
 
     @bp.before_app_first_request
