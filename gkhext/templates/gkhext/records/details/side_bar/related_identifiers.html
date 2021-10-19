@@ -1,0 +1,51 @@
+{#
+Copyright (C) 2020 CERN.
+Copyright (C) 2020 Northwestern University.
+Copyright (C) 2021 TU Wien.
+
+Invenio RDM Records is free software; you can redistribute it and/or modify
+it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+<div class="ui segment rdm-sidebar exports">
+  <dt><b>{{ _('Related resources')}}</b></dt>
+  <hr class="thin-line">
+  </hr>
+  <dd class="top-bottom-padded">
+
+    {% if related_identifiers %}
+    {% for type, items in related_identifiers | groupby('relation_type.title.en') %}
+
+    <h5 class="ui header">
+      {{ type | title }}
+    </h5>
+
+    <div class="ui middle aligned selection list">
+      {% for item in items %}
+      <div class="item">
+        <div class="content">
+          <div class="header" style="font-size: 13px">
+            <a href="{{ item['url'] }}" target="_blank">
+              {{ item["identifier"] | truncate(92) }}
+            </a>
+            {% if "resource_type" in item %}
+              ({{ item["resource_type"]["title"]["en"] | title | truncate(40) }})
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+    {%- else %}
+
+    <div class="ui message">
+      <div class="header" style="text-align: center">
+        No related identifiers yet!
+      </div>
+      This resource has no related identifiers.
+    </div>
+    {%- endif %}
+
+  </dd>
+</div>

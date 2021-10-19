@@ -37,7 +37,8 @@ setup_requires = [
 install_requires = [
     'invenio-i18n>=1.2.0',
     'Flask-Discussion==0.1.1',
-    'kaptan==0.5.12'
+    'pydash>=5.1.0',
+    'IDUtils>=1.1.9'
 ]
 
 packages = find_packages()
@@ -82,6 +83,9 @@ setup(
         ],
         "invenio_config.module": [
             "gkhext = gkhext.config",
+        ],
+        'invenio_assets.webpack': [
+            'invenio_assets_gkhub_deposit_theme = gkhext.webpack:theme'
         ]
         # 'invenio_access.actions': [],
         # 'invenio_admin.actions': [],

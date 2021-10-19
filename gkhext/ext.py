@@ -103,8 +103,8 @@ class GKHubExt(object):
             "GET", "POST"
         ])
 
-        from .views import communities_frontpage, front_page,\
-                           about_page, contribute_page, discover_page, engage_page
+        from .views import communities_frontpage, front_page, \
+            about_page, contribute_page, discover_page, engage_page
         app.add_url_rule("/communities/", "communities_frontpage", communities_frontpage)
         app.add_url_rule("/", "front_page", front_page)
         app.add_url_rule("/about", "about", about_page)

@@ -73,7 +73,6 @@ it under the terms of the MIT License; see LICENSE file for more details.
     {% endif %}
   </div>
 
-
   <div class="ui container">
     <div class="ui relaxed grid">
       <div class="two column row top-padded">
@@ -162,10 +161,18 @@ it under the terms of the MIT License; see LICENSE file for more details.
 
             {%- block gkpackage -%}
               {% if record.metadata.resource_type.id in [ "knowledge" ] %}
-                <h3 class="ui header"> {{ _('Elements of the Knowledge Package') }} </h3>
+                {% if related_records_informations | length > 1 %}
+                  <h3 class="ui header"> {{ _('Elements of the Knowledge Package') }} </h3>
+                {% else %}
+                  <h3 class="ui header"> {{ _('Element of the Knowledge Package') }} </h3>
+                {% endif %}
                 {%- include "gkhext/records/details/details.html" %}
               {%- else %}
-                <h3 class="ui header">{{ _('This resource is part of the following Knowledge Package') }}</h3>
+                {% if related_records_informations | length > 1 %}
+                  <h3 class="ui header">{{ _('This resource is part of the following Knowledge Packages') }}</h3>
+                {% else %}
+                  <h3 class="ui header">{{ _('This resource is part of the following Knowledge Package') }}</h3>
+                {% endif %}
                 {%- include "gkhext/records/details/details.html" %}
               {%- endif %}
             {%- endblock gkpackage -%}
@@ -199,7 +206,7 @@ it under the terms of the MIT License; see LICENSE file for more details.
         </div>
         <div class="five wide column">
           {% block record_sidebar %}
-            {%- include "invenio_app_rdm/records/details/side_bar.html" %}
+            {%- include "gkhext/records/side_bar.html" %}
           {% endblock record_sidebar %}
         </div>
       </div>
