@@ -26,9 +26,11 @@ it under the terms of the MIT License; see LICENSE file for more details.
         <div class="content">
           <div class="header" style="font-size: 13px">
             <a href="{{ item['url'] }}" target="_blank">
-              {{ item["identifier"] | truncate(120) }}
+              {{ item["identifier"] | truncate(92) }}
             </a>
-            ({{ item["resource_type"]["title"]["en"] | title | truncate(40) }})
+            {% if "resource_type" in item %}
+              ({{ item["resource_type"]["title"]["en"] | title | truncate(40) }})
+            {% endif %}
           </div>
         </div>
       </div>
