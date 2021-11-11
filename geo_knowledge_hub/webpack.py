@@ -35,9 +35,7 @@ theme = WebpackThemeBundle(
                 'sweetalert2-react-content': '^4.1.1'
             },
             aliases={
-                "@invenio-app-rdm": "js/invenio_app_rdm",
-                '@less/invenio_theme/theme/globals/site.variables': 'less/site/globals/site.variables',
-                '@less/invenio_theme/theme/globals/site.overrides': 'less/site/globals/site.overrides'
+                "@invenio-app-rdm": "js/invenio_app_rdm"
             }
         )
     }

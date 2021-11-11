@@ -14,7 +14,7 @@
 GEO_KNOWLEDGE_HUB_EXT_DEFAULT_VALUE = 'foobar'
 """Default value for the application."""
 
-GEO_KNOWLEDGE_HUB_EXT_BASE_TEMPLATE = 'gkhext/base.html'
+GEO_KNOWLEDGE_HUB_EXT_BASE_TEMPLATE = 'geo_knowledge_hub/base.html'
 """Default base template for the demo page."""
 
 # THEME_FRONTPAGE_TEMPLATE = 'gkhext/frontpage/frontpage.html'
@@ -43,7 +43,7 @@ GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {
 """Default values to load from metadata by scheme type."""
 
 RECORDS_PERMISSIONS_RECORD_POLICY = (
-    "gkhext.security.policies.GeoRecordPermissionPolicy"
+    "geo_knowledge_hub.security.policies.GeoRecordPermissionPolicy"
 )
 """Policy settings"""
 

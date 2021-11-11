@@ -27,7 +27,7 @@
 host = https://www.transifex.com
 
 [invenio.geo-knowledge-hub-ext-messages]
-file_filter = gkhext/translations/<lang>/LC_MESSAGES/messages.po
-source_file = gkhext/translations/messages.pot
+file_filter = geo_knowledge_hub/translations/<lang>/LC_MESSAGES/messages.po
+source_file = geo_knowledge_hub/translations/messages.pot
 source_lang = en
 type = PO
