@@ -19,5 +19,5 @@ include .editorconfig
 include .tx/config
 prune docs/_build
 recursive-include .github/workflows *.yml
-recursive-include gkhext/translations *.po *.pot *.mo
-recursive-include gkhext *.html
+recursive-include geo_knowledge_hub/translations *.po *.pot *.mo
+recursive-include geo_knowledge_hub *.html

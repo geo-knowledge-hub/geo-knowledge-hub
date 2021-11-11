@@ -45,12 +45,12 @@ packages = find_packages()
 
 # Get the version string. Cannot be done with import!
 g = {}
-with open(os.path.join('gkhext', 'version.py'), 'rt') as fp:
+with open(os.path.join('geo_knowledge_hub', 'version.py'), 'rt') as fp:
     exec(fp.read(), g)
     version = g['__version__']
 
 setup(
-    name='geo-knowledge-hub-ext',
+    name='geo-knowledge-hub',
     version=version,
     description=__doc__,
     long_description=readme + '\n\n' + history,
@@ -66,26 +66,26 @@ setup(
     entry_points={
         'invenio_access.actions': [
             'geo-community'
-            ' = gkhext.security.actions:community_action',
+            ' = geo_knowledge_hub.security.actions:community_action',
             'geo-knowledge-provider'
-            ' = gkhext.security.actions:kprovider_action',
+            ' = geo_knowledge_hub.security.actions:kprovider_action',
             'geo-secretariat'
-            ' = gkhext.security.actions:secretariat_action'
+            ' = geo_knowledge_hub.security.actions:secretariat_action'
         ],
         'invenio_base.apps': [
-            'gkhext = gkhext:GKHubExt',
+            'geo_knowledge_hub = geo_knowledge_hub:GKHubExt',
         ],
         'invenio_base.blueprints': [
-            'gkhext = gkhext.views:generate_ui_bp',
+            'geo_knowledge_hub = geo_knowledge_hub.views:generate_ui_bp',
         ],
         'invenio_i18n.translations': [
-            'messages = gkhext',
+            'messages = geo_knowledge_hub',
         ],
         "invenio_config.module": [
-            "gkhext = gkhext.config",
+            "geo_knowledge_hub = geo_knowledge_hub.config",
         ],
         'invenio_assets.webpack': [
-            'invenio_assets_gkhub_deposit_theme = gkhext.webpack:theme'
+            'invenio_assets_gkhub_deposit_theme = geo_knowledge_hub.webpack:theme'
         ]
         # 'invenio_access.actions': [],
         # 'invenio_admin.actions': [],
