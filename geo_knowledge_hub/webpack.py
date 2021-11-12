@@ -33,9 +33,6 @@ theme = WebpackThemeBundle(
                 'react-overridable': '^0.0.3',
                 'sweetalert2': '^11.1.7',
                 'sweetalert2-react-content': '^4.1.1'
-            },
-            aliases={
-                "@invenio-app-rdm": "js/invenio_app_rdm"
             }
         )
     }
