@@ -123,7 +123,7 @@ def record_detail_page_render(record=None, files=None, pid_value=None, is_previe
     )
 
     return render_template(
-        "gkhext/records/detail.html",
+        "geo-knowledge-hub/records/detail.html",
         pid=pid_value,
         files=files_dict,
         is_preview=is_preview,
@@ -142,7 +142,7 @@ def record_detail_page_render(record=None, files=None, pid_value=None, is_previe
 def communities_frontpage():
     """Communities index page."""
     return render_template(
-        "gkhext/communities/frontpage.html",
+        "geo-knowledge-hub/communities/frontpage.html",
         is_user_allowed_to_create_new_community=secretariat_permission.can()
     )
 
@@ -155,7 +155,7 @@ def front_page():
     is_knowledge_provider = kprovider_permission.can()
 
     return render_template(
-        "gkhext/frontpage.html",
+        "geo-knowledge-hub/frontpage.html",
         latest_records=latest_records,
         is_knowledge_provider=is_knowledge_provider
     )
@@ -163,22 +163,22 @@ def front_page():
 
 def about_page():
     """Render the about page"""
-    return render_template("gkhext/about.html")
+    return render_template("geo-knowledge-hub/about.html")
 
 
 def discover_page():
     """Render the discover page"""
-    return render_template("gkhext/discover.html")
+    return render_template("geo-knowledge-hub/discover.html")
 
 
 def contribute_page():
     """Render the contribute page"""
-    return render_template("gkhext/contribute.html")
+    return render_template("geo-knowledge-hub/contribute.html")
 
 
 def engage_page():
     """Render the engagement page"""
-    return render_template("gkhext/engage.html")
+    return render_template("geo-knowledge-hub/engage.html")
 
 
 #
@@ -205,7 +205,7 @@ def request_access_view():
         current_app.extensions["mail"].send(message)
         return redirect(url_for("request_access_page"))
     return render_template(
-        "gkhext/request_access.html",
+        "geo-knowledge-hub/request_access.html",
         form=form,
         template="form-template"
     )
@@ -240,7 +240,7 @@ def deposit_edit_permissioned(pid_value):
 def deposit_search():
     """List of user deposits page."""
     return render_template(
-        "gkhext/records/search_deposit.html",
+        "geo-knowledge-hub/records/search_deposit.html",
         searchbar_config=dict(searchUrl=get_search_url())
     )
 
@@ -267,7 +267,7 @@ def new_deposit_page():
         nrecord["metadata"]["resource_type"] = valid_types.get(record_type)
 
     return render_template(
-        "gkhext/records/deposit.html",
+        "geo-knowledge-hub/records/deposit.html",
         forms_config=get_form_config(createUrl=("/api/records")),
         searchbar_config=dict(searchUrl=get_search_url()),
         record=nrecord,
@@ -286,7 +286,7 @@ def geo_deposit_edit_new(draft=None, draft_files=None, pid_value=None):
     record = serializer.serialize_object_to_dict(draft.to_dict())
 
     return render_template(
-        "gkhext/records/deposit.html",
+        "geo-knowledge-hub/records/deposit.html",
         forms_config=get_form_config(apiUrl=f"/api/records/{pid_value}/draft"),
         record=record,
         files=draft_files.to_dict(),

@@ -27,9 +27,9 @@ GEO_KNOWLEDGE_HUB_EXT_BASE_TEMPLATE = 'geo_knowledge_hub/base.html'
 # """Footer base template."""
 
 GEO_KNOWLEDGE_HUB_EXT_SIDE_BAR_ELEMENTS = [
-    "gkhext/records/details/side_bar/versions.html",
-    "gkhext/records/details/side_bar/related_identifiers.html",
-    "gkhext/records/details/side_bar/export.html"
+    "geo-knowledge-hub/records/details/side_bar/versions.html",
+    "geo-knowledge-hub/records/details/side_bar/related_identifiers.html",
+    "geo-knowledge-hub/records/details/side_bar/export.html"
 ]
 
 GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {
