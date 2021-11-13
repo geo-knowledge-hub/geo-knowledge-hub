@@ -16,26 +16,26 @@ def frontpage():
     latest_records = get_latest_knowledge_packages(3)
 
     return render_template(
-        "geo-knowledge-hub/frontpage/frontpage.html",
+        "geo_knowledge_hub/frontpage/frontpage.html",
         latest_records=latest_records
     )
 
 
 def about_page():
     """Render the about page"""
-    return render_template("geo-knowledge-hub/frontpage/about.html")
+    return render_template("geo_knowledge_hub/frontpage/about.html")
 
 
 def discover_page():
     """Render the discover page"""
-    return render_template("geo-knowledge-hub/frontpage/discover.html")
+    return render_template("geo_knowledge_hub/frontpage/discover.html")
 
 
 def contribute_page():
     """Render the contribute page"""
-    return render_template("geo-knowledge-hub/frontpage/contribute.html")
+    return render_template("geo_knowledge_hub/frontpage/contribute.html")
 
 
 def engage_page():
     """Render the engagement page"""
-    return render_template("geo-knowledge-hub/frontpage/engage.html")
+    return render_template("geo_knowledge_hub/frontpage/engage.html")

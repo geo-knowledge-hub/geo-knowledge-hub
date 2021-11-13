@@ -37,7 +37,7 @@ from ...security.permissions import need_permission
 def geo_deposit_search():
     """List of user deposits page."""
     return render_template(
-        "geo-knowledge-hub/records/search_deposit.html",
+        "geo_knowledge_hub/records/search_deposit.html",
         searchbar_config=dict(searchUrl=get_search_url())
     )
 
@@ -60,7 +60,7 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
     )
 
     return render_template(
-        "geo-knowledge-hub/records/detail.html",
+        "geo_knowledge_hub/records/detail.html",
         pid=pid_value,
         files=files_dict,
         is_preview=is_preview,
@@ -93,7 +93,7 @@ def geo_deposit_create():
         nrecord["metadata"]["resource_type"] = valid_types.get(record_type)
 
     return render_template(
-        "geo-knowledge-hub/records/deposit.html",
+        "geo_knowledge_hub/records/deposit.html",
         forms_config=get_form_config(createUrl=("/api/records")),
         searchbar_config=dict(searchUrl=get_search_url()),
         record=nrecord,
@@ -111,7 +111,7 @@ def geo_deposit_edit(draft=None, draft_files=None, pid_value=None):
     record = UIJSONSerializer().serialize_object_to_dict(draft.to_dict())
 
     return render_template(
-        "geo-knowledge-hub/records/deposit.html",
+        "geo_knowledge_hub/records/deposit.html",
         forms_config=get_form_config(apiUrl=f"/api/records/{pid_value}/draft"),
         record=record,
         files=draft_files.to_dict(),

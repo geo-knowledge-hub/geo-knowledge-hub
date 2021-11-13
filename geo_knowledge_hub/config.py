@@ -14,9 +14,9 @@ GEO_KNOWLEDGE_HUB_EXT_BASE_TEMPLATE = "geo_knowledge_hub/base/base.html"
 """Default base template for the demo page."""
 
 GEO_KNOWLEDGE_HUB_EXT_SIDE_BAR_ELEMENTS = [
-    "geo-knowledge-hub/records/details/side_bar/versions.html",
-    "geo-knowledge-hub/records/details/side_bar/related_identifiers.html",
-    "geo-knowledge-hub/records/details/side_bar/export.html"
+    "geo_knowledge_hub/records/details/side_bar/versions.html",
+    "geo_knowledge_hub/records/details/side_bar/related_identifiers.html",
+    "geo_knowledge_hub/records/details/side_bar/export.html"
 ]
 
 GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {

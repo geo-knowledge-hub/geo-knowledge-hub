@@ -166,14 +166,14 @@ it under the terms of the MIT License; see LICENSE file for more details.
                 {% else %}
                   <h3 class="ui header"> {{ _('Element of the Knowledge Package') }} </h3>
                 {% endif %}
-                {%- include "geo-knowledge-hub/records/details/details.html" %}
+                {%- include "geo_knowledge_hub/records/details/details.html" %}
               {%- else %}
                 {% if related_records_informations | length > 1 %}
                   <h3 class="ui header">{{ _('This resource is part of the following Knowledge Packages') }}</h3>
                 {% else %}
                   <h3 class="ui header">{{ _('This resource is part of the following Knowledge Package') }}</h3>
                 {% endif %}
-                {%- include "geo-knowledge-hub/records/details/details.html" %}
+                {%- include "geo_knowledge_hub/records/details/details.html" %}
               {%- endif %}
             {%- endblock gkpackage -%}
 
@@ -206,7 +206,7 @@ it under the terms of the MIT License; see LICENSE file for more details.
         </div>
         <div class="five wide column">
           {% block record_sidebar %}
-            {%- include "geo-knowledge-hub/records/side_bar.html" %}
+            {%- include "geo_knowledge_hub/records/side_bar.html" %}
           {% endblock record_sidebar %}
         </div>
       </div>
