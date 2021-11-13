@@ -30,7 +30,6 @@ def init_bp(app):
     """Initialize app."""
     bp = Blueprint("geo_knowledge_hub_bp", __name__)
 
-    @app.context_processor
     def define_user_profile():
         is_knowledge_provider = False
         if "identity" in g:
@@ -41,7 +40,9 @@ def init_bp(app):
             "current_user_profile": current_user_invenio_profile()
         }
 
-    return bp
+    # Registering the user context processor
+    bp.app_context_processor(define_user_profile)
+    app.register_blueprint(bp)
 
 
 __all__ = (

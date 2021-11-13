@@ -72,13 +72,7 @@ setup(
         ],
         'invenio_base.apps': [
             'geo_knowledge_hub = geo_knowledge_hub:GeoKnowledgeHub',
-        ],
-        'invenio_base.blueprints': [
-            'geo_knowledge_hub_rdm  = geo_knowledge_hub.modules.rdm:init_bp',
-            'geo_knowledge_hub_menu = geo_knowledge_hub.modules.menu:init_bp',
-            'geo_knowledge_hub_deposit = geo_knowledge_hub.modules.deposit:init_bp',
-            'geo_knowledge_hub_context = geo_knowledge_hub.modules.context:init_bp',
-            'geo_knowledge_hub_frontpage = geo_knowledge_hub.modules.frontpage:init_bp'
+            'geo_knowledge_hub_discussion = flask_discussion:Discussion'
         ],
         'invenio_i18n.translations': [
             'messages = geo_knowledge_hub',

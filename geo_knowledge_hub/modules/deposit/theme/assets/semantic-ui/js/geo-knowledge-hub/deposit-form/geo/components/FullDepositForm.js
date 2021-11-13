@@ -65,10 +65,6 @@ export class FullDepositForm extends BaseDepositForm {
       resource_type: this.resourceTypeWithoutKnowledgePackages
     }
 
-    console.log(this.libraryVocabulariesHandler)
-    console.log(this.libraryVocabulariesHandler.vocabularies.metadata.identifiers);
-    console.log(identifiers)
-
     return (
       <GeoDepositFormApp
         controller={this.props.controller}

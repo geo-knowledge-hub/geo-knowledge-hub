@@ -12,15 +12,15 @@ from . import views
 
 
 def init_bp(app):
-    bp = Blueprint("geo_deposit_bp", __name__, template_folder="theme/templates")
+    bp = Blueprint("ageo_deposit_bp", __name__, template_folder="theme/templates")
 
     # registration
-    bp.add_url_rule("/uploads", "geo_deposit_search", views.geo_deposit_search)
-    bp.add_url_rule("/uploads/new", "geo_deposit_create", views.geo_deposit_create)
-    bp.add_url_rule("/uploads/<pid_value>", "geo_deposit_edit", views.geo_deposit_edit)
-    bp.add_url_rule("/records/<pid_value>", "geo_record_detail", views.geo_record_detail)
+    bp.add_url_rule("/uploads", "ageo_deposit_search", views.geo_deposit_search)
+    bp.add_url_rule("/uploads/new", "ageo_deposit_create", views.geo_deposit_create)
+    bp.add_url_rule("/uploads/<pid_value>", "ageo_deposit_edit", views.geo_deposit_edit)
+    bp.add_url_rule("/records/<pid_value>", "ageo_record_detail", views.geo_record_detail)
 
-    return bp
+    app.register_blueprint(bp)
 
 
 __all__ = (

@@ -34,7 +34,7 @@ def init_bp(app):
             order=2
         )
 
-    return bp
+    app.register_blueprint(bp)
 
 
 __all__ = (

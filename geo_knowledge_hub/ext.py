@@ -9,7 +9,7 @@
 """GEO Knowledge Hub extension for InvenioRDM."""
 
 from . import config
-from flask_discussion import Discussion
+from .modules import init_modules
 
 
 class GeoKnowledgeHub(object):
@@ -23,7 +23,7 @@ class GeoKnowledgeHub(object):
     def init_app(self, app):
         """Flask application initialization."""
         self.init_config(app)
-        self.init_extensions(app)
+        self.init_modules(app)
 
         app.extensions["geo-knowledge-hub"] = self
 
@@ -39,9 +39,6 @@ class GeoKnowledgeHub(object):
             if k.startswith("GEO_KNOWLEDGE_HUB_"):
                 app.config.setdefault(k, getattr(config, k))
 
-    def init_extensions(self, app):
-        """Initialize extra extensions"""
-        #
-        # Flask-Discussion
-        #
-        Discussion(app)
+    def init_modules(self, app):
+        """Initialize the extension modules."""
+        init_modules(app)

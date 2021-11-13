@@ -21,7 +21,7 @@ def init_bp(app):
     bp.add_url_rule("/discover", "discover", views.discover_page)
     bp.add_url_rule("/contribute", "contribute", views.contribute_page)
 
-    return bp
+    app.register_blueprint(bp)
 
 
 __all__ = (

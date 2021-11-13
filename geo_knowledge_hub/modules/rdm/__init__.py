@@ -10,7 +10,8 @@ from flask import Blueprint
 
 
 def init_bp(app):
-    return Blueprint("geo_base_bp", __name__, template_folder="theme/templates")
+    bp = Blueprint("geo_base_bp", __name__, template_folder="theme/templates")
+    app.register_blueprint(bp)
 
 
 __all__ = (
