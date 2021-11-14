@@ -20,7 +20,7 @@ MODULES = [
 
 def init_modules(app):
 
-    # adding admin views
+    # adding view modules
     for module in MODULES:
         mod = import_module(module)
         mod.init_bp(app)
