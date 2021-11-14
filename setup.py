@@ -52,7 +52,7 @@ setup(
     version=version,
     description=__doc__,
     long_description=readme + '\n\n' + history,
-    keywords='invenio TODO',
+    keywords=['Geospatial', 'Digital Library', 'Earth Observations', 'Invenio RDM'],
     license='MIT',
     author='GEO Secretariat',
     author_email='geokhub@geosec.org',
@@ -82,7 +82,10 @@ setup(
         ],
         'invenio_assets.webpack': [
             'geo_knowledge_hub_deposit = geo_knowledge_hub.modules.deposit.webpack:theme'
-        ]
+        ],
+        'invenio_base.blueprints': [
+            'geo_knowledge_hub = geo_knowledge_hub.entrypoint:generate_bp',
+        ],
         # 'invenio_access.actions': [],
         # 'invenio_admin.actions': [],
         # 'invenio_assets.bundles': [],
