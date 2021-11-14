@@ -20,8 +20,8 @@ theme = WebpackThemeBundle(
                 "geo-knowledge-hub-user-records-search": "./js/geo_knowledge_hub/user_records_search/index.js"
             },
             dependencies={
-                'sweetalert2': '^11.1.7',
-                'sweetalert2-react-content': '^4.1.1'
+                "sweetalert2": "^11.1.7",
+                "sweetalert2-react-content": "^4.1.1"
             },
             aliases={
                 "@invenio-app-rdm": "js/invenio_app_rdm"

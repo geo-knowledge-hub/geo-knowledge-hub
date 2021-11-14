@@ -82,10 +82,7 @@ setup(
         ],
         'invenio_assets.webpack': [
             'geo_knowledge_hub_deposit = geo_knowledge_hub.modules.deposit.webpack:theme'
-        ],
-        'invenio_base.blueprints': [
-            'geo_knowledge_hub = geo_knowledge_hub.entrypoint:generate_bp',
-        ],
+        ]
         # 'invenio_access.actions': [],
         # 'invenio_admin.actions': [],
         # 'invenio_assets.bundles': [],
