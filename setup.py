@@ -2,7 +2,7 @@
 #
 # Copyright (C) 2021 GEO Secretariat.
 #
-# geo-knowledge-hub-ext is free software; you can redistribute it and/or
+# geo-knowledge-hub is free software; you can redistribute it and/or
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
@@ -26,9 +26,7 @@ extras_require = {
     'tests': tests_require,
 }
 
-extras_require['all'] = []
-for reqs in extras_require.values():
-    extras_require['all'].extend(reqs)
+extras_require['all'] = [req for _, reqs in extras_require.items() for req in reqs]
 
 setup_requires = [
     'Babel>=2.8',
@@ -36,7 +34,7 @@ setup_requires = [
 
 install_requires = [
     'invenio-i18n>=1.2.0',
-    'Flask-Discussion==0.1.1',
+    'Flask-Discussion>=0.1.1,<0.2',
     'pydash>=5.1.0',
     'IDUtils>=1.1.9'
 ]
@@ -54,29 +52,27 @@ setup(
     version=version,
     description=__doc__,
     long_description=readme + '\n\n' + history,
-    keywords='invenio TODO',
+    keywords=['Geospatial', 'Digital Library', 'Earth Observations', 'Invenio RDM'],
     license='MIT',
     author='GEO Secretariat',
     author_email='geokhub@geosec.org',
-    url='https://github.com/inveniosoftware/geo-knowledge-hub-ext',
+    url='https://github.com/geo-knowledge-hub/geo-knowledge-hub',
     packages=packages,
     zip_safe=False,
     include_package_data=True,
     platforms='any',
     entry_points={
         'invenio_access.actions': [
-            'geo-community'
-            ' = geo_knowledge_hub.security.actions:community_action',
-            'geo-knowledge-provider'
-            ' = geo_knowledge_hub.security.actions:kprovider_action',
-            'geo-secretariat'
-            ' = geo_knowledge_hub.security.actions:secretariat_action'
+            'geo-community-access'
+            ' = geo_knowledge_hub.security.permissions:geo_community_access_action',
+            'geo-provider-access'
+            ' = geo_knowledge_hub.security.permissions:geo_provider_access_action',
+            'geo-secretariat-access'
+            ' = geo_knowledge_hub.security.permissions:geo_secretariat_access_action'
         ],
         'invenio_base.apps': [
-            'geo_knowledge_hub = geo_knowledge_hub:GKHubExt',
-        ],
-        'invenio_base.blueprints': [
-            'geo_knowledge_hub = geo_knowledge_hub.views:generate_ui_bp',
+            'geo_knowledge_hub = geo_knowledge_hub:GeoKnowledgeHub',
+            'geo_knowledge_hub_discussion = flask_discussion:Discussion'
         ],
         'invenio_i18n.translations': [
             'messages = geo_knowledge_hub',
@@ -85,7 +81,7 @@ setup(
             "geo_knowledge_hub = geo_knowledge_hub.config",
         ],
         'invenio_assets.webpack': [
-            'invenio_assets_gkhub_deposit_theme = geo_knowledge_hub.webpack:theme'
+            'geo_knowledge_hub_deposit = geo_knowledge_hub.modules.deposit.webpack:theme'
         ]
         # 'invenio_access.actions': [],
         # 'invenio_admin.actions': [],

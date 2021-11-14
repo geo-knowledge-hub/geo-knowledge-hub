@@ -6,10 +6,11 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-"""Version information for geo-knowledge-hub.
+"""Proxy definitions."""
 
-This file is imported by ``geo_knowledge_hub.__init__``,
-and parsed by ``setup.py``.
-"""
+from flask import current_app
+from werkzeug.local import LocalProxy
 
-__version__ = "0.1.0"
+current_geo_knowledge_hub = LocalProxy(
+    lambda: current_app.extensions["geo-knowledge-hub"])
+"""Proxy to the extension."""
