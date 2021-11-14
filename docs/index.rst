@@ -1,25 +1,29 @@
 ..
-    Copyright (C) 2021 GEO Secretariat.
+    This file is part of GEO Knowledge Hub.
+    Copyright 2020-2021 GEO Secretariat.
 
-    geo-knowledge-hub-ext is free software; you can redistribute it and/or
-    modify it under the terms of the MIT License; see LICENSE file for more
-    details.
+    GEO Knowledge Hub is free software; you can redistribute it and/or modify it
+    under the terms of the MIT License; see LICENSE file for more details.
 
 
 .. include:: ../README.rst
+    :end-before: Install
 
-User's Guide
-------------
 
-This part of the documentation will show you how to get started in using
-geo-knowledge-hub-ext.
+.. toctree::
+    :hidden:
+
+    self
+
 
 .. toctree::
    :maxdepth: 2
+   :caption: Documentation:
 
-   installation
-   configuration
-   usage
+    installation
+    history
+    contributing
+    license
 
 API Reference
 -------------
