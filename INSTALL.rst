@@ -40,20 +40,17 @@ To use the available features in this extension, you will need to create three s
     Therefore, to use GEO Knowledge Hub, assign the roles correctly to the respective users.
 
 
-+-----------------+---------------------------------------------+------------------------+
-|                 |                                             |       Permissions      |
-+-----------------+---------------------------------------------+------+--------+--------+
-|    Role name    |                 Description                 | View | Create | Manage |
-+-----------------+---------------------------------------------+------+--------+--------+
-|  geo-community  | User with privileges to access the system.  |   X  |        |        |
-|                 |    Can make comments and create feedbacks   |      |        |        |
-+-----------------+---------------------------------------------+------+--------+--------+
-|   geo-provider  | User with privileges to create new records  |   X  |    X   |        |
-|                 |           in the GEO Knowledge Hub          |      |        |        |
-+-----------------+---------------------------------------------+------+--------+--------+
-| geo-secretariat |                  Admin user                 |   X  |    X   |    X   |
-+-----------------+---------------------------------------------+------+--------+--------+
-
++-----------------+-----------------------------------------------------------------------------------+------------------------+
+|                 |                                                                                   |       Permissions      |
++-----------------+-----------------------------------------------------------------------------------+------+--------+--------+
+|    Role name    |                                    Description                                    | View | Create | Manage |
++-----------------+-----------------------------------------------------------------------------------+------+--------+--------+
+|  geo-community  | User with privileges to access the system. Can make comments and create feedbacks |   X  |        |        |
++-----------------+-----------------------------------------------------------------------------------+------+--------+--------+
+|   geo-provider  |        User with privileges to create new records in the GEO Knowledge Hub        |   X  |    X   |        |
++-----------------+-----------------------------------------------------------------------------------+------+--------+--------+
+| geo-secretariat |                                     Admin user                                    |   X  |    X   |    X   |
++-----------------+-----------------------------------------------------------------------------------+------+--------+--------+
 
 .. tip::
 
@@ -69,16 +66,14 @@ To add each of the listed roles, as well as their respective accesses, the follo
     invenio access allow geo-community-access role geo-community
 
 
-``GEO Knowledge Provider``:
+``GEO Knowledge Provider``::
 
     invenio roles create geo-provider
     invenio access allow geo-provider-access role geo-provider
 
-``GEO Secretariat (Admin)``:
+``GEO Secretariat (Admin)``::
 
     invenio roles create geo-secretariat
     invenio access allow geo-provider-access role geo-secretariat
     invenio access allow geo-secretariat-access role geo-secretariat
 
-
-You can now use the extension's permission settings to access resources (``geo_knowledge_hub.security.policies.GeoRecordPermissionPolicy``). If you have any questions, please open an issue.
