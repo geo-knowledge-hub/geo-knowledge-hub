@@ -30,7 +30,7 @@ Version 0.8.0 (2021-11-24)
   - DOI minting is hidden from users.
 
 
-Version 0.6.0 - (2021-10-07)
+Version 0.6.0 (2021-10-07)
 ----------------------------
 
 
