@@ -10,7 +10,7 @@ Changes
 =======
 
 
-Version 0.8.0 (release TBD)
+Version 0.8.0 (2021-11-24)
 ---------------------------
 
 - Based on `InvenioRDM 6.0 <https://inveniordm.docs.cern.ch/releases/versions/version-v6.0.0/>`_.
@@ -30,8 +30,8 @@ Version 0.8.0 (release TBD)
   - DOI minting is hidden from users.
 
 
-Version 0.6.0 - 2021-10-07
---------------------------
+Version 0.6.0 - (2021-10-07)
+----------------------------
 
 
 - Based on `InvenioRDM 6.0 <https://inveniordm.docs.cern.ch/releases/versions/version-v6.0.0/>`_.
