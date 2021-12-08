@@ -12,14 +12,16 @@ from . import views
 
 
 def init_bp(app):
-    bp = Blueprint("geo_frontpage_bp", __name__, template_folder="theme/templates")
+    bp = Blueprint(
+        "geo_frontpage_bp", 
+        __name__, 
+        template_folder="theme/templates", 
+        static_folder="theme/static"
+    )
 
     # registration
     bp.add_url_rule("/", "front_page", views.frontpage)
-    bp.add_url_rule("/about", "about", views.about_page)
-    bp.add_url_rule("/engage", "engage", views.engage_page)
-    bp.add_url_rule("/discover", "discover", views.discover_page)
-    bp.add_url_rule("/contribute", "contribute", views.contribute_page)
+    bp.add_url_rule("/overview", "overview", views.overview_page)
 
     app.register_blueprint(bp)
 

@@ -1,0 +1,269 @@
+{%- extends config.BASE_TEMPLATE %}
+
+{%- block css %}
+{{ super() }}
+
+{{ webpack["geo-knowledge-hub-frontpage-theme.css"] }}
+{%- endblock css %}
+
+{%- block page_body %}
+
+<section class="section-content-white-bg">
+
+  <span class="section-subtitle-content">
+    <a class="overview-link-anchor" id="about">{{ _("About") }}</a>
+  </span>
+
+  <div class="ui container">
+    <div class="ui vertical stripe segment">
+      <div class="ui middle aligned stackable grid container overview-content-text">
+        <div class="row">
+          <div class="eight wide column">
+            <video controls class="ui x-large bordered rounded image">
+              <source src="static/gkh_video.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="eight wide column">
+            <h3 class="ui header">GEO Knowledge Hub</h3>
+            <p>The <b>GEO</b> <b>K</b>nowledge <b>H</b>ub (GKH) is a central cloud-based digital library providing
+              access to Earth Observations applications developed by the GEO Work Programme Activities. The GEO
+              Knowledge Hub It is part of the GEOSS Infrastructure and helps the Group on Earth Observations (GEO) to
+              advance Open Knowledge.</p>
+            <h3 class="ui header">Scope</h3>
+            <p>The scope of the GKH is to promote the replicability and re-usability of EO Applications by sharing with
+              the end users, all the Knowledge Resources essential to fully understand and re-use them. All knowledge
+              resources of a registered EO application, will be openly shared, curated and organized into a Knowledge
+              Package, including: <b>(A)</b> Research papers and reports describing methods and results; <b>(B)</b>
+              Software algorithms and cloud computing resources used for processing; <b>(C)</b> In situ and satellite
+              imagery data used and; <b>(D)</b> Results for verification.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="section-content-white-bg section-gray-bg">
+  <span class="section-subtitle-content">
+    <a class="overview-link-anchor" id="discover">{{ _("Discover") }}</a>
+  </span>
+
+  <div class="ui container">
+    <div class="ui vertical stripe segment">
+      <div class="ui middle aligned stackable grid container overview-content-text">
+        <div class="row">
+          <div class="nine wide column">
+            <h3 class="ui header">Knowledge Packages and Knowledge Resources</h3>
+            <p>Inside the GKH, the user will find EO applications organized in <b>K</b>nowledge <b>P</b>ackages (KP)
+              with all the necessary components (Knowledge Resources). All the Knowledge Resources are directly
+              shared, curated and organized by the Knowledge to ensure replicability with proper documentation.</p>
+
+            <p>Each resource has its own page, with the related files and metadata, and every record is linked to a
+              Knowledge Package, allowing the user to see how a particular record such as a dataset or a publication
+              is part of an EO application.
+
+              In the GKH, several formats and resource types may be retrieved, including the following:
+            </p>
+          </div>
+
+          <div class="one wide column">
+          </div>
+
+          <div class="six wide column">
+            <img src="static/knowledge-package.png" class="ui medium rounded image" alt="Knowledge Package">
+          </div>
+
+        </div>
+
+        <div class="overview-content-spaced">
+          <table class="ui padded fixed selectable table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Format archived in GKH</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Text documents</td>
+                <td>HTML, PDF, and DOC files</td>
+                <td>Describe methods and results (non-peer reviewed)</td>
+              </tr>
+              <tr>
+                <td>Scientific papers</td>
+                <td>PDF</td>
+                <td>Describe methods and results (peer reviewed)</td>
+              </tr>
+              <tr>
+                <td>Software (self-contained)</td>
+                <td>Jupyter-Notebooks, R/Python scripts and markdown files</td>
+                <td>Executable and documented scripts to services that don't require API (e.g., AWS)</td>
+              </tr>
+              <tr>
+                <td>Software (API-dependent)</td>
+                <td>Jupyter-Notebooks, R/Python scripts and markdown files</td>
+                <td>Executable and documented scripts to services that require API (e.g., Google Earth Engine, Open
+                  Data Cube)</td>
+              </tr>
+              <tr>
+                <td>Links to software packages</td>
+                <td>Github links <br>(with metadata and DOI)</td>
+                <td>Link to executable and documented scripts/algorithms</td>
+              </tr>
+              <tr>
+                <td>In situ data</td>
+                <td>CSV, XLSX, TXT, SHP, NetCDF<br>(and other relevant types)</td>
+                <td>Description of ground samples</td>
+              </tr>
+              <tr>
+                <td>Link to in situ data</td>
+                <td>Metadata with DOI</td>
+                <td>Links to in situ data deposited in repositories (e.g. PANGEA)</td>
+              </tr>
+              <tr>
+                <td>Links to satellite data</td>
+                <td>STAC (SpatioTemporal Asset Catalog) files and CEOS OpenSearch XML scripts</td>
+                <td>Provides general description of sets of images stored in cloud services</td>
+              </tr>
+              <tr>
+                <td>Links to any other relevant data and/or products</td>
+                <td>Metadata and other relevant formats</td>
+                <td>Links to data used in the application which is not strictly from satellite or ground measurements
+                </td>
+              </tr>
+              <tr>
+                <td>Videos</td>
+                <td>MP4, AVI, MKV</td>
+                <td>Describe methods, results, capacity development, talks</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="overview-content-text overview-content-spaced">
+          <p>The user can perform thematic search e.g., “Human Settlements” or “Mercury Monitoring”, as well
+            community-based search by GEO Work Programme activity e.g.GEOGLAM. It is also possible to search EO
+            applications linked to the GEO engagement priorities, e.g., SDGs, Paris, Sendai or main international
+            frameworks: e.g., Minamata Convention etc.</p>
+
+          <div class="ui secondary segment centered">
+            <div class="search-bar">
+              <form action="{{ url_for('invenio_search_ui.search') }}" class="ui form">
+                  <div class="ui big action input overview-content-searchbar">
+                    <input type="text" name="q" class="form-control search-bar-form"
+                      placeholder="{{ _('Search for Earth Observations Applications') }}">
+                    <button type="submit" class="ui icon search button"><i class="search icon"></i></button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <p>The User will be able to interact directly with the Knowledge provider, using the dedicated Question and
+            Answers section to pose specific questions and receive dedicated guidance and support in the process of
+            re-using the EO Application.</p>
+
+
+          <p>The users forum section of the GEO Knowledge Hub will allow great interactions between Users and
+            Knowledge Providers with the result to amplify the impact of the EO Applications developed within the GEO
+            Work Programme activities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-content-white-bg">
+  <span class="section-subtitle-content">
+    <a class="overview-link-anchor" id="contribute">{{ _("Contribute") }}</a>
+  </span>
+
+  <div class="ui container ">
+
+
+    <div class="overview-content-text overview-content-spaced">
+      <p>The GKH offers you a place where you can make your solution visible and available to the rest of the world, in
+        an open-knowledge approach! To ensure long term discoverability of your work, you will be able to assign Digital
+        Object Identifiers (DOI) and maintain it up to date with version management functionalities.</p>
+
+      <!-- DISPLAY ICONS WITH RESOURCE TYPES. Could be instructive to include explanations such as pre-print scientific papers etc....  -->
+      <p>
+        You are a member of a GWP activity or an EO expert and want to share an EO Application developed within your
+        activity? You are in the right place! Please contact the GEO Knowledge Hub Team at the GEO Secretariat: <a
+          href="mailto:secretariat@geosec.org">secretariat@geosec.org</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section-content-white-bg section-gray-bg">
+  <span class="section-subtitle-content">
+    <a class="overview-link-anchor" id="engage">{{ _("Communities") }}</a>
+  </span>
+
+  <div class="ui container ">
+
+
+    <div class="overview-content-text overview-content-spaced">
+      <p>Experts from the GEO community will use the GKH to share their work and make it easily reusable by others. The
+        Communities feature of the GKH will help to organize the content of the EO applications around thematic areas
+        such as GEO Work Programme activities, GEO engagement priorities and Global Policy Frameworks.</p>
+
+      <p>The providers, as active members of these communities will have the possibility to manage their knowledge and
+        to curate the records before they are published. End-users will be able to find records that are linked to a
+        specific community, to facilitate retrieval of information.</p>
+
+      <p>Finally, through the different communities, end-users will also have the possibility to ask questions directly
+        to the providers and get help from them if they encountered problems with the application.</p>
+    </div>
+  </div>
+</section>
+
+{%- endblock page_body %}
+{# <div class="ui container">
+  <div class="ui grid">
+    <div class="row">
+
+      <div class="seven wide column">
+        <video height="280" controls>
+          <source src="static/gkh_video.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="eight wide column">
+        <div class="ui segment">
+          <p class="about-text">The GEO Knowledge Hub is a central cloud-based digital library providing access to Earth
+            Observations applications developed by the GEO Work Programme Activities. The GEO Knowledge Hub It is part
+            of the GEOSS Infrastructure and helps the Group on Earth Observations (GEO) to advance Open Knowledge.</p>
+
+          <p class="about-text">The scope of the GKH is to promote the replicability and re-usability of EO Applications
+            by sharing with the end users, all the Knowledge Resources essential to fully understand and re-use them.
+            All knowledge resources of a registered EO application, will be openly shared, curated and organized into a
+            Knowledge Package, including:</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui container centered">
+  <div class="ui grid">
+    <div class="row">
+      <div class="four wide column">
+        <i class="file outline icon huge"></i>
+      </div>
+      <div class="four wide column">
+        <i class="cloud icon huge"></i>
+      </div>
+      <div class="four wide column">
+        <i class="question circle icon huge"></i>
+      </div>
+      <div class="four wide column">
+        <i class="question circle icon huge"></i>
+      </div>
+    </div>
+  </div>
+</div> #}
