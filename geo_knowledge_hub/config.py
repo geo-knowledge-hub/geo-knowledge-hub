@@ -15,6 +15,8 @@ GEO_KNOWLEDGE_HUB_EXT_BASE_TEMPLATE = "geo_knowledge_hub/base/base.html"
 
 GEO_KNOWLEDGE_HUB_EXT_SIDE_BAR_ELEMENTS = [
     "geo_knowledge_hub/records/details/side_bar/versions.html",
+    "geo_metadata_previewer/records/details/side_bar/base_map.html",
+    "geo_feedback/records/details/side_bar/feedback.html",
     "geo_knowledge_hub/records/details/side_bar/related_identifiers.html",
     "geo_knowledge_hub/records/details/side_bar/export.html"
 ]

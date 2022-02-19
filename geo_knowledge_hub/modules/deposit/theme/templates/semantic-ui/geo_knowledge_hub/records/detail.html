@@ -112,7 +112,7 @@ it under the terms of the MIT License; see LICENSE file for more details.
             {%- block record_content -%}
               <p>{%- include "invenio_app_rdm/records/details/contributors.html" %}</p>
               <p>{%- include "invenio_app_rdm/records/details/doi.html" %}</p>
-              {%- include "invenio_app_rdm/records/details/subjects.html" %}
+              
               <div class="top-padded">
                 {%- include "invenio_app_rdm/records/details/description.html" %}
               </div>
@@ -215,10 +215,32 @@ it under the terms of the MIT License; see LICENSE file for more details.
 
 {%- endblock page_body %}
 
+{%- block css %}
+  {{ super() }}
+
+  <!-- Leaflet -->
+  <link 
+      rel="stylesheet" 
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" 
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" 
+      crossorigin="" />
+
+  <!-- GEO Metadata Previewer (CSS) -->
+  {{ webpack['geo_metadata_previewer_theme.css'] }}
+
+{%- endblock css %}
+
 {%- block javascript %}
   {{ super() }}
   {{ webpack['invenio-app-rdm-landing-page.js'] }}
   {# Communities management -- TODO include again when communities are ready #}
   {# {{ webpack['invenio-communities-records.js'] }} #}
   {{ webpack['previewer_theme.js'] }}
+
+  <!-- GEO Metadata Previewer (JS) -->
+  {{ webpack['geo_metadata_previewer.js'] }}
+
+  <!-- GEO Feedback (JS) -->
+  {{ webpack['geo_feedback.js'] }}
+
 {%- endblock javascript %}
