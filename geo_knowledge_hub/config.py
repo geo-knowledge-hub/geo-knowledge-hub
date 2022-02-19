@@ -14,11 +14,23 @@ GEO_KNOWLEDGE_HUB_EXT_BASE_TEMPLATE = "geo_knowledge_hub/base/base.html"
 """Default base template for the demo page."""
 
 GEO_KNOWLEDGE_HUB_EXT_SIDE_BAR_ELEMENTS = [
+    # GEO Knowledge Hub: Versions
     "geo_knowledge_hub/records/details/side_bar/versions.html",
-    "geo_metadata_previewer/records/details/side_bar/base_map.html",
+
+    # GEO Feedback
     "geo_feedback/records/details/side_bar/feedback.html",
-    "geo_knowledge_hub/records/details/side_bar/related_identifiers.html",
-    "geo_knowledge_hub/records/details/side_bar/export.html"
+
+    # GEO Priorities
+    "geo_priorities/records/details/side_bar/engagement_priorities.html",
+
+    # GEO Metadata Previewer
+    "geo_metadata_previewer/records/details/side_bar/base_map.html",
+
+    # GEO Knowledge Hub: Related identifiers
+    # "geo_knowledge_hub/records/details/side_bar/related_identifiers.html",
+
+    # GEO Knowledge Hub: Export formats
+    # "geo_knowledge_hub/records/details/side_bar/export.html"
 ]
 
 GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {

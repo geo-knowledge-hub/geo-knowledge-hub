@@ -33,6 +33,8 @@ import {
   Button
 } from "semantic-ui-react";
 
+import { EngagementPrioritiesField } from "geo-priorities-react";
+
 import { BaseDepositForm } from "./BaseDepositForm";
 import { GeoDepositFormApp } from "../GeoDepositFormApp";
 import { DepositFormStepButton } from "./DepositFormStepButton";
@@ -140,6 +142,8 @@ export class FullDepositForm extends BaseDepositForm {
                           this.libraryVocabulariesHandler.vocabularies.metadata.subjects.limit_to
                         }
                       />
+
+                      <EngagementPrioritiesField />
 
                       <ResourceTypeField
                         options={this.vocabularyResourceTypes}
