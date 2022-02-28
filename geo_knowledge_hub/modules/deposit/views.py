@@ -22,7 +22,7 @@ from invenio_app_rdm.records_ui.views.decorators import (
 
 from invenio_rdm_records.resources.serializers import UIJSONSerializer
 
-from ...security.permissions import need_permission
+from geo_config.security.permissions import need_permission
 
 
 @login_required
