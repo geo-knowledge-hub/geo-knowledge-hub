@@ -37,7 +37,7 @@ install_requires = [
     "invenio-i18n>=1.2.0",
     "Flask-Discussion>=0.1.1,<0.2",
     "pydash>=5.1.0",
-    "IDUtils>=1.1.9"
+    "IDUtils>=1.1.9",
 ]
 
 packages = find_packages()
@@ -63,17 +63,9 @@ setup(
     include_package_data=True,
     platforms="any",
     entry_points={
-        "invenio_access.actions": [
-            "geo-community-access"
-            " = geo_knowledge_hub.security.permissions:geo_community_access_action",
-            "geo-provider-access"
-            " = geo_knowledge_hub.security.permissions:geo_provider_access_action",
-            "geo-secretariat-access"
-            " = geo_knowledge_hub.security.permissions:geo_secretariat_access_action"
-        ],
         "invenio_base.apps": [
             "geo_knowledge_hub = geo_knowledge_hub:GeoKnowledgeHub",
-            "geo_knowledge_hub_discussion = flask_discussion:Discussion"
+            "geo_knowledge_hub_discussion = flask_discussion:Discussion",
         ],
         "invenio_i18n.translations": [
             "messages = geo_knowledge_hub",
@@ -82,8 +74,9 @@ setup(
             "geo_knowledge_hub = geo_knowledge_hub.config",
         ],
         "invenio_assets.webpack": [
+            "geo_knowledge_hub_front = geo_knowledge_hub.modules.front.webpack:theme",
+            "geo_knowledge_hub_detail = geo_knowledge_hub.modules.detail.webpack:theme",
             "geo_knowledge_hub_deposit = geo_knowledge_hub.modules.deposit.webpack:theme",
-            "geo_knowledge_hub_frontpage = geo_knowledge_hub.modules.frontpage.webpack:theme"
         ]
         # "invenio_access.actions": [],
         # "invenio_admin.actions": [],
