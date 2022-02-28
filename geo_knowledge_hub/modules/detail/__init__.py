@@ -12,13 +12,11 @@ from . import views
 
 
 def init_bp(app):
-    bp = Blueprint("geokhub_deposit_bp", __name__, template_folder="theme/templates")
+    bp = Blueprint("geo_landing_bp", __name__, template_folder="theme/templates")
 
     # registration
-    bp.add_url_rule("/uploads", "geokhub_deposit_search", views.geo_deposit_search)
-    bp.add_url_rule("/uploads/new", "geokhub_deposit_create", views.geo_deposit_create)
     bp.add_url_rule(
-        "/uploads/<pid_value>", "geokhub_deposit_edit", views.geo_deposit_edit
+        "/records/<pid_value>", "geokhub_record_detail", views.geo_record_detail
     )
 
     app.register_blueprint(bp)
