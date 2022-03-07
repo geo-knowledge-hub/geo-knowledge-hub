@@ -12,8 +12,7 @@ from flask import g, Blueprint
 from flask_security import current_user
 
 from invenio_userprofiles.api import current_userprofile
-
-from ..security.permissions import provider_user_permission
+from geo_config.security.permissions import provider_user_permission
 
 
 def current_user_invenio_profile():

@@ -1,0 +1,28 @@
+{#
+    Copyright (C) 2022 GEO Secretariat.
+  
+    geo-knowledge-hub is free software; you can redistribute it and/or modify
+    it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{% set subjects = record.metadata.subjects %}
+
+{% if subjects %}
+
+<dd class="top-bottom-padded" id="record-subjects">
+  {%- for scheme, subjects in subjects|selectattr("scheme")|groupby('scheme')|sort(attribute='scheme') %}
+    {% if scheme == "TU" %}
+      <div class="ui grid">
+          <div class="sixteen wide subject-scheme column">
+          <span class="ui tiny subject header">Target Audience</span>
+          </div>
+          <div class="sixteen wide subject-label column">
+            {%- for subject in subjects %}
+              <span class="subject">{{ subject.subject  }}</span>
+            {%- endfor %}
+          </div>
+      </div>
+    {% endif %}
+  {%- endfor %}
+</dd>
+{% endif %}

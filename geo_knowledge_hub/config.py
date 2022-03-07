@@ -7,16 +7,23 @@
 # details.
 
 """GEO Knowledge Hub extension for InvenioRDM"""
-from .security.policies import GeoRecordPermissionPolicy
-from .security.permissions import views_permissions_factory
 
 GEO_KNOWLEDGE_HUB_EXT_BASE_TEMPLATE = "geo_knowledge_hub/base/base.html"
 """Default base template for the demo page."""
 
 GEO_KNOWLEDGE_HUB_EXT_SIDE_BAR_ELEMENTS = [
+    # GEO Feedback (ToDo)
+    # "geo_feedback/records/details/side_bar/feedback.html",
+    # Versions
     "geo_knowledge_hub/records/details/side_bar/versions.html",
+    # Geospatial visualizer
+    "geo_knowledge_hub/records/details/side_bar/geospatial_metadata_visualizer.html",
+    # Labels
+    "geo_knowledge_hub/records/details/side_bar/engagement_priorities.html",
+    # Related identifiers
     "geo_knowledge_hub/records/details/side_bar/related_identifiers.html",
-    "geo_knowledge_hub/records/details/side_bar/export.html"
+    # Export formats
+    "geo_knowledge_hub/records/details/side_bar/export.html",
 ]
 
 GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {
@@ -24,16 +31,10 @@ GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {
         "id": "id",
         "title": "metadata.title",
         "resource_type": "metadata.resource_type.title.en",
-        "description": "metadata.description"
+        "description": "metadata.description",
     }
 }
 """Default values to load from metadata by scheme type."""
-
-RDM_PERMISSION_POLICY = GeoRecordPermissionPolicy
-"""Policy settings."""
-
-GEO_KNOWLEDGE_HUB_VIEW_PERMISSIONS_FACTORY = views_permissions_factory
-"""View permissions factory."""
 
 # See Flask-Mail configurations options at:
 #   https://pythonhosted.org/Flask-Mail/#configuring-flask-mail
