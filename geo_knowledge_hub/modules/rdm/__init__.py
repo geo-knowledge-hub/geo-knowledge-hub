@@ -14,6 +14,4 @@ def init_bp(app):
     app.register_blueprint(bp)
 
 
-__all__ = (
-    "init_bp"
-)
+__all__ = "init_bp"
