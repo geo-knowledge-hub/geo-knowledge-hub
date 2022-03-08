@@ -15,8 +15,7 @@ MODULES = [
     "geo_knowledge_hub.modules.menu",
     "geo_knowledge_hub.modules.deposit",
     "geo_knowledge_hub.modules.detail",
-    "geo_knowledge_hub.modules.context",
-    "geo_knowledge_hub.modules.assets",
+    "geo_knowledge_hub.modules.context"
 ]
 
 
