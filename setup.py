@@ -38,6 +38,9 @@ install_requires = [
     "Flask-Discussion>=0.1.1,<0.2",
     "pydash>=5.1.0",
     "IDUtils>=1.1.9",
+    "geo-assets @ git+https://github.com/geo-knowledge-hub/geo-assets",
+    "geo-config @ git+https://github.com/geo-knowledge-hub/geo-config",
+    "geo-vocabularies @ git+https://github.com/geo-knowledge-hub/geo-vocabularies"
 ]
 
 packages = find_packages()
