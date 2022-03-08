@@ -37,6 +37,9 @@
 
   <!-- Geospatial metadata visualizer -->
   {{ webpack['geo-knowledge-hub-landing-geospatial-metadata-visualizer.js'] }}
+
+  <!-- User feedback -->
+  {{ webpack['geo-knowledge-hub-landing-feedback.js'] }}
 {%- endblock javascript %}
 
 {%- block page_body %}
@@ -114,16 +117,21 @@
               <div class="ui grid middle aligned">
                 <div class="two column row">
                   <div class="left floated left aligned column">
+                    <div id="feedback-component"></div>
                     <span class="ui" title="Publication date">{{ record.ui.publication_date_l10n_long }}</span>
                     <span class="label text-muted"> | Version {{ record.ui.version }}</span>
                   </div>
                   <div class="right floated right aligned column">
-                    <span class="ui label small grey">{{ record.ui.resource_type['id'] }}</span>
-                    <span class="ui label small access-status {{ record.ui.access_status.id }}"
+                    <span class="ui label small grey">{{ record.ui.resource_type['id'] | title }}</span>
+                    <span class="ui label small {{ record.ui.access_status.id }}"
                           data-tooltip="{{ record.ui.access_status.description_l10n }}" data-inverted="">
-                {% if record.ui.access_status.icon %}<i class="icon {{ record.ui.access_status.icon }}"></i>{% endif %}
-                      {{ record.ui.access_status.title_l10n }}
-              </span>
+                      {% if record.ui.access_status.icon %}<i class="icon {{ record.ui.access_status.icon }}"></i>{% endif %}
+                            {{ record.ui.access_status.title_l10n }}
+                    </span>
+                    {% if reproducibility_level %}
+                      <span class="ui label small {{ reproducibility_level.props.badge_color }}">{{ reproducibility_level.title.en }}</span>
+                    {% endif %}
+
                   </div>
                 </div>
               </div>

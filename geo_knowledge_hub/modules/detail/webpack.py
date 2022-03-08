@@ -21,6 +21,8 @@ theme = WebpackThemeBundle(
                 # Geospatial metadata visualizer
                 "geo-knowledge-hub-landing-geospatial-metadata-visualizer": "./js/geo_knowledge_hub_detail/geospatial_previewer/index.js",
                 "geo-knowledge-hub-landing-geospatial-metadata-visualizer-theme": "./less/geo_knowledge_hub_detail/geospatial_previewer/theme.less",
+                # Feedback
+                "geo-knowledge-hub-landing-feedback": "./js/geo_knowledge_hub_detail/feedback/index.js",
             },
             dependencies={
                 "natsort": "^2.0.3",

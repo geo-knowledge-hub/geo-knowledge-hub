@@ -19,7 +19,10 @@ from invenio_rdm_records.resources.serializers import UIJSONSerializer
 
 from .toolbox.search import get_related_resources_metadata
 from .toolbox.identifiers import related_identifiers_url_by_scheme
-from .toolbox.vocabulary import get_engagement_priority_from_record
+from .toolbox.vocabulary import (
+    get_engagement_priority_from_record,
+    get_reproducibility_level_from_record,
+)
 
 
 @pass_record_or_draft
@@ -31,6 +34,12 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
         record.to_dict()["metadata"]
     )
 
+    # reproducibility level
+    reproducibility_level = get_reproducibility_level_from_record(record, ["RL"])
+    reproducibility_level = py_.get(reproducibility_level.to_dict(), "hits.hits.0", None)
+
+
+    # related identifiers
     related_identifiers = py_.get(record.data, "metadata.related_identifiers", [])
     related_identifiers = related_identifiers_url_by_scheme(related_identifiers)
 
@@ -65,6 +74,7 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
         related_identifiers=related_identifiers,
         related_records_informations=related_records_informations,
         related_engagement_priorities=related_engagement_priorities,
+        reproducibility_level=reproducibility_level,
         record=UIJSONSerializer().serialize_object_to_dict(record.to_dict()),
         permissions=record.has_permissions_to(
             ["edit", "new_version", "manage", "update_draft", "read_files"]
