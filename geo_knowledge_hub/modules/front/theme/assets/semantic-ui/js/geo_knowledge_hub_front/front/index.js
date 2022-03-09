@@ -33,7 +33,7 @@ numericalContent.sort((a, b) => natsorter(a.id, b.id));
 ReactDOM.render(
   <EngagementPrioritiesCarousel
     carouselImageClass={"carousel-image"}
-    engagementPriorities={[...numericalContent, ...stringContent]}
+    engagementPriorities={[...stringContent, ...numericalContent]}
     gliderProps={{
       draggable: true,
       dragVelocity: 3,
