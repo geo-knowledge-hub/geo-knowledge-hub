@@ -2,14 +2,38 @@
 
 {%- block css %}
   {{ super() }}
-
   {{ webpack["geo-knowledge-hub-front-carousel-theme.css"] }}
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+  />
 {%- endblock css %}
 
 {%- block javascript %}
   {{ super() }}
-
   {{ webpack["geo-knowledge-hub-front-carousel.js"] }}
+  
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  });
+  </script>
 {%- endblock javascript %}
 
 {%- block page_header %}
@@ -17,60 +41,69 @@
 {%- endblock page_header %}
 
 {%- block first_section %}
-  <div class="gkhub-project-section section-white-bg">
-    <!-- Data to the carousel -->
-    <input 
-      id="record-engagements" 
-      type="hidden" 
-      name="record-engagements" 
-      value='{{engagement_priority_topics_available | tojson }}'>
-    </input>
+  <input 
+    id="record-engagements" 
+    type="hidden" 
+    name="record-engagements" 
+    value='{{engagement_priority_topics_available | tojson }}'>
+  </input>
 
-    <span class="section-subtitle-content">{{ _("Engagement priority") }}</span>
-    <div class="ui container">
-      <div align="center">
-        <div id="front-engagements" style="width: 65rem"></div>
-      </div>
-    </div>
-  </div>
+  <section class="section-white-bg">
+    
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
 
-  <section class="gkhub-project-section section-gray-bg">
-    <span class="section-subtitle-content">{{ _("Latest additions") }}</span>
-    <div class="ui container">
-
-      <div class="ui centered link cards">
-        {% for item in latest_records %}
-
-          <a href="/records/{{ item['id'] }}" class="card gkhub-frontpage-cards" style="width: 23em">
-            <div class="left aligned content">
-              <div class="extra labels-actions" style="padding-bottom: 10px">
-                <div class="ui blue tiny label">
-                  {{ item['ui']['publication_date_l10n_medium'] }}
+         <span class="section-subtitle-content">{{ _("Latest additions") }}</span>
+          <div class="ui container">
+            <div class="ui padded relaxed centered grid">
+              <div class="column">
+                <div class="ui centered link cards">
+                  {% for item in latest_records %}
+                    <a href="/records/{{ item['id'] }}" class="card gkhub-frontpage-cards">
+                      <div class="left aligned content">
+                        <div class="extra labels-actions" style="padding-bottom: 15px; margin-left: 0;">
+                          <div class="ui blue ribbon label">
+                            {{ item['ui']['publication_date_l10n_medium'] }}
+                          </div>
+                        </div>
+                        <div class="left aligned header"> {{ item['metadata']['title'] }} </div>
+                        <div class="meta">
+                          {% for creator in item['ui']['creators']['creators'] %}
+                            <span>{{ creator['person_or_org']['name'] }};</span>
+                          {% endfor %}
+                        </div>
+                        <div class="description aligned justified">
+                          {{ item['ui']['description_stripped'] | truncate(100, true, '...') }}
+                        </div>
+                      </div>
+                    </a>
+                  {% endfor %}
                 </div>
-                <div class="ui grey tiny label">
-                  {{ item['ui']['resource_type']['title_l10n'] }}
-                </div>
-                <div class="ui tiny label access-status {{ item['ui']['access_status']['id'] }}">
-                  <i class="icon {{ item['ui']['access_status']['icon'] }}">
-                    {{ item['ui']['access_status']['title_l10n'] }}
-                  </i>
-                </div>
-              </div>
-              <div class="left aligned header"> {{ item['metadata']['title'] }} </div>
-              <div class="meta">
-                {% for creator in item['ui']['creators']['creators'] %}
-                  <span>{{ creator['person_or_org']['name'] }};</span>
-                {% endfor %}
-              </div>
-              <div class="description aligned justified">
-                {{ item['ui']['description_stripped'] | truncate(100, true, '...') }}
               </div>
             </div>
-          </a>
-        {% endfor %}
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <span class="section-subtitle-content">{{ _("Search by engagement priorities") }}</span>
+          <div class="ui container">
+            <div class="ui padded relaxed centered grid">
+              <div class="column">
+                <div align="center">
+                  <div id="front-engagements"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
-  </div>
+  </section>
+  
 {%- endblock first_section %}
 
 {%- block second_section %}
