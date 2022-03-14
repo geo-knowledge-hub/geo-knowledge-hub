@@ -34,6 +34,18 @@
     },
   });
   </script>
+
+  <script>
+    document.querySelector('.latest-additions-opt').addEventListener("click", (e) => {
+      e.preventDefault();
+      swiper.slideTo(0);
+    });
+
+    document.querySelector(".engagement-priorities-opt").addEventListener("click", (e) => {
+      e.preventDefault();
+      swiper.slideTo(1);
+    })
+  </script>
 {%- endblock javascript %}
 
 {%- block page_header %}
@@ -42,14 +54,29 @@
 
 {%- block first_section %}
   <input 
-    id="record-engagements" 
+    id="record-engagements"
     type="hidden" 
     name="record-engagements" 
     value='{{engagement_priority_topics_available | tojson }}'>
   </input>
 
+  <section class="ui padded relaxed centered float-section-buttons">
+    <div class="ui compact menu">
+      <div data-tooltip="See our latest additions">
+        <a class="item latest-additions-opt" >
+          <i class="boxes icon"></i>
+        </a>
+      </div>
+      <div data-tooltip="Search resources by engagement priorities">
+        <a class="item engagement-priorities-opt">
+          <i class="flag icon"></i>
+          <div class="floating ui teal label">New</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="section-white-bg">
-    
     <div class="swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -62,7 +89,7 @@
                   {% for item in latest_records %}
                     <a href="/records/{{ item['id'] }}" class="card gkhub-frontpage-cards">
                       <div class="left aligned content">
-                        <div class="extra labels-actions" style="padding-bottom: 15px; margin-left: 0;">
+                        <div class="extra labels-actions ribbon-latest-additions-title">
                           <div class="ui blue ribbon label">
                             {{ item['ui']['publication_date_l10n_medium'] }}
                           </div>
