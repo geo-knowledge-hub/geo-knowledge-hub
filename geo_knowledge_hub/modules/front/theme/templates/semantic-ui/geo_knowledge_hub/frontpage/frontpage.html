@@ -16,22 +16,13 @@
   
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script>
-    const swiper = new Swiper('.swiper', {
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
-
+    const swiper = new Swiper('.swiper-container', {
     // Navigation arrows
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
+    centeredSlides: true
   });
   </script>
 
@@ -60,11 +51,11 @@
     value='{{engagement_priority_topics_available | tojson }}'>
   </input>
 
-  <section class="ui padded relaxed centered float-section-buttons">
+  <section class="centered float-section-buttons">
     <div class="ui compact menu">
-      <div data-tooltip="See our latest additions">
+      <div data-tooltip="Latest additions">
         <a class="item latest-additions-opt" >
-          <i class="boxes icon"></i>
+          <i class="box icon"></i>
         </a>
       </div>
       <div data-tooltip="Search resources by engagement priorities">
@@ -76,12 +67,12 @@
     </div>
   </section>
 
-  <section class="section-white-bg">
-    <div class="swiper">
+  <section class="carousel-section">
+    <div class="swiper swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
 
-         <span class="section-subtitle-content">{{ _("Latest additions") }}</span>
+        <span class="section-subtitle-content">{{ _("Latest additions") }}</span>
           <div class="ui container">
             <div class="ui padded relaxed centered grid">
               <div class="column">
