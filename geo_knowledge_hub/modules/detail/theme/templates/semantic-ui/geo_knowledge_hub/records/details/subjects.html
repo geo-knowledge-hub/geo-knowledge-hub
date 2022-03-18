@@ -1,0 +1,69 @@
+{#
+    Copyright (C) 2020 CERN.
+    Copyright (C) 2020 Northwestern University.
+    Copyright (C) 2021 New York University.
+  
+    Invenio RDM Records is free software; you can redistribute it and/or modify
+    it under the terms of the MIT License; see LICENSE file for more details.
+  #}
+  
+  {%- set subjects = record.metadata.subjects -%}
+  
+  {% if subjects %}
+
+    {# Target Users: temporary approach, in the future, this will be stored in an appropriated field. #}
+    {%- for scheme, subjects in subjects|selectattr("scheme")|groupby('scheme')|sort(attribute='scheme') %}
+        {% if scheme == "TU" %}
+            <dl class="details-list subjects" aria-label="{{ _('Target Audience') }}">
+                <dt class="ui tiny header">{{_('Target Audience')}}</dt>
+                {%- for subject in subjects %}
+                <dd>
+                <a href='/search?q=metadata.subjects.subject:"{{ subject.subject }}"'
+                    class="subject"
+                    title="{{ _('Search results for ') + subject.subject }}"
+                >
+                    {{ subject.subject }}
+                </a>
+                </dd>
+                {%- endfor %}
+            </dl>
+        {% endif %}
+    {%- endfor %}
+
+    {%- for scheme, subjects in subjects|selectattr("scheme")|groupby('scheme')|sort(attribute='scheme') %}
+        {% if scheme != "TU" and scheme != "EP" %}
+            <dl class="details-list subjects" aria-label="{{ _('Target Audience') }}">
+                <dt class="ui tiny header">{{scheme}}</dt>
+                {%- for subject in subjects %}
+                <dd>
+                <a href='/search?q=metadata.subjects.subject:"{{ subject.subject }}"'
+                    class="subject"
+                    title="{{ _('Search results for ') + subject.subject }}"
+                >
+                    {{ subject.subject }}
+                </a>
+                </dd>
+                {%- endfor %}
+            </dl>
+        {% endif %}
+    {%- endfor %}
+
+    {% set keywords = subjects|rejectattr("scheme")|list %}
+    {% if keywords %}
+    <dt class="ui tiny header">{{ _('Keywords') }}</dt>
+    <dl class="details-list subjects" aria-label="{{ _('Keywords') }}">
+      <dt class="hidden">{{ _('Keywords') }}</dt>
+      {%- for subject in keywords %}
+        <dd>
+          <a href='/search?q=metadata.subjects.subject:"{{ subject.subject }}"'
+             class="subject"
+             title="{{ _('Search results for ') + subject.subject }}"
+          >
+            {{ subject.subject }}
+          </a>
+        </dd>
+      {%- endfor %}
+    </dl>
+    {% endif %}
+  {% endif %}
+  

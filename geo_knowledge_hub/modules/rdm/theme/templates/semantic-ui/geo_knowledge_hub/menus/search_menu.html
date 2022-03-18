@@ -3,22 +3,36 @@
   {%- if item.children %}
     <li class="navbar-item navbar-options">
       <div class="dropdown{{ ' active' if item.active else '' }}">
-        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
-          href="{{ item.url }}">{{ item.text|safe }} <b class="caret"></b></a>
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+          aria-haspopup="true"
+          aria-expanded="false" href="{{ item.url }}">{{ item.text|safe }} <b
+          class="caret"></b></a>
         <ul class="dropdown-menu">{{ loop(item.children|sort(attribute='order')) }}</ul>
       </div>
     </li>
   {%- else %}
-    <li class={{ "navbar-item navbar-options active" if item.active and loop.depth==0 else "navbar-item" }}>
-      <a href="{{ item.url }}">{{ item.text|safe }}</a>
-    </li>
+    <li
+      class={{ "navbar-item navbar-options active" if item.active and loop.depth == 0 else "navbar-item" }}>
+      <a href="{{ item.url }}">{{ item.text|safe }}</a></li>
   {%- endif %}
 {%- endfor %}
+{% for item in current_menu.submenu('actions').children|sort(attribute='order') if item.visible recursive %}
+    <li class="navbar-item">
+      <a href="{{ item.url }}">{{ item.text|safe }}</a>
+    </li>
+{% endfor %}
+{%- if config.ACCOUNTS and current_user.is_authenticated %}
+  {% for item in current_menu.submenu('notifications').children|sort(attribute='order') if item.visible recursive %}
+      <li class="navbar-item">
+        <a href="{{ item.url }}"><i class="fitted inbox icon inverted"></i></a>
+      </li>
+  {% endfor %}
+{% endif %}
 
 {% else %}
-
-<li class="navbar-item">
-  <a href="/overview#about">About</a>
-</li>
-
+{% for item in current_menu.submenu('overview').children|sort(attribute='order') if item.visible recursive %}
+  <li class="navbar-item">
+    <a href="{{ item.url }}">{{ item.text|safe }}</a>
+  </li>
+{% endfor %}
 {% endif %}

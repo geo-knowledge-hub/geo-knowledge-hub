@@ -11,6 +11,7 @@ from pydash import py_
 from flask import render_template, url_for
 
 from invenio_app_rdm.records_ui.views.decorators import (
+    pass_is_preview,
     pass_record_files,
     pass_record_or_draft,
 )
@@ -22,11 +23,15 @@ from .toolbox.identifiers import related_identifiers_url_by_scheme
 from .toolbox.vocabulary import get_engagement_priority_from_record
 
 
+@pass_is_preview
 @pass_record_or_draft
 @pass_record_files
 def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False):
     """Record detail page (aka landing page)."""
     files_dict = None if files is None else files.to_dict()
+    record_ui = UIJSONSerializer().serialize_object_to_dict(record.to_dict())
+    is_draft = record_ui["is_draft"]
+
     related_records_informations = get_related_resources_metadata(
         record.to_dict()["metadata"]
     )
@@ -61,6 +66,7 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
         "geo_knowledge_hub/records/detail.html",
         pid=pid_value,
         files=files_dict,
+        is_draft=is_draft,
         is_preview=is_preview,
         related_identifiers=related_identifiers,
         related_records_informations=related_records_informations,
