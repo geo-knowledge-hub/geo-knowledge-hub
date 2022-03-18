@@ -2,7 +2,6 @@
 import axios from 'axios';
 import {DepositApiClient} from "react-invenio-deposit";
 
-const CancelToken = axios.CancelToken;
 const apiConfig = {
     withCredentials: true,
     xsrfCookieName: 'csrftoken',

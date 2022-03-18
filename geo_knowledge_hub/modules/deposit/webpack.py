@@ -16,7 +16,6 @@ theme = WebpackThemeBundle(
         "semantic-ui": dict(
             entry={
                 "geo-knowledge-hub-deposit": "./js/geo_knowledge_hub_deposit/deposit_form/index.js",
-                "geo-knowledge-hub-user-records-search": "./js/geo_knowledge_hub_deposit/user_records_search/index.js",
             },
             dependencies={
                 "sweetalert2": "^11.1.7",

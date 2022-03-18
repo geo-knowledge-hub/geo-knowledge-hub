@@ -1,12 +1,13 @@
-import _ from "lodash";
-import React from "react";
+import React, { Fragment } from "react";
 
 import _get from "lodash/get";
 import _compact from "lodash/compact";
+import _isNil from "lodash/isNil";
 import _isEmpty from "lodash/isEmpty";
 import { AccordionField } from "react-invenio-forms";
 
 import {
+  AccessRightField,
   DescriptionsField,
   TitlesField,
   ResourceTypeField,
@@ -16,6 +17,8 @@ import {
   VersionField,
   LicenseField,
   SaveButton,
+  PIDField,
+  PreviewButton,
   PublishButton,
   FileUploader,
   DepositFormTitle,
@@ -30,6 +33,7 @@ import {
   Sticky,
   Card,
   Button,
+  Divider,
 } from "semantic-ui-react";
 
 import {
@@ -57,7 +61,7 @@ export class FullDepositForm extends BaseDepositForm {
       this.libraryVocabulariesHandler.filterResourcesByInvalidTypes([
         KNOWLEDGE_PACKAGE,
       ]);
-    if (_.isNil(props.resourceType)) {
+    if (_isNil(props.resourceType)) {
       this.vocabularyResourceTypes = this.resourceTypeWithoutKnowledgePackages;
     } else {
       this.vocabularyResourceTypes =
@@ -109,9 +113,63 @@ export class FullDepositForm extends BaseDepositForm {
                   <AccordionField
                     fieldPath=""
                     active={!this.props.isRecordPublished}
+                    label={i18next.t("Files")}
+                    ui={this.depositConfigHandler.accordionStyle}
+                  >
+                    {this.depositConfigHandler.noFiles &&
+                      this.depositConfigHandler.props.record.is_published && (
+                        <p
+                          style={{
+                            textAlign: "center",
+                            opacity: "0.5",
+                            cursor: "default !important",
+                          }}
+                        >
+                          <em>{i18next.t("The record has no files.")}</em>
+                        </p>
+                      )}
+                    <FileUploader
+                      isDraftRecord={
+                        !this.depositConfigHandler.props.record.is_published
+                      }
+                      quota={{
+                        maxFiles: 100,
+                        maxStorage: 10 ** 10,
+                      }}
+                    />
+                  </AccordionField>
+
+                  <AccordionField
+                    fieldPath=""
+                    active={!this.props.isRecordPublished}
                     label={i18next.t("Basic information")}
                     ui={this.depositConfigHandler.accordionStyle}
                   >
+                    <div style={{ display: "none" }}>
+                      {this.depositConfigHandler.config.pids.map((pid) => (
+                        <Fragment key={pid.scheme}>
+                          <PIDField
+                            btnLabelDiscardPID={pid.btn_label_discard_pid}
+                            btnLabelGetPID={pid.btn_label_get_pid}
+                            canBeManaged={pid.can_be_managed}
+                            canBeUnmanaged={pid.can_be_unmanaged}
+                            fieldPath={`pids.${pid.scheme}`}
+                            fieldLabel={pid.field_label}
+                            isEditingPublishedRecord={
+                              this.depositConfigHandler.props.record
+                                .is_published === true // is_published is `null` at first upload
+                            }
+                            managedHelpText={pid.managed_help_text}
+                            pidLabel={pid.pid_label}
+                            pidPlaceholder={pid.pid_placeholder}
+                            pidType={pid.scheme}
+                            unmanagedHelpText={pid.unmanaged_help_text}
+                            required
+                          />
+                        </Fragment>
+                      ))}
+                    </div>
+
                     <TitlesField
                       options={
                         this.libraryVocabulariesHandler.vocabularies.metadata
@@ -145,6 +203,11 @@ export class FullDepositForm extends BaseDepositForm {
                           "TableCellProperties",
                         ],
                       }}
+                    />
+
+                    <ResourceTypeField
+                      options={this.vocabularyResourceTypes}
+                      required
                     />
 
                     <Segment vertical>
@@ -202,11 +265,6 @@ export class FullDepositForm extends BaseDepositForm {
                           </Grid.Row>
                         </Grid>
                       </div>
-
-                      <ResourceTypeField
-                        options={this.vocabularyResourceTypes}
-                        required
-                      />
 
                       <LanguagesField
                         initialOptions={_get(
@@ -303,35 +361,6 @@ export class FullDepositForm extends BaseDepositForm {
                   <AccordionField
                     fieldPath=""
                     active={!this.props.isRecordPublished}
-                    label={i18next.t("Files")}
-                    ui={this.depositConfigHandler.accordionStyle}
-                  >
-                    {this.depositConfigHandler.noFiles &&
-                      this.depositConfigHandler.props.record.is_published && (
-                        <p
-                          style={{
-                            textAlign: "center",
-                            opacity: "0.5",
-                            cursor: "default !important",
-                          }}
-                        >
-                          <em>{i18next.t("The record has no files.")}</em>
-                        </p>
-                      )}
-                    <FileUploader
-                      isDraftRecord={
-                        !this.depositConfigHandler.props.record.is_published
-                      }
-                      quota={{
-                        maxFiles: 100,
-                        maxStorage: 10 ** 10,
-                      }}
-                    />
-                  </AccordionField>
-
-                  <AccordionField
-                    fieldPath=""
-                    active={!this.props.isRecordPublished}
                     label={i18next.t("License and version")}
                     ui={this.depositConfigHandler.accordionStyle}
                   >
@@ -378,44 +407,35 @@ export class FullDepositForm extends BaseDepositForm {
                       context={this.props.contextInfo.sidebarMenuRef}
                       offset={20}
                     >
-                      <Card className="actions">
-                        <Card.Content>
-                          {!this.isResourcePackage ? (
-                            <Grid>
-                              <Grid.Row columns={2}>
-                                <Grid.Column>
-                                  <SaveButton fluid />
-                                </Grid.Column>
-                                <Grid.Column>
-                                  <PublishButton fluid />
-                                </Grid.Column>
-                              </Grid.Row>
-                            </Grid>
-                          ) : (
-                            <div>
-                              <div className="sidebar-buttons">
-                                <SaveButton fluid className="save-button" />
-                              </div>
-                              <PublishButton fluid />
-                            </div>
-                          )}
-                        </Card.Content>
-                      </Card>
-                      {!this.isResourcePackage && (
+                      {!this.isResourcePackage && this.props.isRecordPublished && (
                         <Card className="actions">
                           <Card.Content>
                             <Button
                               fluid
                               content="Go to Knowledge Package"
-                              href={_.get(
+                              href={_get(
                                 this.depositConfigHandler.props.record,
-                                "links.latest_html"
+                                "links.record_html"
                               )}
-                              disabled={!this.props.isRecordPublished}
                             />
                           </Card.Content>
                         </Card>
                       )}
+
+                      <Card className="actions">
+                        <Card.Content>
+                          <div className="sidebar-buttons">
+                            <SaveButton fluid className="save-button" />
+                            <PreviewButton fluid className="preview-button" />
+                          </div>
+                          <PublishButton fluid />
+                        </Card.Content>
+                      </Card>
+
+                      <AccessRightField
+                        label={i18next.t("Visibility")}
+                        labelIcon={"shield"}
+                      />
                     </Sticky>
                   </Grid.Column>
                 </Ref>
