@@ -6,10 +6,10 @@
 // React-Invenio-Deposit is free software; you can redistribute it and/or modify it
 // under the terms of the MIT License; see LICENSE file for more details.
 
-import { Formik } from 'formik';
-import React, { Component } from 'react';
+import { Formik } from "formik";
+import React, { Component } from "react";
 
-import { Modal, Grid, Header } from 'semantic-ui-react';
+import { Modal, Grid, Header } from "semantic-ui-react";
 
 import {
   ReactSearchKit,
@@ -18,21 +18,21 @@ import {
   ResultsLoader,
   EmptyResults,
   Error,
-  Pagination
-} from 'react-searchkit';
+  Pagination,
+} from "react-searchkit";
 
-import { ActionButton } from 'react-invenio-forms';
-import { KnowledgePackageResults } from './KnowledgePackageResults';
+import { ActionButton } from "react-invenio-forms";
+import { KnowledgePackageResults } from "./KnowledgePackageResults";
 
 const ModalActions = {
-  ADD: 'add',
-  EDIT: 'edit',
+  ADD: "add",
+  EDIT: "edit",
 };
 
 const initialState = {
-  sortBy: 'bestmatch',
-  sortOrder: 'asc',
-  layout: 'list',
+  sortBy: "bestmatch",
+  sortOrder: "asc",
+  layout: "list",
   page: 1,
   size: 75,
 };
@@ -51,21 +51,18 @@ export class KnowledgePackageSelectorModal extends Component {
   };
 
   onSubmit = (values, formikBag) => {
-
     this.props.onPackageChange(values.selectedKnowledgePackage);
     formikBag.setSubmitting(false);
     formikBag.resetForm();
     this.closeModal();
-
   };
 
   render() {
-
     const initialKnowledgePackage = this.props.initialKnowledgePackage || {
-      "identifier": null,
-      "relation_type": "ispartof",
-      "resource_type": "knowledge",
-      "scheme": "doi"
+      identifier: null,
+      relation_type: "ispartof",
+      resource_type: "knowledge",
+      scheme: "doi",
     };
 
     const searchApi = new InvenioSearchApi(this.props.searchConfig.searchApi);
@@ -97,10 +94,10 @@ export class KnowledgePackageSelectorModal extends Component {
             </Grid>
           </Modal.Header>
           <Modal.Content scrolling>
-            {(
+            {
               <ReactSearchKit
                 searchApi={searchApi}
-                appName={'knowledgepackages'}
+                appName={"knowledgepackages"}
                 urlHandlerApi={{ enabled: false }}
                 initialQueryState={initialState}
               >
@@ -112,12 +109,12 @@ export class KnowledgePackageSelectorModal extends Component {
                       verticalAlign="middle"
                     >
                       <SearchBar
-                        placeholder={'Search for a Knowledge Package'}
+                        placeholder={"Search for a Knowledge Package"}
                         autofocus
                         actionProps={{
-                          icon: 'search',
+                          icon: "search",
                           content: null,
-                          className: 'search',
+                          className: "search",
                         }}
                       />
                     </Grid.Column>
@@ -129,25 +126,27 @@ export class KnowledgePackageSelectorModal extends Component {
                         <Error />
                         <KnowledgePackageResults
                           {...(this.props.serializeKnowledgePackage && {
-                            serializeKnowledgePackage: this.props.serializeKnowledgePackage,
+                            serializeKnowledgePackage:
+                              this.props.serializeKnowledgePackage,
                           })}
                         />
                       </ResultsLoader>
-
                     </Grid.Column>
                   </Grid.Row>
                   <Grid.Row>
                     <Grid.Column textAlign="center">
-                      <Pagination options={{
-                        size: "mini",
-                        showFirst: false,
-                        showLast: false,
-                      }} />
+                      <Pagination
+                        options={{
+                          size: "mini",
+                          showFirst: false,
+                          showLast: false,
+                        }}
+                      />
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
               </ReactSearchKit>
-            )}
+            }
           </Modal.Content>
           <Modal.Actions>
             <ActionButton
@@ -157,7 +156,7 @@ export class KnowledgePackageSelectorModal extends Component {
                 this.closeModal();
               }}
               icon="remove"
-              content={'Cancel'}
+              content={"Cancel"}
               floated="left"
             />
             <ActionButton
@@ -167,8 +166,8 @@ export class KnowledgePackageSelectorModal extends Component {
               icon="checkmark"
               content={
                 this.props.action === ModalActions.ADD
-                  ? 'Select the Knowledge Package'
-                  : 'Change the Knowledge Package'
+                  ? "Select the Knowledge Package"
+                  : "Change the Knowledge Package"
               }
             />
           </Modal.Actions>
