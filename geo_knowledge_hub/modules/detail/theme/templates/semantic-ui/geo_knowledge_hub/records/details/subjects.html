@@ -32,6 +32,7 @@
 
     {%- for scheme, subjects in subjects|selectattr("scheme")|groupby('scheme')|sort(attribute='scheme') %}
         {% if scheme != "TU" and scheme != "EP" %}
+          {% if "subject" in subject %}
             <dl class="details-list subjects" aria-label="{{ _('Target Audience') }}">
                 <dt class="ui tiny header">{{scheme}}</dt>
                 {%- for subject in subjects %}
@@ -45,6 +46,7 @@
                 </dd>
                 {%- endfor %}
             </dl>
+          {% endif %}
         {% endif %}
     {%- endfor %}
 
@@ -54,14 +56,18 @@
     <dl class="details-list subjects" aria-label="{{ _('Keywords') }}">
       <dt class="hidden">{{ _('Keywords') }}</dt>
       {%- for subject in keywords %}
-        <dd>
-          <a href='/search?q=metadata.subjects.subject:"{{ subject.subject }}"'
-             class="subject"
-             title="{{ _('Search results for ') + subject.subject }}"
-          >
-            {{ subject.subject }}
-          </a>
-        </dd>
+
+        {% if "subject" in subject %}
+          <dd>
+            <a href='/search?q=metadata.subjects.subject:"{{ subject.subject }}"'
+              class="subject"
+              title="{{ _('Search results for ') + subject.subject }}"
+            >
+              {{ subject.subject }}
+            </a>
+          </dd>
+        {% endif %}
+
       {%- endfor %}
     </dl>
     {% endif %}

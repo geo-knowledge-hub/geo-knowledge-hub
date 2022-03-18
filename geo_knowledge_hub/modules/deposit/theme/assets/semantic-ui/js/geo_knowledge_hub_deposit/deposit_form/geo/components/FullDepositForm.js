@@ -57,18 +57,19 @@ export class FullDepositForm extends BaseDepositForm {
     super(props);
 
     // checking if the resourceType is defined. If false, all resource types (except knowledge packages) are accepted.
+    this.isResourcePackage = props.isResourcePackage || false;
+
     this.resourceTypeWithoutKnowledgePackages =
       this.libraryVocabulariesHandler.filterResourcesByInvalidTypes([
         KNOWLEDGE_PACKAGE,
       ]);
-    if (_isNil(props.resourceType)) {
+
+    if (this.isResourcePackage) {
       this.vocabularyResourceTypes = this.resourceTypeWithoutKnowledgePackages;
     } else {
       this.vocabularyResourceTypes =
         this.libraryVocabulariesHandler.filterResourceById(props.resourceType);
     }
-
-    this.isResourcePackage = props.isResourcePackage || false;
   }
 
   render() {
