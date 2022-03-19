@@ -33,7 +33,6 @@ import {
   Sticky,
   Card,
   Button,
-  Divider,
 } from "semantic-ui-react";
 
 import {
@@ -44,7 +43,6 @@ import {
 
 import { BaseDepositForm } from "./BaseDepositForm";
 import { GeoDepositFormApp } from "../GeoDepositFormApp";
-import { DepositFormStepButton } from "./DepositFormStepButton";
 
 import { RelatedResourceField } from "./fields/RelatedIdentifiersField";
 

@@ -11,13 +11,15 @@ import { BaseDepositForm } from "./BaseDepositForm";
 
 import { DATA } from "../resources/types/index";
 
+import { KnowledgeResourceModalForm } from "./modals/KnowledgeResourceModalForm";
+
 import { RelatedResources } from "./search/RelatedResources";
 import { RDMEmptyResults } from "./search/RDMEmptyResults";
-import { RDMRecordResultsListItem } from "./search/RDMRecordResultsListItem";
-import { RDMRecordSearchBarElement } from "./search/RDMRecordSearchBarElement";
 import { RelatedResourcesSearchConfig } from "./search/config";
 import { ElasticSearchQueryBuilder } from "../ElasticSearchQueryBuilder";
-import { KnowledgeResourceModalForm } from "./modals/KnowledgeResourceModalForm";
+
+import { RDMRecordSearchBarElement } from "./search/RDMRecordSearchBarElement";
+import { RDMRecordResultsListItem } from "@invenio-app-rdm/search/components";
 
 export class DataForm extends BaseDepositForm {
   constructor(props) {

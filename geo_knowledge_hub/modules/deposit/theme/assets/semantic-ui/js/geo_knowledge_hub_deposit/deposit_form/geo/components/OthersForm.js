@@ -15,8 +15,9 @@ import { RDMEmptyResults } from "./search/RDMEmptyResults";
 import { RelatedResources } from "./search/RelatedResources";
 import { RelatedResourcesSearchConfig } from "./search/config";
 import { ElasticSearchQueryBuilder } from "../ElasticSearchQueryBuilder";
-import { RDMRecordResultsListItem } from "./search/RDMRecordResultsListItem";
+
 import { RDMRecordSearchBarElement } from "./search/RDMRecordSearchBarElement";
+import { RDMRecordResultsListItem } from "@invenio-app-rdm/search/components";
 
 import {
   DATA,
