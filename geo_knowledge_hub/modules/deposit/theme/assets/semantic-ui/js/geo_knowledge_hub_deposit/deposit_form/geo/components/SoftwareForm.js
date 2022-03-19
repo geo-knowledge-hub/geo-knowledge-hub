@@ -7,7 +7,6 @@ import _cloneDeep from "lodash/cloneDeep";
 import { OverridableContext } from "react-overridable";
 
 import { BaseDepositForm } from "./BaseDepositForm";
-import { DepositFormStepButton } from "./DepositFormStepButton";
 
 import { SOFTWARE } from "../resources/types/index";
 import { KnowledgeResourceModalForm } from "./modals/KnowledgeResourceModalForm";
@@ -19,13 +18,12 @@ import { ElasticSearchQueryBuilder } from "../ElasticSearchQueryBuilder";
 import { RDMRecordResultsListItem } from "./search/RDMRecordResultsListItem";
 import { RDMRecordSearchBarElement } from "./search/RDMRecordSearchBarElement";
 
-
 export class SoftwareForm extends BaseDepositForm {
   constructor(props) {
     super(props);
 
     this.state = {
-      isModalOpen: false
+      isModalOpen: false,
     };
 
     this.searchComponents = {
@@ -34,33 +32,36 @@ export class SoftwareForm extends BaseDepositForm {
       "EmptyResults.element": RDMEmptyResults,
     };
 
-    this.vocabularyResourceTypes = this.libraryVocabulariesHandler.filterResourceByType(SOFTWARE);
+    this.vocabularyResourceTypes =
+      this.libraryVocabulariesHandler.filterResourceByType(SOFTWARE);
   }
 
   modalWindowHandler = () => {
     this.setState((prevState) => {
       return {
         ...prevState,
-        isModalOpen: !prevState.isModalOpen
-      }
-    })
-  }
+        isModalOpen: !prevState.isModalOpen,
+      };
+    });
+  };
 
   render() {
-    const relatedResourcesSearchConfig = _cloneDeep(RelatedResourcesSearchConfig);
-    const relatedResourceQuery = ElasticSearchQueryBuilder.buildQueryByKnowledgePackageResource(
-      this.depositConfigHandler.props.record.pids.doi.identifier,
-      this.vocabularyResourceTypes
+    const relatedResourcesSearchConfig = _cloneDeep(
+      RelatedResourcesSearchConfig
     );
+    const relatedResourceQuery =
+      ElasticSearchQueryBuilder.buildQueryByKnowledgePackageResource(
+        this.depositConfigHandler.props.record.pids.doi.identifier,
+        this.vocabularyResourceTypes
+      );
 
     relatedResourcesSearchConfig["initialQueryState"] = {
-      queryString: relatedResourceQuery
+      queryString: relatedResourceQuery,
     };
 
     return (
       <Fragment>
-
-        <Container style={{ marginTop: "2rem", }}>
+        <Container style={{ marginTop: "2rem" }}>
           <Segment vertical>
             <Grid>
               <Grid.Row centered>
@@ -85,16 +86,7 @@ export class SoftwareForm extends BaseDepositForm {
           vocabularyResourceTypes={this.vocabularyResourceTypes}
           libraryVocabulariesHandler={this.props.libraryVocabulariesHandler}
         />
-
-        <Segment vertical align="center">
-          <DepositFormStepButton
-            isNextActivated={true}
-            isPreviousActivated={true}
-            next={this.props.contextInfo.stepHandler.next}
-            previous={this.props.contextInfo.stepHandler.previous}
-          />
-        </Segment>
       </Fragment>
-    )
+    );
   }
-};
+}

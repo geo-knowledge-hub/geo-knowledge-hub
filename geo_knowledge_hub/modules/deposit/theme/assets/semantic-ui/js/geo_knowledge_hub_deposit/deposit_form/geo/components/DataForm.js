@@ -1,18 +1,13 @@
 import _get from "lodash/get";
 
-import {
-  Container,
-  Grid,
-  Segment
-} from "semantic-ui-react";
+import { Container, Grid, Segment } from "semantic-ui-react";
 
-import _cloneDeep from 'lodash/cloneDeep';
-import { OverridableContext } from 'react-overridable';
+import _cloneDeep from "lodash/cloneDeep";
+import { OverridableContext } from "react-overridable";
 
 import React, { Fragment } from "react";
 
 import { BaseDepositForm } from "./BaseDepositForm";
-import { DepositFormStepButton } from "./DepositFormStepButton";
 
 import { DATA } from "../resources/types/index";
 
@@ -24,14 +19,12 @@ import { RelatedResourcesSearchConfig } from "./search/config";
 import { ElasticSearchQueryBuilder } from "../ElasticSearchQueryBuilder";
 import { KnowledgeResourceModalForm } from "./modals/KnowledgeResourceModalForm";
 
-
-
 export class DataForm extends BaseDepositForm {
   constructor(props) {
     super(props);
 
     this.state = {
-      isModalOpen: false
+      isModalOpen: false,
     };
 
     this.searchComponents = {
@@ -40,33 +33,36 @@ export class DataForm extends BaseDepositForm {
       "EmptyResults.element": RDMEmptyResults,
     };
 
-    this.vocabularyResourceTypes = this.libraryVocabulariesHandler.filterResourceByType(DATA);
+    this.vocabularyResourceTypes =
+      this.libraryVocabulariesHandler.filterResourceByType(DATA);
   }
 
   modalWindowHandler = () => {
     this.setState((prevState) => {
       return {
         ...prevState,
-        isModalOpen: !prevState.isModalOpen
-      }
-    })
-  }
+        isModalOpen: !prevState.isModalOpen,
+      };
+    });
+  };
 
   render() {
-    const relatedResourcesSearchConfig = _cloneDeep(RelatedResourcesSearchConfig);
-    const relatedResourceQuery = ElasticSearchQueryBuilder.buildQueryByKnowledgePackageResource(
-      this.depositConfigHandler.props.record.pids.doi.identifier,
-      this.vocabularyResourceTypes
+    const relatedResourcesSearchConfig = _cloneDeep(
+      RelatedResourcesSearchConfig
     );
+    const relatedResourceQuery =
+      ElasticSearchQueryBuilder.buildQueryByKnowledgePackageResource(
+        this.depositConfigHandler.props.record.pids.doi.identifier,
+        this.vocabularyResourceTypes
+      );
 
     relatedResourcesSearchConfig["initialQueryState"] = {
-      queryString: relatedResourceQuery 
+      queryString: relatedResourceQuery,
     };
 
     return (
       <Fragment>
-
-        <Container style={{ marginTop: "2rem", }}>
+        <Container style={{ marginTop: "2rem" }}>
           <Segment vertical>
             <Grid>
               <Grid.Row centered>
@@ -91,16 +87,7 @@ export class DataForm extends BaseDepositForm {
           vocabularyResourceTypes={this.vocabularyResourceTypes}
           libraryVocabulariesHandler={this.props.libraryVocabulariesHandler}
         />
-
-        <Segment vertical align="center">
-          <DepositFormStepButton
-            isNextActivated={true}
-            isPreviousActivated={true}
-            next={this.props.contextInfo.stepHandler.next}
-            previous={this.props.contextInfo.stepHandler.previous}
-          />
-        </Segment>
       </Fragment>
-    )
+    );
   }
-};
+}

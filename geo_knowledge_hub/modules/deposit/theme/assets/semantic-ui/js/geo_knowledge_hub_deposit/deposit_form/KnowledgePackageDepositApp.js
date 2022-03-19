@@ -32,7 +32,8 @@ class KnowledgePackageDepositSteps extends Component {
       case 1: // general step
         return (
           <KnowledgePackageForm
-            contextInfo={this.props.contextInfo}
+            sidebarMenuRef={this.props.sidebarMenuRef}
+            isRecordPublished={this.props.isRecordPublished}
             depositConfigHandler={this.props.depositConfigHandler}
             libraryVocabulariesHandler={this.props.libraryVocabulariesHandler}
           />
@@ -41,7 +42,6 @@ class KnowledgePackageDepositSteps extends Component {
       case 2: // publications step
         return (
           <PublicationsForm
-            contextInfo={this.props.contextInfo}
             depositConfigHandler={this.props.depositConfigHandler}
             libraryVocabulariesHandler={this.props.libraryVocabulariesHandler}
           />
@@ -50,7 +50,6 @@ class KnowledgePackageDepositSteps extends Component {
       case 3: // data step
         return (
           <DataForm
-            contextInfo={this.props.contextInfo}
             depositConfigHandler={this.props.depositConfigHandler}
             libraryVocabulariesHandler={this.props.libraryVocabulariesHandler}
           />
@@ -59,7 +58,6 @@ class KnowledgePackageDepositSteps extends Component {
       case 4: // software
         return (
           <SoftwareForm
-            contextInfo={this.props.contextInfo}
             depositConfigHandler={this.props.depositConfigHandler}
             libraryVocabulariesHandler={this.props.libraryVocabulariesHandler}
           />
@@ -67,7 +65,6 @@ class KnowledgePackageDepositSteps extends Component {
       case 5: // others
         return (
           <OthersForm
-            contextInfo={this.props.contextInfo}
             depositConfigHandler={this.props.depositConfigHandler}
             libraryVocabulariesHandler={this.props.libraryVocabulariesHandler}
           />
@@ -106,41 +103,22 @@ export class KnowledgePackageDepositApp extends Component {
     this.stepNames = ["general", "publications", "data", "software", "others"];
   }
 
-  next = () => {
+  stepHandler = (step) => {
     this.setState((prevState) => {
       return {
         ...prevState,
-        step: prevState.step + 1,
-        stepName: this.stepNames[prevState.step],
-      };
-    });
-  };
-
-  previous = () => {
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        step: prevState.step - 1,
-        stepName: this.stepNames[prevState.step - 2],
+        step: step,
+        stepName: this.stepNames[step - 1],
       };
     });
   };
 
   render() {
     const { step, stepName } = this.state;
-    const stepHandler = {
-      next: this.next,
-      previous: this.previous,
-    };
-
-    const contextInfo = {
-      // preparing the context props
-      step: step,
-      stepHandler: stepHandler,
-      sidebarMenuRef: this.sidebarMenuRef,
-    };
 
     let isKnowledgePackage = false;
+    let isRecordPublished =
+      this.depositConfigHandler.props.record.is_published === true;
     let resourceType =
       this.depositConfigHandler.props.record.metadata.resource_type;
 
@@ -155,10 +133,15 @@ export class KnowledgePackageDepositApp extends Component {
         <GlobalDndContext>
           <Provider store={geoGlobalStore} context={geoGlobalContext}>
             <Container style={{ marginTop: "10px" }}>
-              <DepositStep stepName={stepName} context={this.sidebarRef} />
+              <DepositStep
+                stepName={stepName}
+                stepHandler={this.stepHandler}
+                isRecordPublished={isRecordPublished}
+              />
               <KnowledgePackageDepositSteps
                 step={step}
-                contextInfo={contextInfo}
+                isRecordPublished={isRecordPublished}
+                sidebarMenuRef={this.sidebarMenuRef}
                 depositConfigHandler={this.depositConfigHandler}
                 libraryVocabulariesHandler={this.libraryVocabulariesHandler}
               />
@@ -170,7 +153,7 @@ export class KnowledgePackageDepositApp extends Component {
       return (
         <Provider store={geoGlobalStore} context={geoGlobalContext}>
           <KnowledgeResourceForm
-            contextInfo={contextInfo}
+            sidebarMenuRef={this.sidebarMenuRef}
             depositConfigHandler={this.depositConfigHandler}
             libraryVocabulariesHandler={this.libraryVocabulariesHandler}
           ></KnowledgeResourceForm>

@@ -9,7 +9,8 @@
 
   </div>
 
-  {%- if current_user.is_authenticated and is_knowledge_provider %}
+  <!-- ToDo: Enable when the package creation rules are enabled. -->
+  <!-- {%- if current_user.is_authenticated and is_knowledge_provider %}
     <a class="ui primary button" href="/uploads/{{ record.id }}" >
     {%- if record.metadata.resource_type.id in [ "knowledge" ] %}
       Add your first resource
@@ -17,5 +18,5 @@
       Add your first association
     {% endif %}
     </a>
-  {% endif %}
+  {% endif %} -->
 </div>

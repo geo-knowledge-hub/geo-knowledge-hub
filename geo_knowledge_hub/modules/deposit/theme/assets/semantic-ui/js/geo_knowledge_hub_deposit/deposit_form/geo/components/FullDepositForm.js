@@ -402,12 +402,9 @@ export class FullDepositForm extends BaseDepositForm {
                     <br />
                   </AccordionField>
                 </Grid.Column>
-                <Ref innerRef={this.props.contextInfo.sidebarMenuRef}>
+                <Ref innerRef={this.props.sidebarMenuRef}>
                   <Grid.Column width={5} className="deposit-sidebar">
-                    <Sticky
-                      context={this.props.contextInfo.sidebarMenuRef}
-                      offset={20}
-                    >
+                    <Sticky context={this.props.sidebarMenuRef} offset={20}>
                       {!this.isResourcePackage && this.props.isRecordPublished && (
                         <Card className="actions">
                           <Card.Content>
@@ -443,15 +440,6 @@ export class FullDepositForm extends BaseDepositForm {
               </Grid.Row>
             </Grid>
           </Segment>
-
-          {!this.isResourcePackage && (
-            <Segment vertical align="center">
-              <DepositFormStepButton
-                next={this.props.contextInfo.stepHandler.next}
-                isNextActivated={this.props.isRecordPublished}
-              />
-            </Segment>
-          )}
         </Container>
       </GeoDepositFormApp>
     );

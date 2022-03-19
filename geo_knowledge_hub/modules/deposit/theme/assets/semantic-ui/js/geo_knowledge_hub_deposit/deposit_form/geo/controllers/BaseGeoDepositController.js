@@ -1,31 +1,27 @@
-import React from 'react';
+import React from "react";
 
-import _isEmpty from 'lodash/isEmpty';
+import _isEmpty from "lodash/isEmpty";
 
-import {
-  DepositController
-} from "react-invenio-deposit";
+import { DepositController } from "react-invenio-deposit";
 
-import axios from 'axios';
+import axios from "axios";
 
 import {
   ACTION_CREATE_SUCCEEDED,
   ACTION_DELETE_FAILED,
   ACTION_PUBLISH_FAILED,
-  ACTION_PUBLISH_SUCCEEDED
-} from '../state/types';
+  ACTION_PUBLISH_SUCCEEDED,
+} from "../state/types";
 
 const CancelToken = axios.CancelToken;
 const apiConfig = {
   withCredentials: true,
-  xsrfCookieName: 'csrftoken',
-  xsrfHeaderName: 'X-CSRFToken',
+  xsrfCookieName: "csrftoken",
+  xsrfHeaderName: "X-CSRFToken",
 };
 const axiosWithconfig = axios.create(apiConfig);
 
-
 export class BaseGeoDepositController extends DepositController {
-
   constructor(apiClient, fileUploader) {
     super(apiClient, fileUploader);
   }
@@ -35,7 +31,8 @@ export class BaseGeoDepositController extends DepositController {
     return response;
   }
 
-  async createDraft(draft, {store}) {
+  async createDraft(draft, { store }) {
+    draft.pids = {};
     const recordSerializer = store.config.recordSerializer;
     const payload = recordSerializer.serialize(draft);
 
@@ -44,7 +41,7 @@ export class BaseGeoDepositController extends DepositController {
     // TODO: Deal with case when create fails using formik.setErrors(errors);
     store.dispatch({
       type: ACTION_CREATE_SUCCEEDED,
-      payload: {data: recordSerializer.deserialize(response.data)},
+      payload: { data: recordSerializer.deserialize(response.data) },
     });
 
     return response;
@@ -58,7 +55,7 @@ export class BaseGeoDepositController extends DepositController {
    *
    * @param {object} draft - current draft
    */
-  async deleteDraft(draft, {formik, store}) {
+  async deleteDraft(draft, { formik, store }) {
     if (draft.id) {
       const response = await this.apiClient.delete(draft);
       if (!(200 <= response.code && response.code < 300)) {
@@ -78,13 +75,13 @@ export class BaseGeoDepositController extends DepositController {
    * @param {object} formik - the Formik object
    * @param {object} store - redux store
    */
-  async publishDraft(draft, {formik, store}) {
+  async publishDraft(draft, { formik, store }) {
     const recordSerializer = store.config.recordSerializer;
     let response = {};
 
     if (!this.draftAlreadyCreated(draft)) {
-      response = await this.createDraft(draft, {store});
-    } 
+      response = await this.createDraft(draft, { store });
+    }
 
     let payload = recordSerializer.serialize(draft);
 
@@ -94,21 +91,21 @@ export class BaseGeoDepositController extends DepositController {
 
     // response 100% successful
     if (200 <= response.code && response.code < 300 && _isEmpty(errors)) {
-        store.dispatch({
-            type: ACTION_PUBLISH_SUCCEEDED,
-            payload: {data},
-        });
+      store.dispatch({
+        type: ACTION_PUBLISH_SUCCEEDED,
+        payload: { data },
+      });
     }
     // "succeed or not, there is no partial"
     else {
       store.dispatch({
         type: ACTION_PUBLISH_FAILED,
-        payload: {data, errors},
+        payload: { data, errors },
       });
       formik.setErrors(errors);
     }
 
     formik.setSubmitting(false);
-    return { errors: errors, data: data};
+    return { errors: errors, data: data };
   }
 }
