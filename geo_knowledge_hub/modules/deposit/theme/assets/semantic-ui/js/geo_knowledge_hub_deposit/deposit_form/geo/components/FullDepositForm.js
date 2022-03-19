@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 
 import _get from "lodash/get";
-import _compact from "lodash/compact";
 import _isNil from "lodash/isNil";
+import _compact from "lodash/compact";
 import _isEmpty from "lodash/isEmpty";
 import { AccordionField } from "react-invenio-forms";
 

@@ -9,8 +9,8 @@
 #}
 
 {% if record.metadata.subjects %}
-<section id="keywords-and-subjects" aria-label="{{ _('Keywords and subjects') }}" class="ui segment rdm-sidebar">
-  <h2 class="ui small header">{{ _('Target audience, Keywords and subjects') }}</h2>
-  {%- include "geo_knowledge_hub/records/details/subjects.html" %}
-</section>
+  <section id="keywords-and-subjects" aria-label="{{ _('Target audience, Keywords and subjects') }}" class="ui segment rdm-sidebar">
+    <h2 class="ui small header">{{ _('Target audience, Keywords and subjects') }}</h2>
+    {%- include "geo_knowledge_hub/records/details/subjects.html" %}
+  </section>
 {% endif %}

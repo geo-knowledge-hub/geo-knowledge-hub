@@ -236,7 +236,7 @@
             {%- endblock record_files -%}
 
             {# Knowledge Elements #}
-            {% block record_knowledge_elements %}
+            {%- block record_knowledge_elements -%}
               {% if record.metadata.resource_type.id in [ "knowledge" ] %}
                 {%- set knowledge_elements_title = _("Elements of the Knowledge Package") -%}
               {% else %}

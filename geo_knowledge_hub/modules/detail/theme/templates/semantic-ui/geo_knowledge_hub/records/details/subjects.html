@@ -10,7 +10,6 @@
   {%- set subjects = record.metadata.subjects -%}
   
   {% if subjects %}
-
     {# Target Users: temporary approach, in the future, this will be stored in an appropriated field. #}
     {%- for scheme, subjects in subjects|selectattr("scheme")|groupby('scheme')|sort(attribute='scheme') %}
         {% if scheme == "TU" %}
@@ -56,7 +55,6 @@
     <dl class="details-list subjects" aria-label="{{ _('Keywords') }}">
       <dt class="hidden">{{ _('Keywords') }}</dt>
       {%- for subject in keywords %}
-
         {% if "subject" in subject %}
           <dd>
             <a href='/search?q=metadata.subjects.subject:"{{ subject.subject }}"'
@@ -72,4 +70,3 @@
     </dl>
     {% endif %}
   {% endif %}
-  
