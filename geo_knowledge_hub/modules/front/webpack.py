@@ -6,7 +6,6 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-
 from invenio_assets.webpack import WebpackThemeBundle
 
 theme = WebpackThemeBundle(
@@ -20,7 +19,9 @@ theme = WebpackThemeBundle(
                 "geo-knowledge-hub-front-carousel-theme": "./less/geo_knowledge_hub_front/front/theme.less",
                 "geo-knowledge-hub-front-overview-theme": "./less/geo_knowledge_hub_front/overview/theme.less",
             },
-            dependencies={"react-glider": "^3.0.1"},
+            dependencies={
+                "react-glider": "^3.0.1"
+            },
         )
     },
 )

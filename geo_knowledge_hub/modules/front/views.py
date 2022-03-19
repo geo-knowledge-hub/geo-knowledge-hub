@@ -23,15 +23,20 @@ def frontpage():
         get_engagement_priority_topics_available().to_dict()
     )
 
+    # selecting only items with icons available
     py_.set(
         engagement_priority_topics_available,
         "hits.hits",
-        py_.map(
-            py_.get(engagement_priority_topics_available, "hits.hits", []),
-            lambda x: py_.set_(
-                x, "props.icon", url_for("static", filename=x["props"]["icon"])
-            ),
-        ),
+        (
+            py_.chain(engagement_priority_topics_available)
+            .get("hits.hits", [])
+            .filter(lambda x: py_.get(x, "props.icon") is not None)
+            .map(
+                lambda x: py_.set_(
+                    x, "props.icon", url_for("static", filename=x["props"]["icon"])
+                )
+            )
+        ).value(),
     )
 
     # rendering!

@@ -42,8 +42,8 @@ ReactDOM.render(
       slidesToShow: 5,
       slidesToScroll: 3,
       duration: 1.2,
-      iconLeft: "«",
-      iconRight: "»",
+      iconLeft: " ",
+      iconRight: " ",
     }}
   />,
   document.getElementById("front-engagements")
