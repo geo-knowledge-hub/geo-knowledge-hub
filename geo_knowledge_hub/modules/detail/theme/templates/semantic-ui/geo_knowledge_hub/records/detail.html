@@ -255,6 +255,13 @@
               </section>
             {%- endblock record_details -%}
 
+            {# Questions and Answers #}
+            {%- block quetions_and_answers -%}
+              <section id="questions-and-anwers" class="section-spacing" aria-label="{{ _('Questions and Answers') }}">
+                {%- include "geo_knowledge_hub/records/details/qa.html" %}
+              </section>
+            {%- endblock quetions_and_answers -%}
+
             {# Record footer #}
             {%- block record_footer -%}
             {%- endblock record_footer -%}
@@ -332,4 +339,42 @@
 
 <!-- Geospatial metadata visualizer -->
 {{ webpack['geo-knowledge-hub-landing-geospatial-metadata-visualizer.js'] }}
+
+<script>
+  // FIXME: Temporary solution
+  // in future, "isso comment engine" will be directly integrated with Invenio App RDM
+  let placeholders = [
+    {
+      "name": "Name",
+      "value": "{{ current_user_profile.name }}"
+    },
+    {
+      "name": "E-mail",
+      "value": "{{ current_user_profile.email }}"
+    },
+    {
+      "name": "Website (optional)",
+      "value": "{{ record.links.latest_html }}"
+    }
+  ];
+
+  let placeholderProcessor = function (placeholder) {
+    let el = $(`*[placeholder="${placeholder.name}"]`);
+
+    // hides elements
+    el.hide()
+
+    // set value
+    el[0].value = placeholder.value
+  };
+
+  window.addEventListener('load', function () {
+    // get elements
+    placeholders.forEach(placeholderProcessor);
+
+    $("#isso-thread").click(function (x) {
+      placeholders.forEach(placeholderProcessor);
+    })
+  });
+</script>
 {%- endblock javascript %}
