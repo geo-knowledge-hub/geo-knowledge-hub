@@ -204,6 +204,19 @@
               {% endif %}
             {%- endblock knowledge_applications -%}
 
+            {# Knowledge Elements #}
+            {%- block record_knowledge_elements -%}
+              {% if record.metadata.resource_type.id in [ "knowledge" ] %}
+                {%- set knowledge_elements_title = _("Elements of the Knowledge Package") -%}
+              {% else %}
+                {%- set knowledge_elements_title = _("This resource is part of the following Knowledge Packages") -%}
+              {% endif %}
+
+              <section id="knowledge-elements" class="section-spacing" aria-label="{{ knowledge_elements_title }}">
+                {%- include "geo_knowledge_hub/records/details/elements.html" %}
+              </section>
+            {%- endblock record_knowledge_elements -%}
+
             {# Files #}
             {%- block record_files -%}
               {%- if record.files.enabled -%}
@@ -243,19 +256,6 @@
                 </section>
               {%- endif %}
             {%- endblock record_files -%}
-
-            {# Knowledge Elements #}
-            {%- block record_knowledge_elements -%}
-              {% if record.metadata.resource_type.id in [ "knowledge" ] %}
-                {%- set knowledge_elements_title = _("Elements of the Knowledge Package") -%}
-              {% else %}
-                {%- set knowledge_elements_title = _("This resource is part of the following Knowledge Packages") -%}
-              {% endif %}
-
-              <section id="knowledge-elements" class="section-spacing" aria-label="{{ knowledge_elements_title }}">
-                {%- include "geo_knowledge_hub/records/details/elements.html" %}
-              </section>
-            {%- endblock record_knowledge_elements -%}
 
             {# Additional details #}
             {%- block record_details -%}
