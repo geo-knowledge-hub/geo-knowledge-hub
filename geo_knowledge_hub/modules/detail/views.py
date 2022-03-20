@@ -72,7 +72,7 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
     record_subjects = (
         py_.chain(record_ui)
         .get("metadata.subjects")
-        .filter(lambda x: x.get("scheme") not in engagement_priorities_scheme)
+        .filter(lambda x: x.get("scheme") != "EP")
     ).value()
 
     record_ui = py_.set(record_ui, "metadata.subjects", record_subjects)
