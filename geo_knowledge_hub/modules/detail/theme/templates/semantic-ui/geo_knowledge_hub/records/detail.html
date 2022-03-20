@@ -195,6 +195,15 @@
               {%- include "invenio_app_rdm/records/details/description.html" %}
             {%- endblock record_content -%}
 
+            {# Knowledge Applications (Draft version) #}
+            {%- block knowledge_applications -%}
+              {% if related_applications %}
+                <section id="user-stories" aria-label="{{ _('Applications') }}">
+                  {%- include "geo_knowledge_hub/records/details/knowledge_applications.html" %}
+                </section>
+              {% endif %}
+            {%- endblock knowledge_applications -%}
+
             {# Files #}
             {%- block record_files -%}
               {%- if record.files.enabled -%}

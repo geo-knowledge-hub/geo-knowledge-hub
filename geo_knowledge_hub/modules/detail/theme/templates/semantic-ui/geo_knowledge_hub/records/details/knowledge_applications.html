@@ -1,0 +1,27 @@
+{#
+    Copyright (C) 2021-2022 GEO Secretariat.
+  
+    geo-knowledge-hub is free software; you can redistribute it and/or modify
+    it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{% if related_applications %}
+
+<input 
+    id="record-applications" 
+    type="hidden" 
+    name="record-applications" 
+    value='{{related_applications | tojson }}'>
+</input>
+
+<h2 id="record-details-heading">{{ _('Applications') }}</h2>
+
+<div class="ui container">
+    <div class="ui padded relaxed centered grid">
+        <div class="column">
+            <div id="section-record-applications"></div>
+        </div>
+    </div>
+</div>
+
+{% endif %}
