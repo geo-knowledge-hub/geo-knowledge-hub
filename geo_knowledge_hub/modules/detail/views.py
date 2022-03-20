@@ -31,7 +31,7 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
     files_data = None if files is None else files.to_dict()
 
     record_data = record.to_dict()
-    record_ui = UIJSONSerializer().serialize_object_to_dict(record.to_dict())
+    record_ui = UIJSONSerializer().serialize_object_to_dict(record_data)
 
     # General record properties
     record_is_draft = record_ui.get("is_draft")
@@ -43,7 +43,7 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
 
     related_records_informations, related_applications = py_.partition(
         all_related_records_informations,
-        lambda x: py_.get(x, "ui.resource_type.id") != "knowledge-application",
+        lambda x: py_.get(x, "ui.resource_type.id") != "application-knowledge",
     )
 
     # Identifiers
