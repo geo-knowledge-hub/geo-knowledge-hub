@@ -49,16 +49,14 @@ export class RelatedResourceField extends Component {
           }
           required={required}
         >
-          {({ array, arrayHelpers, indexPath, key }) => {
-            // removing from the interface, all knowledge packages in this component
-            if (array[indexPath].resource_type === "knowledge")
-              return <div></div>;
+          {({ arrayHelpers, indexPath }) => {
+            const fieldPathPrefix = `${fieldPath}.${indexPath}`;
 
             return (
               <GroupField optimized>
                 <SelectField
                   clearable
-                  fieldPath={`${key}.relation_type`}
+                  fieldPath={`${fieldPathPrefix}.relation_type`}
                   label={i18next.t("Relation")}
                   optimized
                   options={options.relations}
@@ -66,25 +64,27 @@ export class RelatedResourceField extends Component {
                   required
                   width={3}
                 />
+
+                <TextField
+                  fieldPath={`${fieldPathPrefix}.identifier`}
+                  label={i18next.t("Identifier")}
+                  required
+                  width={4}
+                />
+
                 <SelectField
                   clearable
-                  fieldPath={`${key}.scheme`}
+                  fieldPath={`${fieldPathPrefix}.scheme`}
                   label={i18next.t("Scheme")}
                   optimized
                   options={options.scheme}
                   required
                   width={2}
                 />
-                <TextField
-                  fieldPath={`${key}.identifier`}
-                  label={i18next.t("Identifier")}
-                  required
-                  width={4}
-                />
 
                 <ResourceTypeField
                   clearable
-                  fieldPath={`${key}.resource_type`}
+                  fieldPath={`${fieldPathPrefix}.resource_type`}
                   labelIcon={""} // Otherwise breaks alignment
                   options={options.resource_type}
                   width={6}

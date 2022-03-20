@@ -34,7 +34,6 @@ export class KnowledgePackageDepositController extends BaseGeoDepositController 
   }
 
   async createDraft(draft, { store }) {
-    draft.pids = {};
     const response = await super.createDraft(draft, { store });
 
     const draftURL = response.data.links.self_html;
