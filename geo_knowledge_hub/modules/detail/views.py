@@ -41,9 +41,9 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
         record_data.get("metadata")
     )
 
-    related_records_informations, related_applications = py_.partition(
+    related_records_informations, user_stories = py_.partition(
         all_related_records_informations,
-        lambda x: py_.get(x, "ui.resource_type.id") != "application-knowledge",
+        lambda x: py_.get(x, "ui.resource_type.id") != "user-story",
     )
 
     # Identifiers
@@ -85,7 +85,7 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
         is_draft=record_is_draft,
         is_preview=is_preview,
         related_identifiers=related_identifiers,
-        related_applications=related_applications,
+        user_stories=user_stories,
         related_records_informations=related_records_informations,
         related_engagement_priorities=related_engagement_priorities,
         permissions=record.has_permissions_to(

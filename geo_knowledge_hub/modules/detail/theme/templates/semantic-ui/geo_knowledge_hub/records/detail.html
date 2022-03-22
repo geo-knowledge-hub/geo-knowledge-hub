@@ -195,14 +195,14 @@
               {%- include "invenio_app_rdm/records/details/description.html" %}
             {%- endblock record_content -%}
 
-            {# Knowledge Applications (Draft version) #}
-            {%- block knowledge_applications -%}
-              {% if related_applications %}
-                <section id="user-stories" aria-label="{{ _('Applications') }}">
-                  {%- include "geo_knowledge_hub/records/details/knowledge_applications.html" %}
+            {# User Stories (Draft version) #}
+            {%- block user_stories -%}
+              {% if user_stories %}
+                <section id="user-stories" aria-label="{{ _('User Stories') }}">
+                  {%- include "geo_knowledge_hub/records/details/user-stories.html" %}
                 </section>
               {% endif %}
-            {%- endblock knowledge_applications -%}
+            {%- endblock user_stories -%}
 
             {# Knowledge Elements #}
             {%- block record_knowledge_elements -%}
@@ -349,8 +349,8 @@
 <!-- Geospatial metadata visualizer -->
 {{ webpack['geo-knowledge-hub-landing-geospatial-metadata-visualizer.js'] }}
 
-<!-- Related applications -->
-{{ webpack['geo-knowledge-hub-landing-related-application.js'] }}
+<!-- User Stories -->
+{{ webpack['geo-knowledge-hub-landing-user-stories.js'] }}
 
 <script>
   // FIXME: Temporary solution

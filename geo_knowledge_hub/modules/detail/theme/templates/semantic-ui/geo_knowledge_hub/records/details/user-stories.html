@@ -5,21 +5,21 @@
     it under the terms of the MIT License; see LICENSE file for more details.
 #}
 
-{% if related_applications %}
+{% if user_stories %}
 
 <input 
-    id="record-applications" 
+    id="user-stories" 
     type="hidden" 
-    name="record-applications" 
-    value='{{related_applications | tojson }}'>
+    name="user-stories" 
+    value='{{user_stories | tojson }}'>
 </input>
 
-<h2 id="record-details-heading">{{ _('Applications') }}</h2>
+<h2 id="record-details-heading">{{ _('User Stories') }}</h2>
 
 <div class="ui container">
     <div class="ui padded relaxed centered grid">
         <div class="column">
-            <div id="section-record-applications"></div>
+            <div id="section-user-stories"></div>
         </div>
     </div>
 </div>

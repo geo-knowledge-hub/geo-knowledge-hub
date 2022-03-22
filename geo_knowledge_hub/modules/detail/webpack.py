@@ -15,8 +15,8 @@ theme = WebpackThemeBundle(
     themes={
         "semantic-ui": dict(
             entry={
-                # Related application
-                "geo-knowledge-hub-landing-related-application": "./js/geo_knowledge_hub_detail/related_applications/index.js",
+                # User Stories
+                "geo-knowledge-hub-landing-user-stories": "./js/geo_knowledge_hub_detail/user_stories/index.js",
                 # Engagement carousel
                 "geo-knowledge-hub-landing-engagements-carousel": "./js/geo_knowledge_hub_detail/engagements_carousel_sidebar/index.js",
                 "geo-knowledge-hub-landing-engagements-carousel-theme": "./less/geo_knowledge_hub_detail/engagements_carousel_sidebar/theme.less",

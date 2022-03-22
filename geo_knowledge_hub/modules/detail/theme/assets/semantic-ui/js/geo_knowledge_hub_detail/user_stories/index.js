@@ -10,26 +10,27 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { getInputFromDOM } from "react-invenio-deposit";
 
-import { RelatedApplicationCarousel } from "geo-labels-react";
+import { UserStoriesCarousel } from "geo-labels-react";
 
 // Extracting the engagement values
-const relatedApplications = getInputFromDOM("record-applications") || [];
+const userStories = getInputFromDOM("user-stories") || [];
 
 // Rendering!
 ReactDOM.render(
-  <RelatedApplicationCarousel
-    relatedApplications={relatedApplications}
+  <UserStoriesCarousel
+    userStories={userStories}
     carouselProps={{
       naturalSlideWidth: 2,
       naturalSlideHeight: 1.5,
-      totalSlides: relatedApplications.length,
+      totalSlides: userStories.length,
       visibleSlides: 3,
-      isPlaying: true,
+      isPlaying: userStories.length > 3,
       interval: 5000, // ms
       isIntrinsicHeight: true,
+      infinite: true,
     }}
     cardGroupProps={{
-      slides: relatedApplications.length,
+      slides: userStories.length,
     }}
     cardCarouselProps={{
       raised: true,
@@ -37,11 +38,10 @@ ReactDOM.render(
       centered: true,
       fluid: false,
       style: {
-        // Initial test style
         width: "300px",
         height: "150px",
       },
     }}
   />,
-  document.getElementById("section-record-applications")
+  document.getElementById("section-user-stories")
 );
