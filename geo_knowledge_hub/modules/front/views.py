@@ -19,9 +19,9 @@ def frontpage():
 
     # retrieving the required values
     latest_records = get_latest_knowledge_packages(3)
-    engagement_priority_topics_available = (
-        get_engagement_priority_topics_available().to_dict()
-    )
+    engagement_priority_topics_available = get_engagement_priority_topics_available(
+        params={"q": "props.icon:labels*", "size": 25}
+    ).to_dict()
 
     # selecting only items with icons available
     py_.set(
