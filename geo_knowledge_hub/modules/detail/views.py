@@ -31,14 +31,19 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
     files_data = None if files is None else files.to_dict()
 
     record_data = record.to_dict()
-    record_ui = UIJSONSerializer().serialize_object_to_dict(record.to_dict())
+    record_ui = UIJSONSerializer().serialize_object_to_dict(record_data)
 
     # General record properties
     record_is_draft = record_ui.get("is_draft")
 
     # Related records
-    related_records_informations = get_related_resources_metadata(
+    all_related_records_informations = get_related_resources_metadata(
         record_data.get("metadata")
+    )
+
+    related_records_informations, user_stories = py_.partition(
+        all_related_records_informations,
+        lambda x: py_.get(x, "ui.resource_type.id") != "user-story",
     )
 
     # Identifiers
@@ -51,7 +56,7 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
         related_identifiers,
         lambda x: x["identifier"].split("/")[-1]
         not in py_.map(
-            related_records_informations,
+            all_related_records_informations,
             lambda y: y["id"],
         ),
     )
@@ -80,6 +85,7 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
         is_draft=record_is_draft,
         is_preview=is_preview,
         related_identifiers=related_identifiers,
+        user_stories=user_stories,
         related_records_informations=related_records_informations,
         related_engagement_priorities=related_engagement_priorities,
         permissions=record.has_permissions_to(

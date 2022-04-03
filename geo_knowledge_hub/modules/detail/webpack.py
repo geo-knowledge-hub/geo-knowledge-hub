@@ -15,6 +15,8 @@ theme = WebpackThemeBundle(
     themes={
         "semantic-ui": dict(
             entry={
+                # User Stories
+                "geo-knowledge-hub-landing-user-stories": "./js/geo_knowledge_hub_detail/user_stories/index.js",
                 # Engagement carousel
                 "geo-knowledge-hub-landing-engagements-carousel": "./js/geo_knowledge_hub_detail/engagements_carousel_sidebar/index.js",
                 "geo-knowledge-hub-landing-engagements-carousel-theme": "./less/geo_knowledge_hub_detail/engagements_carousel_sidebar/theme.less",
@@ -29,6 +31,7 @@ theme = WebpackThemeBundle(
                 "leaflet": "^1.7.1",
                 "react-leaflet": "3.1.0",
                 "@react-leaflet/core": "1.0.2",
+                "pure-react-carousel": "^1.28.1",
             },
         )
     },

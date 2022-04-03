@@ -195,6 +195,28 @@
               {%- include "invenio_app_rdm/records/details/description.html" %}
             {%- endblock record_content -%}
 
+            {# User Stories (Draft version) #}
+            {%- block user_stories -%}
+              {% if user_stories %}
+                <section id="user-stories" aria-label="{{ _('User Stories') }}">
+                  {%- include "geo_knowledge_hub/records/details/user-stories.html" %}
+                </section>
+              {% endif %}
+            {%- endblock user_stories -%}
+
+            {# Knowledge Elements #}
+            {%- block record_knowledge_elements -%}
+              {% if record.metadata.resource_type.id in [ "knowledge" ] %}
+                {%- set knowledge_elements_title = _("Elements of the Knowledge Package") -%}
+              {% else %}
+                {%- set knowledge_elements_title = _("This resource is part of the following Knowledge Packages") -%}
+              {% endif %}
+
+              <section id="knowledge-elements" class="section-spacing" aria-label="{{ knowledge_elements_title }}">
+                {%- include "geo_knowledge_hub/records/details/elements.html" %}
+              </section>
+            {%- endblock record_knowledge_elements -%}
+
             {# Files #}
             {%- block record_files -%}
               {%- if record.files.enabled -%}
@@ -234,19 +256,6 @@
                 </section>
               {%- endif %}
             {%- endblock record_files -%}
-
-            {# Knowledge Elements #}
-            {%- block record_knowledge_elements -%}
-              {% if record.metadata.resource_type.id in [ "knowledge" ] %}
-                {%- set knowledge_elements_title = _("Elements of the Knowledge Package") -%}
-              {% else %}
-                {%- set knowledge_elements_title = _("This resource is part of the following Knowledge Packages") -%}
-              {% endif %}
-
-              <section id="knowledge-elements" class="section-spacing" aria-label="{{ knowledge_elements_title }}">
-                {%- include "geo_knowledge_hub/records/details/elements.html" %}
-              </section>
-            {%- endblock record_knowledge_elements -%}
 
             {# Additional details #}
             {%- block record_details -%}
@@ -339,6 +348,9 @@
 
 <!-- Geospatial metadata visualizer -->
 {{ webpack['geo-knowledge-hub-landing-geospatial-metadata-visualizer.js'] }}
+
+<!-- User Stories -->
+{{ webpack['geo-knowledge-hub-landing-user-stories.js'] }}
 
 <script>
   // FIXME: Temporary solution
