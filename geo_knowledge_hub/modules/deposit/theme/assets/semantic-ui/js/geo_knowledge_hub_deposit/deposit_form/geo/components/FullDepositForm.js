@@ -23,6 +23,7 @@ import {
   FileUploader,
   DepositFormTitle,
   FormFeedback,
+  SubjectsField,
 } from "react-invenio-deposit";
 
 import {
@@ -36,10 +37,10 @@ import {
 } from "semantic-ui-react";
 
 import {
-  SubjectsField,
   TargetAudienceField,
-  EngagementPrioritiesField,
-} from "geo-labels-react";
+  EngagementPriorityField,
+  WorkProgrammeActivityField,
+} from "geo-deposit-react";
 
 import { BaseDepositForm } from "./BaseDepositForm";
 import { GeoDepositFormApp } from "../GeoDepositFormApp";
@@ -204,6 +205,16 @@ export class FullDepositForm extends BaseDepositForm {
                       }}
                     />
 
+                    <WorkProgrammeActivityField
+                      required
+                      initialSuggestions={
+                        _compact([
+                          _get(
+                            this.depositConfigHandler.props.record, "ui.geo_work_programme_activity", null
+                          )
+                        ]) || null
+                      }
+                    />
                     <ResourceTypeField
                       options={this.vocabularyResourceTypes}
                       required
@@ -211,20 +222,9 @@ export class FullDepositForm extends BaseDepositForm {
 
                     <Segment vertical>
                       <SubjectsField
-                        initialValues={_compact(
-                          _get(
-                            this.depositConfigHandler.props.record,
-                            "metadata.subjects",
-                            []
-                          )
-                        )}
+                        initialOptions={_get(this.depositConfigHandler.props.record, "ui.subjects", null)}
                         limitToOptions={
-                          // Temporary solution:
-                          //    In the future, these values will be retrieved
-                          //    from the backend.
-                          // this.libraryVocabulariesHandler.vocabularies.metadata
-                          // .subjects.limit_to
-                          [{ text: "FOS", value: "FOS" }]
+                          this.libraryVocabulariesHandler.vocabularies.metadata.subjects.limit_to
                         }
                       />
 
@@ -232,33 +232,19 @@ export class FullDepositForm extends BaseDepositForm {
                         <Grid columns={2} divided>
                           <Grid.Row>
                             <Grid.Column>
-                              <EngagementPrioritiesField
-                                subjectProps={{
-                                  scheme: "EP",
-                                  fieldPath: "metadata.subjects",
-                                  initialValues: _compact(
-                                    _get(
-                                      this.depositConfigHandler.props.record,
-                                      "metadata.subjects",
-                                      []
-                                    )
-                                  ),
-                                }}
+                              <EngagementPriorityField
+                                required
+                                initialSuggestions={_get(
+                                  this.depositConfigHandler.props.record, "ui.engagement_priorities", null
+                                )}
                               />
                             </Grid.Column>
                             <Grid.Column>
                               <TargetAudienceField
-                                subjectProps={{
-                                  scheme: "TU",
-                                  fieldPath: "metadata.subjects",
-                                  initialValues: _compact(
-                                    _get(
-                                      this.depositConfigHandler.props.record,
-                                      "metadata.subjects",
-                                      []
-                                    )
-                                  ),
-                                }}
+                                required
+                                initialSuggestions={_get(
+                                  this.depositConfigHandler.props.record, "ui.target_audiences", null
+                                )}
                               />
                             </Grid.Column>
                           </Grid.Row>
