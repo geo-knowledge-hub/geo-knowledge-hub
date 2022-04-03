@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {getInputFromDOM} from "react-invenio-deposit";
+import { getInputFromDOM } from "react-invenio-deposit";
 
-import {KnowledgePackageDepositApp} from './KnowledgePackageDepositApp'
+import { KnowledgePackageDepositApp } from "./KnowledgePackageDepositApp";
 
 ReactDOM.render(
   <KnowledgePackageDepositApp

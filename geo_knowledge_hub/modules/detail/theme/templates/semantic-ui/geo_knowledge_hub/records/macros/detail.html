@@ -1,0 +1,34 @@
+{#
+  Copyright (C) 2020 CERN.
+
+  Invenio RDM Records is free software; you can redistribute it and/or modify
+  it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{% macro _identifiers_for_group(related_identifiers) %}
+  {% for identifier in related_identifiers %}
+    <dd>
+      {% if identifier.resource_type is defined %}
+        {{ identifier.resource_type.title.en }}:
+      {% endif %}
+
+      {% set url = identifier.identifier|pid_url %}
+      {% if url %}
+        <a href="{{ url }}" target="_blank" title="{{ _('Opens in new tab') }}">
+          {{ identifier.identifier }}
+        </a>
+      {% else %}
+        {{ identifier.identifier }}
+      {% endif %}
+
+      {{ ' (' + identifier.scheme | get_scheme_label + ')' }}
+    </dd>
+  {% endfor %}
+{% endmacro %}
+
+{% macro show_related_identifiers(related_identifiers) %}
+  {%- for group in related_identifiers | groupby('relation_type.title.en')%}
+  <dt class="ui tiny header">{{ group.grouper }}</dt>
+  {{ _identifiers_for_group(group.list) }}
+  {%- endfor %}
+{% endmacro %}

@@ -1,18 +1,17 @@
-
 import _isNil from "lodash/isNil";
-import _isEmpty from 'lodash/isEmpty';
+import _isEmpty from "lodash/isEmpty";
 
 import { BaseGeoDepositController } from "./BaseGeoDepositController";
 
-import { geoGlobalStore } from '../../configStore';
-import { ACTION_CREATE_SUCCEEDED, ACTION_KPACKAGE_RESOURCE_PUBLISH_SUCCEEDED } from '../state/types';
-
+import { geoGlobalStore } from "../../configStore";
+import {
+  ACTION_CREATE_SUCCEEDED,
+  ACTION_KPACKAGE_RESOURCE_PUBLISH_SUCCEEDED,
+} from "../state/types";
 
 export class KnowledgeResourceDepositController extends BaseGeoDepositController {
-
   checkResourceDraftFiles(draft) {
-    if (_isNil(draft.files))
-      return { ...draft, files: { enabled: false } }
+    if (_isNil(draft.files)) return { ...draft, files: { enabled: false } };
     return draft;
   }
 
@@ -22,17 +21,17 @@ export class KnowledgeResourceDepositController extends BaseGeoDepositController
 
     // Adding related identifier to the draft
     payload.metadata.related_identifiers = [
-      ...payload.metadata.related_identifiers || [],
+      ...(payload.metadata.related_identifiers || []),
       {
-        "identifier": knowledgePackageDOI,
-        "relation_type": {
-          "id": "ispartof",
+        identifier: knowledgePackageDOI,
+        relation_type: {
+          id: "ispartof",
         },
-        "resource_type": {
-          "id": "knowledge",
+        resource_type: {
+          id: "knowledge",
         },
-        "scheme": "doi"
-      }
+        scheme: "doi",
+      },
     ];
 
     // checking files
@@ -43,8 +42,7 @@ export class KnowledgeResourceDepositController extends BaseGeoDepositController
 
     if (!super.draftAlreadyCreated(payload))
       response = await this.apiClient.create(payload);
-    else
-      response = await this.apiClient.save(payload);
+    else response = await this.apiClient.save(payload);
 
     // TODO: Deal with case when create fails using formik.setErrors(errors);
     store.dispatch({
@@ -56,12 +54,12 @@ export class KnowledgeResourceDepositController extends BaseGeoDepositController
   }
 
   /**
- * Publishes the current draft (backend).
- *
- * @param {object} draft - current draft
- * @param {object} formik - the Formik object
- * @param {object} store - redux store
- */
+   * Publishes the current draft (backend).
+   *
+   * @param {object} draft - current draft
+   * @param {object} formik - the Formik object
+   * @param {object} store - redux store
+   */
   async publishDraft(draft, { formik, store }) {
     // getting the global store (FixMe: This is no better way to do it. Find a better solution in the future)
     const knowledgePackage = geoGlobalStore.getState().knowledgePackage;
@@ -70,15 +68,22 @@ export class KnowledgeResourceDepositController extends BaseGeoDepositController
     const knowledgePackageDOI = knowledgePackage.pids.doi.identifier;
 
     // creating the knowledge resource draft
-    let response = await this.prepareResourceDraft(draft, knowledgePackageDOI, { store });
+    let response = await this.prepareResourceDraft(draft, knowledgePackageDOI, {
+      store,
+    });
 
     // publishing
-    const publishedDraft = await super.publishDraft(response.data, { formik, store });
+    const publishedDraft = await super.publishDraft(response.data, {
+      formik,
+      store,
+    });
     const publishedDraftData = publishedDraft.data;
 
     if (_isEmpty(publishedDraft.errors)) {
       // if success, then link the record to the knowledge package
-      const knowledgePackageDraft = await this.createDraftFromAPI(knowledgePackage.id);
+      const knowledgePackageDraft = await this.createDraftFromAPI(
+        knowledgePackage.id
+      );
 
       let knowledgePackagePayload = knowledgePackageDraft.data;
       if (!knowledgePackagePayload.metadata.related_identifiers) {
@@ -86,14 +91,17 @@ export class KnowledgeResourceDepositController extends BaseGeoDepositController
       }
 
       // linking the knowledge package with the new resource
-      knowledgePackagePayload.metadata.related_identifiers = [...knowledgePackagePayload.metadata.related_identifiers, {
-        "identifier": publishedDraftData.pids.doi.identifier,
-        "scheme": "doi",
-        "relation_type": {
-          "id": "haspart",
+      knowledgePackagePayload.metadata.related_identifiers = [
+        ...knowledgePackagePayload.metadata.related_identifiers,
+        {
+          identifier: publishedDraftData.pids.doi.identifier,
+          scheme: "doi",
+          relation_type: {
+            id: "haspart",
+          },
+          resource_type: { id: publishedDraftData.metadata.resource_type },
         },
-        "resource_type": { "id": publishedDraftData.metadata.resource_type }
-      }];
+      ];
 
       // sending to the server
       await this.apiClient.save(knowledgePackagePayload);
@@ -104,9 +112,9 @@ export class KnowledgeResourceDepositController extends BaseGeoDepositController
 
       if (_isEmpty(response.errors)) {
         geoGlobalStore.dispatch({
-          type: ACTION_KPACKAGE_RESOURCE_PUBLISH_SUCCEEDED
+          type: ACTION_KPACKAGE_RESOURCE_PUBLISH_SUCCEEDED,
         });
-      };
+      }
     }
     return publishedDraft;
   }

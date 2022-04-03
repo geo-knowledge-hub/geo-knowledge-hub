@@ -6,11 +6,11 @@
 // React-Invenio-Deposit is free software; you can redistribute it and/or modify it
 // under the terms of the MIT License; see LICENSE file for more details.
 
-import React from 'react';
-import { useDrag, useDrop } from 'react-dnd';
-import { Button, List, Ref } from 'semantic-ui-react';
-import _truncate from 'lodash/truncate';
-import { KnowledgePackageSelectorModal } from './KnowledgePackageSelectorModal';
+import React from "react";
+import { useDrag, useDrop } from "react-dnd";
+import { Button, List, Ref } from "semantic-ui-react";
+import _truncate from "lodash/truncate";
+import { KnowledgePackageSelectorModal } from "./KnowledgePackageSelectorModal";
 
 export const KnowledgePackageFieldItem = ({
   compKey,
@@ -29,10 +29,10 @@ export const KnowledgePackageFieldItem = ({
 }) => {
   const dropRef = React.useRef(null);
   const [_, drag, preview] = useDrag({
-    item: { index, type: 'knowledgePackage' },
+    item: { index, type: "knowledgePackage" },
   });
   const [{ hidden }, drop] = useDrop({
-    accept: 'knowledgePackage',
+    accept: "knowledgePackage",
     hover(item, monitor) {
       if (!dropRef.current) {
         return;
@@ -62,7 +62,7 @@ export const KnowledgePackageFieldItem = ({
       <List.Item
         key={compKey}
         className={
-          hidden ? 'deposit-drag-listitem hidden' : 'deposit-drag-listitem'
+          hidden ? "deposit-drag-listitem hidden" : "deposit-drag-listitem"
         }
       >
         <List.Content floated="right">
@@ -75,7 +75,7 @@ export const KnowledgePackageFieldItem = ({
             action="edit"
             trigger={
               <Button size="mini" primary type="button">
-                {'Edit'}
+                {"Edit"}
               </Button>
             }
             serializeKnowledgePackage={serializeKnowledgePackage}
@@ -89,7 +89,7 @@ export const KnowledgePackageFieldItem = ({
               removeKnowledgePackage(index);
             }}
           >
-            {'Remove'}
+            {"Remove"}
           </Button>
         </List.Content>
         <Ref innerRef={drag}>
@@ -98,16 +98,10 @@ export const KnowledgePackageFieldItem = ({
         <Ref innerRef={preview}>
           <List.Content>
             <List.Header>{knowledgePackageTitle}</List.Header>
-            {knowledgePackageDescription && (
-              <List.Description>
-                <div dangerouslySetInnerHTML={{ __html: _truncate(knowledgePackageDescription, { length: 300 }) }} />
-              </List.Description>
-            )}
             {link && (
               <span>
                 <a href={link} target="_blank" rel="noopener noreferrer">
-                  {knowledgePackageDescription && <span>&nbsp;</span>}
-                  {'Read more'}
+                  {"Read more"}
                 </a>
               </span>
             )}

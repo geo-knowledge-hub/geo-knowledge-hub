@@ -20,7 +20,7 @@ const recordEngagements = getInputFromDOM("record-engagements");
 // Sorting the values
 const natsorter = natsort({ insensitive: true });
 
-const recordEngagementSorted = recordEngagements.hits.hits.sort((a, b) =>
+const recordEngagementSorted = recordEngagements.sort((a, b) =>
   natsorter(a.id, b.id)
 );
 

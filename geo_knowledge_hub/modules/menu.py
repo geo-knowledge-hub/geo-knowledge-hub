@@ -18,6 +18,13 @@ def init_bp(app):
     @bp.before_app_first_request
     def init_menu():
         """Initialize menu before first request."""
+        item = current_menu.submenu("overview.check")
+        item.register(
+            "geo_frontpage_bp.overview",
+            _("About"),
+            order=1
+        )
+
         item = current_menu.submenu("plus-menu.deposit-knowledge")
         item.register(
             "invenio_app_rdm_records.deposit_create",

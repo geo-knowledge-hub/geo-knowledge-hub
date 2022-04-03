@@ -5,29 +5,29 @@
 // React-Invenio-Deposit is free software; you can redistribute it and/or modify it
 // under the terms of the MIT License; see LICENSE file for more details.
 
-import React from 'react';
+import React from "react";
 
-import _get from 'lodash/get';
+import _get from "lodash/get";
 import _isNil from "lodash/isNil";
 import _truncate from "lodash/truncate";
 
-import { FastField } from 'formik';
-import { withState } from 'react-searchkit';
-import { Item, Header, Radio, Image } from 'semantic-ui-react';
+import { FastField } from "formik";
+import { withState } from "react-searchkit";
+import { Item, Header, Radio, Image } from "semantic-ui-react";
 
-import { KNOWLEDGE_PACKAGE } from '../../../resources/types';
+import { KNOWLEDGE_PACKAGE } from "../../../resources/types";
 
 export const KnowledgePackageResults = withState(
   ({ currentResultsState: results, serializeKnowledgePackage }) => {
     const serializeKnowledgePackageResult = serializeKnowledgePackage
       ? serializeKnowledgePackage
       : (result) => ({
-        // Fixed knowledge package relation
-        "identifier": result.pids.doi.identifier,
-        "relation_type": "ispartof",
-        "resource_type": "knowledge",
-        "scheme": "doi"
-      });
+          // Fixed knowledge package relation
+          identifier: result.pids.doi.identifier,
+          relation_type: "ispartof",
+          resource_type: "knowledge",
+          scheme: "doi",
+        });
     return (
       <FastField name="selectedKnowledgePackage">
         {({ form: { values, setFieldValue } }) => (
@@ -37,11 +37,18 @@ export const KnowledgePackageResults = withState(
               if (
                 result.is_published !== true ||
                 _isNil(_get(result.metadata.resource_type, "title.en", null)) ||
-                _get(result.metadata.resource_type, "title.en", null) !== KNOWLEDGE_PACKAGE
-              ) return;
+                _get(result.metadata.resource_type, "title.en", null) !==
+                  KNOWLEDGE_PACKAGE
+              )
+                return;
 
-              const title = result["metadata"]['title'];
-              const description = _truncate(result["metadata"]['description'], { length: 315 });
+              const title = result["metadata"]["title"];
+              const description = _truncate(
+                result["ui"]["description_stripped"],
+                {
+                  length: 315,
+                }
+              );
               const identifier = result["pids"]["doi"]["identifier"];
 
               return (
@@ -49,7 +56,7 @@ export const KnowledgePackageResults = withState(
                   key={identifier}
                   onClick={() =>
                     setFieldValue(
-                      'selectedKnowledgePackage',
+                      "selectedKnowledgePackage",
                       serializeKnowledgePackageResult(result)
                     )
                   }
@@ -57,10 +64,13 @@ export const KnowledgePackageResults = withState(
                 >
                   <Image ui={false} className="license-radiobox" centered>
                     <Radio
-                      checked={_get(values, 'selectedKnowledgePackage.identifier') === identifier}
+                      checked={
+                        _get(values, "selectedKnowledgePackage.identifier") ===
+                        identifier
+                      }
                       onChange={() =>
                         setFieldValue(
-                          'selectedKnowledgePackage',
+                          "selectedKnowledgePackage",
                           serializeKnowledgePackageResult(result)
                         )
                       }
@@ -69,7 +79,7 @@ export const KnowledgePackageResults = withState(
                   <Item.Content className="license-item-content">
                     <Header size="small">{title}</Header>
                     <Item.Description className="license-item-description">
-                      <div dangerouslySetInnerHTML={{ __html: description }} />
+                      {description}
                     </Item.Description>
                   </Item.Content>
                 </Item>

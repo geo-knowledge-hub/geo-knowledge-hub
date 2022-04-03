@@ -21,7 +21,7 @@ export class KnowledgePackageFormComponent extends BaseDepositForm {
 
   render() {
     // defining if the next is activated
-    const isRecordPublished = this.depositConfigHandler.props.record.is_published === true;
+    const { isRecordPublished } = this.props;
 
     // defining the knowledge package on the redux store
     const { knowledgePackage, saveKnowledgePackage } = this.props;
@@ -32,20 +32,19 @@ export class KnowledgePackageFormComponent extends BaseDepositForm {
     return (
       <FullDepositForm
         resourceType={KNOWLEDGE_PACKAGE_ID}
-        contextInfo={this.props.contextInfo}
         isRecordPublished={isRecordPublished}
+        sidebarMenuRef={this.props.sidebarMenuRef}
         controller={KnowledgePackageDepositController}
         depositConfigHandler={this.depositConfigHandler}
         libraryVocabulariesHandler={this.libraryVocabulariesHandler}
-      >
-      </FullDepositForm>
-    )
+      ></FullDepositForm>
+    );
   }
-};
+}
 
 // redux store config
 const mapStateToProps = (state) => ({
-  knowledgePackage: state.knowledgePackage
+  knowledgePackage: state.knowledgePackage,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -53,11 +52,14 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch({
       type: ACTION_SAVE_KNOWLEDGE_PACKAGE,
       payload: {
-        knowledgePackage: knowledgePackage
-      }
+        knowledgePackage: knowledgePackage,
+      },
     }),
 });
 
 export const KnowledgePackageForm = connect(
-  mapStateToProps, mapDispatchToProps, null, { context: geoGlobalContext }
+  mapStateToProps,
+  mapDispatchToProps,
+  null,
+  { context: geoGlobalContext }
 )(KnowledgePackageFormComponent);
