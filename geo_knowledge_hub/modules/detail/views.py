@@ -15,7 +15,7 @@ from invenio_app_rdm.records_ui.views.decorators import (
     pass_record_or_draft,
 )
 
-from invenio_rdm_records.resources.serializers import UIJSONSerializer
+from geo_rdm_records.resources.serializers.ui.serializer import UIJSONSerializer
 
 from .toolbox.search import get_related_resources_metadata
 from .toolbox.identifiers import related_identifiers_url_by_scheme
@@ -62,20 +62,7 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
     )
 
     # Engagement priorities
-    engagement_priorities_scheme = ["TU", "EP"]
-    related_engagement_priorities = get_engagement_priority_from_record(
-        record, engagement_priorities_scheme
-    )
-
-    # Removing all engagement priorities from the record
-    # temporary solution: in the future, we will remove this!
-    record_subjects = (
-        py_.chain(record_ui)
-        .get("metadata.subjects")
-        .filter(lambda x: x.get("scheme") != "EP")
-    ).value()
-
-    record_ui = py_.set(record_ui, "metadata.subjects", record_subjects)
+    related_engagement_priorities = get_engagement_priority_from_record(record)
 
     return render_template(
         "geo_knowledge_hub/records/detail.html",
