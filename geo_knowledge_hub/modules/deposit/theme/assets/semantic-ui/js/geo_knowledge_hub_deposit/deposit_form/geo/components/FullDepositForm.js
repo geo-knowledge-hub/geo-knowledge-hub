@@ -210,8 +210,10 @@ export class FullDepositForm extends BaseDepositForm {
                       initialSuggestions={
                         _compact([
                           _get(
-                            this.depositConfigHandler.props.record, "ui.geo_work_programme_activity", null
-                          )
+                            this.depositConfigHandler.props.record,
+                            "ui.geo_work_programme_activity",
+                            null
+                          ),
                         ]) || null
                       }
                     />
@@ -222,9 +224,14 @@ export class FullDepositForm extends BaseDepositForm {
 
                     <Segment vertical>
                       <SubjectsField
-                        initialOptions={_get(this.depositConfigHandler.props.record, "ui.subjects", null)}
+                        initialOptions={_get(
+                          this.depositConfigHandler.props.record,
+                          "ui.subjects",
+                          null
+                        )}
                         limitToOptions={
-                          this.libraryVocabulariesHandler.vocabularies.metadata.subjects.limit_to
+                          this.libraryVocabulariesHandler.vocabularies.metadata
+                            .subjects.limit_to
                         }
                       />
 
@@ -235,7 +242,9 @@ export class FullDepositForm extends BaseDepositForm {
                               <EngagementPriorityField
                                 required
                                 initialSuggestions={_get(
-                                  this.depositConfigHandler.props.record, "ui.engagement_priorities", null
+                                  this.depositConfigHandler.props.record,
+                                  "ui.engagement_priorities",
+                                  null
                                 )}
                               />
                             </Grid.Column>
@@ -243,7 +252,9 @@ export class FullDepositForm extends BaseDepositForm {
                               <TargetAudienceField
                                 required
                                 initialSuggestions={_get(
-                                  this.depositConfigHandler.props.record, "ui.target_audiences", null
+                                  this.depositConfigHandler.props.record,
+                                  "ui.target_audiences",
+                                  null
                                 )}
                               />
                             </Grid.Column>
