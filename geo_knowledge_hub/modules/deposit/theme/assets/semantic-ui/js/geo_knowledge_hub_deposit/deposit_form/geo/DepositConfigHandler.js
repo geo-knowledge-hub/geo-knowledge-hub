@@ -16,7 +16,6 @@ export class DepositConfigHandler {
   }
 
   accordionStyle = {
-    header: {className: "inverted brand", style: {cursor: "pointer"}},
+    header: { className: "inverted brand", style: { cursor: "pointer" } },
   };
-
-};
+}

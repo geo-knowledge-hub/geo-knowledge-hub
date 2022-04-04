@@ -6,16 +6,17 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-from typing import Dict, List
-
 from pydash import py_
+from typing import Dict, List, Union
+
+from invenio_records.api import Record
 
 from invenio_search import current_search_client
 from invenio_rdm_records.resources.serializers import UIJSONSerializer
 
 from geo_knowledge_hub.config import (
     GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME as metadata_field_by_scheme,
-)
+)  # ToDo: Use the `current_app` configuration instance
 
 
 def _to_record(query_result) -> List:
@@ -30,9 +31,11 @@ def _metadata_builder(metadata: Dict, scheme) -> Dict:
 
     Args:
         metadata (Dict): Metadata from related resources
+
     Returns:
         Dict: Dictionary with standard metadata
     """
+    # ToDo: Change the nomenclature and use the idea of serializers here.
     metadata_field_for_scheme = metadata_field_by_scheme.get(scheme)
 
     return {
@@ -64,10 +67,12 @@ def _get_doi_metadata(identifier_doi) -> Dict:
 
 def search_record_by_doi(identifier_doi: str) -> List[Dict]:
     """Retrieves record using DOI identifier
+
     Args:
         identifier_doi (str): Record DOI Identifier
+
     Returns:
-        List: List with query results
+        List[Dict]: List with query results
     """
     # FIXME: Review query permissions here.
     return _to_record(
@@ -86,14 +91,14 @@ def search_record_by_doi(identifier_doi: str) -> List[Dict]:
     )
 
 
-def get_related_resource_metadata(related_resource_document: Dict):
+def get_related_resource_metadata(related_resource_document: Dict) -> Union[None, Dict]:
     """Service to retrieve Metadata from a Related Resource Document
 
     Args:
         related_resource_document (dict): Related Resource basic metadata
         (This is the same document used in the InvenioRDM Record Document)
     Returns:
-        Dict: Returns a dict the retrieved metadata
+        Union[None, Dict]: None or Dict the retrieved metadata
     """
     scheme = related_resource_document.get("scheme")
     if scheme == "doi":
@@ -102,15 +107,17 @@ def get_related_resource_metadata(related_resource_document: Dict):
     return None
 
 
-def get_related_resources_metadata(record_metadata: Dict) -> List:
+def get_related_resources_metadata(record: Record) -> List:
     """Controller to get related resources from a record metadata
 
     Args:
-        record_metadata (Dict): Metadata from a Record
+        record (Record): Record API Object.
 
     Returns:
         List: List with metadata from related resources
     """
+    record_metadata = record["metadata"]
+
     if "related_identifiers" not in record_metadata:
         return []
 
@@ -120,7 +127,8 @@ def get_related_resources_metadata(record_metadata: Dict) -> List:
     for related_record in related_identifiers:
         record_details = get_related_resource_metadata(related_record)
         related_resources_metadata.append(record_details)
-    return list(filter(lambda x: x is not None, related_resources_metadata))
+
+    return py_.filter(related_resources_metadata, lambda x: x is not None)
 
 
 __all__ = (

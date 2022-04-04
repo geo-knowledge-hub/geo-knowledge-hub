@@ -10,7 +10,6 @@ from flask_login import login_required
 from flask import request, render_template
 
 from invenio_app_rdm.records_ui.views.deposits import (
-    get_form_config,
     get_search_url,
     new_record,
 )
@@ -20,9 +19,10 @@ from invenio_app_rdm.records_ui.views.decorators import (
     pass_draft_files,
 )
 
-from invenio_rdm_records.resources.serializers import UIJSONSerializer
-
 from geo_config.security.permissions import need_permission
+from geo_rdm_records.resources.serializers.ui.serializer import UIJSONSerializer
+
+from geo_knowledge_hub.modules.deposit.toolbox.config import get_form_config
 
 
 @login_required

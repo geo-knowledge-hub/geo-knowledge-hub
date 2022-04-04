@@ -11,13 +11,13 @@ from invenio_vocabularies.proxies import current_service as vocabulary_service
 from invenio_access.permissions import system_identity
 
 
-def get_engagement_priority_topics_available():
-    """Retrieve the Engagement Priorities topics metadata available
-    in the GEO Knowledge Hub.
+def get_engagement_priority_topics_available(**kwargs):
+    """Retrieve the Engagement Priorities topics metadata available into the GEO Knowledge Hub.
+    Args:
+        **kwargs: Extra parameters to the vocabulary service `search` method.
     """
     engagement_priorities_topics = vocabulary_service.search(
-        identity=system_identity,
-        type="engagementprioritiestopics",
+        identity=system_identity, type="engagementprioritiestypes", **kwargs
     )
 
     return engagement_priorities_topics
