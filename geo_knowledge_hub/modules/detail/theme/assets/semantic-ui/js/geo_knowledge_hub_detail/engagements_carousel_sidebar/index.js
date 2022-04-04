@@ -12,7 +12,7 @@ import { getInputFromDOM } from "react-invenio-deposit";
 
 import natsort from "natsort";
 
-import { EngagementPrioritiesCarousel } from "geo-labels-react";
+import { EngagementPrioritiesCarousel } from "geo-components-react";
 
 // Extracting the engagement values
 const recordEngagements = getInputFromDOM("record-engagements");

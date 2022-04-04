@@ -10,7 +10,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { getInputFromDOM } from "react-invenio-deposit";
 
-import { UserStoriesCarousel } from "geo-labels-react";
+import { UserStoriesCarousel } from "geo-components-react";
 
 // Extracting the engagement values
 const userStories = getInputFromDOM("user-stories") || [];
