@@ -13,12 +13,12 @@ from typing import Dict, List
 from elasticsearch_dsl.query import Q
 from invenio_search.api import RecordsSearch
 
-from invenio_rdm_records.resources.serializers import UIJSONSerializer
+from geo_rdm_records.resources.serializers.ui.serializer import UIJSONSerializer
 
 
 class LatestKnowledgePackageSearch(RecordsSearch):
     class Meta:
-        index = "rdmrecords-records"
+        index = "geordmrecords-records"
         default_filter = (
             Q("term", **{"access.record": "public"})
             & Q("term", **{"is_published": True})
