@@ -9,28 +9,26 @@
 
 {%- set subjects = record.metadata.subjects -%}
 
-{% if subjects %}
-  {# Target Users: temporary approach, in the future, this will be stored in an appropriated field. #}
-  {%- for scheme, subjects in subjects|selectattr("scheme")|groupby('scheme')|sort(attribute='scheme') %}
-  {% if scheme == "TU" %}
-  <dl class="details-list subjects" aria-label="{{ _('Target Audience') }}">
-      <dt class="ui tiny header">{{_('Target Audience')}}</dt>
-  {%- for subject in subjects %}
-      <dd>
-      <a href='/search?q=metadata.subjects.subject:"{{ subject.subject }}"'
-          class="subject"
-          title="{{ _('Search results for ') + subject.subject }}"
+{% if record_topics %}
+  {%- for scheme, topics in record_topics|selectattr("scheme")|groupby('scheme')|sort(attribute='scheme') %}
+  <dl class="details-list subjects" aria-label="{{ _('Special topics') }}">
+    <dt class="ui tiny header">{{scheme}}</dt>
+    {%- for topic in topics %}
+    <dd>
+      <a href="/search?q={{ topic.model_field  }}:'{{ topic.title }}'"
+         class="subject"
+         title="{{ _('Search results for ') + topic.title }}"
       >
-          {{ subject.subject }}
+        {{ topic.title }}
       </a>
-      </dd>
-  {%- endfor %}
+    </dd>
+    {%- endfor %}
   </dl>
-  {%- endif -%}
   {%- endfor %}
+{% endif %}
 
+{% if subjects %}
   {%- for scheme, subjects in subjects|selectattr("scheme")|groupby('scheme')|sort(attribute='scheme') %}
-  {% if scheme != "TU" %}
   <dl class="details-list subjects" aria-label="{{ _('Subjects') }}">
     <dt class="ui tiny header">{{scheme}}</dt>
     {%- for subject in subjects %}
@@ -44,7 +42,6 @@
     </dd>
     {%- endfor %}
   </dl>
-  {%- endif -%}
   {%- endfor %}
 
   {% set keywords = subjects|rejectattr("scheme")|list %}

@@ -8,9 +8,9 @@
   it under the terms of the MIT License; see LICENSE file for more details.
 #}
 
-{% if record.metadata.subjects %}
-  <section id="keywords-and-subjects" aria-label="{{ _('Target audience, Keywords and subjects') }}" class="ui segment rdm-sidebar">
-    <h2 class="ui small header">{{ _('Target audience, Keywords and subjects') }}</h2>
+{% if record.metadata.subjects or record_topics %}
+  <section id="keywords-and-subjects" aria-label="{{ _('Target audiences, engagement topics and subjects') }}" class="ui segment rdm-sidebar">
+    <h2 class="ui small header">{{ _('Target audiences, engagement topics and subjects') }}</h2>
     {%- include "geo_knowledge_hub/records/details/subjects.html" %}
   </section>
 {% endif %}
