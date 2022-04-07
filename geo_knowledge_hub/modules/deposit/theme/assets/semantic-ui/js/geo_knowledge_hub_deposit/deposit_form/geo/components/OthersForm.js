@@ -45,7 +45,7 @@ export class OthersForm extends BaseDepositForm {
         DATA,
         SOFTWARE,
         PUBLICATIONS,
-        KNOWLEDGE_PACKAGE,
+        // KNOWLEDGE_PACKAGE, (Temporary: To enable users to create a package of packages)
       ]);
   }
 
