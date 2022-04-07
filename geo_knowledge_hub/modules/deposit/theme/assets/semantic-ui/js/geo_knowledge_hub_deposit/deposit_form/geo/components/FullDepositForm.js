@@ -393,7 +393,15 @@ export class FullDepositForm extends BaseDepositForm {
                     label={"Related resources"}
                     ui={this.depositConfigHandler.accordionStyle}
                   >
-                    <RelatedResourceField options={identifiers} />
+                    <RelatedResourceField
+                      options={{
+                        ...this.libraryVocabulariesHandler.vocabularies.metadata
+                          .identifiers,
+                        resource_type:
+                          this.libraryVocabulariesHandler.vocabularies.metadata
+                            .resource_type,
+                      }}
+                    />
                     <br />
                   </AccordionField>
                 </Grid.Column>
