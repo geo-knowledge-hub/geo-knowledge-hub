@@ -30,9 +30,6 @@ theme = WebpackThemeBundle(
                 "natsort": "^2.0.3",
                 "lodash": "^4.17.0",
                 "react-glider": "^3.0.1",
-                "leaflet": "^1.7.1",
-                "react-leaflet": "3.1.0",
-                "@react-leaflet/core": "1.0.2",
                 "pure-react-carousel": "^1.28.1",
             },
         )
