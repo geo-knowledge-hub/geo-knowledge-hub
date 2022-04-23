@@ -1,15 +1,3 @@
-#
-# This file is part of GEO Knowledge Hub.
-# Copyright 2020-2021 GEO Secretariat.
-#
-# GEO Knowledge Hub is free software; you can redistribute it and/or modify it
-# under the terms of the MIT License; see LICENSE file for more details.
-#
-
-# code environment
-.vscode
-.idea
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -37,6 +25,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+.venv/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -73,5 +62,17 @@ target/
 # Vim swapfiles
 .*.sw?
 
-#
-venv/
+# Editors
+*.sublime-*
+.vscode/
+
+# pipenv
+# This project is a library and not an application.
+Pipfile
+Pipfile.lock
+
+# pip wheel
+pip-wheel-metadata/
+
+# pyenv
+.python-version
