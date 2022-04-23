@@ -6,8 +6,4 @@
     under the terms of the MIT License; see LICENSE file for more details.
 
 
-API Docs
-========
-
-.. automodule:: geo_knowledge_hub.ext
-   :members:
+.. include:: ../CHANGES.rst
