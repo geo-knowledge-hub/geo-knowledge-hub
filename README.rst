@@ -67,20 +67,12 @@ Developing
 See `DEVELOPING.rst <./DEVELOPING.rst>`_.
 
 
-Repository Organization
------------------------
-
-
-See `REPOSITORY.rst <./REPOSITORY.rst>`_.
-
-
 License
 -------
 
 
 .. admonition::
-    Copyright 2020-2021 GEO Secretariat.
+    Copyright 2020-2022 GEO Secretariat.
 
     GEO Knowledge Hub is free software; you can redistribute it and/or modify it
     under the terms of the MIT License; see LICENSE file for more details.
-
