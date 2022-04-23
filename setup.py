@@ -16,21 +16,45 @@ from setuptools import find_packages, setup
 readme = open("README.rst").read()
 history = open("CHANGES.rst").read()
 
+# Should follow inveniosoftware/invenio versions
+invenio_db_version = ">=1.0.11,<2.0.0"
+invenio_search_version = ">=1.4.0,<2.0.0"
+
 tests_require = [
+    "pytest-mock>=1.6.0",
     "pytest-invenio>=1.4.0",
+    "invenio-app>=1.3.1,<2.0.0",
 ]
 
 extras_require = {
-    "docs": [
-        "Sphinx>=3,<4",
+    "docs": ["sphinx>=4.2.0,<5"],
+    # Elasticsearch version
+    "elasticsearch7": [
+        "invenio-search[elasticsearch7]{}".format(invenio_search_version),
+    ],
+    # Databases
+    "mysql": [
+        "invenio-db[mysql,versioning]{}".format(invenio_db_version),
+    ],
+    "postgresql": [
+        "invenio-db[postgresql,versioning]{}".format(invenio_db_version),
+    ],
+    "sqlite": [
+        "invenio-db[versioning]{}".format(invenio_db_version),
     ],
     "tests": tests_require,
 }
 
-extras_require["all"] = [req for _, reqs in extras_require.items() for req in reqs]
+extras_require["all"] = []
+for name, reqs in extras_require.items():
+    if name[0] == ":" or name in ("elasticsearch7", "mysql", "postgresql", "sqlite"):
+        continue
+    extras_require["all"].extend(reqs)
+
 
 setup_requires = [
     "Babel>=2.8",
+    "pytest-runner>=3.0.0,<5",
 ]
 
 install_requires = [
@@ -40,7 +64,7 @@ install_requires = [
     "IDUtils>=1.1.9",
     "geo-assets @ git+https://github.com/geo-knowledge-hub/geo-assets",
     "geo-config @ git+https://github.com/geo-knowledge-hub/geo-config",
-    "geo-vocabularies @ git+https://github.com/geo-knowledge-hub/geo-vocabularies"
+    "geo-vocabularies @ git+https://github.com/geo-knowledge-hub/geo-vocabularies",
 ]
 
 packages = find_packages()
