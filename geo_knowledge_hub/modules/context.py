@@ -6,6 +6,8 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
+"""GEO Knowledge Hub context."""
+
 from pydash import py_
 
 from flask import g, Blueprint
@@ -20,7 +22,7 @@ def current_user_invenio_profile():
     if current_user.is_authenticated:
         return {
             "name": py_.get(current_userprofile, "full_name", None),
-            "email": py_.get(current_userprofile, "user.email", None)
+            "email": py_.get(current_userprofile, "user.email", None),
         }
     return None
 
@@ -36,7 +38,7 @@ def init_bp(app):
 
         return {
             "is_knowledge_provider": is_knowledge_provider,
-            "current_user_profile": current_user_invenio_profile()
+            "current_user_profile": current_user_invenio_profile(),
         }
 
     # Registering the user context processor
@@ -44,6 +46,4 @@ def init_bp(app):
     app.register_blueprint(bp)
 
 
-__all__ = (
-    "init_bp"
-)
+__all__ = "init_bp"

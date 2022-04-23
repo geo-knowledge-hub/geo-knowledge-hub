@@ -6,7 +6,7 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-"""GEO Knowledge Hub Identifiers helpers."""
+"""GEO Knowledge Hub Detail (page) identifiers helpers."""
 
 import idutils
 import posixpath

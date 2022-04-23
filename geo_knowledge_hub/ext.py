@@ -6,7 +6,7 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-"""GEO Knowledge Hub extension for InvenioRDM."""
+"""GEO Knowledge Hub extension definition."""
 
 from . import config
 from .modules import init_modules

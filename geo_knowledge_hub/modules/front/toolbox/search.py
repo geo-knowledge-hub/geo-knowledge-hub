@@ -6,7 +6,7 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-"""GEO Knowledge Hub Search operations."""
+"""GEO Knowledge Hub Front (page) search definition."""
 
 from typing import Dict, List
 
@@ -17,6 +17,8 @@ from geo_rdm_records.resources.serializers.ui.serializer import UIJSONSerializer
 
 
 class LatestKnowledgePackageSearch(RecordsSearch):
+    """Latest Knowledge Package Search definition class."""
+
     class Meta:
         index = "geordmrecords-records"
         default_filter = (

@@ -6,6 +6,8 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
+"""GEO Knowledge Hub Detail (page) record handler."""
+
 from pydash import py_
 from typing import Tuple, Dict, List, Union
 
@@ -91,7 +93,7 @@ def get_programme_activity_from_record(
 
 
 def extract_user_stories(
-    related_identifiers: List[Dict], user_story_typeid = "user-story"
+    related_identifiers: List[Dict], user_story_typeid="user-story"
 ) -> Tuple[Union[None, List], Union[None, List]]:
     """Extract the user stories from a record.
 

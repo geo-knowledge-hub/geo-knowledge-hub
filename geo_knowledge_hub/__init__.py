@@ -6,12 +6,9 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-"""GEO Knowledge Hub extension for InvenioRDM."""
+"""GEO Knowledge Hub customization module for InvenioRDM."""
 
 from .ext import GeoKnowledgeHub
 from .version import __version__
 
-__all__ = (
-    "__version__",
-    "GeoKnowledgeHub"
-)
+__all__ = ("__version__", "GeoKnowledgeHub")

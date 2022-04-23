@@ -6,6 +6,8 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
+"""GEO Knowledge Hub Front (page) views."""
+
 from pydash import py_
 
 from flask import render_template, url_for

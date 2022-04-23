@@ -6,12 +6,15 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
+"""GEO Knowledge Hub Deposit (page) module."""
+
 from flask import Blueprint
 
 from . import views
 
 
 def init_bp(app):
+    """Initialize Deposit (page) module blueprint."""
     bp = Blueprint("geokhub_deposit_bp", __name__, template_folder="theme/templates")
 
     # registration

@@ -6,6 +6,8 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
+"""GEO Knowledge Hub Deposit (page) configuration handler."""
+
 
 from invenio_app_rdm.records_ui.views.deposits import (
     get_form_config as base_form_config,

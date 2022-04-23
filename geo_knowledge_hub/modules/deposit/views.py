@@ -6,6 +6,8 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
+"""GEO Knowledge Hub Deposit (page) views."""
+
 from flask_login import login_required
 from flask import request, render_template
 

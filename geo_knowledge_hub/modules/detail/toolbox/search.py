@@ -6,6 +6,8 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
+"""GEO Knowledge Hub Detail (page) search definition."""
+
 from pydash import py_
 from typing import Dict, List, Union
 
