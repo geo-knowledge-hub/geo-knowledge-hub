@@ -25,8 +25,8 @@ recursive-include docs *.bat
 recursive-include docs *.py
 recursive-include docs *.rst
 recursive-include docs Makefile
-recursive-include geo_knowledge_hub *.po *.pot *.mo
-recursive-include geo_knowledge_hub *.yaml
+recursive-include geo_knowledge_hub/translations *.po *.pot *.mo
+recursive-include geo_knowledge_hub *.html *.js *.less
 recursive-include tests *.py *.csv *.json *.yaml
 
 # added by check-manifest
