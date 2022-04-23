@@ -11,9 +11,3 @@ API Docs
 
 .. automodule:: gkhext.ext
    :members:
-
-Views
------
-
-.. automodule:: gkhext.views
-   :members:
