@@ -7,7 +7,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-"""GEO Knowledge Hub extension for InvenioRDM"""
+"""GEO Knowledge Hub extension for InvenioRDM."""
 
 import os
 
@@ -24,6 +24,7 @@ tests_require = [
     "pytest-mock>=1.6.0",
     "pytest-invenio>=1.4.0",
     "invenio-app>=1.3.1,<2.0.0",
+    "invenio-app-rdm>=8.0.0,<9.0.0"
 ]
 
 extras_require = {
