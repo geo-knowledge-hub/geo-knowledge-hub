@@ -34,10 +34,6 @@ GEO Knowledge Hub
 .. image:: https://img.shields.io/github/tag/geo-knowledge-hub/geo-knowledge-hub.svg
         :target: https://github.com/geo-knowledge-hub/geo-knowledge-hub/releases
 
-.. image:: https://img.shields.io/github/tag/geo-knowledge-hub/geo-knowledge-hub.svg
-        :target: https://github.com/geo-knowledge-hub/geo-knowledge-hub/releases
-        :alt: Release
-
 
 About
 -----
