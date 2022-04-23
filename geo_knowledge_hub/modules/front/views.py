@@ -6,9 +6,10 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-from pydash import py_
+"""GEO Knowledge Hub Front (page) views."""
 
 from flask import render_template, url_for
+from pydash import py_
 
 from .toolbox.search import get_latest_knowledge_packages
 from .toolbox.vocabulary import get_engagement_priority_topics_available
@@ -16,7 +17,6 @@ from .toolbox.vocabulary import get_engagement_priority_topics_available
 
 def frontpage():
     """Render the front-page with the latest Knowledge Packages added."""
-
     # retrieving the required values
     latest_records = get_latest_knowledge_packages(3)
     engagement_priority_topics_available = get_engagement_priority_topics_available(

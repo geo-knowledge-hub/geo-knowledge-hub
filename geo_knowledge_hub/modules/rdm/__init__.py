@@ -6,10 +6,13 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
+"""GEO Knowledge Hub RDM module."""
+
 from flask import Blueprint
 
 
 def init_bp(app):
+    """Initialize RDM module blueprint."""
     bp = Blueprint("geo_base_bp", __name__, template_folder="theme/templates")
     app.register_blueprint(bp)
 

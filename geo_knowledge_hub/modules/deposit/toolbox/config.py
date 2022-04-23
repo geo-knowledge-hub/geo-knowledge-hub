@@ -6,12 +6,13 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
+"""GEO Knowledge Hub Deposit (page) configuration handler."""
 
 from invenio_app_rdm.records_ui.views.deposits import (
-    get_form_config as base_form_config,
+    VocabulariesOptions as BaseVocabulariesOptions,
 )
 from invenio_app_rdm.records_ui.views.deposits import (
-    VocabulariesOptions as BaseVocabulariesOptions,
+    get_form_config as base_form_config,
 )
 
 
@@ -34,7 +35,6 @@ class VocabulariesOptions(BaseVocabulariesOptions):
 
 def get_form_config(**kwargs):
     """Generate the form configuration."""
-
     # generate the base values
     base_configuration = base_form_config(**kwargs)
 

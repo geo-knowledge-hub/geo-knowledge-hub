@@ -6,6 +6,8 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
+"""GEO Knowledge Hub Detail (page) webpack."""
+
 from invenio_assets.webpack import WebpackThemeBundle
 
 theme = WebpackThemeBundle(

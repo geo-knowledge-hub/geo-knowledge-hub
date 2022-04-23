@@ -6,7 +6,7 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-"""GEO Knowledge Hub extension for InvenioRDM"""
+"""GEO Knowledge Hub extension configurations."""
 
 GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {
     "doi": {
@@ -17,11 +17,3 @@ GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {
     }
 }
 """Default values to load from metadata by scheme type."""
-
-# See Flask-Mail configurations options at:
-#   https://pythonhosted.org/Flask-Mail/#configuring-flask-mail
-"""Flask-Mail"""
-
-# See Flask-Discussion (for Isso engine) options for Isso at:
-#   https://flask-discussion.readthedocs.io/en/latest/configs/isso.html
-"""Flask-Discussion"""

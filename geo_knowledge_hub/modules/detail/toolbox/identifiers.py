@@ -6,16 +6,14 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-"""GEO Knowledge Hub Identifiers helpers."""
+"""GEO Knowledge Hub Detail (page) identifiers helpers."""
 
-import idutils
 import posixpath
-
-from pydash import py_
-
 from typing import Dict, List
 
+import idutils
 from invenio_records import Record
+from pydash import py_
 
 
 def get_related_identifiers_url(record: Record, doi_prefix: str) -> List[Dict]:
@@ -63,7 +61,7 @@ def get_related_identifiers_url(record: Record, doi_prefix: str) -> List[Dict]:
                     related_identifier_obj["url"] = idutils.to_url(
                         identifier, scheme, "https"
                     )
-        except:
+        except BaseException:
             related_identifier_obj["url"] = identifier
         new_related_identifiers.append(related_identifier_obj)
     return new_related_identifiers

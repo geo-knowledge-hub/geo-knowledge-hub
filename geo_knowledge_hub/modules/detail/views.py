@@ -6,31 +6,29 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-from pydash import py_
-from flask import current_app, render_template, g
+"""GEO Knowledge Hub Detail (page) views."""
 
+from flask import current_app, g, render_template
+from geo_rdm_records.resources.serializers.ui.serializer import UIJSONSerializer
 from invenio_app_rdm.records_ui.views.decorators import (
     pass_is_preview,
     pass_record_files,
     pass_record_or_draft,
 )
-
-from geo_rdm_records.resources.serializers.ui.serializer import UIJSONSerializer
-
-from geo_knowledge_hub.modules.detail.toolbox.record import (
-    extract_user_stories,
-    prepare_record_topics,
-    get_programme_activity_from_record,
-    get_engagement_priority_from_record,
-)
-
-from geo_knowledge_hub.modules.detail.toolbox.search import (
-    get_related_resources_metadata,
-)
+from pydash import py_
 
 from geo_knowledge_hub.modules.detail.toolbox.identifiers import (
     filter_knowledge_resources_from_related_identifiers_url,
     get_related_identifiers_url,
+)
+from geo_knowledge_hub.modules.detail.toolbox.record import (
+    extract_user_stories,
+    get_engagement_priority_from_record,
+    get_programme_activity_from_record,
+    prepare_record_topics,
+)
+from geo_knowledge_hub.modules.detail.toolbox.search import (
+    get_related_resources_metadata,
 )
 
 

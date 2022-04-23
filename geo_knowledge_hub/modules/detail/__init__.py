@@ -6,12 +6,15 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
+"""GEO Knowledge Hub Detail (page) module."""
+
 from flask import Blueprint
 
 from . import views
 
 
 def init_bp(app):
+    """Initialize Detail (page) module blueprint."""
     bp = Blueprint("geo_landing_bp", __name__, template_folder="theme/templates")
 
     # registration

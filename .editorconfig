@@ -10,7 +10,6 @@
 root = true
 
 [*]
-indent_style = space
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
@@ -18,12 +17,8 @@ charset = utf-8
 
 # Python files
 [*.py]
-indent_size = 4
-# isort plugin configuration
-known_first_party = gkhext
-multi_line_output = 2
-default_section = THIRDPARTY
-skip = .eggs
+# isort plugin configuration for black code style
+profile = black
 
 # RST files (used by sphinx)
 [*.rst]

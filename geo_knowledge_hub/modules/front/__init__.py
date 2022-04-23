@@ -6,17 +6,20 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
+"""GEO Knowledge Hub Front (page) module."""
+
 from flask import Blueprint
 
 from . import views
 
 
 def init_bp(app):
+    """Initialize Front (page) module blueprint."""
     bp = Blueprint(
-        "geo_frontpage_bp", 
-        __name__, 
-        template_folder="theme/templates", 
-        static_folder="theme/static"
+        "geo_frontpage_bp",
+        __name__,
+        template_folder="theme/templates",
+        static_folder="theme/static",
     )
 
     # registration
@@ -26,6 +29,4 @@ def init_bp(app):
     app.register_blueprint(bp)
 
 
-__all__ = (
-    "init_bp"
-)
+__all__ = "init_bp"

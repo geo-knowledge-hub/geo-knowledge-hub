@@ -6,17 +6,18 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-from pydash import py_
+"""GEO Knowledge Hub Detail (page) search definition."""
+
 from typing import Dict, List, Union
 
-from invenio_records.api import Record
-
-from invenio_search import current_search_client
 from invenio_rdm_records.resources.serializers import UIJSONSerializer
+from invenio_records.api import Record
+from invenio_search import current_search_client
+from pydash import py_
 
 from geo_knowledge_hub.config import (
-    GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME as metadata_field_by_scheme,
-)  # ToDo: Use the `current_app` configuration instance
+    GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME as metadata_field_by_scheme,  # ToDo: Use the `current_app` configuration instance
+)
 
 
 def _to_record(query_result) -> List:
@@ -27,7 +28,7 @@ def _to_record(query_result) -> List:
 
 
 def _metadata_builder(metadata: Dict, scheme) -> Dict:
-    """Generate a standardized metadata for all retrievers used
+    """Generate a standardized metadata for all retrievers used.
 
     Args:
         metadata (Dict): Metadata from related resources
@@ -50,7 +51,7 @@ def _metadata_builder(metadata: Dict, scheme) -> Dict:
 
 
 def _get_doi_metadata(identifier_doi) -> Dict:
-    """InvenioRDM Internal Metadata Retriever
+    """Metadata Retriever function.
 
     See: This is a temporary function that uses a InvenioRDM as a identifier to retrieve
     metadata. In the future, this will be change to use only DOI
@@ -66,7 +67,7 @@ def _get_doi_metadata(identifier_doi) -> Dict:
 
 
 def search_record_by_doi(identifier_doi: str) -> List[Dict]:
-    """Retrieves record using DOI identifier
+    """Retrieves record using DOI identifier.
 
     Args:
         identifier_doi (str): Record DOI Identifier
@@ -92,7 +93,7 @@ def search_record_by_doi(identifier_doi: str) -> List[Dict]:
 
 
 def get_related_resource_metadata(related_resource_document: Dict) -> Union[None, Dict]:
-    """Service to retrieve Metadata from a Related Resource Document
+    """Service to retrieve Metadata from a Related Resource Document.
 
     Args:
         related_resource_document (dict): Related Resource basic metadata
@@ -108,7 +109,7 @@ def get_related_resource_metadata(related_resource_document: Dict) -> Union[None
 
 
 def get_related_resources_metadata(record: Record) -> List:
-    """Controller to get related resources from a record metadata
+    """Controller to get related resources from a record metadata.
 
     Args:
         record (Record): Record API Object.

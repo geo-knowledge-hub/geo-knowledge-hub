@@ -7,23 +7,19 @@
 
 
 .. include:: ../README.rst
-    :end-before: Install
 
+User's Guide
+------------
 
-.. toctree::
-    :hidden:
-
-    self
-
+This part of the documentation will show you how to get started in using
+geo-config.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Documentation:
 
-    installation
-    history
-    contributing
-    license
+   installation
+   configuration
+   usage
 
 API Reference
 -------------
