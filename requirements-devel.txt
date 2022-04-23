@@ -7,6 +7,8 @@
 # details.
 #
 
--e git+https://github.com/geo-knowledge-hub/geo-assets
--e git+https://github.com/geo-knowledge-hub/geo-config
--e git+https://github.com/geo-knowledge-hub/geo-vocabularies
+-e git+https://github.com/geo-knowledge-hub/geo-assets#egg=geo-assets
+
+-e git+https://github.com/geo-knowledge-hub/geo-config#egg=geo-config
+
+-e git+https://github.com/geo-knowledge-hub/geo-vocabularies#egg=geo-vocabularies
