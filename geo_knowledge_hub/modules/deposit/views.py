@@ -8,21 +8,12 @@
 
 """GEO Knowledge Hub Deposit (page) views."""
 
+from flask import render_template, request
 from flask_login import login_required
-from flask import request, render_template
-
-from invenio_app_rdm.records_ui.views.deposits import (
-    get_search_url,
-    new_record,
-)
-
-from invenio_app_rdm.records_ui.views.decorators import (
-    pass_draft,
-    pass_draft_files,
-)
-
 from geo_config.security.permissions import need_permission
 from geo_rdm_records.resources.serializers.ui.serializer import UIJSONSerializer
+from invenio_app_rdm.records_ui.views.decorators import pass_draft, pass_draft_files
+from invenio_app_rdm.records_ui.views.deposits import get_search_url, new_record
 
 from geo_knowledge_hub.modules.deposit.toolbox.config import get_form_config
 
@@ -40,7 +31,7 @@ def geo_deposit_search():
 @login_required
 @need_permission("geo-provider-access")
 def geo_deposit_create():
-    """Deposit page"""
+    """Deposit page."""
     valid_types = {
         "knowledge": {"id": "knowledge", "title": {"en": "Knowledge Package"}}
     }

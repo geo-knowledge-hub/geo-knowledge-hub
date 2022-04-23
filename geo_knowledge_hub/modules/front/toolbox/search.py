@@ -11,15 +11,16 @@
 from typing import Dict, List
 
 from elasticsearch_dsl.query import Q
-from invenio_search.api import RecordsSearch
-
 from geo_rdm_records.resources.serializers.ui.serializer import UIJSONSerializer
+from invenio_search.api import RecordsSearch
 
 
 class LatestKnowledgePackageSearch(RecordsSearch):
     """Latest Knowledge Package Search definition class."""
 
     class Meta:
+        """Search definition."""
+
         index = "geordmrecords-records"
         default_filter = (
             Q("term", **{"access.record": "public"})

@@ -9,12 +9,12 @@
 """GEO Knowledge Hub flask menu."""
 
 from flask import Blueprint
-
-from flask_menu import current_menu
 from flask_babelex import lazy_gettext as _
+from flask_menu import current_menu
 
 
 def init_bp(app):
+    """Initialize the flask menu blueprint."""
     bp = Blueprint("geo_menu_bp", __name__)
 
     @bp.before_app_first_request

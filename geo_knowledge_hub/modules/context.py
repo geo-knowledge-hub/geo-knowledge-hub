@@ -8,17 +8,15 @@
 
 """GEO Knowledge Hub context."""
 
-from pydash import py_
-
-from flask import g, Blueprint
+from flask import Blueprint, g
 from flask_security import current_user
-
-from invenio_userprofiles.api import current_userprofile
 from geo_config.security.permissions import provider_user_permission
+from invenio_userprofiles.api import current_userprofile
+from pydash import py_
 
 
 def current_user_invenio_profile():
-    """Get current user profile"""
+    """Get current user profile."""
     if current_user.is_authenticated:
         return {
             "name": py_.get(current_userprofile, "full_name", None),

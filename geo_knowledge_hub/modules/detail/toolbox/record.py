@@ -8,14 +8,13 @@
 
 """GEO Knowledge Hub Detail (page) record handler."""
 
-from pydash import py_
-from typing import Tuple, Dict, List, Union
+from typing import Dict, List, Tuple, Union
 
 from flask import url_for
 from flask_principal import Identity
-
 from invenio_records.api import Record
 from invenio_vocabularies.proxies import current_service as vocabulary_service
+from pydash import py_
 
 
 def get_engagement_priority_from_record(

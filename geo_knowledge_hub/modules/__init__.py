@@ -10,7 +10,6 @@
 
 from importlib import import_module
 
-
 MODULES = [
     "geo_knowledge_hub.modules.rdm",
     "geo_knowledge_hub.modules.front",
@@ -23,7 +22,6 @@ MODULES = [
 
 def init_modules(app):
     """Initialize the extension modules using application factory concepts."""
-
     # adding view modules
     for module in MODULES:
         mod = import_module(module)
