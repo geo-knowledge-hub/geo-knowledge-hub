@@ -61,6 +61,12 @@ Installing
 See `INSTALL.rst <./INSTALL.rst>`_.
 
 
+Developing
+----------
+
+See `DEVELOPING.rst <./DEVELOPING.rst>`_.
+
+
 Repository Organization
 -----------------------
 
