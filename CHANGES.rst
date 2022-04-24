@@ -16,18 +16,26 @@ Version 1.0.0 (2022-04-24)
 
 - Customization of InvenioRDM pages:
 
-  - Engagement Priorities Carousel on FrontPage with search support;
+  - Engagement Priorities Carousel on frontpage with search support (based on `geo-components-react <https://github.com/geo-knowledge-hub/geo-components-react>`_);
   
-  - New Frontpage organization to support multiple contents;
+  - New frontpage organization to support multiple contents;
   
   - Reorganizing the icons on the page headers;
   
-  - Engagement Priorities on Record Landing page (Sidebar);
+  - Engagement Priorities support on Record Landing page (Sidebar) (based on `geo-components-react <https://github.com/geo-knowledge-hub/geo-components-react>`_);
+  
+  - Users Stories Carousel support on Record Landing Page (`#39 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/39>`_);
 
-  - GEO Engagement Priorities association as a label on the Record Landing Page;
-  
-  - Users Stories Carousel support on Record Landing Page (`#39 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/39>`_).
-  
+  - GEO Engagement Priorities association as a label on the Record Landing Page (based on `geo-components-react <https://github.com/geo-knowledge-hub/geo-components-react>`_);
+    
+  - New fields on the deposit page (based on `geo-deposit-react <https://github.com/geo-knowledge-hub/geo-deposit-react>`_);
+
+    - Engagement Priorities Field;
+    
+    - GEO Work Programme Activities Field;
+    
+    - Target Audiences field.
+ 
 - Improvements in the code organization;
 
 - Custom facet behavior based on `geo-rdm-records features <https://github.com/geo-knowledge-hub/geo-rdm-records>`_;
