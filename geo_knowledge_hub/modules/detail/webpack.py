@@ -21,10 +21,7 @@ theme = WebpackThemeBundle(
                 "geo-knowledge-hub-landing-user-stories": "./js/geo_knowledge_hub_detail/user_stories/index.js",
                 # Engagement carousel
                 "geo-knowledge-hub-landing-engagements-carousel": "./js/geo_knowledge_hub_detail/engagements_carousel_sidebar/index.js",
-                "geo-knowledge-hub-landing-engagements-carousel-theme": "./less/geo_knowledge_hub_detail/engagements_carousel_sidebar/theme.less",
-                # Geospatial metadata visualizer
-                "geo-knowledge-hub-landing-geospatial-metadata-visualizer": "./js/geo_knowledge_hub_detail/geospatial_previewer/index.js",
-                "geo-knowledge-hub-landing-geospatial-metadata-visualizer-theme": "./less/geo_knowledge_hub_detail/geospatial_previewer/theme.less",
+                "geo-knowledge-hub-landing-engagements-carousel-theme": "./less/geo_knowledge_hub_detail/engagements_carousel_sidebar/theme.less"
             },
             dependencies={
                 "natsort": "^2.0.3",
