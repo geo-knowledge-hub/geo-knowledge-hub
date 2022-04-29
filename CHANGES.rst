@@ -9,6 +9,11 @@
 Changes
 =======
 
+Version 1.1.0-alpha (2022-04-29)
+---------------------------
+
+- Added initial support for the Geospatial metadata visualization on Record Landing Page (Part of `#52 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/52>`_ and `#53 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/53>`_).
+
 Version 1.0.1 (2022-04-28)
 ---------------------------
 
