@@ -22,6 +22,14 @@
   {{ super() }}
   <!-- Image Carousel -->
   {{ webpack['geo-knowledge-hub-landing-engagements-carousel-theme.css'] }}
+
+ <!-- Geospatial metadata visualizer -->
+ {{ webpack['geo-knowledge-hub-landing-geospatial-metadata-visualizer-theme.css'] }}
+
+ <!-- Temporary -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
 {%- endblock css %}
 
 
@@ -340,6 +348,9 @@
 
 <!-- Image Carousel -->
 {{ webpack['geo-knowledge-hub-landing-engagements-carousel.js'] }}
+
+<!-- Geospatial metadata visualizer -->
+{{ webpack['geo-knowledge-hub-landing-geospatial-metadata-visualizer.js'] }}
 
 <!-- User Stories -->
 {{ webpack['geo-knowledge-hub-landing-user-stories.js'] }}
