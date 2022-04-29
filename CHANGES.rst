@@ -9,6 +9,12 @@
 Changes
 =======
 
+Version 1.0.1 (2022-04-28)
+---------------------------
+
+- Fixing labels used to define engagement priorities (Main themes and subtopics)
+
+
 Version 1.0.0 (2022-04-24)
 ---------------------------
 
