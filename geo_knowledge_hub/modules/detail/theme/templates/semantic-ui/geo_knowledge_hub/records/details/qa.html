@@ -1,0 +1,28 @@
+<h2 id="record-details-heading">{{ _('Questions and Answers') }}</h2>
+
+{% if current_user.is_authenticated and current_user_profile and current_user_profile.name != None %}
+    {% import "flask_discussion/helper.html" as discussion %}
+
+    {# rendering the comments #}
+    {{ discussion.render_comments
+        ( title=record.metadata.title,
+        identifier=record.id,
+        url="{{ record.links.latest_html }}"
+        ) }}
+
+{% else %}
+    <div class="ui info message">
+        <div class="header">
+        Do you want to interact with the community?
+        </div>
+
+    {% if current_user_profile and (current_user_profile.name == None or current_user_profile.email == None) %}
+        <p>Before you can comment, it is necessary for you to complete your registration. Please complete your
+        registration in the <a href="/account/settings/profile/">account settings.</a></p>
+
+    {% elif not current_user.is_authenticated %}
+        <p>You must register on the Geo Knowledge Hub. <a href="/signup">Click here</a> to register now or <a
+        href="/login">Log in</a></p>
+    {% endif %}
+  </div>
+{% endif %}

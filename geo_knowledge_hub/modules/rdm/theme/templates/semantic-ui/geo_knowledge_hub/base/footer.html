@@ -13,7 +13,7 @@
               {#              {% from "invenio_i18n/macros/language_selector.html" import language_selector_dropdown %}#}
               {#              {{ language_selector_dropdown() }}#}
               {#            {%- endif %}#}
-              <a class="logo-link" href="https://www.earthobservations.org/index.php">
+              <a class="logo-link" href="https://www.earthobservations.org/index.php" target="_blank">
                 <img class="icon"
                      src="{{ url_for('static', filename='images/logo-geo29px.png') }}"/>
               </a>
@@ -22,12 +22,14 @@
               {% trans invenio_rdm="" %}Powered by <a href="{{ invenio_rdm }}">InvenioRDM</a>{% endtrans %}
             </div>
             <div class="four wide column right floated middle aligned right aligned">
-              <a href="https://github.com/geo-knowledge-hub/geo-knowledge-hub" target="_blank"><i
+              <a href="/overview" data-tooltip="More information about the GEO Knowledge Hub"><i
+                class="info icon big"></i></a>
+              <a href="https://github.com/geo-knowledge-hub/geo-knowledge-hub" target="_blank" data-tooltip="Contribute with the Digital Library development on GitHub"><i
                 class="github icon big"></i></a>
-              <a href="https://discord.com/channels/730739436551143514#" target="_blank"><i
+              <a href="https://discord.com/channels/730739436551143514#" target="_blank" data-tooltip="Keep in touch with the community on Discord"><i
                 class="discord icon big"></i></a>
-              <a href="https://twitter.com/geosec2025" target="_blank"><i class="twitter icon big"></i></a>
-              <a href="https://www.youtube.com/channel/UCFJ97Bp2XXA5p7ik_wWSoqg" target="_blank"><i
+              <a href="https://twitter.com/geosec2025" target="_blank" data-tooltip="Access the GEO Twitter"><i class="twitter icon big"></i></a>
+              <a href="https://www.youtube.com/channel/UCFJ97Bp2XXA5p7ik_wWSoqg" target="_blank"  data-tooltip="Access the GEO YouTube channel"><i
                 class="youtube icon big"></i></a>
             </div>
           </div>

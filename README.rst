@@ -9,25 +9,30 @@
 GEO Knowledge Hub
 =================
 
+.. .. image:: https://readthedocs.org/projects/geo-knowledge-hub/badge/?version=latest
+..         :target: https://geo-knowledge-hub.readthedocs.io/en/latest/
+..         :alt: Documentation Status
 
-.. image:: https://img.shields.io/github/license/geo-knowledge-hub/geo-knowledge-hub.svg
-        :target: https://github.com/geo-knowledge-hub/geo-knowledge-hub/blob/master/LICENSE
-        :alt: Software License
-
-
-.. image:: https://img.shields.io/badge/lifecycle-maturing-blue.svg
-        :target: https://lifecycle.r-lib.org/articles/stages.html#maturing-1
-        :alt: Software Life Cycle
-
+.. .. image:: https://img.shields.io/pypi/dm//geo-knowledge-hub.svg
+..         :target: https://pypi.python.org/pypi/geo-knowledge-hub
 
 .. image:: https://github.com/geo-knowledge-hub/geo-knowledge-hub/workflows/CI/badge.svg
         :target: https://github.com/geo-knowledge-hub/geo-knowledge-hub/actions?query=workflow%3ACI
         :alt: Build Status
 
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+        :target: https://github.com/psf/black
+
+.. image:: https://img.shields.io/badge/lifecycle-maturing-blue.svg
+        :target: https://www.tidyverse.org/lifecycle/#maturing
+        :alt: Software Life Cycle
+
+.. image:: https://img.shields.io/github/license/geo-knowledge-hub/geo-knowledge-hub.svg
+        :target: https://github.com/geo-knowledge-hub/geo-knowledge-hub/blob/master/LICENSE
+        :alt: Software License
 
 .. image:: https://img.shields.io/github/tag/geo-knowledge-hub/geo-knowledge-hub.svg
         :target: https://github.com/geo-knowledge-hub/geo-knowledge-hub/releases
-        :alt: Release
 
 
 About
@@ -61,11 +66,10 @@ Installing
 See `INSTALL.rst <./INSTALL.rst>`_.
 
 
-Repository Organization
------------------------
+Developing
+----------
 
-
-See `REPOSITORY.rst <./REPOSITORY.rst>`_.
+See `DEVELOPING.rst <./DEVELOPING.rst>`_.
 
 
 License
@@ -73,8 +77,7 @@ License
 
 
 .. admonition::
-    Copyright 2020-2021 GEO Secretariat.
+    Copyright 2020-2022 GEO Secretariat.
 
     GEO Knowledge Hub is free software; you can redistribute it and/or modify it
     under the terms of the MIT License; see LICENSE file for more details.
-

@@ -6,20 +6,22 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-from importlib import import_module
+"""GEO Knowledge Hub extension modules."""
 
+from importlib import import_module
 
 MODULES = [
     "geo_knowledge_hub.modules.rdm",
-    "geo_knowledge_hub.modules.frontpage",
+    "geo_knowledge_hub.modules.front",
     "geo_knowledge_hub.modules.menu",
     "geo_knowledge_hub.modules.deposit",
-    "geo_knowledge_hub.modules.context"
+    "geo_knowledge_hub.modules.detail",
+    "geo_knowledge_hub.modules.context",
 ]
 
 
 def init_modules(app):
-
+    """Initialize the extension modules using application factory concepts."""
     # adding view modules
     for module in MODULES:
         mod = import_module(module)

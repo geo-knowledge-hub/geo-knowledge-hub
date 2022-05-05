@@ -1,0 +1,22 @@
+<div class="ui placeholder segment">
+  <div class="ui icon header">
+    <i class="search icon"></i>
+    {%- if record.metadata.resource_type.id in [ "knowledge" ] %}
+    There is no Knowledge Resource associated with this package.
+    {% else %}
+    This Knowledge Resource is not associated with any Knowledge Package.
+    {% endif %}
+
+  </div>
+
+  <!-- ToDo: Enable when the package creation rules are enabled. -->
+  <!-- {%- if current_user.is_authenticated and is_knowledge_provider %}
+    <a class="ui primary button" href="/uploads/{{ record.id }}" >
+    {%- if record.metadata.resource_type.id in [ "knowledge" ] %}
+      Add your first resource
+    {% else %}
+      Add your first association
+    {% endif %}
+    </a>
+  {% endif %} -->
+</div>

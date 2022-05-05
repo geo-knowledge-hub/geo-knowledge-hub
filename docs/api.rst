@@ -9,11 +9,5 @@
 API Docs
 ========
 
-.. automodule:: gkhext.ext
-   :members:
-
-Views
------
-
-.. automodule:: gkhext.views
+.. automodule:: geo_knowledge_hub.ext
    :members:

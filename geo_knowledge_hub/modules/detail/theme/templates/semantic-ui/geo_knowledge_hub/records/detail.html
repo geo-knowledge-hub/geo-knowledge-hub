@@ -1,0 +1,395 @@
+{#
+  Copyright (C) 2020-2021 CERN.
+  Copyright (C) 2020-2021 Northwestern University.
+  Copyright (C) 2021 TU Wien.
+  Copyright (C) 2021 Graz University of Technology.
+  Copyright (C) 2021 New York University.
+
+  Invenio RDM Records is free software; you can redistribute it and/or modify
+  it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{% if use_theme_basic_template|default(true) %}
+{%- extends config.BASE_TEMPLATE %}
+{% endif %}
+
+{%- from "invenio_app_rdm/records/macros/files.html" import file_list_box, preview_file_box %}
+
+{%- set title = record.metadata.title -%}
+{%- set metadata = record.metadata %}
+
+{%- block css %}
+  {{ super() }}
+  <!-- Image Carousel -->
+  {{ webpack['geo-knowledge-hub-landing-engagements-carousel-theme.css'] }}
+
+ <!-- Geospatial metadata visualizer -->
+ {{ webpack['geo-knowledge-hub-landing-geospatial-metadata-visualizer-theme.css'] }}
+
+ <!-- Temporary -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+{%- endblock css %}
+
+
+{%- block page_body %}
+  <section id="banners" class="banners" aria-label="{{ _('Information banner') }}">
+    {% if is_preview %}
+      <div class="ui info flashed top-attached manage message">
+        <div class="ui container">
+          <div class="ui relaxed grid">
+            <div class="column">
+              <div class="row">
+                <div class="header">
+                  <i class="eye icon"></i>
+                  <strong>{{_ ("Preview")}}</strong>
+                </div>
+                <p>
+                  {% if not is_draft %}
+                    {{ _("You are previewing a published record.") }}
+                  {% elif record.is_published %}
+                    {{ _("You are previewing changes that have not yet been published.") }}
+                  {% elif not record.is_published and record.versions.index == 1 %}
+                    {{ _("You are previewing a new record that has not yet been published.") }}
+                  {% elif not record.is_published and record.versions.index > 1 %}
+                    {{ _("You are previewing a new record version that has not yet been published.") }}
+                  {% endif %}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if community %}
+    <!-- TODO: Checks below must be deleted once community is resolved -->
+    {% if community.links is defined %}
+      {%- set logoLink = community.links.logo %}
+      {%- set communityTitle = community.metadata.title %}
+    {% else %}
+      {%- set logoLink = "/static/images/square-placeholder.png" %}
+      {%- set communityTitle = community %}
+    {% endif %}
+      <div class="ui fluid container record-community-header">
+        <div class="ui fluid container">
+          <div class="ui container community-header">
+            <img
+              class="community-logo-header"
+              src="{{logoLink}}"
+              onerror="this.onerror=null;this.src='/static/images/square-placeholder.png';" />
+            <div class="community-header-info">
+              {{communityTitle}}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if record.is_published and not record.versions.is_latest %}
+    <div class="ui warning flashed top-attached manage message">
+      <div class="ui container">
+        <div class="ui relaxed grid">
+          <div class="column">
+            <div class="row">
+              <p>
+              {% trans link_start=('<a href="' + record.links.latest_html + '"><b>')|safe, link_end='</b></a>'|safe %}
+                There is a {{ link_start }}newer version{{ link_end }} of the record available.
+              {% endtrans %}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </section>
+
+
+  <div class="ui container">
+    <div class="ui relaxed grid mt-5">
+      <div class="two column row top-padded">
+
+        {# Main content #}
+        <article class="sixteen wide tablet eleven wide computer column main-record-content">
+          {% if record.access.record == 'restricted' %}
+            <section id="record-access-status"
+                     class="ui {{ record.ui.access_status.message_class }} message"
+                     aria-label="{{ _('Record access information') }}"
+            >
+              <i class="{{ record.ui.access_status.icon }} icon"></i>
+              <strong>{{ record.ui.access_status.title_l10n }}</strong>
+              {{ record.ui.access_status.description_l10n }}
+
+              {% if record.access.embargo.reason %}
+                <p>{{ _("Reason") }}: {{ record.access.embargo.reason }}</p>
+              {% endif %}
+            </section>
+          {% endif %}
+
+          {%- block record_body -%}
+
+            {%- block record_header -%}
+
+              {%- block record_header_button -%}
+
+                {% if is_preview and permissions.can_edit and is_draft %}
+                  <nav class="back-navigation" aria-label="{{ _('Back-navigation') }}">
+                    {%- set back_page = url_for('invenio_app_rdm_records.deposit_edit', pid_value=record.id, preview=1) -%}
+                    {%- set back_btn_label = _('Back to edit') -%}
+                    <a class="ui button small compact" href="{{ back_page }}"><i class="ui icon angle left"></i> {{ back_btn_label }}</a>
+                  </nav>
+                {% endif %}
+
+              {%- endblock record_header_button -%}
+
+              <section id="record-info" aria-label="{{ _('Publication date and version number') }}">
+                <div class="ui grid middle aligned">
+                  <div class="two column row">
+                    <div class="left floated left aligned column">
+                      <span class="ui" title="{{ _('Publication date') }}">
+                        {{ _('Published') }} {{ record.ui.publication_date_l10n_long }}
+                      </span>
+                      <span class="label text-muted"> | {{ _('Version {version_number}').format(version_number=record.ui.version) }}</span>
+                    </div>
+                    <div class="right floated right aligned column">
+                      {%- if programme_activity %}
+                      <span class="ui label small teal" title="{{ _('GEO Work Programme Activity') }}">{{programme_activity.props.acronym}}</span>
+                      {% endif %}
+                      {% if record.ui.resource_type %}
+                        <span class="ui label small grey" title="{{ _('Resource type') }}">{{ record.ui.resource_type.title_l10n }}</span>
+                      {% endif %}
+                      <span class="ui label small access-status {{ record.ui.access_status.id }}"
+                            title="{{ _('Access status') }}"
+                            data-tooltip="{{ record.ui.access_status.description_l10n }}"
+                            data-inverted=""
+                      >
+                        {% if record.ui.access_status.icon %}
+                          <i class="icon {{ record.ui.access_status.icon }}"></i>
+                        {% endif %}
+                        {{ record.ui.access_status.title_l10n }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            {%- endblock record_header -%}
+
+            {# Title #}
+            {%- block record_title -%}
+              <section id="record-title-section" aria-label="{{ _('Record title and creators') }}">
+                <h1 id="record-title">{{ metadata.title }}</h1>
+
+                {% if record.ui.creators or record.ui.contributors %}
+                <section id="creatibutors" aria-label="{{ _('Creators and contributors') }}">
+                  {%- include "invenio_app_rdm/records/details/creatibutors.html" %}
+                </section>
+                {% endif %}
+              </section>
+            {%- endblock record_title -%}
+
+            {# Citation & Description #}
+            {%- block record_content -%}
+              <section id="citation" aria-label="{{ _('Record citations') }}">
+                {%- include "invenio_app_rdm/records/details/citation.html" %}
+              </section>
+
+              {%- include "invenio_app_rdm/records/details/description.html" %}
+            {%- endblock record_content -%}
+
+            {# User Stories (Draft version) #}
+            {%- block user_stories -%}
+              {% if user_stories %}
+                <section id="user-stories" aria-label="{{ _('User Stories') }}">
+                  {%- include "geo_knowledge_hub/records/details/user-stories.html" %}
+                </section>
+              {% endif %}
+            {%- endblock user_stories -%}
+
+            {# Knowledge Elements #}
+            {%- block record_knowledge_elements -%}
+              {% if record.metadata.resource_type.id in [ "knowledge" ] %}
+                {%- set knowledge_elements_title = _("Elements of the Knowledge Package") -%}
+              {% else %}
+                {%- set knowledge_elements_title = _("This resource is part of the following Knowledge Packages") -%}
+              {% endif %}
+
+              <section id="knowledge-elements" class="section-spacing" aria-label="{{ knowledge_elements_title }}">
+                {%- include "geo_knowledge_hub/records/details/elements.html" %}
+              </section>
+            {%- endblock record_knowledge_elements -%}
+
+            {# Files #}
+            {%- block record_files -%}
+              {%- if record.files.enabled -%}
+                <section id="record-files" class="section-spacing" aria-label="{{ _('Files') }}">
+                  {%- if permissions.can_read_files -%}
+                    {# record has files AND user can see files #}
+                    <h2 id="files-heading">{{ _('Files') }}</h2>
+                    {%- set files = files|order_entries %}
+
+                    {%- if files|has_previewable_files -%}
+                      {%-set preview_file = files|select_preview_file(default_preview=record.files.default_preview) %}
+                      {{ preview_file_box(preview_file, pid, is_preview, record) }}
+                    {%- endif -%}
+                    {{ file_list_box(files, pid, is_preview, record) }}
+                  {% else %}
+                    {# record has files BUT user cannot see files #}
+                    <div class="panel-spacing">
+                      <div class="ui accordion panel {{ record.ui.access_status.id }}" id="preview" href="#collapsablePreview">
+                        <div class="active title panel-heading {{ record.ui.access_status.id }}">
+                          {{ _("Files") }}
+                          <i class="angle down icon"></i>
+                        </div>
+                        <div id="collapsablePreview" class="active content">
+                          <div class="ui {{ record.ui.access_status.message_class }} message file-box-message">
+                            <i class="ui {{ record.ui.access_status.icon }} icon"></i><b>{{ record.ui.access_status.title_l10n }}</b>
+                            <p>{{ record.ui.access_status.description_l10n }}</p>
+
+                            {% if record.access.embargo.reason %}
+                              <p>{{_("Reason")}}: {{record.access.embargo.reason}}</p>
+                            {% endif%}
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {%- endif %}
+                </section>
+              {%- endif %}
+            {%- endblock record_files -%}
+
+            {# Additional details #}
+            {%- block record_details -%}
+              <section id="additional-details" class="section-spacing" aria-label="{{ _('Additional record details') }}">
+                {%- include "geo_knowledge_hub/records/details/details.html" %}
+              </section>
+            {%- endblock record_details -%}
+
+            {# Questions and Answers #}
+            {%- block quetions_and_answers -%}
+              <section id="questions-and-anwers" class="section-spacing" aria-label="{{ _('Questions and Answers') }}">
+                {%- include "geo_knowledge_hub/records/details/qa.html" %}
+              </section>
+            {%- endblock quetions_and_answers -%}
+
+            {# Record footer #}
+            {%- block record_footer -%}
+            {%- endblock record_footer -%}
+
+          {%- endblock record_body %}
+        </article>
+
+        {# Sidebar #}
+        <aside class="sixteen wide tablet five wide computer column sidebar" aria-label="{{ _('Record details') }}">
+          {% block record_sidebar %}
+            {%- include "invenio_app_rdm/records/details/side_bar.html" %}
+          {% endblock record_sidebar %}
+        </aside>
+      </div>
+    </div>
+
+    <div class="ui relaxed grid">
+      <div class="two column row">
+        <div class="sixteen wide tablet eleven wide computer column">
+
+          {# Upload info #}
+          <section id="upload-info" aria-label="{{ _('Upload information') }}">
+            <dl>
+              <div class="table-row">
+                <dt>{{ _("Created") }}:</dt>
+                <dd>
+                  {{ record.ui.created_date_l10n_long }}
+                </dd>
+              </div>
+              <div class="table-row">
+                <dt>{{ _("Modified") }}:</dt>
+                <dd>
+                  {{ record.ui.updated_date_l10n_long }}
+                </dd>
+              </div>
+            </dl>
+          </section>
+        </div>
+      </div>
+
+      <div class="two column row">
+        <div class="sixteen wide tablet eleven wide computer column">
+          {# Jump up button #}
+          {%- block jump -%}
+            <div class="ui grid">
+              <div class="centered row" id="jump-btn">
+                  <a style="cursor: pointer;">
+                    <button class="ui button" aria-label="{{ _('Jump to top of page') }}">
+                      <i class="arrow alternate circle up outline icon"></i>
+                      {{ _("Jump up") }}
+                    </button>
+                  </a>
+              </div>
+            </div>
+          {%- endblock jump -%}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endblock page_body %}
+
+{%- block javascript %}
+{% if use_theme_basic_template|default(true) %}
+{{ super() }}
+{% else %}
+{% include config.THEME_JAVASCRIPT_TEMPLATE %}
+{% endif %}
+{{ webpack['invenio-app-rdm-landing-page.js'] }}
+{# Communities management -- TODO include again when communities are ready #}
+{# {{ webpack['invenio-communities-records.js'] }} #}
+{{ webpack['previewer_theme.js'] }}
+
+<!-- Image Carousel -->
+{{ webpack['geo-knowledge-hub-landing-engagements-carousel.js'] }}
+
+<!-- Geospatial metadata visualizer -->
+{{ webpack['geo-knowledge-hub-landing-geospatial-metadata-visualizer.js'] }}
+
+<!-- User Stories -->
+{{ webpack['geo-knowledge-hub-landing-user-stories.js'] }}
+
+<script>
+  // FIXME: Temporary solution
+  // in future, "isso comment engine" will be directly integrated with Invenio App RDM
+  let placeholders = [
+    {
+      "name": "Name",
+      "value": "{{ current_user_profile.name }}"
+    },
+    {
+      "name": "E-mail",
+      "value": "{{ current_user_profile.email }}"
+    },
+    {
+      "name": "Website (optional)",
+      "value": "{{ record.links.latest_html }}"
+    }
+  ];
+
+  let placeholderProcessor = function (placeholder) {
+    let el = $(`*[placeholder="${placeholder.name}"]`);
+
+    // hides elements
+    el.hide()
+
+    // set value
+    el[0].value = placeholder.value
+  };
+
+  window.addEventListener('load', function () {
+    // get elements
+    placeholders.forEach(placeholderProcessor);
+
+    $("#isso-thread").click(function (x) {
+      placeholders.forEach(placeholderProcessor);
+    })
+  });
+</script>
+{%- endblock javascript %}

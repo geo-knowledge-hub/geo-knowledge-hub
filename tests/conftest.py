@@ -12,18 +12,14 @@ See https://pytest-invenio.readthedocs.io/ for documentation on which test
 fixtures are available.
 """
 
-import shutil
-import tempfile
-
 import pytest
 from flask import Flask
 from flask_babelex import Babel
 
-from gkhext import GKHubExt
-from gkhext.views import blueprint
+from geo_knowledge_hub import GeoKnowledgeHub
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope="module")
 def celery_config():
     """Override pytest-invenio fixture.
 
@@ -32,14 +28,15 @@ def celery_config():
     return {}
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope="module")
 def create_app(instance_path):
     """Application factory fixture."""
+
     def factory(**config):
-        app = Flask('testapp', instance_path=instance_path)
+        app = Flask("testapp", instance_path=instance_path)
         app.config.update(**config)
         Babel(app)
-        GKHubExt(app)
-        app.register_blueprint(blueprint)
+        GeoKnowledgeHub(app)
         return app
+
     return factory

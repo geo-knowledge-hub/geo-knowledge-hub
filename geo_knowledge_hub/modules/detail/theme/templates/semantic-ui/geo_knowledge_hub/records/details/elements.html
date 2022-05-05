@@ -1,0 +1,59 @@
+<h2 id="record-details-heading">{{ knowledge_elements_title }}</h2>
+
+<div class="ui accordion panel open" id="preview" href="#collapsablePreview">
+  <div class="title panel-heading open active">
+    {%- if record.metadata.resource_type.id in [ "knowledge" ] %}
+    Components
+    {%- else %}
+    Packages
+    {%- endif %}
+    <i class="ui angle icon down"></i>
+  </div>
+  {% if ( (related_records_informations | length == 0) and (related_records_informations | length < 4) ) %}
+  <div class="content active" style="height: 21rem; overflow: auto; width: auto">
+  {% elif ( (related_records_informations | length >= 1) and (related_records_informations | length <= 3) ) %}
+  <div class="content active" style="overflow: auto; width: auto">
+  {% else %}
+  <div class="content active" style="height: 45rem; overflow: auto; width: auto">
+  {% endif %}
+
+    <div class="ui divided link relaxed items" style="padding: 20px">
+    
+      {% if related_records_informations %}
+        {% for item in related_records_informations %}
+          <a href="{{ item['url'] }}" class="item">
+            <div class="content">
+              <div class="extra labels-actions">
+                <div class="ui blue tiny label">
+                  {{ item['ui']['publication_date_l10n_medium'] }}
+                </div>
+                <div class="ui grey tiny label">
+                  {{ item['ui']['resource_type']['title_l10n'] }}
+                </div>
+                <div class="ui tiny label access-status {{ item['ui']['access_status']['id'] }}">
+                  <i class="icon {{ item['ui']['access_status']['icon'] }}">
+                    {{ item['ui']['access_status']['title_l10n'] }}
+                  </i>
+                </div>
+              </div>
+              <div class="header" style="font-size: 1.2em">
+                {{ item['title'] }}
+              </div>
+              <div class="meta">
+                {# first three authors #}
+                {% for creator in item['ui']['creators']['creators'][0:3] %}
+                <span>{{ creator['person_or_org']['name'] }};</span>
+                {% endfor %}
+              </div>
+              <div class="description">
+                {{ " ".join(item['ui'].get('description_stripped', '').split(" ")[0:50]) }}...
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      {% else %}
+        {%- include "geo_knowledge_hub/records/details/extras/no_record_message.html" %}
+      {% endif %}
+    </div>
+  </div>
+</div>

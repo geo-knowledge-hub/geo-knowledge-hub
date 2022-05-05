@@ -6,8 +6,9 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 #
-# TODO: Add development versions of some important dependencies here to get a
-#       warning when there are breaking upstream changes, e.g.:
-#
-#     -e git+git://github.com/mitsuhiko/werkzeug.git#egg=Werkzeug
-#     -e git+git://github.com/mitsuhiko/jinja2.git#egg=Jinja2
+
+-e git+https://github.com/geo-knowledge-hub/geo-assets@v0.2.0#egg=geo-assets
+
+-e git+https://github.com/geo-knowledge-hub/geo-config@v0.2.0#egg=geo-config
+
+-e git+https://github.com/geo-knowledge-hub/geo-vocabularies@v1.0.0#egg=geo-vocabularies

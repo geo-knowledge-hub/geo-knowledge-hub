@@ -7,7 +7,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-"""GEO Knowledge Hub extension for InvenioRDM"""
+"""GEO Knowledge Hub extension for InvenioRDM."""
 
 import os
 
@@ -16,28 +16,56 @@ from setuptools import find_packages, setup
 readme = open("README.rst").read()
 history = open("CHANGES.rst").read()
 
+# Should follow inveniosoftware/invenio versions
+invenio_db_version = ">=1.0.11,<2.0.0"
+invenio_search_version = ">=1.4.0,<2.0.0"
+
 tests_require = [
+    "pytest-mock>=1.6.0",
     "pytest-invenio>=1.4.0",
+    "invenio-app>=1.3.1,<2.0.0",
+    "invenio-app-rdm>=8.0.0,<9.0.0"
 ]
 
 extras_require = {
-    "docs": [
-        "Sphinx>=3,<4",
+    "docs": ["sphinx>=4.2.0,<5"],
+    # Elasticsearch version
+    "elasticsearch7": [
+        "invenio-search[elasticsearch7]{}".format(invenio_search_version),
+    ],
+    # Databases
+    "mysql": [
+        "invenio-db[mysql,versioning]{}".format(invenio_db_version),
+    ],
+    "postgresql": [
+        "invenio-db[postgresql,versioning]{}".format(invenio_db_version),
+    ],
+    "sqlite": [
+        "invenio-db[versioning]{}".format(invenio_db_version),
     ],
     "tests": tests_require,
 }
 
-extras_require["all"] = [req for _, reqs in extras_require.items() for req in reqs]
+extras_require["all"] = []
+for name, reqs in extras_require.items():
+    if name[0] == ":" or name in ("elasticsearch7", "mysql", "postgresql", "sqlite"):
+        continue
+    extras_require["all"].extend(reqs)
+
 
 setup_requires = [
     "Babel>=2.8",
+    "pytest-runner>=3.0.0,<5",
 ]
 
 install_requires = [
     "invenio-i18n>=1.2.0",
     "Flask-Discussion>=0.1.1,<0.2",
     "pydash>=5.1.0",
-    "IDUtils>=1.1.9"
+    "IDUtils>=1.1.9",
+    "geo-assets @ git+https://github.com/geo-knowledge-hub/geo-assets@v0.2.0",
+    "geo-config @ git+https://github.com/geo-knowledge-hub/geo-config@v0.2.0",
+    "geo-vocabularies @ git+https://github.com/geo-knowledge-hub/geo-vocabularies@v1.0.0",
 ]
 
 packages = find_packages()
@@ -63,17 +91,9 @@ setup(
     include_package_data=True,
     platforms="any",
     entry_points={
-        "invenio_access.actions": [
-            "geo-community-access"
-            " = geo_knowledge_hub.security.permissions:geo_community_access_action",
-            "geo-provider-access"
-            " = geo_knowledge_hub.security.permissions:geo_provider_access_action",
-            "geo-secretariat-access"
-            " = geo_knowledge_hub.security.permissions:geo_secretariat_access_action"
-        ],
         "invenio_base.apps": [
             "geo_knowledge_hub = geo_knowledge_hub:GeoKnowledgeHub",
-            "geo_knowledge_hub_discussion = flask_discussion:Discussion"
+            "geo_knowledge_hub_discussion = flask_discussion:Discussion",
         ],
         "invenio_i18n.translations": [
             "messages = geo_knowledge_hub",
@@ -82,8 +102,9 @@ setup(
             "geo_knowledge_hub = geo_knowledge_hub.config",
         ],
         "invenio_assets.webpack": [
+            "geo_knowledge_hub_front = geo_knowledge_hub.modules.front.webpack:theme",
+            "geo_knowledge_hub_detail = geo_knowledge_hub.modules.detail.webpack:theme",
             "geo_knowledge_hub_deposit = geo_knowledge_hub.modules.deposit.webpack:theme",
-            "geo_knowledge_hub_frontpage = geo_knowledge_hub.modules.frontpage.webpack:theme"
         ]
         # "invenio_access.actions": [],
         # "invenio_admin.actions": [],
