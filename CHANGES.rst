@@ -9,6 +9,11 @@
 Changes
 =======
 
+Version 1.1.1-alpha (2022-05-09)
+--------------------------------
+
+- Revised the build system of the webpack (Fixes `#54 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/54>`_) and added the React.js dependencies needed for building the application (Fixes `#56 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/56>`_).
+
 Version 1.1.0-alpha (2022-04-29)
 --------------------------------
 
