@@ -49,7 +49,7 @@ theme = WebpackThemeBundle(
                 "react-share": "^4.4.0",
                 "@geo-knowledge-hub/geo-deposit-react": "0.2.1",
                 "@geo-knowledge-hub/geo-components-react": "0.2.1",
-                "@geo-knowledge-hub/react-invenio-deposit": "b-1.1",
+                "@geo-knowledge-hub/react-invenio-deposit": "0.17.12",
                 "@geo-knowledge-hub/geo-metadata-previewer-react": "0.1.1-alpha"
             },
             aliases={"@invenio-app-rdm": "js/invenio_app_rdm"},
