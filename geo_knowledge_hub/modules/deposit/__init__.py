@@ -15,7 +15,7 @@ from . import views
 
 def init_bp(app):
     """Initialize Deposit (page) module blueprint."""
-    bp = Blueprint("geokhub_deposit_bp", __name__, template_folder="theme/templates")
+    bp = Blueprint("geokhub_deposit_bp", __name__, template_folder="templates")
 
     # registration
     bp.add_url_rule("/uploads", "geokhub_deposit_search", views.geo_deposit_search)
