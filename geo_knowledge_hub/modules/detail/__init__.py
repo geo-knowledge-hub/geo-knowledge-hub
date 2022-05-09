@@ -15,7 +15,7 @@ from . import views
 
 def init_bp(app):
     """Initialize Detail (page) module blueprint."""
-    bp = Blueprint("geo_landing_bp", __name__, template_folder="theme/templates")
+    bp = Blueprint("geo_landing_bp", __name__, template_folder="templates")
 
     # registration
     bp.add_url_rule(

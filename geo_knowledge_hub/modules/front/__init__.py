@@ -18,7 +18,7 @@ def init_bp(app):
     bp = Blueprint(
         "geo_frontpage_bp",
         __name__,
-        template_folder="theme/templates",
+        template_folder="templates",
         static_folder="theme/static",
     )
 
