@@ -5,12 +5,12 @@
     it under the terms of the MIT License; see LICENSE file for more details.
 #}
 
-{% if user_stories %}
+{% if record.metadata.resource_type.id in [ "knowledge" ] %}
 
 <input 
-    id="user-stories" 
+    id="userStoriesData" 
     type="hidden" 
-    name="user-stories" 
+    name="userStoriesData" 
     value='{{user_stories | tojson }}'>
 </input>
 
@@ -19,7 +19,7 @@
 <div class="ui container">
     <div class="ui padded relaxed centered grid">
         <div class="column">
-            <div id="section-user-stories"></div>
+            <div id="usertStories"></div>
         </div>
     </div>
 </div>

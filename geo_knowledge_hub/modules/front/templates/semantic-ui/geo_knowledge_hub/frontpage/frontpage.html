@@ -2,7 +2,7 @@
 
 {%- block css %}
   {{ super() }}
-  {{ webpack["geo-knowledge-hub-front-carousel-theme.css"] }}
+  {{ webpack["geo-knowledge-hub-front-theme.css"] }}
 
   <link
     rel="stylesheet"
@@ -12,7 +12,7 @@
 
 {%- block javascript %}
   {{ super() }}
-  {{ webpack["geo-knowledge-hub-front-carousel.js"] }}
+  {{ webpack["geo-knowledge-hub-front.js"] }}
   
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script>
@@ -44,13 +44,6 @@
 {%- endblock page_header %}
 
 {%- block first_section %}
-  <input 
-    id="record-engagements"
-    type="hidden" 
-    name="record-engagements" 
-    value='{{engagement_priority_topics_available | tojson }}'>
-  </input>
-
   <section class="centered float-section-buttons">
     <div class="ui compact menu">
       <div data-tooltip="Latest additions">
@@ -72,46 +65,38 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide">
 
-        <span class="section-subtitle-content">{{ _("Latest additions") }}</span>
-          <div class="ui container">
-            <div class="ui padded relaxed centered grid">
-              <div class="column">
-                <div class="ui centered link cards">
-                  {% for item in latest_records %}
-                    <a href="/records/{{ item['id'] }}" class="card gkhub-frontpage-cards">
-                      <div class="left aligned content">
-                        <div class="extra labels-actions ribbon-latest-additions-title">
-                          <div class="ui blue ribbon label">
-                            {{ item['ui']['publication_date_l10n_medium'] }}
+          <span class="section-subtitle-content">{{ _("Latest additions") }}</span>
+            <div class="ui container">
+              <div class="ui padded relaxed centered grid">
+                <div class="column">
+                  <div class="ui centered link cards">
+                    {% for item in latest_records %}
+                      <a href="/records/{{ item['id'] }}" class="card gkhub-frontpage-cards">
+                        <div class="left aligned content">
+                          <div class="extra labels-actions ribbon-latest-additions-title">
+                            <div class="ui blue ribbon label">
+                              {{ item['ui']['publication_date_l10n_medium'] }}
+                            </div>
+                          </div>
+                          <div class="left aligned header"> {{ item['metadata']['title'] }} </div>
+                          <div class="description aligned justified">
+                            {{ item['ui']['description_stripped'] | truncate(50, true, '...') }}
                           </div>
                         </div>
-                        <div class="left aligned header"> {{ item['metadata']['title'] }} </div>
-                        <div class="meta">
-                          {% for creator in item['ui']['creators']['creators'] %}
-                            <span>{{ creator['person_or_org']['name'] }};</span>
-                          {% endfor %}
-                        </div>
-                        <div class="description aligned justified">
-                          {{ item['ui']['description_stripped'] | truncate(75, true, '...') }}
-                        </div>
-                      </div>
-                    </a>
-                  {% endfor %}
+                      </a>
+                    {% endfor %}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </span>
         </div>
 
         <div class="swiper-slide">
           <span class="section-subtitle-content">{{ _("Search by engagement priorities") }}</span>
           <div class="ui container">
             <div class="ui padded relaxed centered grid">
-              <div class="column">
-                <div align="center">
-                  <div id="front-engagements"></div>
-                </div>
-              </div>
+              <div id="engagementsSearchOptions"></div>
             </div>
           </div>
         </div>
