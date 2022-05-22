@@ -9,6 +9,7 @@
 """GEO Knowledge Hub Front (page) views."""
 
 from flask import render_template
+
 from .toolbox.search import get_latest_knowledge_packages
 
 
