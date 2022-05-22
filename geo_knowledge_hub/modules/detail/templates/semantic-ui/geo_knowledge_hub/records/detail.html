@@ -20,16 +20,12 @@
 
 {%- block css %}
   {{ super() }}
-  <!-- Image Carousel -->
-  {{ webpack['geo-knowledge-hub-landing-engagements-carousel-theme.css'] }}
+  {{ webpack['geo-knowledge-hub-detail-theme.css'] }}
 
- <!-- Geospatial metadata visualizer -->
- {{ webpack['geo-knowledge-hub-landing-geospatial-metadata-visualizer-theme.css'] }}
-
- <!-- Temporary -->
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-  crossorigin=""/>
+  <!-- Temporary -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
 {%- endblock css %}
 
 
@@ -200,7 +196,7 @@
 
             {# User Stories (Draft version) #}
             {%- block user_stories -%}
-              {% if user_stories %}
+              {% if record.metadata.resource_type.id in [ "knowledge" ] and user_stories %}
                 <section id="user-stories" aria-label="{{ _('User Stories') }}">
                   {%- include "geo_knowledge_hub/records/details/user-stories.html" %}
                 </section>
@@ -210,14 +206,11 @@
             {# Knowledge Elements #}
             {%- block record_knowledge_elements -%}
               {% if record.metadata.resource_type.id in [ "knowledge" ] %}
-                {%- set knowledge_elements_title = _("Elements of the Knowledge Package") -%}
-              {% else %}
-                {%- set knowledge_elements_title = _("This resource is part of the following Knowledge Packages") -%}
+                {%- set knowledge_elements_title = _("Elements of the Knowledge Package") -%}            
+                <section id="knowledge-elements" class="section-spacing" aria-label="{{ knowledge_elements_title }}">
+                  {%- include "geo_knowledge_hub/records/details/elements.html" %}
+                </section>
               {% endif %}
-
-              <section id="knowledge-elements" class="section-spacing" aria-label="{{ knowledge_elements_title }}">
-                {%- include "geo_knowledge_hub/records/details/elements.html" %}
-              </section>
             {%- endblock record_knowledge_elements -%}
 
             {# Files #}
@@ -267,12 +260,8 @@
               </section>
             {%- endblock record_details -%}
 
-            {# Questions and Answers #}
-            {%- block quetions_and_answers -%}
-              <section id="questions-and-anwers" class="section-spacing" aria-label="{{ _('Questions and Answers') }}">
-                {%- include "geo_knowledge_hub/records/details/qa.html" %}
-              </section>
-            {%- endblock quetions_and_answers -%}
+            {# Get in touch - ask the provider modal #}
+            {%- include "geo_knowledge_hub/records/details/get_in_touch.html" %}
 
             {# Record footer #}
             {%- block record_footer -%}
@@ -346,14 +335,8 @@
 {# {{ webpack['invenio-communities-records.js'] }} #}
 {{ webpack['previewer_theme.js'] }}
 
-<!-- Image Carousel -->
-{{ webpack['geo-knowledge-hub-landing-engagements-carousel.js'] }}
-
-<!-- Geospatial metadata visualizer -->
-{{ webpack['geo-knowledge-hub-landing-geospatial-metadata-visualizer.js'] }}
-
-<!-- User Stories -->
-{{ webpack['geo-knowledge-hub-landing-user-stories.js'] }}
+<!-- General -->
+{{ webpack['geo-knowledge-hub-detail.js'] }}
 
 <script>
   // FIXME: Temporary solution
@@ -392,4 +375,7 @@
     })
   });
 </script>
+
+<!-- Addthis -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-627fb9ee797c3e18"></script>
 {%- endblock javascript %}

@@ -7,19 +7,22 @@
   it under the terms of the MIT License; see LICENSE file for more details.
 #}
 
-
 {%- from "invenio_app_rdm/records/macros/detail.html" import show_references, show_add_titles,
 show_alternate_identifiers, show_funding, show_dates %}
 
-{%- from "geo_knowledge_hub/records/macros/detail.html" import show_related_identifiers %}
+{%- from "geo_knowledge_hub/records/macros/detail.html" import show_related_identifiers, show_knowledge_packages %}
 
-{% set hasContent = record.ui.additional_titles or
+{% set is_knowledge_resource = record.metadata.resource_type.id != "knowledge" %}
+
+{% set hasContent = is_knowledge_resource or
+                    record.ui.additional_titles or
                     metadata.identifiers or
                     related_identifiers or
                     metadata.funding or
                     record.ui.dates or
                     metadata.references
 %}
+
 {% set rights = record.ui.get('rights') %}
 {% set active = true %}
 
@@ -28,6 +31,20 @@ show_alternate_identifiers, show_funding, show_dates %}
 
   {# Tabs #}
   <div role="tablist" class="ui top attached tabs menu">
+    {% if related_records_informations and is_knowledge_resource %}
+      <a role="tab"
+        aria-selected="{{ active }}"
+        aria-controls="knowledge-packages"
+        data-tab="knowledge-packages"
+        tabindex="0"
+        class="{{ 'active' if active }} item"
+        id="knowledge-packages-tab"
+      >
+        {{ _('Associated Knowledge Packages') }}
+      </a>
+      {% set active = false %}
+    {% endif %}
+
     {% if record.ui.additional_titles %}
       <a role="tab"
         aria-selected="{{ active }}"
@@ -116,9 +133,24 @@ show_alternate_identifiers, show_funding, show_dates %}
   {# Content #}
   {% set active = true %}
 
+  {% if related_records_informations and is_knowledge_resource %}
+    <div role="tabpanel"
+      class="ui bottom {{ 'active' if active }} tab"
+      data-tab="knowledge-packages"
+      aria-labelledby="knowledge-packages-tab"
+      id="knowledge-packages"
+      hidden="{{ not active }}"
+    >
+      <dl class="knowledge-package-list">
+        {{ show_knowledge_packages(related_records_informations) }}
+      </dl>
+    </div>
+    {% set active = false %}
+  {% endif %}
+
   {% if record.ui.additional_titles %}
     <div role="tabpanel"
-        class="ui bottom attached {{ 'active' if active }} tab segment"
+        class="ui bottom {{ 'active' if active }} tab segment"
         data-tab="additional-titles"
         aria-labelledby="additional-titles-tab"
         id="additional-titles"
@@ -134,7 +166,7 @@ show_alternate_identifiers, show_funding, show_dates %}
 
   {% if metadata.identifiers %}
     <div role="tabpanel"
-        class="ui bottom attached {{ 'active' if active }} tab segment"
+        class="ui bottom {{ 'active' if active }} tab segment"
         data-tab="identifiers"
         aria-labelledby="identifiers-tab"
         id="identifiers"
@@ -149,7 +181,7 @@ show_alternate_identifiers, show_funding, show_dates %}
 
   {% if related_identifiers %}
     <div role="tabpanel"
-        class="ui bottom attached {{ 'active' if active }} tab segment"
+        class="ui bottom {{ 'active' if active }} tab segment"
         data-tab="related-works"
         aria-labelledby="related-works-tab"
         id="related-works"
@@ -164,7 +196,7 @@ show_alternate_identifiers, show_funding, show_dates %}
 
   {% if metadata.funding %}
     <div role="tabpanel"
-        class="ui bottom attached {{ 'active' if active }} tab segment"
+        class="ui bottom {{ 'active' if active }} tab segment"
         data-tab="funding"
         aria-labelledby="funding-tab"
         id="funding"
@@ -179,7 +211,7 @@ show_alternate_identifiers, show_funding, show_dates %}
 
   {% if record.ui.dates %}
     <div role="tabpanel"
-        class="ui bottom attached {{ 'active' if active }} tab segment"
+        class="ui bottom {{ 'active' if active }} tab segment"
         data-tab="dates"
         aria-labelledby="dates-tab"
         id="dates"
@@ -194,7 +226,7 @@ show_alternate_identifiers, show_funding, show_dates %}
 
   {% if metadata.references %}
     <div role="tabpanel"
-        class="ui bottom attached {{ 'active' if active }} tab segment"
+        class="ui bottom {{ 'active' if active }} tab segment"
         data-tab="references"
         aria-labelledby="references-tab"
         id="references"

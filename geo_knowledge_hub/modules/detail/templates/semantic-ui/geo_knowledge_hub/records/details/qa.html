@@ -1,6 +1,23 @@
-<h2 id="record-details-heading">{{ _('Questions and Answers') }}</h2>
+{#
+    Copyright (C) 2021-2022 GEO Secretariat.
+  
+    geo-knowledge-hub is free software; you can redistribute it and/or modify
+    it under the terms of the MIT License; see LICENSE file for more details.
+#}
 
-{% if current_user.is_authenticated and current_user_profile and current_user_profile.name != None %}
+{%- if current_user.is_authenticated and current_user_profile and current_user_profile.name != None %}
+    
+    <div class="ui info message">
+        <i class="close icon"></i>
+        <div class="header">
+            Get in touch with the Knowledge Provider
+        </div>
+
+        <p>
+        Knowledge Providers do their best to bring you the most helpful content for you. However, sometimes it is necessary to ask. In this tab, you can talk directly to the Knowledge Provider. Ask your question and keep in touch.
+        </p>
+    </div>
+
     {% import "flask_discussion/helper.html" as discussion %}
 
     {# rendering the comments #}
@@ -10,19 +27,20 @@
         url="{{ record.links.latest_html }}"
         ) }}
 
-{% else %}
+{%- else %}
+
     <div class="ui info message">
         <div class="header">
-        Do you want to interact with the community?
+        Do you want to interact with the Knowledge Provider ?
         </div>
 
-    {% if current_user_profile and (current_user_profile.name == None or current_user_profile.email == None) %}
-        <p>Before you can comment, it is necessary for you to complete your registration. Please complete your
+    {%- if current_user_profile and (current_user_profile.name == None or current_user_profile.email == None) %}
+        <p>Before you can ask something, it is necessary for you to complete your registration. Please, complete your
         registration in the <a href="/account/settings/profile/">account settings.</a></p>
 
-    {% elif not current_user.is_authenticated %}
+    {%- elif not current_user.is_authenticated %}
         <p>You must register on the Geo Knowledge Hub. <a href="/signup">Click here</a> to register now or <a
         href="/login">Log in</a></p>
-    {% endif %}
+    {%- endif %}
   </div>
 {% endif %}

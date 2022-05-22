@@ -11,24 +11,31 @@ import ReactDOM from "react-dom";
 
 import { GeospatialMetadataVisualizer } from "@geo-knowledge-hub/geo-metadata-previewer-react";
 
-// Extracting the record information
-// note: we use the same approach as presented
-// in the `invenio-app-rdm`:
-const recordVersionAppDiv = document.getElementById("recordVersions");
+/**
+ * Render the geospatial metadata previewer component.
+ */
+export const renderComponent = (...args) => {
+  const componentDiv = document.getElementById("mapContainer");
+  const recordVersionAppDiv = document.getElementById("recordVersions");
 
-// Checking for a valid record document
-if (recordVersionAppDiv) {
   // parsing the record document
-  const recordDocument = JSON.parse(recordVersionAppDiv.dataset.record);
+  let recordDocument = {};
 
-  ReactDOM.render(
-    <GeospatialMetadataVisualizer
-      mapContainerOptions={{
-        id: "map-container",
-        scrollWheelZoom: true,
-      }}
-      recordContext={recordDocument}
-    />,
-    document.getElementById("map-container")
-  );
-}
+  if (recordVersionAppDiv) {
+    recordDocument = JSON.parse(recordVersionAppDiv.dataset.record);
+  }
+
+  // Checking for a valid record document
+  if (Object.keys(recordDocument).length > 0) {
+    ReactDOM.render(
+      <GeospatialMetadataVisualizer
+        mapContainerOptions={{
+          id: "mapContainer",
+          scrollWheelZoom: true,
+        }}
+        recordContext={recordDocument}
+      />,
+      componentDiv
+    );
+  }
+};
