@@ -22,7 +22,7 @@ export const renderComponent = (...args) => {
   const componentDiv = document.getElementById("relatedRecordsDiv");
   let relatedRecordsData = [];
 
-  if (relatedRecordsData) {
+  if (componentDiv) {
     relatedRecordsData = JSON.parse(componentDiv.dataset.record) || [];
   }
 
