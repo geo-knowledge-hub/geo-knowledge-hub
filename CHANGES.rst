@@ -9,6 +9,21 @@
 Changes
 =======
 
+Version 1.1.1 (2022-05-22)
+--------------------------------
+
+- Added social share button using `AddThis <https://www.addthis.com/>`_ (e.g., Twitter, Facebook, Email) (`#58 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/58>`_);
+
+- Webpack entries review (`#57 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/57>`_) to reduce the size of the scripts loaded on the GEO Knowledge Hub pages;
+
+- Updated the record landing page with the following new components:
+
+  - ``Related resource table`` (based on GEO Components React `v0.3.0 <https://github.com/geo-knowledge-hub/geo-components-react/releases/tag/v0.3.0>`_). Using this new component, the elements associated with a Knowledge Package are now presented in a table with full-text search and faceted search operations;
+  - ``Version dropdown menu`` (based on `Invenio App RDM components <https://github.com/inveniosoftware/invenio-app-rdm>`_). This component replaces the original InvenioRDM versions component with a dropdown menu;
+  - ``Engagement Priorities Carousel`` (based on GEO Components React `v0.3.0 <https://github.com/geo-knowledge-hub/geo-components-react/releases/tag/v0.3.0>`_). The carousel now uses lazy load operation and the Semantic UI theme.
+  
+- Updated the front page carousel using lazy load operations and Semantic UI theme (based on GEO Components React `v0.3.0 <https://github.com/geo-knowledge-hub/geo-components-react/releases/tag/v0.3.0>`_)
+
 Version 1.1.1-alpha (2022-05-09)
 --------------------------------
 
