@@ -24,7 +24,7 @@ export const renderComponent = (...args) => {
   const componentDiv = document.getElementById("usertStories");
   const userStoriesData = getInputFromDOM("userStoriesData") || [];
 
-  if (componentDiv && userStoriesData.lenght > 0) {
+  if (componentDiv && userStoriesData.length > 0) {
     // Preparing the theme
     const theme = {
       slides: {

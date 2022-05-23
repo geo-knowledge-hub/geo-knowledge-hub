@@ -79,8 +79,13 @@
                             </div>
                           </div>
                           <div class="left aligned header"> {{ item['metadata']['title'] }} </div>
+                          <div class="meta">
+                            {% for creator in item['ui']['creators']['creators'] %}
+                              <span>{{ creator['person_or_org']['name'] }};</span>
+                            {% endfor %}
+                          </div>
                           <div class="description aligned justified">
-                            {{ item['ui']['description_stripped'] | truncate(50, true, '...') }}
+                            {{ item['ui']['description_stripped'] | truncate(75, true, '...') }}
                           </div>
                         </div>
                       </a>
@@ -89,7 +94,6 @@
                 </div>
               </div>
             </div>
-          </span>
         </div>
 
         <div class="swiper-slide">

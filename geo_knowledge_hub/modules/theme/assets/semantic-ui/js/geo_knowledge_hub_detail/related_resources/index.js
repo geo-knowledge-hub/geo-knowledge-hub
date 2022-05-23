@@ -26,7 +26,7 @@ export const renderComponent = (...args) => {
     relatedRecordsData = JSON.parse(componentDiv.dataset.record) || [];
   }
 
-  if (relatedRecordsData.lenght > 0) {
+  if (relatedRecordsData.length > 0) {
     // Preparing the theme
     const theme = {
       slides: {},
