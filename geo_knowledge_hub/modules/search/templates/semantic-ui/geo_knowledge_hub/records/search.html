@@ -1,0 +1,12 @@
+
+{%- set title = _("Search results") %}
+{%- extends config.BASE_TEMPLATE %}
+
+{%- block javascript %}
+    {{ super() }}
+    {{ webpack['geo-knowledge-hub-search.js'] }}
+{%- endblock %}
+
+{%- block page_body %}
+<div data-invenio-search-config='{{ search_app_config(app_id="rdm-search") | tojson }}'></div>
+{%- endblock page_body %}

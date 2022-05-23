@@ -25,6 +25,10 @@ theme = WebpackThemeBundle(
                 "geo-knowledge-hub-front-theme": "./less/geo_knowledge_hub_front/theme.less",
                 # Deposit
                 "geo-knowledge-hub-deposit": "./js/geo_knowledge_hub_deposit/deposit_form/index.js",
+                # Search
+                "geo-knowledge-hub-search": "./js/geo_knowledge_hub_search/index.js",
+                # Dashboard
+                "geo-knowledge-hub-user-dashboard": "./js/geo_knowledge_hub_dashboard/index.js"
             },
             dependencies={
                 "sweetalert2": "^11.1.7",
