@@ -10,9 +10,7 @@
 
 from flask import current_app, render_template
 from flask_login import login_required
-
 from invenio_app_rdm.records_ui.views.deposits import get_search_url
-
 from invenio_userprofiles import current_userprofile
 
 
