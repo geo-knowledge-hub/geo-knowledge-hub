@@ -17,7 +17,6 @@ from invenio_userprofiles import current_userprofile
 @login_required
 def geo_user_dashboard(dashboard_name=None):
     """Display user dashboard page."""
-
     if not current_app.config["COMMUNITIES_ENABLED"] or not dashboard_name:
         dashboard_name = current_app.config["_DASHBOARD_ROUTES"][0]
     return render_template(
