@@ -1,0 +1,19 @@
+{#
+    Copyright (C) 2021-2022 GEO Secretariat.
+  
+    geo-knowledge-hub is free software; you can redistribute it and/or modify
+    it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+<div id="get-in-touch-ask-provider-modal" class="ui modal fade">
+    <i class="close icon"></i>
+    <div class="header"><i class="comments outline icon large"></i> <b>{{ _('Ask the provider') }}</b></div>
+    <div class="scrolling content">
+        {# Questions and Answers #}
+        {%- block ask_the_provider_chat -%}
+        <section id="ask-the-provider-questions-and-anwers" class="section-spacing" aria-label="{{ _('Ask the provider') }}">
+        {%- include "geo_knowledge_hub/records/details/qa.html" %}
+        </section>
+        {%- endblock ask_the_provider_chat -%}
+    </div>
+</div>

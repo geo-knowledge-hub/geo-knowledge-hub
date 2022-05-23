@@ -1,0 +1,26 @@
+{#
+    Copyright (C) 2021-2022 GEO Secretariat.
+  
+    geo-knowledge-hub is free software; you can redistribute it and/or modify
+    it under the terms of the MIT License; see LICENSE file for more details.
+#}
+  
+{% if related_engagement_priorities %}
+
+  <input 
+    id="recordEngagementsData" 
+    type="hidden" 
+    name="recordEngagementsData" 
+    value='{{related_engagement_priorities | tojson }}'>
+  </input>
+
+  <div id="engagement-priorities-sidebar" class="ui segment rdm-sidebar">
+      <dt><b>{{ _("Engagement Priorities")}}</b></dt>
+      <hr class="thin-line">
+
+      <div align="center">
+        <div id="recordEngagements" style="width: 17rem"></div>
+      </div>
+  </div>
+
+{% endif %}
