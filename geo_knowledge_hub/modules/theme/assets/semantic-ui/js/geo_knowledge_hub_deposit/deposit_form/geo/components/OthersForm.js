@@ -17,7 +17,7 @@ import { RelatedResourcesSearchConfig } from "./search/config";
 import { ElasticSearchQueryBuilder } from "../ElasticSearchQueryBuilder";
 
 import { RDMRecordSearchBarElement } from "./search/RDMRecordSearchBarElement";
-import { RDMRecordResultsListItem } from "@invenio-app-rdm/search/components";
+import { CustomRecordResultsListItem } from "@geo-knowledge-hub-search/components";
 
 import {
   DATA,
@@ -35,18 +35,19 @@ export class OthersForm extends BaseDepositForm {
     };
 
     this.searchComponents = {
-      "ResultsList.item": RDMRecordResultsListItem,
+      "ResultsList.item": CustomRecordResultsListItem,
       "SearchBar.element": RDMRecordSearchBarElement,
       "EmptyResults.element": RDMEmptyResults,
     };
 
-    this.vocabularyResourceTypes =
-      this.libraryVocabulariesHandler.filterResourcesByInvalidTypes([
+    this.vocabularyResourceTypes = this.libraryVocabulariesHandler.filterResourcesByInvalidTypes(
+      [
         DATA,
         SOFTWARE,
         PUBLICATIONS,
         // KNOWLEDGE_PACKAGE, (Temporary: To enable users to create a package of packages)
-      ]);
+      ]
+    );
   }
 
   modalWindowHandler = () => {
@@ -62,11 +63,10 @@ export class OthersForm extends BaseDepositForm {
     const relatedResourcesSearchConfig = _cloneDeep(
       RelatedResourcesSearchConfig
     );
-    const relatedResourceQuery =
-      ElasticSearchQueryBuilder.buildQueryByKnowledgePackageResource(
-        this.depositConfigHandler.props.record.pids.doi.identifier,
-        this.vocabularyResourceTypes
-      );
+    const relatedResourceQuery = ElasticSearchQueryBuilder.buildQueryByKnowledgePackageResource(
+      this.depositConfigHandler.props.record.pids.doi.identifier,
+      this.vocabularyResourceTypes
+    );
 
     relatedResourcesSearchConfig["initialQueryState"] = {
       queryString: relatedResourceQuery,

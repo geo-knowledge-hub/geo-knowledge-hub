@@ -25,10 +25,13 @@ theme = WebpackThemeBundle(
                 "geo-knowledge-hub-front-theme": "./less/geo_knowledge_hub_front/theme.less",
                 # Deposit
                 "geo-knowledge-hub-deposit": "./js/geo_knowledge_hub_deposit/deposit_form/index.js",
+                # Search
+                "geo-knowledge-hub-search": "./js/geo_knowledge_hub_search/index.js",
+                # Dashboard
+                "geo-knowledge-hub-user-dashboard": "./js/geo_knowledge_hub_dashboard/index.js",
             },
             dependencies={
-                "sweetalert2": "^11.1.7",
-                "sweetalert2-react-content": "^4.1.1",
+                "react-semantic-toasts": "^0.6.6",
                 "leaflet": "^1.7.1",
                 "react-leaflet": "3.1.0",
                 "@react-leaflet/core": "1.0.2",
@@ -39,7 +42,7 @@ theme = WebpackThemeBundle(
                 "react-minisearch": "^5.0.0-beta1",
                 "react-table": "^7.7.0",
                 "@geo-knowledge-hub/geo-deposit-react": "0.2.1",
-                "@geo-knowledge-hub/geo-components-react": "0.3.0",
+                "@geo-knowledge-hub/geo-components-react": "0.3.1",
                 "@geo-knowledge-hub/react-invenio-deposit": "0.17.12",
                 "@geo-knowledge-hub/geo-metadata-previewer-react": "0.1.1-alpha",
                 "@emotion/react": "^11.9.0",
@@ -47,7 +50,10 @@ theme = WebpackThemeBundle(
                 "@emotion/styled": "^11.8.1",
                 "react-lazy-load-image-component": "^1.5.4",
             },
-            aliases={"@invenio-app-rdm": "js/invenio_app_rdm"},
+            aliases={
+                "@invenio-app-rdm": "js/invenio_app_rdm",
+                "@geo-knowledge-hub-search": "js/geo_knowledge_hub_search",
+            },
         )
     },
 )

@@ -1,0 +1,47 @@
+{#
+  Copyright (C) 2020 CERN.
+  Copyright (C) 2020 Northwestern University.
+
+  Invenio App RDM is free software; you can redistribute it and/or modify it
+  under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{%- set title = _("Uploads") %}
+{%- extends config.BASE_TEMPLATE %}
+
+{%- block javascript %}
+{{ super() }}
+{{ webpack['geo-knowledge-hub-user-dashboard.js'] }}
+{%- endblock javascript %}
+  
+{%- block page_body %}
+<div class="ui container fluid" id="dashboard-user-header-container">
+  <div class="ui container">
+    <div class="ui items">
+      <div class="item">
+<!--        TODO comment out when avatars ready-->
+<!--        <div class="ui mini image">-->
+<!--          <img src="/static/images/square-placeholder.png"/>-->
+<!--        </div>-->
+<!--        <div class="content">-->
+<!--          <span class="header">{{ username }}</span>-->
+<!--          <div class="meta">-->
+<!--          </div>-->
+        <div class="content">
+          <span class="header">{{ _("My dashboard") }}</span>
+          <div class="meta">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  id="invenio-user-dashboard"
+  data-invenio-search-user-uploads-config='{{ search_app_user_uploads_config(app_id="user-uploads-search") | tojson }}'
+  data-invenio-search-user-communities-config='{{ search_app_user_communities_config(app_id="user-communities-search") | tojson }}'
+  data-invenio-search-user-requests-config='{{ search_app_user_requests_config(app_id="user-requests-search") | tojson }}'
+  data-active-tab-name='{{dashboard_name | tojson }}'
+  data-communities-enabled ='{{communities_enabled | tojson}}'>
+</div>
+{%- endblock page_body %}
