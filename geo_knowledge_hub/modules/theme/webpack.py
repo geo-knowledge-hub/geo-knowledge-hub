@@ -28,11 +28,10 @@ theme = WebpackThemeBundle(
                 # Search
                 "geo-knowledge-hub-search": "./js/geo_knowledge_hub_search/index.js",
                 # Dashboard
-                "geo-knowledge-hub-user-dashboard": "./js/geo_knowledge_hub_dashboard/index.js"
+                "geo-knowledge-hub-user-dashboard": "./js/geo_knowledge_hub_dashboard/index.js",
             },
             dependencies={
-                "sweetalert2": "^11.1.7",
-                "sweetalert2-react-content": "^4.1.1",
+                "react-semantic-toasts": "^0.6.6",
                 "leaflet": "^1.7.1",
                 "react-leaflet": "3.1.0",
                 "@react-leaflet/core": "1.0.2",
@@ -51,7 +50,10 @@ theme = WebpackThemeBundle(
                 "@emotion/styled": "^11.8.1",
                 "react-lazy-load-image-component": "^1.5.4",
             },
-            aliases={"@invenio-app-rdm": "js/invenio_app_rdm"},
+            aliases={
+                "@invenio-app-rdm": "js/invenio_app_rdm",
+                "@geo-knowledge-hub-search": "js/geo_knowledge_hub_search",
+            },
         )
     },
 )

@@ -1,5 +1,8 @@
-import { Container, Step, Icon, Grid } from "semantic-ui-react";
 import React from "react";
+
+import { Container, Step, Icon, Grid } from "semantic-ui-react";
+
+import { SemanticToastContainer } from "react-semantic-toasts";
 
 export const DepositStep = (props) => {
   const { stepHandler, isRecordPublished } = props;
@@ -71,6 +74,26 @@ export const DepositStep = (props) => {
                 </Step.Content>
               </Step>
             </Step.Group>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row centered>
+          <Grid.Column width={12}>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                zIndex: "9",
+                position: "absolute",
+                top: 0,
+                left: 0,
+              }}
+            >
+              <SemanticToastContainer
+                position={"top-center"}
+                animation={"fade down"}
+                maxToasts={3}
+              />
+            </div>
           </Grid.Column>
         </Grid.Row>
       </Grid>

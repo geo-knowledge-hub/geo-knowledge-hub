@@ -1,7 +1,10 @@
-import Swal from "sweetalert2";
-
-import { connect } from "react-redux";
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import { toast } from "react-semantic-toasts";
+
+import _get from "lodash/get";
+import _compact from "lodash/compact";
 
 import {
   DescriptionsField,
@@ -24,7 +27,16 @@ import {
   Container,
   Segment,
   Divider,
+  Button,
+  Icon,
+  Header,
 } from "semantic-ui-react";
+
+import {
+  TargetAudienceField,
+  EngagementPriorityField,
+  WorkProgrammeActivityField,
+} from "@geo-knowledge-hub/geo-deposit-react";
 
 import { BaseDepositForm } from "../BaseDepositForm";
 import { GeoDepositFormApp } from "../../GeoDepositFormApp";
@@ -75,7 +87,7 @@ class KnowledgeResourceFormTabsComponent extends Component {
 
     const panes = [
       {
-        menuItem: "1. Basic description",
+        menuItem: "1. Basic information",
         render: () => (
           <Tab.Pane>
             <FormFeedback fieldPath="message" />
@@ -122,8 +134,59 @@ class KnowledgeResourceFormTabsComponent extends Component {
           </Tab.Pane>
         ),
       },
+
       {
-        menuItem: "2. Additional informations",
+        menuItem: "2. Initiatives and audience",
+        render: () => (
+          <Tab.Pane>
+            <Grid verticalAlign="middle" centered>
+              <Grid.Row>
+                <Grid.Column width={16}>
+                  <WorkProgrammeActivityField
+                    required
+                    initialSuggestions={
+                      _compact([
+                        _get(
+                          this.depositConfigHandler.props.record,
+                          "ui.geo_work_programme_activity",
+                          null
+                        ),
+                      ]) || null
+                    }
+                  />
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+            <Grid columns={2} divided>
+              <Grid.Row>
+                <Grid.Column>
+                  <EngagementPriorityField
+                    required
+                    initialSuggestions={_get(
+                      this.depositConfigHandler.props.record,
+                      "ui.engagement_priorities",
+                      null
+                    )}
+                  />
+                </Grid.Column>
+
+                <Grid.Column>
+                  <TargetAudienceField
+                    required
+                    initialSuggestions={_get(
+                      this.depositConfigHandler.props.record,
+                      "ui.target_audiences",
+                      null
+                    )}
+                  />
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Tab.Pane>
+        ),
+      },
+      {
+        menuItem: "3. Additional details",
         render: () => (
           <Tab.Pane>
             <Grid>
@@ -177,7 +240,7 @@ class KnowledgeResourceFormTabsComponent extends Component {
         ),
       },
       {
-        menuItem: "3. People",
+        menuItem: "4. People",
         render: () => (
           <Tab.Pane>
             <Grid columns={2} divided>
@@ -219,7 +282,7 @@ class KnowledgeResourceFormTabsComponent extends Component {
         ),
       },
       {
-        menuItem: "4. Files",
+        menuItem: "5. Files",
         render: () => (
           <Tab.Pane>
             <Grid verticalAlign="middle" centered>
@@ -239,7 +302,7 @@ class KnowledgeResourceFormTabsComponent extends Component {
         ),
       },
       {
-        menuItem: "5. Licenses and version",
+        menuItem: "6. Licenses and version",
         render: () => (
           <Tab.Pane>
             <Grid>
@@ -281,7 +344,7 @@ class KnowledgeResourceFormTabsComponent extends Component {
         ),
       },
       {
-        menuItem: "6. Related resources",
+        menuItem: "7. Related resources",
         render: () => (
           <Tab.Pane>
             <Grid>
@@ -327,6 +390,8 @@ export const KnowledgeResourceFormTabs = connect(
 export class KnowledgeResourceModalFormComponent extends BaseDepositForm {
   constructor(props) {
     super(props);
+
+    this.setState({ isModalOpen: false });
   }
 
   render() {
@@ -334,12 +399,15 @@ export class KnowledgeResourceModalFormComponent extends BaseDepositForm {
     const { resourcePublishIsPublished } = this.props;
 
     if (resourcePublishIsPublished) {
-      // showing message to user
-      Swal.fire({
-        icon: "success",
+      toast({
         title: "Resource successfully added",
-        showConfirmButton: false,
-        timer: 3000,
+        type: "success",
+        size: "small",
+        description: (
+          <p>
+            The resource has been successfully added to the Knowledge Package.
+          </p>
+        ),
       });
 
       // dispatching new event
@@ -351,63 +419,71 @@ export class KnowledgeResourceModalFormComponent extends BaseDepositForm {
     }
 
     return (
-      <Modal
-        closeIcon
-        size={"large"}
-        centered={false}
-        dimmer={"blurring"}
-        open={this.props.isModalOpen}
-        onClose={this.props.modalWindowHandler}
-      >
-        <Modal.Header>{this.props.modalName}</Modal.Header>
-        <GeoDepositFormApp
-          controller={KnowledgeResourceDepositController}
-          config={this.depositConfigHandler.props.config}
-          apiClientConfig={{
-            createUrl: "/api/records",
-          }}
+      <>
+        <Modal
+          closeIcon
+          size={"large"}
+          centered={false}
+          dimmer={"blurring"}
+          open={this.props.isModalOpen}
+          onClose={this.props.modalWindowHandler}
+          closeOnEscape={false}
+          closeOnDimmerClick={false}
         >
-          <Modal.Content>
-            <Modal.Description>
-              <Container>
-                <Segment vertical>
-                  <Grid>
-                    <Grid.Row centered>
-                      <Grid.Column width={15}>
-                        <KnowledgeResourceFormTabs
-                          depositConfigHandler={this.props.depositConfigHandler}
-                          vocabularyResourceTypes={
-                            this.props.vocabularyResourceTypes
-                          }
-                          libraryVocabulariesHandler={
-                            this.props.libraryVocabulariesHandler
-                          }
-                        />
-                      </Grid.Column>
-                    </Grid.Row>
-                  </Grid>
-                </Segment>
-              </Container>
-            </Modal.Description>
-          </Modal.Content>
+          <Modal.Header>{this.props.modalName}</Modal.Header>
+          <GeoDepositFormApp
+            controller={KnowledgeResourceDepositController}
+            config={this.depositConfigHandler.props.config}
+            apiClientConfig={{
+              createUrl: "/api/records",
+            }}
+            files={{ enabled: false }}
+            record={{ files: { enabled: false } }}
+          >
+            <Modal.Content>
+              <Modal.Description>
+                <Container>
+                  <Segment vertical>
+                    <Grid>
+                      <Grid.Row centered>
+                        <Grid.Column width={15}>
+                          <KnowledgeResourceFormTabs
+                            depositConfigHandler={
+                              this.props.depositConfigHandler
+                            }
+                            vocabularyResourceTypes={
+                              this.props.vocabularyResourceTypes
+                            }
+                            libraryVocabulariesHandler={
+                              this.props.libraryVocabulariesHandler
+                            }
+                          />
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
+                  </Segment>
+                </Container>
+              </Modal.Description>
+            </Modal.Content>
 
-          <Modal.Actions>
-            <Container>
-              <Grid>
-                <Grid.Row
-                  centered
-                  style={{ height: "5rem", marginTop: "1.2rem" }}
-                >
-                  <Divider />
-                  <Grid.Column width={3} centered>
-                    <CustomRDMPublishButton fluid />
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </Container>
-          </Modal.Actions>
-        </GeoDepositFormApp>
-      </Modal>
+            <Modal.Actions>
+              <Container>
+                <Grid>
+                  <Grid.Row
+                    centered
+                    style={{ height: "5rem", marginTop: "1.2rem" }}
+                  >
+                    <Divider />
+                    <Grid.Column width={3} centered>
+                      <CustomRDMPublishButton fluid />
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+              </Container>
+            </Modal.Actions>
+          </GeoDepositFormApp>
+        </Modal>
+      </>
     );
   }
 }

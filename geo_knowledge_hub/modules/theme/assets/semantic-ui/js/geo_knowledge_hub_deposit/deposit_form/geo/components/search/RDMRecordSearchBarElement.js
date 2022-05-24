@@ -60,7 +60,7 @@ export const RDMRecordSearchBarElement = ({
       onChange={(event, { value }) => {
         // onInputChange(value);  // ToDo: Change this only for the initial query
       }}
-      value={"Search (Disabled)"} // ToDo: Change this only for the initial query
+      value={"Search (Disabled in the current version)"} // ToDo: Change this only for the initial query
       onKeyPress={onKeyPress}
     />
   );
