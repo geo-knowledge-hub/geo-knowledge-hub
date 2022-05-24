@@ -9,6 +9,19 @@
 Changes
 =======
 
+Version 1.2.0 (2022-05-24)
+--------------------------------
+
+- Added visibility configuration to the elements of the Knowledge Package in the Deposit Interface;
+
+- Added the GEO Work Programme and Target Audience to the Knowledge Resource interface;
+
+- Improvements in the Deposit interface experience:
+
+  - Avoid data lost in the Knowledge Resource Modal when the user clicks in a place outside the modal;
+  - Revised the toast message about the publication status. The toast implementation is now implemented with the `React Semantic Toasts <https://www.npmjs.com/package/react-semantic-toasts>`_ package.
+- The search result now presents the GEO Work Programme Badge. This modification affects all GEO Knowledge Hub pages which contain a search result (e.g., Deposit page, Record Landing Page, Record search Page).
+
 Version 1.1.1 (2022-05-22)
 --------------------------------
 
