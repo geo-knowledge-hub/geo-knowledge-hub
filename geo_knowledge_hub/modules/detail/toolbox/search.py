@@ -10,7 +10,7 @@
 
 from typing import Dict, List, Union
 
-from invenio_rdm_records.resources.serializers import UIJSONSerializer
+from geo_rdm_records.resources.serializers.ui.serializer import UIJSONSerializer
 from invenio_records.api import Record
 from invenio_search import current_search_client
 from pydash import py_
