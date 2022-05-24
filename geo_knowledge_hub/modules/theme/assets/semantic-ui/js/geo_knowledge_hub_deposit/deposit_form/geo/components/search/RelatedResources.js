@@ -6,9 +6,6 @@ import {
   EmptyResults,
   ResultsLoader,
   ResultsList,
-} from "react-searchkit";
-
-import {
   ReactSearchKit,
   InvenioSearchApi,
   SearchBar,

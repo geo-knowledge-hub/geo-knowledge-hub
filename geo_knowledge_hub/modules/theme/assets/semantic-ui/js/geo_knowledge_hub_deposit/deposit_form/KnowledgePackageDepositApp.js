@@ -21,6 +21,8 @@ import { KnowledgeResourceForm } from "./geo/components/KnowledgeResourceForm";
 import { KNOWLEDGE_PACKAGE } from "./geo/resources/types";
 import { geoGlobalContext, geoGlobalStore } from "./configStore";
 
+import "react-semantic-toasts/styles/react-semantic-alert.css";
+
 class KnowledgePackageDepositSteps extends Component {
   constructor(props) {
     super(props);
@@ -119,8 +121,8 @@ export class KnowledgePackageDepositApp extends Component {
     let isKnowledgePackage = false;
     let isRecordPublished =
       this.depositConfigHandler.props.record.is_published === true;
-    let resourceType =
-      this.depositConfigHandler.props.record.metadata.resource_type;
+    let resourceType = this.depositConfigHandler.props.record.metadata
+      .resource_type;
 
     if (!_.isNil(resourceType)) {
       if (resourceType.title.en === KNOWLEDGE_PACKAGE) {
@@ -138,6 +140,7 @@ export class KnowledgePackageDepositApp extends Component {
                 stepHandler={this.stepHandler}
                 isRecordPublished={isRecordPublished}
               />
+
               <KnowledgePackageDepositSteps
                 step={step}
                 isRecordPublished={isRecordPublished}

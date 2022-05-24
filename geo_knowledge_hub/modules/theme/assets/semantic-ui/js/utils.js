@@ -14,4 +14,6 @@ import _get from "lodash/get";
  * @param {string} programmeActivityName String containing the Programme Name
  */
 export const extractProgrammeActivityAcronym = (programmeActivityName) =>
-  _get(programmeActivityName.match(/\(([^)]+)\)/), 1, null);
+  programmeActivityName
+    ? _get(programmeActivityName.match(/\(([^)]+)\)/), 1, null)
+    : null;

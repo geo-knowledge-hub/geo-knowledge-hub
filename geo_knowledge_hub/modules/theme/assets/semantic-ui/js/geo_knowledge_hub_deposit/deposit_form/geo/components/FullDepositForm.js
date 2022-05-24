@@ -58,26 +58,20 @@ export class FullDepositForm extends BaseDepositForm {
     // checking if the resourceType is defined. If false, all resource types (except knowledge packages) are accepted.
     this.isResourcePackage = props.isResourcePackage || false;
 
-    this.resourceTypeWithoutKnowledgePackages =
-      this.libraryVocabulariesHandler.filterResourcesByInvalidTypes([
-        KNOWLEDGE_PACKAGE,
-      ]);
+    this.resourceTypeWithoutKnowledgePackages = this.libraryVocabulariesHandler.filterResourcesByInvalidTypes(
+      [KNOWLEDGE_PACKAGE]
+    );
 
     if (this.isResourcePackage) {
       this.vocabularyResourceTypes = this.resourceTypeWithoutKnowledgePackages;
     } else {
-      this.vocabularyResourceTypes =
-        this.libraryVocabulariesHandler.filterResourceById(props.resourceType);
+      this.vocabularyResourceTypes = this.libraryVocabulariesHandler.filterResourceById(
+        props.resourceType
+      );
     }
   }
 
   render() {
-    // preparing the identifiers object (without the knowledge package)
-    const identifiers = {
-      ...this.libraryVocabulariesHandler.vocabularies.metadata.identifiers,
-      resource_type: this.resourceTypeWithoutKnowledgePackages,
-    };
-
     return (
       <GeoDepositFormApp
         controller={this.props.controller}
@@ -86,7 +80,7 @@ export class FullDepositForm extends BaseDepositForm {
         record={this.depositConfigHandler.props.record}
         permissions={this.depositConfigHandler.props.permissions}
       >
-        <Container style={{ marginTop: "2rem" }}>
+        <Container>
           <Grid>
             <Grid.Row>
               <Grid.Column style={{ marginLeft: "2.5rem" }} width={15}>
@@ -397,9 +391,8 @@ export class FullDepositForm extends BaseDepositForm {
                       options={{
                         ...this.libraryVocabulariesHandler.vocabularies.metadata
                           .identifiers,
-                        resource_type:
-                          this.libraryVocabulariesHandler.vocabularies.metadata
-                            .resource_type,
+                        resource_type: this.libraryVocabulariesHandler
+                          .vocabularies.metadata.resource_type,
                       }}
                     />
                     <br />
