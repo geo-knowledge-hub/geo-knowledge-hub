@@ -42,7 +42,7 @@ theme = WebpackThemeBundle(
                 "react-minisearch": "^5.0.0-beta1",
                 "react-table": "^7.7.0",
                 "@geo-knowledge-hub/geo-deposit-react": "0.2.1",
-                "@geo-knowledge-hub/geo-components-react": "0.3.1",
+                "@geo-knowledge-hub/geo-components-react": "0.3.2",
                 "@geo-knowledge-hub/react-invenio-deposit": "0.17.12",
                 "@geo-knowledge-hub/geo-metadata-previewer-react": "0.1.1-alpha",
                 "@emotion/react": "^11.9.0",
