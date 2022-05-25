@@ -14,6 +14,7 @@ Version 1.2.1 (2022-05-25)
 
 - Fixed ``Additional details`` condition error;
 - Fixed ``Geospatial metadata previewer`` div selection; 
+- Updated ``GEO Components React`` to version `v0.3.2 <https://github.com/geo-knowledge-hub/geo-components-react/releases/tag/v0.3.2>`_;
 - Updated the local cache of resource types available in the GEO Knowledge Hub.
 
 Version 1.2.0 (2022-05-24)
