@@ -21,6 +21,7 @@ const renderFactory = async (componentsAvailable) => {
 const componentsAvailable = [
   "engagements_carousel_sidebar",
   "geospatial_previewer",
+  "management_menu",
   "related_resources",
   "user_stories",
   "versions",
