@@ -15,20 +15,14 @@
 export const resourceTypeDefinitions = [
   {
     icon: "file alternate",
-    id: "publication",
-    subtype_name: "",
-    type_name: "Publication",
-  },
-  {
-    icon: "file alternate",
     id: "publication-annotationcollection",
     subtype_name: "Annotation collection",
     type_name: "Publication",
   },
   {
     icon: "file alternate",
-    id: "publication-section",
-    subtype_name: "Book section",
+    id: "publication-conferencepaper",
+    subtype_name: "Conference paper",
     type_name: "Publication",
   },
   {
@@ -45,8 +39,8 @@ export const resourceTypeDefinitions = [
   },
   {
     icon: "file alternate",
-    id: "publication-deliverable",
-    subtype_name: "Project deliverable",
+    id: "publication-book",
+    subtype_name: "Book",
     type_name: "Publication",
   },
   {
@@ -57,8 +51,8 @@ export const resourceTypeDefinitions = [
   },
   {
     icon: "file alternate",
-    id: "publication-report",
-    subtype_name: "Report",
+    id: "publication-softwaredocumentation",
+    subtype_name: "Software documentation",
     type_name: "Publication",
   },
   {
@@ -69,56 +63,20 @@ export const resourceTypeDefinitions = [
   },
   {
     icon: "file alternate",
-    id: "publication-workingpaper",
-    subtype_name: "Working paper",
-    type_name: "Publication",
-  },
-  {
-    icon: "file alternate",
-    id: "publication-other",
-    subtype_name: "Other",
-    type_name: "Publication",
-  },
-  {
-    icon: "file alternate",
-    id: "publication-book",
-    subtype_name: "Book",
-    type_name: "Publication",
-  },
-  {
-    icon: "file alternate",
-    id: "publication-conferencepaper",
-    subtype_name: "Conference paper",
-    type_name: "Publication",
-  },
-  {
-    icon: "file alternate",
-    id: "publication-article",
-    subtype_name: "Journal article",
-    type_name: "Publication",
-  },
-  {
-    icon: "file alternate",
-    id: "publication-preprint",
-    subtype_name: "Preprint",
-    type_name: "Publication",
-  },
-  {
-    icon: "file alternate",
-    id: "publication-proposal",
-    subtype_name: "Proposal",
-    type_name: "Publication",
-  },
-  {
-    icon: "file alternate",
-    id: "publication-softwaredocumentation",
-    subtype_name: "Software documentation",
-    type_name: "Publication",
-  },
-  {
-    icon: "file alternate",
     id: "publication-technicalnote",
     subtype_name: "Technical note",
+    type_name: "Publication",
+  },
+  {
+    icon: "file alternate",
+    id: "publication-deliverable",
+    subtype_name: "Project deliverable",
+    type_name: "Publication",
+  },
+  {
+    icon: "file alternate",
+    id: "publication-report",
+    subtype_name: "Report",
     type_name: "Publication",
   },
   {
@@ -128,10 +86,34 @@ export const resourceTypeDefinitions = [
     type_name: "Publication",
   },
   {
+    icon: "file alternate",
+    id: "publication-other",
+    subtype_name: "Other",
+    type_name: "Publication",
+  },
+  {
+    icon: "table",
+    id: "dataset-datacube",
+    subtype_name: "Data Cube",
+    type_name: "Dataset",
+  },
+  {
     icon: "columns",
     id: "poster",
     subtype_name: "",
     type_name: "Poster",
+  },
+  {
+    icon: "file alternate",
+    id: "publication-workingpaper",
+    subtype_name: "Working paper",
+    type_name: "Publication",
+  },
+  {
+    icon: "table",
+    id: "dataset",
+    subtype_name: "",
+    type_name: "Dataset",
   },
   {
     icon: "group",
@@ -141,14 +123,14 @@ export const resourceTypeDefinitions = [
   },
   {
     icon: "table",
-    id: "dataset",
-    subtype_name: "",
+    id: "dataset-samples",
+    subtype_name: "Samples",
     type_name: "Dataset",
   },
   {
     icon: "table",
-    id: "dataset-datacube",
-    subtype_name: "Data Cube",
+    id: "dataset-product",
+    subtype_name: "Output Product",
     type_name: "Dataset",
   },
   {
@@ -156,6 +138,24 @@ export const resourceTypeDefinitions = [
     id: "dataset-stacitems",
     subtype_name: "STAC Items",
     type_name: "Dataset",
+  },
+  {
+    icon: "table",
+    id: "dataset-insitu",
+    subtype_name: "in-situ",
+    type_name: "Dataset",
+  },
+  {
+    icon: "table",
+    id: "dataset-lulcmap",
+    subtype_name: "LULC Map",
+    type_name: "Dataset",
+  },
+  {
+    icon: "chart bar outline",
+    id: "image-figure",
+    subtype_name: "Figure",
+    type_name: "Image",
   },
   {
     icon: "table",
@@ -171,15 +171,27 @@ export const resourceTypeDefinitions = [
   },
   {
     icon: "chart bar outline",
+    id: "image-drawing",
+    subtype_name: "Drawing",
+    type_name: "Image",
+  },
+  {
+    icon: "chart bar outline",
     id: "image-plot",
     subtype_name: "Plot",
     type_name: "Image",
   },
   {
     icon: "chart bar outline",
-    id: "image-drawing",
-    subtype_name: "Drawing",
+    id: "image-diagram",
+    subtype_name: "Diagram",
     type_name: "Image",
+  },
+  {
+    icon: "code",
+    id: "software",
+    subtype_name: "",
+    type_name: "Software",
   },
   {
     icon: "chart bar outline",
@@ -194,54 +206,6 @@ export const resourceTypeDefinitions = [
     type_name: "Video/Audio",
   },
   {
-    icon: "code",
-    id: "software-compenv",
-    subtype_name: "Computational Environment",
-    type_name: "Software",
-  },
-  {
-    icon: "code",
-    id: "software-jupyter",
-    subtype_name: "Jupyter Notebook",
-    type_name: "Software",
-  },
-  {
-    icon: "table",
-    id: "dataset-samples",
-    subtype_name: "Samples",
-    type_name: "Dataset",
-  },
-  {
-    icon: "table",
-    id: "dataset-lulcmap",
-    subtype_name: "LULC Map",
-    type_name: "Dataset",
-  },
-  {
-    icon: "table",
-    id: "dataset-insitu",
-    subtype_name: "in-situ",
-    type_name: "Dataset",
-  },
-  {
-    icon: "table",
-    id: "dataset-product",
-    subtype_name: "Output Product",
-    type_name: "Dataset",
-  },
-  {
-    icon: "chart bar outline",
-    id: "image-figure",
-    subtype_name: "Figure",
-    type_name: "Image",
-  },
-  {
-    icon: "chart bar outline",
-    id: "image-diagram",
-    subtype_name: "Diagram",
-    type_name: "Image",
-  },
-  {
     icon: "chart bar outline",
     id: "image-other",
     subtype_name: "Other",
@@ -249,8 +213,8 @@ export const resourceTypeDefinitions = [
   },
   {
     icon: "code",
-    id: "software",
-    subtype_name: "",
+    id: "software-compenv",
+    subtype_name: "Computational Environment",
     type_name: "Software",
   },
   {
@@ -261,14 +225,20 @@ export const resourceTypeDefinitions = [
   },
   {
     icon: "code",
-    id: "software-rmarkdown",
-    subtype_name: "R Markdown",
+    id: "software-awsami",
+    subtype_name: "AWS AMI",
     type_name: "Software",
   },
   {
     icon: "code",
-    id: "software-dockerscript",
-    subtype_name: "DockerFile",
+    id: "software-jupyter",
+    subtype_name: "Jupyter Notebook",
+    type_name: "Software",
+  },
+  {
+    icon: "code",
+    id: "software-rmarkdown",
+    subtype_name: "R Markdown",
     type_name: "Software",
   },
   {
@@ -279,39 +249,9 @@ export const resourceTypeDefinitions = [
   },
   {
     icon: "code",
-    id: "software-awsami",
-    subtype_name: "AWS AMI",
+    id: "software-dockerscript",
+    subtype_name: "DockerFile",
     type_name: "Software",
-  },
-  {
-    icon: "code",
-    id: "software-webcatalog",
-    subtype_name: "Web Catalog",
-    type_name: "Software",
-  },
-  {
-    icon: "code",
-    id: "software-dataservice",
-    subtype_name: "Data Service",
-    type_name: "Software",
-  },
-  {
-    icon: "graduation",
-    id: "lesson",
-    subtype_name: "",
-    type_name: "Lesson",
-  },
-  {
-    icon: "asterisk",
-    id: "knowledge",
-    subtype_name: "",
-    type_name: "Knowledge Package",
-  },
-  {
-    icon: "asterisk",
-    id: "publication-trainingmaterial",
-    subtype_name: "Training material",
-    type_name: "Publication",
   },
   {
     icon: "code",
@@ -327,9 +267,63 @@ export const resourceTypeDefinitions = [
   },
   {
     icon: "code",
+    id: "software-webcatalog",
+    subtype_name: "Web Catalog",
+    type_name: "Software",
+  },
+  {
+    icon: "map",
+    id: "software-ogc-wms",
+    subtype_name: "OGC Web Map Service",
+    type_name: "Software",
+  },
+  {
+    icon: "code",
+    id: "software-dataservice",
+    subtype_name: "Data Service",
+    type_name: "Software",
+  },
+  {
+    icon: "map",
+    id: "software-ogc-wfs",
+    subtype_name: "OGC Web Feature Service",
+    type_name: "Software",
+  },
+  {
+    icon: "code",
     id: "software-executable",
     subtype_name: "Software Executable",
     type_name: "Software",
+  },
+  {
+    icon: "map",
+    id: "software-ogc-wcs",
+    subtype_name: "OGC Web Coverage Service",
+    type_name: "Software",
+  },
+  {
+    icon: "graduation",
+    id: "lesson",
+    subtype_name: "",
+    type_name: "Lesson",
+  },
+  {
+    icon: "map",
+    id: "software-geonode",
+    subtype_name: "GeoNode",
+    type_name: "Software",
+  },
+  {
+    icon: "map",
+    id: "software-ogc-wmts",
+    subtype_name: "OGC Web Map Tile Service",
+    type_name: "Software",
+  },
+  {
+    icon: "asterisk",
+    id: "knowledge",
+    subtype_name: "",
+    type_name: "Knowledge Package",
   },
   {
     icon: "asterisk",
@@ -338,9 +332,45 @@ export const resourceTypeDefinitions = [
     type_name: "Other",
   },
   {
+    icon: "asterisk",
+    id: "publication-trainingmaterial",
+    subtype_name: "Training material",
+    type_name: "Publication",
+  },
+  {
     icon: "group",
     id: "user-story",
     subtype_name: "",
     type_name: "User Story",
+  },
+  {
+    icon: "file alternate",
+    id: "publication-article",
+    subtype_name: "Journal article",
+    type_name: "Publication",
+  },
+  {
+    icon: "file alternate",
+    id: "publication-section",
+    subtype_name: "Book section",
+    type_name: "Publication",
+  },
+  {
+    icon: "file alternate",
+    id: "publication",
+    subtype_name: "",
+    type_name: "Publication",
+  },
+  {
+    icon: "file alternate",
+    id: "publication-preprint",
+    subtype_name: "Preprint",
+    type_name: "Publication",
+  },
+  {
+    icon: "file alternate",
+    id: "publication-proposal",
+    subtype_name: "Proposal",
+    type_name: "Publication",
   },
 ];

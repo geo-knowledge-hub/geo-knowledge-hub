@@ -16,7 +16,7 @@ import { GeospatialMetadataVisualizer } from "@geo-knowledge-hub/geo-metadata-pr
  */
 export const renderComponent = (...args) => {
   const componentDiv = document.getElementById("mapContainer");
-  const recordVersionAppDiv = document.getElementById("recordVersions");
+  const recordVersionAppDiv = document.getElementById("recordVersionsData");
 
   // parsing the record document
   let recordDocument = {};
