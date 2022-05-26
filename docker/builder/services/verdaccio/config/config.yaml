@@ -1,0 +1,34 @@
+#
+# This file is part of GEO Knowledge Hub.
+# Copyright 2020-2021 GEO Secretariat.
+#
+# GEO Knowledge Hub is free software; you can redistribute it and/or modify it
+# under the terms of the MIT License; see LICENSE file for more details.
+#
+
+# Code adapted from: https://github.com/verdaccio/github-actions/blob/542a16f7f37777ff3c73f5de2bb1ed14051b6e20/publish/config.yaml
+
+listen: 0.0.0.0:4873
+auth:
+  auth-memory:
+    users:
+      foo:
+        name: test
+        password: test
+store:
+  memory:
+    limit: 1000
+## we don't need any remote request
+uplinks:
+packages:
+  '@*/*':
+    access: $all
+    publish: $all
+  '**':
+    access: $all
+    publish: $all
+middlewares:
+  audit:
+    enabled: true
+logs:
+ - {type: stdout, format: pretty, level: trace}

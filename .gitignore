@@ -76,3 +76,6 @@ pip-wheel-metadata/
 
 # pyenv
 .python-version
+
+# invenio files
+.invenio.private

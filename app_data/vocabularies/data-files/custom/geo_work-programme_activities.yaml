@@ -1,0 +1,712 @@
+- id: geo-activities-geobon
+  props:
+    acronym: GEO BON
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEO-BON.pdf
+  title:
+    en: 'GEO Biodiversity Observation Network (GEO BON)'
+- id: geo-activities-geoglam
+  props:
+    acronym: GEOGLAM
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEOGLAM.pdf
+  title:
+    en: 'GEO Global Agricultural Monitoring (GEOGLAM)'
+- id: geo-activities-gfoi
+  props:
+    acronym: GFOI
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GFOI.pdf
+  title:
+    en: 'Global Forest Observation Initiative (GFOI)'
+- id: geo-activities-gos4m
+  props:
+    acronym: GOS4M
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GOS4M.pdf
+  title:
+    en: 'Global Observation System for Mercury (GOS4M)'
+- id: geo-activities-aquawatch
+  props:
+    acronym: AQUAWATCH
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/AQUAWATCH.pdf
+  title:
+    en: 'AquaWatch (AQUAWATCH)'
+- id: geo-activities-geo-darma
+  props:
+    acronym: GEO-DARMA
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEO-DARMA.pdf
+  title:
+    en: 'Data Access for Risk Management (GEO-DARMA)'
+- id: geo-activities-dias
+  props:
+    acronym: DIAS
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/DIAS.pdf
+  title:
+    en: 'Data Integration and Analysis System (DIAS)'
+- id: geo-activities-de-africa
+  props:
+    acronym: DE-AFRICA
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/DE-AFRICA.pdf
+  title:
+    en: 'Digital Earth Africa (DE-AFRICA)'
+- id: geo-activities-eo4ea
+  props:
+    acronym: EO4EA
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/EO4EA.pdf
+  title:
+    en: 'Earth Observations for Ecosystem Accounting (EO4EA)'
+- id: geo-activities-eo4health
+  props:
+    acronym: EO4HEALTH
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/EO4HEALTH.pdf
+  title:
+    en: 'Earth Observations for Health (EO4HEALTH)'
+- id: geo-activities-eo4sdg
+  props:
+    acronym: EO4SDG
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/EO4SDG.pdf
+  title:
+    en: 'Earth Observations for the Sustainable Development Goals (EO4SDG)'
+- id: geo-activities-geo-cradle
+  props:
+    acronym: GEO-CRADLE
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEO-CRADLE.pdf
+  title:
+    en: 'GEO Capacity Building in North Africa, Middle East, Balkans and Black
+      Sea Region (GEO-CRADLE)'
+- id: geo-activities-geoglows
+  props:
+    acronym: GEOGLOWS
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEOGLOWS.pdf
+  title:
+    en: 'GEO Global Water Sustainability (GEOGLOWS)'
+- id: geo-activities-human-planet
+  props:
+    acronym: HUMAN-PLANET
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/HUMAN-PLANET.pdf
+  title:
+    en: 'GEO Human Planet (HUMAN-PLANET)'
+- id: geo-activities-geo-ldn
+  props:
+    acronym: GEO-LDN
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEO-LDN.pdf
+  title:
+    en: 'GEO Land Degradation Neutrality (GEO-LDN)'
+- id: geo-activities-geo-vener
+  props:
+    acronym: GEO-VENER
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEO-VENER.pdf
+  title:
+    en: 'GEO Vision for Energy (GEO-VENER)'
+- id: geo-activities-geo-wetlands
+  props:
+    acronym: GEO-WETLANDS
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEO-WETLANDS.pdf
+  title:
+    en: 'GEO Wetlands (GEO-WETLANDS)'
+- id: geo-activities-gsnl
+  props:
+    acronym: GSNL
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GSNL.pdf
+  title:
+    en: 'Geohazard Supersites and Natural Laboratories (GSNL)'
+- id: geo-activities-gdis
+  props:
+    acronym: GDIS
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GDIS.pdf
+  title:
+    en: 'Global Drought Information System (GDIS)'
+- id: geo-activities-geo-mountains
+  props:
+    acronym: GEO-MOUNTAINS
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEO-MOUNTAINS.pdf
+  title:
+    en: 'Global Network for Observations and Information in Mountain Environments
+      (GEO-MOUNTAINS)'
+- id: geo-activities-gos4pops
+  props:
+    acronym: GOS4POPS
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GOS4POPS.pdf
+  title:
+    en: 'Global Observation System for Persistent Organic Pollutants (GOS4POPS)'
+- id: geo-activities-guoi
+  props:
+    acronym: GUOI
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GUOI.pdf
+  title:
+    en: 'Global Urban Observation and Information (GUOI)'
+- id: geo-activities-gwis
+  props:
+    acronym: GWIS
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GWIS.pdf
+  title:
+    en: 'Global Wildfire Information System (GWIS)'
+- id: geo-activities-blue-planet
+  props:
+    acronym: BLUE-PLANET
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/BLUE-PLANET.pdf
+  title:
+    en: 'Oceans and Society: Blue Planet (BLUE-PLANET)'
+- id: geo-activities-acis
+  props:
+    acronym: ACIS
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/ACIS.pdf
+  title:
+    en: Advancing Communication Infrastructure and Services (ACIS)
+- id: geo-activities-arctic-geoss
+  props:
+    acronym: ARCTIC-GEOSS
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/ARCTIC-GEOSS.pdf
+  title:
+    en: Arctic GEOSS (ARCTIC-GEOSS)
+- id: geo-activities-csdr
+  props:
+    acronym: CSDR
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/CSDR.pdf
+  title:
+    en: Chinese High-resolution Satellite Data Resources (CSDR)
+- id: geo-activities-climate-obs
+  props:
+    acronym: CLIMATE-OBS
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/CLIMATE-OBS.pdf
+  title:
+    en: Climate Observation, Simulation and Impacts (CLIMATE-OBS)
+- id: geo-activities-cams
+  props:
+    acronym: CAMS
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/CAMS.pdf
+  title:
+    en: Copernicus Atmosphere Monitoring Service (CAMS)
+- id: geo-activities-c3s
+  props:
+    acronym: C3S
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/C3S.pdf
+  title:
+    en: Copernicus Climate Change Service (C3S)
+- id: geo-activities-de-pacific
+  props:
+    acronym: DE-PACIFIC
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/DE-PACIFIC.pdf
+  title:
+    en: Digital Earth Pacific (DE-PACIFIC)
+- id: geo-activities-eo4sendai-monitoring
+  props:
+    acronym: EO4SENDAI-MONITORING
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/EO4SENDAI-MONITORING.pdf
+  title:
+    en: Earth Observation and Copernicus in support of Sendai Monitoring (EO4SENDAI-MONITORING)
+- id: geo-activities-eo-iip
+  props:
+    acronym: EO-IIP
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/EO-IIP.pdf
+  title:
+    en: Earth Observation Industrial Innovation Platform for Sustainable Development
+      (EO-IIP)
+- id: geo-activities-eo4drm
+  props:
+    acronym: EO4DRM
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/EO4DRM.pdf
+  title:
+    en: Earth Observations for Disaster Risk Management (EO4DRM)
+- id: geo-activities-eo4min
+  props:
+    acronym: EO4MIN
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/EO4MIN.pdf
+  title:
+    en: Earth Observations for Managing Mineral and Non-Renewable Energy Resources
+      (EO4MIN)
+- id: geo-activities-atlantic-eo
+  props:
+    acronym: ATLANTIC-EO
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/ATLANTIC-EO.pdf
+  title:
+    en: Earth Observations for the Atlantic Region (ATLANTIC-EO)
+- id: geo-activities-eo4wef
+  props:
+    acronym: EO4WEF
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/eo_for_wef_ip.pdf
+  title:
+    en: Earth Observations for the Water-Energy-Food Nexus (EO4WEF)
+- id: geo-activities-africultures
+  props:
+    acronym: AFRICULTURES
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/AFRICULTURES.pdf
+  title:
+    en: Enhancing Food Security in African Agricultural Systems with the Support of
+      Remote Sensing (AFRICULTURES)
+- id: geo-activities-geo-trees
+  props:
+    acronym: GEO-TREES
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEO-TREES.pdf
+  title:
+    en: Forest Biomass Reference System from Tree-by-Tree Inventory Data (GEO-TREES)
+- id: geo-activities-geo-citsci
+  props:
+    acronym: GEO-CITSCI
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEO-CITSCI.pdf
+  title:
+    en: GEO Citizen Science (GEO-CITSCI)
+- id: geo-activities-geo-ev
+  props:
+    acronym: GEO-EV
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEO-EV.pdf
+  title:
+    en: GEO Essential Variables (GEO-EV)
+- id: geo-activities-geo-eco
+  props:
+    acronym: GEO-ECO
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEO-ECO.pdf
+  title:
+    en: GEO Global Ecosystems (GEO-ECO)
+- id: geo-activities-geodesy4sendai
+  props:
+    acronym: GEODESY4SENDAI
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEODESY4SENDAI.pdf
+  title:
+    en: Geodesy for the Sendai Framework (GEODESY4SENDAI)
+- id: geo-activities-agri-drought
+  props:
+    acronym: AGRI-DROUGHT
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/AGRI-DROUGHT.pdf
+  title:
+    en: Global Agricultural Drought Monitoring (AGRI-DROUGHT)
+- id: geo-activities-crop-pest-monitoring
+  props:
+    acronym: CROP-PEST-MONITORING
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/CROP-PEST-MONITORING.pdf
+  title:
+    en: Global Crop Pest and Disease Habitat Monitoring and Risk Forecasting (CROP-PEST-MONITORING)
+- id: geo-activities-geoarc
+  props:
+    acronym: GEOARC
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEOARC.pdf
+  title:
+    en: Global Ecosystems and Environment Observation Analysis Research Cooperation
+      (GEOARC)
+- id: geo-activities-glofas
+  props:
+    acronym: GLOFAS
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GLOFAS.pdf
+  title:
+    en: Global Flood Awareness System (GLOFAS)
+- id: geo-activities-gfrm
+  props:
+    acronym: GFRM
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GFRM.pdf
+  title:
+    en: Global Flood Risk Monitoring (GFRM)
+- id: geo-activities-land-cover
+  props:
+    acronym: LAND-COVER
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/LAND-COVER.pdf
+  title:
+    en: Global Land Cover (LAND-COVER)
+- id: geo-activities-delta-estuary
+  props:
+    acronym: DELTA-ESTUARY
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/DELTA-ESTUARY.pdf
+  title:
+    en: Global Observation of Deltas and Estuaries (DELTA-ESTUARY)
+- id: geo-activities-in-situ-esc
+  props:
+    acronym: IN-SITU-ESC
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/IN-SITU-ESC.pdf
+  title:
+    en: In-Situ Observations and Applications for Ecosystem Status of China and Central
+      Asia (IN-SITU-ESC)
+- id: geo-activities-musyq
+  props:
+    acronym: MUSYQ
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/MUSYQ.pdf
+  title:
+    en: Multi-source Synergized Quantitative Remote Sensing Products and Services
+      (MUSYQ)
+- id: geo-activities-next-eos
+  props:
+    acronym: NEXT-EOS
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/NEXT-EOS.pdf
+  title:
+    en: Next Generation Earth Observation Services (NEXT-EOS)
+- id: geo-activities-night-light
+  props:
+    acronym: NIGHT-LIGHT
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/NIGHT-LIGHT.pdf
+  title:
+    en: Night-Time Light Remote Sensing for Sustainable Development Goals (NIGHT-LIGHT)
+- id: geo-activities-oea
+  props:
+    acronym: OEA
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/OEA.pdf
+  title:
+    en: Open Earth Alliance (OEA)
+- id: geo-activities-space-security
+  props:
+    acronym: SPACE-SECURITY
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/SPACE-SECURITY.pdf
+  title:
+    en: Space and Security (SPACE-SECURITY)
+- id: geo-activities-sco
+  props:
+    acronym: SCO
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/SCO.pdf
+  title:
+    en: Space Climate Observatory (SCO)
+- id: geo-activities-tigge
+  props:
+    acronym: TIGGE
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/TIGGE.pdf
+  title:
+    en: The International Grand Global Ensemble (TIGGE)
+- id: geo-activities-geo-value
+  props:
+    acronym: GEO-VALUE
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/GEO-VALUE.pdf
+  title:
+    en: Understanding the Impacts and Value of Earth Observations (GEO-VALUE)
+- id: geo-activities-uhco
+  props:
+    acronym: UHCO
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/UHCO.pdf
+  title:
+    en: Urban Heritage Climate Observatory (UHCO)
+- id: geo-activities-afrigeo
+  props:
+    acronym: AFRIGEO
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/AFRIGEO.pdf
+  title:
+    en: African Group on Earth Observations (AFRIGEO)
+- id: geo-activities-amerigeo
+  props:
+    acronym: AMERIGEO
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/AMERIGEO.pdf
+  title:
+    en: Americas Group on Earth Observations (AMERIGEO)
+- id: geo-activities-aogeo
+  props:
+    acronym: AOGEO
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/AOGEO.pdf
+  title:
+    en: Asia-Oceania Group on Earth Observations (AOGEO)
+- id: geo-activities-eurogeo
+  props:
+    acronym: EUROGEO
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: www.earthobservations.org/documents/gwp20_22/EUROGEO.pdf
+  title:
+    en: European Group on Earth Observations (EUROGEO)
