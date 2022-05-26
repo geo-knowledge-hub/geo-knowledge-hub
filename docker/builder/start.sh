@@ -82,7 +82,7 @@ done
 
 
 #
-# 5. Preparing package to build
+# 4. Preparing package to build
 #
 cd $BASE_DIRECTORY
 
