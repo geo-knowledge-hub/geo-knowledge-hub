@@ -62,14 +62,31 @@ target/
 # Vim swapfiles
 .*.sw?
 
+# celery beat schedule file
+celerybeat-schedule*
+
+# SageMath parsed files
+*.sage.py
+
+# SQLite
+test.db
+db.sqlite3
+
+# Logs
+logs/
+
+# Rope project settings
+.ropeproject
+
+# mypy
+.mypy_cache/
+
+# MacOS
+.DS_Store
+
 # Editors
 *.sublime-*
 .vscode/
-
-# pipenv
-# This project is a library and not an application.
-Pipfile
-Pipfile.lock
 
 # pip wheel
 pip-wheel-metadata/
@@ -79,3 +96,10 @@ pip-wheel-metadata/
 
 # invenio files
 .invenio.private
+
+# Node.JS
+node_modules/
+
+# GEO Knowledge Hub Project
+data/
+isso-db/
