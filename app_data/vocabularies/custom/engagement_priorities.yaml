@@ -3,7 +3,7 @@
     type: sdg
     subtype: ''
 
-    icon: 'labels/engagement-priorities/sdg/sdg-logo.png'
+    icon: 'images/labels/engagement-priorities/sdg/sdg-logo.png'
     uri: https://sdgs.un.org/goals
 
     description: The 2030 Agenda for Sustainable Development, adopted by all United
@@ -53,7 +53,7 @@
     subtype: ''
 
     uri: https://unhabitat.org/about-us/new-urban-agenda
-    icon: labels/engagement-priorities/new-urban-agenda/new-urban-agenda-logo.png
+    icon: images/labels/engagement-priorities/new-urban-agenda/new-urban-agenda-logo.png
 
     description_short: ''
     description_long: ''
@@ -68,7 +68,7 @@
     subtype: ''
 
     uri: ''
-    icon: labels/engagement-priorities/sendai-framework/sendai-framework-logo.png
+    icon: images/labels/engagement-priorities/sendai-framework/sendai-framework-logo.png
 
     description_short: ''
     description_long: ''
@@ -83,7 +83,7 @@
     subtype: ''
 
     uri: https://unfccc.int/process-and-meetings/the-paris-agreement/the-paris-agreement
-    icon: labels/engagement-priorities/paris-agreement/paris-agreement-logo.png
+    icon: images/labels/engagement-priorities/paris-agreement/paris-agreement-logo.png
 
     description_short: The Paris Agreement is a legally binding international treaty
       on climate change. It was adopted by 196 Parties at COP 21 in Paris, on 12 December
@@ -100,7 +100,7 @@
   props:
     description_long: End poverty in all its forms everywhere
     description_short: No Poverty
-    icon: labels/engagement-priorities/sdg/goals/goal-1_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-1_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal1
@@ -113,7 +113,7 @@
     description_long: End hunger, achieve food security and improved nutrition and
       promote sustainable agriculture
     description_short: Zero Hunger
-    icon: labels/engagement-priorities/sdg/goals/goal-2_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-2_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal2
@@ -125,7 +125,7 @@
   props:
     description_long: Ensure healthy lives and promote well-being for all at all ages
     description_short: Good Health and Well-being
-    icon: labels/engagement-priorities/sdg/goals/goal-3_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-3_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal3
@@ -138,7 +138,7 @@
     description_long: 'Ensure inclusive and equitable quality education and promote
       lifelong learning opportunities '
     description_short: Quality Education
-    icon: labels/engagement-priorities/sdg/goals/goal-4_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-4_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal4
@@ -150,7 +150,7 @@
   props:
     description_long: Achieve gender equality and empower all women and girls
     description_short: Gender Equality
-    icon: labels/engagement-priorities/sdg/goals/goal-5_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-5_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal5
@@ -163,7 +163,7 @@
     description_long: Ensure availability and sustainable management of water and
       sanitation for all
     description_short: Clean water and sanitation
-    icon: labels/engagement-priorities/sdg/goals/goal-6_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-6_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal6
@@ -176,7 +176,7 @@
     description_long: Ensure access to affordable, reliable, sustainable and modern
       energy for all
     description_short: Affordable and clean energy
-    icon: labels/engagement-priorities/sdg/goals/goal-7_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-7_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal7
@@ -189,7 +189,7 @@
     description_long: Promote sustained, inclusive and sustainable economic growth,
       full and productive
     description_short: Decent jobs and economic growth
-    icon: labels/engagement-priorities/sdg/goals/goal-8_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-8_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal8
@@ -202,7 +202,7 @@
     description_long: Build resilient infrastructure, promote inclusive and sustainable
       industrialization and foster innovation
     description_short: Industry, innovation and infrastructure
-    icon: labels/engagement-priorities/sdg/goals/goal-9_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-9_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal9
@@ -214,7 +214,7 @@
   props:
     description_long: Reduce inequality within and among countries
     description_short: Reduced inequalities
-    icon: labels/engagement-priorities/sdg/goals/goal-10_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-10_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal10
@@ -227,7 +227,7 @@
     description_long: Make cities and human settlements inclusive, safe, resilient
       and sustainable
     description_short: Sustainable cities and communities
-    icon: labels/engagement-priorities/sdg/goals/goal-11_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-11_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal11
@@ -239,7 +239,7 @@
   props:
     description_long: Ensure sustainable consumption and production patterns
     description_short: Responsible consumption and production
-    icon: labels/engagement-priorities/sdg/goals/goal-12_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-12_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal12
@@ -251,7 +251,7 @@
   props:
     description_long: Take urgent action to combat climate change and its impacts
     description_short: Climate action
-    icon: labels/engagement-priorities/sdg/goals/goal-13_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-13_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal13
@@ -264,7 +264,7 @@
     description_long: Conserve and sustainably use the oceans, seas and marine resources
       for sustainable development
     description_short: Life below water
-    icon: labels/engagement-priorities/sdg/goals/goal-14_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-14_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal14
@@ -278,7 +278,7 @@
       ecosystems, sustainably manage forests, combat desertification, and halt and
       reverse land degradation and halt biodiversity loss
     description_short: Life on land
-    icon: labels/engagement-priorities/sdg/goals/goal-15_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-15_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal15
@@ -292,7 +292,7 @@
       provide access to justice for all and build effective, accountable and inclusive
       institutions at all levels
     description_short: Peace And Justice - Strong Institutions
-    icon: labels/engagement-priorities/sdg/goals/goal-16_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-16_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal16
@@ -305,7 +305,7 @@
     description_long: Strengthen the means of implementation and revitalize the global
       partnership for sustainable development
     description_short: Partnerships for the goals
-    icon: labels/engagement-priorities/sdg/goals/goal-17_icon.png
+    icon: images/labels/engagement-priorities/sdg/goals/goal-17_icon.png
     subtype: sdg-goal
     type: sdg
     uri: https://sdgs.un.org/goals/goal17

@@ -10,7 +10,7 @@
 #
 resourcetypes:
   pid-type: rsrct
-  data-file: data-files/resources/resource_types.yaml
+  data-file: vocabularies/resources/resource_types.yaml
 
 #
 # Affiliations
@@ -21,7 +21,7 @@ affiliations:
     - id: ROR
       name: Research Organization Registry
       uri: "https://ror.org/"
-      data-file: data-files/affiliations/affiliations_ror.yaml
+      data-file: vocabularies/affiliations/affiliations_ror.yaml
 
 #
 # Subjects
@@ -32,14 +32,14 @@ subjects:
     - id: FOS
       name: Fields of Science and Technology
       uri: "http://www.oecd.org/science/inno/38235147.pdf"
-      data-file: data-files/subjects/subjects_oecd_fos.yaml
+      data-file: vocabularies/subjects/subjects_oecd_fos.yaml
 
 #
 # Relation types
 #
 relationtypes:
   pid-type: rlt
-  data-file: data-files/relations/relation_types.yaml
+  data-file: vocabularies/relations/relation_types.yaml
 
 #
 # Custom vocabularies
@@ -48,14 +48,14 @@ relationtypes:
 # GEO Work Programme Activities
 geowptypes:
   pid-type: geowp
-  data-file: data-files/custom/geo_work-programme_activities.yaml
+  data-file: vocabularies/custom/geo_work-programme_activities.yaml
 
 # Target Audiences
 targetaudiencestypes:
   pid-type: tarau
-  data-file: data-files/custom/target_audience.yaml
+  data-file: vocabularies/custom/target_audience.yaml
 
 # Engagement Priorities
 engagementprioritiestypes:
   pid-type: enpri
-  data-file: data-files/custom/engagement_priorities.yaml
+  data-file: vocabularies/custom/engagement_priorities.yaml

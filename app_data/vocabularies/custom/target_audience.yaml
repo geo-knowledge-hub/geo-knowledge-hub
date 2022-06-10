@@ -218,3 +218,156 @@
     type: target-audience
   title:
     en: GIS Technical experts in emergency management
+- id: tu-conservation-advocacy-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Conservation Advocacy Community
+- id: tu-conservation-policy-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Conservation Policy Community
+- id: tu-islands-conservation-advocacy-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Islands Conservation Advocacy Community
+- id: tu-mountains-conservation-advocacy-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Mountains Conservation Advocacy Community
+- id: tu-mountains-policy-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Mountains Policy Community
+- id: tu-oceanographers
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Oceanographers
+- id: tu-spatial-ecologists
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Spatial ecologists
+- id: tu-coastal-ecosystems-research-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Coastal Ecosystems Research Community
+- id: tu-islands-research-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Islands Research Community
+- id: tu-marine-ecosystems-research-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Marine Ecosystems Research Community
+- id: tu-mountains-research-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Mountains Research Community
+- id: tu-terrestrial-ecosystems-research-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Terrestrial Ecosystems Research Community
+- id: tu-conservationists
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Conservationists
+- id: tu-farmers
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Farmers
+- id: tu-coastal-monitoring-and-resilience-organisations
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Coastal Monitoring and Resilience Organisations
+- id: tu-agriculture-forest-departments
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Agriculture and Forest Departments
+- id: tu-environmental-protection-agencies
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Environmental Protection Agencies
