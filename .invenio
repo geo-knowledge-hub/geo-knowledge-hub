@@ -3,14 +3,14 @@ flavour = RDM
 logfile = /logs/invenio-cli.log
 
 [cookiecutter]
-project_name = GEO Knowledge Hub Runtime
-project_shortname = geo-knowledge-hub-rt
-project_site = https://geo-knowledge-hub-rt.github.io
-github_repo = geo-knowledge-hub/geo-knowledge-hub-rt
-description = Runtime for the GEO Knowledge Hub Digital Library
+project_name = GEO Knowledge Hub
+project_shortname = geo-knowledge-hub
+project_site = https://geo-knowledge-hub.github.io
+github_repo = geo-knowledge-hub/geo-knowledge-hub
+description = GEO Knowledge Hub Digital Library
 author_name = GEO Secretariat
 author_email = geokhub@geosec.org
-year = 2020-2021
+year = 2020-2022
 python_version = 3.8
 database = postgresql
 elasticsearch = 7
