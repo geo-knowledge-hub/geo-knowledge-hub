@@ -7,6 +7,11 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
+exclude static templates docker assets app_data
+exclude isso.cfg invenio.cfg
+exclude Pipfile Pipfile.lock
+exclude docker-compose*
+
 include .isort.cfg
 include .dockerignore
 include .editorconfig
