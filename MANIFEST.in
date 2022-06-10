@@ -7,10 +7,16 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-recursive-exclude static templates docker assets app_data
+exclude .invenio
 exclude isso.cfg invenio.cfg
 exclude Pipfile Pipfile.lock
-exclude docker-compose*
+exclude Dockerfile docker-*
+
+recursive-exclude static *
+recursive-exclude templates *
+recursive-exclude docker *
+recursive-exclude assets *
+recursive-exclude app_data *
 
 include .isort.cfg
 include .dockerignore

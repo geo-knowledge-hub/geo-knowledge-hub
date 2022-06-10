@@ -80,7 +80,7 @@ setup(
     keywords=["Geospatial", "Digital Library", "Earth Observations", "Invenio RDM"],
     license="MIT",
     author="GEO Secretariat",
-    author_email="geokhub@geosec.org",
+    author_email="secretariat@geosec.org",
     url="https://github.com/geo-knowledge-hub/geo-knowledge-hub",
     packages=packages,
     zip_safe=False,
