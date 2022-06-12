@@ -1,0 +1,373 @@
+- id: tu-geo-eoanalyst
+  props:
+    description_long: A person who makes Earth Observation Analysis
+    description_short: A person who makes Earth Observation Analysis
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Earth Observation Analyst
+- id: tu-geo-eoscientist
+  props:
+    description_long: A person who makes Earth Observation Science
+    description_short: A person who makes Earth Observation Science
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Earth Observation Scientist
+- id: tu-geo-decisionmaker
+  props:
+    description_long: A person who makes decision based on Earth Observation applications
+      and insights
+    description_short: A person who makes decision based on Earth Observation applications
+      and insights
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Decision Maker
+- id: tu-geo-eostudent
+  props:
+    description_long: A person who studies Earth Observation
+    description_short: A person who studies Earth Observation
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Earth Observation Student
+- id: tu-urban-planner
+  props:
+    description_long: An urban planner is a professional who practices in the field
+      of urban planning.
+    description_short: An urban planner is a professional who practices in the field
+      of urban planning.
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Urban planner
+- id: tu-crisis-manager
+  props:
+    description_long: A person who manages crisis and disasters
+    description_short: A person who manages crisis and disasters
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Crisis manager
+- id: tu-geo-eostudent
+  props:
+    description_long: A person who studies Earth Observation
+    description_short: A person who studies Earth Observation
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Earth Observation Student
+- id: tu-statistician
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Statistician
+- id: tu-geographer
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Geographer
+- id: tu-digital-cartography-technician
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Digital Cartography Technician
+- id: tu-national-statistical-officer
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: National Statical Officer
+- id: tu-administrative-officer
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Administrative Officer in the spatial planning domain
+- id: tu-policy-maker-territorial
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Policy maker in territorial planning at national and subnational levels
+- id: tu-hydrologist
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Hydrologist
+- id: tu-water-manager
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Water Manager
+- id: tu-climate-researcher
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Climate Researcher
+- id: tu-macroscale-hydrological-researcher
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Macroscale Hydrological Researcher
+- id: tu-sendai-focal-points
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Sendai Focal Points
+- id: tu-aquaculture-expert
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Aquaculture expert
+- id: tu-natural-resource-manager
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Natural Resource Manager
+- id: tu-environmental-resource-manager
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Environmental Resource Manager
+- id: tu-gis-technical-expert-national-agricultural
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: GIS Technical experts in national agencies for agricultural
+- id: tu-gis-technical-expert-forestry
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: GIS Technical experts in forestry
+- id: tu-gis-technical-expert-emergency-management
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: GIS Technical experts in emergency management
+- id: tu-conservation-advocacy-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Conservation Advocacy Community
+- id: tu-conservation-policy-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Conservation Policy Community
+- id: tu-islands-conservation-advocacy-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Islands Conservation Advocacy Community
+- id: tu-mountains-conservation-advocacy-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Mountains Conservation Advocacy Community
+- id: tu-mountains-policy-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Mountains Policy Community
+- id: tu-oceanographers
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Oceanographers
+- id: tu-spatial-ecologists
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Spatial ecologists
+- id: tu-coastal-ecosystems-research-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Coastal Ecosystems Research Community
+- id: tu-islands-research-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Islands Research Community
+- id: tu-marine-ecosystems-research-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Marine Ecosystems Research Community
+- id: tu-mountains-research-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Mountains Research Community
+- id: tu-terrestrial-ecosystems-research-community
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Terrestrial Ecosystems Research Community
+- id: tu-conservationists
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Conservationists
+- id: tu-farmers
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Farmers
+- id: tu-coastal-monitoring-and-resilience-organisations
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Coastal Monitoring and Resilience Organisations
+- id: tu-agriculture-forest-departments
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Agriculture and Forest Departments
+- id: tu-environmental-protection-agencies
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Environmental Protection Agencies

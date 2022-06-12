@@ -1,0 +1,34 @@
+[cli]
+flavour = RDM
+logfile = /logs/invenio-cli.log
+
+[cookiecutter]
+project_name = GEO Knowledge Hub
+project_shortname = geo-knowledge-hub
+project_site = https://geo-knowledge-hub.github.io
+github_repo = geo-knowledge-hub/geo-knowledge-hub
+description = GEO Knowledge Hub Digital Library
+author_name = GEO Secretariat
+author_email = geokhub@geosec.org
+year = 2020-2022
+python_version = 3.8
+database = postgresql
+elasticsearch = 7
+file_storage = local
+_template = https://github.com/inveniosoftware/cookiecutter-invenio-rdm.git
+
+[files]
+.dockerignore = 21241bc12cdf4ac5f209d6b191adc8f25eb89af93ce5c4c3f72c86661162d7b5
+.gitignore = 0be2f3d2c1c9489ca861c4ca55a9c1845c22c43cbf92ed0cfaeeabde9b7ab2d2
+app_data = {'README.md': 'd58978488626bdeddc791a15a39e341a4ed06f202b84d0c0d4aa9ef49481c6d9'}
+assets = {'less': {'site': {'globals': {'site.overrides': 'edc99163041bb2c35cced6479b6ab723c11df9785128288ed05813f78c58fc23', 'site.variables': 'e168dee88a3a79816cc3dea83553da83cfc49432fdf0c9b219149713d6e1f21c'}}, 'theme.config': '6ac6cb587f64c190e0673254f76c1dd3b19d1a0bc948d21cae1523da30f37d1e'}, 'templates': {'search': {'.gitkeep': 'd4756cdf68d94c670c924f9d57d44718f666e457727701486435b57a97e52c5f'}}}
+docker = {'nginx': {'conf.d': {'default.conf': 'e67e7706033598798ec422bba13243266a081c255162ba3b2d446cf97e92a148'}, 'Dockerfile': '541326766beaba2e8492255c99e11aa76640d71329ceab5bcab1c8d6a979bd5c', 'nginx.conf': '6c9a6e372fc340dfcd3b49e6a30bd7bd36af41d79d1d093b7b3ba5f4c9d781b4', 'test.crt': '6b94d6f184bd5aef59fd181c929e7e6d9b1dd124937ea169129ece001354a0c3', 'test.key': 'b74cba8e0b97a4d43229f998e2f83a869301c8c6f18f16180697fd0e0889ebb1'}, 'uwsgi': {'uwsgi_rest.ini': 'c36fc5021baf15f375b3b6c825f7753e5d166319c5fe38a85b604391ce5b37b6', 'uwsgi_ui.ini': 'c80168dc8d29086b876caab41b5057fddef46bdc748c5ecf213f684aa73cc90c'}}
+docker-compose.full.yml = c51333d9d1e4e95c29c06590badc23b3419722fcaa68039f610a32192282b0b9
+docker-compose.yml = 0ea1e69992ab671b35cc9ec66bd670a1e42f4b19b1c20e22ce4ff2915ebda78c
+docker-services.yml = 411d4baa7f9e468921eac9017aadc2a299bc6526fce25180628fc8ab1b23db67
+dockerfile = 6ed7ddece5c52c1b75aa764cf38cfc3a0a4209e824ab66e9930f67012fb2e170
+invenio.cfg = 34e71a62ec7139761d8fd0668da0990f6158cc0f1a8cb8ff19b94af5e05bd021
+pipfile = 966d0bd5fd3b6c651dd9c9f15b53d7e889952adee565a269d9e632bb7d5608ed
+readme.md = 0ad47527620bcde74ee5ebd6657c947b80f4647e3ee8ea987b68633ba027d9cf
+static = {'images': {'invenio-rdm.svg': '50f09b4d83244a69c58f44aa436a3fa097726d9b47fd0e0782ea92d31f854b65'}}
+templates = {'.gitkeep': 'd4756cdf68d94c670c924f9d57d44718f666e457727701486435b57a97e52c5f'}

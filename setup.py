@@ -23,8 +23,6 @@ invenio_search_version = ">=1.4.0,<2.0.0"
 tests_require = [
     "pytest-mock>=1.6.0",
     "pytest-invenio>=1.4.0",
-    "invenio-app>=1.3.1,<2.0.0",
-    "invenio-app-rdm>=8.0.0,<9.0.0"
 ]
 
 extras_require = {
@@ -59,13 +57,11 @@ setup_requires = [
 ]
 
 install_requires = [
-    "invenio-i18n>=1.2.0",
     "Flask-Discussion>=0.1.1,<0.2",
     "pydash>=5.1.0",
-    "IDUtils>=1.1.9",
-    "geo-assets @ git+https://github.com/geo-knowledge-hub/geo-assets@v0.2.1",
+    "invenio-app>=1.3.1,<2.0.0",
+    "invenio-app-rdm>=8.0.0,<9.0.0",
     "geo-config @ git+https://github.com/geo-knowledge-hub/geo-config@v0.2.0",
-    "geo-vocabularies @ git+https://github.com/geo-knowledge-hub/geo-vocabularies@v1.1.0",
 ]
 
 packages = find_packages()
@@ -84,7 +80,7 @@ setup(
     keywords=["Geospatial", "Digital Library", "Earth Observations", "Invenio RDM"],
     license="MIT",
     author="GEO Secretariat",
-    author_email="geokhub@geosec.org",
+    author_email="secretariat@geosec.org",
     url="https://github.com/geo-knowledge-hub/geo-knowledge-hub",
     packages=packages,
     zip_safe=False,

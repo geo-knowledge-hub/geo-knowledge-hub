@@ -1,0 +1,61 @@
+# -*- coding: utf-8 -*-
+#
+# Copyright (C) 2021 GEO Secretariat.
+#
+# geo-vocabularies is free software; you can redistribute it and/or modify it
+# under the terms of the MIT License; see LICENSE file for more details.
+
+#
+# Resource Types
+#
+resourcetypes:
+  pid-type: rsrct
+  data-file: vocabularies/resources/resource_types.yaml
+
+#
+# Affiliations
+#
+affiliations:
+  pid-type: aff
+  schemes:
+    - id: ROR
+      name: Research Organization Registry
+      uri: "https://ror.org/"
+      data-file: vocabularies/affiliations/affiliations_ror.yaml
+
+#
+# Subjects
+#
+subjects:
+  pid-type: sub
+  schemes:
+    - id: FOS
+      name: Fields of Science and Technology
+      uri: "http://www.oecd.org/science/inno/38235147.pdf"
+      data-file: vocabularies/subjects/subjects_oecd_fos.yaml
+
+#
+# Relation types
+#
+relationtypes:
+  pid-type: rlt
+  data-file: vocabularies/relations/relation_types.yaml
+
+#
+# Custom vocabularies
+#
+
+# GEO Work Programme Activities
+geowptypes:
+  pid-type: geowp
+  data-file: vocabularies/custom/geo_work-programme_activities.yaml
+
+# Target Audiences
+targetaudiencestypes:
+  pid-type: tarau
+  data-file: vocabularies/custom/target_audience.yaml
+
+# Engagement Priorities
+engagementprioritiestypes:
+  pid-type: enpri
+  data-file: vocabularies/custom/engagement_priorities.yaml

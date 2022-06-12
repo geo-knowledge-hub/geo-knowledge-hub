@@ -1,0 +1,27 @@
+@import "@less/invenio_app_rdm/variables";
+
+// ------------
+// Theme style
+// ------------
+@gkhubFontColor: #526479;
+@brandColor: #406078;
+
+
+// ------------
+// NavBar style
+// ------------
+@navbar_background_image: unset;
+@navbar_background_color: @brandColor;
+@frontpage_search_background: url("../../../../static/images/background/Mecklenburg_West_Pomerania_Germany.jpg");
+
+
+// ------------
+// Footer style
+// ------------
+@footerLightColor: #397096;
+@footerDarkColor: @brandColor;
+
+// ------------
+// Links style
+// ------------
+@linkHoverUnderline: none;
