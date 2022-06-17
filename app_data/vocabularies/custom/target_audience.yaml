@@ -371,3 +371,21 @@
     type: target-audience
   title:
     en: Environmental Protection Agencies
+- id: tu-digital-cartography-technician
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Digital Cartography Technician
+- id: tu-admin-officer-spatial-planning
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Admin Officer Spatial Planning
