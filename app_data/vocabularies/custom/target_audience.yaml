@@ -389,3 +389,39 @@
     type: target-audience
   title:
     en: Admin Officer Spatial Planning
+- id: tu-grid-operator
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Grid Operators
+- id: tu-industrials
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Industrials
+- id: tu-aggregator-for-energy-trading
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Aggregator for energy trading
+- id: tu-energy-urban-planning-citizens
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Researchers in Energy and Urban Planning
