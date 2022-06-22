@@ -917,6 +917,23 @@
   title:
     en: OGC Web Map Tile Service
 - icon: map
+  id: software-ogc-wps
+  props:
+    csl: article
+    datacite_general: Software
+    datacite_type: ''
+    eurepo: info:eu-repo/semantics/other
+    openaire_resourceType: '29'
+    openaire_type: software
+    schema.org: https://schema.org/SoftwareSourceCode
+    subtype: software-ogc-wps
+    type: software
+  tags:
+  - depositable
+  - linkable
+  title:
+    en: OGC Web Processing Service
+- icon: map
   id: software-geonode
   props:
     csl: article
