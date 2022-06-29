@@ -98,7 +98,7 @@ setup(
             "geo_knowledge_hub = geo_knowledge_hub.config",
         ],
         "invenio_assets.webpack": [
-            "geo_knowledge_hub_wp = geo_knowledge_hub.modules.theme.webpack:theme"
+            "geo_knowledge_hub_wp = geo_knowledge_hub.theme.webpack:theme"
         ]
         # "invenio_access.actions": [],
         # "invenio_admin.actions": [],

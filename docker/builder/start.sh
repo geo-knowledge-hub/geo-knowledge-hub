@@ -7,7 +7,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-# 
+#
 # General definitions
 #
 BASE_DIRECTORY=$PWD
@@ -56,7 +56,7 @@ npm-cli-login \
 
 # extract the dependencies from the `geo-knowledge-hub`
 # note: `@geo` is the scope defined to the `geo-knowledge-hub` packages
-JAVASCRIPT_DEPENDENCIES_VERSION=`cat geo_knowledge_hub/modules/theme/webpack.py | grep -e @geo-knowledge-hub`
+JAVASCRIPT_DEPENDENCIES_VERSION=`cat geo_knowledge_hub/theme/webpack.py | grep -e @geo-knowledge-hub`
 JAVASCRIPT_DEPENDENCIES_ARRAY=(${JAVASCRIPT_DEPENDENCIES_VERSION//,/ })
 
 # publishing the packages!
@@ -67,11 +67,11 @@ do
 
 		PACKAGE_VERSION=`extract_from_quotes ${JAVASCRIPT_DEPENDENCIES_ARRAY[i + 1]}`
 
-        # checking if is a branch or tag	
+        # checking if is a branch or tag
         if [[ "$PACKAGE_VERSION" != b* ]]; then
             PACKAGE_VERSION=v$PACKAGE_VERSION
-        fi 
-        
+        fi
+
         git clone --branch $PACKAGE_VERSION $GEO_KNOWLEDGE_HUB_ORGANIZATION_URL/$PACKAGE_NAME $PACKAGE_NAME
         cd $PACKAGE_NAME
 
