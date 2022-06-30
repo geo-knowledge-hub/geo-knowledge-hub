@@ -56,7 +56,7 @@ npm-cli-login \
 
 # extract the dependencies from the `geo-knowledge-hub`
 # note: `@geo` is the scope defined to the `geo-knowledge-hub` packages
-JAVASCRIPT_DEPENDENCIES_VERSION=`cat geo_knowledge_hub/modules/theme/webpack.py | grep -e @geo-knowledge-hub`
+JAVASCRIPT_DEPENDENCIES_VERSION=`cat geo_knowledge_hub/theme/webpack.py | grep -e @geo-knowledge-hub`
 JAVASCRIPT_DEPENDENCIES_ARRAY=(${JAVASCRIPT_DEPENDENCIES_VERSION//,/ })
 
 # publishing the packages!

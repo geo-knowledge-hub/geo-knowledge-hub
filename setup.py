@@ -59,9 +59,9 @@ setup_requires = [
 install_requires = [
     "Flask-Discussion>=0.1.1,<0.2",
     "pydash>=5.1.0",
-    "invenio-app>=1.3.1,<2.0.0",
     "invenio-app-rdm>=8.0.0,<9.0.0",
-    "geo-config @ git+https://github.com/geo-knowledge-hub/geo-config@v0.2.0",
+    "geo-config @ git+https://github.com/geo-knowledge-hub/geo-config@v0.3.0",
+    "geo-rdm-records @ git+https://github.com/geo-knowledge-hub/geo-rdm-records@b-0.3"
 ]
 
 packages = find_packages()
@@ -98,7 +98,7 @@ setup(
             "geo_knowledge_hub = geo_knowledge_hub.config",
         ],
         "invenio_assets.webpack": [
-            "geo_knowledge_hub_wp = geo_knowledge_hub.modules.theme.webpack:theme"
+            "geo_knowledge_hub_wp = geo_knowledge_hub.theme.webpack:theme"
         ]
         # "invenio_access.actions": [],
         # "invenio_admin.actions": [],

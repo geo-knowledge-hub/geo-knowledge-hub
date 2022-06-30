@@ -10,11 +10,14 @@ setuptools = ">=59.1.1,<59.7.0"
 
 [packages]
 invenio-app-rdm = {version = "~=8.0.0", extras = ["elasticsearch7", "postgresql", "s3"]}
-geo-knowledge-hub = {editable = false, path = "."}
 
 uwsgi = ">=2.0"
 uwsgitop = ">=0.11"
 uwsgi-tools = ">=1.1.1"
+
+# Avoiding error with serializers introduced 
+# in the version 0.8.4
+flask-resources = "<=0.8.1"
 
 # Solving: https://github.com/pallets/markupsafe/issues/284
 markupsafe = "<=2.0.1"

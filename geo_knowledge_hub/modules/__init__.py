@@ -11,7 +11,7 @@
 from importlib import import_module
 
 MODULES = [
-    "geo_knowledge_hub.modules.rdm",
+    "geo_knowledge_hub.modules.base",
     "geo_knowledge_hub.modules.front",
     "geo_knowledge_hub.modules.menu",
     "geo_knowledge_hub.modules.deposit",
