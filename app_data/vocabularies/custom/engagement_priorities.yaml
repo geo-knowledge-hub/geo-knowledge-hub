@@ -1,3 +1,48 @@
+- id: convention-on-biological-diversity
+  props:
+    type: convention-on-biological-diversity
+    subtype: ''
+
+    icon: 'images/labels/engagement-priorities/conventions/convention-on-biological-diversity.png'
+    uri: https://www.cbd.int/
+
+    description: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+    engagement_type: 'convention'
+  title:
+    en: Convention on Biological Diversity
+
+- id: convention-ramsar
+  props:
+    type: convention-ramsar
+    subtype: ''
+
+    icon: 'images/labels/engagement-priorities/conventions/convention-ramsar.png'
+    uri: https://www.ramsar.org/
+
+    description: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+    engagement_type: 'convention'
+  title:
+    en: Ramsar Convention on Wetlands
+
+- id: convention-minamata-mercury
+  props:
+    type: convention-minamata-mercury
+    subtype: ''
+
+    icon: 'images/labels/engagement-priorities/conventions/convention-minamata-on-mercury.png'
+    uri: https://www.mercuryconvention.org/en
+
+    description: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+    engagement_type: 'convention'
+  title:
+    en: Minamata Convention on Mercury
+
 - id: sdg
   props:
     type: sdg
