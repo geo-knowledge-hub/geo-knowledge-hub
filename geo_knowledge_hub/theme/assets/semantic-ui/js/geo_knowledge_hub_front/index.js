@@ -74,6 +74,8 @@ if (componentDiv) {
                   // to avoid errors in the front page
                   searchParams.params.q = `${searchParams.params.q} AND props.subtype:sdg-goal`;
                 }
+              } else {
+                searchParams.params.q = `${searchParams.params.q} AND (NOT props.engagement_type:convention)`;
               }
               return searchParams;
             },
