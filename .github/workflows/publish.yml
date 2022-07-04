@@ -20,8 +20,8 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set output
-        id: vars
-        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+      id: vars
+      run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
 
     - name: Buildx
       uses: docker/setup-buildx-action@v1
