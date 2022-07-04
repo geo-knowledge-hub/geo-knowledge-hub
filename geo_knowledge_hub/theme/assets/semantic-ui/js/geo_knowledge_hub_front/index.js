@@ -33,40 +33,56 @@ const theme = {
 /**
  * Styled components
  */
-const CarouselDiv = styled("div")`
+const EngagementCarouselDiv = styled("div")`
   width: 780px;
   height: auto;
 `;
 
-const componentDiv = document.getElementById("engagementsSearchOptions");
+const ConventionsCarouselDiv = styled("div")`
+  width: 600px;
+  height: auto;
+`;
 
-if (componentDiv) {
+const engagementsDiv = document.getElementById("engagementsSearchOptions");
+const conventionsDiv = document.getElementById("engagementsConventionSearchOptions");
+
+// carousel components configuration
+const nestedCarouselContainerProps = {
+  animation: "scale down",
+  direction: "bottom",
+};
+
+const nestedCarouselProps = {
+  visibleSlides: 6,
+};
+
+const proxies = {
+  dataProxyProcessor: (dataset) => {
+    return dataset.map((data) => ({
+      ...data,
+      props: {
+        ...data.props,
+        icon: data.props.icon ? `/static/${data.props.icon}` : "",
+      },
+    }));
+  }
+};
+
+// rendering!
+if (engagementsDiv) {
   ReactDOM.render(
     <ThemeProvider theme={theme}>
-      <CarouselDiv>
+      <EngagementCarouselDiv>
         <EngagementPrioritiesNestedCarousel
-          nestedCarouselContainerProps={{
-            animation: "scale down",
-            direction: "bottom",
-          }}
+          nestedCarouselContainerProps={nestedCarouselContainerProps}
           mainCarouselProps={{
-            visibleSlides: 4,
             naturalSlideWidth: 1,
-            naturalSlideHeight: 1.25,
+            naturalSlideHeight: 1.15,
+            visibleSlides: 4,
           }}
-          nestedCarouselProps={{
-            visibleSlides: 6,
-          }}
+          nestedCarouselProps={nestedCarouselProps}
           proxies={{
-            dataProxyProcessor: (dataset) => {
-              return dataset.map((data) => ({
-                ...data,
-                props: {
-                  ...data.props,
-                  icon: data.props.icon ? `/static/${data.props.icon}` : "",
-                },
-              }));
-            },
+            ...proxies,
             prepareSearchParams: (searchParams, isPrincipalCarousel) => {
               // specific rules
               if (!isPrincipalCarousel) {
@@ -81,8 +97,34 @@ if (componentDiv) {
             },
           }}
         />
-      </CarouselDiv>
+      </EngagementCarouselDiv>
     </ThemeProvider>,
-    componentDiv
+    engagementsDiv
+  );
+}
+
+if (conventionsDiv) {
+  ReactDOM.render(
+    <ThemeProvider theme={theme}>
+      <ConventionsCarouselDiv>
+        <EngagementPrioritiesNestedCarousel
+          mainCarouselProps={{
+            naturalSlideWidth: 1,
+            naturalSlideHeight: 1.15,
+            visibleSlides: 3,
+          }}
+          nestedCarouselProps={nestedCarouselProps}
+          proxies={{
+            ...proxies,
+            prepareSearchParams: (searchParams, isPrincipalCarousel) => {
+              // specific rules
+              searchParams.params.q = `${searchParams.params.q} AND props.engagement_type:convention`;
+              return searchParams;
+            },
+          }}
+        />
+      </ConventionsCarouselDiv>
+    </ThemeProvider>,
+    conventionsDiv
   );
 }
