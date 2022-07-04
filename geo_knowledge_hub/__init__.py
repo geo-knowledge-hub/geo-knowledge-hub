@@ -28,6 +28,6 @@ except AttributeError:
     security.safe_str_cmp = hmac.compare_digest
 
 from .ext import GeoKnowledgeHub
-from .version import __version__
 
+__version__ = "1.3.0"
 __all__ = ("__version__", "GeoKnowledgeHub")
