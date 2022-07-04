@@ -14,7 +14,7 @@ show_alternate_identifiers, show_funding, show_dates %}
 
 {% set is_knowledge_resource = record.metadata.resource_type.id != "knowledge" %}
 
-{% set hasContent = related_records_informations or
+{% set hasContent = (related_records_informations and is_knowledge_resource) or
                     record.ui.additional_titles or
                     metadata.identifiers or
                     related_identifiers or
