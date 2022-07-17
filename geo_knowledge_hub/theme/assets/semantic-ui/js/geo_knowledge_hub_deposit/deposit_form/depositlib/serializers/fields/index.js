@@ -8,6 +8,7 @@
 
 export { Field } from "./Field";
 export { SchemaField } from "./SchemaField";
+
 export {
     VocabularyField,
     RightsVocabularyField,

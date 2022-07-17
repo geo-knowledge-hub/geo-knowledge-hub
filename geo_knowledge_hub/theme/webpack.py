@@ -8,7 +8,23 @@
 
 """GEO Knowledge Hub Deposit (page) webpack."""
 
+from flask_webpackext import WebpackBundleProject
 from invenio_assets.webpack import WebpackThemeBundle
+from pywebpack import bundles_from_entry_point
+
+# In order to install and configure the dependencies, we used to
+# create the GEO Knowledge Hub interface we override the frontend
+# build project. We are developing and configuring the webpack
+# project based on the files created by the Invenio Assets.
+# Also, this approach was presented to us by the Tu Wien Team.
+# (https://gitlab.tuwien.ac.at/fairdata/invenio-theme-tuw/-/tree/master/invenio_theme_tuw/build_project)
+# Thank you!
+project = WebpackBundleProject(
+    import_name=__name__,
+    project_folder="config",
+    config_path="build/config.json",
+    bundles=bundles_from_entry_point("invenio_assets.webpack"),
+)
 
 theme = WebpackThemeBundle(
     import_name=__name__,
@@ -17,6 +33,9 @@ theme = WebpackThemeBundle(
     themes={
         "semantic-ui": dict(
             entry={
+                # Base
+                "geo-knowledge-hub-base": "./js/base.js",
+                "geo-knowledge-hub-base-theme": "./less/base.less",
                 # Detail page (aka Record Landing Page)
                 "geo-knowledge-hub-detail": "./js/geo_knowledge_hub_detail/index.js",
                 "geo-knowledge-hub-detail-theme": "./less/geo_knowledge_hub_detail/theme.less",
@@ -25,6 +44,7 @@ theme = WebpackThemeBundle(
                 "geo-knowledge-hub-front-theme": "./less/geo_knowledge_hub_front/theme.less",
                 # Deposit
                 "geo-knowledge-hub-deposit": "./js/geo_knowledge_hub_deposit/deposit_form/index.js",
+                "geo-knowledge-hub-deposit-theme": "./less/geo_knowledge_hub_deposit/theme.less",
                 # Search
                 "geo-knowledge-hub-search": "./js/geo_knowledge_hub_search/index.js",
                 # Dashboard
@@ -41,13 +61,21 @@ theme = WebpackThemeBundle(
                 "minisearch": "^4.0.3",
                 "react-minisearch": "^5.0.0-beta1",
                 "react-table": "^7.7.0",
-                "@geo-knowledge-hub/geo-components-react": "0.3.3",
+                "@geo-knowledge-hub/geo-components-react": "0.4.0",
                 "@geo-knowledge-hub/react-invenio-deposit": "0.17.12",
-                "@geo-knowledge-hub/geo-metadata-previewer-react": "0.1.1-alpha",
+                "@geo-knowledge-hub/invenio-geographic-components-react": "0.2.0",
                 "@emotion/react": "^11.9.0",
                 "@emotion/css": "^11.9.0",
                 "@emotion/styled": "^11.8.1",
                 "react-lazy-load-image-component": "^1.5.4",
+                "leaflet.fullscreen": "^1.6.0",
+                "leaflet-control-geocoder": "^2.4.0",
+                "@turf/convex": "^6.5.0",
+                "@turf/flip": "^6.5.0",
+                "@turf/bbox-polygon": "^6.5.0",
+                "@turf/centroid": "^6.5.0",
+                "@mapbox/geojsonhint": "^3.0.1",
+                "@geoman-io/leaflet-geoman-free": "^2.13.0",
             },
             aliases={
                 "@invenio-app-rdm": "js/invenio_app_rdm",

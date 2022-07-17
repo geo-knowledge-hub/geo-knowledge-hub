@@ -36,8 +36,7 @@ class GeoKnowledgeHub(object):
                 app.config["BASE_TEMPLATE"],
             )
         for k in dir(config):
-            if k.startswith("GEO_KNOWLEDGE_HUB_"):
-                app.config.setdefault(k, getattr(config, k))
+            app.config.setdefault(k, getattr(config, k))
 
     def init_modules(self, app):
         """Initialize the extension modules."""

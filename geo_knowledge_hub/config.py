@@ -17,3 +17,8 @@ GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {
     }
 }
 """Default values to load from metadata by scheme type."""
+
+# Flask-WebpackExt
+# ================
+# See https://flask-webpackext.readthedocs.io/en/latest/configuration.html
+WEBPACKEXT_PROJECT = "geo_knowledge_hub.theme.webpack:project"

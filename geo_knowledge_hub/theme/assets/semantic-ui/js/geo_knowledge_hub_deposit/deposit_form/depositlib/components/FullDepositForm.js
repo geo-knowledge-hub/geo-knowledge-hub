@@ -48,14 +48,19 @@ import {
   WorkProgrammeActivityField,
 } from "@geo-knowledge-hub/geo-components-react";
 
+// Locations Field
+import { LocationsField } from "@geo-knowledge-hub/invenio-geographic-components-react"
+
 import {i18next} from "@translations/invenio_app_rdm/i18next";
 
 import {BaseDepositForm} from "./BaseDepositForm";
 import {GeoDepositFormApp} from "../GeoDepositFormApp";
-
+import {
+  RelatedResourceField,
+  KnowledgePackageField
+} from "./fields";
 import {KNOWLEDGE_PACKAGE} from "../resources/types";
 
-import {RelatedResourceField, KnowledgePackageField} from "./fields";
 
 export class FullDepositForm extends BaseDepositForm {
   constructor(props) {
@@ -385,6 +390,19 @@ export class FullDepositForm extends BaseDepositForm {
                         link: result.props.url,
                       })}
                     />
+                  </AccordionField>
+
+                  <AccordionField
+                    fieldPath=""
+                    active={!this.props.isRecordPublished}
+                    label={i18next.t("Geographic information")}
+                    ui={this.depositConfigHandler.accordionStyle}
+                  >
+                    <LocationsField
+                      label={"Locations"}
+                      fieldPath={"metadata.locations.features"}
+                    />
+
                   </AccordionField>
 
                   <AccordionField

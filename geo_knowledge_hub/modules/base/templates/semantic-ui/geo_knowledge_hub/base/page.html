@@ -1,0 +1,11 @@
+{%- extends "invenio_theme/page.html" %}
+
+{% block css %}
+  {{ super() }}
+  {{ webpack["geo-knowledge-hub-base-theme.css"] }}
+{% endblock css %}
+
+{% block javascript %}
+  {{ super() }}
+  {{ webpack["geo-knowledge-hub-base.js"] }}
+{% endblock javascript %}
