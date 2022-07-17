@@ -20,11 +20,15 @@ import _pickBy from 'lodash/pickBy';
 import _set from 'lodash/set';
 
 import {
+  LocationsFieldSerializer
+} from '@geo-knowledge-hub/invenio-geographic-components-react';
+
+import {
+    AllowAdditionsVocabularyField,
     Field,
     SchemaField,
-    VocabularyField,
     RightsVocabularyField,
-    AllowAdditionsVocabularyField
+    VocabularyField,
 } from "./fields";
 
 const emptyIdentifier = {
@@ -256,7 +260,10 @@ export class DepositRecordSerializer {
             serializedDefault: [],
             localeFields: ['title', 'description'],
         }),
-
+        // Locations field
+        locations: new LocationsFieldSerializer({
+          fieldpath: 'metadata.locations.features'
+        }),
         // Custom fields
         geo_work_programme_activity: new VocabularyField({
             fieldpath: "metadata.geo_work_programme_activity",

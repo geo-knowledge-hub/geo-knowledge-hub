@@ -14,14 +14,11 @@
 {%- endblock frontpage_title %}
 
 {%- block frontpage_form %}
+
 <div class="ui center aligned grid">
   <div class="search-bar">
-    <form action="{{ url_for('invenio_search_ui.search') }}" class="ui form">
-      <div class="ui fluid big action input">
-        <input type="text" name="q" class="form-control search-bar-form" placeholder="{{ _('Search for Earth Observations Applications') }}">
-        <button type="submit" class="ui icon search button"><i class="search icon"></i></button>
-      </div>
-    </form>
+    <div id="advancedSearchDiv"> </div>
+    <input id="front-search-data" type="hidden" name="deposits-record" value="{{ url_for('invenio_search_ui.search') }}"></input>
   </div>
 </div>
 <div class="ui divider hidden"></div>

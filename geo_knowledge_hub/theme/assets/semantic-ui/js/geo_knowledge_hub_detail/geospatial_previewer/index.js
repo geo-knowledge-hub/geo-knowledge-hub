@@ -9,7 +9,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { GeospatialMetadataVisualizer } from "@geo-knowledge-hub/geo-metadata-previewer-react";
+import _get from 'lodash/get';
+import _isEmpty from 'lodash/isEmpty';
+
+import { GeographicMetadataLocationViewer } from '@geo-knowledge-hub/invenio-geographic-components-react';
 
 /**
  * Render the geospatial metadata previewer component.
@@ -18,24 +21,26 @@ export const renderComponent = (...args) => {
   const componentDiv = document.getElementById("mapContainer");
   const recordVersionAppDiv = document.getElementById("recordVersionsData");
 
-  // parsing the record document
-  let recordDocument = {};
-
   if (recordVersionAppDiv) {
-    recordDocument = JSON.parse(recordVersionAppDiv.dataset.record);
-  }
+    // parsing the record document
+    const recordDocument = JSON.parse(recordVersionAppDiv.dataset.record);
 
-  // Checking for a valid record document
-  if (Object.keys(recordDocument).length > 0) {
-    ReactDOM.render(
-      <GeospatialMetadataVisualizer
-        mapContainerOptions={{
-          id: "mapContainer",
-          scrollWheelZoom: true,
-        }}
-        recordContext={recordDocument}
-      />,
-      componentDiv
-    );
+    // looking for valid locations data
+    const featureData = _get(recordDocument, 'metadata.locations.features', []);
+
+    if (!_isEmpty(featureData)) {
+      ReactDOM.render(
+        <>
+          <GeographicMetadataLocationViewer
+            featuresData={featureData}
+            mapConfig={{
+              useGeocoding: false,
+              useMouseCoordinate: false
+            }}
+          />
+        </>,
+        componentDiv
+      );
+    }
   }
 };
