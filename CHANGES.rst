@@ -9,6 +9,54 @@
 Changes
 =======
 
+Version 1.3.0 (2022-07-18)
+--------------------------------
+
+- Repository review
+
+  - Added the InvenioRDM base files from the GEO Knowledge Hub RT;
+
+    - Vocabularies;
+    - Dependencies;
+    - Environment files (Dockerfile, Docker Compose, Nginx, Builder);
+    - Configuration file (Invenio configuration file, Isso configuration file).
+    
+  - Installation scripts revised (`#91 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/91>`_).
+
+- Introduced features
+
+  - **Vocabulary**:
+  
+    - Convention concept in the Engagement Priorities (`#82 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/82>`_);
+    - Target audience updated with new items (`#80 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/80>`_, `#86 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/86>`_);
+    - Geographic Identifiers vocabulary added via Integration with the Invenio Geographic Identifiers module (`#99 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/99>`_);
+  
+  - **Spatial support** (`#52 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/52>`_):
+  
+    - Search filter for records with spatial metadata field defined;
+    - Introduced new component to visualize the spatial metadata in the Record Landing page (`#53 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/53>`_);
+  
+  - **Search components** 
+  
+    - Initial Advanced search component (Front page) (`#84 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/84>`_)
+      
+      - Support for ``Basic`` and ``Spatial``. 
+
+    - Quick Search (Front page): 
+      
+      - Added the Convention search (`#79 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/79>`_).
+    
+- Theme, Build system and dependencies
+  
+  - Dependencies
+  
+    - The GEO Deposit React was replaced by `GEO Components React <https://github.com/geo-knowledge-hub/geo-components-react>`_;
+  
+  - Theme
+  
+    - Added custom `webpack <https://webpack.js.org/>`_ script to build the project theme.
+
+
 Version 1.2.1 (2022-05-25)
 --------------------------------
 
