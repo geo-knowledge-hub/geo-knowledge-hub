@@ -9,6 +9,16 @@
 Changes
 =======
 
+Version 1.3.1 (2022-07-20)
+--------------------------
+
+- Build script fixed (`#117 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/117>`_);
+- Fixed minor bugs in the interface
+
+  - Geo Identifiers selection error: Fixed with the update of the `Invenio Geographic Components React <https://github.com/geo-knowledge-hub/invenio-geographic-components-react>`_ package to version `0.2.1 <https://github.com/geo-knowledge-hub/invenio-geographic-components-react/releases/tag/v0.2.1>`_;
+  - Subjects selection error: Fixed with the update of the `GEO Components React <https://github.com/geo-knowledge-hub/geo-components-react.git>`_ package to version `0.4.1 <https://github.com/geo-knowledge-hub/geo-components-react/releases/tag/v0.4.1>`_.
+
+
 Version 1.3.0 (2022-07-18)
 --------------------------------
 
