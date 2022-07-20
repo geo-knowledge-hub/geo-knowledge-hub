@@ -54,6 +54,9 @@ npm-cli-login \
 # 3. Publishing JavaScript dependencies from `geo-knowledge-hub` to verdaccio
 #
 
+# build required dependencies
+npm install -g rimraf json
+
 # extract the dependencies from the `geo-knowledge-hub`
 # note: `@geo` is the scope defined to the `geo-knowledge-hub` packages
 JAVASCRIPT_DEPENDENCIES_VERSION=`cat geo_knowledge_hub/theme/webpack.py | grep -e @geo-knowledge-hub`
