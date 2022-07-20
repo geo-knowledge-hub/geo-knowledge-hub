@@ -55,7 +55,7 @@ npm-cli-login \
 #
 
 # build required dependencies
-npm install -g rimraf json
+npm install -g rimraf json rollup
 
 # extract the dependencies from the `geo-knowledge-hub`
 # note: `@geo` is the scope defined to the `geo-knowledge-hub` packages
