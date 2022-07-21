@@ -9,6 +9,12 @@
 Changes
 =======
 
+Version 1.3.2 (2022-07-21)
+--------------------------
+
+- Added improvements in the build script;
+- Updated ``GEO Components React`` to version `v0.4.2 <https://github.com/geo-knowledge-hub/geo-components-react/releases/tag/v0.4.2>`_;
+
 Version 1.3.1 (2022-07-20)
 --------------------------
 
@@ -30,40 +36,40 @@ Version 1.3.0 (2022-07-18)
     - Dependencies;
     - Environment files (Dockerfile, Docker Compose, Nginx, Builder);
     - Configuration file (Invenio configuration file, Isso configuration file).
-    
+
   - Installation scripts revised (`#91 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/91>`_).
 
 - Introduced features
 
   - **Vocabulary**:
-  
+
     - Convention concept in the Engagement Priorities (`#82 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/82>`_);
     - Target audience updated with new items (`#80 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/80>`_, `#86 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/86>`_);
     - Geographic Identifiers vocabulary added via Integration with the Invenio Geographic Identifiers module (`#99 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/99>`_);
-  
+
   - **Spatial support** (`#52 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/52>`_):
-  
+
     - Search filter for records with spatial metadata field defined;
     - Introduced new component to visualize the spatial metadata in the Record Landing page (`#53 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/53>`_);
-  
-  - **Search components** 
-  
-    - Initial Advanced search component (Front page) (`#84 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/84>`_)
-      
-      - Support for ``Basic`` and ``Spatial``. 
 
-    - Quick Search (Front page): 
-      
+  - **Search components**
+
+    - Initial Advanced search component (Front page) (`#84 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/84>`_)
+
+      - Support for ``Basic`` and ``Spatial``.
+
+    - Quick Search (Front page):
+
       - Added the Convention search (`#79 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/79>`_).
-    
+
 - Theme, Build system and dependencies
-  
+
   - Dependencies
-  
+
     - The GEO Deposit React was replaced by `GEO Components React <https://github.com/geo-knowledge-hub/geo-components-react>`_;
-  
+
   - Theme
-  
+
     - Added custom `webpack <https://webpack.js.org/>`_ script to build the project theme.
 
 
@@ -71,7 +77,7 @@ Version 1.2.1 (2022-05-25)
 --------------------------------
 
 - Fixed ``Additional details`` condition error;
-- Fixed ``Geospatial metadata previewer`` div selection; 
+- Fixed ``Geospatial metadata previewer`` div selection;
 - Updated ``GEO Components React`` to version `v0.3.2 <https://github.com/geo-knowledge-hub/geo-components-react/releases/tag/v0.3.2>`_;
 - Updated the local cache of resource types available in the GEO Knowledge Hub.
 
@@ -100,7 +106,7 @@ Version 1.1.1 (2022-05-22)
   - ``Related resource table`` (based on GEO Components React `v0.3.0 <https://github.com/geo-knowledge-hub/geo-components-react/releases/tag/v0.3.0>`_). Using this new component, the elements associated with a Knowledge Package are now presented in a table with full-text search and faceted search operations;
   - ``Version dropdown menu`` (based on `Invenio App RDM components <https://github.com/inveniosoftware/invenio-app-rdm>`_). This component replaces the original InvenioRDM versions component with a dropdown menu;
   - ``Engagement Priorities Carousel`` (based on GEO Components React `v0.3.0 <https://github.com/geo-knowledge-hub/geo-components-react/releases/tag/v0.3.0>`_). The carousel now uses lazy load operation and the Semantic UI theme.
-  
+
 - Updated the front page carousel using lazy load operations and Semantic UI theme (based on GEO Components React `v0.3.0 <https://github.com/geo-knowledge-hub/geo-components-react/releases/tag/v0.3.0>`_)
 
 Version 1.1.1-alpha (2022-05-09)
@@ -127,25 +133,25 @@ Version 1.0.0 (2022-04-24)
 - Customization of InvenioRDM pages:
 
   - Engagement Priorities Carousel on frontpage with search support (based on `geo-components-react <https://github.com/geo-knowledge-hub/geo-components-react>`_);
-  
+
   - New frontpage organization to support multiple contents;
-  
+
   - Reorganizing the icons on the page headers;
-  
+
   - Engagement Priorities support on Record Landing page (Sidebar) (based on `geo-components-react <https://github.com/geo-knowledge-hub/geo-components-react>`_);
-  
+
   - Users Stories Carousel support on Record Landing Page (`#39 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/39>`_);
 
   - GEO Engagement Priorities association as a label on the Record Landing Page (based on `geo-components-react <https://github.com/geo-knowledge-hub/geo-components-react>`_);
-    
+
   - New fields on the deposit page (based on `geo-deposit-react <https://github.com/geo-knowledge-hub/geo-deposit-react>`_);
 
     - Engagement Priorities Field;
-    
+
     - GEO Work Programme Activities Field;
-    
+
     - Target Audiences field.
- 
+
 - Improvements in the code organization;
 
 - Custom facet behavior based on `geo-rdm-records features <https://github.com/geo-knowledge-hub/geo-rdm-records>`_;
