@@ -425,3 +425,12 @@
     type: target-audience
   title:
     en: Researchers in Energy and Urban Planning
+- id: tu-fisherman
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Fisherman
