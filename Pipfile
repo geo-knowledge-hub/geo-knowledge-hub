@@ -19,6 +19,10 @@ uwsgi-tools = ">=1.1.1"
 # in the version 0.8.4
 flask-resources = "<=0.8.1"
 
+# Avoiding scope errors
+flask = "<=2.1.2"
+Werkzeug = "<=2.0.3"
+
 # Solving: https://github.com/pallets/markupsafe/issues/284
 markupsafe = "<=2.0.1"
 # Solving: https://github.com/ipython/ipython/issues/13554
