@@ -425,7 +425,7 @@
     type: target-audience
   title:
     en: Researchers in Energy and Urban Planning
-- id: tu-fisherman
+- id: tu-fishermen
   props:
     description_long: ''
     description_short: ''
@@ -433,4 +433,4 @@
     subtype: ''
     type: target-audience
   title:
-    en: Fisherman
+    en: Fishermen
