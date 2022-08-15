@@ -139,7 +139,7 @@ export class FullDepositForm extends BaseDepositForm {
                       }
                       quota={{
                         maxFiles: 100,
-                        maxStorage: 10 ** 10,
+                        maxStorage: (10 ** 10) * 2,
                       }}
                     />
                   </AccordionField>
