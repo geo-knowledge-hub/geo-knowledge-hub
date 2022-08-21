@@ -10,7 +10,6 @@
 
 from typing import Dict, List, Union
 
-from geo_rdm_records.resources.serializers.ui.serializer import UIJSONSerializer
 from invenio_records.api import Record
 from invenio_search import current_search_client
 from pydash import py_
@@ -18,6 +17,7 @@ from pydash import py_
 from geo_knowledge_hub.config import (
     GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME as metadata_field_by_scheme,  # ToDo: Use the `current_app` configuration instance
 )
+from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
 
 
 def _to_record(query_result) -> List:
@@ -46,7 +46,7 @@ def _metadata_builder(metadata: Dict, scheme) -> Dict:
             )
             for metadata_field in metadata_field_for_scheme.keys()
         },
-        "ui": UIJSONSerializer().serialize_object_to_dict(metadata).get("ui"),
+        "ui": UIJSONSerializer().dump_obj(metadata).get("ui"),
     }
 
 

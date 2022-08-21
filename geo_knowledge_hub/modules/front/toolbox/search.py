@@ -11,8 +11,9 @@
 from typing import Dict, List
 
 from elasticsearch_dsl.query import Q
-from geo_rdm_records.resources.serializers.ui.serializer import UIJSONSerializer
 from invenio_search.api import RecordsSearch
+
+from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
 
 
 class LatestKnowledgePackageSearch(RecordsSearch):
@@ -41,7 +42,7 @@ def get_latest_knowledge_packages(n: int) -> List[Dict]:
     """
     latest_records = LatestKnowledgePackageSearch()[:n].sort("-created").execute()
     return [
-        UIJSONSerializer().serialize_object_to_dict(r.to_dict()) for r in latest_records
+        UIJSONSerializer().dump_obj(r.to_dict()) for r in latest_records
     ]
 
 

@@ -48,7 +48,7 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = u"geo-knowledge-hub"
+project = "geo-knowledge-hub"
 copyright = "2022, GEO Secretariat"
 author = "GEO Secretariat"
 

@@ -20,8 +20,7 @@ def frontpage():
 
     # rendering!
     return render_template(
-        "geo_knowledge_hub/frontpage/frontpage.html",
-        latest_records=latest_records
+        "geo_knowledge_hub/frontpage/frontpage.html", latest_records=latest_records
     )
 
 
