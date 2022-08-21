@@ -7,7 +7,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-# 
+#
 # General definitions
 #
 BASE_DIRECTORY=$PWD
@@ -54,6 +54,12 @@ npm-cli-login \
 # 3. Publishing JavaScript dependencies from `geo-knowledge-hub` to verdaccio
 #
 
+# build required dependencies
+npm install -g rimraf json rollup
+
+# registering the local registry
+echo "@geo-knowledge-hub:registry=${VERDACCIO_DOCKER_REGISTRY}" > ~/.npmrc
+
 # extract the dependencies from the `geo-knowledge-hub`
 # note: `@geo` is the scope defined to the `geo-knowledge-hub` packages
 JAVASCRIPT_DEPENDENCIES_VERSION=`cat geo_knowledge_hub/theme/webpack.py | grep -e @geo-knowledge-hub`
@@ -63,21 +69,21 @@ JAVASCRIPT_DEPENDENCIES_ARRAY=(${JAVASCRIPT_DEPENDENCIES_VERSION//,/ })
 for ((i=0;i< ${#JAVASCRIPT_DEPENDENCIES_ARRAY[@]} ; i+=2));
 do
 		PACKAGE_NAME=`extract_from_quotes ${JAVASCRIPT_DEPENDENCIES_ARRAY[i]}`
-        PACKAGE_NAME=${PACKAGE_NAME//@geo-knowledge-hub\/''}
+    PACKAGE_NAME=${PACKAGE_NAME//@geo-knowledge-hub\/''}
 
 		PACKAGE_VERSION=`extract_from_quotes ${JAVASCRIPT_DEPENDENCIES_ARRAY[i + 1]}`
 
-        # checking if is a branch or tag	
-        if [[ "$PACKAGE_VERSION" != b* ]]; then
-            PACKAGE_VERSION=v$PACKAGE_VERSION
-        fi 
-        
-        git clone --branch $PACKAGE_VERSION $GEO_KNOWLEDGE_HUB_ORGANIZATION_URL/$PACKAGE_NAME $PACKAGE_NAME
-        cd $PACKAGE_NAME
+    # checking if is a branch or tag
+    if [[ "$PACKAGE_VERSION" != b* ]]; then
+        PACKAGE_VERSION=v$PACKAGE_VERSION
+    fi
 
-        npm install
-        npm run build
-        npm publish --registry $VERDACCIO_LOCAL_REGISTRY
+    git clone --branch $PACKAGE_VERSION $GEO_KNOWLEDGE_HUB_ORGANIZATION_URL/$PACKAGE_NAME $PACKAGE_NAME
+    cd $PACKAGE_NAME
+
+    npm install
+    npm run build
+    npm publish --registry $VERDACCIO_LOCAL_REGISTRY
 done
 
 
