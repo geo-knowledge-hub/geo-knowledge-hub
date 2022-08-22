@@ -2,153 +2,30 @@
     GEO Knowledge Hub custom classes
 ***********************************************/
 
-#frontpage-search-bar h1.ui.header {
-  font-size: 2.5em;
-  color: @frontpageHeaderColor;
+/*------------------------
+    Front page definitions
+--------------------------*/
+
+.outer-navbar {
+  background-color: @navbarBackgroundColor;
+  border-color: transparent;
+
+  #invenio-nav {
+    background: transparent;
+  }
+
+  a {
+    color: @white;
+  }
 }
 
-#frontpage-search-bar h3.ui.header {
-  font-size: 1.5em;
-  color: @frontpageHeaderColor;
+.ui.container {
+  .frontpage-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .frontpage-header h3 {
+    padding-left: 25%;
+    padding-right: 25%;
+  }
 }
-
-
-
-
-//.gkhub-project-statement {
-//  display: flex;
-//  padding-right: 25%;
-//  padding-left: 25%;
-//  margin-bottom: 2rem;
-//  text-align: center;
-//};
-
-//.frontpage.sixteen.wide.column.center.aligned h3 {
-//  max-width: 700px;
-//}
-//
-//.ui.header.white {
-//  color: white;
-//}
-
-
-//
-//.ui.center.aligned.header {
-//  text-align: center;
-//  max-width: 700px;
-//}
-
-// Old
-
-//@import "site.variables";
-
-// ------------
-// NavBar style
-// ------------
-// .outer-navbar #frontpage-search-bar {
-//   background-image: @frontpage_search_background;
-//   background-size: cover;
-//   height: 43vh;
-//   position: relative;
-
-   //.search-bar {
-   //  width: 70%;
-   //  padding: 1rem;
-   //}
-
-   //.search-bar-form {
-   //  text-align: center;
-   //}
-// }
-
-//#frontpage-search-bar h1 {
-//  color: rgb(255, 255, 255);
-//  text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 2px;
-//}
-
-// ------------
-// Body style
-// ------------
-//.section-gray-bg {
-//  background-color: #f1f2f6;
-//  padding: 30px;
-//  margin-top: 0px;
-//  margin-bottom: 0px;
-//}
-
-// ------------
-// Footer style
-// ------------
-//.invenio-rdm-footer {
-//  margin: auto;
-//}
-
-//.rdm-footer {
-//  text-align: left;
-//  align-self: inherit;
-//  width: 33%;
-//  padding: 1em 0em 1em 0em;
-//}
-
-//.footer-global {
-//  // .footer-global(); with error...
-//  padding-top: 0;
-//}
-
-// ------------
-// Theme style
-// ------------
-//nav#invenio-nav {
-//  margin-bottom: 0;
-//}
-
-//.section-title {
-//  color: @gkhubFontColor;
-//  margin-bottom: 45px;
-//  font-weight: 500;
-//}
-//
-//.section-subtitle-content {
-//  .section-title();
-//  margin-bottom: 30px;
-//  font-weight: 440;
-//  padding-top: 3px;
-//}
-//
-//.gkhub-frontpage-cards {
-//  min-width: 25rem;
-//}
-
-//.gkhub-project-statement {
-//  display: flex;
-//  padding-right: 25%;
-//  padding-left: 25%;
-//  margin-bottom: 2rem;
-//  text-align: center;
-//}
-
-//.gkhub-project-goals {
-//  display: flex;
-//  //flex-direction: row;
-//  justify-content: center;
-//  text-align: center;
-//  //height: auto;
-//
-//  .gkhub-goal {
-//    width: 25%;
-//    padding: 1rem;
-//
-//    i {
-//      font-size: 2em;
-//      color: @gkhubFontColor;
-//    }
-//
-//    h3 {
-//      color: @gkhubFontColor;
-//    }
-//  }
-//}
-//
-//.gkhub-goal h3 {
-//  margin: 1rem 0;
-//}

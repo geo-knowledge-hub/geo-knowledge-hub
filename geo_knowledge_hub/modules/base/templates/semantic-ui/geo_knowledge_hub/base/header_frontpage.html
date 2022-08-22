@@ -1,15 +1,15 @@
 {%- extends "invenio_app_rdm/header_frontpage.html" %}
 
 {%- block frontpage_title %}
-<div class="ui container">
-  <h1 class="ui center aligned header" style="font-size: 2.5rem; margin-top: 1.5rem;">Welcome to the GEO Knowledge Hub!</h1>
-  <div class="ui container">
-    <div class="gkhub-project-statement">
-      <div>
-        <h3 style="color: white">An open-source digital repository of open, authoritative and reproducible knowledge created by the <a href="https://earthobservations.org"  target="_blank"> Group on Earth Observations</a></h3>
-      </div>
-    </div>
-  </div>
+<div class="ui text container">
+  <h1 class="ui center aligned header inverted">
+    {{ _(config.THEME_FRONTPAGE_TITLE) }}
+  </h1>
+
+  <h3 class="ui center align header inverted">
+    An open-source digital repository of open, authoritative and reproducible knowledge
+    created by the <a href="https://earthobservations.org"  target="_blank"> Group on Earth Observations</a>
+  </h3>
 </div>
 {%- endblock frontpage_title %}
 
