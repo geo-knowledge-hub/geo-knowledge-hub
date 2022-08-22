@@ -16,6 +16,7 @@ from invenio_app_rdm.records_ui.views.decorators import (
 )
 from pydash import py_
 
+from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
 from geo_knowledge_hub.modules.detail.toolbox.identifiers import (
     filter_knowledge_resources_from_related_identifiers_url,
     get_related_identifiers_url,
@@ -29,7 +30,6 @@ from geo_knowledge_hub.modules.detail.toolbox.record import (
 from geo_knowledge_hub.modules.detail.toolbox.search import (
     get_related_resources_metadata,
 )
-from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
 
 
 @pass_is_preview

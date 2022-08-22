@@ -91,6 +91,6 @@ def filter_knowledge_resources_from_related_identifiers_url(
 
 
 __all__ = (
-    "related_identifiers_url_by_scheme",
+    "get_related_identifiers_url",
     "filter_knowledge_resources_from_related_identifiers_url",
 )
