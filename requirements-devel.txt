@@ -7,5 +7,5 @@
 # details.
 #
 
--e git+https://github.com/geo-knowledge-hub/geo-config@v0.3.0#egg=geo-config
--e git+https://github.com/geo-knowledge-hub/geo-rdm-records@v0.3.1#egg=geo-rdm-records
+-e git+https://github.com/geo-knowledge-hub/geo-config@b-0.4#egg=geo-config
+-e git+https://github.com/geo-knowledge-hub/geo-rdm-records@b-0.4#egg=geo-rdm-records
