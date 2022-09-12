@@ -1,5 +1,40 @@
 {%- extends "invenio_app_rdm/header.html" %}
 
 {%- block navbar_nav %}
-  {%- include "geo_knowledge_hub/menus/search_menu.html" %}
-{%- endblock navbar_nav %}
+{%- for item in current_menu.submenu('main').children|sort(attribute='order') if item.visible recursive %}
+
+{%- if item.children %}
+<div class="item">
+  <div class="dropdown {{ ' active' if item.active else '' }}">
+    <a role="menuitem"
+       class="dropdown-toggle"
+       data-toggle="dropdown"
+       aria-haspopup="true"
+       aria-expanded="false"
+       href="{{ item.url }}"
+    >
+      {{ item.text|safe }}
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">{{ loop(item.children|sort(attribute='order')) }}</ul>
+  </div>
+</div>
+
+{%- else %}
+
+<div class="{{' item active' if item.active and loop.depth == 0 else ' item' }}">
+  <a role="menuitem" href="{{ item.url }}">{{ item.text|safe }}</a>
+</div>
+
+{%- endif %}
+{%- endfor %}
+
+{%- if current_user.is_authenticated and is_knowledge_provider %}
+{% for item in current_menu.submenu('actions').children|sort(attribute='order') if item.visible recursive %}
+<div class="item">
+  <a role="menuitem" href="{{ item.url }}">{{ item.text|safe }}</a>
+</div>
+{% endfor %}
+{% endif %}
+
+{% endblock navbar_nav %}

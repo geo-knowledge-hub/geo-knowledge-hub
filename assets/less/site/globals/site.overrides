@@ -6,26 +6,58 @@
     Front page definitions
 --------------------------*/
 
+/* Tailoring classes for the GEO Knowledge Hub */
 .outer-navbar {
-  background-color: @navbarBackgroundColor;
-  border-color: transparent;
-
-  #invenio-nav {
-    background: transparent;
-  }
-
-  a {
-    color: @white;
-  }
+  background-image: none;
 }
 
-.ui.container {
-  .frontpage-header h1 {
-    font-size: 2.5rem;
+.search-bar-form {
+  text-align: center;
+}
+
+.section-subtitle-content {
+  font-size: 2em;
+  color: @primaryColor;
+}
+
+#frontpage-search-bar.frontpage-header {
+  background-image: @navbarBackgroundImage;
+  background-size: cover;
+}
+
+#frontpage-search-bar.ui.container {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#frontpage-search-bar h1.ui.center.aligned.header.inverted {
+  font-size: 2.5em;
+}
+
+#frontpage-search-bar h2.ui.center.aligned.small.header.inverted {
+  font-size: 1.2em;
+}
+
+#frontpage-search-bar .ui.grid {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: auto !important;
+}
+
+.float-section-buttons {
+  position: relative;
+  margin-top: 2em;
+
+  @media all and (min-width: @computerBreakpoint) and (min-height: 750px) {
+    margin-top: -2em;
   }
 
-  .frontpage-header h3 {
-    padding-left: 25%;
-    padding-right: 25%;
-  }
+}
+
+#rdm-footer-element .footer-bottom.sub-footer a {
+  text-decoration: none;
+}
+
+#rdm-footer-element .footer-bottom.sub-footer .ui.grid {
+  padding-bottom: 0;
 }

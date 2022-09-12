@@ -77,31 +77,42 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide">
 
-        <span class="section-subtitle-content">{{ _("Latest additions") }}</span>
-        <div class="ui container">
-          <div class="ui padded relaxed centered grid">
+        <div class="ui grid">
+          <div class="row">
+            <div class="column centered">
+              <div class="section-subtitle-content">{{ _("Latest additions") }}</div>
+            </div>
+          </div>
+
+          <div class="row">
             <div class="column">
-              <div class="ui centered link cards">
-                {% for item in latest_records %}
-                <a href="/records/{{ item['id'] }}" class="card gkhub-frontpage-cards">
-                  <div class="left aligned content">
-                    <div class="extra labels-actions ribbon-latest-additions-title">
-                      <div class="ui blue ribbon label">
-                        {{ item['ui']['publication_date_l10n_medium'] }}
-                      </div>
-                    </div>
-                    <div class="left aligned header"> {{ item['metadata']['title'] }} </div>
-                    <div class="meta">
-                      {% for creator in item['ui']['creators']['creators'] %}
-                      <span>{{ creator['person_or_org']['name'] }};</span>
+              <div class="ui container">
+                <div class="ui padded relaxed centered grid">
+                  <div class="column">
+                    <div class="ui centered link cards">
+                      {% for item in latest_records %}
+                      <a href="/records/{{ item['id'] }}" class="card gkhub-frontpage-cards">
+                        <div class="left aligned content">
+                          <div class="extra labels-actions ribbon-latest-additions-title">
+                            <div class="ui blue ribbon label">
+                              {{ item['ui']['publication_date_l10n_medium'] }}
+                            </div>
+                          </div>
+                          <div class="left aligned header"> {{ item['metadata']['title'] }} </div>
+                          <div class="meta">
+                            {% for creator in item['ui']['creators']['creators'] %}
+                            <span>{{ creator['person_or_org']['name'] }};</span>
+                            {% endfor %}
+                          </div>
+                          <div class="description aligned justified">
+                            {{ item['ui']['description_stripped'] | truncate(75, true, '...') }}
+                          </div>
+                        </div>
+                      </a>
                       {% endfor %}
                     </div>
-                    <div class="description aligned justified">
-                      {{ item['ui']['description_stripped'] | truncate(75, true, '...') }}
-                    </div>
                   </div>
-                </a>
-                {% endfor %}
+                </div>
               </div>
             </div>
           </div>
@@ -109,19 +120,41 @@
       </div>
 
       <div class="swiper-slide">
-        <span class="section-subtitle-content">{{ _("Search by engagement priorities") }}</span>
-        <div class="ui container">
-          <div class="ui padded relaxed centered grid">
-            <div id="engagementsSearchOptions"></div>
+        <div class="ui grid">
+          <div class="row">
+            <div class="column centered">
+              <div class="section-subtitle-content">{{ _("Search by engagement priorities") }}</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="column centered">
+              <div class="ui container">
+                <div class="ui padded relaxed centered grid">
+                  <div id="engagementsSearchOptions"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="swiper-slide">
-        <span class="section-subtitle-content">{{ _("Search by conventions") }}</span>
-        <div class="ui container">
-          <div class="ui padded relaxed centered grid">
-            <div id="engagementsConventionSearchOptions"></div>
+        <div class="ui grid">
+          <div class="row">
+            <div class="column centered">
+              <div class="section-subtitle-content">{{ _("Search by conventions") }}</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="column">
+              <div class="ui container">
+                <div class="ui padded relaxed centered grid">
+                  <div id="engagementsConventionSearchOptions"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

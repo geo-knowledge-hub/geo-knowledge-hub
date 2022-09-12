@@ -20,4 +20,11 @@
 @signupColor: @green;
 @searchButtonColor: @secondaryColor;
 
+@footerDarkColor: @primaryColor;
+
 @navbarBackgroundColor: @primaryColor;
+
+/*-------------------
+      Site Images
+--------------------*/
+@navbarBackgroundImage: url("../../../../static/images/background/Mecklenburg_West_Pomerania_Germany.jpg");

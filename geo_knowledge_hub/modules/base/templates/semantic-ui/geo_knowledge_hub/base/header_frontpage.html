@@ -1,25 +1,40 @@
-{%- extends "invenio_app_rdm/header_frontpage.html" %}
+{%- include "geo_knowledge_hub/base/header_frontpage_base.html" %}
 
-{%- block frontpage_title %}
-<div class="ui text container">
-  <h1 class="ui center aligned header inverted">
-    {{ _(config.THEME_FRONTPAGE_TITLE) }}
-  </h1>
+{%- block frontpage_search %}
+<div id="frontpage-search-bar" class="ui container fluid frontpage-header">
+  <div class="ui container grid rel-mt-5">
+    <div class="row">
+      <div class="sixteen wide column stackable center aligned">
+        {%- block frontpage_title %}
+        <h1 class="ui center aligned header inverted">
+          {{ _(config.THEME_FRONTPAGE_TITLE) }}
+        </h1>
 
-  <h3 class="ui center align header inverted">
-    An open-source digital repository of open, authoritative and reproducible knowledge
-    created by the <a href="https://earthobservations.org"  target="_blank"> Group on Earth Observations</a>
-  </h3>
-</div>
-{%- endblock frontpage_title %}
-
-{%- block frontpage_form %}
-
-<div class="ui center aligned grid">
-  <div class="search-bar">
-    <div id="advancedSearchDiv"> </div>
-    <input id="front-search-data" type="hidden" name="deposits-record" value="{{ url_for('invenio_search_ui.search') }}"></input>
+        <div class="ui grid">
+          <div class="row">
+            <div class="sixteen wide mobile four wide computer column"></div>
+            <div class="sixteen wide mobile eight wide computer column center aligned">
+              <h2 class="ui center aligned small header inverted">
+                {{ _(config.THEME_FRONTPAGE_SUBTITLE) }}
+              </h2>
+            </div>
+          </div>
+        </div>
+        {%- endblock frontpage_title %}
+      </div>
+    </div>
+    {%- block frontpage_form %}
+    <div class="row">
+      <div class="sixteen wide mobile four wide computer column"></div>
+      <div class="sixteen wide mobile eight wide computer column center aligned">
+        <div class="search-bar">
+          <div id="advanced-search-div"><!--Rendered via React--></div>
+          <input id="front-search-data" type="hidden" name="deposits-record" value="{{ url_for('invenio_search_ui.search') }}"></input>
+        </div>
+      </div>
+    </div>
+    <div class="ui divider hidden"></div>
+    {%- endblock frontpage_form %}
   </div>
 </div>
-<div class="ui divider hidden"></div>
-{%- endblock frontpage_form %}
+{%- endblock frontpage_search %}
