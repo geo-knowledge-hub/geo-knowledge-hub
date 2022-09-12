@@ -11,10 +11,10 @@
 from flask import render_template, request
 from flask_login import login_required
 from geo_config.security.permissions import need_permission
-from geo_rdm_records.resources.serializers.ui.serializer import UIJSONSerializer
 from invenio_app_rdm.records_ui.views.decorators import pass_draft, pass_draft_files
 from invenio_app_rdm.records_ui.views.deposits import get_search_url, new_record
 
+from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
 from geo_knowledge_hub.modules.deposit.toolbox.config import get_form_config
 
 
@@ -57,7 +57,7 @@ def geo_deposit_create():
 @pass_draft_files
 def geo_deposit_edit(draft=None, draft_files=None, pid_value=None):
     """Edit an existing deposit."""
-    record = UIJSONSerializer().serialize_object_to_dict(draft.to_dict())
+    record = UIJSONSerializer().dump_obj(draft.to_dict())
 
     return render_template(
         "geo_knowledge_hub/records/deposit.html",

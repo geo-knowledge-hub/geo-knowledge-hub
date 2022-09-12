@@ -19,9 +19,9 @@ import { Container, Tab, Menu } from "semantic-ui-react";
 
 import { CustomRecordResultsListItem } from "./CustomRecordResultsListItem";
 
-import { defaultComponents as CommunitiesDefaultComponents } from "@invenio-app-rdm/user_dashboard/components/communities";
-import { defaultComponents as UploadsDefaultComponents } from "@invenio-app-rdm/user_dashboard/components/uploads";
-import { defaultComponents as RequestsDefaultComponents } from "@invenio-app-rdm/user_dashboard/components/requests";
+import { defaultComponents as CommunitiesDefaultComponents } from "@invenio-app-rdm/user_dashboard/communities";
+import { defaultComponents as UploadsDefaultComponents } from "@invenio-app-rdm/user_dashboard/uploads";
+import { defaultComponents as RequestsDefaultComponents } from "@invenio-app-rdm/user_dashboard/requests";
 
 /**
  * Constants

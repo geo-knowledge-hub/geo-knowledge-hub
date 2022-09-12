@@ -5,28 +5,16 @@ verify_ssl = true
 
 [dev-packages]
 check-manifest = ">=0.25"
-# REMOVE setuptools line once celery 5.2.4 has been released.
-setuptools = ">=59.1.1,<59.7.0"
 
 [packages]
-invenio-app-rdm = {version = "~=8.0.0", extras = ["elasticsearch7", "postgresql", "s3"]}
-
 uwsgi = ">=2.0"
 uwsgitop = ">=0.11"
 uwsgi-tools = ">=1.1.1"
-
-# Avoiding error with serializers introduced 
-# in the version 0.8.4
-flask-resources = "<=0.8.1"
-
-# Solving: https://github.com/pallets/markupsafe/issues/284
-markupsafe = "<=2.0.1"
-# Solving: https://github.com/ipython/ipython/issues/13554
-ipython = "!=8.1.0"
+Werkzeug = "<2.1"
+invenio-app-rdm = {version = "~=9.1.0", extras = ["elasticsearch7", "postgresql", "s3"]}
 
 [requires]
 python_version = "3.8"
 
 [pipenv]
-# Needed for invenio>v3.5.0a4 and invenio-communities
-allow_prereleases = true
+allow_prereleases = false

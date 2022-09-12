@@ -9,7 +9,6 @@
 """GEO Knowledge Hub Detail (page) views."""
 
 from flask import current_app, g, render_template
-from geo_rdm_records.resources.serializers.ui.serializer import UIJSONSerializer
 from invenio_app_rdm.records_ui.views.decorators import (
     pass_is_preview,
     pass_record_files,
@@ -17,6 +16,7 @@ from invenio_app_rdm.records_ui.views.decorators import (
 )
 from pydash import py_
 
+from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
 from geo_knowledge_hub.modules.detail.toolbox.identifiers import (
     filter_knowledge_resources_from_related_identifiers_url,
     get_related_identifiers_url,
@@ -41,7 +41,7 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
     files_data = None if files is None else files.to_dict()
 
     record_data = record.to_dict()
-    record_ui = UIJSONSerializer().serialize_object_to_dict(record_data)
+    record_ui = UIJSONSerializer().dump_obj(record_data)
 
     # General record properties
     record_is_draft = record_ui.get("is_draft")
