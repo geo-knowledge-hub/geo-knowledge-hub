@@ -2,12 +2,6 @@
     Invenio App RDM Site Variables
 ***********************************************/
 
-/*---------------------------
-    GEO Knowledge Hub colors
-----------------------------*/
-@frontpageHeaderColor: white;
-
-
 /*-------------------
     Brand Colors
 --------------------*/
@@ -16,11 +10,6 @@
 @secondaryColor: #f2711c;
 @featuredListBackgroundColor: #4899DB;
 @primaryDarkenColor: #0267b2;
-
-// backwards compatibility
-@brandColor: @primaryColor;
-@brand-primary:@primaryColor;
-
 
 /*-------------------
       Site Colors
@@ -31,135 +20,11 @@
 @signupColor: @green;
 @searchButtonColor: @secondaryColor;
 
-@accessRightOpen: @green;
-@accessRightRestricted: @red;
-@accessRightEmbargoed: @yellow;
-@accessRightMetadataOnly: @teal;
-
-@restricted-components-background-color: #f502020f;
-@restricted-components-border-color: #e0b4b4;
-@embargoed-components-background-color: #c7a00014;
-@embargoed-components-border-color: #c9ba9b;
-
-@footerLightColor: #0377cd;
 @footerDarkColor: @primaryColor;
-@subFooterColor: @footerDarkColor;
-@footerTextLightColor: #ffffff;
-@footerTextDarkColor: #ffffff;
 
-@errorTextColor: #9f3a38;
-@focusedFormBorderColor: #2185d0;
-@focusedFormMutedBorderColor: #2185d0;
-
-@highlightHeaderColor: #ededed;
-@highlightBackgroundColor: @highlightHeaderColor;
-@highlightBackgroundColorHover:  darken(saturate(@highlightHeaderColor, 20), 15, relative);
-@highlightLandingPageBackgroundColor: rgba(173, 206, 224, 0.52);
-
-
-@navbarBackgroundImage: url("../../../../static/images/background/Mecklenburg_West_Pomerania_Germany.jpg");
 @navbarBackgroundColor: @primaryColor;
-@versionActiveColor: #d9edf7;
-
-@mutedAccordionHeaderColor: #f5f5f5;
 
 /*-------------------
-      Links
+      Site Images
 --------------------*/
-
-@linkColor: #005b9e;
-@linkUnderline: none;
-@linkHoverColor: darken(saturate(@linkColor, 20), 15, relative);
-@linkHoverUnderline: underline;
-
-
-/*-------------------
-    Breakpoints
---------------------*/
-@mobileBreakpoint            : 320px;
-@tabletBreakpoint            : 768px;
-@computerBreakpoint          : 1300px;
-@largeMonitorBreakpoint      : 1680px;
-@widescreenMonitorBreakpoint : 1920px;
-
-/*-------------------
-      Fonts
---------------------*/
-
-
-@fontSizeBase: 14px;
-@font-size-small: 12px;
-@font-size-tiny: 10px;
-@font-size-massive: 36px;
-
-
-/*-------------------
-     Em Sizes
---------------------*/
-
-@75px : unit( (75 / @emSize), rem);
-@relative75px : unit( (75 / @emSize), em);
-
-
-/*-------------------
-  negative spacing
---------------------*/
-@coverPageDefaultMargin: 0;
-
-
-/* borders */
-
-@dashedBorder: 2px dashed @borderColor;
-@defaultBorder: 1px solid @solidBorderColor;
-
-/*------------------
-  checkboxes
-------------------*/
-
-@checkboxSize: @relative17px;
-
-/*------------------
-  tables
-------------------*/
-
-@cellVerticalPadding: @relativeMini;
-@cellHorizontalPadding: @relativeMini;
-
-
-/*------------------
-  Images
-------------------*/
-
-@userDashboardAvatarSize: 40px;
-
-
-/*------------------
-  Separators
-------------------*/
-@listSeparator: ";";
-
-// ------------
-// Theme style
-// ------------
-// @gkhubFontColor: #526479;
-// @brandColor: #406078;
-
-
-// ------------
-// NavBar style
-// ------------
-// @navbar_background_image: unset;
-// @navbar_background_color: @brandColor;
-// @frontpage_search_background: url("../../../../static/images/background/Mecklenburg_West_Pomerania_Germany.jpg");
-
-
-// ------------
-// Footer style
-// ------------
-// @footerLightColor: #397096;
-// @footerDarkColor: @brandColor;
-
-// ------------
-// Links style
-// ------------
-// @linkHoverUnderline: none;
+@navbarBackgroundImage: url("../../../../static/images/background/Mecklenburg_West_Pomerania_Germany.jpg");

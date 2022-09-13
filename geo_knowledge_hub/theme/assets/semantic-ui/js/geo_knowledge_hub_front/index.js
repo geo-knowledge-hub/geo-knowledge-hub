@@ -48,7 +48,7 @@ const ConventionsCarouselDiv = styled("div")`
   height: auto;
 `;
 
-const searchDiv = document.getElementById("advancedSearchDiv");
+const searchDiv = document.getElementById("advanced-search-div");
 const searchData = document.getElementById("front-search-data");
 
 const engagementsDiv = document.getElementById("engagementsSearchOptions");
