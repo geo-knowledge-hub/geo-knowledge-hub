@@ -25,17 +25,15 @@ def init_bp(app):
 
         item = current_menu.submenu("plus-menu.deposit-knowledge")
         item.register(
-            "invenio_app_rdm_records.deposit_create",
+            "geokhub_records_ui_bp.geokhub_package_deposit_create",
             _("Knowledge <b>Package</b>"),
-            endpoint_arguments_constructor=(lambda: dict(type="knowledge")),
             order=1,
         )
 
         item = current_menu.submenu("plus-menu.deposit-resource")
         item.register(
-            "invenio_app_rdm_records.deposit_create",
+            "geokhub_records_ui_bp.geokhub_resource_deposit_create",
             _("Knowledge <b>Resource</b>"),
-            endpoint_arguments_constructor=(lambda: dict(type="resource")),
             order=2,
         )
 

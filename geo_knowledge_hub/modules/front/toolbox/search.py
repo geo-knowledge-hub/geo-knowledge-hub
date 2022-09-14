@@ -41,9 +41,7 @@ def get_latest_knowledge_packages(n: int) -> List[Dict]:
         List[Dict]: List of dictionaries with the retrieved records.
     """
     latest_records = LatestKnowledgePackageSearch()[:n].sort("-created").execute()
-    return [
-        UIJSONSerializer().dump_obj(r.to_dict()) for r in latest_records
-    ]
+    return [UIJSONSerializer().dump_obj(r.to_dict()) for r in latest_records]
 
 
 __all__ = "get_latest_knowledge_packages"
