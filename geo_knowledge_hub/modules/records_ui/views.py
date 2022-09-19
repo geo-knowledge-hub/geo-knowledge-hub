@@ -12,6 +12,7 @@ from flask import render_template
 from flask_login import login_required
 from geo_config.security.permissions import need_permission
 from invenio_app_rdm.records_ui.views.deposits import get_search_url, new_record
+from invenio_app_rdm.records_ui.views.decorators import pass_draft_community
 
 from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
 
@@ -26,30 +27,29 @@ from .toolbox.decorators import pass_draft, pass_draft_files
 
 @login_required
 @need_permission("geo-provider-access")
-def geo_package_deposit_create():
+@pass_draft_community
+def geo_package_deposit_create(community=None):
     """Deposit page to create packages."""
-    nrecord = new_record()
-
     return render_template(
         "invenio_app_rdm/records/deposit.html",
         forms_config=get_form_config(createUrl=("/api/packages")),
         searchbar_config=dict(searchUrl=get_search_url()),
-        record=nrecord,
+        record=new_record(),
         files=dict(default_preview=None, entries=[], links={}),
+        preselectedCommunity=community,
     )
 
 
 @login_required
 @need_permission("geo-provider-access")
+@pass_draft_community
 def geo_resource_deposit_create():
     """Deposit page to create resources."""
-    nrecord = new_record()
-
     return render_template(
         "invenio_app_rdm/records/deposit.html",
         forms_config=get_form_config(createUrl=("/api/records")),
         searchbar_config=dict(searchUrl=get_search_url()),
-        record=nrecord,
+        record=new_record(),
         files=dict(default_preview=None, entries=[], links={}),
     )
 

@@ -34,11 +34,15 @@ def init_bp(app):
 
     # Deposit (Edit)
     bp.add_url_rule(
-        "/uploads/<pid_value>", "geokhub_package_deposit_edit", views.geo_package_deposit_edit
+        "/uploads/packages/<pid_value>",
+        "geokhub_package_deposit_edit",
+        views.geo_package_deposit_edit,
     )
 
     bp.add_url_rule(
-        "/uploads/<pid_value>", "geokhub_resource_deposit_edit", views.geo_resource_deposit_edit
+        "/uploads/packages/<pid_value>",
+        "geokhub_resource_deposit_edit",
+        views.geo_resource_deposit_edit,
     )
 
     app.register_blueprint(bp)

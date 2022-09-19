@@ -18,9 +18,9 @@ def init_bp(app):
     bp = Blueprint("geokhub_dashboard_bp", __name__, template_folder="templates")
 
     # registration
-    bp.add_url_rule("/me", "geokhub_userdashboard", views.geo_user_dashboard)
+    bp.add_url_rule("/me", "geokhub_userdashboard", views.geo_user_uploads)
     bp.add_url_rule(
-        "/me/uploads", "geokhub_userdashboard_uploads", views.geo_user_dashboard
+        "/me/uploads", "geokhub_userdashboard_uploads", views.geo_user_uploads
     )
     app.register_blueprint(bp)
 
