@@ -6,4 +6,4 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-"""GEO Knowledge Hub Deposit (page) toolbox."""
+"""Records UI Toolbox module."""

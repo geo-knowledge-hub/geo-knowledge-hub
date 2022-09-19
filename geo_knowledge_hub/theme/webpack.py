@@ -48,7 +48,7 @@ theme = WebpackThemeBundle(
                 # Search
                 "geo-knowledge-hub-search": "./js/geo_knowledge_hub_search/index.js",
                 # Dashboard
-                "geo-knowledge-hub-user-dashboard": "./js/geo_knowledge_hub_dashboard/index.js",
+                "geo-knowledge-hub-user-uploads": "./js/geo_knowledge_hub_dashboard/uploads.js",
             },
             dependencies={
                 "react-semantic-toasts": "^0.6.6",
