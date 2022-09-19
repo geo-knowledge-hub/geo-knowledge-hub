@@ -11,14 +11,13 @@
 from flask import render_template
 from flask_login import login_required
 from geo_config.security.permissions import need_permission
-from invenio_app_rdm.records_ui.views.deposits import get_search_url, new_record
 from invenio_app_rdm.records_ui.views.decorators import pass_draft_community
+from invenio_app_rdm.records_ui.views.deposits import get_search_url, new_record
 
 from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
 
 from .toolbox.config import get_form_config
 from .toolbox.decorators import pass_draft, pass_draft_files
-
 
 #
 # Creation routes
@@ -93,17 +92,3 @@ def geo_resource_deposit_edit(draft=None, draft_files=None, pid_value=None):
         searchbar_config=dict(searchUrl=get_search_url()),
         permissions=draft.has_permissions_to(["new_version"]),
     )
-
-
-#
-# Search routes
-#
-
-# @login_required
-# @need_permission("geo-provider-access")
-# def geo_deposit_search():
-#     """List of user deposits page."""
-#     return render_template(
-#         "geo_knowledge_hub/records/search_deposit.html",
-#         searchbar_config=dict(searchUrl=get_search_url()),
-#     )

@@ -11,18 +11,18 @@ import { CustomRecordResultsListItem } from "./components";
 
 import {
   RDMBucketAggregationElement,
+  RDMCountComponent,
+  RDMEmptyResults,
+  RDMErrorComponent,
   RDMRecordFacets,
   RDMRecordFacetsValues,
   RDMRecordResultsGridItem,
   RDMRecordSearchBarContainer,
-  RDMRecordSearchBarElement,
-  RDMCountComponent,
-  RDMEmptyResults,
-  RDMErrorComponent,
+  RDMRecordMultipleSearchBarElement,
   RDMToggleComponent,
 } from "@invenio-app-rdm/search/components";
 
-const initSearchApp = createSearchAppInit({
+createSearchAppInit({
   "BucketAggregation.element": RDMBucketAggregationElement,
   "BucketAggregationValues.element": RDMRecordFacetsValues,
   "ResultsGrid.item": RDMRecordResultsGridItem,
@@ -30,8 +30,8 @@ const initSearchApp = createSearchAppInit({
   "ResultsList.item": CustomRecordResultsListItem,
   "SearchApp.facets": RDMRecordFacets,
   "SearchApp.searchbarContainer": RDMRecordSearchBarContainer,
-  "SearchBar.element": RDMRecordSearchBarElement,
+  "SearchBar.element": RDMRecordMultipleSearchBarElement,
   "Count.element": RDMCountComponent,
   "Error.element": RDMErrorComponent,
-  "SearchFilters.ToggleComponent": RDMToggleComponent,
+  "SearchFilters.Toggle.element": RDMToggleComponent,
 });

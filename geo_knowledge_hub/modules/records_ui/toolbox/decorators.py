@@ -20,6 +20,7 @@ from sqlalchemy.orm.exc import NoResultFound
 # Services
 #
 class ServiceRegistry:
+    """Record service registry."""
 
     services = {
         "resource": current_rdm_records_service,

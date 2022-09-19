@@ -11,6 +11,7 @@
 from flask import Blueprint
 
 from . import views
+from .searchapp import search_app_context
 
 
 def init_bp(app):
@@ -44,6 +45,9 @@ def init_bp(app):
         "geokhub_resource_deposit_edit",
         views.geo_resource_deposit_edit,
     )
+
+    # Register context processor
+    bp.app_context_processor(search_app_context)
 
     app.register_blueprint(bp)
 

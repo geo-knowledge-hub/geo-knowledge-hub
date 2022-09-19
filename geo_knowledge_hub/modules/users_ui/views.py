@@ -10,8 +10,8 @@
 
 from flask import render_template
 from flask_login import current_user, login_required
-from invenio_users_resources.proxies import current_user_resources
 from invenio_app_rdm.records_ui.views.deposits import get_search_url
+from invenio_users_resources.proxies import current_user_resources
 
 
 @login_required
