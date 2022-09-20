@@ -10,6 +10,7 @@
 
 from functools import wraps
 
+from flask import g
 from geo_rdm_records.proxies import current_geo_packages_service
 from invenio_rdm_records.proxies import current_rdm_records_service
 from invenio_records_resources.services.errors import PermissionDeniedError
