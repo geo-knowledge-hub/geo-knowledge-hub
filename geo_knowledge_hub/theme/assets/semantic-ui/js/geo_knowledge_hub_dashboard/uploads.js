@@ -46,7 +46,37 @@ const statuses = {
   new_version_draft: { color: "neutral", title: i18next.t("New version draft") },
 };
 
+const recordTypeLinksFactory = (recordId, recordType) => {
+  const recordLinks = {
+    package: {
+      published: {
+        api: `/api/packages/${recordId}`,
+        ui: `/packages/${recordId}`
+      },
+      draft: {
+        api: `/api/packages/${recordId}/draft`,
+        ui: `/uploads/packages/${recordId}`
+      }
+    },
+    resource: {
+      published: {
+        api: `/api/records/${recordId}`,
+        ui: `/records/${recordId}`
+      },
+      draft: {
+        api: `/api/records/${recordId}/draft`,
+        ui: `/uploads/records/${recordId}`
+      }
+    }
+  }
+
+  return recordLinks[recordType];
+}
+
+
 export const RDMRecordResultsListItem = ({ result, index }) => {
+  const recordLinks = recordTypeLinksFactory(result.id, result.parent.type);
+
   const accessStatusId = _get(result, "ui.access_status.id", "open");
   const accessStatus = _get(result, "ui.access_status.title_l10n", "Open");
   const accessStatusIcon = _get(result, "ui.access_status.icon", "unlock");
@@ -85,16 +115,16 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
   // Derivatives
   const editRecord = () => {
     axiosWithconfig
-      .post(`/api/records/${result.id}/draft`)
+      .post(recordLinks.draft.api)
       .then(() => {
-        window.location = `/uploads/${result.id}`;
+        window.location = recordLinks.draft.ui;
       })
       .catch((error) => {
         console.log(error.response.data);
       });
   };
 
-  const viewLink = isPublished ? `/records/${result.id}` : `/uploads/${result.id}`;
+  const viewLink = isPublished ? recordLinks.published.ui : recordLinks.draft.ui;
   return (
     <Item key={index} className="deposits-list-item mb-20">
       <div className="status-icon mr-10">

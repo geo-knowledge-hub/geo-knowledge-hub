@@ -28,9 +28,9 @@ def init_bp(app):
     )
 
     bp.add_url_rule(
-        "/uploads/resources/new",
-        "geokhub_resource_deposit_create",
-        views.geo_resource_deposit_create,
+        "/uploads/records/new",
+        "geokhub_record_deposit_create",
+        views.geo_record_deposit_create,
     )
 
     # Deposit (Edit)
@@ -41,9 +41,9 @@ def init_bp(app):
     )
 
     bp.add_url_rule(
-        "/uploads/packages/<pid_value>",
-        "geokhub_resource_deposit_edit",
-        views.geo_resource_deposit_edit,
+        "/uploads/records/<pid_value>",
+        "geokhub_record_deposit_edit",
+        views.geo_record_deposit_edit,
     )
 
     # Register context processor

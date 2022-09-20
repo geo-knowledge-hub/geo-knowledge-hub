@@ -30,9 +30,9 @@ def init_bp(app):
             order=1,
         )
 
-        item = current_menu.submenu("plus-menu.deposit-resource")
+        item = current_menu.submenu("plus-menu.deposit-record")
         item.register(
-            "geokhub_records_ui_bp.geokhub_resource_deposit_create",
+            "geokhub_records_ui_bp.geokhub_record_deposit_create",
             _("Knowledge <b>Resource</b>"),
             order=2,
         )

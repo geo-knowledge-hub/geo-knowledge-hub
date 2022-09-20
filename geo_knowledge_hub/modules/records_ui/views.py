@@ -42,7 +42,7 @@ def geo_package_deposit_create(community=None):
 @login_required
 @need_permission("geo-provider-access")
 @pass_draft_community
-def geo_resource_deposit_create():
+def geo_record_deposit_create():
     """Deposit page to create resources."""
     return render_template(
         "invenio_app_rdm/records/deposit.html",
@@ -80,8 +80,8 @@ def geo_package_deposit_edit(draft=None, draft_files=None, pid_value=None):
 @need_permission("geo-provider-access")
 @pass_draft(record_type="resource")
 @pass_draft_files(record_type="resource")
-def geo_resource_deposit_edit(draft=None, draft_files=None, pid_value=None):
-    """Edit an existing package deposit."""
+def geo_record_deposit_edit(draft=None, draft_files=None, pid_value=None):
+    """Edit an existing record resource deposit."""
     record = UIJSONSerializer().dump_obj(draft.to_dict())
 
     return render_template(
