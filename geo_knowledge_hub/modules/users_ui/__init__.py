@@ -11,6 +11,7 @@
 from flask import Blueprint
 
 from . import views
+from .searchapp import search_app_context
 
 
 def init_bp(app):
@@ -22,6 +23,10 @@ def init_bp(app):
     bp.add_url_rule(
         "/me/uploads", "geokhub_userdashboard_uploads", views.geo_user_uploads
     )
+
+    # Register context processor
+    bp.app_context_processor(search_app_context)
+
     app.register_blueprint(bp)
 
 
