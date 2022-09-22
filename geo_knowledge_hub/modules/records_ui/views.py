@@ -42,7 +42,7 @@ def geo_package_deposit_create(community=None):
 @login_required
 @need_permission("geo-provider-access")
 @pass_draft_community
-def geo_record_deposit_create():
+def geo_record_deposit_create(community=None):
     """Deposit page to create resources."""
     return render_template(
         "invenio_app_rdm/records/deposit.html",
@@ -50,6 +50,7 @@ def geo_record_deposit_create():
         searchbar_config=dict(searchUrl=get_search_url()),
         record=new_record(),
         files=dict(default_preview=None, entries=[], links={}),
+        preselectedCommunity=community,
     )
 
 

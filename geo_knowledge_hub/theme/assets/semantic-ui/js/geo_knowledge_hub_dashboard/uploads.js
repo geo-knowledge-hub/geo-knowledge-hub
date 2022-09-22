@@ -35,7 +35,8 @@ import { axiosWithconfig, SearchItemCreators } from "@invenio-app-rdm/utils";
 import { DashboardResultView, DashboardSearchLayoutHOC } from "@invenio-app-rdm/user_dashboard/base";
 import { createSearchAppInit } from "@js/invenio_search_ui";
 import PropTypes from "prop-types";
-import {extractProgrammeActivityAcronym} from "../utils";
+
+import {extractProgrammeActivityAcronym, recordTypeLinksFactory} from "../utils";
 
 const statuses = {
   in_review: { color: "warning", title: i18next.t("In review") },
@@ -45,33 +46,6 @@ const statuses = {
   draft: { color: "neutral", title: i18next.t("Draft") },
   new_version_draft: { color: "neutral", title: i18next.t("New version draft") },
 };
-
-const recordTypeLinksFactory = (recordId, recordType) => {
-  const recordLinks = {
-    package: {
-      published: {
-        api: `/api/packages/${recordId}`,
-        ui: `/packages/${recordId}`
-      },
-      draft: {
-        api: `/api/packages/${recordId}/draft`,
-        ui: `/uploads/packages/${recordId}`
-      }
-    },
-    resource: {
-      published: {
-        api: `/api/records/${recordId}`,
-        ui: `/records/${recordId}`
-      },
-      draft: {
-        api: `/api/records/${recordId}/draft`,
-        ui: `/uploads/records/${recordId}`
-      }
-    }
-  }
-
-  return recordLinks[recordType];
-}
 
 
 export const RDMRecordResultsListItem = ({ result, index }) => {

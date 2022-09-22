@@ -22,3 +22,10 @@ GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {
 # ================
 # See https://flask-webpackext.readthedocs.io/en/latest/configuration.html
 WEBPACKEXT_PROJECT = "geo_knowledge_hub.theme.webpack:project"
+
+
+# Invenio-RDM-Records
+# ====================
+RDM_COMMUNITIES_ROUTES = {
+    "community-detail": "/communities/<pid_value>",
+}

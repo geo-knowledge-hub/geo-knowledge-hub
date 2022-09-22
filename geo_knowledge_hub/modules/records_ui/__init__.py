@@ -6,7 +6,7 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
-"""GEO Knowledge Hub Deposit (page) module."""
+"""GEO Knowledge Hub Records UI module."""
 
 from flask import Blueprint
 
@@ -28,7 +28,7 @@ def init_bp(app):
     )
 
     bp.add_url_rule(
-        "/uploads/records/new",
+        "/uploads/new",
         "geokhub_record_deposit_create",
         views.geo_record_deposit_create,
     )
@@ -41,7 +41,7 @@ def init_bp(app):
     )
 
     bp.add_url_rule(
-        "/uploads/records/<pid_value>",
+        "/uploads/<pid_value>",
         "geokhub_record_deposit_edit",
         views.geo_record_deposit_edit,
     )

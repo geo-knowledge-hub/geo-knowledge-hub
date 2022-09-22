@@ -17,3 +17,38 @@ export const extractProgrammeActivityAcronym = (programmeActivityName) =>
   programmeActivityName
     ? _get(programmeActivityName.match(/\(([^)]+)\)/), 1, null)
     : null;
+
+
+/**
+ * Generate record links based on parent type.
+ *
+ * @param {string} recordId Record Identifier (PID)
+ * @param {string} recordType Record type (e.g., package, resource)
+ * @returns {object} Object with the links created.
+ */
+export const recordTypeLinksFactory = (recordId, recordType) => {
+  const recordLinks = {
+    package: {
+      published: {
+        api: `/api/packages/${recordId}`,
+        ui: `/packages/${recordId}`
+      },
+      draft: {
+        api: `/api/packages/${recordId}/draft`,
+        ui: `/uploads/packages/${recordId}`
+      }
+    },
+    resource: {
+      published: {
+        api: `/api/records/${recordId}`,
+        ui: `/records/${recordId}`
+      },
+      draft: {
+        api: `/api/records/${recordId}/draft`,
+        ui: `/uploads/records/${recordId}`
+      }
+    }
+  }
+
+  return recordLinks[recordType];
+}

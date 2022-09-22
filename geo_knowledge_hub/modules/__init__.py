@@ -18,6 +18,7 @@ MODULES = [
     "geo_knowledge_hub.modules.context",
     "geo_knowledge_hub.modules.records_ui",
     "geo_knowledge_hub.modules.users_ui",
+    "geo_knowledge_hub.modules.communities_ui",
 ]
 
 
