@@ -39,6 +39,13 @@ def init_bp(app):
         "/records/<pid_value>", "geokhub_package_view", views.geo_record_detail
     )
 
+    # Exportation
+    bp.add_url_rule(
+        "/records/<pid_value>/export/<export_format>",
+        "geokhub_record_export",
+        views.record_export,
+    )
+
     # Register context processor
     bp.app_context_processor(search_app_context)
 

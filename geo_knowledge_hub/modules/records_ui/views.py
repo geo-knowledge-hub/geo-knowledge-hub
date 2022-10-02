@@ -132,3 +132,15 @@ def geo_record_deposit_edit(draft=None, draft_files=None, pid_value=None):
         searchbar_config=dict(searchUrl=get_search_url()),
         permissions=draft.has_permissions_to(["new_version"]),
     )
+
+
+#
+# Export views
+#
+@pass_is_preview
+@pass_record_or_draft("record", expand=False)
+def record_export(
+    pid_value, record, export_format=None, permissions=None, is_preview=False
+):
+    """Export page view."""
+    return record_utilities.record_export(pid_value, record, export_format)
