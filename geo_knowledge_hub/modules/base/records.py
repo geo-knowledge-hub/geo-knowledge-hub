@@ -10,9 +10,12 @@
 
 from typing import Dict, List, Tuple, Union
 
-from flask import abort, current_app, url_for
+from flask import abort, current_app, request, url_for
 from flask_principal import Identity
+from invenio_app_rdm.records_ui.views.records import PreviewFile
 from invenio_base.utils import obj_or_import_string
+from invenio_previewer.extensions import default
+from invenio_previewer.proxies import current_previewer
 from invenio_records.api import Record
 from invenio_vocabularies.proxies import current_service as vocabulary_service
 from pydash import py_
@@ -288,3 +291,43 @@ def record_export(pid_value, record, export_format=None):
         "Content-Disposition": f"attachment; filename={filename}",
     }
     return exported_record, 200, headers
+
+
+def record_file_preview(
+    base_url,
+    pid_value,
+    record=None,
+    pid_type="recid",
+    file_metadata=None,
+    is_preview=False,
+    **kwargs,
+):
+    """Render a preview of the specified file.
+
+    Note:
+        This function was adapted from Invenio RDM Records to fit
+        the GEO Knowledge Hub requirements.
+    """
+    file_previewer = file_metadata.data.get("previewer")
+
+    url = url_for(
+        base_url,
+        pid_value=pid_value,
+        filename=file_metadata.data["key"],
+        preview=1 if is_preview else 0,
+    )
+    # Find a suitable previewer
+    fileobj = PreviewFile(file_metadata, pid_value, url)
+    for plugin in current_previewer.iter_previewers(
+        previewers=[file_previewer] if file_previewer else None
+    ):
+        if plugin.can_preview(fileobj):
+            return plugin.preview(fileobj)
+
+    return default.preview(fileobj)
+
+
+def record_file_download(pid_value, file_item=None, is_preview=False, **kwargs):
+    """Download a file from a record."""
+    download = bool(request.args.get("download"))
+    return file_item.send_file(as_attachment=download)

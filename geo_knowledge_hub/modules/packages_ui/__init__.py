@@ -46,6 +46,19 @@ def init_bp(app):
         views.record_export,
     )
 
+    # Files
+    bp.add_url_rule(
+        "/packages/<pid_value>/preview/<path:filename>",
+        "record_file_preview",
+        views.record_file_preview,
+    )
+
+    bp.add_url_rule(
+        "/packages/<pid_value>/files/<path:filename>",
+        "record_file_download",
+        views.record_file_download,
+    )
+
     # Register context processor
     bp.app_context_processor(deposit_package_records_app_context)
 

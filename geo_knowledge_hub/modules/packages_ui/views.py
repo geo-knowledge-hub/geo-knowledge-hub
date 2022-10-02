@@ -21,6 +21,8 @@ from geo_knowledge_hub.modules.base.config import get_form_config
 from geo_knowledge_hub.modules.base.decorators import (
     pass_draft,
     pass_draft_files,
+    pass_file_item,
+    pass_file_metadata,
     pass_record_files,
     pass_record_or_draft,
 )
@@ -156,3 +158,34 @@ def record_export(
 ):
     """Export page view."""
     return record_utilities.record_export(pid_value, record, export_format)
+
+
+#
+# File views
+#
+@pass_is_preview
+@pass_record_or_draft("package")
+@pass_file_metadata("package")
+def record_file_preview(
+    pid_value,
+    record=None,
+    pid_type="recid",
+    file_metadata=None,
+    is_preview=False,
+    **kwargs,
+):
+    """Render a preview of the specified file."""
+    base_url = "geokhub_packages_ui_bp.record_file_download"
+
+    return record_utilities.record_file_preview(
+        base_url, pid_value, record, pid_type, file_metadata, is_preview, **kwargs
+    )
+
+
+@pass_is_preview
+@pass_file_item("package")
+def record_file_download(pid_value, file_item=None, is_preview=False, **kwargs):
+    """Download a file from a record."""
+    return record_utilities.record_file_download(
+        pid_value, file_item, is_preview, **kwargs
+    )

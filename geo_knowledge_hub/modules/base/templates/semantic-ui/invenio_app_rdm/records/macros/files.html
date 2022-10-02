@@ -1,0 +1,143 @@
+{#
+  Copyright (C) 2020 CERN.
+  Copyright (C) 2020 Northwestern University.
+  Copyright (C) 2021 Graz University of Technology.
+  Copyright (C) 2021 TU Wien.
+  Copyright (C) New York University.
+
+  Invenio RDM Records is free software; you can redistribute it and/or modify
+  it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{%- macro preview_file(preview_endpoint, pid_value, filename, is_preview, id='preview-iframe', width='100%', height='400' ) %}
+  {% if is_preview %}
+    {%- set preview_url = url_for(preview_endpoint, pid_value=pid_value, filename=filename, preview=1) -%}
+  {% else %}
+    {%- set preview_url = url_for(preview_endpoint, pid_value=pid_value, filename=filename) -%}
+  {% endif %}
+  <iframe
+    title="{{_('Preview')}}"
+    class="preview-iframe"
+    id="{{id}}"
+    name="{{id}}"
+    width="{{width}}"
+    height="{{height}}"
+    src="{{ preview_url }}"
+  >
+  </iframe>
+{%- endmacro %}
+
+
+{% macro preview_file_box(file, pid, is_preview, record) %}
+  <div class="">
+    <div class="ui accordion panel mb-10 {{record.ui.access_status.id}}" id="preview" href="#collapsablePreview">
+      <div class="active title trigger panel-heading {{record.ui.access_status.id}} truncated" tabindex="0" aria-label="{{ _('File preview') }}">
+        <span id="preview-file-title">{{file.key}}</span>
+        <i class="ui angle right icon"></i>
+      </div>
+      <div id="collapsablePreview" class="active content pt-0">
+        <div>
+          {% set is_knowledge_package = record.parent.type == "package" %}
+
+          {% if is_knowledge_package %}
+            {% set preview_endpoint = "geokhub_packages_ui_bp.record_file_preview" %}
+          {% else %}
+            {% set preview_endpoint = "invenio_app_rdm_records.record_file_preview" %}
+          {% endif %}
+
+          {{ preview_file(preview_endpoint, pid_value=pid, filename=file.key, is_preview=is_preview) }}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endmacro %}
+
+
+{%- macro file_list(files, pid, is_preview, with_preview=true, download_endpoint='invenio_app_rdm_records.record_file_download', preview_endpoint='invenio_app_rdm_records.record_file_preview') %}
+  <table class="ui striped table files fluid">
+    <thead>
+    <tr>
+      <th>{{_('Name')}}</th>
+      <th>{{_('Size')}}</th>
+      <th class="hidden">{{_('Actions')}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {%- set binary_sizes = not config.APP_RDM_DISPLAY_DECIMAL_FILE_SIZES %}
+    {% for file in files %}
+      {% if is_preview %}
+        {%- set file_url_download = url_for(download_endpoint, pid_value=pid, filename=file.key, download=1, preview=1) %}
+        {%- set file_url_preview = url_for(preview_endpoint, pid_value=pid, filename=file.key, preview=1) %}
+      {% else %}
+        {%- set file_url_download = url_for(download_endpoint, pid_value=pid, filename=file.key, download=1) %}
+        {%- set file_url_preview = url_for(preview_endpoint, pid_value=pid, filename=file.key) %}
+      {% endif %}
+      {%- set file_type = file.key.split('.')[-1] %}
+      <tr>
+        <td>
+          <div class="truncated">
+            <a href="{{ file_url_download }}">{{ file.key }}</a>
+          </div>
+          <small class="ui text-muted font-tiny">{{ file.checksum }}
+            <div class="ui icon inline-block" data-tooltip="{{_('This is the file fingerprint (checksum), which can be used to verify the file integrity.')}}">
+              <i class="question circle checksum icon"></i>
+            </div>
+          </small>
+        </td>
+        <td>{{ file.size|filesizeformat(binary=binary_sizes) }}</td>
+        <td class="right aligned">
+          <span>
+            {% if with_preview and file_type|lower is previewable %}
+              <a role="button" class="ui compact mini button preview-link" href="{{ file_url_preview }}" target="preview-iframe" data-file-key="{{file.key}}">
+              <i class="eye icon"></i> {{_("Preview")}}
+            </a>
+            {% endif %}
+            <a role="button" class="ui compact mini button" href="{{ file_url_download }}">
+              <i class="download icon"></i>
+              {{_('Download')}}
+            </a>
+          </span>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{%- endmacro %}
+
+
+{% macro file_list_box(files, pid, is_preview, record) %}
+  {%- set binary_sizes = not config.APP_RDM_DISPLAY_DECIMAL_FILE_SIZES %}
+  <div class="">
+    <div class="ui accordion panel mb-10 {{record.ui.access_status.id}}" id="preview" href="#collapsablePreview">
+      <div class="active title trigger panel-heading {{record.ui.access_status.id}}" tabindex="0">
+        {{ _("Files") }}
+        <small class="text-muted">{% if files %} ({{files|sum(attribute='size')|filesizeformat(binary=binary_sizes)}}){% endif %}</small>
+        <i class="angle right icon"></i>
+      </div>
+      <div class="active content pt-0">
+        {% if record.access.files == 'restricted' %}
+          <div class="ui {{ record.ui.access_status.message_class }} message file-box-message">
+            <i class="ui {{ record.ui.access_status.icon }} icon"></i><b>{{ record.ui.access_status.title_l10n }}</b>
+            <p>{{ record.ui.access_status.description_l10n }}</p>
+            {% if record.access.embargo.reason %}
+              <p>{{_("Reason")}}: {{record.access.embargo.reason}}</p>
+            {% endif%}
+          </div>
+        {% endif %}
+        <div id="collapsableFiles">
+          {% set is_knowledge_package = record.parent.type == "package" %}
+
+          {% if is_knowledge_package %}
+            {% set preview_endpoint = "geokhub_packages_ui_bp.record_file_preview" %}
+            {% set download_endpoint = "geokhub_packages_ui_bp.record_file_download" %}
+          {% else %}
+            {% set preview_endpoint = "invenio_app_rdm_records.record_file_preview" %}
+            {% set download_endpoint = "invenio_app_rdm_records.record_file_download" %}
+          {% endif %}
+
+          {{ file_list(files, pid, is_preview, download_endpoint=download_endpoint, preview_endpoint=preview_endpoint) }}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endmacro %}
