@@ -15,18 +15,18 @@ Base dependencies for the GEO Knowledge Hub pages.
  */
 
 // Leaflet
-import L from 'leaflet';
+import L from "leaflet";
 
 // Geocoding controller
-import 'leaflet-control-geocoder/dist/Control.Geocoder.js';
+import "leaflet-control-geocoder/dist/Control.Geocoder.js";
 
 // Geometry editor
-import '@geoman-io/leaflet-geoman-free';
+import "@geoman-io/leaflet-geoman-free";
 
 // Fullscreen
-import 'leaflet.fullscreen';
+import "leaflet.fullscreen";
 
 /**
  * Configurations
  */
-L.Icon.Default.imagePath = '/static/icons/';
+L.Icon.Default.imagePath = "/static/icons/";

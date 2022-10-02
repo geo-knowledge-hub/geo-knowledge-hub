@@ -14,8 +14,10 @@ import { SearchItemCreators } from "@js/invenio_communities/details_search/compo
 
 import { Item, Label } from "semantic-ui-react";
 
-import {extractProgrammeActivityAcronym, recordTypeLinksFactory} from "../utils";
-
+import {
+  extractProgrammeActivityAcronym,
+  recordTypeLinksFactory,
+} from "../utils";
 
 export const CommunityRecordResultsListItem = ({ result }) => {
   const recordLinks = recordTypeLinksFactory(result.id, result.parent.type);

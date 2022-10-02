@@ -8,16 +8,6 @@
 
 """GEO Knowledge Hub extension configurations."""
 
-GEO_KNOWLEDGE_HUB_EXT_INFORMATION_REQUIRED_IN_METADATA_BY_SCHEME = {
-    "doi": {
-        "id": "id",
-        "title": "metadata.title",
-        "resource_type": "metadata.resource_type.title.en",
-        "description": "metadata.description",
-    }
-}
-"""Default values to load from metadata by scheme type."""
-
 # Flask-WebpackExt
 # ================
 # See https://flask-webpackext.readthedocs.io/en/latest/configuration.html

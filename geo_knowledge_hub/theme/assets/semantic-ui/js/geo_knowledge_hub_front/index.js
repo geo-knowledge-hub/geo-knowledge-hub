@@ -15,10 +15,10 @@ import { ThemeProvider } from "@emotion/react";
 
 import {
   AdvancedSearchBar,
-  EngagementPrioritiesNestedCarousel
+  EngagementPrioritiesNestedCarousel,
 } from "@geo-knowledge-hub/geo-components-react";
 
-import {i18next} from "@translations/invenio_app_rdm/i18next";
+import { i18next } from "@translations/invenio_app_rdm/i18next";
 
 /**
  * Styles
@@ -52,7 +52,9 @@ const searchDiv = document.getElementById("advanced-search-div");
 const searchData = document.getElementById("front-search-data");
 
 const engagementsDiv = document.getElementById("engagementsSearchOptions");
-const conventionsDiv = document.getElementById("engagementsConventionSearchOptions");
+const conventionsDiv = document.getElementById(
+  "engagementsConventionSearchOptions"
+);
 
 // carousel components configuration
 const nestedCarouselContainerProps = {
@@ -73,7 +75,7 @@ const proxies = {
         icon: data.props.icon ? `/static/${data.props.icon}` : "",
       },
     }));
-  }
+  },
 };
 
 // rendering!
@@ -85,9 +87,9 @@ if (searchDiv && searchData) {
       onSearch={(query) => {
         window.location.assign(`${baseUrl}?${query}`);
       }}
-      searchPlaceholder={
-        i18next.t('Search for Earth Observations Applications')
-      }
+      searchPlaceholder={i18next.t(
+        "Search for Earth Observations Applications"
+      )}
     />,
     searchDiv
   );

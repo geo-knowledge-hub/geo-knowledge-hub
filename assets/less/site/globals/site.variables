@@ -5,7 +5,6 @@
 /*-------------------
     Brand Colors
 --------------------*/
-
 @primaryColor: #406078;
 @secondaryColor: #f2711c;
 @featuredListBackgroundColor: #4899DB;
@@ -14,17 +13,14 @@
 /*-------------------
       Site Colors
 --------------------*/
-
 @darkGray: #333;
 @green: #048622;
 @signupColor: @green;
 @searchButtonColor: @secondaryColor;
 
+@accessRightMetadataOnly: #767676;
+
 @footerDarkColor: @primaryColor;
 
 @navbarBackgroundColor: @primaryColor;
-
-/*-------------------
-      Site Images
---------------------*/
 @navbarBackgroundImage: url("../../../../static/images/background/Mecklenburg_West_Pomerania_Germany.jpg");

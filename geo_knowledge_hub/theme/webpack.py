@@ -38,19 +38,17 @@ theme = WebpackThemeBundle(
                 "geo-knowledge-hub-base-theme": "./less/base.less",
                 # Detail page (aka Record Landing Page)
                 "geo-knowledge-hub-detail": "./js/geo_knowledge_hub_detail/index.js",
-                "geo-knowledge-hub-detail-theme": "./less/geo_knowledge_hub_detail/theme.less",
                 # Front page
                 "geo-knowledge-hub-front": "./js/geo_knowledge_hub_front/index.js",
-                "geo-knowledge-hub-front-theme": "./less/geo_knowledge_hub_front/theme.less",
                 # Deposit
-                "geo-knowledge-hub-deposit": "./js/geo_knowledge_hub_deposit/deposit_form/index.js",
-                "geo-knowledge-hub-deposit-theme": "./less/geo_knowledge_hub_deposit/theme.less",
+                "geo-knowledge-hub-deposit-package": "./js/geo_knowledge_hub_deposit/deposit_form/package/index.js",
+                "geo-knowledge-hub-deposit-record": "./js/geo_knowledge_hub_deposit/deposit_form/record/index.js",
                 # Search
                 "geo-knowledge-hub-search": "./js/geo_knowledge_hub_search/index.js",
                 # Dashboard
                 "geo-knowledge-hub-user-uploads": "./js/geo_knowledge_hub_dashboard/uploads.js",
                 # Community
-                "geo-knowledge-hub-details-search": "./js/geo_knowledge_hub_community/details-search.js"
+                "geo-knowledge-hub-details-search": "./js/geo_knowledge_hub_community/details-search.js",
             },
             dependencies={
                 "react-semantic-toasts": "^0.6.6",

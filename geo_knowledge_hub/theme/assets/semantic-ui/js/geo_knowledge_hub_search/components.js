@@ -17,8 +17,10 @@ import { Item, Label } from "semantic-ui-react";
 import { SearchItemCreators } from "@invenio-app-rdm/utils";
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 
-import { extractProgrammeActivityAcronym, recordTypeLinksFactory} from "../utils";
-
+import {
+  extractProgrammeActivityAcronym,
+  recordTypeLinksFactory,
+} from "../utils";
 
 export const CustomRecordResultsListItem = ({ result }) => {
   const recordLinks = recordTypeLinksFactory(result.id, result.parent.type);
@@ -33,14 +35,22 @@ export const CustomRecordResultsListItem = ({ result }) => {
   );
   const creators = result.ui.creators.creators.slice(0, 3);
 
-  const descriptionStripped = _get(result, "ui.description_stripped", "No description");
+  const descriptionStripped = _get(
+    result,
+    "ui.description_stripped",
+    "No description"
+  );
 
   const publicationDate = _get(
     result,
     "ui.publication_date_l10n_long",
     "No publication date found."
   );
-  const resourceType = _get(result, "ui.resource_type.title_l10n", "No resource type");
+  const resourceType = _get(
+    result,
+    "ui.resource_type.title_l10n",
+    "No resource type"
+  );
   const subjects = _get(result, "ui.subjects", []);
   const title = _get(result, "metadata.title", "No title");
   const version = _get(result, "ui.version", null);

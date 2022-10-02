@@ -1,0 +1,18 @@
+{#
+    Copyright (C) 2021-2022 GEO Secretariat.
+
+    geo-knowledge-hub is free software; you can redistribute it and/or modify
+    it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+<h2 id="record-details-heading">{{ knowledge_elements_title }}</h2>
+
+{% if related_records_information %}
+
+<div id="relatedRecordsDiv" data-record='{{ related_records_information | tojson }}'></div>
+
+{% else %}
+
+{%- include "geo_knowledge_hub/details/details/extras/no_record_message.html" %}
+
+{% endif %}

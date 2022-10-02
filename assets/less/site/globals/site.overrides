@@ -6,7 +6,7 @@
     Front page definitions
 --------------------------*/
 
-/* Tailoring classes for the GEO Knowledge Hub */
+/* Tailoring InvenioRDM classes for the GEO Knowledge Hub */
 .outer-navbar {
   background-image: none;
 }
@@ -51,7 +51,6 @@
   @media all and (min-width: @computerBreakpoint) and (min-height: 750px) {
     margin-top: -2em;
   }
-
 }
 
 #rdm-footer-element .footer-bottom.sub-footer a {
@@ -60,4 +59,47 @@
 
 #rdm-footer-element .footer-bottom.sub-footer .ui.grid {
   padding-bottom: 0;
+}
+
+/* Carousel definitions */
+.carousel-section {
+  margin-top: 15px;
+}
+
+/* Geospatial viewer (Advanced search component */
+.ui.modal .content .leaflet-container {
+  height: 45vh;
+}
+
+/*-------------------------------------------------
+ Deposit definitions (General - Packages and records)
+---------------------------------------------------*/
+.ui.segment.rdm-sidebar .leaflet-container {
+  width: auto;
+  height: 25em;
+  z-index: 0;
+}
+
+/*-------------------------------------
+ Deposit definitions (Package version)
+--------------------------------------*/
+.ui.container.page-subheader-outer {
+  border-radius: 4px;
+  padding: 1em;
+}
+
+.ui.steps .link.step, .ui.steps a.step {
+  text-decoration: none;
+}
+
+#community-banner .ui.container.page-subheader {
+  justify-content: space-evenly;
+}
+
+/*--------------
+ Labels (General)
+---------------*/
+.ui.label.programme-activity-label {
+  background-color: @teal;
+  color: white;
 }

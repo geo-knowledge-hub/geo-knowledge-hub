@@ -22,12 +22,6 @@ def init_bp(app):
 
     # Deposit (Create)
     bp.add_url_rule(
-        "/uploads/packages/new",
-        "geokhub_package_deposit_create",
-        views.geo_package_deposit_create,
-    )
-
-    bp.add_url_rule(
         "/uploads/new",
         "geokhub_record_deposit_create",
         views.geo_record_deposit_create,
@@ -35,15 +29,21 @@ def init_bp(app):
 
     # Deposit (Edit)
     bp.add_url_rule(
-        "/uploads/packages/<pid_value>",
-        "geokhub_package_deposit_edit",
-        views.geo_package_deposit_edit,
-    )
-
-    bp.add_url_rule(
         "/uploads/<pid_value>",
         "geokhub_record_deposit_edit",
         views.geo_record_deposit_edit,
+    )
+
+    # Visualization
+    bp.add_url_rule(
+        "/records/<pid_value>", "geokhub_package_view", views.geo_record_detail
+    )
+
+    # Exportation
+    bp.add_url_rule(
+        "/records/<pid_value>/export/<export_format>",
+        "geokhub_record_export",
+        views.record_export,
     )
 
     # Register context processor
