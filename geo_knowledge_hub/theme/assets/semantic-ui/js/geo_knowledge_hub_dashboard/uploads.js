@@ -20,7 +20,7 @@ import {
   Item,
   Label,
   Segment,
-  Dropdown
+  Dropdown,
 } from "semantic-ui-react";
 import {
   RDMBucketAggregationElement,
@@ -32,21 +32,29 @@ import {
   RDMToggleComponent,
 } from "@invenio-app-rdm/search/components";
 import { axiosWithconfig, SearchItemCreators } from "@invenio-app-rdm/utils";
-import { DashboardResultView, DashboardSearchLayoutHOC } from "@invenio-app-rdm/user_dashboard/base";
+import {
+  DashboardResultView,
+  DashboardSearchLayoutHOC,
+} from "@invenio-app-rdm/user_dashboard/base";
 import { createSearchAppInit } from "@js/invenio_search_ui";
 import PropTypes from "prop-types";
 
-import {extractProgrammeActivityAcronym, recordTypeLinksFactory} from "../utils";
+import {
+  extractProgrammeActivityAcronym,
+  recordTypeLinksFactory,
+} from "../utils";
 
-const statuses = {
+const RECORD_STATUS = {
   in_review: { color: "warning", title: i18next.t("In review") },
   declined: { color: "negative", title: i18next.t("Declined") },
   expired: { color: "expired", title: i18next.t("Expired") },
   draft_with_review: { color: "neutral", title: i18next.t("Draft") },
   draft: { color: "neutral", title: i18next.t("Draft") },
-  new_version_draft: { color: "neutral", title: i18next.t("New version draft") },
+  new_version_draft: {
+    color: "neutral",
+    title: i18next.t("New version draft"),
+  },
 };
-
 
 export const RDMRecordResultsListItem = ({ result, index }) => {
   const recordLinks = recordTypeLinksFactory(result.id, result.parent.type);
@@ -98,7 +106,9 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
       });
   };
 
-  const viewLink = isPublished ? recordLinks.published.ui : recordLinks.draft.ui;
+  const viewLink = isPublished
+    ? recordLinks.published.ui
+    : recordLinks.draft.ui;
   return (
     <Item key={index} className="deposits-list-item mb-20">
       <div className="status-icon mr-10">
@@ -120,9 +130,9 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
               {programmeActivityAcronym}
             </Label>
           )}
-          {result.status in statuses && result.status !== "published" && (
-            <Label size="tiny" className={statuses[result.status].color}>
-              {statuses[result.status].title}
+          {result.status in RECORD_STATUS && result.status !== "published" && (
+            <Label size="tiny" className={RECORD_STATUS[result.status].color}>
+              {RECORD_STATUS[result.status].title}
             </Label>
           )}
           <Label size="tiny" className="primary">
@@ -135,7 +145,12 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
             {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}
             {accessStatus}
           </Label>
-          <Button compact size="small" floated="right" onClick={() => editRecord()}>
+          <Button
+            compact
+            size="small"
+            floated="right"
+            onClick={() => editRecord()}
+          >
             <Icon name="edit" />
             {i18next.t("Edit")}
           </Button>
@@ -195,7 +210,9 @@ export const RDMEmptyResults = (props) => {
         <Header as="h1" align="center">
           <Header.Content>
             {i18next.t("Get started!")}
-            <Header.Subheader>{i18next.t("Make your first upload!")}</Header.Subheader>
+            <Header.Subheader>
+              {i18next.t("Make your first upload!")}
+            </Header.Subheader>
           </Header.Content>
         </Header>
         <Divider hidden />
@@ -252,7 +269,7 @@ export const DashboardUploadsSearchLayout = DashboardSearchLayoutHOC({
           icon="boxes"
           text="Resource"
           onClick={() => {
-            window.location = "/uploads/records/new"
+            window.location = "/uploads/records/new";
           }}
         />
       </Dropdown.Menu>

@@ -11,14 +11,17 @@
 from importlib import import_module
 
 MODULES = [
-    "geo_knowledge_hub.modules.base",
-    "geo_knowledge_hub.modules.front",
+    # Configurations and context
     "geo_knowledge_hub.modules.menu",
-    "geo_knowledge_hub.modules.detail",
     "geo_knowledge_hub.modules.context",
+    # User interface
+    "geo_knowledge_hub.modules.base",
+    "geo_knowledge_hub.modules.front_ui",
     "geo_knowledge_hub.modules.records_ui",
     "geo_knowledge_hub.modules.users_ui",
     "geo_knowledge_hub.modules.communities_ui",
+    "geo_knowledge_hub.modules.packages_ui",
+    "geo_knowledge_hub.modules.requests_ui",
 ]
 
 

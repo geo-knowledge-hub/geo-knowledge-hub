@@ -1,0 +1,64 @@
+{#
+  Copyright (C) 2020 CERN.
+  Copyright (C) 2020 Northwestern University.
+  Copyright (C) 2021 New York University.
+
+  Invenio RDM Records is free software; you can redistribute it and/or modify
+  it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{%- set subjects = record.metadata.subjects -%}
+
+{% if record_topics %}
+  {%- for scheme, topics in record_topics|selectattr("scheme")|groupby('scheme')|sort(attribute='scheme') %}
+  <h3 class="ui tiny header">{{scheme}}</h3>
+
+  <ul class="ui horizontal list no-bullets subjects">
+    {%- for topic in topics %}
+      <li class="item">
+        <a href="/search?q={{ topic.model_field  }}:'{{ topic.title }}'"
+           class="subject"
+           title="{{ _('Search results for ') + topic.title }}"
+        >
+          {{ topic.title }}
+        </a>
+      </li>
+    {%- endfor %}
+  </ul>
+  {%- endfor %}
+{% endif %}
+
+{% if subjects %}
+  {% set keywords = subjects|rejectattr("scheme")|list %}
+  {% if keywords %}
+    <h3 class="hidden">{{ _('Keywords') }}</h3>
+    <ul class="ui horizontal list no-bullets subjects">
+      {%- for subject in keywords %}
+        <li class="item">
+          <a href='/search?q=metadata.subjects.subject:"{{ subject.subject }}"'
+             class="subject"
+             title="{{ _('Search results for ') + subject.subject }}"
+          >
+            {{ subject.subject }}
+          </a>
+        </li>
+      {%- endfor %}
+    </ul>
+  {% endif %}
+
+  {%- for scheme, subjects in subjects|selectattr("scheme")|groupby('scheme')|sort(attribute='scheme') %}
+    <h3 class="ui tiny header">{{scheme}}</h3>
+    <ul class="ui horizontal list no-bullets subjects">
+      {%- for subject in subjects %}
+        <li class="item">
+          <a href='/search?q=metadata.subjects.subject:"{{ subject.subject }}"'
+             class="subject"
+             title="{{ _('Search results for ') + subject.subject }}"
+          >
+            {{ subject.subject }}
+          </a>
+        </li>
+      {%- endfor %}
+    </ul>
+  {%- endfor %}
+{% endif %}

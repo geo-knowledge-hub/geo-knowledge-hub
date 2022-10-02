@@ -1,0 +1,44 @@
+{#
+Copyright (C) 2020 CERN.
+Copyright (C) 2020 Northwestern University.
+Copyright (C) 2021 TU Wien.
+Copyright (C) 2022 New York University.
+
+Invenio RDM Records is free software; you can redistribute it and/or modify
+it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{%- if config.get("APP_RDM_RECORD_EXPORTERS") -%}
+{# if no export formats are specified, don't bother showing the box #}
+<section id="export-record" aria-label="{{ _('Export') }}" class="ui segment rdm-sidebar exports">
+  <h2 class="ui small header">{{ _('Export')}}</h2>
+  {# dynamically create the list of export formats #}
+  {% set formats = [] %}
+
+  {%- for fmt, val in config.get("APP_RDM_RECORD_EXPORTERS", {}).items() -%}
+  {%- set name = val.get("name", fmt) -%}
+
+  {% if is_knowledge_package %}
+
+    {% if is_preview %}
+    {%- set export_url = url_for('geokhub_packages_ui_bp.geokhub_package_export', pid_value=record.id, export_format=fmt, preview=1) -%}
+    {% else %}
+    {%- set export_url = url_for('geokhub_packages_ui_bp.geokhub_package_export', pid_value=record.id, export_format=fmt) -%}
+    {% endif %}
+
+  {% else %}
+
+    {% if is_preview %}
+    {%- set export_url = url_for('geokhub_records_ui_bp.geokhub_record_export', pid_value=record.id, export_format=fmt, preview=1) -%}
+    {% else %}
+    {%- set export_url = url_for('geokhub_records_ui_bp.geokhub_record_export', pid_value=record.id, export_format=fmt) -%}
+    {% endif %}
+
+  {% endif %}
+
+  {% set formats = formats.append({ 'name': name, 'export_url': export_url }) %}
+  {%- endfor -%}
+
+  <div id="recordExportDownload" data-formats='{{ formats | tojson }}'></div>
+</section>
+{%- endif -%}

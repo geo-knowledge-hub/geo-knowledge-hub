@@ -25,7 +25,7 @@ def init_bp(app):
 
         item = current_menu.submenu("plus-menu.deposit-knowledge")
         item.register(
-            "geokhub_records_ui_bp.geokhub_package_deposit_create",
+            "geokhub_packages_ui_bp.geokhub_package_deposit_create",
             _("Knowledge <b>Package</b>"),
             order=1,
         )

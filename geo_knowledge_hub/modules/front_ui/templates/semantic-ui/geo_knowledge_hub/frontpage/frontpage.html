@@ -1,0 +1,169 @@
+{%- extends "invenio_app_rdm/frontpage.html" %}
+
+{%- block css %}
+{{ super() }}
+<!-- Temporary solution! This is not the best way to do this! -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+/>
+{%- endblock css %}
+
+{%- block javascript %}
+{{ super() }}
+{{ webpack["geo-knowledge-hub-front.js"] }}
+
+<!-- Temporary solution! This is not the best way to do this! -->
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper-container', {
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    centeredSlides: true
+  });
+</script>
+
+<script>
+  document.querySelector('.latest-additions-opt').addEventListener("click", (e) => {
+    e.preventDefault();
+    swiper.slideTo(0);
+  });
+
+  document.querySelector(".engagement-priorities-opt").addEventListener("click", (e) => {
+    e.preventDefault();
+    swiper.slideTo(1);
+  });
+
+  document.querySelector(".engagement-priorities-conventions-opt").addEventListener("click", (e) => {
+    e.preventDefault();
+    swiper.slideTo(2);
+  });
+</script>
+{%- endblock javascript %}
+
+{%- block page_header %}
+{%- include "geo_knowledge_hub/base/header_frontpage.html" %}
+{%- endblock page_header %}
+
+{%- block first_section %}
+<section class="centered float-section-buttons">
+  <div class="ui compact menu">
+    <div data-tooltip="Latest additions">
+      <a class="item latest-additions-opt" >
+        <i class="box icon"></i>
+      </a>
+    </div>
+    <div data-tooltip="Search resources by engagement priorities">
+      <a class="item engagement-priorities-opt">
+        <i class="flag icon"></i>
+      </a>
+    </div>
+    <div data-tooltip="Search resources by conventions">
+      <a class="item engagement-priorities-conventions-opt">
+        <i class="handshake icon"></i>
+        <div class="floating ui teal label">New</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="carousel-section">
+  <div class="swiper swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+
+        <div class="ui grid">
+          <div class="row">
+            <div class="column centered">
+              <div class="section-subtitle-content">{{ _("Latest additions") }}</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="column">
+              <div class="ui container">
+                <div class="ui padded relaxed centered grid">
+                  <div class="column">
+                    <div class="ui centered link cards">
+                      {% for item in latest_records %}
+                      <a href="/packages/{{ item['id'] }}" class="card gkhub-frontpage-cards">
+                        <div class="left aligned content">
+                          <div class="extra labels-actions ribbon-latest-additions-title">
+                            <div class="ui blue ribbon label">
+                              {{ item['ui']['publication_date_l10n_medium'] }}
+                            </div>
+                          </div>
+                          <div class="left aligned header"> {{ item['metadata']['title'] }} </div>
+                          <div class="meta">
+                            {% for creator in item['ui']['creators']['creators'] %}
+                            <span>{{ creator['person_or_org']['name'] }};</span>
+                            {% endfor %}
+                          </div>
+                          <div class="description aligned justified">
+                            {{ item['ui']['description_stripped'] | truncate(75, true, '...') }}
+                          </div>
+                        </div>
+                      </a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="ui grid">
+          <div class="row">
+            <div class="column centered">
+              <div class="section-subtitle-content">{{ _("Search by engagement priorities") }}</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="column centered">
+              <div class="ui container">
+                <div class="ui padded relaxed centered grid">
+                  <div id="engagementsSearchOptions"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="ui grid">
+          <div class="row">
+            <div class="column centered">
+              <div class="section-subtitle-content">{{ _("Search by conventions") }}</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="column">
+              <div class="ui container">
+                <div class="ui padded relaxed centered grid">
+                  <div id="engagementsConventionSearchOptions"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+
+{%- endblock first_section %}
+
+{%- block second_section %}
+{%- endblock second_section %}

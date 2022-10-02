@@ -1,0 +1,243 @@
+{#
+  Copyright (C) 2020-2021 CERN.
+  Copyright (C) 2020-2021 Northwestern University.
+  Copyright (C) 2021 New York University.
+
+  Invenio RDM Records is free software; you can redistribute it and/or modify
+  it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{%- from "invenio_app_rdm/records/macros/detail.html" import show_references, show_add_titles,
+show_alternate_identifiers, show_funding, show_dates %}
+
+{%- from "geo_knowledge_hub/details/macros/detail.html" import show_related_identifiers, show_knowledge_packages %}
+
+{% set is_knowledge_resource = not is_knowledge_package %}
+
+{% set hasContent = (related_package_information and is_knowledge_resource) or
+                    record.ui.additional_titles or
+                    metadata.identifiers or
+                    related_identifiers or
+                    metadata.funding or
+                    record.ui.dates or
+                    metadata.references
+%}
+{% set rights = record.ui.get('rights') %}
+{% set funding = record.ui.get('funding') %}
+{% set active = true %}
+
+{% if hasContent %}
+  <div class="ui divider"></div>
+
+  <h2 id="record-details-heading">{{ _('Additional details') }}</h2>
+
+  {# Tabs #}
+  <div class="rdm-tab-container ml-0-mobile mr-0-mobile">
+    <div role="tablist" class="ui top attached tabs menu rdm-tab-menu">
+      {% if related_package_information and is_knowledge_resource %}
+        <a role="tab"
+          aria-selected="{{ active }}"
+          aria-controls="knowledge-packages"
+          data-tab="knowledge-packages"
+          tabindex="0"
+          class="{{ 'active' if active }} item"
+          id="knowledge-packages-tab"
+        >
+          {{ _('Associated Knowledge Package') }}
+        </a>
+        {% set active = false %}
+      {% endif %}
+
+      {% if record.ui.additional_titles %}
+        <a role="tab"
+          aria-selected="{{ active }}"
+          aria-controls="additional-titles-tab-panel"
+          data-tab="additional-titles"
+          tabindex="0"
+          class="{{ 'active' if active }} item"
+          id="additional-titles-tab"
+        >
+          {{ _('Additional titles') }}
+        </a>
+        {% set active = false %}
+      {% endif %}
+
+      {% if metadata.identifiers %}
+        <a role="tab"
+          aria-selected="{{ active }}"
+          aria-controls="identifiers-tab-panel"
+          data-tab="identifiers"
+          tabindex="0"
+          class="{{ 'active' if active }} item"
+          id="identifiers-tab"
+        >
+          {{ _('Identifiers') }}
+        </a>
+        {% set active = false %}
+      {% endif %}
+
+    {% if record.ui.related_identifiers %}
+      <a role="tab"
+        aria-selected="{{ active }}"
+        aria-controls="related-works-tab-panel"
+        data-tab="related-works"
+        tabindex="0"
+        class="{{ 'active' if active }} item"
+        id="related-works-tab"
+      >
+        {{ _('Related works') }}
+      </a>
+      {% set active = false %}
+    {% endif %}
+
+    {% if metadata.funding %}
+      <a role="tab"
+        aria-selected="{{ active }}"
+        aria-controls="funding-tab-panel"
+        data-tab="funding"
+        tabindex="0"
+        class="{{ 'active' if active }} item"
+        id="funding-tab"
+      >
+        {{ _('Funding') }}
+      </a>
+      {% set active = false %}
+    {% endif %}
+
+    {% if record.ui.dates %}
+      <a role="tab"
+        aria-selected="{{ active }}"
+        aria-controls="dates-tab-panel"
+        data-tab="dates"
+        tabindex="0"
+        class="{{ 'active' if active }} item"
+        id="dates-tab"
+      >
+        {{ _('Dates') }}
+      </a>
+      {% set active = false %}
+    {% endif %}
+
+    {% if metadata.references %}
+      <a role="tab"
+        aria-selected="{{ active }}"
+        aria-controls="references-tab-panel"
+        data-tab="references"
+        tabindex="0"
+        class="{{ 'active' if active }} item"
+        id="references-tab"
+      >
+        {{ _('References') }}
+      </a>
+    {% endif %}
+  </div>
+  </div>
+
+  {# Content #}
+  {% set active = true %}
+
+  {% if related_package_information and is_knowledge_resource %}
+    <div role="tabpanel"
+      class="ui bottom {{ 'active' if active }} tab"
+      data-tab="knowledge-packages"
+      aria-labelledby="knowledge-packages-tab"
+      id="knowledge-packages"
+      hidden="{{ not active }}"
+    >
+      <dl class="knowledge-package-list">
+        {{ show_knowledge_packages(related_package_information) }}
+      </dl>
+    </div>
+    {% set active = false %}
+  {% endif %}
+
+  {% if record.ui.additional_titles %}
+    <div role="tabpanel"
+        class="ui bottom {{ 'active' if active }} tab segment"
+        data-tab="additional-titles"
+        aria-labelledby="additional-titles-tab"
+        id="additional-titles-tab-panel"
+        hidden="{{ not active }}"
+
+    >
+      <dl class="details-list">
+        {{ show_add_titles(record.ui.additional_titles) }}
+      </dl>
+    </div>
+    {% set active = false %}
+  {% endif %}
+
+  {% if metadata.identifiers %}
+    <div role="tabpanel"
+        class="ui bottom {{ 'active' if active }} tab segment"
+        data-tab="identifiers"
+        aria-labelledby="identifiers-tab"
+        id="identifiers-tab-panel"
+        hidden="{{ not active }}"
+    >
+      <dl class="details-list">
+        {{ show_alternate_identifiers(metadata.identifiers) }}
+      </dl>
+    </div>
+    {% set active = false %}
+  {% endif %}
+
+  {% if record.ui.related_identifiers %}
+    <div role="tabpanel"
+        class="ui bottom {{ 'active' if active }} tab segment"
+        data-tab="related-works"
+        aria-labelledby="related-works-tab"
+        id="related-works-tab-panel"
+        hidden="{{ not active }}"
+    >
+      <dl class="details-list">
+        {{ show_related_identifiers(record.ui.related_identifiers) }}
+      </dl>
+    </div>
+    {% set active = false %}
+  {% endif %}
+
+  {% if funding %}
+    <div role="tabpanel"
+        class="ui bottom {{ 'active' if active }} tab segment"
+        data-tab="funding"
+        aria-labelledby="funding-tab"
+        id="funding-tab-panel"
+        hidden="{{ not active }}"
+    >
+      <dl class="details-list">
+        {{ show_funding(metadata.funding) }}
+      </dl>
+    </div>
+    {% set active = false %}
+  {% endif %}
+
+  {% if record.ui.dates %}
+    <div role="tabpanel"
+        class="ui bottom {{ 'active' if active }} tab segment"
+        data-tab="dates"
+        aria-labelledby="dates-tab"
+        id="dates-tab-panel"
+        hidden="{{ not active }}"
+    >
+      <dl class="details-list">
+        {{ show_dates(record.ui.dates) }}
+      </dl>
+    </div>
+    {% set active = false %}
+  {% endif %}
+
+  {% if metadata.references %}
+    <div role="tabpanel"
+        class="ui bottom {{ 'active' if active }} tab segment"
+        data-tab="references"
+        aria-labelledby="references-tab"
+        id="references-tab-panel"
+        hidden="{{ not active }}"
+    >
+      <dl class="details-list">
+        {{ show_references(metadata.references) }}
+      </dl>
+    </div>
+  {% endif %}
+{% endif %}

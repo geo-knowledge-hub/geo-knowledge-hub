@@ -9,10 +9,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import _get from 'lodash/get';
-import _isEmpty from 'lodash/isEmpty';
+import _get from "lodash/get";
+import _isEmpty from "lodash/isEmpty";
 
-import { GeographicMetadataLocationViewer } from '@geo-knowledge-hub/invenio-geographic-components-react';
+import { GeographicMetadataLocationViewer } from "@geo-knowledge-hub/invenio-geographic-components-react";
 
 /**
  * Render the geospatial metadata previewer component.
@@ -26,7 +26,7 @@ export const renderComponent = (...args) => {
     const recordDocument = JSON.parse(recordVersionAppDiv.dataset.record);
 
     // looking for valid locations data
-    const featureData = _get(recordDocument, 'metadata.locations.features', []);
+    const featureData = _get(recordDocument, "metadata.locations.features", []);
 
     if (!_isEmpty(featureData)) {
       ReactDOM.render(
@@ -35,7 +35,7 @@ export const renderComponent = (...args) => {
             featuresData={featureData}
             mapConfig={{
               useGeocoding: false,
-              useMouseCoordinate: false
+              useMouseCoordinate: false,
             }}
           />
         </>,

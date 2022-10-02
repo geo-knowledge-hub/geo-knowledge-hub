@@ -8,10 +8,10 @@
 
 """UI Serializer schema."""
 
-from invenio_rdm_records.resources.serializers.ui import (
+from invenio_rdm_records.resources.serializers.ui.schema import (
     UIRecordSchema as UIRecordSchemaBase,
 )
-from invenio_rdm_records.resources.serializers.ui.schema import VocabularyL10Schema
+from invenio_vocabularies.resources import VocabularyL10Schema
 from marshmallow import fields
 
 

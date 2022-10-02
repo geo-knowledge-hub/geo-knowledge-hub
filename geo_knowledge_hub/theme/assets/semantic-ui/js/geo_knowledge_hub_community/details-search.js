@@ -18,7 +18,7 @@ import {
   CommunityToggleComponent,
 } from "@js/invenio_communities/details_search/components";
 
-import { CommunityRecordResultsListItem } from './components';
+import { CommunityRecordResultsListItem } from "./components";
 
 createSearchAppInit({
   "BucketAggregation.element": CommunityBucketAggregationElement,

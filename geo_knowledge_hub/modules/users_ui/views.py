@@ -23,5 +23,5 @@ def geo_user_uploads():
     return render_template(
         "geo_knowledge_hub/users/uploads.html",
         searchbar_config=dict(searchUrl=get_search_url()),
-        user_avatar=url
+        user_avatar=url,
     )
