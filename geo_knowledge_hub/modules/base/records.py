@@ -16,6 +16,7 @@ from invenio_base.utils import obj_or_import_string
 from invenio_records.api import Record
 from invenio_vocabularies.proxies import current_service as vocabulary_service
 from pydash import py_
+from sqlalchemy.orm.exc import NoResultFound
 
 from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
 
@@ -41,7 +42,7 @@ def read_record(identity, record_pid, record_type) -> Union[None, Dict]:
     try:
         res = service.read(identity, record_pid)
 
-    except:
+    except NoResultFound:
         res = service.read_draft(identity, record_pid)
 
     return res.to_dict()

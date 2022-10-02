@@ -11,6 +11,7 @@
 from typing import List
 
 from invenio_records.api import Record
+
 from geo_knowledge_hub.modules.base.records import read_record
 
 

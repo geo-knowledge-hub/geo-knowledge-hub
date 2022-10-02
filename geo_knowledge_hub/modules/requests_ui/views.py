@@ -6,6 +6,8 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
+"""Record and Package Request related record."""
+
 from flask import render_template
 from flask_login import current_user, login_required
 from invenio_communities.members.services.request import CommunityInvitation
@@ -15,9 +17,9 @@ from invenio_requests.views.decorators import pass_request
 from invenio_users_resources.proxies import current_user_resources
 
 from geo_knowledge_hub.modules.base.registry import (
-    get_record_service,
-    get_files_service,
     get_draft_files_service,
+    get_files_service,
+    get_record_service,
 )
 
 from .toolbox import requests as requests_utilities

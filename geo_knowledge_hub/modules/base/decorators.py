@@ -14,7 +14,7 @@ from flask import g
 from invenio_records_resources.services.errors import PermissionDeniedError
 from sqlalchemy.orm.exc import NoResultFound
 
-from .registry import get_record_service, get_files_service, get_draft_files_service
+from .registry import get_draft_files_service, get_files_service, get_record_service
 
 
 #

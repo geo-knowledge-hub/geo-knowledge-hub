@@ -6,6 +6,8 @@
 # modify it under the terms of the MIT License; see LICENSE file for more
 # details.
 
+"""Request module."""
+
 from flask import g
 from flask_login import current_user
 from invenio_rdm_records.resources.serializers import UIJSONSerializer

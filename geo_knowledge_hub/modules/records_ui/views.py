@@ -17,15 +17,14 @@ from invenio_app_rdm.records_ui.views.decorators import (
 )
 from invenio_app_rdm.records_ui.views.deposits import get_search_url, new_record
 
-from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
-
 from geo_knowledge_hub.modules.base.config import get_form_config
 from geo_knowledge_hub.modules.base.decorators import (
     pass_draft,
     pass_draft_files,
-    pass_record_or_draft,
     pass_record_files,
+    pass_record_or_draft,
 )
+from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
 
 from ..base import records as record_utilities
 from .toolbox import relationship as relationship_utilities
