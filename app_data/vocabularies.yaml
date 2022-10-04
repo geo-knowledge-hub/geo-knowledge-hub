@@ -42,6 +42,13 @@ relationtypes:
   data-file: vocabularies/relations/relation_types.yaml
 
 #
+# Licenses
+#
+licenses:
+  pid-type: lic
+  data-file: vocabularies/licenses/licenses.csv
+
+#
 # Custom vocabularies
 #
 
