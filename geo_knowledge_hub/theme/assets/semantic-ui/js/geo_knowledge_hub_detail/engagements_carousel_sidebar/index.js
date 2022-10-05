@@ -12,7 +12,7 @@ import ReactDOM from "react-dom";
 import { css } from "@emotion/css";
 import { ThemeProvider } from "@emotion/react";
 
-import { getInputFromDOM } from "@geo-knowledge-hub/react-invenio-deposit";
+import { getInputFromDOM } from "react-invenio-deposit";
 
 import { EngagementPrioritiesCarousel } from "@geo-knowledge-hub/geo-components-react";
 
