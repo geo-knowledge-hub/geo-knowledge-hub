@@ -434,3 +434,12 @@
     type: target-audience
   title:
     en: Fishermen
+- id: tu-eo-data-practitioners
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: EO Data Practitioners

@@ -710,3 +710,14 @@
     uri: www.earthobservations.org/documents/gwp20_22/EUROGEO.pdf
   title:
     en: European Group on Earth Observations (EUROGEO)
+- id: geo-activities-dwg
+  props:
+    acronym: DATA-WG
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: https://earthobservations.org/data_wg.php
+  title:
+    en: Data Working Group (DATA-WG)
