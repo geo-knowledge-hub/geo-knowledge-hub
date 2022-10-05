@@ -177,11 +177,6 @@ export class PackageDepositForm extends Component {
                   required
                 />
 
-                <ResourceTypeField
-                  options={this.vocabularies.metadata.resource_type}
-                  required
-                />
-
                 <Grid>
                   <Grid.Row centered>
                     <Grid.Column width={16}>
