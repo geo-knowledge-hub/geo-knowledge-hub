@@ -966,7 +966,7 @@
   - depositable
   - linkable
   title:
-    en: Lesson
+    en: Lesson (Training material)
 - icon: asterisk
   id: other
   props:
@@ -1018,20 +1018,3 @@
   - linkable
   title:
     en: User Story
-- icon: asterisk
-  id: publication-trainingmaterial
-  props:
-    csl: article
-    datacite_general: Other
-    datacite_type: ''
-    eurepo: info:eu-repo/semantics/other
-    openaire_resourceType: '20'
-    openaire_type: other
-    schema.org: https://schema.org/CreativeWork
-    subtype: publication-trainingmaterial
-    type: publication
-  tags:
-  - depositable
-  - linkable
-  title:
-    en: Training material
