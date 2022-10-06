@@ -31,7 +31,7 @@ function renderRecordManagement(element) {
 }
 
 /**
- * Render the geospatial metadata previewer component.
+ * Render the components
  */
 export const renderComponent = (...args) => {
   if (recordManagementAppDiv) {

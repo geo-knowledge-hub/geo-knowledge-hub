@@ -43,7 +43,7 @@ import {
   TitlesField,
   VersionField,
   FundingField,
-} from "react-invenio-deposit";
+} from "@geo-knowledge-hub/geo-deposit-react";
 
 import {
   TargetAudienceField,

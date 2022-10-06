@@ -10,9 +10,10 @@
     schema.org: https://schema.org/CreativeWork
     subtype: ''
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Publication
 - icon: file alternate
@@ -27,9 +28,10 @@
     schema.org: https://schema.org/Collection
     subtype: publication-annotationcollection
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Annotation collection
 - icon: file alternate
@@ -44,9 +46,10 @@
     schema.org: https://schema.org/Book
     subtype: publication-book
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Book
 - icon: file alternate
@@ -61,9 +64,10 @@
     schema.org: https://schema.org/ScholarlyArticle
     subtype: publication-section
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Book section
 - icon: file alternate
@@ -78,9 +82,10 @@
     schema.org: https://schema.org/ScholarlyArticle
     subtype: publication-conferencepaper
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Conference paper
 - icon: file alternate
@@ -95,9 +100,10 @@
     schema.org: https://schema.org/CreativeWork
     subtype: publication-datamanagementplan
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Data management plan
 - icon: file alternate
@@ -112,9 +118,10 @@
     schema.org: https://schema.org/ScholarlyArticle
     subtype: publication-article
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Journal article
 - icon: file alternate
@@ -129,9 +136,10 @@
     schema.org: https://schema.org/CreativeWork
     subtype: publication-patent
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Patent
 - icon: file alternate
@@ -146,9 +154,10 @@
     schema.org: https://schema.org/ScholarlyArticle
     subtype: publication-preprint
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Preprint
 - icon: file alternate
@@ -163,9 +172,10 @@
     schema.org: https://schema.org/CreativeWork
     subtype: publication-deliverable
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Project deliverable
 - icon: file alternate
@@ -180,9 +190,10 @@
     schema.org: https://schema.org/CreativeWork
     subtype: publication-milestone
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Project milestone
 - icon: file alternate
@@ -197,9 +208,10 @@
     schema.org: https://schema.org/CreativeWork
     subtype: publication-proposal
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Proposal
 - icon: file alternate
@@ -214,9 +226,10 @@
     schema.org: https://schema.org/ScholarlyArticle
     subtype: publication-report
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Report
 - icon: file alternate
@@ -231,9 +244,10 @@
     schema.org: https://schema.org/CreativeWork
     subtype: publication-softwaredocumentation
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Software documentation
 - icon: file alternate
@@ -248,9 +262,10 @@
     schema.org: https://schema.org/ScholarlyArticle
     subtype: publication-taxonomictreatment
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Taxonomic treatment
 - icon: file alternate
@@ -265,9 +280,10 @@
     schema.org: https://schema.org/ScholarlyArticle
     subtype: publication-technicalnote
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Technical note
 - icon: file alternate
@@ -282,9 +298,10 @@
     schema.org: https://schema.org/ScholarlyArticle
     subtype: publication-thesis
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Thesis
 - icon: file alternate
@@ -299,9 +316,10 @@
     schema.org: https://schema.org/ScholarlyArticle
     subtype: publication-workingpaper
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Working paper
 - icon: file alternate
@@ -316,9 +334,10 @@
     schema.org: https://schema.org/CreativeWork
     subtype: publication-other
     type: publication
+    basetype: publication
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Other
 - icon: columns
@@ -333,9 +352,10 @@
     schema.org: https://schema.org/CreativeWork
     subtype: ''
     type: poster
+    basetype: other
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Poster
 - icon: group
@@ -350,9 +370,10 @@
     schema.org: https://schema.org/PresentationDigitalDocument
     subtype: ''
     type: presentation
+    basetype: other
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Presentation
 - icon: table
@@ -367,9 +388,10 @@
     schema.org: https://schema.org/Dataset
     subtype: ''
     type: dataset
+    basetype: dataset
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Dataset
 - icon: table
@@ -384,9 +406,10 @@
     schema.org: https://schema.org/Dataset
     subtype: dataset-datacube
     type: dataset
+    basetype: dataset
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Data Cube
 - icon: table
@@ -401,9 +424,10 @@
     schema.org: https://schema.org/Dataset
     subtype: dataset-samples
     type: dataset
+    basetype: dataset
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Samples
 - icon: table
@@ -418,9 +442,10 @@
     schema.org: https://schema.org/Dataset
     subtype: dataset-lulcmap
     type: dataset
+    basetype: dataset
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: LULC Map
 - icon: table
@@ -435,9 +460,10 @@
     schema.org: https://schema.org/Dataset
     subtype: dataset-stacitems
     type: dataset
+    basetype: dataset
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: STAC Items
 - icon: table
@@ -452,9 +478,10 @@
     schema.org: https://schema.org/Dataset
     subtype: dataset-insitu
     type: dataset
+    basetype: dataset
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: in-situ
 - icon: table
@@ -469,9 +496,10 @@
     schema.org: https://schema.org/Dataset
     subtype: dataset-aoi
     type: dataset
+    basetype: dataset
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Area of Interest
 - icon: table
@@ -486,9 +514,10 @@
     schema.org: https://schema.org/Dataset
     subtype: dataset-product
     type: dataset
+    basetype: dataset
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Output Product
 - icon: chart bar outline
@@ -503,9 +532,10 @@
     schema.org: https://schema.org/ImageObject
     subtype: ''
     type: image
+    basetype: other
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Image
 - icon: chart bar outline
@@ -520,9 +550,10 @@
     schema.org: https://schema.org/ImageObject
     subtype: image-figure
     type: image
+    basetype: other
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Figure
 - icon: chart bar outline
@@ -537,9 +568,10 @@
     schema.org: https://schema.org/ImageObject
     subtype: image-plot
     type: image
+    basetype: other
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Plot
 - icon: chart bar outline
@@ -554,9 +586,10 @@
     schema.org: https://schema.org/ImageObject
     subtype: image-drawing
     type: image
+    basetype: other
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Drawing
 - icon: chart bar outline
@@ -571,9 +604,10 @@
     schema.org: https://schema.org/ImageObject
     subtype: image-diagram
     type: image
+    basetype: other
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Diagram
 - icon: chart bar outline
@@ -588,9 +622,10 @@
     schema.org: https://schema.org/Photograph
     subtype: image-photo
     type: image
+    basetype: other
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Photo
 - icon: chart bar outline
@@ -605,9 +640,10 @@
     schema.org: https://schema.org/ImageObject
     subtype: image-other
     type: image
+    basetype: other
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Other
 - icon: film
@@ -622,9 +658,10 @@
     schema.org: https://schema.org/MediaObject
     subtype: ''
     type: video
+    basetype: other
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Video/Audio
 - icon: code
@@ -639,9 +676,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: ''
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Software
 - icon: code
@@ -656,9 +694,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-compenv
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Computational Environment
 - icon: code
@@ -673,9 +712,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-source
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Source Code
 - icon: code
@@ -690,9 +730,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-jupyter
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Jupyter Notebook
 - icon: code
@@ -707,9 +748,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-rmarkdown
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: R Markdown
 - icon: code
@@ -724,9 +766,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-dockerimage
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Docker Image
 - icon: code
@@ -741,9 +784,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-dockerscript
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: DockerFile
 - icon: code
@@ -758,9 +802,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-awsami
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: AWS AMI
 - icon: code
@@ -775,9 +820,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-webportal
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Web Portal
 - icon: code
@@ -792,9 +838,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-webcatalog
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Web Catalog
 - icon: code
@@ -809,9 +856,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-datacatalog
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Catalog Service
 - icon: code
@@ -826,9 +874,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-dataservice
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Data Service
 - icon: code
@@ -843,9 +892,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-executable
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Software Executable
 - icon: map
@@ -860,9 +910,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-ogc-wms
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: OGC Web Map Service
 - icon: map
@@ -877,9 +928,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-ogc-wfs
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: OGC Web Feature Service
 - icon: map
@@ -894,9 +946,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-ogc-wcs
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: OGC Web Coverage Service
 - icon: map
@@ -911,9 +964,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-ogc-wmts
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: OGC Web Map Tile Service
 - icon: map
@@ -928,9 +982,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-ogc-wps
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: OGC Web Processing Service
 - icon: map
@@ -945,9 +1000,10 @@
     schema.org: https://schema.org/SoftwareSourceCode
     subtype: software-geonode
     type: software
+    basetype: software
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: GeoNode
 - icon: graduation
@@ -962,11 +1018,12 @@
     schema.org: https://schema.org/CreativeWork
     subtype: ''
     type: lesson
+    basetype: other
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
-    en: Lesson
+    en: Lesson (Training material)
 - icon: asterisk
   id: other
   props:
@@ -979,9 +1036,10 @@
     schema.org: https://schema.org/CreativeWork
     subtype: ''
     type: other
+    basetype: other
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Other
 - icon: asterisk
@@ -996,9 +1054,10 @@
     schema.org: https://schema.org/CreativeWork
     subtype: ''
     type: knowledge
+    basetype: other
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: Knowledge Package
 - icon: group
@@ -1013,25 +1072,9 @@
     schema.org: https://schema.org/CreativeWork
     subtype: ''
     type: user-story
+    basetype: other
   tags:
-  - depositable
-  - linkable
+    - depositable
+    - linkable
   title:
     en: User Story
-- icon: asterisk
-  id: publication-trainingmaterial
-  props:
-    csl: article
-    datacite_general: Other
-    datacite_type: ''
-    eurepo: info:eu-repo/semantics/other
-    openaire_resourceType: '20'
-    openaire_type: other
-    schema.org: https://schema.org/CreativeWork
-    subtype: publication-trainingmaterial
-    type: publication
-  tags:
-  - depositable
-  - linkable
-  title:
-    en: Training material

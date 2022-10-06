@@ -44,7 +44,7 @@ import {
   VersionField,
   FundingField,
   connect,
-} from "react-invenio-deposit";
+} from "@geo-knowledge-hub/geo-deposit-react";
 
 import {
   TargetAudienceField,
@@ -174,11 +174,6 @@ export class PackageDepositForm extends Component {
                 <TitlesField
                   options={this.vocabularies.metadata.titles}
                   recordUI={record.ui}
-                  required
-                />
-
-                <ResourceTypeField
-                  options={this.vocabularies.metadata.resource_type}
                   required
                 />
 

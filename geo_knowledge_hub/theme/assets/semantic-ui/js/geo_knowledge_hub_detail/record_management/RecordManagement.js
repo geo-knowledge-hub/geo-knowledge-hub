@@ -10,12 +10,12 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { i18next } from "@translations/invenio_app_rdm/i18next";
-import { ShareButton } from "@invenio-app-rdm/landing_page/ShareButton";
 
 import { NewVersionButton } from "react-invenio-deposit";
 import { Button, Grid, Icon, Message } from "semantic-ui-react";
 
 import { EditButton } from "./EditButton";
+import { ShareButton } from "./share";
 
 /**
  * Record management component.
@@ -76,7 +76,7 @@ export const RecordManagement = ({
             {permissions.can_manage && (
               <ShareButton
                 disabled={!permissions.can_update_draft}
-                recid={recid}
+                record={record}
               />
             )}
           </Grid.Column>
