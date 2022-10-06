@@ -8,4 +8,3 @@
 #
 
 -e git+https://github.com/geo-knowledge-hub/geo-comments@b-0.2#egg=geo-comments
--e git+https://github.com/geo-knowledge-hub/geo-rdm-records@b-0.4#egg=geo-rdm-records
