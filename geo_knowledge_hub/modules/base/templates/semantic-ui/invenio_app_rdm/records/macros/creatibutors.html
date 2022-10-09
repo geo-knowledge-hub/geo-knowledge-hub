@@ -1,0 +1,110 @@
+{#
+Copyright (C) 2020 CERN.
+Copyright (C) 2020 Northwestern University.
+Copyright (C) 2021 Graz University of Technology.
+Copyright (C) 2021-2022 New York University.
+Copyright (C) 2022 Group on Earth Observations.
+
+Invenio RDM Records is free software; you can redistribute it and/or modify
+it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{% macro creatibutor_icon(creatibutor) %}
+
+{# Email icon #}
+{%- if creatibutor.person_or_org.email %}
+  <a href="mailto:{{ creatibutor.person_or_org.email }}" aria-label="{{ creatibutor.person_or_org.name }}'s Email {{ _('profile') }}" title="{{ creatibutor.person_or_org.name }}'s Email {{ _('profile') }}">
+    <i class="envelope outline icon"></i>
+  </a>
+{%- endif %}
+
+{# Identifier icon #}
+{% set identifier_found = namespace(value=False) %}
+
+{% for scheme, identifier in creatibutor.person_or_org.identifiers|groupby("scheme") %}
+{%- if scheme == "orcid" %}
+{% set identifier_found.value = True %}
+<a class="no-text-decoration" href="{{ identifier[0]['identifier']|pid_url('orcid') }}" aria-label="{{ creatibutor.person_or_org.name }}'s ORCID {{ _('profile') }}" title="{{ creatibutor.person_or_org.name }}'s ORCID {{ _('profile') }}">
+  <img class="ml-2 inline-id-icon" src="{{ url_for('static', filename='images/orcid.svg') }}" alt="ORCID icon"/>
+</a>
+{%- elif scheme == "ror" %}
+{% set identifier_found.value = True %}
+<a href="{{ identifier[0]['identifier']|pid_url('ror') }}" aria-label="{{ creatibutor.person_or_org.name }}'s ROR {{ _('profile') }}" title="{{ creatibutor.person_or_org.name }}'s ROR {{ _('profile') }}">
+  <img class="ml-2 inline-id-icon" src="{{ url_for('static', filename='images/ror-icon.svg') }}" alt="ROR icon"/>
+</a>
+{%- elif scheme == "gnd" %}
+{% set identifier_found.value = True %}
+<a href="{{ identifier[0]['identifier']|pid_url('gnd') }}" aria-label="{{ creatibutor.person_or_org.name }}'s GND {{ _('profile') }}" title="{{ creatibutor.person_or_org.name }}'s GND {{ _('profile') }}">
+  <img class="ml-2 inline-id-icon" src="{{ url_for('static', filename='images/gnd-icon.svg') }}" alt="GND icon"/>
+</a>
+{%- endif %}
+{% endfor %}
+
+{# Organization icon #}
+{# if no identifiers: distinguish btw people and organizations #}
+{%- if not identifier_found.value and creatibutor.person_or_org.type == 'organizational'%}
+<i class="group icon"></i>
+{%- endif %}
+{% endmacro %}
+
+
+{% macro show_creatibutors(creatibutors, show_affiliations=False) %}
+{% for creatibutor in creatibutors %}
+<dd class="creatibutor-wrap separated">
+  <a class="ui creatibutor-link"
+     {% if show_affiliations and creatibutor.affiliations %}
+     data-tooltip="{{ creatibutor.affiliations|join('; ', attribute='1') }}"
+     {% endif %}
+     href="{{url_for('invenio_search_ui.search', q='metadata.creators.person_or_org.name:"' + creatibutor.person_or_org.name + '"')}}"
+  >
+
+  <span class="creatibutor-name">
+        {{- creatibutor.person_or_org.name -}}
+      </span>
+  {%- if creatibutor.affiliations -%}
+  <sup class="font-tiny">
+    {%- for affiliation in creatibutor.affiliations -%}
+    {{ affiliation[0] }}{{ ", " if not loop.last }}
+    {%- endfor -%}
+  </sup>
+  {%- endif -%}
+  </a>
+  {{- creatibutor_icon(creatibutor) -}}
+</dd>
+{% endfor %}
+{%- endmacro %}
+
+
+{% macro affiliations_accordion(group, affiliations) %}
+<div class="ui sixteen wide tablet three wide computer column title right aligned bottom aligned">
+  <button class="ui affiliations-button trigger button mini mr-0"
+          aria-controls="{{ group }}-affiliations"
+          data-open-text="{{_('Show affiliations')}}"
+          data-close-text="{{ _('Hide affiliations') }}"
+          aria-expanded="false"
+  >
+    {{ _("Show affiliations") }}
+  </button>
+</div>
+
+<section class="ui sixteen wide column content" id="{{ group }}-affiliations" aria-label="{{ _('Affiliations for') }} {{ group }}">
+  <ul>
+    {% for affiliation in affiliations %}
+    <li>
+      {{ affiliation[0] }}.
+
+      {% if affiliation[2] %}
+      <a class="no-text-decoration"
+         href="https://ror.org/{{affiliation[2]}}"
+         aria-label="{{ affiliation[1] }}'s ROR {{ _('profile') }}"
+         title="{{ affiliation[1] }}'s ROR {{ _('profile') }}"
+      >
+        <img class="ml-5 inline-id-icon" src="{{ url_for('static', filename='images/ror-icon.svg') }}" alt="ROR icon"/>
+      </a>
+      {%- endif %}
+      {{affiliation[1]}}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endmacro %}

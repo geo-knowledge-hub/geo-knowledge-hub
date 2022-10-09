@@ -7,7 +7,6 @@
  */
 
 import React from "react";
-import $ from "jquery";
 
 // Factorizing
 const renderFactory = async (componentsAvailable) => {
@@ -28,12 +27,3 @@ const componentsAvailable = [
 ];
 
 renderFactory(componentsAvailable);
-
-$("#get-in-touch-ask-provider-modal-btn").on("click", function () {
-  $("#get-in-touch-ask-provider-modal")
-    .modal({
-      blurring: true,
-      centered: false,
-    })
-    .modal("show");
-});
