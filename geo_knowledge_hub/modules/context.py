@@ -9,20 +9,7 @@
 """GEO Knowledge Hub context."""
 
 from flask import Blueprint, g
-from flask_security import current_user
 from geo_config.security.permissions import provider_user_permission
-from invenio_userprofiles.api import current_userprofile
-from pydash import py_
-
-
-def current_user_invenio_profile():
-    """Get current user profile."""
-    if current_user.is_authenticated:
-        return {
-            "name": py_.get(current_userprofile, "full_name", None),
-            "email": py_.get(current_userprofile, "user.email", None),
-        }
-    return None
 
 
 def init_bp(app):
@@ -35,8 +22,7 @@ def init_bp(app):
             is_knowledge_provider = provider_user_permission().can()
 
         return {
-            "is_knowledge_provider": is_knowledge_provider,
-            "current_user_profile": current_user_invenio_profile(),
+            "is_knowledge_provider": is_knowledge_provider
         }
 
     # Registering the user context processor

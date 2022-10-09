@@ -34,7 +34,7 @@ import {
   FundingField,
   SaveRecordButton,
   connect,
-} from "react-invenio-deposit";
+} from "@geo-knowledge-hub/geo-deposit-react";
 
 import { axiosWithconfig } from "@invenio-app-rdm/utils";
 

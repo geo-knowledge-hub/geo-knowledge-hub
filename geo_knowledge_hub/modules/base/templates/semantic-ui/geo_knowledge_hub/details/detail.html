@@ -293,9 +293,6 @@
               </section>
             {%- endblock record_details -%}
 
-            {# Get in touch - ask the provider modal #}
-            {%- include "geo_knowledge_hub/details/details/get_in_touch.html" %}
-
             {# Record footer #}
             {%- block record_footer -%}
             {%- endblock record_footer -%}
@@ -364,50 +361,13 @@
 {% include config.THEME_JAVASCRIPT_TEMPLATE %}
 {% endif %}
 {{ webpack['invenio-app-rdm-landing-page.js'] }}
-{# Communities management -- TODO include again when communities are ready #}
-{# {{ webpack['invenio-communities-records.js'] }} #}
 {{ webpack['previewer_theme.js'] }}
 
 <!-- General -->
 {{ webpack['geo-knowledge-hub-detail.js'] }}
 
-<script>
-  // FIXME: Temporary solution
-  // in future, "isso comment engine" will be directly integrated with Invenio App RDM
-  let placeholders = [
-    {
-      "name": "Name",
-      "value": "{{ current_user_profile.name }}"
-    },
-    {
-      "name": "E-mail",
-      "value": "{{ current_user_profile.email }}"
-    },
-    {
-      "name": "Website (optional)",
-      "value": "{{ record.links.latest_html }}"
-    }
-  ];
-
-  let placeholderProcessor = function (placeholder) {
-    let el = $(`*[placeholder="${placeholder.name}"]`);
-
-    // hides elements
-    el.hide()
-
-    // set value
-    el[0].value = placeholder.value
-  };
-
-  window.addEventListener('load', function () {
-    // get elements
-    placeholders.forEach(placeholderProcessor);
-
-    $("#isso-thread").click(function (x) {
-      placeholders.forEach(placeholderProcessor);
-    })
-  });
-</script>
+<!-- GEO Comments -->
+{{ webpack['geo-comments-details.js'] }}
 
 <!-- Addthis -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-627fb9ee797c3e18"></script>

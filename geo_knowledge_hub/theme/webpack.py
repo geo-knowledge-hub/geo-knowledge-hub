@@ -63,7 +63,8 @@ theme = WebpackThemeBundle(
                 "react-table": "^7.7.0",
                 "@geo-knowledge-hub/invenio-geographic-components-react": "0.2.1",
                 "@geo-knowledge-hub/geo-components-react": "0.4.2",
-                "@geo-knowledge-hub/geo-deposit-react": "0.21.0",
+                "@geo-knowledge-hub/geo-deposit-react": "0.21.1",
+                "@geo-knowledge-hub/geo-comments-react": "0.1.0",
                 "@emotion/react": "^11.9.0",
                 "@emotion/css": "^11.9.0",
                 "@emotion/styled": "^11.8.1",
@@ -75,7 +76,7 @@ theme = WebpackThemeBundle(
                 "@turf/bbox-polygon": "^6.5.0",
                 "@turf/centroid": "^6.5.0",
                 "@mapbox/geojsonhint": "^3.0.1",
-                "@geoman-io/leaflet-geoman-free": "^2.13.0",
+                "@geoman-io/leaflet-geoman-free": "^2.13.0"
             },
             aliases={
                 "@invenio-app-rdm": "js/invenio_app_rdm",
