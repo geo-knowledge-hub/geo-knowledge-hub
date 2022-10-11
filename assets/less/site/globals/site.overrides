@@ -121,3 +121,14 @@ a {
 .invenio-page-body .ui.basic.grey.button {
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
 }
+
+/*------------------------------------------------------
+ Record Landing Feedback component (Packages and records)
+-------------------------------------------------------*/
+.feedback.feedback-metrics-title {
+  font-size: 1.5em;
+}
+
+.feedback.feedback-metrics-empty {
+  font-size: 1em;
+}
