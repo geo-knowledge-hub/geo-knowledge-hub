@@ -27,9 +27,8 @@ from geo_knowledge_hub.modules.base.decorators import (
     pass_record_or_draft,
 )
 from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
-
-from ..base import records as record_utilities
-from .toolbox import relationship as relationship_utilities
+from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
+from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 
 
 #
@@ -51,35 +50,14 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
     # General record properties
     record_is_draft = record_ui.get("is_draft")
 
-    # Extract package resources metadata
-    user_stories = []
-    related_records_metadata = []
-
-    related_records_metadata = relationship_utilities.get_related_records_metadata(
-        identity, record
-    )
-
-    if related_records_metadata:
-        # If records are associated with the package, we prepare
-        # the metadata to be used on the front end and extract which
-        # record is a user story.
-
-        # Dump the loaded record
-        related_records_metadata = record_utilities.serializer_dump_records(
-            related_records_metadata
-        )
-
-        # Extract user stories
-        related_records_metadata, user_stories = record_utilities.extract_user_stories(
-            related_records_metadata
-        )
-
-    # Extract extra tags (e.g., GEO Work Programme Activity, Target users) from record
+    # Expanding package metadata
     (
         engagement_priorities,
         programme_activity,
         record_tags,
-    ) = record_utilities.extract_extra_record_tags(identity, record_ui)
+        user_stories,
+        related_records_metadata,
+    ) = metadata_utilities.expand_metadata_from_package(identity, record_ui)
 
     return render_template(
         "geo_knowledge_hub/details/detail.html",

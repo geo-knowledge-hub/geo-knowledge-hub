@@ -25,9 +25,8 @@ from geo_knowledge_hub.modules.base.decorators import (
     pass_record_or_draft,
 )
 from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
-
-from ..base import records as record_utilities
-from .toolbox import relationship as relationship_utilities
+from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
+from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 
 
 #
@@ -48,36 +47,14 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
 
     # General record properties
     record_is_draft = record_ui.get("is_draft")
-    record_parent = record_ui.get("parent")
 
-    record_relationship = record_parent.get("relationship", {})
-    record_relationship = record_relationship.get("managed_by")
-
-    # Extract associate package (if defined)
-    related_package_metadata = None
-
-    if record_relationship:
-        # If record is associated with a package we extract metadata
-        related_package_obj = relationship_utilities.get_related_package_metadata(
-            identity, record
-        )
-
-        related_package_metadata = record_utilities.serializer_dump_record(
-            related_package_obj
-        )
-
-        # ToDo: At this moment, only one package will be used per record. But,
-        #       in next updates we will enable the `related` records (now, only
-        #       `managed` record is used (For more details, please check the
-        #        GEO RDM Records).
-        related_package_metadata = [related_package_metadata]
-
-    # Extract extra tags (e.g., GEO Work Programme Activity, Target users) from record
+    # Expanding record metadata
     (
         engagement_priorities,
         programme_activity,
         record_tags,
-    ) = record_utilities.extract_extra_record_tags(identity, record_ui)
+        related_package_metadata,
+    ) = metadata_utilities.expand_metadata_from_record(identity, record_ui)
 
     return render_template(
         "geo_knowledge_hub/details/detail.html",

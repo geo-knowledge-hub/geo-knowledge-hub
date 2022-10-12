@@ -13,7 +13,7 @@ from invenio_communities.permissions import CommunityPermissionPolicy
 from .permissions import GEOCommunityPermissionPolicy
 
 """
-This is a temporary solution to enable us to change the Communitys
+This is a temporary solution to enable us to change the Communities
 service permissions.
 """
 
