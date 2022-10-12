@@ -76,7 +76,7 @@ theme = WebpackThemeBundle(
                 "@turf/bbox-polygon": "^6.5.0",
                 "@turf/centroid": "^6.5.0",
                 "@mapbox/geojsonhint": "^3.0.1",
-                "@geoman-io/leaflet-geoman-free": "^2.13.0"
+                "@geoman-io/leaflet-geoman-free": "^2.13.0",
             },
             aliases={
                 "@invenio-app-rdm": "js/invenio_app_rdm",

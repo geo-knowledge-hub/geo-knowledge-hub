@@ -9,7 +9,10 @@
 """GEO Knowledge Hub context."""
 
 from flask import Blueprint, g
-from geo_config.security.permissions import provider_user_permission
+from geo_config.security.permissions import (
+    provider_user_permission,
+    secretariat_user_permission,
+)
 
 
 def init_bp(app):
@@ -17,13 +20,17 @@ def init_bp(app):
     bp = Blueprint("geo_knowledge_hub_bp", __name__)
 
     def define_user_profile():
+        is_geo_secretariat = False
         is_knowledge_provider = False
+
         if "identity" in g:
             is_knowledge_provider = provider_user_permission().can()
+            is_geo_secretariat = secretariat_user_permission().can()
 
-        return {
-            "is_knowledge_provider": is_knowledge_provider
-        }
+        return dict(
+            is_knowledge_provider=is_knowledge_provider,
+            is_geo_secretariat=is_geo_secretariat,
+        )
 
     # Registering the user context processor
     bp.app_context_processor(define_user_profile)
