@@ -14,6 +14,7 @@ from flask import abort, current_app, request, url_for
 from flask_principal import Identity
 from invenio_app_rdm.records_ui.views.records import PreviewFile
 from invenio_base.utils import obj_or_import_string
+from invenio_pidstore.errors import PIDUnregistered
 from invenio_previewer.extensions import default
 from invenio_previewer.proxies import current_previewer
 from invenio_records.api import Record
@@ -21,9 +22,8 @@ from invenio_vocabularies.proxies import current_service as vocabulary_service
 from pydash import py_
 from sqlalchemy.orm.exc import NoResultFound
 
+from geo_knowledge_hub.modules.base.registry import get_record_service
 from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
-
-from .registry import get_record_service
 
 
 def read_record(identity, record_pid, record_type) -> Union[None, Dict]:
@@ -45,7 +45,7 @@ def read_record(identity, record_pid, record_type) -> Union[None, Dict]:
     try:
         res = service.read(identity, record_pid)
 
-    except NoResultFound:
+    except (NoResultFound, PIDUnregistered):
         res = service.read_draft(identity, record_pid)
 
     return res.to_dict()

@@ -76,13 +76,8 @@ request=invenio_request, record=record, draft_is_accepted=draft_is_accepted, bac
     {% set use_theme_basic_template = false %}
     {% set preview_submission_request = true %}
     {% set is_draft = true %}
-    {% set is_knowledge_package = record.parent.type == "package" %}
 
-    {% if is_knowledge_package %}
-      {% include "geo_knowledge_hub/details/detail.html" %}
-    {% else %}
-      {% include "invenio_app_rdm/records/detail.html" %}
-    {% endif %}
+    {% include "geo_knowledge_hub/details/detail.html" %}
 
   </div>
   {% endif %}

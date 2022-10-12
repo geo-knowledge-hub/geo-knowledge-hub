@@ -8,7 +8,7 @@
 
 """Record and Package Request related record."""
 
-from flask import render_template
+from flask import g, render_template
 from flask_login import current_user, login_required
 from invenio_communities.members.services.request import CommunityInvitation
 from invenio_rdm_records.requests import CommunitySubmission
@@ -21,6 +21,7 @@ from geo_knowledge_hub.modules.base.registry import (
     get_files_service,
     get_record_service,
 )
+from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
 
 from .toolbox import requests as requests_utilities
 
@@ -34,6 +35,9 @@ def user_dashboard_request_view(request, **kwargs):
         This function was adapted from Invenio App RDM to fit the
         GEO Knowledge Hub requirements.
     """
+    # Base definitions
+    identity = g.identity
+
     avatar = current_user_resources.users_service.links_item_tpl.expand(current_user)[
         "avatar"
     ]
@@ -48,16 +52,47 @@ def user_dashboard_request_view(request, **kwargs):
     record_type = list(request["topic"].keys())
     record_type = record_type[0]
 
+    is_knowledge_package = record_type == "package"
+
     service = get_record_service(record_type)
     files_service = get_files_service(record_type)
     draft_files_service = get_draft_files_service(record_type)
 
     if is_draft_submission:
+        # Getting related data for packages and resources
+        related_records_metadata = []
+        related_package_metadata = []
+        engagement_priorities = []
+        programme_activity = []
+        record_tags = []
+        user_stories = []
+
         topic = requests_utilities.resolve_topic_draft(request, service)
         record = topic["record_ui"]
         files = requests_utilities.resolve_record_or_draft_files(
             record, files_service, draft_files_service
         )
+
+        if record:  # when accepted, the request don't return the record object.
+            if record_type == "package":  # Especial validation for packages
+                # Expanding package metadata
+                (
+                    engagement_priorities,
+                    programme_activity,
+                    record_tags,
+                    user_stories,
+                    related_records_metadata,
+                ) = metadata_utilities.expand_metadata_from_package(identity, record)
+
+            elif record_type == "record":
+                # Expanding record metadata
+                (
+                    engagement_priorities,
+                    programme_activity,
+                    record_tags,
+                    related_package_metadata,
+                ) = metadata_utilities.expand_metadata_from_record(identity, record)
+
         return render_template(
             "invenio_requests/community-submission/index.html",
             base_template="invenio_app_rdm/users/base.html",
@@ -69,6 +104,13 @@ def user_dashboard_request_view(request, **kwargs):
             draft_is_accepted=request_is_accepted,
             files=files,
             is_user_dashboard=True,
+            programme_activity=programme_activity,
+            record_tags=record_tags,
+            user_stories=user_stories,
+            is_knowledge_package=is_knowledge_package,
+            related_package_information=related_package_metadata,
+            related_records_information=related_records_metadata,
+            related_engagement_priorities=engagement_priorities,
         )
 
     elif is_invitation:
