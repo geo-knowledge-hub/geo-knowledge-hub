@@ -98,6 +98,10 @@ a {
 /*-------------------------------------
  Deposit definitions (Package version)
 --------------------------------------*/
+.invenio-group-field-multiple-line .invenio-group-field {
+  flex-wrap: wrap; // Multiple line fields on deposit interface
+}
+
 .ui.container.page-subheader-outer {
   border-radius: 4px;
   padding: 1em;
