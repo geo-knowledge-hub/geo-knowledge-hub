@@ -1078,3 +1078,21 @@
     - linkable
   title:
     en: User Story
+- icon: asterisk
+  id: case-study
+  props:
+    csl: article
+    datacite_general: Other
+    datacite_type: ''
+    eurepo: info:eu-repo/semantics/other
+    openaire_resourceType: '20'
+    openaire_type: other
+    schema.org: https://schema.org/CreativeWork
+    subtype: ''
+    type: case-study
+    basetype: other
+  tags:
+    - depositable
+    - linkable
+  title:
+    en: Case Study
