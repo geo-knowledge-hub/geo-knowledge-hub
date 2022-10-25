@@ -16,7 +16,6 @@ import { ThemeProvider } from "@emotion/react";
 
 import { RelatedLinkCarousel } from "@geo-knowledge-hub/geo-components-react";
 
-
 /**
  * Styles
  */
@@ -27,7 +26,6 @@ const theme = {
     `,
   },
 };
-
 
 const detailsListDiv = document.getElementById("details-list-div");
 
@@ -49,10 +47,10 @@ export const renderComponent = (...args) => {
           fluid: true,
           style: {
             minHeight: "200px",
-          }
+          },
         }}
       />
     </ThemeProvider>,
     detailsListDiv
   );
-}
+};

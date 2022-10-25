@@ -12,6 +12,9 @@ from typing import Dict, List, Tuple, Union
 
 from flask import abort, current_app, request, url_for
 from flask_principal import Identity
+from geo_rdm_records.base.resources.serializers import (
+    UIRecordJSONSerializer as UIJSONSerializer,
+)
 from invenio_app_rdm.records_ui.views.records import PreviewFile
 from invenio_base.utils import obj_or_import_string
 from invenio_pidstore.errors import PIDUnregistered
@@ -23,7 +26,6 @@ from pydash import py_
 from sqlalchemy.orm.exc import NoResultFound
 
 from geo_knowledge_hub.modules.base.registry import get_record_service
-from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
 
 
 def read_record(identity, record_pid, record_type) -> Union[None, Dict]:

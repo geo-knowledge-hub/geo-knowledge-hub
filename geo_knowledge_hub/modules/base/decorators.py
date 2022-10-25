@@ -12,6 +12,7 @@ from functools import wraps
 
 from flask import g
 from invenio_records_resources.services.errors import PermissionDeniedError
+from pydash import py_
 from sqlalchemy.orm.exc import NoResultFound
 
 from .registry import get_draft_files_service, get_files_service, get_record_service
@@ -20,6 +21,35 @@ from .registry import get_draft_files_service, get_files_service, get_record_ser
 #
 # Decorators
 #
+def pass_associated_package(f):
+    """Decorator to load the package associated to a resource."""
+
+    @wraps(f)
+    def view(**kwargs):
+        draft = kwargs.get("draft")
+
+        if draft:
+            # following the rules used to create packages, the first package
+            # associated with a resource is a "managed" one. In a future version
+            # this relation will include a "type" to make it easier to verify.
+            package = py_.get(draft, "relationship.packages.0.id")
+
+            if package:
+                try:
+                    # if is associated with a resource (draft mode), must be a draft.
+                    package = get_record_service("package").read_draft(
+                        g.identity, package
+                    )
+                except:  # noqa
+                    package = None
+
+            kwargs["package"] = package
+
+            return f(**kwargs)
+
+    return view
+
+
 def pass_record_files(record_type):
     """Record argument decorator factory.
 
@@ -85,6 +115,26 @@ def pass_draft(record_type, expand=False):
                 expand=expand,
             )
             kwargs["draft"] = draft
+            return f(**kwargs)
+
+        return view
+
+    return decorator
+
+
+def pass_record_latest(record_type):
+    """Decorate a view to pass the latest version of a record."""
+
+    def decorator(f):
+        """Decorate a view to pass the latest version of a record."""
+
+        @wraps(f)
+        def view(**kwargs):
+            pid_value = kwargs.get("pid_value")
+            record_latest = get_record_service(record_type).read_latest(
+                id_=pid_value, identity=g.identity
+            )
+            kwargs["record"] = record_latest
             return f(**kwargs)
 
         return view

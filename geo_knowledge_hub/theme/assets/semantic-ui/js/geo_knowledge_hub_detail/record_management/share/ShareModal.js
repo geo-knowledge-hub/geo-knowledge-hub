@@ -1,8 +1,10 @@
-// This file is part of InvenioRDM
-// Copyright (C) 2021 Northwestern University.
-//
-// Invenio RDM Records is free software; you can redistribute it and/or modify it
-// under the terms of the MIT License; see LICENSE file for more details.
+/*
+ * This file is part of GEO Knowledge Hub.
+ * Copyright (C) 2021-2022 GEO Secretariat.
+ *
+ * GEO Knowledge Hub is free software; you can redistribute it and/or modify it
+ * under the terms of the MIT License; see LICENSE file for more details.
+ */
 
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
@@ -15,6 +17,9 @@ import { Dropdown, Icon, Input, Button, Modal, Popup } from "semantic-ui-react";
 import { axiosWithconfig } from "@invenio-app-rdm/utils";
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 
+/**
+ * ``ShareModal`` adapted from Invenio App RDM.
+ */
 export const ShareModal = ({ record, open, handleClose }) => {
   const [accessLinkObj, setAccessLinkObj] = useState();
   const [linkCreated, setLinkCreated] = useState(false);

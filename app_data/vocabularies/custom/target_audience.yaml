@@ -443,3 +443,48 @@
     type: target-audience
   title:
     en: EO Data Practitioners
+- id: tu-data-analyst
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Data Analyst
+- id: tu-disaster-response-planner
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Disaster Response Planners
+- id: tu-disaster-response-manager
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Disaster Response Managers
+- id: tu-field-responder
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Field Responder
+- id: tu-affected-public-communities
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Affected public and communitie

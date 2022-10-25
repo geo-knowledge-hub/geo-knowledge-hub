@@ -31,6 +31,9 @@ export const renderComponent = (...args) => {
         slideBodyClass: css`
           margin: 10px;
         `,
+        slideContainerClass: css`
+          width: 95%;
+        `,
       },
     };
 
@@ -47,9 +50,8 @@ export const renderComponent = (...args) => {
           }}
           cardProps={{
             style: {
-              minHeight: "200px",
-              minWidth: "350px",
-              maxWidth: "400px",
+              width: "95%",
+              height: "85%",
             },
           }}
         />

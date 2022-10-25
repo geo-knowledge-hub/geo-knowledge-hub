@@ -11,9 +11,10 @@
 from typing import Dict, List
 
 from elasticsearch_dsl.query import Q
+from geo_rdm_records.base.resources.serializers import (
+    UIRecordJSONSerializer as UIJSONSerializer,
+)
 from invenio_search.api import RecordsSearch
-
-from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
 
 
 class LatestKnowledgePackageSearch(RecordsSearch):

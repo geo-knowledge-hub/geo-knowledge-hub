@@ -11,6 +11,9 @@
 from flask import g, render_template
 from flask_login import login_required
 from geo_config.security.permissions import need_permission
+from geo_rdm_records.base.resources.serializers import (
+    UIRecordJSONSerializer as UIJSONSerializer,
+)
 from invenio_app_rdm.records_ui.views.decorators import (
     pass_draft_community,
     pass_is_preview,
@@ -19,12 +22,12 @@ from invenio_app_rdm.records_ui.views.deposits import get_search_url, new_record
 
 from geo_knowledge_hub.modules.base.config import get_form_config
 from geo_knowledge_hub.modules.base.decorators import (
+    pass_associated_package,
     pass_draft,
     pass_draft_files,
     pass_record_files,
     pass_record_or_draft,
 )
-from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
 from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
 from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 
@@ -70,7 +73,7 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
         is_knowledge_package=False,
         record_topics=record_tags,
         programme_activity=programme_activity,
-        related_package_information=related_package_metadata,
+        related_elements_information=related_package_metadata,
         related_engagement_priorities=engagement_priorities,
     )
 
@@ -97,9 +100,13 @@ def geo_record_deposit_create(community=None):
 @need_permission("geo-provider-access")
 @pass_draft(record_type="record", expand=True)
 @pass_draft_files(record_type="record")
-def geo_record_deposit_edit(draft=None, draft_files=None, pid_value=None):
+@pass_associated_package
+def geo_record_deposit_edit(draft=None, draft_files=None, pid_value=None, package=None):
     """Edit an existing record resource deposit."""
     record = UIJSONSerializer().dump_obj(draft.to_dict())
+
+    if package:
+        package = UIJSONSerializer().dump_obj(package.to_dict())
 
     return render_template(
         "geo_knowledge_hub/records/deposit/index.html",
@@ -108,6 +115,7 @@ def geo_record_deposit_edit(draft=None, draft_files=None, pid_value=None):
         files=draft_files.to_dict(),
         searchbar_config=dict(searchUrl=get_search_url()),
         permissions=draft.has_permissions_to(["new_version"]),
+        package=package,
     )
 
 

@@ -9,15 +9,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { getInputFromDOM } from "react-invenio-deposit";
 import "semantic-ui-css/semantic.min.css";
-import { RDMDepositApp } from "./RDMDepositApp";
+import { GEOResourceApp } from "./GEOResourceApp";
 
 ReactDOM.render(
-  <RDMDepositApp
+  <GEOResourceApp
     record={getInputFromDOM("deposits-record")}
     preselectedCommunity={getInputFromDOM("deposits-draft-community")}
     files={getInputFromDOM("deposits-record-files")}
     config={getInputFromDOM("deposits-config")}
     permissions={getInputFromDOM("deposits-record-permissions")}
+    packageAssociated={getInputFromDOM("deposits-record-package")}
   />,
   document.getElementById("deposit-form")
 );

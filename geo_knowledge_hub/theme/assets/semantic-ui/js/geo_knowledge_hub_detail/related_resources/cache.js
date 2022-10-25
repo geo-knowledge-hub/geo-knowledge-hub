@@ -373,4 +373,10 @@ export const resourceTypeDefinitions = [
     subtype_name: "Proposal",
     type_name: "Publication",
   },
+  {
+    icon: "asterisk",
+    id: "case",
+    subtype_name: "",
+    type_name: "Case Study",
+  },
 ];

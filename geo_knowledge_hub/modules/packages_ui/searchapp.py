@@ -23,5 +23,8 @@ def deposit_package_records_app_context():
             available_facets=current_app.config["RDM_FACETS"],
             sort_options=current_app.config["RDM_SORT_OPTIONS"],
             headers={"Accept": "application/vnd.inveniordm.v1+json"},
+            overrides={"urlHandlerApi": {"enabled": False}},
+            pagination_options=(2, 3, 5, 10, 15),
+            default_size=3,
         ),
     }
