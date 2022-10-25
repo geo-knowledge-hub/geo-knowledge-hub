@@ -15,7 +15,7 @@ from invenio_records.api import Record
 from geo_knowledge_hub.modules.base.utilities.records import read_record
 
 
-def get_related_package_metadata(identity, record: Record) -> dict:
+def get_related_package_metadata(identity, record: Record) -> List:
     """Controller to get metadata from the related record (if defined).
 
     Args:
@@ -26,21 +26,20 @@ def get_related_package_metadata(identity, record: Record) -> dict:
     Returns:
         dict: Loaded metadata
     """
-    managed_by = None
-
-    record_relationship = record["parent"]
-    record_relationship = record_relationship.get("relationship")
+    packages_metadata = []
+    record_relationship = record.get("relationship")
 
     if record_relationship:
-        managed_by = record_relationship.get("managed_by", {})
-        managed_by_pid = managed_by.get("id")
+        packages = record_relationship.get("packages", [])
 
-        if managed_by_pid:
-            # "Managed by" at the moment only supports packages. So
-            # we need to use the "package" service to load it.
-            managed_by = read_record(identity, managed_by_pid, "package")
+        for package in packages:
 
-    return managed_by
+            package_pid = package.get("id")
+            package_metadata = read_record(identity, package_pid, "package")
+
+            packages_metadata.append(package_metadata)
+
+    return packages_metadata
 
 
 def get_related_records_metadata(identity, record: Record) -> List:

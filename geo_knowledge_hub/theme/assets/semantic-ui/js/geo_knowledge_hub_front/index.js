@@ -90,6 +90,18 @@ if (searchDiv && searchData) {
       searchPlaceholder={i18next.t(
         "Search for Earth Observations Applications"
       )}
+      formInitialValues={{
+        form: {
+          resourceTypes: [
+            {
+              id: "knowledge",
+              key: "knowledge",
+              text: "Knowledge Package",
+              value: "knowledge",
+            },
+          ],
+        },
+      }}
     />,
     searchDiv
   );

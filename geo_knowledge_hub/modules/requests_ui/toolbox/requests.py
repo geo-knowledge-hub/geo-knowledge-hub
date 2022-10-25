@@ -20,11 +20,9 @@ def resolve_record_or_draft_files(record, files_service, draft_files_service):
     if record and record["files"]["enabled"]:
         record_pid = record["id"]
         try:
-            files = draft_files_service().list_files(
-                id_=record_pid, identity=g.identity
-            )
+            files = draft_files_service.list_files(id_=record_pid, identity=g.identity)
         except NoResultFound:
-            files = files_service().list_files(id_=record_pid, identity=g.identity)
+            files = files_service.list_files(id_=record_pid, identity=g.identity)
         return files.to_dict()
     return None
 

@@ -68,19 +68,19 @@ def expand_metadata_from_record(identity, record):
 
     if record_relationship:
         # If record is associated with a package we extract metadata
-        related_package_obj = relationship_utilities.get_related_package_metadata(
+        related_package_metadata = relationship_utilities.get_related_package_metadata(
             identity, record
         )
 
-        related_package_metadata = record_utilities.serializer_dump_record(
-            related_package_obj
+        related_package_metadata = record_utilities.serializer_dump_records(
+            related_package_metadata
         )
 
         # ToDo: At this moment, only one package will be used per record. But,
         #       in next updates we will enable the `related` records (now, only
         #       `managed` record is used (For more details, please check the
         #        GEO RDM Records).
-        related_package_metadata = [related_package_metadata]
+        # related_package_metadata = [related_package_metadata]
 
         # Extract extra tags (e.g., GEO Work Programme Activity, Target users) from record
     (

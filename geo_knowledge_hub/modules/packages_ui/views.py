@@ -8,9 +8,12 @@
 
 """GEO Knowledge Hub Deposit (page) views."""
 
-from flask import g, render_template
+from flask import g, redirect, render_template
 from flask_login import login_required
 from geo_config.security.permissions import need_permission
+from geo_rdm_records.base.resources.serializers import (
+    UIRecordJSONSerializer as UIJSONSerializer,
+)
 from invenio_app_rdm.records_ui.views.decorators import (
     pass_draft_community,
     pass_is_preview,
@@ -24,9 +27,9 @@ from geo_knowledge_hub.modules.base.decorators import (
     pass_file_item,
     pass_file_metadata,
     pass_record_files,
+    pass_record_latest,
     pass_record_or_draft,
 )
-from geo_knowledge_hub.modules.base.serializers.ui import UIJSONSerializer
 from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
 from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 
@@ -74,7 +77,7 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
         user_stories=user_stories,
         record_topics=record_tags,
         programme_activity=programme_activity,
-        related_records_information=related_records_metadata,
+        related_elements_information=related_records_metadata,
         related_engagement_priorities=engagement_priorities,
     )
 
@@ -82,6 +85,12 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
 #
 # Deposit views
 #
+@pass_record_latest(record_type="package")
+def geo_package_detail_latest(record=None, **kwargs):
+    """Redirect to record'd latest version page."""
+    return redirect(record["links"]["self_html"], code=301)
+
+
 @login_required
 @need_permission("geo-provider-access")
 @pass_draft_community
@@ -120,7 +129,7 @@ def geo_package_deposit_edit(draft=None, draft_files=None, pid_value=None):
         record=record,
         record_template=new_record(),
         files=draft_files.to_dict(),
-        permissions=draft.has_permissions_to(["new_version"]),
+        permissions=draft.has_permissions_to(["new_version", "delete_draft"]),
         # `Package resources' endpoint` is used to search resources inside the package.
         forms_package_records_endpoint=f"/api/packages/{pid_value}/draft/resources",
     )

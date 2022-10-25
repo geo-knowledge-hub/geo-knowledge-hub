@@ -44,7 +44,7 @@ export const recordTypeLinksFactory = (recordId, recordType) => {
       },
       draft: {
         api: `/api/records/${recordId}/draft`,
-        ui: `/uploads/records/${recordId}`,
+        ui: `/uploads/${recordId}`,
       },
     },
   };

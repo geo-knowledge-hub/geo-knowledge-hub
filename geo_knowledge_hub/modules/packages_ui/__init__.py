@@ -39,6 +39,13 @@ def init_bp(app):
         "/packages/<pid_value>", "geokhub_package_view", views.geo_package_detail
     )
 
+    # Visualization (Latest version)
+    bp.add_url_rule(
+        "/packages/<pid_value>/latest",
+        "geo_package_view_latest",
+        views.geo_package_detail_latest,
+    )
+
     # Exportation
     bp.add_url_rule(
         "/packages/<pid_value>/export/<export_format>",
