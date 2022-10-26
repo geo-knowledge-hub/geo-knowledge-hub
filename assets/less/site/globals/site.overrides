@@ -22,6 +22,10 @@ a {
 --------------------------*/
 
 /* Tailoring InvenioRDM classes for the GEO Knowledge Hub */
+.row.mt-em-1 {
+  margin-top: 1.1em;
+}
+
 .outer-navbar {
   background-image: none;
 }
@@ -32,6 +36,7 @@ a {
 
 .section-subtitle-content {
   font-size: 2em;
+  padding-top: 0.2em;
   color: @primaryColor;
 }
 
@@ -56,16 +61,16 @@ a {
 #frontpage-search-bar .ui.grid {
   margin-left: auto !important;
   margin-right: auto !important;
-  margin-bottom: auto !important;
+  margin-bottom: 2em !important;
 }
 
 .float-section-buttons {
   position: relative;
-  margin-top: 2em;
+  margin-top: -2em;
+}
 
-  @media all and (min-width: @computerBreakpoint) and (min-height: 750px) {
-    margin-top: -2em;
-  }
+.form-control.search-bar-form {
+  text-align: center !important;
 }
 
 #rdm-footer-element .footer-bottom.sub-footer a {
@@ -77,11 +82,19 @@ a {
 }
 
 /* Carousel definitions */
+.invenio-page-body .extra.expanded {
+  margin-bottom: 10px;
+}
+
+.invenio-page-body .ui.fluid.card.expanded {
+  height: 100%;
+}
+
 .carousel-section {
   margin-top: 15px;
 }
 
-/* Geospatial viewer (Advanced search component */
+/* Geospatial viewer (Advanced search component) */
 .ui.modal .content .leaflet-container {
   height: 45vh;
 }
@@ -98,17 +111,20 @@ a {
 /*-------------------------------------
  Deposit definitions (Package version)
 --------------------------------------*/
-.ui.container.page-subheader-outer {
-  border-radius: 4px;
-  padding: 1em;
+.invenio-group-field-multiple-line .invenio-group-field {
+  flex-wrap: wrap; // Multiple line fields on deposit interface
 }
 
 .ui.steps .link.step, .ui.steps a.step {
   text-decoration: none;
 }
 
-#community-banner .ui.container.page-subheader {
-  justify-content: space-evenly;
+/*-------------------------------------
+ Deposit definitions (Resources version)
+--------------------------------------*/
+.ui.modal .popup-trigger.enabled {
+  cursor: pointer;
+  text-decoration: underline dashed;
 }
 
 /*------------------------------------------------------
@@ -120,4 +136,50 @@ a {
 
 .invenio-page-body .ui.basic.grey.button {
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
+}
+
+/*------------------------------------------------------
+ Record Landing Feedback component (Packages and records)
+-------------------------------------------------------*/
+.feedback.feedback-metrics-title {
+  font-size: 1.5em;
+}
+
+.feedback.feedback-metrics-empty {
+  font-size: 1em;
+}
+
+/*------------
+ Overview page
+--------------*/
+.gray-bg {
+  background-color: #f1f2f6;
+}
+
+#overview-page {
+  h2.section-title {
+    font-size: 2em;
+    margin-bottom: 0; // replacing InvenioRDM theme
+  }
+
+  h2.section-title a.section-title-link {
+    color: #526479; // primary color
+  }
+
+  .overview-content-text p {
+    font-size: 16.2px;
+  }
+
+  .overview-content-searchbar {
+    width: 35%;
+  }
+
+  .section-content {
+    padding-top: 3em;
+    padding-bottom: 3em;
+    text-align: justify;
+    font-size: 1.2em;
+    font-weight: 300;
+    width: 100%;
+  }
 }

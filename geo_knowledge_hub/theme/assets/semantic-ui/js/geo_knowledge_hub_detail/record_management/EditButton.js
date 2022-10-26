@@ -1,9 +1,10 @@
-// This file is part of InvenioRDM
-// Copyright (C) 2021 Northwestern University.
-// Copyright (C) 2021 Graz University of Technology.
-//
-// Invenio RDM Records is free software; you can redistribute it and/or modify it
-// under the terms of the MIT License; see LICENSE file for more details.
+/*
+ * This file is part of GEO Knowledge Hub.
+ * Copyright (C) 2021-2022 GEO Secretariat.
+ *
+ * GEO Knowledge Hub is free software; you can redistribute it and/or modify it
+ * under the terms of the MIT License; see LICENSE file for more details.
+ */
 
 import React, { useState } from "react";
 import PropTypes from "prop-types";

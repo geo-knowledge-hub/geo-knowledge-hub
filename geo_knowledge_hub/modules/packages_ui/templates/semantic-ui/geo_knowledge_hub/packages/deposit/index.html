@@ -16,7 +16,7 @@
 
 {%- block page_body %}
   {%- if record %}
-    <input id="deposits-record" type="hidden" name="deposits-record" value='{{record | tojson }}'></input>
+    <input id="deposits-package" type="hidden" name="deposits-package" value='{{record | tojson }}'></input>
   {%- endif %}
   {%- if preselectedCommunity %}
   <input id="deposits-draft-community" type="hidden" name="deposits-draft-community" value='{{preselectedCommunity | tojson }}'></input>
@@ -25,7 +25,7 @@
   <input id="deposits-record-template" type="hidden" name="deposits-record-template" value='{{record_template | tojson }}'></input>
   {%- endif %}
   {%- if files %}
-    <input id="deposits-record-files" type="hidden" name="deposits-record-files" value='{{files | tojson }}'></input>
+    <input id="deposits-package-files" type="hidden" name="deposits-package-files" value='{{files | tojson }}'></input>
   {%- endif %}
   {%- if forms_package_config %}
     <input type="hidden" name="deposits-package-config" value='{{forms_package_config | tojson }}'></input>
@@ -34,7 +34,7 @@
   <input type="hidden" name="deposits-record-config" value='{{forms_record_config | tojson }}'></input>
   {%- endif %}
   {%- if permissions %}
-    <input id="deposits-record-permissions" type="hidden" name="deposits-record-permissions" value='{{permissions | tojson }}'></input>
+    <input id="deposits-package-permissions" type="hidden" name="deposits-package-permissions" value='{{permissions | tojson }}'></input>
   {%- endif %}
   {%- if search_app_package_records_config %}
      <input

@@ -1,11 +1,10 @@
-// This file is part of InvenioRDM
-// Copyright (C) 2020-2022 CERN.
-// Copyright (C) 2020-2021 Northwestern University.
-// Copyright (C) 2021 Graz University of Technology.
-// Copyright (C) 2021 New York University.
-//
-// Invenio App RDM is free software; you can redistribute it and/or modify it
-// under the terms of the MIT License; see LICENSE file for more details.
+/*
+ * This file is part of GEO Knowledge Hub.
+ * Copyright (C) 2021-2022 GEO Secretariat.
+ *
+ * GEO Knowledge Hub is free software; you can redistribute it and/or modify it
+ * under the terms of the MIT License; see LICENSE file for more details.
+ */
 
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 import _get from "lodash/get";
@@ -56,6 +55,9 @@ const RECORD_STATUS = {
   },
 };
 
+/**
+ * `RDMRecordResultsListItem` component adapted from Invenio App RDM.
+ */
 export const RDMRecordResultsListItem = ({ result, index }) => {
   const recordLinks = recordTypeLinksFactory(result.id, result.parent.type);
 
@@ -94,6 +96,9 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
     _get(result, "metadata.geo_work_programme_activity.title.en")
   );
 
+  const isPackage = _get(result, "parent.type", null) === "package";
+  const packageDashboard = `/packages/${result.id}/dashboard`;
+
   // Derivatives
   const editRecord = () => {
     axiosWithconfig
@@ -109,6 +114,7 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
   const viewLink = isPublished
     ? recordLinks.published.ui
     : recordLinks.draft.ui;
+
   return (
     <Item key={index} className="deposits-list-item mb-20">
       <div className="status-icon mr-10">
@@ -145,6 +151,17 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
             {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}
             {accessStatus}
           </Label>
+          {isPackage && (
+            <Button
+              compact
+              size="small"
+              floated="right"
+              href={packageDashboard}
+            >
+              <Icon name="dashboard" />
+              {i18next.t("Dashboard")}
+            </Button>
+          )}
           <Button
             compact
             size="small"

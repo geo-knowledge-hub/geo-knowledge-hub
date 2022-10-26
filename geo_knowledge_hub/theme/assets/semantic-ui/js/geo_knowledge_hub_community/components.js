@@ -1,8 +1,10 @@
-// This file is part of Invenio
-// Copyright (C) 2022 CERN.
-//
-// Invenio is free software; you can redistribute it and/or modify it under the
-// terms of the MIT License; see LICENSE file for more details.
+/*
+ * This file is part of GEO Knowledge Hub.
+ * Copyright (C) 2021-2022 GEO Secretariat.
+ *
+ * GEO Knowledge Hub is free software; you can redistribute it and/or modify it
+ * under the terms of the MIT License; see LICENSE file for more details.
+ */
 
 import React from "react";
 
@@ -19,6 +21,9 @@ import {
   recordTypeLinksFactory,
 } from "../utils";
 
+/**
+ * `CommunityRecordResultsListItem` adapted from Invenio Communities.
+ */
 export const CommunityRecordResultsListItem = ({ result }) => {
   const recordLinks = recordTypeLinksFactory(result.id, result.parent.type);
 

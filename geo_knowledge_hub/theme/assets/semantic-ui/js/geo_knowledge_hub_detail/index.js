@@ -24,6 +24,7 @@ const componentsAvailable = [
   "user_stories",
   "versions",
   "record_management",
+  "related_links",
 ];
 
 renderFactory(componentsAvailable);

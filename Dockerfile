@@ -9,6 +9,11 @@
 FROM inveniosoftware/centos8-python:3.8
 
 #
+# Environment variables
+#
+ENV NODE_OPTIONS="--max-old-space-size=8192"
+
+#
 # Base Dependencies
 #
 COPY Pipfile Pipfile.lock ./

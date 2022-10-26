@@ -10,6 +10,7 @@
 
 from . import config
 from .modules import init_modules
+from .monkeypatch import monkeypatch_permission
 
 
 class GeoKnowledgeHub(object):
@@ -24,6 +25,7 @@ class GeoKnowledgeHub(object):
         """Flask application initialization."""
         self.init_config(app)
         self.init_modules(app)
+        self.init_monkeypatch(app)
 
         app.extensions["geo-knowledge-hub"] = self
 
@@ -41,3 +43,7 @@ class GeoKnowledgeHub(object):
     def init_modules(self, app):
         """Initialize the extension modules."""
         init_modules(app)
+
+    def init_monkeypatch(self, app):
+        """Initialize the extension monkey patches."""
+        monkeypatch_permission()
