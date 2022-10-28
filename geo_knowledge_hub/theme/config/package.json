@@ -7,7 +7,7 @@
     "@geo-knowledge-hub/geo-components-react": "0.4.3",
     "@geo-knowledge-hub/geo-deposit-react": "0.21.1",
     "@geo-knowledge-hub/invenio-geographic-components-react": "0.2.1",
-    "@geo-knowledge-hub/geo-comments-react": "0.2.0",
+    "@geo-knowledge-hub/geo-comments-react": "0.2.1",
     "@geoman-io/leaflet-geoman-free": "^2.13.0",
     "@mapbox/geojsonhint": "^3.0.1",
     "@react-leaflet/core": "1.0.2",
