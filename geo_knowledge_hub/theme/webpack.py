@@ -64,7 +64,7 @@ theme = WebpackThemeBundle(
                 "@geo-knowledge-hub/invenio-geographic-components-react": "0.2.1",
                 "@geo-knowledge-hub/geo-components-react": "0.4.4",
                 "@geo-knowledge-hub/geo-deposit-react": "0.21.2",
-                "@geo-knowledge-hub/geo-comments-react": "0.2.0",
+                "@geo-knowledge-hub/geo-comments-react": "0.2.1",
                 "@emotion/react": "^11.9.0",
                 "@emotion/css": "^11.9.0",
                 "@emotion/styled": "^11.8.1",
