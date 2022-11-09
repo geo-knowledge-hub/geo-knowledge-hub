@@ -108,7 +108,7 @@ services:
             service: app
         restart: "always"
         command: ["celery -A invenio_app.celery worker --loglevel=INFO"]
-        image: geoknowledgehub/geo-knowledge-hub:v1.4.0.dev5
+        image: geo-knowledge-hub
         depends_on:
             search:
                 condition: service_started
