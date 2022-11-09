@@ -29,5 +29,5 @@ except AttributeError:
 
 from .ext import GeoKnowledgeHub
 
-__version__ = "1.4.0.dev3"
+__version__ = "1.4.0.dev6"
 __all__ = ("__version__", "GeoKnowledgeHub")

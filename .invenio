@@ -13,7 +13,7 @@ author_email = geokhub@geosec.org
 year = 2020-2022
 python_version = 3.8
 database = postgresql
-elasticsearch = 7
+search = opensearch1
 file_storage = local
 _template = https://github.com/inveniosoftware/cookiecutter-invenio-rdm.git
 

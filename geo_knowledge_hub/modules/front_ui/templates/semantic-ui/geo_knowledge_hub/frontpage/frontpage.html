@@ -81,32 +81,35 @@
             </div>
           </div>
 
-          <div class="row mt-em-1">
-            <div class="ui stackable centered grid">
-              {% for item in latest_records %}
-              <div class="four wide column">
-                <a href="/packages/{{ item['id'] }}" class="ui fluid card expanded">
-                  <div class="left aligned content">
-                    <div class="extra expanded">
-                      <div class="ui blue ribbon label">
-                        {{ item['ui']['publication_date_l10n_medium'] }}
-                      </div>
-                    </div>
-                    <div class="left aligned header"> {{ item['metadata']['title'] }} </div>
-                    <div class="meta">
-                      {% for creator in item['ui']['creators']['creators'][0:3] %}
-                      <span>{{ creator['person_or_org']['name'] }};</span>
-                      {% endfor %}
-                    </div>
-                    <div class="description aligned justified">
-                      {{ item['ui']['description_stripped'] | truncate(75, true, '...') }}
-                    </div>
-                  </div>
-                </a>
-              </div>
-              {% endfor %}
-            </div>
-          </div>
+
+         <div class="row mt-em-1">
+           <div class="sixteen wide column">
+             <div class="ui grid stackable centered">
+               {% for item in latest_records %}
+                 <div class="four wide column">
+                   <a href="/packages/{{ item['id'] }}" class="ui fluid card expanded">
+                     <div class="left aligned content">
+                       <div class="extra expanded">
+                         <div class="ui blue ribbon label">
+                           {{ item['ui']['publication_date_l10n_medium'] }}
+                         </div>
+                       </div>
+                       <div class="left aligned header"> {{ item['metadata']['title'] | truncate(150, true, '...') }} </div>
+                       <div class="meta">
+                         {% for creator in item['ui']['creators']['creators'][0:3] %}
+                           <span>{{ creator['person_or_org']['name'] }};</span>
+                         {% endfor %}
+                       </div>
+                       <div class="description aligned justified">
+                         {{ item['ui']['description_stripped'] | truncate(75, true, '...') }}
+                       </div>
+                     </div>
+                   </a>
+                 </div>
+               {% endfor %}
+             </div>
+           </div>
+         </div>
         </div>
       </div>
 
