@@ -49,6 +49,17 @@ licenses:
   data-file: vocabularies/licenses/licenses.csv
 
 #
+# Roles
+#
+contributorsroles:
+  pid-type: cor
+  data-file: vocabularies/roles/roles.yaml
+
+creatorsroles:
+  pid-type: cor
+  data-file: vocabularies/roles/roles.yaml
+
+#
 # Custom vocabularies
 #
 
