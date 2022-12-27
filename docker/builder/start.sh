@@ -69,7 +69,7 @@ JAVASCRIPT_DEPENDENCIES_ARRAY=(${JAVASCRIPT_DEPENDENCIES_VERSION//,/ })
 for ((i=0;i< ${#JAVASCRIPT_DEPENDENCIES_ARRAY[@]} ; i+=2));
 do
 		PACKAGE_NAME=`extract_from_quotes ${JAVASCRIPT_DEPENDENCIES_ARRAY[i]}`
-        PACKAGE_NAME=${PACKAGE_NAME//@geo-knowledge-hub\/''}
+    PACKAGE_NAME=${PACKAGE_NAME//@geo-knowledge-hub\/''}
 
 		PACKAGE_VERSION=`extract_from_quotes ${JAVASCRIPT_DEPENDENCIES_ARRAY[i + 1]}`
 

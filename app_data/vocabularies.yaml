@@ -56,7 +56,7 @@ contributorsroles:
   data-file: vocabularies/roles/roles.yaml
 
 creatorsroles:
-  pid-type: cor
+  pid-type: crr
   data-file: vocabularies/roles/roles.yaml
 
 #
