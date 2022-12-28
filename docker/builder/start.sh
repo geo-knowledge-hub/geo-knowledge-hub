@@ -65,13 +65,15 @@ echo "@geo-knowledge-hub:registry=${VERDACCIO_DOCKER_REGISTRY}" > ~/.npmrc
 JAVASCRIPT_DEPENDENCIES_VERSION=`cat geo_knowledge_hub/theme/webpack.py | grep -e @geo-knowledge-hub`
 JAVASCRIPT_DEPENDENCIES_ARRAY=(${JAVASCRIPT_DEPENDENCIES_VERSION//,/ })
 
+INTEGRITY_REGULARIZER=${PWD}/docker/builder/services/integrity-regularizer/app.py
+
 # publishing the packages!
 for ((i=0;i< ${#JAVASCRIPT_DEPENDENCIES_ARRAY[@]} ; i+=2));
 do
-		PACKAGE_NAME=`extract_from_quotes ${JAVASCRIPT_DEPENDENCIES_ARRAY[i]}`
+    PACKAGE_NAME=`extract_from_quotes ${JAVASCRIPT_DEPENDENCIES_ARRAY[i]}`
     PACKAGE_NAME=${PACKAGE_NAME//@geo-knowledge-hub\/''}
 
-		PACKAGE_VERSION=`extract_from_quotes ${JAVASCRIPT_DEPENDENCIES_ARRAY[i + 1]}`
+    PACKAGE_VERSION=`extract_from_quotes ${JAVASCRIPT_DEPENDENCIES_ARRAY[i + 1]}`
 
     # checking if is a branch or tag
     if [[ "$PACKAGE_VERSION" != b* ]]; then
@@ -80,6 +82,11 @@ do
 
     git clone --branch $PACKAGE_VERSION $GEO_KNOWLEDGE_HUB_ORGANIZATION_URL/$PACKAGE_NAME $PACKAGE_NAME
     cd $PACKAGE_NAME
+
+    # Regularizing integrity from GitHub dependencies.
+    # Used to solve the checksum difference error when multiple environments are used.
+    # (Example where the issue is discussed: https://github.com/npm/cli/issues/2846)
+    python3 ${INTEGRITY_REGULARIZER}
 
     npm install
     npm run build
