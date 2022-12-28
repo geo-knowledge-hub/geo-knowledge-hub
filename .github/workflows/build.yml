@@ -22,7 +22,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.4.1
         with:
-          node-version: 14.x
+          node-version: 14.0.0
 
       - name: Set output
         id: vars
