@@ -42,6 +42,10 @@ services:
         extends:
             file: docker-services.yml
             service: search
+    search-dashboard:
+        extends:
+            file: docker-services.yml
+            service: search-dashboard
     pgadmin:
         extends:
             file: docker-services.yml
@@ -50,7 +54,3 @@ services:
         extends:
             file: docker-services.yml
             service: s3
-    opensearch-dashboards:
-        extends:
-            file: docker-services.yml
-            service: opensearch-dashboards
