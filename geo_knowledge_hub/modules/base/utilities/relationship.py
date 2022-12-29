@@ -33,7 +33,6 @@ def get_related_package_metadata(identity, record: Record) -> List:
         packages = record_relationship.get("packages", [])
 
         for package in packages:
-
             package_pid = package.get("id")
             package_metadata = read_record(identity, package_pid, "package")
 
@@ -57,7 +56,6 @@ def get_related_records_metadata(identity, record: Record) -> List:
     record_relationships = record["relationship"]
 
     for relationship_type in record_relationships.keys():
-
         record_relations = record_relationships[relationship_type]
 
         for relationship in record_relations:
