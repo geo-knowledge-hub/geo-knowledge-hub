@@ -25,12 +25,12 @@ Version 1.4.0 (2023-01-05)
   - **Packages API**:
 
     - API to manage packages and their relation with resources;
-    - Packages API are implemented with the `GEO RDM Records <https://github.com/geo-knowledge-hub/geo-rdm-records>`_;
+    - Packages API are implemented with the `GEO RDM Records <https://github.com/geo-knowledge-hub/geo-rdm-records>`_.
 
   - **Communities**:
 
     - Feature to enable users to create communities around a specific topic (e.g., ``Project``, ``Research topic``);
-    - Communities feature were implemented based on the Invenio RDM 9.0 features and customizations made for the `Invenio RDM Records <https://github.com/geo-knowledge-hub/geo-rdm-records>`_ with `GEO RDM Records <https://github.com/geo-knowledge-hub/invenio-rdm-records>`_;
+    - Communities feature were implemented based on the Invenio RDM 9.0 features and customizations made for the `Invenio RDM Records <https://github.com/geo-knowledge-hub/geo-rdm-records>`_ with `GEO RDM Records <https://github.com/geo-knowledge-hub/invenio-rdm-records>`_.
 
   - **Comments**:
 
@@ -41,7 +41,7 @@ Version 1.4.0 (2023-01-05)
 
     - Added a new deposit interface to make it easier to users deposit packages and resources;
     - Added email field for Creators and Contributors in the Deposit interface;
-    - Increased the Upload size on the deposit interface (now users can upload ``15 GB`` of data);
+    - Increased the Upload size on the deposit interface (now users can upload ``15 GB`` of data).
 
   - **Search**:
 
