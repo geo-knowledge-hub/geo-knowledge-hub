@@ -30,7 +30,7 @@ Version 1.4.0 (2023-01-05)
   - **Communities**:
 
     - Feature to enable users to create communities around a specific topic (e.g., ``Project``, ``Research topic``);
-    - Communities feature were implemented based on the Invenio RDM 9.0 features and customizations made for the `Invenio RDM Records <https://github.com/geo-knowledge-hub/geo-rdm-records>`_ with `GEO RDM Records <https://github.com/geo-knowledge-hub/invenio-rdm-records>`_.
+    - Communities feature were implemented based on the Invenio RDM 9.0 features and customizations made for the `Invenio RDM Records <https://github.com/geo-knowledge-hub/geo-rdm-records>`_ with GEO RDM Records.
 
   - **Comments**:
 
@@ -46,7 +46,7 @@ Version 1.4.0 (2023-01-05)
   - **Search**:
 
     - Added new endpoint to enable users to search for ``Packages`` and ``Resources`` simultaneously;
-    - New search feature was implemented based on the `GEO RDM Records <https://github.com/geo-knowledge-hub/geo-rdm-records>`_.
+    - New search feature was implemented based on the GEO RDM Records.
 
   - **OAI-PMH**
 
