@@ -9,6 +9,55 @@
 Changes
 =======
 
+Version 1.4.0 (2023-01-05)
+---------------------------
+
+- Repository review
+
+  - The modules used to customize the InvenioRDM now follow the same structure used in the `Invenio App RDM <https://github.com/inveniosoftware/invenio-app-rdm>`_.
+
+- Introduced features
+
+  - **Vocabulary**:
+
+    - Review and organize the Licenses vocabularies based on the GEO Data Sharing principles (`#138 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/138>`_).
+
+  - **Packages API**:
+
+    - API to manage packages and their relation with resources;
+    - Packages API are implemented with the `GEO RDM Records <https://github.com/geo-knowledge-hub/geo-rdm-records>`_.
+
+  - **Communities**:
+
+    - Feature to enable users to create communities around a specific topic (e.g., ``Project``, ``Research topic``);
+    - Communities feature were implemented based on the Invenio RDM 9.0 features and customizations made for the `Invenio RDM Records <https://github.com/geo-knowledge-hub/geo-rdm-records>`_ with GEO RDM Records.
+
+  - **Comments**:
+
+    - Introduced a comments system to enable users to create ``Feedback`` and make ``Comments`` about the shared content;
+    - Comments features were implemented with the `GEO Comments <https://github.com/geo-knowledge-hub/geo-comments>`_ replacing the Isso system (`#130 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/130>`_).
+
+  - **Deposit**:
+
+    - Added a new deposit interface to make it easier to users deposit packages and resources;
+    - Added email field for Creators and Contributors in the Deposit interface;
+    - Increased the Upload size on the deposit interface (now users can upload ``15 GB`` of data).
+
+  - **Search**:
+
+    - Added new endpoint to enable users to search for ``Packages`` and ``Resources`` simultaneously;
+    - New search feature was implemented based on the GEO RDM Records.
+
+  - **OAI-PMH**
+
+    - Configured ``Invenio OAI Server`` to search for ``Packages`` and ``Resources`` simultaneously (`#85 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/85>`_).
+
+
+- Infrastructure
+
+  - Elasticsearch (``v7.10``) was replaced with OpenSearch (``1.3.x``) (`#175 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/175>`_);
+  - Removed Issue system from the GEO Knowledge Hub services (`#173 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/173>`_).
+
 Version 1.3.2 (2022-07-21)
 --------------------------
 
