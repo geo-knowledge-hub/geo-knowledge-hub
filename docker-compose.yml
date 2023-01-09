@@ -54,3 +54,7 @@ services:
         extends:
             file: docker-services.yml
             service: s3
+    mailhog:
+        extends:
+          file: docker-services.yml
+          service: mailhog
