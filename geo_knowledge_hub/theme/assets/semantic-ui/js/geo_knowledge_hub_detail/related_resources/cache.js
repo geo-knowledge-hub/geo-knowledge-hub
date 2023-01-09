@@ -379,4 +379,10 @@ export const resourceTypeDefinitions = [
     subtype_name: "",
     type_name: "Case Study",
   },
+  {
+    icon: "file alternate",
+    id: "publication-method",
+    subtype_name: "Method",
+    type_name: "Publication",
+  },
 ];
