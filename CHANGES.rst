@@ -12,7 +12,7 @@ Changes
 Version 1.4.1 (2023-01-10)
 ---------------------------
 
-- Added `Method (Publication)` in the Resource Type vocabulary;
+- Added ``Method (Publication)`` in the Resource Type vocabulary;
 - Introduced `MailHog <https://github.com/mailhog/MailHog>`_ in the development services;
 - Fixed minor bugs in the interface
 
