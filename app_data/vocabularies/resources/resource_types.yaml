@@ -17,6 +17,24 @@
   title:
     en: Publication
 - icon: file alternate
+  id: publication-method
+  props:
+    csl: report
+    datacite_general: Collection
+    datacite_type: ''
+    eurepo: info:eu-repo/semantics/technicalDocumentation
+    openaire_resourceType: '17'
+    openaire_type: publication
+    schema.org: https://schema.org/Collection
+    subtype: publication-method
+    type: publication
+    basetype: publication
+  tags:
+    - depositable
+    - linkable
+  title:
+    en: Method
+- icon: file alternate
   id: publication-annotationcollection
   props:
     csl: report
