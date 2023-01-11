@@ -722,6 +722,7 @@
     en: Data Working Group (DATA-WG)
 - id: geo-activities-eo4karst
   props:
+    acronym: EO4KARST
     description_long: ''
     description_short: ''
     icon: ''
@@ -732,6 +733,7 @@
     en: Earth Observations for Global Typical Karst (EO4KARST)
 - id: geo-activities-geo-ev-products
   props:
+    acronym: GEO-EV-PRODUCTS
     description_long: ''
     description_short: ''
     icon: ''
@@ -742,6 +744,7 @@
     en: Global Products of Common Essential Variables from Multiple Satellite Data (GEO-EV-PRODUCTS)
 - id: geo-activities-geo-pdrs
   props:
+    acronym: GEO-PDRS
     description_long: ''
     description_short: ''
     icon: ''
@@ -752,6 +755,7 @@
     en: Global Vegetation Pest and Disease Dynamic Remote Sensing Monitoring and Forecasting (GEO-PDRS)
 - id: geo-activities-ais-monitoring
   props:
+    acronym: AIS-MONITORING
     description_long: ''
     description_short: ''
     icon: ''
@@ -762,6 +766,7 @@
     en: Antarctic Ice Sheet Monitoring (AIS-MONITORING)
 - id: geo-activities-chemical-earth
   props:
+    acronym: CHEMICAL-EARTH
     description_long: ''
     description_short: ''
     icon: ''
@@ -772,6 +777,7 @@
     en: Global Geochemical Observation Network and Digital Chemical Earth (CHEMICAL-EARTH)
 - id: geo-activities-geocri
   props:
+    acronym: GEOCRI
     description_long: ''
     description_short: ''
     icon: ''
@@ -782,6 +788,7 @@
     en: GEO Cold Regions Initiative (GEOCRI)
 - id: geo-activities-geomin
   props:
+    acronym: GEOMIN
     description_long: ''
     description_short: ''
     icon: ''
