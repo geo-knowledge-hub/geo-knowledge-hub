@@ -9,6 +9,17 @@
 Changes
 =======
 
+Version 1.4.1 (2023-01-10)
+---------------------------
+
+- Added ``Method (Publication)`` in the Resource Type vocabulary;
+- Introduced `MailHog <https://github.com/mailhog/MailHog>`_ in the development services;
+- Fixed minor bugs in the interface
+
+  - DOI modal not visible (`#158 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/158>`_);
+  - License modal not visible (`#194 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/194>`_).
+
+
 Version 1.4.0 (2023-01-05)
 ---------------------------
 
