@@ -28,3 +28,6 @@ venv/
 
 # Ignore PyCharm project
 .idea/
+
+# Ignore development data folder
+data/
