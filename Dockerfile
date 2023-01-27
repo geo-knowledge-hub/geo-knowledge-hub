@@ -17,8 +17,7 @@ ENV NODE_OPTIONS="--max-old-space-size=8192"
 # Base Dependencies
 #
 COPY Pipfile Pipfile.lock ./
-RUN pipenv install --deploy --system --pre \
-    && pip3 uninstall invenio-rdm-records --yes
+RUN pipenv install --deploy --system --pre
 
 #
 # Auxiliary files
