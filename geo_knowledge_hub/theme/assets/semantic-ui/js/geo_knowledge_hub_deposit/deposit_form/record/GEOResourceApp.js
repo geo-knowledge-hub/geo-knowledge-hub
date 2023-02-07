@@ -13,7 +13,7 @@ import _get from "lodash/get";
 import _isNil from "lodash/isNil";
 import _compact from "lodash/compact";
 
-import { AccordionField } from "react-invenio-forms";
+import { AccordionField, CustomFields } from "react-invenio-forms";
 import {
   Card,
   Container,
@@ -131,11 +131,10 @@ export class GEOResourceApp extends Component {
       packageAssociated,
     } = this.props;
 
+    const customFieldsUI = this.config.custom_fields.ui;
+
     // Check if the record have a package associated
     const recordPackage = !_isNil(packageAssociated);
-
-    console.log("recordPackage");
-    console.log(recordPackage);
 
     // Configuring the auxiliary components
     let packageSelector = null;
@@ -199,7 +198,10 @@ export class GEOResourceApp extends Component {
         files={files}
         permissions={permissions}
       >
-        <FormFeedback fieldPath="message" />
+        <FormFeedback
+          fieldPath="message"
+          labels={this.config.custom_fields.error_labels}
+        />
 
         {!recordPackage && (
           <CommunityHeader imagePlaceholderLink="/static/images/square-placeholder.png" />
@@ -237,16 +239,21 @@ export class GEOResourceApp extends Component {
               >
                 <TitlesField
                   options={this.vocabularies.metadata.titles}
+                  fieldPath="metadata.title"
                   recordUI={record.ui}
                   required
                 />
 
                 <ResourceTypeField
                   options={this.vocabularies.metadata.resource_type}
+                  fieldPath="metadata.resource_type"
                   required
                 />
 
-                <PublicationDateField required />
+                <PublicationDateField
+                  required
+                  fieldPath="metadata.publication_date"
+                />
 
                 {this.config.pids.map((pid) => (
                   <Fragment key={pid.scheme}>
@@ -281,6 +288,7 @@ export class GEOResourceApp extends Component {
                 label={i18next.t("Description and languages")}
               >
                 <LanguagesField
+                  fieldPath="metadata.languages"
                   initialOptions={_get(record, "ui.languages", []).filter(
                     (lang) => lang !== null
                   )} // needed because dumped empty record from backend gives [null]
@@ -294,6 +302,7 @@ export class GEOResourceApp extends Component {
                 />
 
                 <DescriptionsField
+                  fieldPath="metadata.description"
                   options={this.vocabularies.metadata.descriptions}
                   recordUI={_get(record, "ui", null)}
                   editorConfig={{
@@ -338,9 +347,7 @@ export class GEOResourceApp extends Component {
                         label={i18next.t("Contributors")}
                         labelIcon="user plus"
                         fieldPath="metadata.contributors"
-                        roleOptions={
-                          this.vocabularies.metadata.contributors.role
-                        }
+                        roleOptions={this.vocabularies.metadata.contributors.role}
                         schema="contributors"
                         autocompleteNames={this.config.autocomplete_names}
                         modal={{
@@ -364,6 +371,7 @@ export class GEOResourceApp extends Component {
                 label={i18next.t("Initiatives, audiences, and subjects")}
               >
                 <SubjectsField
+                  fieldPath="metadata.subjects"
                   initialOptions={_get(record, "ui.subjects", null)}
                   limitToOptions={this.vocabularies.metadata.subjects.limit_to}
                 />
@@ -408,8 +416,12 @@ export class GEOResourceApp extends Component {
                 active
                 label={i18next.t("Dates and version")}
               >
-                <VersionField />
-                <DatesField options={this.vocabularies.metadata.dates} />
+                <VersionField fieldPath="metadata.version" />
+                <DatesField
+                  fieldPath="metadata.dates"
+                  options={this.vocabularies.metadata.dates}
+                  showEmptyValue
+                />
               </AccordionField>
 
               <AccordionField
@@ -428,7 +440,7 @@ export class GEOResourceApp extends Component {
                 active
                 label={i18next.t("Publisher and licenses")}
               >
-                <PublisherField />
+                <PublisherField fieldPath="metadata.publisher" />
 
                 <LicenseField
                   fieldPath="metadata.rights"
@@ -544,6 +556,7 @@ export class GEOResourceApp extends Component {
                   label={i18next.t("Alternate identifiers")}
                   labelIcon="barcode"
                   schemeOptions={this.vocabularies.metadata.identifiers.scheme}
+                  showEmptyValue
                 />
               </AccordionField>
 
@@ -553,9 +566,18 @@ export class GEOResourceApp extends Component {
                 label={i18next.t("Related works")}
               >
                 <RelatedWorksField
+                  fieldPath="metadata.related_identifiers"
                   options={this.vocabularies.metadata.identifiers}
+                  showEmptyValue
                 />
               </AccordionField>
+              <CustomFields
+                config={customFieldsUI}
+                templateLoader={(widget) =>
+                  import(`@templates/custom_fields/${widget}.js`)
+                }
+                fieldPathPrefix="custom_fields"
+              />
             </Grid.Column>
             <Ref innerRef={this.sidebarRef}>
               <Grid.Column
@@ -599,6 +621,7 @@ export class GEOResourceApp extends Component {
                   <AccessRightFieldResource
                     label={i18next.t("Visibility")}
                     labelIcon="shield"
+                    fieldPath="access"
                     packageRecord={
                       recordPackage
                         ? packageAssociated

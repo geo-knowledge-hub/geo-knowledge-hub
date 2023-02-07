@@ -10,11 +10,11 @@
 
 from typing import Dict, List
 
-from elasticsearch_dsl.query import Q
 from geo_rdm_records.base.resources.serializers import (
     UIRecordJSONSerializer as UIJSONSerializer,
 )
 from invenio_search.api import RecordsSearch
+from invenio_search.engine import dsl
 
 
 class LatestKnowledgePackageSearch(RecordsSearch):
@@ -25,9 +25,9 @@ class LatestKnowledgePackageSearch(RecordsSearch):
 
         index = "geordmpackages-records"
         default_filter = (
-            Q("term", **{"access.record": "public"})
-            & Q("term", **{"is_published": True})
-            & Q("term", **{"versions.is_latest": True})
+            dsl.Q("term", **{"access.record": "public"})
+            & dsl.Q("term", **{"is_published": True})
+            & dsl.Q("term", **{"versions.is_latest": True})
         )
 
 

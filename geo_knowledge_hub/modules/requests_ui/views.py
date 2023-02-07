@@ -38,7 +38,7 @@ def user_dashboard_request_view(request, **kwargs):
     # Base definitions
     identity = g.identity
 
-    avatar = current_user_resources.users_service.links_item_tpl.expand(current_user)[
+    avatar = current_user_resources.users_service.links_item_tpl.expand(g.identity, current_user)[
         "avatar"
     ]
 

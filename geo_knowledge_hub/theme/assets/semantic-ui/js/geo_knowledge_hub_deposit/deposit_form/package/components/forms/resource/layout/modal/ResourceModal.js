@@ -382,9 +382,10 @@ export class ResourceModalContent extends Component {
                 <Grid.Column width={16}>
                   <TitlesField
                     options={this.vocabularies.metadata.titles}
+                    fieldPath="metadata.title"
                     recordUI={record.ui}
                     required
-                  ></TitlesField>
+                  />
                 </Grid.Column>
               </Grid.Row>
 
@@ -394,6 +395,7 @@ export class ResourceModalContent extends Component {
                     options={resourceTypeSelected}
                     required
                     optimized={false}
+                    fieldPath="metadata.resource_type"
                   />
                 </Grid.Column>
                 <Grid.Column width={2} textAlign={"right"}>
@@ -450,7 +452,10 @@ export class ResourceModalContent extends Component {
                   <Grid divided>
                     <Grid.Row>
                       <Grid.Column width={8}>
-                        <PublicationDateField required />
+                        <PublicationDateField
+                          required
+                          fieldPath="metadata.publication_date"
+                        />
                       </Grid.Column>
 
                       <Grid.Column width={8}>
@@ -492,6 +497,7 @@ export class ResourceModalContent extends Component {
               <Grid.Row>
                 <Grid.Column width={16}>
                   <LanguagesField
+                    fieldPath="metadata.languages"
                     initialOptions={_get(record, "ui.languages", []).filter(
                       (lang) => lang !== null
                     )} // needed because dumped empty record from backend gives [null]
@@ -509,6 +515,7 @@ export class ResourceModalContent extends Component {
               <Grid.Row centered>
                 <Grid.Column width={16}>
                   <DescriptionsField
+                    fieldPath="metadata.description"
                     options={this.vocabularies.metadata.descriptions}
                     recordUI={_get(record, "ui", null)}
                     editorConfig={{
@@ -525,7 +532,7 @@ export class ResourceModalContent extends Component {
                         "TableCellProperties",
                       ],
                     }}
-                  ></DescriptionsField>
+                  />
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -578,6 +585,7 @@ export class ResourceModalContent extends Component {
               <Grid.Row>
                 <Grid.Column width={16}>
                   <SubjectsField
+                    fieldPath="metadata.subjects"
                     initialOptions={_get(record, "ui.subjects", null)}
                     limitToOptions={
                       this.vocabularies.metadata.subjects.limit_to
@@ -634,13 +642,17 @@ export class ResourceModalContent extends Component {
             <Grid>
               <Grid.Row>
                 <Grid.Column width={16}>
-                  <VersionField />
+                  <VersionField fieldPath="metadata.version" />
                 </Grid.Column>
               </Grid.Row>
 
               <Grid.Row>
                 <Grid.Column width={16}>
-                  <DatesField options={this.vocabularies.metadata.dates} />
+                  <DatesField
+                    fieldPath="metadata.dates"
+                    options={this.vocabularies.metadata.dates}
+                    showEmptyValue
+                  />
                 </Grid.Column>
               </Grid.Row>
 
@@ -663,7 +675,7 @@ export class ResourceModalContent extends Component {
             <Grid>
               <Grid.Row>
                 <Grid.Column width={16}>
-                  <PublisherField />
+                  <PublisherField fieldPath="metadata.publisher" />
                 </Grid.Column>
               </Grid.Row>
 
@@ -793,6 +805,7 @@ export class ResourceModalContent extends Component {
                     schemeOptions={
                       this.vocabularies.metadata.identifiers.scheme
                     }
+                    showEmptyValue
                   />
                 </Grid.Column>
               </Grid.Row>
@@ -800,7 +813,9 @@ export class ResourceModalContent extends Component {
               <Grid.Row centered>
                 <Grid.Column width={16}>
                   <RelatedWorksField
+                    fieldPath="metadata.related_identifiers"
                     options={this.vocabularies.metadata.identifiers}
+                    showEmptyValue
                   />
                 </Grid.Column>
               </Grid.Row>

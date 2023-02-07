@@ -13,7 +13,7 @@ import _isEmpty from "lodash/isEmpty";
 
 import { Button, Grid, Modal, Header, Message } from "semantic-ui-react";
 
-import { axiosWithconfig } from "@js/invenio_app_rdm/utils";
+import { http } from "react-invenio-forms";
 import { i18next } from "@translations/geo_knowledge_hub/i18next";
 
 import { PackageSearchContext } from "./context";
@@ -172,7 +172,7 @@ export const PackageSelectorModal = ({
                         let draftData = {};
 
                         if (_isNil(modalRecord?.id)) {
-                          const draftResponse = await axiosWithconfig.post(
+                          const draftResponse = await http.post(
                             "/api/records",
                             modalRecord
                           );
@@ -189,7 +189,7 @@ export const PackageSelectorModal = ({
                         }
 
                         // 2. Adding the draft as a resource of the package
-                        const associateResponse = await axiosWithconfig.post(
+                        const associateResponse = await http.post(
                           selectedPackage.links.context_associate,
                           {
                             records: [{ id: draftData.id }],
@@ -208,7 +208,7 @@ export const PackageSelectorModal = ({
                         else {
                           const attachUrl = `/api/packages/${selectedPackage.id}/draft/resources`;
 
-                          const attachResponse = await axiosWithconfig.post(
+                          const attachResponse = await http.post(
                             attachUrl,
                             {
                               resources: [{ id: draftData.id }],

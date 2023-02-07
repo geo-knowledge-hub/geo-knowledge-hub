@@ -10,10 +10,10 @@ github_repo = geo-knowledge-hub/geo-knowledge-hub
 description = GEO Knowledge Hub Digital Library
 author_name = GEO Secretariat
 author_email = geokhub@geosec.org
-year = 2020-2022
+year = 2020-2023
 python_version = 3.8
 database = postgresql
-search = opensearch1
+search = opensearch2
 file_storage = local
 _template = https://github.com/inveniosoftware/cookiecutter-invenio-rdm.git
 

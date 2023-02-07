@@ -12,7 +12,7 @@ import PropTypes from "prop-types";
 import { Icon, Button } from "semantic-ui-react";
 
 import { i18next } from "@translations/invenio_app_rdm/i18next";
-import { axiosWithconfig } from "@invenio-app-rdm/utils";
+import { http } from "react-invenio-forms";
 
 /**
  * Edit button component.
@@ -28,9 +28,8 @@ export const EditButton = ({ record, onError }) => {
   const handleClick = async () => {
     setLoading(true);
     try {
-      axiosWithconfig.post(recordDraftLink).then((res) => {
-        const responseData = res.data;
-        window.location = responseData.links.self_html;
+        await http.post(recordDraftLink).then((res) => {
+        window.location = res.data.links.self_html;
       });
     } catch (error) {
       setLoading(false);

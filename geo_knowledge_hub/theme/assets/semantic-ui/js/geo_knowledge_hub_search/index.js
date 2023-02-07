@@ -6,29 +6,41 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
+import { parametrize } from "react-overridable";
+
 import { createSearchAppInit } from "@js/invenio_search_ui";
 import { CustomRecordResultsListItem } from "./components";
 
 import {
-  RDMBucketAggregationElement,
   RDMCountComponent,
   RDMEmptyResults,
   RDMErrorComponent,
-  RDMRecordFacets,
-  RDMRecordFacetsValues,
   RDMRecordResultsGridItem,
   RDMRecordSearchBarContainer,
   RDMRecordMultipleSearchBarElement,
   RDMToggleComponent,
 } from "@invenio-app-rdm/search/components";
 
+
+import {
+  ContribSearchAppFacets,
+  ContribBucketAggregationElement,
+  ContribBucketAggregationValuesElement,
+} from "@js/invenio_search_ui/components";
+
+
+const ContribSearchAppFacetsWithConfig = parametrize(ContribSearchAppFacets, {
+  toogle: true,
+});
+
+
 createSearchAppInit({
-  "BucketAggregation.element": RDMBucketAggregationElement,
-  "BucketAggregationValues.element": RDMRecordFacetsValues,
+  "BucketAggregation.element": ContribBucketAggregationElement,
+  "BucketAggregationValues.element": ContribBucketAggregationValuesElement,
   "ResultsGrid.item": RDMRecordResultsGridItem,
   "EmptyResults.element": RDMEmptyResults,
   "ResultsList.item": CustomRecordResultsListItem,
-  "SearchApp.facets": RDMRecordFacets,
+  "SearchApp.facets": ContribSearchAppFacets,
   "SearchApp.searchbarContainer": RDMRecordSearchBarContainer,
   "SearchBar.element": RDMRecordMultipleSearchBarElement,
   "Count.element": RDMCountComponent,
