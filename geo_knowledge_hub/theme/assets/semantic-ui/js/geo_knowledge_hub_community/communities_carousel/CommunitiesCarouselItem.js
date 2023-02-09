@@ -36,29 +36,22 @@ class CommunitiesCarouselItem extends Component {
           <Image size={"medium"} src={community.links.logo} fallbackSrc={defaultLogo}/>
           <Item.Content>
             <Item.Header as={Grid} stackable className="rel-pb-1">
-              <Grid.Column computer="10" tablet="16" className="pl-0 pb-0">
-                <Header as="a" size="medium" href={community.links.self_html}>
+              <Grid.Column computer="13" tablet="16" className="pl-0 pb-0">
+                <Header as="a" size="large" href={community.links.self_html}>
                   {community.metadata.title}
                 </Header>
               </Grid.Column>
-              <Grid.Column computer="6" tablet="16" className="buttons pl-0 pb-0">
-                <Button
-                  size="mini"
-                  href={community.links.self_html}
-                  content={i18next.t("Browse")}
-                />
-                <Button
-                  size="mini"
-                  icon="upload"
-                  labelPosition="left"
-                  positive
-                  href={`/uploads/new?community=${community.id}`}
-                  content={i18next.t("New upload")}
-                />
-              </Grid.Column>
             </Item.Header>
             <Item.Description
-              content={_truncate(community.metadata.description, { length: 300 })}
+              content={
+                <Grid centered>
+                  <Grid.Row>
+                    <Grid.Column width={13}>
+                      {_truncate(community.metadata.description, { length: 200 })}
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+              }
             />
           </Item.Content>
         </Item>

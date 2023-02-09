@@ -40,6 +40,7 @@ theme = WebpackThemeBundle(
                 "geo-knowledge-hub-detail": "./js/geo_knowledge_hub_detail/index.js",
                 # Front page
                 "geo-knowledge-hub-front": "./js/geo_knowledge_hub_front/index.js",
+                "geo-knowledge-hub-front-records": "./js/geo_knowledge_hub_front/records/index.js",
                 # Deposit
                 "geo-knowledge-hub-deposit-package": "./js/geo_knowledge_hub_deposit/deposit_form/package/index.js",
                 "geo-knowledge-hub-deposit-record": "./js/geo_knowledge_hub_deposit/deposit_form/record/index.js",
