@@ -1,0 +1,26 @@
+{# -*- coding: utf-8 -*-
+
+This file is part of Invenio.
+Copyright (C) 2016-2020 CERN.
+
+Invenio is free software; you can redistribute it and/or modify it
+under the terms of the MIT License; see LICENSE file for more details.
+#}
+  
+{% macro communities_carousel(
+    fetch_url="/api/communities/featured",
+    interval_delay="10000",
+    animation_speed="300",
+    default_logo="/static/images/square-placeholder.png"
+)
+%}
+<div
+    id="communities-carousel"
+    data-fetch-url="{{ fetch_url }}"
+    data-interval-delay="{{ interval_delay }}"
+    data-animation-speed="{{ animation_speed }}"
+    data-default-logo="{{ default_logo }}"
+></div>
+
+{{ webpack['geo-knowledge-hub-community-carousel.js'] }}
+{% endmacro %}

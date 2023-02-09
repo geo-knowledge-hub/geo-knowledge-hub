@@ -6,13 +6,14 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-import { i18next } from "@translations/invenio_app_rdm/i18next";
+import React from "react";
+
 import _get from "lodash/get";
 import _truncate from "lodash/truncate";
-import React from "react";
+import PropTypes from "prop-types";
+
 import {
   Button,
-  Card,
   Divider,
   Header,
   Icon,
@@ -21,22 +22,32 @@ import {
   Segment,
   Dropdown,
 } from "semantic-ui-react";
+
+import { http } from "react-invenio-forms";
+import { parametrize } from "react-overridable";
+
 import {
-  RDMBucketAggregationElement,
+  ContribSearchAppFacets,
+  ContribBucketAggregationElement,
+  ContribBucketAggregationValuesElement,
+} from "@js/invenio_search_ui/components";
+
+import {
   RDMCountComponent,
   RDMEmptyResults as RDMNoSearchResults,
-  RDMRecordFacets,
-  RDMRecordFacetsValues,
   RDMRecordSearchBarElement,
   RDMToggleComponent,
 } from "@invenio-app-rdm/search/components";
-import { axiosWithconfig, SearchItemCreators } from "@invenio-app-rdm/utils";
+
+import { i18next } from "@translations/invenio_app_rdm/i18next";
+import { SearchItemCreators } from "@invenio-app-rdm/utils";
+
 import {
   DashboardResultView,
   DashboardSearchLayoutHOC,
 } from "@invenio-app-rdm/user_dashboard/base";
 import { createSearchAppInit } from "@js/invenio_search_ui";
-import PropTypes from "prop-types";
+
 
 import {
   extractProgrammeActivityAcronym,
@@ -54,6 +65,10 @@ const RECORD_STATUS = {
     title: i18next.t("New version draft"),
   },
 };
+
+const ContribSearchAppFacetsWithConfig = parametrize(ContribSearchAppFacets, {
+  toogle: true,
+});
 
 /**
  * `RDMRecordResultsListItem` component adapted from Invenio App RDM.
@@ -101,7 +116,7 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
 
   // Derivatives
   const editRecord = () => {
-    axiosWithconfig
+    http
       .post(recordLinks.draft.api)
       .then(() => {
         window.location = recordLinks.draft.ui;
@@ -295,12 +310,12 @@ export const DashboardUploadsSearchLayout = DashboardSearchLayoutHOC({
 });
 
 export const defaultComponents = {
-  "BucketAggregation.element": RDMBucketAggregationElement,
-  "BucketAggregationValues.element": RDMRecordFacetsValues,
+  "BucketAggregation.element": ContribBucketAggregationElement,
+  "BucketAggregationValues.element": ContribBucketAggregationValuesElement,
   "Count.element": RDMCountComponent,
   "EmptyResults.element": RDMEmptyResults,
   "ResultsList.item": RDMRecordResultsListItem,
-  "SearchApp.facets": RDMRecordFacets,
+  "SearchApp.facets": ContribSearchAppFacetsWithConfig,
   "SearchApp.layout": DashboardUploadsSearchLayout,
   "SearchApp.results": DashboardResultView,
   "SearchBar.element": RDMRecordSearchBarElement,

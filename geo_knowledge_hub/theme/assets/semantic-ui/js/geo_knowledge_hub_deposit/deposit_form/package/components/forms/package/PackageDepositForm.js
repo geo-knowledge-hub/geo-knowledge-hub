@@ -7,15 +7,13 @@
 // under the terms of the MIT License; see LICENSE file for more details.
 
 import React, { Component, createRef, Fragment } from "react";
-import PropTypes from "prop-types";
-import { Provider, connect, useStore } from "react-redux";
 
 import _get from "lodash/get";
 import _compact from "lodash/compact";
 
-import { i18next } from "@translations/invenio_app_rdm/i18next";
+import { Provider, connect, useStore } from "react-redux";
 
-import { AccordionField } from "react-invenio-forms";
+import { AccordionField, CustomFields } from "react-invenio-forms";
 import { Card, Container, Grid, Ref, Sticky, Button } from "semantic-ui-react";
 
 import {
@@ -51,6 +49,8 @@ import {
   EngagementPriorityField,
   WorkProgrammeActivityField,
 } from "@geo-knowledge-hub/geo-components-react";
+
+import { i18next } from "@translations/invenio_app_rdm/i18next";
 
 import { LocationsField } from "@geo-knowledge-hub/invenio-geographic-components-react";
 
@@ -173,6 +173,8 @@ export class PackageDepositFormComponentBase extends Component {
     const { dataSentToStore } = this.state;
 
     // Auxiliary components
+    const customFieldsUI = this.config.custom_fields.ui;
+
     const PackageRefresher = PackageRefresherHOC(store);
 
     return (
@@ -216,10 +218,15 @@ export class PackageDepositFormComponentBase extends Component {
               >
                 <TitlesField
                   options={this.vocabularies.metadata.titles}
+                  fieldPath="metadata.title"
                   recordUI={record.ui}
                   required
                 />
-                <PublicationDateField required />
+
+                <PublicationDateField
+                  required
+                  fieldPath="metadata.publication_date"
+                />
 
                 {this.config.pids.map((pid) => (
                   <Fragment key={pid.scheme}>
@@ -254,6 +261,7 @@ export class PackageDepositFormComponentBase extends Component {
                 label={i18next.t("Description and languages")}
               >
                 <LanguagesField
+                  fieldPath="metadata.languages"
                   initialOptions={_get(record, "ui.languages", []).filter(
                     (lang) => lang !== null
                   )} // needed because dumped empty record from backend gives [null]
@@ -267,6 +275,7 @@ export class PackageDepositFormComponentBase extends Component {
                 />
 
                 <DescriptionsField
+                  fieldPath="metadata.description"
                   options={this.vocabularies.metadata.descriptions}
                   recordUI={_get(record, "ui", null)}
                   editorConfig={{
@@ -311,9 +320,7 @@ export class PackageDepositFormComponentBase extends Component {
                         label={i18next.t("Contributors")}
                         labelIcon="user plus"
                         fieldPath="metadata.contributors"
-                        roleOptions={
-                          this.vocabularies.metadata.contributors.role
-                        }
+                        roleOptions={this.vocabularies.metadata.contributors.role}
                         schema="contributors"
                         autocompleteNames={this.config.autocomplete_names}
                         modal={{
@@ -337,6 +344,7 @@ export class PackageDepositFormComponentBase extends Component {
                 label={i18next.t("Initiatives, audiences, and subjects")}
               >
                 <SubjectsField
+                  fieldPath="metadata.subjects"
                   initialOptions={_get(record, "ui.subjects", null)}
                   limitToOptions={this.vocabularies.metadata.subjects.limit_to}
                 />
@@ -380,8 +388,12 @@ export class PackageDepositFormComponentBase extends Component {
                 active
                 label={i18next.t("Dates and version")}
               >
-                <VersionField />
-                <DatesField options={this.vocabularies.metadata.dates} />
+                <VersionField fieldPath="metadata.version" />
+                <DatesField
+                  fieldPath="metadata.dates"
+                  options={this.vocabularies.metadata.dates}
+                  showEmptyValue
+                />
               </AccordionField>
 
               <AccordionField
@@ -400,7 +412,7 @@ export class PackageDepositFormComponentBase extends Component {
                 active
                 label={i18next.t("Publisher and licenses")}
               >
-                <PublisherField />
+                <PublisherField fieldPath="metadata.publisher" />
 
                 <LicenseField
                   fieldPath="metadata.rights"
@@ -516,6 +528,7 @@ export class PackageDepositFormComponentBase extends Component {
                   label={i18next.t("Alternate identifiers")}
                   labelIcon="barcode"
                   schemeOptions={this.vocabularies.metadata.identifiers.scheme}
+                  showEmptyValue
                 />
               </AccordionField>
 
@@ -525,9 +538,18 @@ export class PackageDepositFormComponentBase extends Component {
                 label={i18next.t("Related works")}
               >
                 <RelatedWorksField
+                  fieldPath="metadata.related_identifiers"
                   options={this.vocabularies.metadata.identifiers}
+                  showEmptyValue
                 />
               </AccordionField>
+              <CustomFields
+                config={customFieldsUI}
+                templateLoader={(widget) =>
+                  import(`@templates/custom_fields/${widget}.js`)
+                }
+                fieldPathPrefix="custom_fields"
+              />
             </Grid.Column>
             <Ref innerRef={this.sidebarRef}>
               <Grid.Column
@@ -571,6 +593,7 @@ export class PackageDepositFormComponentBase extends Component {
                   <AccessRightField
                     label={i18next.t("Visibility")}
                     labelIcon="shield"
+                    fieldPath="access"
                   />
 
                   {permissions?.can_delete_draft && (

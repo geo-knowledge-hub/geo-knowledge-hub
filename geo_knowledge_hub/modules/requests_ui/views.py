@@ -38,9 +38,9 @@ def user_dashboard_request_view(request, **kwargs):
     # Base definitions
     identity = g.identity
 
-    avatar = current_user_resources.users_service.links_item_tpl.expand(current_user)[
-        "avatar"
-    ]
+    avatar = current_user_resources.users_service.links_item_tpl.expand(
+        g.identity, current_user
+    )["avatar"]
 
     request_type = request["type"]
 
@@ -109,7 +109,7 @@ def user_dashboard_request_view(request, **kwargs):
             user_stories=user_stories,
             is_knowledge_package=is_knowledge_package,
             related_package_information=related_package_metadata,
-            related_records_information=related_records_metadata,
+            related_elements_information=related_records_metadata,
             related_engagement_priorities=engagement_priorities,
         )
 
