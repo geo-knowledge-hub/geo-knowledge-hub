@@ -81,7 +81,7 @@ a {
   padding-bottom: 0;
 }
 
-/* Carousel definitions */
+/* Main carousel definitions */
 .invenio-page-body .extra.expanded {
   margin-bottom: 10px;
 }
@@ -92,6 +92,11 @@ a {
 
 .carousel-section {
   margin-top: 15px;
+}
+
+/* Communities carousel definitions */
+.ui.container.carousel {
+  background-color: transparent !important;
 }
 
 /* Geospatial viewer (Advanced search component) */

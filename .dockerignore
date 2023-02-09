@@ -25,6 +25,7 @@ Procfile*
 # Ignore local virtualenv (if present)
 .venv/
 venv/
+certs
 
 # Ignore PyCharm project
 .idea/

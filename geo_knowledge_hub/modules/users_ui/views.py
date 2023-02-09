@@ -17,9 +17,9 @@ from invenio_users_resources.proxies import current_user_resources
 @login_required
 def geo_user_uploads():
     """Display user dashboard page."""
-    url = current_user_resources.users_service.links_item_tpl.expand(g.identity, current_user)[
-        "avatar"
-    ]
+    url = current_user_resources.users_service.links_item_tpl.expand(
+        g.identity, current_user
+    )["avatar"]
     return render_template(
         "geo_knowledge_hub/users/uploads.html",
         searchbar_config=dict(searchUrl=get_search_url()),

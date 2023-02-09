@@ -1,12 +1,11 @@
 {%- extends "invenio_app_rdm/frontpage.html" %}
 
+{% from "invenio_communities/macros/communities_carousel.html" import communities_carousel %}
+
 {%- block css %}
 {{ super() }}
 <!-- Temporary solution! This is not the best way to do this! -->
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
-/>
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 {%- endblock css %}
 
 {%- block javascript %}
@@ -41,6 +40,11 @@
     e.preventDefault();
     swiper.slideTo(2);
   });
+
+  document.querySelector(".featured-communities-opt").addEventListener("click", (e) => {
+    e.preventDefault();
+    swiper.slideTo(3);
+  });
 </script>
 {%- endblock javascript %}
 
@@ -48,11 +52,11 @@
 {%- include "geo_knowledge_hub/base/header_frontpage.html" %}
 {%- endblock page_header %}
 
-{%- block first_section %}
+{%- block page_body %}
 <section class="centered float-section-buttons">
   <div class="ui compact menu">
     <div data-tooltip="Latest additions">
-      <a class="item latest-additions-opt" >
+      <a class="item latest-additions-opt">
         <i class="box icon"></i>
       </a>
     </div>
@@ -64,6 +68,11 @@
     <div data-tooltip="Search resources by conventions">
       <a class="item engagement-priorities-conventions-opt">
         <i class="handshake icon"></i>
+      </a>
+    </div>
+    <div data-tooltip="Featured communities">
+      <a class="item featured-communities-opt">
+        <i class="group icon"></i>
         <div class="floating ui teal label">New</div>
       </a>
     </div>
@@ -81,35 +90,35 @@
             </div>
           </div>
 
-
-         <div class="row mt-em-1">
-           <div class="sixteen wide column">
-             <div class="ui grid stackable centered">
-               {% for item in latest_records %}
-                 <div class="four wide column">
-                   <a href="/packages/{{ item['id'] }}" class="ui fluid card expanded">
-                     <div class="left aligned content">
-                       <div class="extra expanded">
-                         <div class="ui blue ribbon label">
-                           {{ item['ui']['publication_date_l10n_medium'] }}
-                         </div>
-                       </div>
-                       <div class="left aligned header"> {{ item['metadata']['title'] | truncate(150, true, '...') }} </div>
-                       <div class="meta">
-                         {% for creator in item['ui']['creators']['creators'][0:3] %}
-                           <span>{{ creator['person_or_org']['name'] }};</span>
-                         {% endfor %}
-                       </div>
-                       <div class="description aligned justified">
-                         {{ item['ui']['description_stripped'] | truncate(75, true, '...') }}
-                       </div>
-                     </div>
-                   </a>
-                 </div>
-               {% endfor %}
-             </div>
-           </div>
-         </div>
+          <div class="row mt-em-1">
+            <div class="sixteen wide column">
+              <div class="ui grid stackable centered">
+                {% for item in latest_records %}
+                <div class="four wide column">
+                  <a href="/packages/{{ item['id'] }}" class="ui fluid card expanded">
+                    <div class="left aligned content">
+                      <div class="extra expanded">
+                        <div class="ui blue ribbon label">
+                          {{ item['ui']['publication_date_l10n_medium'] }}
+                        </div>
+                      </div>
+                      <div class="left aligned header"> {{ item['metadata']['title'] | truncate(150, true, '...') }}
+                      </div>
+                      <div class="meta">
+                        {% for creator in item['ui']['creators']['creators'][0:3] %}
+                        <span>{{ creator['person_or_org']['name'] }};</span>
+                        {% endfor %}
+                      </div>
+                      <div class="description aligned justified">
+                        {{ item['ui']['description_stripped'] | truncate(75, true, '...') }}
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -152,14 +161,34 @@
           </div>
         </div>
       </div>
+
+      <div class="swiper-slide mt-lg-1">
+        <div class="ui grid">
+          <div class="row">
+            <div class="column centered">
+              <div class="section-subtitle-content">{{ _("Featured communities") }}</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="column centered">
+              <div class="ui container">
+                <div class="ui padded relaxed centered grid">
+                  {{ communities_carousel() }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
   </div>
 </section>
 
-{%- endblock first_section %}
+{%- endblock page_body %}
 
 {%- block second_section %}
 {%- endblock second_section %}
