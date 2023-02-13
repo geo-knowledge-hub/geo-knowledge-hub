@@ -64,6 +64,8 @@ def get_related_records_metadata(identity, record: Record) -> List:
             # Packages are only related to "packages". So, we need to
             # use the "record" service.
             record_related = read_record(identity, record_related_pid, "record")
-            related_records.append(record_related)
+
+            if record_related:
+                related_records.append(record_related)
 
     return related_records

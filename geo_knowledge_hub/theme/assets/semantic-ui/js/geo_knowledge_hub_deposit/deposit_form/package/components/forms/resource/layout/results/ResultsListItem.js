@@ -38,6 +38,7 @@ import {
   depositResourcesDetach,
   depositResourcesEdit,
   depositResourcesNewVersion,
+  depositResourcesDelete,
 } from "../../../../../state/operations/deposit";
 
 import { ComponentMessageId } from "../../messages";
@@ -114,6 +115,43 @@ class ResultsListItemComponent extends Component {
     }
 
     dispatchDepositResourcesEdit(
+      {
+        record,
+        config: depositConfig,
+      },
+      {
+        record,
+        menuLoading: true,
+        componentId: ComponentMessageId,
+      }
+    );
+  }
+
+  /**
+   * Operation method to exclude an existing draft record.
+   */
+  operationExcludeDraftRecord() {
+    // Props (Result)
+    const { result: record } = this.props;
+
+    // Props (Deposit store)
+    const { stateDepositConfigResource, dispatchDepositResourcesDelete } =
+      this.props;
+
+    // Preparing the configuration to edit the record
+    const depositConfig = _cloneDeep(stateDepositConfigResource);
+
+    // Checking if is a draft
+    const isDraft = record.status === "draft";
+
+    // ToDo: Should we move this to the redux reducer/operation ?
+    if (isDraft) {
+      _set(depositConfig, "apiUrl", record.links.self);
+    } else {
+      return null; // nothing to do! This is not acceptable by the API.
+    }
+
+    dispatchDepositResourcesDelete(
       {
         record,
         config: depositConfig,
@@ -300,7 +338,30 @@ class ResultsListItemComponent extends Component {
 
       if (isDraft && !isPackagePublished) {
         buttonDelete = (
-          <Dropdown.Item icon="delete" text={i18next.t("Exclude")} />
+          <Dropdown.Item
+            icon="delete"
+            text={i18next.t("Exclude")}
+            onClick={() => {
+              this.openConfirmationModal({
+                title: i18next.t("Resource exclusion"),
+                content: i18next.t(
+                  "Are you sure you want to exclude this resource ? This action cannot be undone."
+                ),
+                onAccept: (e) => {
+                  this.closeConfirmationModal(() => {
+                    console.log("Deleting button accepted");
+                    this.operationExcludeDraftRecord();
+                  });
+                },
+                onRefuse: (e) => {
+                  this.closeConfirmationModal();
+                },
+                onClose: (e) => {
+                  this.closeConfirmationModal();
+                },
+              });
+            }}
+          />
         );
       }
 
@@ -362,6 +423,7 @@ class ResultsListItemComponent extends Component {
                 {React.isValidElement(buttonDetach) && <Dropdown.Divider />}
               </>
             )}
+
             {buttonDetach}
             {buttonDelete}
           </Dropdown.Menu>
@@ -391,14 +453,15 @@ class ResultsListItemComponent extends Component {
                   {programmeActivityAcronym}
                 </Label>
               )}
-              {result.status in RECORD_STATUS && result.status !== "published" && (
-                <Label
-                  size="tiny"
-                  className={RECORD_STATUS[result.status].color}
-                >
-                  {RECORD_STATUS[result.status].title}
-                </Label>
-              )}
+              {result.status in RECORD_STATUS &&
+                result.status !== "published" && (
+                  <Label
+                    size="tiny"
+                    className={RECORD_STATUS[result.status].color}
+                  >
+                    {RECORD_STATUS[result.status].title}
+                  </Label>
+                )}
               <Label size="tiny" className="primary">
                 {publicationDate} ({version})
               </Label>
@@ -467,6 +530,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(depositResourcesDetach(recordData, operationMetadata)),
   dispatchDepositResourcesNewVersion: (recordData, operationMetadata) =>
     dispatch(depositResourcesNewVersion(recordData, operationMetadata)),
+  dispatchDepositResourcesDelete: (recordData, operationMetadata) =>
+    dispatch(depositResourcesDelete(recordData, operationMetadata)),
 });
 
 export const ResultsListItem = connect(

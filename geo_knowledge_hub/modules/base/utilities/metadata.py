@@ -34,6 +34,11 @@ def expand_metadata_from_package(identity, package):
             related_records_metadata
         )
 
+        # Processing metadata
+        related_records_metadata = record_utilities.mask_restricted_records(
+            related_records_metadata
+        )
+
         # Extract user stories
         related_records_metadata, user_stories = record_utilities.extract_user_stories(
             related_records_metadata

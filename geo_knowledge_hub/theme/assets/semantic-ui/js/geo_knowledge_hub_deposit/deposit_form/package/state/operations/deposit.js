@@ -48,6 +48,10 @@ import {
   DEPOSIT_RESOURCE_VERSION_RESOURCE_ERROR,
   DEPOSIT_RESOURCE_VERSION_RESOURCE_SUCCESS,
   DEPOSIT_RESOURCE_VERSION_RESOURCE_FINISH,
+  DEPOSIT_RESOURCE_DELETE_RESOURCE_SUCCESS,
+  DEPOSIT_RESOURCE_DELETE_RESOURCE_FINISH,
+  DEPOSIT_RESOURCE_DELETE_RESOURCE_START,
+  DEPOSIT_RESOURCE_DELETE_RESOURCE_ERROR,
 } from "../actions";
 
 import {
@@ -923,6 +927,120 @@ export const depositResourcesNewVersion = (recordData, operationMetadata) => {
 
     dispatch({
       type: DEPOSIT_RESOURCE_VERSION_RESOURCE_FINISH,
+      payload: operationMetadata,
+    });
+
+    dispatch(depositCleanMessages());
+  };
+};
+
+/**
+ * Dispatch operation to delete a draft record from the current package.
+ */
+export const depositResourcesDelete = (recordData, operationMetadata) => {
+  return async (dispatch, getState) => {
+    // Getting the package associates with the resource
+    const currentState = getState();
+
+    // Preparing the package object.
+    const { packageObject } = currentState.storage;
+    const { record: packageRecord } = packageObject;
+
+    // Base definitions
+    const recordApiClient = new RecordApiClient();
+
+    const operationTitleSuccess = i18next.t("Resource successfully deleted");
+    const operationTitleError = i18next.t(
+      "Error to delete the selected resource"
+    );
+
+    dispatch({
+      type: DEPOSIT_RESOURCE_DELETE_RESOURCE_START,
+      payload: operationMetadata,
+    });
+
+    // 1. Checking if the selected record can be handled
+    //    from the current package.
+    const { record: resourceData, config: resourceConfig } = recordData;
+
+    const packageParent = packageRecord.parent.id;
+    const resourceManager = resourceData.parent?.relationship?.managed_by?.id;
+
+    const resourceCanBeDeleted = resourceManager === packageParent;
+
+    if (resourceCanBeDeleted) {
+      try {
+        // 2. Checking if is a published resource
+        let recordDraft = resourceData;
+        const isPublished = resourceData.status === "published";
+
+        if (isPublished) {
+          dispatch({
+            type: DEPOSIT_RESOURCE_DELETE_RESOURCE_ERROR,
+            payload: {
+              title: operationTitleError,
+              errors: [
+                {
+                  message: i18next.t("You can't delete a published resource"),
+                },
+              ],
+              componentId: operationMetadata.componentId,
+            },
+          });
+        }
+
+        // 3. Deleting the draft record
+        else {
+          // The backup will remove the reference to the record from the package.
+          const deleteResponse = await recordApiClient.deleteDraft(
+            resourceData
+          );
+
+          if (deleteResponse.code !== 204) {
+            dispatch({
+              type: DEPOSIT_RESOURCE_DELETE_RESOURCE_ERROR,
+              payload: {
+                title: operationTitleError,
+                errors: deleteResponse.errors,
+                componentId: operationMetadata.componentId,
+              },
+            });
+          }
+          // 4. Updating the interface
+          else {
+            await dispatch(storageReloadPackageRecord());
+            await dispatch(layoutResourcesStartUpdateResourceList());
+
+            // 4.1. Finishing the operation
+            dispatch({
+              type: DEPOSIT_RESOURCE_DELETE_RESOURCE_SUCCESS,
+              payload: {
+                title: operationTitleSuccess,
+                componentId: operationMetadata.componentId,
+              },
+            });
+          }
+        }
+      } catch (error) {
+        dispatch({
+          type: DEPOSIT_RESOURCE_DELETE_RESOURCE_ERROR,
+          payload: {
+            title: operationTitleError,
+            errors: [
+              {
+                message: i18next.t(
+                  "Error in connecting with the GEO Knowledge Hub API"
+                ),
+              },
+            ],
+            componentId: operationMetadata.componentId,
+          },
+        });
+      }
+    }
+
+    await dispatch({
+      type: DEPOSIT_RESOURCE_DELETE_RESOURCE_FINISH,
       payload: operationMetadata,
     });
 
