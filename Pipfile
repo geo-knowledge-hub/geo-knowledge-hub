@@ -11,14 +11,10 @@ uwsgi = ">=2.0"
 uwsgitop = ">=0.11"
 uwsgi-tools = ">=1.1.1"
 
-flask = "<=2.2.2"
-flask-wtf = "<=1.0.1"
-
 invenio-app-rdm = {version = "~=11.0.0", extras = ["opensearch2", "postgresql", "s3"]}
-invenio-rdm-records = {ref = "b-1.5", git = "https://github.com/geo-knowledge-hub/invenio-rdm-records.git"}
 
 [requires]
-python_version = "3.9"
+python_version = "3.8"
 
 [pipenv]
 allow_prereleases = false

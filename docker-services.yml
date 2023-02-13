@@ -21,7 +21,7 @@ services:
             - "INVENIO_CACHE_TYPE=redis"
             - "INVENIO_CELERY_BROKER_URL=amqp://guest:guest@mq:5672/"
             - "INVENIO_CELERY_RESULT_BACKEND=redis://cache:6379/2"
-            - "INVENIO_SEARCH_ELASTIC_HOSTS=['search:9200']"
+            - "INVENIO_SEARCH_HOSTS=['search:9200']"
             - "INVENIO_SECRET_KEY=CHANGE_ME"
             - "INVENIO_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://geo-knowledge-hub:geo-knowledge-hub@db/geo-knowledge-hub"
             - "INVENIO_WSGI_PROXIES=2"
