@@ -28,7 +28,7 @@ export const EditButton = ({ record, onError }) => {
   const handleClick = async () => {
     setLoading(true);
     try {
-        await http.post(recordDraftLink).then((res) => {
+      await http.post(recordDraftLink).then((res) => {
         window.location = res.data.links.self_html;
       });
     } catch (error) {

@@ -208,12 +208,9 @@ export const PackageSelectorModal = ({
                         else {
                           const attachUrl = `/api/packages/${selectedPackage.id}/draft/resources`;
 
-                          const attachResponse = await http.post(
-                            attachUrl,
-                            {
-                              resources: [{ id: draftData.id }],
-                            }
-                          );
+                          const attachResponse = await http.post(attachUrl, {
+                            resources: [{ id: draftData.id }],
+                          });
 
                           if (attachResponse.status !== 200) {
                             return setErrors([

@@ -15,7 +15,14 @@ import Overridable from "react-overridable";
 import { http } from "react-invenio-forms";
 
 import { withCancel } from "react-invenio-forms";
-import { Transition, Container, Grid, Header, Item, Icon } from "semantic-ui-react";
+import {
+  Transition,
+  Container,
+  Grid,
+  Header,
+  Item,
+  Icon,
+} from "semantic-ui-react";
 
 import { i18next } from "@translations/invenio_communities/i18next";
 
@@ -132,7 +139,11 @@ class CommunitiesCarousel extends Component {
               </Container>
             )}
 
-            <Grid container onFocus={this.stopCarousel} onBlur={this.startCarousel}>
+            <Grid
+              container
+              onFocus={this.stopCarousel}
+              onBlur={this.startCarousel}
+            >
               <Grid.Column
                 width="2"
                 className="pr-0"

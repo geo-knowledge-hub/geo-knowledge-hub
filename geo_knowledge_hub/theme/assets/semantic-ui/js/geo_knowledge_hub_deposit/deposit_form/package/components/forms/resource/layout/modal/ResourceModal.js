@@ -8,6 +8,8 @@
 
 import React, { useState, Component, Fragment } from "react";
 
+import { useField } from "formik";
+
 import natsort from "natsort";
 
 import _get from "lodash/get";
@@ -131,6 +133,30 @@ class StepControllerComponent extends Component {
  * Step Controller Component.
  */
 const StepController = connect(StepControllerComponent);
+
+/**
+ * Importer component.
+ */
+const MetadataImporter = ({ metadataStorage, fieldPath }) => {
+  const [field, meta, helpers] = useField(fieldPath);
+
+  return (
+    <Button
+      fluid
+      basic
+      size={"medium"}
+      type={"button"}
+      icon={"sync alternate"}
+      onClick={async () => {
+        // getting the data from the storage
+        const storedData = _get(metadataStorage, fieldPath);
+
+        // replacing the value
+        helpers.setValue(storedData);
+      }}
+    />
+  );
+};
 
 /**
  * Modal refresher component.
@@ -496,19 +522,33 @@ export class ResourceModalContent extends Component {
             <Grid>
               <Grid.Row>
                 <Grid.Column width={16}>
-                  <LanguagesField
-                    fieldPath="metadata.languages"
-                    initialOptions={_get(record, "ui.languages", []).filter(
-                      (lang) => lang !== null
-                    )} // needed because dumped empty record from backend gives [null]
-                    serializeSuggestions={(suggestions) =>
-                      suggestions.map((item) => ({
-                        text: item.title_l10n,
-                        value: item.id,
-                        key: item.id,
-                      }))
-                    }
-                  />
+                  <Grid>
+                    <Grid.Row verticalAlign={"bottom"}>
+                      <Grid.Column width={15}>
+                        <LanguagesField
+                          fieldPath="metadata.languages"
+                          initialOptions={_get(
+                            record,
+                            "ui.languages",
+                            []
+                          ).filter((lang) => lang !== null)} // needed because dumped empty record from backend gives [null]
+                          serializeSuggestions={(suggestions) =>
+                            suggestions.map((item) => ({
+                              text: item.title_l10n,
+                              value: item.id,
+                              key: item.id,
+                            }))
+                          }
+                        />
+                      </Grid.Column>
+                      <Grid.Column width={1} textAlign={"center"}>
+                        <MetadataImporter
+                          metadataStorage={modalPackageRecord}
+                          fieldPath={"metadata.languages"}
+                        />
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
                 </Grid.Column>
               </Grid.Row>
 
@@ -546,31 +586,57 @@ export class ResourceModalContent extends Component {
             <Grid columns={2} divided>
               <Grid.Row>
                 <Grid.Column>
-                  <CreatibutorsField
-                    label={i18next.t("Creators")}
-                    labelIcon="user"
-                    fieldPath="metadata.creators"
-                    roleOptions={this.vocabularies.metadata.creators.role}
-                    schema="creators"
-                    autocompleteNames={this.config.autocomplete_names}
-                    required
-                  />
+                  <Grid>
+                    <Grid.Row verticalAlign={"bottom"}>
+                      <Grid.Column width={14}>
+                        <CreatibutorsField
+                          label={i18next.t("Creators")}
+                          labelIcon="user"
+                          fieldPath="metadata.creators"
+                          roleOptions={this.vocabularies.metadata.creators.role}
+                          schema="creators"
+                          autocompleteNames={this.config.autocomplete_names}
+                          required
+                        />
+                      </Grid.Column>
+                      <Grid.Column width={2} textAlign={"center"}>
+                        <MetadataImporter
+                          metadataStorage={modalPackageRecord}
+                          fieldPath={"metadata.creators"}
+                        />
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
                 </Grid.Column>
 
                 <Grid.Column>
-                  <CreatibutorsField
-                    addButtonLabel={i18next.t("Add contributor")}
-                    label={i18next.t("Contributors")}
-                    labelIcon="user plus"
-                    fieldPath="metadata.contributors"
-                    roleOptions={this.vocabularies.metadata.contributors.role}
-                    schema="contributors"
-                    autocompleteNames={this.config.autocomplete_names}
-                    modal={{
-                      addLabel: "Add contributor",
-                      editLabel: "Edit contributor",
-                    }}
-                  />
+                  <Grid>
+                    <Grid.Row verticalAlign={"bottom"}>
+                      <Grid.Column width={14}>
+                        <CreatibutorsField
+                          addButtonLabel={i18next.t("Add contributor")}
+                          label={i18next.t("Contributors")}
+                          labelIcon="user plus"
+                          fieldPath="metadata.contributors"
+                          roleOptions={
+                            this.vocabularies.metadata.contributors.role
+                          }
+                          schema="contributors"
+                          autocompleteNames={this.config.autocomplete_names}
+                          modal={{
+                            addLabel: "Add contributor",
+                            editLabel: "Edit contributor",
+                          }}
+                        />
+                      </Grid.Column>
+                      <Grid.Column width={2} textAlign={"center"}>
+                        <MetadataImporter
+                          metadataStorage={modalPackageRecord}
+                          fieldPath={"metadata.contributors"}
+                        />
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -584,26 +650,54 @@ export class ResourceModalContent extends Component {
             <Grid>
               <Grid.Row>
                 <Grid.Column width={16}>
-                  <SubjectsField
-                    fieldPath="metadata.subjects"
-                    initialOptions={_get(record, "ui.subjects", null)}
-                    limitToOptions={
-                      this.vocabularies.metadata.subjects.limit_to
-                    }
-                  />
+                  <Grid>
+                    <Grid.Row verticalAlign={"middle"}>
+                      <Grid.Column width={15}>
+                        <SubjectsField
+                          fieldPath="metadata.subjects"
+                          initialOptions={_get(record, "ui.subjects", null)}
+                          limitToOptions={
+                            this.vocabularies.metadata.subjects.limit_to
+                          }
+                        />
+                      </Grid.Column>
+                      <Grid.Column width={1} textAlign={"center"}>
+                        <MetadataImporter
+                          metadataStorage={modalPackageRecord}
+                          fieldPath={"metadata.subjects"}
+                        />
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
                 </Grid.Column>
               </Grid.Row>
 
               <Grid.Row>
                 <Grid.Column width={16}>
-                  <WorkProgrammeActivityField
-                    required={false}
-                    initialSuggestions={
-                      _compact([
-                        _get(record, "ui.geo_work_programme_activity", null),
-                      ]) || null
-                    }
-                  />
+                  <Grid>
+                    <Grid.Row verticalAlign={"bottom"}>
+                      <Grid.Column width={14}>
+                        <WorkProgrammeActivityField
+                          required={false}
+                          initialSuggestions={
+                            _compact([
+                              _get(
+                                record,
+                                "ui.geo_work_programme_activity",
+                                null
+                              ),
+                            ]) || null
+                          }
+                        />
+                      </Grid.Column>
+                      <Grid.Column width={2} textAlign={"center"}>
+                        <MetadataImporter
+                          metadataStorage={modalPackageRecord}
+                          fieldPath={"metadata.geo_work_programme_activity"}
+                        />
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -611,24 +705,48 @@ export class ResourceModalContent extends Component {
             <Grid columns={2} divided>
               <Grid.Row>
                 <Grid.Column>
-                  <EngagementPriorityField
-                    required={false}
-                    initialSuggestions={_get(
-                      record,
-                      "ui.engagement_priorities",
-                      null
-                    )}
-                  />
+                  <Grid>
+                    <Grid.Row verticalAlign={"bottom"}>
+                      <Grid.Column width={14}>
+                        <EngagementPriorityField
+                          required={false}
+                          initialSuggestions={_get(
+                            record,
+                            "ui.engagement_priorities",
+                            null
+                          )}
+                        />
+                      </Grid.Column>
+                      <Grid.Column width={2} textAlign={"center"}>
+                        <MetadataImporter
+                          metadataStorage={modalPackageRecord}
+                          fieldPath={"metadata.engagement_priorities"}
+                        />
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
                 </Grid.Column>
                 <Grid.Column>
-                  <TargetAudienceField
-                    required={false}
-                    initialSuggestions={_get(
-                      record,
-                      "ui.target_audiences",
-                      null
-                    )}
-                  />
+                  <Grid>
+                    <Grid.Row verticalAlign={"bottom"}>
+                      <Grid.Column width={14}>
+                        <TargetAudienceField
+                          required={false}
+                          initialSuggestions={_get(
+                            record,
+                            "ui.target_audiences",
+                            null
+                          )}
+                        />
+                      </Grid.Column>
+                      <Grid.Column width={2} textAlign={"center"}>
+                        <MetadataImporter
+                          metadataStorage={modalPackageRecord}
+                          fieldPath={"metadata.target_audiences"}
+                        />
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -675,116 +793,152 @@ export class ResourceModalContent extends Component {
             <Grid>
               <Grid.Row>
                 <Grid.Column width={16}>
-                  <PublisherField fieldPath="metadata.publisher" />
+                  <Grid>
+                    <Grid.Row verticalAlign={"middle"}>
+                      <Grid.Column width={15}>
+                        <PublisherField fieldPath="metadata.publisher" />
+                      </Grid.Column>
+                      <Grid.Column width={1} textAlign={"center"}>
+                        <MetadataImporter
+                          metadataStorage={modalPackageRecord}
+                          fieldPath={"metadata.publisher"}
+                        />
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
                 </Grid.Column>
               </Grid.Row>
 
               <Grid.Row centered>
                 <Grid.Column width={16}>
-                  <LicenseField
-                    fieldPath="metadata.rights"
-                    searchConfig={{
-                      searchApi: {
-                        axios: {
-                          headers: {
-                            Accept: "application/vnd.inveniordm.v1+json",
-                          },
-                          url: "/api/vocabularies/licenses",
-                          withCredentials: false,
-                        },
-                      },
-                      initialQueryState: {
-                        filters: [["tags", "recommended"]],
-                      },
-                    }}
-                    serializeLicenses={(result) => ({
-                      title: result.title_l10n,
-                      description: result.description_l10n,
-                      id: result.id,
-                      link: result.props.url,
-                    })}
-                  />
+                  <Grid>
+                    <Grid.Row verticalAlign={"bottom"}>
+                      <Grid.Column width={14}>
+                        <LicenseField
+                          fieldPath="metadata.rights"
+                          searchConfig={{
+                            searchApi: {
+                              axios: {
+                                headers: {
+                                  Accept: "application/vnd.inveniordm.v1+json",
+                                },
+                                url: "/api/vocabularies/licenses",
+                                withCredentials: false,
+                              },
+                            },
+                            initialQueryState: {
+                              filters: [["tags", "recommended"]],
+                            },
+                          }}
+                          serializeLicenses={(result) => ({
+                            title: result.title_l10n,
+                            description: result.description_l10n,
+                            id: result.id,
+                            link: result.props.url,
+                          })}
+                        />
+                      </Grid.Column>
+                      <Grid.Column width={2} textAlign={"center"}>
+                        <MetadataImporter
+                          metadataStorage={modalPackageRecord}
+                          fieldPath={"metadata.rights"}
+                        />
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
                 </Grid.Column>
               </Grid.Row>
 
               <Grid.Row>
                 <Grid.Column>
-                  <FundingField
-                    fieldPath="metadata.funding"
-                    searchConfig={{
-                      searchApi: {
-                        axios: {
-                          headers: {
-                            Accept: "application/vnd.inveniordm.v1+json",
-                          },
-                          url: "/api/awards",
-                          withCredentials: false,
-                        },
-                      },
-                      initialQueryState: {
-                        sortBy: "bestmatch",
-                        sortOrder: "asc",
-                        layout: "list",
-                        page: 1,
-                        size: 5,
-                      },
-                    }}
-                    label="Awards"
-                    labelIcon="money bill alternate outline"
-                    deserializeAward={(award) => {
-                      return {
-                        title: award.title_l10n,
-                        number: award.number,
-                        funder: award.funder ?? "",
-                        id: award.id,
-                        ...(award.identifiers && {
-                          identifiers: award.identifiers,
-                        }),
-                        ...(award.acronym && { acronym: award.acronym }),
-                      };
-                    }}
-                    deserializeFunder={(funder) => {
-                      return {
-                        id: funder.id,
-                        name: funder.name,
-                        ...(funder.title_l10n && { title: funder.title_l10n }),
-                        ...(funder.pid && { pid: funder.pid }),
-                        ...(funder.country && { country: funder.country }),
-                        ...(funder.identifiers && {
-                          identifiers: funder.identifiers,
-                        }),
-                      };
-                    }}
-                    computeFundingContents={(funding) => {
-                      let headerContent,
-                        descriptionContent,
-                        awardOrFunder = "";
+                  <Grid>
+                    <Grid.Row verticalAlign={"bottom"}>
+                      <Grid.Column width={14}>
+                        <FundingField
+                          fieldPath="metadata.funding"
+                          searchConfig={{
+                            searchApi: {
+                              axios: {
+                                headers: {
+                                  Accept: "application/vnd.inveniordm.v1+json",
+                                },
+                                url: "/api/awards",
+                                withCredentials: false,
+                              },
+                            },
+                            initialQueryState: {
+                              sortBy: "bestmatch",
+                              sortOrder: "asc",
+                              layout: "list",
+                              page: 1,
+                              size: 5,
+                            },
+                          }}
+                          label="Awards"
+                          labelIcon="money bill alternate outline"
+                          deserializeAward={(award) => {
+                            return {
+                              title: award.title_l10n,
+                              number: award.number,
+                              funder: award.funder ?? "",
+                              id: award.id,
+                              ...(award.identifiers && {
+                                identifiers: award.identifiers,
+                              }),
+                              ...(award.acronym && { acronym: award.acronym }),
+                            };
+                          }}
+                          deserializeFunder={(funder) => {
+                            return {
+                              id: funder.id,
+                              name: funder.name,
+                              ...(funder.title_l10n && { title: funder.title_l10n }),
+                              ...(funder.pid && { pid: funder.pid }),
+                              ...(funder.country && { country: funder.country }),
+                              ...(funder.identifiers && {
+                                identifiers: funder.identifiers,
+                              }),
+                            };
+                          }}
+                          computeFundingContents={(funding) => {
+                            let headerContent,
+                              descriptionContent,
+                              awardOrFunder = "";
 
-                      if (funding.funder) {
-                        const funderName =
-                          funding.funder?.name ??
-                          funding.funder?.title ??
-                          funding.funder?.id ??
-                          "";
-                        awardOrFunder = "funder";
-                        headerContent = funderName;
-                        descriptionContent = "";
+                            if (funding.funder) {
+                              const funderName =
+                                funding.funder?.name ??
+                                funding.funder?.title ??
+                                funding.funder?.id ??
+                                "";
+                              awardOrFunder = "funder";
+                              headerContent = funderName;
+                              descriptionContent = "";
 
-                        // there cannot be an award without a funder
-                        if (funding.award) {
-                          awardOrFunder = "award";
-                          descriptionContent = funderName;
-                          headerContent = funding.award.title;
-                        }
-                      }
+                              // there cannot be an award without a funder
+                              if (funding.award) {
+                                awardOrFunder = "award";
+                                descriptionContent = funderName;
+                                headerContent = funding.award.title;
+                              }
+                            }
 
-                      return {
-                        headerContent,
-                        descriptionContent,
-                        awardOrFunder,
-                      };
-                    }}
-                  />
+                            return {
+                              headerContent,
+                              descriptionContent,
+                              awardOrFunder,
+                            };
+                          }}
+                        />
+                      </Grid.Column>
+                      <Grid.Column width={2} textAlign={"center"}>
+                        <MetadataImporter
+                          metadataStorage={modalPackageRecord}
+                          fieldPath={"metadata.funding"}
+                        />
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
