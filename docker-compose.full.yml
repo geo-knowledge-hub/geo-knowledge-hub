@@ -106,7 +106,7 @@ services:
             file: docker-services.yml
             service: app
         restart: "always"
-        command: ["celery -A invenio_app.celery worker --loglevel=INFO"]
+        command: ["celery -A invenio_app.celery worker --beat --loglevel=INFO"]
         image: geo-knowledge-hub
         depends_on:
             search:
