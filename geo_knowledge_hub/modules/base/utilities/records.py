@@ -48,9 +48,13 @@ def read_record(identity, record_pid, record_type) -> Union[None, Dict]:
     service = get_record_service(record_type)
 
     methods = (service.read, service.read_draft)
-    exceptions = (NoResultFound, PIDUnregistered, PIDDoesNotExistError)
 
     exceptions_permission = (PermissionDeniedError,)
+    exceptions_unavailable = (
+        NoResultFound,
+        PIDUnregistered,
+        PIDDoesNotExistError,
+    )
 
     for method in methods:
         try:
@@ -60,7 +64,7 @@ def read_record(identity, record_pid, record_type) -> Union[None, Dict]:
             res["status"] = "open"
 
             break
-        except exceptions:
+        except exceptions_unavailable:
             continue
 
         except exceptions_permission:
@@ -68,6 +72,13 @@ def read_record(identity, record_pid, record_type) -> Union[None, Dict]:
             res = res.to_dict()
 
             res["status"] = "restricted"
+
+            # checking if it is a draft
+            if method == service.read_draft:
+                # (temporary solution) draft should not be presented
+                # in the future `draft` packages will not create associations
+                # with resources.
+                res = None
 
     return res
 
