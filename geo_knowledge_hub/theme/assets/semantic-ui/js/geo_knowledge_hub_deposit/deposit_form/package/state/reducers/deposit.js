@@ -45,6 +45,11 @@ import {
   DEPOSIT_RESOURCE_VERSION_RESOURCE_ERROR,
   DEPOSIT_RESOURCE_VERSION_RESOURCE_SUCCESS,
   DEPOSIT_RESOURCE_VERSION_RESOURCE_FINISH,
+  // Deposit operation: Delete resource version from the package.
+  DEPOSIT_RESOURCE_DELETE_RESOURCE_START,
+  DEPOSIT_RESOURCE_DELETE_RESOURCE_SUCCESS,
+  DEPOSIT_RESOURCE_DELETE_RESOURCE_ERROR,
+  DEPOSIT_RESOURCE_DELETE_RESOURCE_FINISH,
 } from "../actions";
 
 const initialState = {
@@ -75,6 +80,7 @@ export const depositReducer = (state = initialState, action) => {
     case DEPOSIT_RESOURCE_EDITING_RESOURCE_START:
     case DEPOSIT_RESOURCES_DETACHING_START:
     case DEPOSIT_RESOURCE_VERSION_RESOURCE_START:
+    case DEPOSIT_RESOURCE_DELETE_RESOURCE_START:
       return {
         ...state,
         depositOperationMessage: {},
@@ -89,6 +95,7 @@ export const depositReducer = (state = initialState, action) => {
     case DEPOSIT_RESOURCE_EDITING_RESOURCE_SUCCESS:
     case DEPOSIT_RESOURCES_DETACHING_SUCCESS:
     case DEPOSIT_RESOURCE_VERSION_RESOURCE_SUCCESS:
+    case DEPOSIT_RESOURCE_DELETE_RESOURCE_SUCCESS:
       return {
         ...state,
         depositHasUpdated: true,
@@ -102,6 +109,7 @@ export const depositReducer = (state = initialState, action) => {
     case DEPOSIT_RESOURCE_EDITING_RESOURCE_ERROR:
     case DEPOSIT_RESOURCES_DETACHING_ERROR:
     case DEPOSIT_RESOURCE_VERSION_RESOURCE_ERROR:
+    case DEPOSIT_RESOURCE_DELETE_RESOURCE_ERROR:
       return {
         ...state,
         depositOperationMessage: action.payload,
@@ -114,6 +122,7 @@ export const depositReducer = (state = initialState, action) => {
     case DEPOSIT_RESOURCE_EDITING_RESOURCE_FINISH:
     case DEPOSIT_RESOURCES_DETACHING_FINISH:
     case DEPOSIT_RESOURCE_VERSION_RESOURCE_FINISH:
+    case DEPOSIT_RESOURCE_DELETE_RESOURCE_FINISH:
       return {
         ...state,
         depositOperationMetadata: {},

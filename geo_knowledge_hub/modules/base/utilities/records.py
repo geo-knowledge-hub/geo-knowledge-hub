@@ -8,6 +8,7 @@
 
 """GEO Knowledge Hub Detail (page) record handler."""
 
+import json
 from typing import Dict, List, Tuple, Union
 
 from flask import abort, current_app, request, url_for
@@ -15,12 +16,14 @@ from flask_principal import Identity
 from geo_rdm_records.base.resources.serializers import (
     UIRecordJSONSerializer as UIJSONSerializer,
 )
+from invenio_access.permissions import system_identity
 from invenio_app_rdm.records_ui.views.records import PreviewFile
 from invenio_base.utils import obj_or_import_string
-from invenio_pidstore.errors import PIDUnregistered
+from invenio_pidstore.errors import PIDDoesNotExistError, PIDUnregistered
 from invenio_previewer.extensions import default
 from invenio_previewer.proxies import current_previewer
 from invenio_records.api import Record
+from invenio_records_resources.services.errors import PermissionDeniedError
 from invenio_vocabularies.proxies import current_service as vocabulary_service
 from pydash import py_
 from sqlalchemy.orm.exc import NoResultFound
@@ -44,13 +47,88 @@ def read_record(identity, record_pid, record_type) -> Union[None, Dict]:
     res = None
     service = get_record_service(record_type)
 
-    try:
-        res = service.read(identity, record_pid)
+    methods = (service.read, service.read_draft)
+    exceptions = (NoResultFound, PIDUnregistered, PIDDoesNotExistError)
 
-    except (NoResultFound, PIDUnregistered):
-        res = service.read_draft(identity, record_pid)
+    exceptions_permission = (PermissionDeniedError,)
 
-    return res.to_dict()
+    for method in methods:
+        try:
+            res = method(identity, record_pid)
+            res = res.to_dict()
+
+            res["status"] = "open"
+
+            break
+        except exceptions:
+            continue
+
+        except exceptions_permission:
+            res = method(system_identity, record_pid)
+            res = res.to_dict()
+
+            res["status"] = "restricted"
+
+    return res
+
+
+def mask_restricted_records(related_identifiers: List[Dict]) -> List[Dict]:
+    """Mask information from records which the logged user don't have access.
+
+    Args:
+        related_identifiers (List[Dict]): List with Relation Object.
+
+    Returns:
+        List[Dict]: Updated list of Relation Object.
+    """
+    for related_identifier in related_identifiers:
+        if related_identifier["status"] == "restricted":
+            # hiding metadata fields
+            metadata_fields_to_remove = [
+                "creators",
+                "title",
+                "additional_titles",
+                "description",
+                "additional_descriptions",
+                "rights",
+                "contributors",
+                "subjects",
+                "languages",
+                "dates",
+                "version",
+                "publisher",
+                "identifiers",
+                "related_identifiers",
+                "sizes",
+                "formats",
+                "locations",
+                "funding",
+                "references",
+            ]
+
+            for metadata_field_to_remove in metadata_fields_to_remove:
+                # ui
+                py_.unset(related_identifier, f"ui.{metadata_field_to_remove}")
+
+                # metadata
+                py_.unset(related_identifier, f"metadata.{metadata_field_to_remove}")
+
+            # hiding title
+            py_.set(related_identifier, "metadata.title", "Restricted resource")
+
+            # hiding description
+            py_.set(
+                related_identifier,
+                "metadata.description",
+                "You don't have access to this resource",
+            )
+
+            # hiding files reference
+            py_.set(related_identifier, "files", dict(enabled=False))
+
+            print(json.dumps(related_identifier))
+
+    return related_identifiers
 
 
 def get_engagement_priority_from_record(
