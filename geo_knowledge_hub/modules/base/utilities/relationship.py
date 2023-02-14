@@ -36,7 +36,8 @@ def get_related_package_metadata(identity, record: Record) -> List:
             package_pid = package.get("id")
             package_metadata = read_record(identity, package_pid, "package")
 
-            packages_metadata.append(package_metadata)
+            if package_metadata:
+                packages_metadata.append(package_metadata)
 
     return packages_metadata
 
