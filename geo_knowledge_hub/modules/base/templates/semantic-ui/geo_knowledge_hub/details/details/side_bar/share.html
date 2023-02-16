@@ -5,6 +5,7 @@
     it under the terms of the MIT License; see LICENSE file for more details.
 #}
 
+{% if not is_preview %}
 <section id="record-versions" aria-label="{{ _('Share the record') }}" class="ui segment rdm-sidebar">
     <h2 class="ui small header">{{ _('Share')}}</h2>
 
@@ -19,3 +20,4 @@
           </div>
     </div>
 </section>
+{% endif %}
