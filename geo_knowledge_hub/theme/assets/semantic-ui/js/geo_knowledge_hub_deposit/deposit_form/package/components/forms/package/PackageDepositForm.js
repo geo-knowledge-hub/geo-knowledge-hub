@@ -320,7 +320,9 @@ export class PackageDepositFormComponentBase extends Component {
                         label={i18next.t("Contributors")}
                         labelIcon="user plus"
                         fieldPath="metadata.contributors"
-                        roleOptions={this.vocabularies.metadata.contributors.role}
+                        roleOptions={
+                          this.vocabularies.metadata.contributors.role
+                        }
                         schema="contributors"
                         autocompleteNames={this.config.autocomplete_names}
                         modal={{

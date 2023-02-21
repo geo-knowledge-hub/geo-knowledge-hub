@@ -17,7 +17,6 @@ import { Grid, Header, Item, Button } from "semantic-ui-react";
 
 import { i18next } from "@translations/invenio_communities/i18next";
 
-
 class CommunitiesCarouselItem extends Component {
   render() {
     const { community, defaultLogo, className } = this.props;
@@ -33,7 +32,11 @@ class CommunitiesCarouselItem extends Component {
           className={`carousel flex align-items-center ${className}`}
           key={community.id}
         >
-          <Image size={"medium"} src={community.links.logo} fallbackSrc={defaultLogo}/>
+          <Image
+            size={"medium"}
+            src={community.links.logo}
+            fallbackSrc={defaultLogo}
+          />
           <Item.Content>
             <Item.Header as={Grid} stackable className="rel-pb-1">
               <Grid.Column computer="13" tablet="16" className="pl-0 pb-0">

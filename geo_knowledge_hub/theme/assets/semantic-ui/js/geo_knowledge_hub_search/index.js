@@ -21,18 +21,15 @@ import {
   RDMToggleComponent,
 } from "@invenio-app-rdm/search/components";
 
-
 import {
   ContribSearchAppFacets,
   ContribBucketAggregationElement,
   ContribBucketAggregationValuesElement,
 } from "@js/invenio_search_ui/components";
 
-
 const ContribSearchAppFacetsWithConfig = parametrize(ContribSearchAppFacets, {
   toogle: true,
 });
-
 
 createSearchAppInit({
   "BucketAggregation.element": ContribBucketAggregationElement,

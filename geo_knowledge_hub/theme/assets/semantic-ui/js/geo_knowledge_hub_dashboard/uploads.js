@@ -48,7 +48,6 @@ import {
 } from "@invenio-app-rdm/user_dashboard/base";
 import { createSearchAppInit } from "@js/invenio_search_ui";
 
-
 import {
   extractProgrammeActivityAcronym,
   recordTypeLinksFactory,
