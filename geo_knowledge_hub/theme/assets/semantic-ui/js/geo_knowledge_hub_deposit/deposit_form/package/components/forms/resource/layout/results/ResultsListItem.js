@@ -349,7 +349,6 @@ class ResultsListItemComponent extends Component {
                 ),
                 onAccept: (e) => {
                   this.closeConfirmationModal(() => {
-                    console.log("Deleting button accepted");
                     this.operationExcludeDraftRecord();
                   });
                 },

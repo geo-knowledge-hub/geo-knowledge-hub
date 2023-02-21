@@ -12,8 +12,12 @@ import { useField } from "formik";
 
 import natsort from "natsort";
 
+import _has from "lodash/has";
+import _set from "lodash/set";
 import _get from "lodash/get";
 import _isNil from "lodash/isNil";
+import _concat from "lodash/concat";
+import _uniqBy from "lodash/unionBy";
 import _groupBy from "lodash/groupBy";
 import _compact from "lodash/compact";
 import _upperFirst from "lodash/upperFirst";
@@ -137,7 +141,12 @@ const StepController = connect(StepControllerComponent);
 /**
  * Importer component.
  */
-const MetadataImporter = ({ metadataStorage, fieldPath }) => {
+const MetadataImporter = ({
+  metadataStorage,
+  fieldPath,
+  fieldPathAlternate,
+  serializer,
+}) => {
   const [field, meta, helpers] = useField(fieldPath);
 
   return (
@@ -149,7 +158,15 @@ const MetadataImporter = ({ metadataStorage, fieldPath }) => {
       icon={"sync alternate"}
       onClick={async () => {
         // getting the data from the storage
-        const storedData = _get(metadataStorage, fieldPath);
+        let currentFieldPath = _isNil(fieldPathAlternate)
+          ? fieldPath
+          : fieldPathAlternate;
+        let storedData = _get(metadataStorage, currentFieldPath);
+
+        // serializing
+        if (!_isNil(serializer)) {
+          storedData = serializer(storedData);
+        }
 
         // replacing the value
         helpers.setValue(storedData);
@@ -527,10 +544,11 @@ export class ResourceModalContent extends Component {
                       <Grid.Column width={15}>
                         <LanguagesField
                           fieldPath="metadata.languages"
-                          initialOptions={_get(
-                            record,
-                            "ui.languages",
-                            []
+                          initialOptions={_compact(
+                            _concat(
+                              _get(record, "ui.languages"),
+                              _get(modalPackageRecord, "ui.languages")
+                            )
                           ).filter((lang) => lang !== null)} // needed because dumped empty record from backend gives [null]
                           serializeSuggestions={(suggestions) =>
                             suggestions.map((item) => ({
@@ -603,6 +621,15 @@ export class ResourceModalContent extends Component {
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.creators"}
+                          serializer={(values) => {
+                            return values.map((value) => {
+                              if (_has(value, "role.id")) {
+                                value.role = value.role.id;
+                              }
+
+                              return value;
+                            });
+                          }}
                         />
                       </Grid.Column>
                     </Grid.Row>
@@ -633,6 +660,15 @@ export class ResourceModalContent extends Component {
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.contributors"}
+                          serializer={(values) => {
+                            return values.map((value) => {
+                              if (_has(value, "role.id")) {
+                                value.role = value.role.id;
+                              }
+
+                              return value;
+                            });
+                          }}
                         />
                       </Grid.Column>
                     </Grid.Row>
@@ -654,8 +690,14 @@ export class ResourceModalContent extends Component {
                     <Grid.Row verticalAlign={"middle"}>
                       <Grid.Column width={15}>
                         <SubjectsField
+                          metadataStorage={modalPackageRecord}
                           fieldPath="metadata.subjects"
-                          initialOptions={_get(record, "ui.subjects", null)}
+                          initialSuggestions={_compact(
+                            _concat(
+                              _get(record, "metadata.subjects", []),
+                              _get(modalPackageRecord, "metadata.subjects", [])
+                            )
+                          )}
                           limitToOptions={
                             this.vocabularies.metadata.subjects.limit_to
                           }
@@ -671,7 +713,6 @@ export class ResourceModalContent extends Component {
                   </Grid>
                 </Grid.Column>
               </Grid.Row>
-
               <Grid.Row>
                 <Grid.Column width={16}>
                   <Grid>
@@ -680,13 +721,20 @@ export class ResourceModalContent extends Component {
                         <WorkProgrammeActivityField
                           required={false}
                           initialSuggestions={
-                            _compact([
-                              _get(
-                                record,
-                                "ui.geo_work_programme_activity",
-                                null
-                              ),
-                            ]) || null
+                            _compact(
+                              _concat(
+                                _get(
+                                  record,
+                                  "ui.geo_work_programme_activity",
+                                  null
+                                ),
+                                _get(
+                                  modalPackageRecord,
+                                  "ui.geo_work_programme_activity",
+                                  null
+                                )
+                              )
+                            ) || null
                           }
                         />
                       </Grid.Column>
@@ -694,6 +742,13 @@ export class ResourceModalContent extends Component {
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.geo_work_programme_activity"}
+                          serializer={(values) => {
+                            if (Array.isArray(values)) {
+                              return values.map((value) => value.id);
+                            }
+
+                            return values.id;
+                          }}
                         />
                       </Grid.Column>
                     </Grid.Row>
@@ -710,10 +765,16 @@ export class ResourceModalContent extends Component {
                       <Grid.Column width={14}>
                         <EngagementPriorityField
                           required={false}
-                          initialSuggestions={_get(
-                            record,
-                            "ui.engagement_priorities",
-                            null
+                          initialSuggestions={_compact(
+                            _concat(
+                              _get(record, "ui.engagement_priorities", null),
+
+                              _get(
+                                modalPackageRecord,
+                                "ui.engagement_priorities",
+                                null
+                              )
+                            )
                           )}
                         />
                       </Grid.Column>
@@ -721,6 +782,9 @@ export class ResourceModalContent extends Component {
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.engagement_priorities"}
+                          serializer={(values) => {
+                            return values.map((value) => value.id);
+                          }}
                         />
                       </Grid.Column>
                     </Grid.Row>
@@ -732,10 +796,16 @@ export class ResourceModalContent extends Component {
                       <Grid.Column width={14}>
                         <TargetAudienceField
                           required={false}
-                          initialSuggestions={_get(
-                            record,
-                            "ui.target_audiences",
-                            null
+                          initialSuggestions={_compact(
+                            _concat(
+                              _get(record, "ui.target_audiences", null),
+
+                              _get(
+                                modalPackageRecord,
+                                "ui.target_audiences",
+                                null
+                              )
+                            )
                           )}
                         />
                       </Grid.Column>
@@ -743,6 +813,9 @@ export class ResourceModalContent extends Component {
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.target_audiences"}
+                          serializer={(values) => {
+                            return values.map((value) => value.id);
+                          }}
                         />
                       </Grid.Column>
                     </Grid.Row>
@@ -842,6 +915,27 @@ export class ResourceModalContent extends Component {
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.rights"}
+                          serializer={(values) => {
+                            return values.map((value) => {
+                              // ToDo: Replace "english" reference by l10n reference;
+                              const title = _has(value, "title.en")
+                                ? value.title.en
+                                : value.title;
+                              const description = _has(value, "description.en")
+                                ? value.description.en
+                                : value.description;
+                              const link = _has(value, "props.url")
+                                ? value.props.url
+                                : value.link;
+
+                              return {
+                                id: value.id,
+                                title: title,
+                                description: description,
+                                link: link,
+                              };
+                            });
+                          }}
                         />
                       </Grid.Column>
                     </Grid.Row>
@@ -892,9 +986,13 @@ export class ResourceModalContent extends Component {
                             return {
                               id: funder.id,
                               name: funder.name,
-                              ...(funder.title_l10n && { title: funder.title_l10n }),
+                              ...(funder.title_l10n && {
+                                title: funder.title_l10n,
+                              }),
                               ...(funder.pid && { pid: funder.pid }),
-                              ...(funder.country && { country: funder.country }),
+                              ...(funder.country && {
+                                country: funder.country,
+                              }),
                               ...(funder.identifiers && {
                                 identifiers: funder.identifiers,
                               }),
@@ -935,6 +1033,22 @@ export class ResourceModalContent extends Component {
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.funding"}
+                          serializer={(values) => {
+                            return values.map((value) => {
+                              // ToDo: Replace "english" reference by l10n reference;
+                              return {
+                                ...value,
+                                award: {
+                                  number: _get(value, "award.number"),
+                                  title: _get(value, "award.title.en"),
+                                  url: _get(
+                                    value,
+                                    "award.identifiers.0.identifier"
+                                  ),
+                                },
+                              };
+                            });
+                          }}
                         />
                       </Grid.Column>
                     </Grid.Row>
@@ -948,7 +1062,7 @@ export class ResourceModalContent extends Component {
       {
         menuItem: i18next.t("7. Related identifiers"),
         render: () => (
-          <Tab.Pane as={Segment}>
+          <Tab.Pane>
             <Grid>
               <Grid.Row centered>
                 <Grid.Column width={16}>
@@ -991,146 +1105,148 @@ export class ResourceModalContent extends Component {
         files={files}
         permissions={permissions}
       >
-        <Menu attached={"top"} size={"huge"} widths={3}>
-          {Object.keys(this.menuPanes).map((menuPane) => {
-            const menuPaneDefinition = this.menuPanes[menuPane];
-
-            return (
-              <Menu.Item
-                name={menuPaneDefinition.id}
-                active={menuActive === menuPaneDefinition.id}
-                onClick={async () => {
-                  await this.handleMenuStep(menuPaneDefinition.id);
-                }}
-              >
-                <Icon name={menuPaneDefinition.title} />{" "}
-                {menuPaneDefinition.title}
-              </Menu.Item>
-            );
-          })}
-        </Menu>
         <>
-          {menuActive === this.menuPanes.metadata.id && (
-            <Segment attached basic>
-              <Tab
-                panes={panes}
-                menu={{
-                  stackable: true,
-                  pointing: true,
-                  fluid: true,
-                  simple: true,
-                  widths: panes.length,
-                }}
-                onTabChange={this.stepChangeHandler}
-                activeIndex={stepActive}
-              />
-            </Segment>
-          )}
+          <Menu attached={"top"} size={"huge"} widths={3}>
+            {Object.keys(this.menuPanes).map((menuPane) => {
+              const menuPaneDefinition = this.menuPanes[menuPane];
 
-          {menuActive === this.menuPanes.files.id && (
-            <Segment attached basic>
-              <Grid verticalAlign="middle" centered>
-                <Grid.Row>
-                  <Grid.Column>
-                    <FileUploader
-                      isDraftRecord={!record.is_published}
-                      quota={this.config.quota}
-                      decimalSizeDisplay={this.config.decimal_size_display}
-                    />
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </Segment>
-          )}
+              return (
+                <Menu.Item
+                  name={menuPaneDefinition.id}
+                  active={menuActive === menuPaneDefinition.id}
+                  onClick={async () => {
+                    await this.handleMenuStep(menuPaneDefinition.id);
+                  }}
+                >
+                  <Icon name={menuPaneDefinition.title} />{" "}
+                  {menuPaneDefinition.title}
+                </Menu.Item>
+              );
+            })}
+          </Menu>
+          <>
+            {menuActive === this.menuPanes.metadata.id && (
+              <Segment attached basic>
+                <Tab
+                  panes={panes}
+                  menu={{
+                    stackable: true,
+                    pointing: true,
+                    fluid: true,
+                    simple: true,
+                    widths: panes.length,
+                  }}
+                  onTabChange={this.stepChangeHandler}
+                  activeIndex={stepActive}
+                />
+              </Segment>
+            )}
 
-          {menuActive === this.menuPanes.permissions.id && (
-            <Segment attached basic>
-              <Grid verticalAlign="middle" centered>
-                <Grid.Row fluid>
-                  <Grid.Column width={8}>
-                    <AccessRightFieldResource
-                      // label={i18next.t("Visibility")}
-                      // labelIcon="shield"
-                      packageRecord={modalPackageRecord}
+            {menuActive === this.menuPanes.files.id && (
+              <Segment attached basic>
+                <Grid verticalAlign="middle" centered>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <FileUploader
+                        isDraftRecord={!record.is_published}
+                        quota={this.config.quota}
+                        decimalSizeDisplay={this.config.decimal_size_display}
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+              </Segment>
+            )}
+
+            {menuActive === this.menuPanes.permissions.id && (
+              <Segment attached basic>
+                <Grid verticalAlign="middle" centered>
+                  <Grid.Row fluid>
+                    <Grid.Column width={8}>
+                      <AccessRightFieldResource
+                        // label={i18next.t("Visibility")}
+                        // labelIcon="shield"
+                        packageRecord={modalPackageRecord}
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+              </Segment>
+            )}
+          </>
+
+          <Segment basic className="mt-0">
+            <Grid>
+              <Grid.Row>
+                <Grid.Column width={4} floated={"right"}>
+                  <div>
+                    <SaveButtonResource
+                      fluid
+                      primary
+                      content={i18next.t("Add resource")}
+                      confirmOperation={(operation) => {
+                        this.updateConfirmationModalDefinitions({
+                          open: true,
+                          title: i18next.t("Add resource"),
+                          content: i18next.t(
+                            "Are you sure you want to add this new resource to the package ?"
+                          ),
+                          onAccept: (e) => {
+                            this.updateConfirmationModalDefinitions({
+                              open: false,
+                            });
+                            operation();
+                          },
+                          onRefuse: (e) => {
+                            this.updateConfirmationModalDefinitions({
+                              open: false,
+                            });
+                          },
+                          onClose: (e) => {
+                            this.updateConfirmationModalDefinitions({
+                              open: false,
+                            });
+                          },
+                        });
+                      }}
                     />
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </Segment>
-          )}
+                  </div>
+
+                  <div className="mt-5">
+                    <DeleteButton
+                      fluid
+                      updateUrlAfterDelete={false}
+                      isPublished={record.is_published}
+                    />
+                  </div>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Segment>
+
+          <DraftController
+            shouldUpdate={!dataSentToStore}
+            onDepositSaveDraft={onDepositSaveDraft}
+          />
+          <StepController
+            shouldUpdate={!dataSentToStore}
+            handleStep={this.handleMenuAndMetadataSteps}
+          />
+
+          <FormRefresher
+            shouldUpdate={!dataSentToStore}
+            resourceType={resourceBaseTypeSelected}
+            onFinishDeposit={onFinishDeposit}
+            onDepositDelete={onDepositDelete}
+            reportOperationStatus={async (status) => {
+              if (status) {
+                await this.dataSentToStoreHandler();
+              }
+            }}
+          />
+
+          <ConfirmationModal {...confirmationModalDefinitions} />
         </>
-
-        <Segment basic className="mt-0">
-          <Grid>
-            <Grid.Row>
-              <Grid.Column width={4} floated={"right"}>
-                <div>
-                  <SaveButtonResource
-                    fluid
-                    primary
-                    content={i18next.t("Add resource")}
-                    confirmOperation={(operation) => {
-                      this.updateConfirmationModalDefinitions({
-                        open: true,
-                        title: i18next.t("Add resource"),
-                        content: i18next.t(
-                          "Are you sure you want to add this new resource to the package ?"
-                        ),
-                        onAccept: (e) => {
-                          this.updateConfirmationModalDefinitions({
-                            open: false,
-                          });
-                          operation();
-                        },
-                        onRefuse: (e) => {
-                          this.updateConfirmationModalDefinitions({
-                            open: false,
-                          });
-                        },
-                        onClose: (e) => {
-                          this.updateConfirmationModalDefinitions({
-                            open: false,
-                          });
-                        },
-                      });
-                    }}
-                  />
-                </div>
-
-                <div className="mt-5">
-                  <DeleteButton
-                    fluid
-                    updateUrlAfterDelete={false}
-                    isPublished={record.is_published}
-                  />
-                </div>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Segment>
-
-        <DraftController
-          shouldUpdate={!dataSentToStore}
-          onDepositSaveDraft={onDepositSaveDraft}
-        />
-        <StepController
-          shouldUpdate={!dataSentToStore}
-          handleStep={this.handleMenuAndMetadataSteps}
-        />
-
-        <FormRefresher
-          shouldUpdate={!dataSentToStore}
-          resourceType={resourceBaseTypeSelected}
-          onFinishDeposit={onFinishDeposit}
-          onDepositDelete={onDepositDelete}
-          reportOperationStatus={async (status) => {
-            if (status) {
-              await this.dataSentToStoreHandler();
-            }
-          }}
-        />
-
-        <ConfirmationModal {...confirmationModalDefinitions} />
       </DepositFormApp>
     );
   }
