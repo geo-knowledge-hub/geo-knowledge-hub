@@ -133,6 +133,13 @@ export class GEOResourceApp extends Component {
 
     const customFieldsUI = this.config.custom_fields.ui;
 
+    // Check if the record is alreadt managed by a package
+    const isManagedByAPackage = _get(
+      record,
+      "parent.relationship.managed_by.id",
+      null
+    );
+
     // Check if the record have a package associated
     const recordPackage = !_isNil(packageAssociated);
 
@@ -146,7 +153,7 @@ export class GEOResourceApp extends Component {
             link
             onClick={() => {
               if (recordPackage) {
-                window.location = `/uploads/packages/${packageAssociated.id}`;
+                window.location = packageAssociated.links.self_html;
               }
             }}
           >
@@ -161,32 +168,33 @@ export class GEOResourceApp extends Component {
       );
     } else {
       if (_isNil(preselectedCommunity)) {
-        packageSelector = (
-          <PackageSelectorModal
-            modalRecord={record}
-            modalTrigger={
-              <Step.Group fluid>
-                <Step link>
-                  <Step.Content>
-                    <Icon name="box" size={"large"} />
-                  </Step.Content>
-                  <Step.Content>
-                    <Step.Title>
-                      <Popup
-                        content={i18next.t(
-                          "Select the package to which you want to add your resource."
-                        )}
-                        trigger={
-                          <span>{i18next.t("Associate a package")}</span>
-                        }
-                      />
-                    </Step.Title>
-                  </Step.Content>
-                </Step>
-              </Step.Group>
-            }
-          />
-        );
+        if (!isManagedByAPackage) {
+          packageSelector = (
+            <PackageSelectorModal
+              modalTrigger={(disabled) => (
+                <Step.Group fluid>
+                  <Step link disabled={disabled}>
+                    <Step.Content>
+                      <Icon name="box" size={"large"} />
+                    </Step.Content>
+                    <Step.Content>
+                      <Step.Title>
+                        <Popup
+                          content={i18next.t(
+                            "Select the package to which you want to add your resource."
+                          )}
+                          trigger={
+                            <span>{i18next.t("Associate a package")}</span>
+                          }
+                        />
+                      </Step.Title>
+                    </Step.Content>
+                  </Step>
+                </Step.Group>
+              )}
+            />
+          );
+        }
       }
     }
 

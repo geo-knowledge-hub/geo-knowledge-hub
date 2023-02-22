@@ -8,6 +8,8 @@
 
 import React, { useState, useEffect } from "react";
 
+import { Provider, connect, useStore } from "react-redux";
+
 import _isNil from "lodash/isNil";
 import _isEmpty from "lodash/isEmpty";
 
@@ -15,6 +17,8 @@ import { Button, Grid, Modal, Header, Message } from "semantic-ui-react";
 
 import { http } from "react-invenio-forms";
 import { i18next } from "@translations/geo_knowledge_hub/i18next";
+
+import { connect as connectToDepositContext } from "@geo-knowledge-hub/geo-deposit-react";
 
 import { PackageSearchContext } from "./context";
 import { ConfirmationModal } from "../../../base";
@@ -24,10 +28,10 @@ import { PackageSelectorSearch } from "./PackageSelectorSearch";
  * Modal to select and associate a resource
  * with a package.
  */
-export const PackageSelectorModal = ({
-  modalRecord,
+const PackageSelectorModalComponent = ({
   modalTrigger,
   modalOnClose,
+  ...props
 }) => {
   // States
   const [inOperation, setInOperation] = useState(false);
@@ -51,6 +55,17 @@ export const PackageSelectorModal = ({
     setSelectedPackage,
   };
 
+  // Deposit context
+  const { deposit } = props;
+  const { record: modalRecord } = deposit;
+
+  const isValidRecord = !_isNil(modalRecord?.id);
+
+  // Check is modal can be opened
+  if (!isValidRecord && modalOpen) {
+    setModalOpen(false);
+  }
+
   return (
     <PackageSearchContext.Provider value={context}>
       <Modal
@@ -60,7 +75,7 @@ export const PackageSelectorModal = ({
         className="m-0"
         closeIcon
         closeOnDimmerClick={false}
-        open={modalOpen}
+        open={isValidRecord && modalOpen}
         onClose={() => {
           setModalOpen(false);
 
@@ -71,7 +86,7 @@ export const PackageSelectorModal = ({
         onOpen={() => {
           setModalOpen(true);
         }}
-        trigger={React.cloneElement(modalTrigger, {
+        trigger={React.cloneElement(modalTrigger(!isValidRecord), {
           "aria-haspopup": "dialog",
           "aria-expanded": modalOpen,
         })}
@@ -126,7 +141,7 @@ export const PackageSelectorModal = ({
 
                     const isAlreadyPublished =
                       modalRecord?.id !== undefined &&
-                      ["new_version_draft", "draft"].includes(
+                      !["new_version_draft", "draft"].includes(
                         modalRecord?.status
                       );
 
@@ -247,3 +262,19 @@ export const PackageSelectorModal = ({
     </PackageSearchContext.Provider>
   );
 };
+
+/**
+ * HOC of the PackageSelector Component.
+ */
+const PackageSelectorModalHOC = () => {
+  const Component = ({ ...args }) => (
+    <PackageSelectorModalComponent {...args} />
+  );
+
+  return connectToDepositContext(Component);
+};
+
+/**
+ * Package Selector Modal.
+ */
+export const PackageSelectorModal = PackageSelectorModalHOC();

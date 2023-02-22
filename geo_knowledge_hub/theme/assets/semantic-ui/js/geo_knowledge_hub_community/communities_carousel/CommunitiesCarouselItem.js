@@ -50,7 +50,9 @@ class CommunitiesCarouselItem extends Component {
                 <Grid centered>
                   <Grid.Row>
                     <Grid.Column width={13}>
-                      {_truncate(community.metadata.description, { length: 200 })}
+                      {_truncate(community.metadata.description, {
+                        length: 200,
+                      })}
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
