@@ -10,7 +10,6 @@
 // of the GEO Knowledge Hub.
 
 import axios from "axios";
-import _get from "lodash/get";
 import React, { useEffect, useState } from "react";
 import {
   Grid,
@@ -92,7 +91,7 @@ const PreviewMessage = () => {
               <Icon name="eye" />
               {i18next.t("Preview")}
             </Message.Header>
-            <p>{i18next.t("Only published versions are displayed.")}</p>
+            <p>{i18next.t("Preview mode does not display versions.")}</p>
           </Message>
         </Grid.Column>
       </Grid.Row>
@@ -132,19 +131,21 @@ export const RecordVersionsList = (props) => {
     <List divided>
       {isPreview ? <PreviewMessage /> : null}
 
-      <RecordVersionDropdown
-        options={recordVersions.hits.map((item) => ({
-          key: item.id,
-          value: item.id,
-          text: (
-            <>
-              <b>{`${i18next.t("Version")} ${item.version}`}</b>{" "}
-              <DateDiv>{`(${item.publication_date})`}</DateDiv>
-            </>
-          ),
-        }))}
-        defaultValue={recid}
-      />
+      {!isPreview ? (
+        <RecordVersionDropdown
+          options={recordVersions.hits.map((item) => ({
+            key: item.id,
+            value: item.id,
+            text: (
+              <>
+                <b>{`${i18next.t("Version")} ${item.version}`}</b>{" "}
+                <DateDiv>{`(${item.publication_date})`}</DateDiv>
+              </>
+            ),
+          }))}
+          defaultValue={recid}
+        />
+      ) : null }
     </List>
   );
 };
