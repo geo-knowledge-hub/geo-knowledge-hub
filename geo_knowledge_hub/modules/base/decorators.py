@@ -11,10 +11,10 @@
 from functools import wraps
 
 from flask import g
+from invenio_pidstore.errors import PIDDoesNotExistError
 from invenio_records_resources.services.errors import PermissionDeniedError
 from pydash import py_
 from sqlalchemy.orm.exc import NoResultFound
-from invenio_pidstore.errors import PIDDoesNotExistError
 
 from .registry import get_draft_files_service, get_files_service, get_record_service
 
