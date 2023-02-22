@@ -14,6 +14,7 @@ from flask import g
 from invenio_records_resources.services.errors import PermissionDeniedError
 from pydash import py_
 from sqlalchemy.orm.exc import NoResultFound
+from invenio_pidstore.errors import PIDDoesNotExistError
 
 from .registry import get_draft_files_service, get_files_service, get_record_service
 
@@ -35,13 +36,13 @@ def pass_associated_package(f):
             package = py_.get(draft, "relationship.packages.0.id")
 
             if package:
+                package_service = get_record_service("package")
+
                 try:
                     # if is associated with a resource (draft mode), must be a draft.
-                    package = get_record_service("package").read_draft(
-                        g.identity, package
-                    )
-                except:  # noqa
-                    package = None
+                    package = package_service.read_draft(g.identity, package)
+                except (NoResultFound, PIDDoesNotExistError):
+                    package = package_service.read(g.identity, package)
 
             kwargs["package"] = package
 

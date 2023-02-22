@@ -19,7 +19,11 @@ const appName = "InvenioAppRDM.RecordsList";
 
 ReactDOM.render(
   <OverridableContext.Provider value={overriddenComponents}>
-    <RecordsListOverridable title={title} fetchUrl={fetchUrl} appName={appName} />
+    <RecordsListOverridable
+      title={title}
+      fetchUrl={fetchUrl}
+      appName={appName}
+    />
   </OverridableContext.Provider>,
   recordsListContainer
 );

@@ -145,7 +145,7 @@ export const RecordVersionsList = (props) => {
           }))}
           defaultValue={recid}
         />
-      ) : null }
+      ) : null}
     </List>
   );
 };
