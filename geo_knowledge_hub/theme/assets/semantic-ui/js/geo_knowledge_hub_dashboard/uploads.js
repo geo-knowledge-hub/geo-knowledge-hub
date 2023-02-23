@@ -260,7 +260,7 @@ export const RDMEmptyResults = (props) => {
             positive
             icon="upload"
             floated="right"
-            href="/uploads/records/new"
+            href="/uploads/new"
             content={i18next.t("New resource")}
           />
         </Button.Group>
@@ -300,7 +300,7 @@ export const DashboardUploadsSearchLayout = DashboardSearchLayoutHOC({
           icon="boxes"
           text="Resource"
           onClick={() => {
-            window.location = "/uploads/records/new";
+            window.location = "/uploads/new";
           }}
         />
       </Dropdown.Menu>
