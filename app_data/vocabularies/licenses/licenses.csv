@@ -68,7 +68,7 @@ cc-by-2.5;Creative Commons Attribution 2.5 Generic;;cc-by-icon;all,data;https://
 cc-by-3.0;Creative Commons Attribution 3.0 Unported;;cc-by-icon;all,data;https://creativecommons.org/licenses/by/3.0/legalcode;spdx;
 cc-by-3.0-at;Creative Commons Attribution 3.0 Austria;;cc-by-icon;all,data;https://creativecommons.org/licenses/by/3.0/at/legalcode;spdx;
 cc-by-3.0-us;Creative Commons Attribution 3.0 United States;;cc-by-icon;all,data;https://creativecommons.org/licenses/by/3.0/us/legalcode;spdx;
-cc-by-4.0;Creative Commons Attribution 4.0 International;The Creative Commons Attribution license allows re-distribution and re-use of a licensed work on the condition that the creator is appropriately credited.;cc-by-icon;recommended,all,data;https://creativecommons.org/licenses/by/4.0/legalcode;spdx;
+cc-by-4.0;Creative Commons Attribution 4.0 International;Retains copyright in the data and provides a license that permitsthe user to use, copy, modify, and redistribute the data for any purpose, provided that the user provides credit to the original data provider.;cc-by-icon;recommended,all,data;https://creativecommons.org/licenses/by/4.0/legalcode;spdx;
 cc-by-nc-1.0;Creative Commons Attribution Non Commercial 1.0 Generic;;cc-by-nc-icon;all,data;https://creativecommons.org/licenses/by-nc/1.0/legalcode;spdx;
 cc-by-nc-2.0;Creative Commons Attribution Non Commercial 2.0 Generic;;cc-by-nc-icon;all,data;https://creativecommons.org/licenses/by-nc/2.0/legalcode;spdx;
 cc-by-nc-2.5;Creative Commons Attribution Non Commercial 2.5 Generic;;cc-by-nc-icon;all,data;https://creativecommons.org/licenses/by-nc/2.5/legalcode;spdx;
@@ -98,7 +98,7 @@ cc-by-sa-3.0;Creative Commons Attribution Share Alike 3.0 Unported;;cc-by-sa-ico
 cc-by-sa-3.0-at;Creative Commons Attribution-Share Alike 3.0 Austria;;cc-by-sa-icon;all,data;https://creativecommons.org/licenses/by-sa/3.0/at/legalcode;spdx;
 cc-by-sa-4.0;Creative Commons Attribution Share Alike 4.0 International;Permits almost any use subject to providing credit and license notice. Frequently used for media assets and educational materials. The most common license for Open Access scientific publications. Not recommended for software.;cc-by-sa-icon;all,data;https://creativecommons.org/licenses/by-sa/4.0/legalcode;spdx;
 cc-pddc;Creative Commons Public Domain Dedication and Certification;;cc-pddc-icon;all;https://creativecommons.org/licenses/publicdomain/;spdx;
-cc0-1.0;Creative Commons Zero v1.0 Universal;CC0 waives copyright interest in a work you've created and dedicates it to the world-wide public domain. Use CC0 to opt out of copyright entirely and ensure your work has the widest reach.;cc-cc0-icon;recommended,all,data,software;https://creativecommons.org/publicdomain/zero/1.0/legalcode;spdx;
+cc0-1.0;Creative Commons Zero v1.0 Universal;Waives copyright and related rights in the data, to the extent permitted by law. Permits users to use, copy, modify, and redistribute the data for any purpose.;cc-cc0-icon;recommended,all,data,software;https://creativecommons.org/publicdomain/zero/1.0/legalcode;spdx;
 cddl-1.0;Common Development and Distribution License 1.0;;;all,software;https://opensource.org/licenses/cddl1;spdx;y
 cddl-1.1;Common Development and Distribution License 1.1;;;all,software;http://glassfish.java.net/public/CDDL+GPL_1_1.html;spdx;
 cdla-permissive-1.0;Community Data License Agreement Permissive 1.0;;;all,data;https://cdla.io/permissive-1-0;spdx;
@@ -310,7 +310,7 @@ osl-2.0;Open Software License 2.0;;;all,software;http://web.archive.org/web/2004
 osl-2.1;Open Software License 2.1;;;all,software;http://web.archive.org/web/20050212003940/http://www.rosenlaw.com/osl21.htm;spdx;y
 osl-3.0;Open Software License 3.0;;;all,software;https://web.archive.org/web/20120101081418/http://rosenlaw.com:80/OSL3.0.htm;spdx;y
 openssl;OpenSSL License;;;all;http://www.openssl.org/source/license.html;spdx;
-pddl-1.0;ODC Public Domain Dedication & License 1.0;;;recommended,all,data;http://opendatacommons.org/licenses/pddl/1.0/;spdx;
+pddl-1.0;ODC Public Domain Dedication & License 1.0;Waives copyright and related rights in the data, to the extent permitted by law. If waiver is not permitted by law, licenses the use of the data. Permits users to use, copy, modify, and redistribute the data for any purpose;;recommended,all,data;http://opendatacommons.org/licenses/pddl/1.0/;spdx;
 php-3.0;PHP License v3.0;;;all,software;http://www.php.net/license/3_0.txt;spdx;y
 php-3.01;PHP License v3.01;;;all,software;http://www.php.net/license/3_01.txt;spdx;y
 psf-2.0;Python Software Foundation License 2.0;;;all,software;https://opensource.org/licenses/Python-2.0;spdx;
@@ -417,4 +417,4 @@ psutils;psutils License;;;all;https://fedoraproject.org/wiki/Licensing/psutils;s
 xinetd;xinetd License;;;all;https://fedoraproject.org/wiki/Licensing/Xinetd_License;spdx;
 xpp;XPP License;;;all;https://fedoraproject.org/wiki/Licensing/xpp;spdx;
 zlib-acknowledgement;zlib/libpng License with Acknowledgement;;;all,software;https://fedoraproject.org/wiki/Licensing/ZlibWithAcknowledgement;spdx;
-cc-mark-1.0;Creative Commons Public Domain Mark 1.0;;;recommended,all,data;https://creativecommons.org/publicdomain/mark/1.0/;spdx;
+cc-mark-1.0;Creative Commons Public Domain Mark 1.0;;;all,data;https://creativecommons.org/publicdomain/mark/1.0/;spdx;
