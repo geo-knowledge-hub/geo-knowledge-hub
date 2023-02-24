@@ -90,4 +90,19 @@ export class RecordApiClient {
 
     return this.createResponse(() => this.httpClient.post(operationUrl));
   }
+
+  /**
+   * Get files
+   */
+  async listFiles(recordObj) {
+    const operationUrl = recordObj.links.files;
+
+    return this.createResponse(() =>
+      this.httpClient.get(operationUrl, {
+        headers: {
+          Accept: "application/json",
+        },
+      })
+    );
+  }
 }
