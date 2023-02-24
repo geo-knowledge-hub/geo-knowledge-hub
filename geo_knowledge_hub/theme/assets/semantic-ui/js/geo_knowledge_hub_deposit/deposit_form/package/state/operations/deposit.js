@@ -634,7 +634,33 @@ export const depositResourcesEdit = (recordData, operationMetadata) => {
 
           _set(resourceData, "links", recordDraft.links);
         } else {
-          _set(resourceData, "links.self", _get(recordDraft, "links.draft"));
+          const draftLink = _get(recordDraft, "links.draft");
+
+          if (draftLink) {
+            _set(resourceData, "links.self", _get(recordDraft, "links.draft"));
+          }
+        }
+
+        // 4. Getting record files
+        const isFileEnabled = _get(recordDraft, "files.enabled");
+
+        if (isFileEnabled) {
+          const recordFilesResponse = await recordApiClient.listFiles(
+            resourceData
+          );
+
+          if (recordFilesResponse.code !== 200) {
+            dispatch({
+              type: DEPOSIT_RESOURCE_EDITING_RESOURCE_ERROR,
+              payload: {
+                title: operationTitleError,
+                errors: recordFilesResponse.errors,
+                componentId: operationMetadata.componentId,
+              },
+            });
+          } else {
+            _set(resourceData, "files", _get(recordFilesResponse, "data"));
+          }
         }
 
         await dispatch({
