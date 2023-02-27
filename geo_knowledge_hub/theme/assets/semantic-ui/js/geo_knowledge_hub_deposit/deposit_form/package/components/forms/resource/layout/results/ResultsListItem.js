@@ -12,6 +12,7 @@ import { connect, useStore, Provider } from "react-redux";
 
 import _set from "lodash/set";
 import _get from "lodash/get";
+import _isNil from "lodash/isNil";
 import _cloneDeep from "lodash/cloneDeep";
 import _truncate from "lodash/truncate";
 
@@ -212,6 +213,27 @@ class ResultsListItemComponent extends Component {
     );
   }
 
+  /**
+   * Operation method to preview a resource.
+   */
+  operationPreviewRecord() {
+    // Props (Result)
+    const { result: record } = this.props;
+
+    // Props (Deposit store)
+    const { statePackageRecord } = this.props;
+
+    // Preparing package information
+    const packagePid = _get(statePackageRecord, "id");
+
+    // Preparing preview link
+    const recordUrl = _get(record, "links.record_html");
+
+    if (!_isNil(recordUrl)) {
+      window.location = `${recordUrl}?preview=1&package=${packagePid}`;
+    }
+  }
+
   render() {
     // State (Confirmation modal)
     const { confirmationModalOpen, confirmationModalDefinitions } = this.state;
@@ -296,6 +318,7 @@ class ResultsListItemComponent extends Component {
     let buttonNewVersion = null;
     let buttonDelete = null;
     let buttonPermissions = null;
+    let buttonPreview = null;
 
     if (resourceCanBeModified) {
       buttonEditDraft = (
@@ -307,6 +330,18 @@ class ResultsListItemComponent extends Component {
           }}
         />
       );
+
+      if (isDraft) {
+        buttonPreview = (
+          <Dropdown.Item
+            icon="eye"
+            text={i18next.t("Preview")}
+            onClick={() => {
+              this.operationPreviewRecord();
+            }}
+          />
+        )
+      }
 
       if (!isDraft && !isPackagePublished) {
         buttonNewVersion = (
@@ -415,6 +450,8 @@ class ResultsListItemComponent extends Component {
           <Dropdown.Menu>
             {resourceCanBeModified && (
               <>
+                {buttonPreview}
+                {React.isValidElement(buttonPreview) && <Dropdown.Divider />}
                 {buttonEditDraft}
                 {buttonNewVersion}
                 {/*<Dropdown.Divider />*/}

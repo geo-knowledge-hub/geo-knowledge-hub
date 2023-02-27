@@ -25,6 +25,7 @@ from geo_knowledge_hub.modules.base.decorators import (
     pass_associated_package,
     pass_draft,
     pass_draft_files,
+    pass_is_resource_preview,
     pass_record_files,
     pass_record_or_draft,
 )
@@ -36,9 +37,17 @@ from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 # Record Landing page views
 #
 @pass_is_preview
+@pass_is_resource_preview
 @pass_record_or_draft(record_type="record", expand=True)
 @pass_record_files(record_type="record")
-def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False):
+def geo_record_detail(
+    record=None,
+    files=None,
+    pid_value=None,
+    is_preview=False,
+    navigate=False,
+    package=None,
+):
     """Record detail page (aka landing page)."""
     # Base definitions
     identity = g.identity
@@ -75,6 +84,8 @@ def geo_record_detail(record=None, files=None, pid_value=None, is_preview=False)
         programme_activity=programme_activity,
         related_elements_information=related_package_metadata,
         related_engagement_priorities=engagement_priorities,
+        navigate=navigate,
+        package=package,
     )
 
 
