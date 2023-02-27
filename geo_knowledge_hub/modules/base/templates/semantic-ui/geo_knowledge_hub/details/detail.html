@@ -139,9 +139,17 @@
 
                 {% if is_preview and not is_preview_submission_request and can_manage_record and is_draft %}
                   <nav class="back-navigation rel-pb-2 pl-0" aria-label="{{ _('Back-navigation') }}">
-                    {%- set back_page = record.links.self_html -%}
-                    {%- set back_btn_label = _('Back to edit') -%}
-                    <a class="ui button small compact" href="{{ back_page }}"><i class="ui icon angle left"></i> {{ back_btn_label }}</a>
+                    {% if package %}
+                      {%- set back_page = package.links.self_html -%}
+                      {%- set back_btn_label = _('Back to package edit') -%}
+                    {% else %}
+                      {%- set back_page = record.links.self_html -%}
+                      {%- set back_btn_label = _('Back to edit') -%}
+                    {% endif %}
+
+                    {% if not navigate %}
+                      <a class="ui button small compact" href="{{ back_page }}"><i class="ui icon angle left"></i> {{ back_btn_label }}</a>
+                    {% endif %}
                   </nav>
                 {% endif %}
 

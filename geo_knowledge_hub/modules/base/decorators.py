@@ -10,7 +10,7 @@
 
 from functools import wraps
 
-from flask import g
+from flask import g, request
 from invenio_pidstore.errors import PIDDoesNotExistError
 from invenio_records_resources.services.errors import PermissionDeniedError
 from pydash import py_
@@ -289,3 +289,29 @@ def pass_file_metadata(record_type):
         return view
 
     return decorator
+
+
+def pass_is_resource_preview(f):
+    """Decorate a view to check if it is a resource preview."""
+
+    @wraps(f)
+    def view(**kwargs):
+        navigate = request.args.get("navigate")
+        package = request.args.get("package")
+
+        if navigate == "1":
+            navigate = True
+
+        if package:
+            service = get_record_service("package")
+
+            try:
+                package = service.read_draft(id_=package, identity=g.identity)
+            except NoResultFound:
+                package = service.read(id_=package, identity=g.identity)
+
+        kwargs.update(dict(navigate=navigate, package=package))
+
+        return f(**kwargs)
+
+    return view

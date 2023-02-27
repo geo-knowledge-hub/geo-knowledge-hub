@@ -146,7 +146,7 @@ show_alternate_identifiers, show_funding, show_dates %}
       hidden="{{ not active }}"
     >
       <dl class="knowledge-package-list">
-        {{ show_knowledge_packages(related_elements_information) }}
+        {{ show_knowledge_packages(related_elements_information, is_preview) }}
       </dl>
     </div>
     {% set active = false %}
