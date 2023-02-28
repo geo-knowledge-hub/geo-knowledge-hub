@@ -10,7 +10,9 @@
 
 from flask import g
 from flask_login import current_user
-from invenio_rdm_records.resources.serializers import UIJSONSerializer
+from geo_rdm_records.base.resources.serializers import (
+    UIRecordJSONSerializer as UIJSONSerializer,
+)
 from invenio_requests.resolvers.registry import ResolverRegistry
 from sqlalchemy.orm.exc import NoResultFound
 
