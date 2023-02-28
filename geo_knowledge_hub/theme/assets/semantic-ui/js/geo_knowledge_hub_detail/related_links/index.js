@@ -18,7 +18,9 @@ const detailsListDiv = document.getElementById("details-list-div");
  */
 export const renderComponent = (...args) => {
   ReactDOM.render(
-    <ExternalResourceTable tableData={JSON.parse(detailsListDiv.dataset.relatedidentifiers)}/>,
+    <ExternalResourceTable
+      tableData={JSON.parse(detailsListDiv.dataset.relatedidentifiers)}
+    />,
     detailsListDiv
   );
 };

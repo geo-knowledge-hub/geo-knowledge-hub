@@ -340,7 +340,7 @@ class ResultsListItemComponent extends Component {
               this.operationPreviewRecord();
             }}
           />
-        )
+        );
       }
 
       if (!isDraft && !isPackagePublished) {
