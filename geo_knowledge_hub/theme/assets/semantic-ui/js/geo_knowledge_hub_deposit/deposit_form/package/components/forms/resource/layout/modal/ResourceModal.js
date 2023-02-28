@@ -150,29 +150,33 @@ const MetadataImporter = ({
   const [field, meta, helpers] = useField(fieldPath);
 
   return (
-    <Button
-      fluid
+    <Dropdown
+      icon={"configure"}
+      floating
+      button
       basic
-      size={"medium"}
-      type={"button"}
-      icon={"sync alternate"}
-      onClick={async () => {
-        // getting the data from the storage
-        let currentFieldPath = _isNil(fieldPathAlternate)
-          ? fieldPath
-          : fieldPathAlternate;
-        let storedData = _get(metadataStorage, currentFieldPath);
+      className="icon"
+    >
+      <Dropdown.Menu>
+        <Dropdown.Header content={"Options"} />
+        <Dropdown.Item onClick={async () => {
+          // getting the data from the storage
+          let currentFieldPath = _isNil(fieldPathAlternate)
+            ? fieldPath
+            : fieldPathAlternate;
+          let storedData = _get(metadataStorage, currentFieldPath);
 
-        // serializing
-        if (!_isNil(serializer)) {
-          storedData = serializer(storedData);
-        }
+          // serializing
+          if (!_isNil(serializer)) {
+            storedData = serializer(storedData);
+          }
 
-        // replacing the value
-        helpers.setValue(storedData);
-      }}
-    />
-  );
+          // replacing the value
+          helpers.setValue(storedData);
+        }}>Load from package</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  )
 };
 
 /**
@@ -542,7 +546,7 @@ export class ResourceModalContent extends Component {
             <Grid>
               <Grid.Row>
                 <Grid.Column width={16}>
-                  <Grid>
+                  <Grid stackable>
                     <Grid.Row verticalAlign={"bottom"}>
                       <Grid.Column width={15}>
                         <LanguagesField
@@ -720,7 +724,7 @@ export class ResourceModalContent extends Component {
                 <Grid.Column width={16}>
                   <Grid>
                     <Grid.Row verticalAlign={"bottom"}>
-                      <Grid.Column width={14}>
+                      <Grid.Column width={15}>
                         <WorkProgrammeActivityField
                           required={false}
                           initialSuggestions={
@@ -741,7 +745,7 @@ export class ResourceModalContent extends Component {
                           }
                         />
                       </Grid.Column>
-                      <Grid.Column width={2} textAlign={"center"}>
+                      <Grid.Column width={1} textAlign={"center"}>
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.geo_work_programme_activity"}
@@ -870,7 +874,7 @@ export class ResourceModalContent extends Component {
               <Grid.Row>
                 <Grid.Column width={16}>
                   <Grid>
-                    <Grid.Row verticalAlign={"middle"}>
+                    <Grid.Row verticalAlign={"top"}>
                       <Grid.Column width={15}>
                         <PublisherField fieldPath="metadata.publisher" />
                       </Grid.Column>
@@ -889,7 +893,7 @@ export class ResourceModalContent extends Component {
                 <Grid.Column width={16}>
                   <Grid>
                     <Grid.Row verticalAlign={"bottom"}>
-                      <Grid.Column width={14}>
+                      <Grid.Column width={15}>
                         <LicenseField
                           fieldPath="metadata.rights"
                           searchConfig={{
@@ -914,7 +918,7 @@ export class ResourceModalContent extends Component {
                           })}
                         />
                       </Grid.Column>
-                      <Grid.Column width={2} textAlign={"center"}>
+                      <Grid.Column width={1} textAlign={"center"}>
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.rights"}
@@ -950,7 +954,7 @@ export class ResourceModalContent extends Component {
                 <Grid.Column>
                   <Grid>
                     <Grid.Row verticalAlign={"bottom"}>
-                      <Grid.Column width={14}>
+                      <Grid.Column width={15}>
                         <FundingField
                           fieldPath="metadata.funding"
                           searchConfig={{
@@ -1032,7 +1036,7 @@ export class ResourceModalContent extends Component {
                           }}
                         />
                       </Grid.Column>
-                      <Grid.Column width={2} textAlign={"center"}>
+                      <Grid.Column width={1} textAlign={"center"}>
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.funding"}
