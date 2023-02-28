@@ -32,6 +32,9 @@ from geo_knowledge_hub.modules.base.decorators import (
 )
 from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
 from geo_knowledge_hub.modules.base.utilities import records as record_utilities
+from geo_knowledge_hub.modules.base.utilities import (
+    serialization as serialization_utilities,
+)
 
 
 #
@@ -49,6 +52,7 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
 
     record_data = record.to_dict()
     record_ui = UIJSONSerializer().dump_obj(record_data)
+    record_ui = serialization_utilities.serialize_related_identifiers_url(record_ui)
 
     # General record properties
     record_is_draft = record_ui.get("is_draft")
