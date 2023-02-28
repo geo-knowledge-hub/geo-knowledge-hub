@@ -70,7 +70,7 @@ import { i18next } from "@translations/invenio_app_rdm/i18next";
 
 import { OperationTypes } from "../../operations";
 
-import { ConfirmationModal } from "../../../../../../base/ConfirmationModal";
+import { ConfirmationModal } from "../../../../../../base";
 
 /**
  * (Base component) Draft Controller Component.
@@ -316,6 +316,9 @@ export class ResourceModalContent extends Component {
         icon: "key",
       },
     };
+
+    // Checking if the package already exists
+    this.recordAlreadyExists = !_isNil(_get(record, "id"));
   }
 
   /**
@@ -1098,6 +1101,19 @@ export class ResourceModalContent extends Component {
       this.filterResourceTypes(resourceBaseTypeSelected);
     }
 
+    // Defining the message for the confirmation button
+    let modalTitle = i18next.t("Add resource");
+    let modalDescription = i18next.t(
+      "Are you sure you want to add this new resource to the package ?"
+    );
+
+    if (this.recordAlreadyExists) {
+      modalTitle = i18next.t("Save modifications");
+      modalDescription = i18next.t(
+        "Are you sure you want to save the modifications in the resources ?"
+      );
+    }
+
     return (
       <DepositFormApp
         config={this.config}
@@ -1183,14 +1199,12 @@ export class ResourceModalContent extends Component {
                     <SaveButtonResource
                       fluid
                       primary
-                      content={i18next.t("Add resource")}
+                      content={modalTitle}
                       confirmOperation={(operation) => {
                         this.updateConfirmationModalDefinitions({
                           open: true,
-                          title: i18next.t("Add resource"),
-                          content: i18next.t(
-                            "Are you sure you want to add this new resource to the package ?"
-                          ),
+                          title: modalTitle,
+                          content: i18next.t(modalDescription),
                           onAccept: (e) => {
                             this.updateConfirmationModalDefinitions({
                               open: false,
