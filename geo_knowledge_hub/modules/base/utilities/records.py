@@ -8,7 +8,6 @@
 
 """GEO Knowledge Hub Detail (page) record handler."""
 
-import json
 from typing import Dict, List, Tuple, Union
 
 from flask import abort, current_app, request, url_for
@@ -136,8 +135,6 @@ def mask_restricted_records(related_identifiers: List[Dict]) -> List[Dict]:
 
             # hiding files reference
             py_.set(related_identifier, "files", dict(enabled=False))
-
-            print(json.dumps(related_identifier))
 
     return related_identifiers
 

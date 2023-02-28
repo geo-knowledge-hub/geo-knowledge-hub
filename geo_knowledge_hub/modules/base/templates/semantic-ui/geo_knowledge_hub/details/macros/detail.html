@@ -27,10 +27,7 @@
 {% endmacro %}
 
 {% macro show_related_identifiers(related_identifiers) %}
-  {%- for group in related_identifiers | groupby('relation_type.title_l10n')%}
-    <dt class="ui tiny header">{{ group.grouper }}</dt>
-    {{ _identifiers_for_group(group.list) }}
-  {%- endfor %}
+  <div id="details-list-div" data-relatedIdentifiers='{{ related_identifiers | tojson }}'></div>
 {% endmacro %}
 
 {% macro show_knowledge_packages(related_knowledge_packages, is_preview) %}
