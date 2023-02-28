@@ -68,7 +68,7 @@ export class RecordApiClient {
    * Delete draft.
    */
   async deleteDraft(recordObj) {
-    const operationUrl = recordObj.links.draft;
+    const operationUrl = recordObj.links.self;
 
     return this.createResponse(() => this.httpClient.delete(operationUrl));
   }

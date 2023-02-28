@@ -8,6 +8,7 @@
 
 import _get from "lodash/get";
 import _set from "lodash/set";
+import _isNil from "lodash/isNil";
 import _isEmpty from "lodash/isEmpty";
 
 import {
@@ -433,7 +434,9 @@ export const depositResourceSaveDraft = (recordData, operationMetadata) => {
 
         _set(recordData, "links", recordDraft.links);
       } else {
-        _set(recordData, "links.self", _get(recordData, "links.draft"));
+        if (_isNil(_get(recordData, "links.self"))) {
+          _set(recordData, "links.self", _get(recordData, "links.draft"));
+        }
       }
 
       // 3. Saving the draft
