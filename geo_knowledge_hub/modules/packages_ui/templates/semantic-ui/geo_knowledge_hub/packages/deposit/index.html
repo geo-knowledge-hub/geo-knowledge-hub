@@ -44,6 +44,9 @@
        value='{{search_app_package_records_config(app_id="rdm-deposit-package-records", endpoint=forms_package_records_endpoint) | tojson }}'>
      </input>
   {%- endif %}
+  {%- if permissions_related_resources %}
+    <input id="deposits-related-record-permissions" type="hidden" name="deposits-related-record-permissions" value='{{permissions_related_resources | tojson }}'></input>
+  {%- endif %}
   <div id="deposit-form"></div>
 {%- endblock page_body %}
 

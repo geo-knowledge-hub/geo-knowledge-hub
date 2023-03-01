@@ -33,6 +33,9 @@ from geo_knowledge_hub.modules.base.decorators import (
 from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
 from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 from geo_knowledge_hub.modules.base.utilities import (
+    relationship as relationship_utilities,
+)
+from geo_knowledge_hub.modules.base.utilities import (
     serialization as serialization_utilities,
 )
 
@@ -122,7 +125,18 @@ def geo_package_deposit_create(community=None):
 @pass_draft_files(record_type="package")
 def geo_package_deposit_edit(draft=None, draft_files=None, pid_value=None):
     """Edit an existing package deposit."""
+    # Base definitions
+    permissions = ["new_version", "delete_draft"]
+
+    # Serializing package
     record = UIJSONSerializer().dump_obj(draft.to_dict())
+
+    # Checking edit permissions of the related resources
+    related_resources_permissions = (
+        relationship_utilities.check_related_records_permissions(
+            g.identity, draft, permissions
+        )
+    )
 
     return render_template(
         "geo_knowledge_hub/packages/deposit/index.html",
@@ -133,9 +147,11 @@ def geo_package_deposit_edit(draft=None, draft_files=None, pid_value=None):
         record=record,
         record_template=new_record(),
         files=draft_files.to_dict(),
-        permissions=draft.has_permissions_to(["new_version", "delete_draft"]),
+        permissions=draft.has_permissions_to(permissions),
         # `Package resources' endpoint` is used to search resources inside the package.
         forms_package_records_endpoint=f"/api/packages/{pid_value}/draft/resources",
+        # `Package resource permissions`
+        permissions_related_resources=related_resources_permissions,
     )
 
 

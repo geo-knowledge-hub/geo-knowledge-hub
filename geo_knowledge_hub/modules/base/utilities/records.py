@@ -58,9 +58,7 @@ def read_record(identity, record_pid, record_type) -> Union[None, Dict]:
     for method in methods:
         try:
             res = method(identity, record_pid)
-            res = res.to_dict()
-
-            res["status"] = "open"
+            res = (res, "open")
 
             break
         except exceptions_unavailable:
@@ -68,9 +66,8 @@ def read_record(identity, record_pid, record_type) -> Union[None, Dict]:
 
         except exceptions_permission:
             res = method(system_identity, record_pid)
-            res = res.to_dict()
 
-            res["status"] = "restricted"
+            res = (res, "restricted")
 
             # checking if it is a draft
             if method == service.read_draft:

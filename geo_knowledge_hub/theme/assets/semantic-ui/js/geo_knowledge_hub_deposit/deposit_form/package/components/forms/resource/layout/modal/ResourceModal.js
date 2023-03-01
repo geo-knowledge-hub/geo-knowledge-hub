@@ -13,11 +13,10 @@ import { useField } from "formik";
 import natsort from "natsort";
 
 import _has from "lodash/has";
-import _set from "lodash/set";
 import _get from "lodash/get";
+import _head from "lodash/head";
 import _isNil from "lodash/isNil";
 import _concat from "lodash/concat";
-import _uniqBy from "lodash/unionBy";
 import _groupBy from "lodash/groupBy";
 import _compact from "lodash/compact";
 import _upperFirst from "lodash/upperFirst";
@@ -114,6 +113,8 @@ class StepControllerComponent extends Component {
 
     // Actions where the `StepController` must act.
     this.validActions = [
+      "DRAFT_PUBLISH_SUCCEEDED",
+      "DRAFT_PUBLISH_FAILED_WITH_VALIDATION_ERRORS",
       "DRAFT_SAVE_STARTED",
       "DRAFT_SAVE_FAILED",
       "DRAFT_HAS_VALIDATION_ERRORS",
@@ -195,7 +196,9 @@ const FormRefresherComponent = ({
   const { actionState, record } = deposit;
 
   if (shouldUpdate) {
-    if (actionState === "DRAFT_SAVE_SUCCEEDED") {
+    const finishDepositStates = ["DRAFT_PUBLISH_SUCCEEDED", "DRAFT_SAVE_SUCCEEDED"];
+
+    if (finishDepositStates.includes(actionState)) {
       setTimeout(() => {
         onFinishDeposit(record, {
           type: OperationTypes.MENU_FACET_TYPE_OPERATION_TYPE,
@@ -403,11 +406,11 @@ export class ResourceModalContent extends Component {
     const {
       record,
       files,
-      permissions,
       onFinishDeposit,
       onDepositDelete,
       onDepositSaveDraft,
       modalPackageRecord,
+      modalResourcesPermissions
     } = this.props;
 
     // Props (Step operation)
@@ -1118,6 +1121,13 @@ export class ResourceModalContent extends Component {
       );
     }
 
+    // Defining the correct permission object
+    let permissions = {};
+
+    if (!_isNil(modalResourcesPermissions)) {
+      permissions = _head(modalResourcesPermissions.filter(obj => obj.id === record.id)) || {};
+    }
+
     return (
       <DepositFormApp
         config={this.config}
@@ -1213,7 +1223,8 @@ export class ResourceModalContent extends Component {
                             this.updateConfirmationModalDefinitions({
                               open: false,
                             });
-                            operation();
+
+                            operation(record.is_published);
                           },
                           onRefuse: (e) => {
                             this.updateConfirmationModalDefinitions({
@@ -1278,6 +1289,7 @@ export const ResourceModal = ({
   modalOnClose,
   modalData,
   modalPackageRecord,
+  modalResourcesPermissions,
   depositOnFinish,
   depositOnDelete,
   depositOnSaveDraft,
@@ -1324,6 +1336,7 @@ export const ResourceModal = ({
             onDepositDelete={depositOnDelete}
             onDepositSaveDraft={depositOnSaveDraft}
             modalPackageRecord={modalPackageRecord}
+            modalResourcesPermissions={modalResourcesPermissions}
             {...modalData}
           />
         </Modal.Content>
