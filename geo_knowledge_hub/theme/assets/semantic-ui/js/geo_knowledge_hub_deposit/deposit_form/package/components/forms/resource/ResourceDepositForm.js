@@ -74,6 +74,7 @@ export const ResourcesDepositFormComponent = ({ ...props }) => {
   const {
     stateResourceModalOpen,
     stateResourceModalData,
+    stateResourcePermissionsData,
     dispatchLayoutResourcesCloseModal,
   } = props;
 
@@ -120,6 +121,7 @@ export const ResourcesDepositFormComponent = ({ ...props }) => {
                 modalPackageRecord={statePackageRecord}
                 modalOpen={stateResourceModalOpen}
                 modalData={stateResourceModalData}
+                modalResourcesPermissions={stateResourcePermissionsData}
                 modalOnClose={() => {
                   dispatchLayoutResourcesCloseModal();
                   dispatchDepositDiscardTemporaryResource();
@@ -216,6 +218,7 @@ const mapStateToProps = (state) => ({
   // Deposit operation: Modal Layout to create/edit resources.
   stateResourceModalOpen: state.layoutResources.resourceModalOpen,
   stateResourceModalData: state.layoutResources.resourceModalData,
+  stateResourcePermissionsData: state.storage.resourcesObject.permissions,
   // Layout (Search Resource)
   stateResourceSearchModalOpen: state.layoutResources.resourceSearchModalOpen,
   stateResourceSearchModalData: state.layoutResources.resourceSearchModalData,

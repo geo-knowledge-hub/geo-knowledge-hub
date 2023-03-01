@@ -216,7 +216,7 @@ class ResultsListItemComponent extends Component {
   /**
    * Operation method to preview a resource.
    */
-  operationPreviewRecord() {
+  operationViewRecord(previewMode) {
     // Props (Result)
     const { result: record } = this.props;
 
@@ -226,11 +226,23 @@ class ResultsListItemComponent extends Component {
     // Preparing package information
     const packagePid = _get(statePackageRecord, "id");
 
-    // Preparing preview link
-    const recordUrl = _get(record, "links.record_html");
+    // Preparing link
+    let recordUrl = null;
+    let viewRecordUrl = null;
+
+    if (previewMode) {
+      recordUrl = _get(record, "links.record_html");
+      viewRecordUrl = `${recordUrl}?preview=1&package=${packagePid}`;
+    }
+
+    else {
+      recordUrl = _get(record, "links.self_html");
+      viewRecordUrl = `${recordUrl}?package=${packagePid}`;
+    }
 
     if (!_isNil(recordUrl)) {
-      window.location = `${recordUrl}?preview=1&package=${packagePid}`;
+      // window.location = viewRecordUrl;
+      window.open(viewRecordUrl, "_blank");
     }
   }
 
@@ -318,7 +330,7 @@ class ResultsListItemComponent extends Component {
     let buttonNewVersion = null;
     let buttonDelete = null;
     let buttonPermissions = null;
-    let buttonPreview = null;
+    let buttonView = null;
 
     if (resourceCanBeModified) {
       buttonEditDraft = (
@@ -332,12 +344,22 @@ class ResultsListItemComponent extends Component {
       );
 
       if (isDraft) {
-        buttonPreview = (
+        buttonView = (
           <Dropdown.Item
             icon="eye"
             text={i18next.t("Preview")}
             onClick={() => {
-              this.operationPreviewRecord();
+              this.operationViewRecord(true);
+            }}
+          />
+        );
+      } else {
+        buttonView = (
+          <Dropdown.Item
+            icon="eye"
+            text={i18next.t("View")}
+            onClick={() => {
+              this.operationViewRecord(false);
             }}
           />
         );
@@ -450,8 +472,8 @@ class ResultsListItemComponent extends Component {
           <Dropdown.Menu>
             {resourceCanBeModified && (
               <>
-                {buttonPreview}
-                {React.isValidElement(buttonPreview) && <Dropdown.Divider />}
+                {buttonView}
+                {React.isValidElement(buttonView) && <Dropdown.Divider />}
                 {buttonEditDraft}
                 {buttonNewVersion}
                 {/*<Dropdown.Divider />*/}

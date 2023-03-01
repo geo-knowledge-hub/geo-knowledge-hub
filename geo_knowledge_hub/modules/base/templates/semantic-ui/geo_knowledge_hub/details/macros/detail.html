@@ -39,7 +39,7 @@
           <i class="large box icon"></i>
         </td>
 
-        {% if is_preview %}
+        {% if is_preview and "record_html" in item.links %}
           {%- set package_page = item.links.record_html + "?preview=1" -%}
         {% else %}
           {%- set package_page = item.links.self_html -%}
