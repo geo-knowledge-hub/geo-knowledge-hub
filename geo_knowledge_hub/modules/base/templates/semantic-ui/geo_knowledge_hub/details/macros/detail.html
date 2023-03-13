@@ -31,23 +31,5 @@
 {% endmacro %}
 
 {% macro show_knowledge_packages(related_knowledge_packages, is_preview) %}
-  <table class="ui very padded basic table">
-    <tbody>
-    {% for item in related_knowledge_packages %}
-      <tr>
-        <td>
-          <i class="large box icon"></i>
-        </td>
-
-        {% if is_preview and "record_html" in item.links %}
-          {%- set package_page = item.links.record_html + "?preview=1" -%}
-        {% else %}
-          {%- set package_page = item.links.self_html -%}
-        {% endif %}
-
-        <td><a href="{{ package_page }}"> {{ item.metadata.title }}</a></td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
+  <div id="details-related-packages-div" data-relatedPackages='{{ related_knowledge_packages | tojson }}'></div>
 {% endmacro %}
