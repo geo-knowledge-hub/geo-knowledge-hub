@@ -25,6 +25,7 @@ const componentsAvailable = [
   "versions",
   "record_management",
   "related_links",
+  "related_packages",
 ];
 
 renderFactory(componentsAvailable);
