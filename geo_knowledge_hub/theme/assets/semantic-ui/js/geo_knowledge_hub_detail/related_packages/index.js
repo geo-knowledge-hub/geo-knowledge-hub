@@ -11,7 +11,9 @@ import ReactDOM from "react-dom";
 
 import { RelatedPackagesTable } from "@geo-knowledge-hub/geo-components-react";
 
-const detailsRelatedPackagesDiv = document.getElementById("details-related-packages-div");
+const detailsRelatedPackagesDiv = document.getElementById(
+  "details-related-packages-div"
+);
 
 /**
  * Render the Engagement Priorities component.

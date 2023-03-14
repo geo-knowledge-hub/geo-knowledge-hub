@@ -622,7 +622,10 @@ export class GEOResourceApp extends Component {
                         </Grid.Column>
 
                         <Grid.Column width={16} className="pt-10">
-                          <PublishButton fluid disabled={packageAssociated && !record.is_published} />
+                          <PublishButton
+                            fluid
+                            disabled={packageAssociated && !record.is_published}
+                          />
                         </Grid.Column>
                       </Grid>
                     </Card.Content>
