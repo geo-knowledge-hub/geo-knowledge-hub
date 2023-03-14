@@ -233,9 +233,7 @@ class ResultsListItemComponent extends Component {
     if (previewMode) {
       recordUrl = _get(record, "links.record_html");
       viewRecordUrl = `${recordUrl}?preview=1&package=${packagePid}`;
-    }
-
-    else {
+    } else {
       recordUrl = _get(record, "links.self_html");
       viewRecordUrl = `${recordUrl}?package=${packagePid}`;
     }

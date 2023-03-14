@@ -151,33 +151,31 @@ const MetadataImporter = ({
   const [field, meta, helpers] = useField(fieldPath);
 
   return (
-    <Dropdown
-      icon={"configure"}
-      floating
-      button
-      basic
-      className="icon"
-    >
+    <Dropdown icon={"configure"} floating button basic className="icon">
       <Dropdown.Menu>
         <Dropdown.Header content={"Options"} />
-        <Dropdown.Item onClick={async () => {
-          // getting the data from the storage
-          let currentFieldPath = _isNil(fieldPathAlternate)
-            ? fieldPath
-            : fieldPathAlternate;
-          let storedData = _get(metadataStorage, currentFieldPath);
+        <Dropdown.Item
+          onClick={async () => {
+            // getting the data from the storage
+            let currentFieldPath = _isNil(fieldPathAlternate)
+              ? fieldPath
+              : fieldPathAlternate;
+            let storedData = _get(metadataStorage, currentFieldPath);
 
-          // serializing
-          if (!_isNil(serializer)) {
-            storedData = serializer(storedData);
-          }
+            // serializing
+            if (!_isNil(serializer)) {
+              storedData = serializer(storedData);
+            }
 
-          // replacing the value
-          helpers.setValue(storedData);
-        }}>Load from package</Dropdown.Item>
+            // replacing the value
+            helpers.setValue(storedData);
+          }}
+        >
+          Load from package
+        </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
-  )
+  );
 };
 
 /**
@@ -196,7 +194,10 @@ const FormRefresherComponent = ({
   const { actionState, record } = deposit;
 
   if (shouldUpdate) {
-    const finishDepositStates = ["DRAFT_PUBLISH_SUCCEEDED", "DRAFT_SAVE_SUCCEEDED"];
+    const finishDepositStates = [
+      "DRAFT_PUBLISH_SUCCEEDED",
+      "DRAFT_SAVE_SUCCEEDED",
+    ];
 
     if (finishDepositStates.includes(actionState)) {
       setTimeout(() => {
@@ -410,7 +411,7 @@ export class ResourceModalContent extends Component {
       onDepositDelete,
       onDepositSaveDraft,
       modalPackageRecord,
-      modalResourcesPermissions
+      modalResourcesPermissions,
     } = this.props;
 
     // Props (Step operation)
@@ -1125,7 +1126,10 @@ export class ResourceModalContent extends Component {
     let permissions = {};
 
     if (!_isNil(modalResourcesPermissions)) {
-      permissions = _head(modalResourcesPermissions.filter(obj => obj.id === record.id)) || {};
+      permissions =
+        _head(
+          modalResourcesPermissions.filter((obj) => obj.id === record.id)
+        ) || {};
     }
 
     return (
