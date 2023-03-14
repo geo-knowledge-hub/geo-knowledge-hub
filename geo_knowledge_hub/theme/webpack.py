@@ -51,7 +51,7 @@ theme = WebpackThemeBundle(
                 # Community
                 "geo-knowledge-hub-details-search": "./js/geo_knowledge_hub_community/details-search.js",
                 "geo-knowledge-hub-community-search": "./js/geo_knowledge_hub_community/communities_search/index.js",
-                "geo-knowledge-hub-community-carousel": "./js/geo_knowledge_hub_community/communities_carousel/index.js"
+                "geo-knowledge-hub-community-carousel": "./js/geo_knowledge_hub_community/communities_carousel/index.js",
             },
             dependencies={
                 "react-semantic-toasts": "^0.6.6",
