@@ -27,7 +27,9 @@ ReactDOM.render(
     depositConfigResourceSearch={getInputFromDOM(
       "deposits-record-search-config"
     )}
-    resourceRecordsPermissions={getInputFromDOM("deposits-related-record-permissions")}
+    resourceRecordsPermissions={getInputFromDOM(
+      "deposits-related-record-permissions"
+    )}
   />,
   document.getElementById("deposit-form")
 );

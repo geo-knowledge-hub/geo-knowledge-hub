@@ -50,6 +50,7 @@ theme = WebpackThemeBundle(
                 "geo-knowledge-hub-user-uploads": "./js/geo_knowledge_hub_dashboard/uploads.js",
                 # Community
                 "geo-knowledge-hub-details-search": "./js/geo_knowledge_hub_community/details-search.js",
+                "geo-knowledge-hub-community-search": "./js/geo_knowledge_hub_community/communities_search/index.js",
                 "geo-knowledge-hub-community-carousel": "./js/geo_knowledge_hub_community/communities_carousel/index.js",
             },
             dependencies={
@@ -64,8 +65,8 @@ theme = WebpackThemeBundle(
                 "react-minisearch": "^5.0.0-beta1",
                 "react-table": "^7.7.0",
                 "@geo-knowledge-hub/invenio-geographic-components-react": "0.2.2",
-                "@geo-knowledge-hub/geo-components-react": "0.4.8",
-                "@geo-knowledge-hub/geo-deposit-react": "1.2.1",
+                "@geo-knowledge-hub/geo-components-react": "0.4.9",
+                "@geo-knowledge-hub/geo-deposit-react": "1.2.2",
                 "@geo-knowledge-hub/geo-comments-react": "0.2.4",
                 "@emotion/react": "^11.9.0",
                 "@emotion/css": "^11.9.0",

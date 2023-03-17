@@ -9,6 +9,52 @@
 Changes
 =======
 
+Version 1.5.0 (2023-03-17)
+---------------------------
+
+- General updates
+
+  - Updated InvenioRDM to version 11 (`#215 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/215>`_).
+
+- Introduced features
+
+  - **Front page**:
+
+    - Reviewed the Latest addition implementation and component based on InvenioRDM features (`#219 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/219>`_);
+    - Added Featured communities carousel based on InvenioRDM features (`#219 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/219>`_);
+    - Added reference to the GEO Knowledge Hub guidelines in the footer section (`#273 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/273>`_).
+
+  - **Vocabulary**:
+
+    - Review and update the GEO Work Programme vocabulary based on the `GEO Work Programme activities for 2023-2025 <https://www.earthobservations.org/geo_wp_23_25.php>`_ (`#206 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/206>`_).
+
+  - **Deposit**:
+
+    - Added import metadata feature to enable users to load metadata from packages into resources (`#220 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/220>`_);
+    - Implemented a navigable previewer for packages, allowing the users to explore a package and its resources in the preview mode (`#217 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/217>`_, `#221 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/221>`_, `#232 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/pull/232>`_);
+    - Created a ``GEO Recommended`` section in the licenses modal (`#227 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/227>`_).
+
+  - **Landing page**:
+
+    - Added a new component to view ``Related works``;
+    - Added new component to visualize ``Associated Knowledge Packages`` (`#235 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/235>`_, `#253 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/253>`_).
+
+  - **Communities**:
+
+    - Removed "New community" button from the search community page (`#256 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/256>`_);
+    - Configured new facets for the Community search result page (`#262 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/262>`_);
+    - Reviewed the approach used to configure the community policy (`#268 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/pull/268>`_).
+
+  - **Management**:
+
+    - Enabled the Administration page using the InvenioRDM 11 features.
+
+- Infrastructure
+
+  - OpenSearch (``1.3.x``) was replaced with OpenSearch (``2.3.x``) (`#215 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/215>`_);
+
+In addition to the features and changes mentioned above, this new version includes improvements and bug fixes in the Landing Page and the Deposit interface. For more information, see the complete list of issues solved in `milestone v1.5.0 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/milestone/7?closed=1>`_.
+
 Version 1.4.1 (2023-01-10)
 ---------------------------
 
@@ -67,7 +113,7 @@ Version 1.4.0 (2023-01-05)
 - Infrastructure
 
   - Elasticsearch (``v7.10``) was replaced with OpenSearch (``1.3.x``) (`#175 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/175>`_);
-  - Removed Issue system from the GEO Knowledge Hub services (`#173 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/173>`_).
+  - Removed Isso system from the GEO Knowledge Hub services (`#173 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/173>`_).
 
 Version 1.3.2 (2022-07-21)
 --------------------------
