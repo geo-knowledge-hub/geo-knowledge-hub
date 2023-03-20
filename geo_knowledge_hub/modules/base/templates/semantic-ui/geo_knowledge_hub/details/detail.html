@@ -13,6 +13,7 @@
 {%- extends config.BASE_TEMPLATE %}
 {% endif %}
 
+{%- from "geo_knowledge_hub/details/macros/detail.html" import show_related_identifiers %}
 {%- from "invenio_app_rdm/records/macros/files.html" import file_list_box, preview_file_box %}
 
 {%- set title = record.metadata.title %}
@@ -293,6 +294,16 @@
                 </section>
               {%- endif %}
             {%- endblock record_files -%}
+
+            {# External resources #}
+            {% if record.ui.related_identifiers %}
+              <section id="related-identifiers">
+                <div class="ui divider"></div>
+                <h2 id="related-identifiers-heading">{{ _('External materials') }}</h2>
+
+                {{ show_related_identifiers(record.ui.related_identifiers) }}
+              </section>
+            {% endif %}
 
             {# Additional details #}
             {%- block record_details -%}
