@@ -1071,37 +1071,33 @@ export class ResourceModalContent extends Component {
         ),
       },
       {
-        menuItem: i18next.t("7. Related identifiers"),
+        menuItem: i18next.t("7. Extra identifiers"),
         render: () => (
           <Tab.Pane>
-            <Grid>
-              <Grid.Row centered>
-                <Grid.Column width={16}>
-                  <IdentifiersField
-                    fieldPath="metadata.identifiers"
-                    label={i18next.t("Alternate identifiers")}
-                    labelIcon="barcode"
-                    schemeOptions={
-                      this.vocabularies.metadata.identifiers.scheme
-                    }
-                    showEmptyValue
-                  />
-                </Grid.Column>
-              </Grid.Row>
-
-              <Grid.Row centered>
-                <Grid.Column width={16}>
-                  <RelatedWorksField
-                    fieldPath="metadata.related_identifiers"
-                    options={this.vocabularies.metadata.identifiers}
-                    showEmptyValue
-                  />
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
+            <IdentifiersField
+              fieldPath="metadata.identifiers"
+              label={i18next.t("Alternate identifiers")}
+              labelIcon="barcode"
+              schemeOptions={
+                this.vocabularies.metadata.identifiers.scheme
+              }
+              showEmptyValue
+            />
           </Tab.Pane>
         ),
       },
+      {
+        menuItem: i18next.t("8. Related links"),
+        render: () => (
+          <Tab.Pane>
+            <RelatedWorksField
+              fieldPath="metadata.related_identifiers"
+              options={this.vocabularies.metadata.identifiers}
+              showEmptyValue
+            />
+          </Tab.Pane>
+        )
+      }
     ];
 
     // Auxiliary data

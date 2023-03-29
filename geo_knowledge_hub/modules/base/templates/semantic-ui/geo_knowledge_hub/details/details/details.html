@@ -17,7 +17,6 @@ show_alternate_identifiers, show_funding, show_dates %}
 {% set hasContent = (related_elements_information and is_knowledge_resource) or
                     record.ui.additional_titles or
                     metadata.identifiers or
-                    record.ui.related_identifiers or
                     metadata.funding or
                     record.ui.dates or
                     metadata.references
@@ -73,20 +72,6 @@ show_alternate_identifiers, show_funding, show_dates %}
            id="identifiers-tab"
         >
           {{ _('Identifiers') }}
-        </a>
-        {% set active = false %}
-      {% endif %}
-
-      {% if record.ui.related_identifiers %}
-        <a role="tab"
-           aria-selected="{{ active }}"
-           aria-controls="related-works-tab-panel"
-           data-tab="related-works"
-           tabindex="0"
-           class="{{ 'active' if active }} item"
-           id="related-works-tab"
-        >
-          {{ _('Related works') }}
         </a>
         {% set active = false %}
       {% endif %}
@@ -178,21 +163,6 @@ show_alternate_identifiers, show_funding, show_dates %}
     >
       <dl class="details-list">
         {{ show_alternate_identifiers(metadata.identifiers) }}
-      </dl>
-    </div>
-    {% set active = false %}
-  {% endif %}
-
-  {% if record.ui.related_identifiers %}
-    <div role="tabpanel"
-         class="ui bottom {{ 'active' if active }} tab"
-         data-tab="related-works"
-         aria-labelledby="related-works-tab"
-         id="related-works-tab-panel"
-         hidden="{{ not active }}"
-    >
-      <dl class="details-list">
-        {{ show_related_identifiers(record.ui.related_identifiers) }}
       </dl>
     </div>
     {% set active = false %}
