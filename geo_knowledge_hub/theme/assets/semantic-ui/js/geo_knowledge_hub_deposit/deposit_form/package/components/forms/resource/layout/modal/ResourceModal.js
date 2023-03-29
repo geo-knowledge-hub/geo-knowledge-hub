@@ -1087,7 +1087,7 @@ export class ResourceModalContent extends Component {
         ),
       },
       {
-        menuItem: i18next.t("8. External materials"),
+        menuItem: i18next.t("8. Related links"),
         render: () => (
           <Tab.Pane>
             <RelatedWorksField

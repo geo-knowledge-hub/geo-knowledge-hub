@@ -537,7 +537,7 @@ export class PackageDepositFormComponentBase extends Component {
               <AccordionField
                 includesPaths={["metadata.related_identifiers"]}
                 active
-                label={i18next.t("External materials")}
+                label={i18next.t("Related links")}
               >
                 <RelatedWorksField
                   fieldPath="metadata.related_identifiers"
