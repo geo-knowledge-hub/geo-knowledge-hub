@@ -36,7 +36,7 @@ recursive-include docs *.bat
 recursive-include docs *.py
 recursive-include docs *.rst
 recursive-include docs Makefile
-recursive-include geo_knowledge_hub *.babelrc *.eslintignore *.json
+recursive-include geo_knowledge_hub *.babelrc *.eslintignore *.json *.patch
 recursive-include geo_knowledge_hub/translations *.po *.pot *.mo
 recursive-include geo_knowledge_hub *.html *.js *.less
 recursive-include tests *.py *.csv *.json *.yaml
