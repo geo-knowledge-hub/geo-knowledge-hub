@@ -573,7 +573,7 @@ export class GEOResourceApp extends Component {
               <AccordionField
                 includesPaths={["metadata.related_identifiers"]}
                 active
-                label={i18next.t("Related works")}
+                label={i18next.t("Related links")}
               >
                 <RelatedWorksField
                   fieldPath="metadata.related_identifiers"
