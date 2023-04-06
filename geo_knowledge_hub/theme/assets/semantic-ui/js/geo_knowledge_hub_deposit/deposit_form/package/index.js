@@ -11,8 +11,6 @@ import ReactDOM from "react-dom";
 
 import { getInputFromDOM } from "react-invenio-deposit";
 
-import "semantic-ui-css/semantic.min.css";
-
 import { GEOPackageApp } from "./GEOPackageApp";
 
 ReactDOM.render(

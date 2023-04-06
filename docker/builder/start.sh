@@ -40,11 +40,11 @@ docker-compose -f docker/builder/docker-compose.yml up -d
 # 2. Authenticating on registry
 #
 
-# installing utilitary tool to auth
-npm install -g npm-cli-login
+# installing utility tool to auth
+npm install -g npm-cli-adduser
 
 # authenticating
-npm-cli-login \
+npm-cli-adduser \
     -u $VERDACCIO_USERNAME \
     -p $VERDACCIO_PASSWORD \
     -e $VERDACCIO_EMAIL \
@@ -58,7 +58,10 @@ npm-cli-login \
 npm install -g rimraf json rollup
 
 # registering the local registry
-echo "@geo-knowledge-hub:registry=${VERDACCIO_DOCKER_REGISTRY}" > ~/.npmrc
+echo "@geo-knowledge-hub:registry=${VERDACCIO_DOCKER_REGISTRY}" >> ~/.npmrc
+
+# configuring npm to be compatible with Node 16
+echo "legacy-peer-deps=true" >> ~/.npmrc
 
 # extract the dependencies from the `geo-knowledge-hub`
 # note: `@geo` is the scope defined to the `geo-knowledge-hub` packages
@@ -101,13 +104,14 @@ cd $BASE_DIRECTORY
 
 # adding the registry reference in the Dockerfile
 sed -i "/^COPY .\/* /a \
-RUN npm install -g npm-cli-login && npm-cli-login \\\
+RUN npm install -g npm-cli-adduser && npm-cli-adduser \\\
     -u $VERDACCIO_USERNAME \\\
     -p $VERDACCIO_PASSWORD \\\
     -e $VERDACCIO_EMAIL \\\
     -r $VERDACCIO_LOCAL_REGISTRY" \
     Dockerfile
 
+sed -i "/^COPY .\/* /a RUN echo \'legacy-peer-deps=true\' >> ~/.npmrc" Dockerfile
 sed -i "/^COPY .\/* /a RUN echo \'@geo-knowledge-hub:registry=${VERDACCIO_DOCKER_REGISTRY}\' > ~/.npmrc" Dockerfile
 
 # excluding temporary files

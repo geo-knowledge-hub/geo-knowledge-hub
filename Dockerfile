@@ -6,7 +6,7 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-FROM inveniosoftware/centos8-python:3.8
+FROM registry.cern.ch/inveniosoftware/almalinux:1
 
 #
 # Environment variables
