@@ -10,6 +10,7 @@
 
 from flask import g, render_template
 from flask_login import current_user, login_required
+from geo_rdm_records.modules.packages.requests import FeedPostRequest
 from invenio_communities.members.services.request import CommunityInvitation
 from invenio_rdm_records.requests import CommunitySubmission
 from invenio_requests.customizations import AcceptAction
@@ -44,21 +45,28 @@ def user_dashboard_request_view(request, **kwargs):
 
     request_type = request["type"]
 
+    # ToDo: Review and generalize this implementation to support multiple
+    #       request types in a better way.
     is_draft_submission = request_type == CommunitySubmission.type_id
     is_invitation = request_type == CommunityInvitation.type_id
+    is_feed_request = request_type == FeedPostRequest.type_id
+    is_preview = not is_feed_request
+
     request_is_accepted = request["status"] == AcceptAction.status_to
 
     # Loading services based on record type
     record_type = list(request["topic"].keys())
     record_type = record_type[0]
 
-    is_knowledge_package = record_type == "package"
+    # handling "various types" of packages (e.g., 'package draft' or 'package record')
+    is_knowledge_package = "package" in record_type
+    record_type = "package" if is_knowledge_package else record_type
 
     service = get_record_service(record_type)
     files_service = get_files_service(record_type)
     draft_files_service = get_draft_files_service(record_type)
 
-    if is_draft_submission:
+    if is_draft_submission or is_feed_request:
         # Getting related data for packages and resources
         related_records_metadata = []
         related_package_metadata = []
@@ -67,7 +75,9 @@ def user_dashboard_request_view(request, **kwargs):
         record_tags = []
         user_stories = []
 
-        topic = requests_utilities.resolve_topic_draft(request, service)
+        topic = requests_utilities.resolve_topic(
+            request, service, draft=is_draft_submission
+        )
         record = topic["record_ui"]
         files = requests_utilities.resolve_record_or_draft_files(
             record, files_service, draft_files_service
@@ -93,14 +103,21 @@ def user_dashboard_request_view(request, **kwargs):
                     related_package_metadata,
                 ) = metadata_utilities.expand_metadata_from_record(identity, record)
 
+        # Defining template
+        template = (
+            "invenio_requests/request-submission/index.html"
+            if is_feed_request
+            else "invenio_requests/community-submission/index.html"
+        )
+
         return render_template(
-            "invenio_requests/community-submission/index.html",
+            template,
             base_template="invenio_app_rdm/users/base.html",
             user_avatar=avatar,
             invenio_request=request.to_dict(),
             record=record,
             permissions=topic["permissions"],
-            is_preview=True,
+            is_preview=is_preview,
             draft_is_accepted=request_is_accepted,
             files=files,
             is_user_dashboard=True,

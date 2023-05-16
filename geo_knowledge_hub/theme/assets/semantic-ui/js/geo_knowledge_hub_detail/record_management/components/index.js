@@ -6,5 +6,9 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
+export { EditButton } from "./EditButton";
+
 export { ShareModal } from "./ShareModal";
 export { ShareButton } from "./ShareButton";
+
+export { RequestButton } from "./RequestButton";

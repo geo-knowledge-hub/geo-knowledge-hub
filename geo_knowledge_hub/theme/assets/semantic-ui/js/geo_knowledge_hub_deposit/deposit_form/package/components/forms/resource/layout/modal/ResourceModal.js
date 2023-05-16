@@ -1078,9 +1078,7 @@ export class ResourceModalContent extends Component {
               fieldPath="metadata.identifiers"
               label={i18next.t("Alternate identifiers")}
               labelIcon="barcode"
-              schemeOptions={
-                this.vocabularies.metadata.identifiers.scheme
-              }
+              schemeOptions={this.vocabularies.metadata.identifiers.scheme}
               showEmptyValue
             />
           </Tab.Pane>
@@ -1096,8 +1094,8 @@ export class ResourceModalContent extends Component {
               showEmptyValue
             />
           </Tab.Pane>
-        )
-      }
+        ),
+      },
     ];
 
     // Auxiliary data
