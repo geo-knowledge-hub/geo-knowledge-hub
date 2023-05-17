@@ -23,7 +23,7 @@
 
 <!-- preview_submission_request is set to true when coming from a community submission request -->
 {%- set is_preview_submission_request = preview_submission_request or false %}
-{%- set show_record_management_menu = can_manage_record and (not is_preview or is_preview_submission_request) %}
+{%- set show_record_management_menu = can_manage_record and (not is_preview or is_preview_submission_request) and not hide_management_menu %}
 
 {%- block page_body %}
 

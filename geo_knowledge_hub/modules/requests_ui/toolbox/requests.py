@@ -29,7 +29,7 @@ def resolve_record_or_draft_files(record, files_service, draft_files_service):
     return None
 
 
-def resolve_topic_draft(request, service):
+def resolve_topic(request, service, draft):
     """Resolve the record in the topic when it is a draft."""
     user_owns_request = str(request["expanded"]["created_by"]["id"]) == str(
         current_user.id
@@ -40,8 +40,11 @@ def resolve_topic_draft(request, service):
 
     recid = ResolverRegistry.resolve_entity_proxy(request["topic"])._parse_ref_dict_id()
 
+    # defining method
+    method_ = service.read_draft if draft else service.read
+
     try:
-        record = service.read_draft(g.identity, recid, expand=True)
+        record = method_(g.identity, recid, expand=True)
         record_ui = UIJSONSerializer().dump_obj(record.to_dict())
         permissions = record.has_permissions_to(
             [

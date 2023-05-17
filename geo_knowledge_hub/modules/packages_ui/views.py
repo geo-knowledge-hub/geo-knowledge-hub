@@ -75,7 +75,15 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
         record=record_ui,
         files=files_data,
         permissions=record.has_permissions_to(
-            ["edit", "new_version", "manage", "update_draft", "read_files", "review"]
+            [
+                "edit",
+                "new_version",
+                "manage",
+                "update_draft",
+                "read_files",
+                "review",
+                "request",
+            ]
         ),
         is_draft=record_is_draft,
         is_preview=is_preview,

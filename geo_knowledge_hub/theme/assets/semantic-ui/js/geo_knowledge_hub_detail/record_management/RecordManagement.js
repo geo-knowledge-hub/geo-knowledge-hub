@@ -14,8 +14,7 @@ import { i18next } from "@translations/invenio_app_rdm/i18next";
 import { NewVersionButton } from "react-invenio-deposit";
 import { Button, Grid, Icon, Message } from "semantic-ui-react";
 
-import { EditButton } from "./EditButton";
-import { ShareButton } from "./share";
+import { EditButton, ShareButton, RequestButton } from "./components";
 
 /**
  * Record management component.
@@ -72,12 +71,18 @@ export const RecordManagement = ({
             />
           </Grid.Column>
 
-          <Grid.Column className="pt-5">
+          <Grid.Column className="pt-5 pb-5">
             {permissions.can_manage && (
               <ShareButton
                 disabled={!permissions.can_update_draft}
                 record={record}
               />
+            )}
+          </Grid.Column>
+
+          <Grid.Column className="pt-5">
+            {permissions.can_request && (
+              <RequestButton disabled={false} record={record} />
             )}
           </Grid.Column>
         </>
