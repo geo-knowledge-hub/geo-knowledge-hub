@@ -315,3 +315,27 @@ def pass_is_resource_preview(f):
         return f(**kwargs)
 
     return view
+
+
+def pass_record_from_pid(f):
+    """Decorate a view to pass the record from a pid."""
+
+    @wraps(f)
+    def view(*args, **kwargs):
+        scheme = kwargs.get("pid_scheme")
+        pid_value = kwargs.get("pid_value")
+
+        def _resolve(service):
+            return service.pids.resolve(g.identity, pid_value, scheme)
+
+        try:
+            service = get_record_service("package")
+            record = _resolve(service)
+        except:
+            service = get_record_service("record")
+            record = _resolve(service)
+
+        kwargs["record"] = record
+        return f(**kwargs)
+
+    return view
