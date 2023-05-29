@@ -27,6 +27,7 @@ export const RecordManagement = ({
   permissions,
   isDraft,
   isPreviewSubmissionRequest,
+  assistanceRequests,
 }) => {
   const { id: recid } = record;
   const [error, setError] = useState("");
@@ -82,7 +83,11 @@ export const RecordManagement = ({
 
           <Grid.Column className="pt-5">
             {permissions.can_request && (
-              <RequestButton disabled={false} record={record} />
+              <RequestButton
+                disabled={false}
+                record={record}
+                assistanceRequests={assistanceRequests}
+              />
             )}
           </Grid.Column>
         </>

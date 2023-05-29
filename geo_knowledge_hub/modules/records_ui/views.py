@@ -90,6 +90,7 @@ def geo_record_detail(
         related_engagement_priorities=engagement_priorities,
         navigate=navigate,
         package=package,
+        assistance_requests=[],
     )
 
 

@@ -8,6 +8,8 @@
 
 """GEO Knowledge Hub Deposit (page) views."""
 
+import json
+
 from flask import g, redirect, render_template
 from flask_login import login_required
 from geo_config.security.permissions import need_permission
@@ -39,6 +41,8 @@ from geo_knowledge_hub.modules.base.utilities import (
     serialization as serialization_utilities,
 )
 
+from .toolbox.record import check_requests
+
 
 #
 # Record Landing page views
@@ -69,6 +73,10 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
         related_records_metadata,
     ) = metadata_utilities.expand_metadata_from_package(identity, record_ui)
 
+    # Check requests on the package
+    package_requests = check_requests(record_data, ["feed-post-creation"])
+    package_requests = json.dumps(package_requests)
+
     return render_template(
         "geo_knowledge_hub/details/detail.html",
         # Invenio App RDM template variables
@@ -94,6 +102,7 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
         programme_activity=programme_activity,
         related_elements_information=related_records_metadata,
         related_engagement_priorities=engagement_priorities,
+        assistance_requests=package_requests,
     )
 
 
