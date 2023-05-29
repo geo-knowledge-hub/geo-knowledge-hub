@@ -25,6 +25,9 @@ function renderRecordManagement(element) {
       isPreviewSubmissionRequest={JSON.parse(
         recordManagementAppDiv.dataset.isPreviewSubmissionRequest
       )}
+      assistanceRequests={JSON.parse(
+        recordManagementAppDiv.dataset.assistanceRequests
+      )}
     />,
     element
   );

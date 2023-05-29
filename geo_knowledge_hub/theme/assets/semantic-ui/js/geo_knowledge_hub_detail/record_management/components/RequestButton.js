@@ -12,33 +12,35 @@ import PropTypes from "prop-types";
 import { Icon, Dropdown } from "semantic-ui-react";
 
 import { i18next } from "@translations/invenio_app_rdm/i18next";
-import { RequestModal } from "./RequestModal";
+import { RequestFeedPostModal } from "./requests";
 
 const availableRequests = [
   {
     key: 1,
     text: i18next.t("Feed post"),
-    value: "feed-request",
+    value: "feed-post-creation",
+    icon: "rss",
+    component: RequestFeedPostModal,
   },
 ];
 
 /**
  * Button to manage package requests.
  */
-export const RequestButton = ({ disabled, record }) => {
+export const RequestButton = ({ record, assistanceRequests }) => {
   // States
-  const [modalOpen, setModaOpen] = useState(false);
+  const [modalOpen, setModaOpen] = useState(null);
 
   // Auxiliary functions
-  const handleOpen = () => setModaOpen(true);
-  const handleClose = () => setModaOpen(false);
+  const handleOpen = (modalId) => setModaOpen(modalId);
+  const handleClose = () => setModaOpen(null);
 
   return (
     <>
       <Dropdown
         text={
           <>
-            <span style={{ marginLeft: "-30px" }}>Available requests</span>
+            <span style={{ marginLeft: "-30px" }}>Requests</span>
           </>
         }
         options={availableRequests}
@@ -55,30 +57,43 @@ export const RequestButton = ({ disabled, record }) => {
         <Dropdown.Menu fluid>
           <Dropdown.Header
             fluid
-            content={i18next.t("Requests available")}
+            content={i18next.t("Available requests")}
             icon={"arrow alternate circle right outline"}
           />
           {availableRequests.map((option) => (
-            <Dropdown.Item fluid key={option.key} onClick={handleOpen} icon>
-              <Icon name={"rss"} /> {option.text}
+            <Dropdown.Item
+              fluid
+              key={option.key}
+              onClick={() => handleOpen(option.key)}
+              icon
+              disabled={assistanceRequests[option.value]}
+            >
+              <Icon name={option.icon} /> {option.text}
             </Dropdown.Item>
           ))}
         </Dropdown.Menu>
       </Dropdown>
-      <RequestModal
-        record={record}
-        handleClose={handleClose}
-        open={modalOpen}
-      />
+
+      {availableRequests.map((option) => {
+        const Component = option.component;
+        return (
+          <Component
+            record={record}
+            handleClose={handleClose}
+            open={modalOpen === option.key && !assistanceRequests[option.value]}
+            assistanceRequests={assistanceRequests}
+          />
+        );
+      })}
     </>
   );
 };
 
 RequestButton.propTypes = {
-  disabled: PropTypes.bool,
   record: PropTypes.object.isRequired,
+  assistanceRequests: PropTypes.object
 };
 
 RequestButton.defaultProps = {
-  disabled: false,
+  assistanceRequests: {},
 };
