@@ -8,6 +8,8 @@
 
 """Record and Package Request related record."""
 
+import json
+
 from flask import g, render_template
 from flask_login import current_user, login_required
 from geo_rdm_records.modules.packages.requests import FeedPostRequest
@@ -23,6 +25,7 @@ from geo_knowledge_hub.modules.base.registry import (
     get_record_service,
 )
 from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
+from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 
 from .toolbox import requests as requests_utilities
 
@@ -74,6 +77,7 @@ def user_dashboard_request_view(request, **kwargs):
         programme_activity = []
         record_tags = []
         user_stories = []
+        package_requests = []
 
         topic = requests_utilities.resolve_topic(
             request, service, draft=is_draft_submission
@@ -93,6 +97,12 @@ def user_dashboard_request_view(request, **kwargs):
                     user_stories,
                     related_records_metadata,
                 ) = metadata_utilities.expand_metadata_from_package(identity, record)
+
+                # Check requests on the package
+                package_requests = record_utilities.check_requests(
+                    record, ["feed-post-creation"]
+                )
+                package_requests = json.dumps(package_requests)
 
             elif record_type == "record":
                 # Expanding record metadata
@@ -128,6 +138,7 @@ def user_dashboard_request_view(request, **kwargs):
             related_package_information=related_package_metadata,
             related_elements_information=related_records_metadata,
             related_engagement_priorities=engagement_priorities,
+            assistance_requests=package_requests,
         )
 
     elif is_invitation:
