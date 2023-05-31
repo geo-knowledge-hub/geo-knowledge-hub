@@ -416,3 +416,14 @@ def record_file_download(pid_value, file_item=None, is_preview=False, **kwargs):
     """Download a file from a record."""
     download = bool(request.args.get("download"))
     return file_item.send_file(as_attachment=download)
+
+
+def check_requests(record, request_types):
+    """Check which type of request has made for the record."""
+    res = {}
+    for request_type in request_types:
+        res[request_type] = any(
+            map(lambda x: x["type"] == request_type, record["assistance_requests"])
+        )
+
+    return res
