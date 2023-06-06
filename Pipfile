@@ -17,10 +17,10 @@ invenio-app-rdm = {version = "~=11.0.0", extras = ["opensearch2", "postgresql", 
 
 # Extra dependencies
 invenio-previewer = { git = "https://github.com/geo-knowledge-hub/invenio-previewer.git", editable = false, ref = "preview/simple-video" }
-invenio-rdm-records = { git = "https://github.com/geo-knowledge-hub/invenio-rdm-records.git", editable = false, ref = "b-1.5" }
+invenio-rdm-records = { git = "https://github.com/geo-knowledge-hub/invenio-rdm-records.git", editable = false, ref = "b-1.6" }
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"
 
 [pipenv]
 allow_prereleases = false
