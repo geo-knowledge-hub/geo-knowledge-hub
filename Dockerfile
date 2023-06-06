@@ -31,7 +31,7 @@ COPY ./ .
 #
 # Installing the GEO Knowledge Hub package
 #
-RUN pip install .
+RUN pip uninstall invenio-rdm-records --yes && pip install .
 
 #
 # Building the InvenioRDM based application
