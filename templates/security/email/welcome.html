@@ -1,181 +1,547 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" style="color-scheme: light dark; supported-color-schemes: light dark;">
 <head>
-  <style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="x-apple-disable-message-reformatting" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="supported-color-schemes" content="light dark" />
+  <title></title>
+  <style type="text/css" rel="stylesheet" media="all">
+    /* Base ------------------------------ */
+
+    @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,700&amp;display=swap");
     body {
-      font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      width: 100% !important;
+      height: 100%;
       margin: 0;
-      padding: 0;
+      -webkit-text-size-adjust: none;
     }
 
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 0.3rem;
+    a {
+      color: #3869D4;
     }
 
-    .header {
-      text-align: center;
-      margin-bottom: 20px;
+    a img {
+      border: none;
     }
 
-    .header h1 {
-      color: #526479;
+    td {
+      word-break: break-word;
     }
 
-    .logo {
-      display: inline-block;
+    .preheader {
+      display: none !important;
+      visibility: hidden;
+      mso-hide: all;
+      font-size: 1px;
+      line-height: 1px;
+      max-height: 0;
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+    /* Type ------------------------------ */
+
+    body,
+    td,
+    th {
+      font-family: "Nunito Sans", Helvetica, Arial, sans-serif;
     }
 
     h1 {
-      font-size: 2rem;
-      color: #333;
       margin-top: 0;
+      color: #333333;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #333333;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    h3 {
+      margin-top: 0;
+      color: #333333;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    td,
+    th {
+      font-size: 16px;
+    }
+
+    p,
+    ul,
+    ol,
+    blockquote {
+      margin: .4em 0 1.1875em;
+      font-size: 16px;
+      line-height: 1.625;
+    }
+
+    p.sub {
+      font-size: 13px;
+    }
+    /* Utilities ------------------------------ */
+
+    .align-right {
+      text-align: right;
+    }
+
+    .align-left {
+      text-align: left;
+    }
+
+    .align-center {
+      text-align: center;
+    }
+
+    .u-margin-bottom-none {
+      margin-bottom: 0;
+    }
+    /* Buttons ------------------------------ */
+
+    .button {
+      background-color: #3869D4;
+      border-top: 10px solid #3869D4;
+      border-right: 18px solid #3869D4;
+      border-bottom: 10px solid #3869D4;
+      border-left: 18px solid #3869D4;
+      display: inline-block;
+      color: #FFF;
+      text-decoration: none;
+      border-radius: 3px;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
+      -webkit-text-size-adjust: none;
+      box-sizing: border-box;
+    }
+
+    .button--green {
+      background-color: #22BC66;
+      border-top: 10px solid #22BC66;
+      border-right: 18px solid #22BC66;
+      border-bottom: 10px solid #22BC66;
+      border-left: 18px solid #22BC66;
+    }
+
+    .button--red {
+      background-color: #FF6136;
+      border-top: 10px solid #FF6136;
+      border-right: 18px solid #FF6136;
+      border-bottom: 10px solid #FF6136;
+      border-left: 18px solid #FF6136;
+    }
+
+    @media only screen and (max-width: 500px) {
+      .button {
+        width: 100% !important;
+        text-align: center !important;
+      }
+    }
+    /* Attribute list ------------------------------ */
+
+    .attributes {
+      margin: 0 0 21px;
+    }
+
+    .attributes_content {
+      background-color: #F4F4F7;
+      padding: 16px;
+    }
+
+    .attributes_item {
+      padding: 0;
+    }
+    /* Related Items ------------------------------ */
+
+    .related {
+      width: 100%;
+      margin: 0;
+      padding: 25px 0 0 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+    }
+
+    .related_item {
+      padding: 10px 0;
+      color: #CBCCCF;
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+    .related_item-title {
+      display: block;
+      margin: .5em 0 0;
+    }
+
+    .related_item-thumb {
+      display: block;
+      padding-bottom: 10px;
+    }
+
+    .related_heading {
+      border-top: 1px solid #CBCCCF;
+      text-align: center;
+      padding: 25px 0 10px;
+    }
+    /* Discount Code ------------------------------ */
+
+    .discount {
+      width: 100%;
+      margin: 0;
+      padding: 24px;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      background-color: #F4F4F7;
+      border: 2px dashed #CBCCCF;
+    }
+
+    .discount_heading {
+      text-align: center;
+    }
+
+    .discount_body {
+      text-align: center;
+      font-size: 15px;
+    }
+    /* Social Icons ------------------------------ */
+
+    .social {
+      width: auto;
+    }
+
+    .social td {
+      padding: 0;
+      width: auto;
+    }
+
+    .social_icon {
+      height: 20px;
+      margin: 0 8px 10px 8px;
+      padding: 0;
+    }
+    /* Data table ------------------------------ */
+
+    .purchase {
+      width: 100%;
+      margin: 0;
+      padding: 35px 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+    }
+
+    .purchase_content {
+      width: 100%;
+      margin: 0;
+      padding: 25px 0 0 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+    }
+
+    .purchase_item {
+      padding: 10px 0;
+      color: #51545E;
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+    .purchase_heading {
+      padding-bottom: 8px;
+      border-bottom: 1px solid #EAEAEC;
+    }
+
+    .purchase_heading p {
+      margin: 0;
+      color: #85878E;
+      font-size: 12px;
+    }
+
+    .purchase_footer {
+      padding-top: 15px;
+      border-top: 1px solid #EAEAEC;
+    }
+
+    .purchase_total {
+      margin: 0;
+      text-align: right;
+      font-weight: bold;
+      color: #333333;
+    }
+
+    .purchase_total--label {
+      padding: 0 15px 0 0;
+    }
+
+    body {
+      background-color: #F4F4F7;
+      color: #51545E;
     }
 
     p {
-      font-size: 1rem;
-      color: #333;
-      line-height: 1.5;
+      color: #51545E;
     }
 
-    .main-content {
-      display: flex;
-      flex-direction: column;
+    p.sub {
+      color: #6B6E76;
     }
 
-    .btn {
-      display: block;
-      color: #FFF;
-      background-color: #2185D0;
+    .email-wrapper {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      background-color: #F4F4F7;
+    }
+
+    .email-content {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+    }
+    /* Masthead ----------------------- */
+
+    .email-masthead {
+      padding: 25px 0;
       text-align: center;
-      padding: .65em 1.5em .65em;
-      border-radius: .35rem;
+    }
+
+    .email-masthead_logo {
+      width: 94px;
+    }
+
+    .email-masthead_name {
+      font-size: 16px;
+      font-weight: bold;
+      color: #A8AAAF;
       text-decoration: none;
+      text-shadow: 0 1px 0 white;
+    }
+    /* Body ------------------------------ */
+
+    .email-body {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      background-color: #FFFFFF;
     }
 
-    .btn:hover {
-      background-color: #1678c2;
+    .email-body_inner {
+      width: 570px;
+      margin: 0 auto;
+      padding: 0;
+      -premailer-width: 570px;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      background-color: #FFFFFF;
     }
 
-    .card {
-      border: 1px solid #ddd;
-      border-radius: 0.35rem;
-      padding: 10px;
-      display: flex;
-      flex: 1 1 300px;
-      flex-direction: column;
-      justify-content: space-between;
-      margin-top: 10px;
-    }
-
-    .card-header {
-      font-size: 1.2rem;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
-      margin-bottom: 10px;
-    }
-
-    .link {
-      color: #2185D0;
-      text-decoration: none;
-      background-color: #f2f2f2;
-      padding: 5px;
-      border-radius: 5px;
-      align-self: flex-end;
-    }
-
-    .link:hover {
-      background-color: #e6e6e6;
-    }
-
-    .footer {
-      margin-top: 20px;
-      font-size: 0.875rem;
+    .email-footer {
+      width: 570px;
+      margin: 0 auto;
+      padding: 0;
+      -premailer-width: 570px;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
       text-align: center;
+    }
+
+    .email-footer p {
+      color: #6B6E76;
+    }
+
+    .body-action {
+      width: 100%;
+      margin: 30px auto;
+      padding: 0;
+      -premailer-width: 100%;
+      -premailer-cellpadding: 0;
+      -premailer-cellspacing: 0;
+      text-align: center;
+    }
+
+    .body-sub {
+      margin-top: 25px;
+      padding-top: 25px;
+      border-top: 1px solid #EAEAEC;
+    }
+
+    .content-cell {
+      padding: 35px;
+    }
+    /*Media Queries ------------------------------ */
+
+    @media only screen and (max-width: 600px) {
+      .email-body_inner,
+      .email-footer {
+        width: 100% !important;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body,
+      .email-body,
+      .email-body_inner,
+      .email-content,
+      .email-wrapper,
+      .email-masthead,
+      .email-footer {
+        background-color: #333333 !important;
+        color: #FFF !important;
+      }
+      p,
+      ul,
+      ol,
+      blockquote,
+      h1,
+      h2,
+      h3,
+      span,
+      .purchase_item {
+        color: #FFF !important;
+      }
+      .attributes_content,
+      .discount {
+        background-color: #222 !important;
+      }
+      .email-masthead_name {
+        text-shadow: none !important;
+      }
+    }
+
+    :root {
+      color-scheme: light dark;
+      supported-color-schemes: light dark;
+    }
+  </style>
+  <!--[if mso]>
+  <style type="text/css">
+    .f-fallback  {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+  <![endif]-->
+  <style type="text/css" rel="stylesheet" media="all">
+    body {
+      width: 100% !important;
+      height: 100%;
+      margin: 0;
+      -webkit-text-size-adjust: none;
+    }
+
+    body {
+      font-family: "Nunito Sans", Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #F4F4F7;
+      color: #51545E;
     }
   </style>
 </head>
-<body>
-<div class="container">
-  <div class="header">
-    <div class="logo">
-      <svg viewbox="0 0 780 300" width="100%" height="100%" preserveAspectRatio="xMinYMin meet">
-        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-        <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
-             xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
-             xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-             xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" width="768"
-             height="254" viewBox="0 0 768 254" enable-background="new 0 0 768 494" xml:space="preserve" id="svg2"
-             inkscape:version="0.91 r13725" sodipodi:docname="geo_knowledge_hub_blue.svg"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://purl.org/dc/elements/1.1/ "><metadata id="metadata92"><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-          rdf:resource="http://purl.org/dc/dcmitype/StillImage"/><dc:title/></cc:Work></rdf:RDF></metadata>
-          <defs id="defs90"/>
-          <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10"
-                              gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2"
-                              inkscape:window-width="1855" inkscape:window-height="1056" id="namedview88"
-                              showgrid="false"
-                              inkscape:zoom="1.2575195" inkscape:cx="255.91023" inkscape:cy="214.70076"
-                              inkscape:window-x="65" inkscape:window-y="24" inkscape:window-maximized="1"
-                              inkscape:current-layer="svg2"/>
-          <g id="Camada_2" transform="translate(0,-240)"/>
-          <g id="g3374" style="fill:#526479;fill-opacity:1"
-             transform="matrix(1.1405026,0,0,1.1405026,-53.952998,-17.84383)"><g style="fill:#526479;fill-opacity:1" transform="translate(-5.004,7.5)" id="g8"><path d="m 296.798,75.155 c -0.737,-3.178 -2.537,-5.398 -5.399,-6.662 -1.6,-0.694 -3.378,-1.042 -5.335,-1.042 -3.746,0 -6.824,1.413 -9.234,4.238 -2.411,2.825 -3.615,7.074 -3.615,12.745 0,5.714 1.305,9.757 3.915,12.131 2.609,2.374 5.577,3.561 8.903,3.561 3.262,0 5.935,-0.936 8.019,-2.808 2.084,-1.872 3.367,-4.325 3.852,-7.358 l -10.765,0 0,-7.766 19.384,0 0,24.972 -6.44,0 -0.979,-5.809 c -1.874,2.2 -3.557,3.751 -5.051,4.652 -2.568,1.571 -5.725,2.357 -9.471,2.357 -6.167,0 -11.219,-2.135 -15.154,-6.405 -4.104,-4.291 -6.156,-10.159 -6.156,-17.605 0,-7.529 2.073,-13.566 6.219,-18.109 4.146,-4.543 9.629,-6.815 16.448,-6.815 5.914,0 10.665,1.5 14.254,4.499 3.588,2.999 5.646,6.74 6.172,11.223 l -9.567,0 z" id="path10" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/><path
-            d="m 350.215,68.872 -24.625,0 0,9.882 22.604,0 0,8.082 -22.604,0 0,11.965 25.761,0 0,8.366 -35.264,0 0,-46.535 34.127,0 0,8.24 z"
-            id="path12" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/><path
-            d="m 394.76,103.031 c -3.514,3.62 -8.598,5.43 -15.248,5.43 -6.651,0 -11.734,-1.81 -15.249,-5.43 -4.715,-4.44 -7.072,-10.839 -7.072,-19.195 0,-8.524 2.357,-14.922 7.072,-19.195 3.515,-3.62 8.598,-5.43 15.249,-5.43 6.65,0 11.734,1.811 15.248,5.43 4.693,4.273 7.041,10.671 7.041,19.195 0,8.356 -2.348,14.755 -7.041,19.195 z m -6.076,-7.072 c 2.262,-2.841 3.395,-6.882 3.395,-12.123 0,-5.219 -1.133,-9.255 -3.395,-12.107 -2.264,-2.852 -5.32,-4.278 -9.171,-4.278 -3.851,0 -6.925,1.42 -9.218,4.262 -2.294,2.841 -3.441,6.882 -3.441,12.123 0,5.241 1.147,9.282 3.441,12.123 2.293,2.841 5.367,4.262 9.218,4.262 3.851,0 6.907,-1.42 9.171,-4.262 z"
-            id="path14" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/><path
-            d="m 265.862,170.001 0,-46.534 4.351,0 0,24.09 23.11,-24.09 4.831,0 -17.792,18.531 20.909,28.003 -5.197,0 -18.77,-25.291 -7.092,7.325 0,17.966 -4.35,0 z"
-            id="path16" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/><path
-            d="m 311.949,170.001 -3.719,0 0,-33.496 3.719,0 0,4.646 c 1.468,-1.717 3.038,-3.068 4.71,-4.053 1.631,-0.984 3.548,-1.477 5.75,-1.477 4.139,-0.105 7.442,1.483 9.909,4.768 0.787,1.157 1.26,2.367 1.421,3.63 0.121,1.284 0.182,2.642 0.182,4.073 l 0,21.909 -3.719,0 0,-21.849 c 0.083,-6.041 -2.713,-9.062 -8.392,-9.062 -2.348,0.042 -4.278,0.695 -5.788,1.96 -1.491,1.243 -2.573,2.771 -3.247,4.584 -0.593,2.02 -0.869,4.135 -0.827,6.344 l 0,18.023 z"
-            id="path18" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/><path
-            d="m 357.05,170.916 c -4.259,-0.042 -7.785,-1.557 -10.577,-4.545 -2.914,-2.926 -4.392,-7.293 -4.433,-13.103 0,-5.052 1.253,-9.239 3.76,-12.565 2.506,-3.303 6.256,-4.998 11.25,-5.082 5.054,0.084 8.834,1.779 11.341,5.082 2.465,3.326 3.699,7.514 3.699,12.565 -0.041,5.388 -1.396,9.629 -4.066,12.724 -2.669,3.24 -6.327,4.882 -10.974,4.924 z m 11.068,-17.631 c 0.042,-4.068 -0.796,-7.439 -2.514,-10.117 -1.717,-2.676 -4.568,-4.035 -8.554,-4.077 -3.924,0.084 -6.745,1.528 -8.462,4.331 -1.717,2.803 -2.575,6.09 -2.575,9.863 0,4.215 0.96,7.598 2.882,10.146 1.839,2.635 4.558,3.973 8.155,4.016 3.944,-0.043 6.795,-1.507 8.554,-4.395 1.676,-2.802 2.514,-6.058 2.514,-9.767 z"
-            id="path20" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/><path
-            d="m 407.541,164.826 8.527,-28.321 3.82,0 -10.514,33.496 -4.004,0 -7.092,-28.132 -0.121,0 -7.184,28.132 -4.523,0 -9.872,-33.496 3.759,0 8.374,28.574 7.52,-28.574 4.188,0 7.122,28.321 z"
-            id="path22" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/><path
-            d="m 427.408,170.001 0,-46.534 3.719,0 0,46.534 -3.719,0 z" id="path24" inkscape:connector-curvature="0"
-            style="fill:#526479;fill-opacity:1"/><path
-            d="m 443.471,154.15 c 0,3.715 0.919,6.827 2.756,9.339 1.837,2.597 4.562,3.915 8.174,3.958 5.163,-0.043 8.439,-2.617 9.827,-7.726 l 4.194,0 c -0.877,3.238 -2.396,5.888 -4.556,7.947 -2.222,2.123 -5.371,3.205 -9.447,3.247 -5.137,-0.084 -8.917,-1.788 -11.343,-5.113 -2.427,-3.242 -3.619,-7.377 -3.577,-12.408 0,-5.051 1.335,-9.26 4.005,-12.628 2.589,-3.347 6.227,-5.062 10.914,-5.146 9.212,0.084 13.961,6.261 14.246,18.529 l -25.193,0 z m 21.221,-3.214 c 0,-3.411 -0.858,-6.212 -2.576,-8.402 -1.758,-2.253 -4.324,-3.4 -7.697,-3.442 -3.312,0.042 -5.867,1.211 -7.666,3.507 -1.8,2.273 -2.894,5.053 -3.282,8.338 l 21.221,0 z"
-            id="path26" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/><path
-            d="m 502.229,123.467 3.72,0 0,46.534 -3.721,0 0,-5.843 -0.152,0 c -1.122,2.18 -2.725,3.824 -4.805,4.936 -2.143,1.174 -4.296,1.781 -6.458,1.822 -5.143,-0.084 -8.887,-1.788 -11.232,-5.113 -2.328,-3.283 -3.471,-7.44 -3.429,-12.471 0,-4.883 1.184,-9.029 3.551,-12.439 2.347,-3.43 5.989,-5.188 10.927,-5.271 2.366,0 4.58,0.516 6.642,1.547 2.04,1.074 3.693,2.643 4.958,4.704 l 0,-18.406 z m 0,29.691 c 0,-3.941 -0.971,-7.25 -2.912,-9.926 -1.922,-2.678 -4.619,-4.058 -8.094,-4.142 -3.884,0.042 -6.725,1.507 -8.523,4.394 -1.844,2.908 -2.702,6.512 -2.575,10.813 0.122,4.236 1.205,7.46 3.249,9.673 2.024,2.318 4.64,3.478 7.85,3.478 3.597,-0.043 6.336,-1.423 8.216,-4.142 1.859,-2.677 2.789,-6.06 2.789,-10.148 z"
-            id="path28" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/><path
-            d="m 541.724,136.505 3.72,0 0,30.276 c 0.105,4.609 -0.874,8.523 -2.938,11.744 -2.122,3.367 -6.212,5.093 -12.271,5.178 -4.733,-0.085 -8.16,-1.2 -10.281,-3.347 -1.122,-0.989 -1.959,-2.052 -2.51,-3.188 -0.551,-1.073 -0.867,-2.104 -0.948,-3.094 l 4.011,0 c 0.633,2.463 1.847,4.105 3.644,4.927 1.796,0.821 3.827,1.231 6.093,1.231 2.592,-0.063 4.663,-0.547 6.215,-1.449 1.531,-0.841 2.694,-2.018 3.49,-3.529 0.796,-1.513 1.316,-3.173 1.562,-4.979 0.228,-1.849 0.298,-3.718 0.214,-5.609 -1.265,2.011 -2.918,3.528 -4.958,4.556 -2.062,1.13 -4.275,1.695 -6.642,1.695 -4.938,-0.084 -8.58,-1.894 -10.927,-5.43 -2.367,-3.41 -3.551,-7.503 -3.551,-12.281 -0.042,-5.093 1.101,-9.281 3.429,-12.564 2.346,-3.305 6.09,-4.978 11.232,-5.02 2.162,0 4.315,0.558 6.458,1.674 2.081,1.158 3.683,2.863 4.806,5.115 l 0.152,0 0,-5.906 z m 0,16.905 c 0,-4.15 -0.93,-7.564 -2.79,-10.242 -1.88,-2.676 -4.619,-4.035 -8.216,-4.077 -3.21,0 -5.825,1.128 -7.85,3.382 -2.044,2.276 -3.127,5.533 -3.249,9.769 -0.127,4.321 0.731,7.882 2.575,10.685 1.799,2.973 4.64,4.479 8.523,4.521 3.475,-0.043 6.172,-1.443 8.094,-4.205 1.942,-2.72 2.913,-5.997 2.913,-9.833 z"
-            id="path30" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/><path
-            d="m 558.418,154.15 c 0,3.715 0.919,6.827 2.756,9.339 1.837,2.597 4.562,3.915 8.174,3.958 5.163,-0.043 8.439,-2.617 9.827,-7.726 l 4.194,0 c -0.877,3.238 -2.396,5.888 -4.556,7.947 -2.222,2.123 -5.371,3.205 -9.447,3.247 -5.137,-0.084 -8.917,-1.788 -11.343,-5.113 -2.427,-3.242 -3.619,-7.377 -3.577,-12.408 0,-5.051 1.335,-9.26 4.005,-12.628 2.589,-3.347 6.227,-5.062 10.914,-5.146 9.212,0.084 13.961,6.261 14.246,18.529 l -25.193,0 z m 21.222,-3.214 c 0,-3.411 -0.858,-6.212 -2.576,-8.402 -1.758,-2.253 -4.324,-3.4 -7.697,-3.442 -3.312,0.042 -5.867,1.211 -7.666,3.507 -1.8,2.273 -2.894,5.053 -3.282,8.338 l 21.221,0 z"
-            id="path32" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/><path
-            d="m 610.516,170.001 0,-46.534 4.351,0 0,19.986 26.588,0 0,-19.986 4.351,0 0,46.534 -4.351,0 0,-22.828 -26.588,0 0,22.828 -4.351,0 z"
-            id="path34" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/><path
-            d="m 678.739,136.505 3.72,0 0,33.496 -3.72,0 0,-4.614 c -0.448,0.545 -0.988,1.121 -1.619,1.729 -0.632,0.649 -1.365,1.268 -2.2,1.854 -0.795,0.523 -1.732,0.953 -2.813,1.288 -1.12,0.397 -2.394,0.618 -3.819,0.659 -4.259,-0.042 -7.243,-1.252 -8.954,-3.63 -1.754,-2.294 -2.61,-5.198 -2.567,-8.714 l 0,-22.067 3.72,0 0,21.997 c -0.085,5.922 2.702,8.902 8.36,8.945 3.165,-0.043 5.604,-1.256 7.32,-3.64 1.715,-2.278 2.572,-5.295 2.572,-9.05 l 0,-18.253 z"
-            id="path36" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/><path
-            d="m 696.886,170.001 -3.719,0 0,-46.534 3.719,0 0,18.405 c 1.243,-2.062 2.904,-3.63 4.982,-4.704 2.1,-1.031 4.301,-1.547 6.604,-1.547 4.912,0.084 8.56,1.842 10.944,5.271 2.344,3.41 3.516,7.557 3.516,12.439 0,5.03 -1.111,9.188 -3.332,12.471 -2.345,3.325 -6.124,5.029 -11.342,5.113 -2.12,-0.041 -4.219,-0.648 -6.298,-1.822 -2.099,-1.111 -3.75,-2.756 -4.952,-4.935 l -0.122,0 0,5.843 z m 0,-16.843 c 0,4.088 0.961,7.471 2.882,10.147 1.84,2.719 4.537,4.099 8.094,4.142 3.271,0 5.927,-1.159 7.972,-3.478 2.002,-2.213 3.045,-5.437 3.127,-9.673 0.23,-4.301 -0.576,-7.904 -2.423,-10.813 -1.9,-2.887 -4.792,-4.352 -8.676,-4.394 -3.434,0.084 -6.111,1.464 -8.032,4.142 -1.964,2.677 -2.944,5.986 -2.944,9.927 z"
-            id="path38" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/></g>
-            <g style="fill:#526479;fill-opacity:1" transform="translate(-5.004,7.5)" id="g40"><g style="fill:#526479;fill-opacity:1" id="g42"><path d="m 80.38,57.703 c -16.319,16.424 -25.304,38.554 -25.304,61.976 0,23.424 8.984,45.312 25.304,61.726 C 96.784,197.912 118.829,207 142.462,207 l 3.538,0 0,-175 -3.538,0 C 118.829,32 96.784,41.195 80.38,57.703 Z M 127.205,40.052 C 118.22,47.071 110.749,59 105.904,76 L 73.855,76 C 85.55,57 104.581,44.203 127.205,40.052 Z M 71.963,79 l 33.048,0 c -3.194,12 -5.023,26 -5.076,40 l -38.532,0 c 0.115,-14 3.919,-28 10.56,-40 z m -10.518,43 38.511,0 c 0.19,14 1.965,27 4.971,38 l -33.121,0 C 65.542,149 61.844,136 61.445,122 Z m 12.231,41 32.144,0 c 4.834,16 12.347,29.17 21.385,36.232 C 104.465,195.07 85.351,181 73.676,163 Z M 140,200.551 c -2,-0.054 -3.262,-0.146 -4.69,-0.271 C 124.528,195.446 114.92,181 109.193,163 l 30.807,0 0,37.551 z m 0,-40.551 -31.721,0 c -3.11,-11 -4.97,-24 -5.17,-38 l 36.891,0 0,38 z m 0,-41 -36.911,0 c 0.052,-14 1.975,-28 5.274,-40 l 31.637,0 0,40 z m 0,-43 -30.712,0 C 115.016,57 124.581,43.713 135.31,38.899 136.739,38.773 138,38.577 140,38.525 L 140,76 Z" id="path44" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/><path
-              d="m 246.639,120.446 c 0,-9.614 -5.443,-15.415 -8.826,-18.094 1.628,-3.552 3.793,-10.057 1.566,-16.298 -2.522,-7.03 -8.049,-9.898 -12.21,-11.076 -0.126,-0.158 -0.252,-0.305 -0.389,-0.452 0.851,-2.774 1.261,-6.536 -0.473,-10.624 -3.363,-7.881 -9.625,-10.213 -13.418,-10.886 -0.431,-3.72 -2.26,-9.793 -9.216,-13.724 -3.236,-1.828 -6.567,-2.763 -9.898,-2.763 -1.67,0 -3.142,0.23 -4.382,0.557 -0.81,-0.494 -1.755,-0.798 -2.774,-0.798 -0.483,0 -0.946,0.094 -1.397,0.209 -3.142,-2.027 -8.039,-4.403 -13.818,-4.403 -2.228,0 -4.445,0.358 -6.578,1.072 -14.491,4.824 -15.983,18.894 -16.046,19.493 l -0.01,140.536 0.357,0.682 c 0.273,0.536 7.021,13.041 25.661,13.041 11.402,0 20.27,-6.862 25.661,-12.547 l 1.041,0.379 c 0.105,0.042 0.21,0.157 0.231,0.272 l 0.42,2.249 c 0.021,0.115 0.126,0.221 0.242,0.241 0,0 0.063,0 0.189,0.021 0.694,0.095 1.849,0.105 1.849,0.105 0.116,0 0.231,-0.085 0.273,-0.189 l 0.788,-2.196 c 0.032,-0.105 0.158,-0.21 0.274,-0.231 l 1.051,-0.241 c 0.115,-0.031 0.263,0.011 0.347,0.095 l 1.565,1.671 c 0.074,0.073 0.221,0.105 0.326,0.052 l 1.828,-1.019 c 0.095,-0.063 0.158,-0.211 0.126,-0.315 l -0.525,-2.28 c -0.021,-0.116 0.021,-0.272 0.105,-0.347 l 0.651,-0.672 c 0.073,-0.085 0.221,-0.127 0.336,-0.106 l 2.228,0.558 c 0.106,0.032 0.242,-0.032 0.305,-0.126 l 1.019,-1.923 c 0.042,-0.105 0.022,-0.253 -0.063,-0.325 l -1.681,-1.65 c -0.084,-0.074 -0.126,-0.231 -0.106,-0.347 l 0.158,-0.757 c 0.021,-0.105 0.126,-0.231 0.231,-0.273 l 2.175,-0.735 c 0.115,-0.031 0.199,-0.158 0.199,-0.273 l -0.052,-0.673 c 8.69,-3.531 19.576,-11.033 23.812,-26.857 2.007,-7.504 -0.483,-14.354 -2.207,-17.864 3.245,-3.145 9.055,-10.154 9.055,-20.169 z m -6.305,0 c 0,10.36 -8.543,16.877 -8.616,16.93 l -1.313,0.966 -7.271,0.021 -0.2,-1.166 c -0.021,-0.096 -0.126,-0.179 -0.221,-0.19 l -2.06,-0.198 c -0.094,-0.011 -0.21,-0.095 -0.263,-0.179 l -0.242,-0.505 c -0.042,-0.095 -0.042,-0.231 0.011,-0.315 l 1.113,-1.755 c 0.052,-0.084 0.042,-0.221 -0.021,-0.294 l -1.345,-1.492 c -0.074,-0.074 -0.2,-0.095 -0.294,-0.042 l -1.817,0.935 c -0.011,0.011 -0.032,0.011 -0.042,0.021 l 13.591,-24.246 c 0.4,0.099 0.813,0.167 1.244,0.167 0.947,0 1.822,-0.272 2.587,-0.716 2.318,2.214 5.159,6.132 5.159,12.058 z m -36.063,13.798 1.177,1.64 c 0.063,0.084 0.073,0.23 0.031,0.314 l -0.199,0.441 -19.073,-7.733 c 0.242,-0.693 0.368,-1.43 0.368,-2.207 0,-1.43 -0.441,-2.764 -1.198,-3.867 l 8.995,-8.428 c 1.934,1.713 4.477,2.754 7.261,2.754 0.977,0 1.922,-0.137 2.826,-0.379 l 4.288,13.85 0.247,0.793 -0.021,1.13 c 0.01,0.105 -0.128,0.222 -0.212,0.273 l -0.758,0.474 c -0.084,0.063 -0.237,0.072 -0.332,0.03 l -1.899,-0.851 c -0.094,-0.042 -0.225,-0.011 -0.298,0.063 0,0 -0.875,0.915 -1.294,1.534 l -0.012,0.012 c -0.001,0 0.052,0.072 0.103,0.157 z m -1.208,9.583 0.736,1.492 -5.633,3.646 -0.126,-0.156 c -0.083,-0.105 -0.115,-0.305 -0.063,-0.432 l 1.051,-2.637 c 0.053,-0.126 0.01,-0.305 -0.094,-0.399 l -2.238,-1.66 c -0.116,-0.074 -0.294,-0.074 -0.41,0.01 l -2.249,1.755 c -0.116,0.095 -0.305,0.116 -0.431,0.063 l -0.724,-0.272 c -0.138,-0.053 -0.263,-0.188 -0.285,-0.325 l -0.546,-2.817 c -0.032,-0.136 -0.158,-0.263 -0.305,-0.283 l -2.763,-0.221 c -0.138,0 -0.295,0.104 -0.337,0.231 l -0.946,2.679 c -0.042,0.127 -0.137,0.242 -0.21,0.253 l -0.063,0.01 c -0.379,0.064 -0.883,0.18 -0.883,0.18 -0.136,0.031 -0.326,-0.021 -0.421,-0.126 l -1.985,-2.081 c -0.095,-0.095 -0.273,-0.137 -0.399,-0.074 l -2.417,1.262 c -0.116,0.063 -0.19,0.231 -0.158,0.368 l 0.588,2.511 -23.181,-24.084 c 0.021,-0.042 0.042,-0.074 0.063,-0.115 l 14.25,3.604 c -0.01,0.168 -0.032,0.325 -0.032,0.493 0,3.794 3.079,6.862 6.862,6.862 2.27,0 4.266,-1.094 5.517,-2.785 l 17.349,7.04 -0.231,1.775 c 0,0.106 0.074,0.211 0.157,0.253 l 1.892,0.756 c 0.094,0.032 0.189,0.148 0.199,0.253 l 0.168,1.04 c 0.022,0.095 -0.021,0.231 -0.094,0.295 l -1.534,1.355 c -0.085,0.06 -0.116,0.186 -0.074,0.281 z m -12.579,20.659 c -4.612,0.725 -8.942,-2.428 -9.657,-7.041 -0.725,-4.612 2.428,-8.932 7.041,-9.656 4.613,-0.726 8.932,2.428 9.658,7.04 0.724,4.613 -2.439,8.932 -7.042,9.657 z m 26.45,-80.597 -9.73,12.809 c -1.64,-0.956 -3.542,-1.523 -5.569,-1.523 -1.345,0 -2.627,0.252 -3.815,0.693 L 187.775,75.062 c 1.418,-0.914 2.553,-2.238 3.226,-3.804 l 24.095,7.051 c -0.032,0.284 -0.063,0.578 -0.063,0.872 -10e-4,1.829 0.734,3.489 1.901,4.708 z m -4.32,22.172 14.833,-1.679 c 0.134,1.482 0.88,2.777 1.997,3.635 l -12.657,22.592 -0.03,0.619 0.243,-0.619 0,-0.137 c 0,-0.105 -0.181,-0.211 -0.275,-0.241 l -1.955,-0.536 c -0.095,-0.021 -0.248,0.031 -0.3,0.115 l -1.022,1.899 c -0.052,0.094 -0.192,0.291 -0.286,0.291 l -0.726,0 c -0.104,0 -0.231,-0.197 -0.283,-0.281 l -1.135,-1.811 c -0.053,-0.084 -0.179,-0.159 -0.284,-0.139 l -0.05,0.004 -0.002,-0.012 -4.255,-13.715 c 3.667,-1.787 6.2,-5.528 6.2,-9.879 -0.002,-0.031 -0.013,-0.075 -0.013,-0.106 z m -4.875,30.505 c 1.913,-2.784 5.717,-3.5 8.501,-1.587 2.795,1.913 3.499,5.717 1.598,8.501 -1.913,2.785 -5.717,3.499 -8.502,1.586 -2.795,-1.901 -3.499,-5.705 -1.597,-8.5 z m 20.375,-54.789 c 2.102,1.146 4.214,3.037 5.328,6.158 1.34,3.744 0.157,8.029 -0.971,10.804 -2.223,0.05 -4.082,1.498 -4.77,3.5 l -15.296,1.732 c -0.484,-2.385 -1.745,-4.477 -3.499,-6.032 l 9.698,-12.778 c 0.967,0.516 2.06,0.82 3.226,0.82 2.837,-10e-4 5.265,-1.745 6.284,-4.204 z m -7.608,-15.521 c 1.009,2.396 0.767,4.603 0.263,6.221 -2.259,0.357 -4.141,1.817 -5.075,3.814 L 191.578,69.24 c 0.074,-0.452 0.126,-0.915 0.126,-1.387 0,-0.746 -0.105,-1.471 -0.284,-2.155 l 14.252,-6.701 c 0.69,0.782 1.688,1.285 2.813,1.285 1.083,0 2.051,-0.463 2.738,-1.194 0.026,-0.008 0.052,-0.012 0.078,-0.021 2.322,0.296 6.809,1.589 9.205,7.189 z M 187.059,46.89 c 2.249,-0.189 4.087,-1.755 4.665,-3.867 0.62,-0.116 1.293,-0.189 2.049,-0.189 2.228,0 4.518,0.651 6.798,1.944 4.344,2.452 5.638,6.156 6.001,8.513 -1.104,0.656 -1.854,1.85 -1.854,3.228 0,0.2 0.029,0.392 0.059,0.583 l -14.125,6.633 c -1.125,-2.039 -3.038,-3.563 -5.338,-4.172 l 1.745,-12.673 z m -1.177,29.087 10.045,20.806 c -1.071,0.652 -2.027,1.471 -2.816,2.449 L 160.494,78.909 c 0.199,-0.588 0.315,-1.208 0.315,-1.86 0,-0.063 -0.01,-0.126 -0.01,-0.179 l 14.647,-5.181 c 1.409,2.816 4.309,4.75 7.672,4.75 0.967,0 1.892,-0.168 2.764,-0.462 z M 156,53.143 c 0,-1.282 1.265,-10.655 11.278,-13.997 1.482,-0.494 2.797,-0.746 4.353,-0.746 3.983,0 7.399,1.618 9.794,3.1 0,0.042 -0.067,0.073 -0.067,0.115 0,2.354 1.516,4.33 3.638,5.034 l -1.753,12.63 c -0.031,0 -0.078,-0.01 -0.12,-0.01 -4.74,0 -8.587,3.846 -8.587,8.585 0,0.641 0.072,1.25 0.208,1.849 l -13.926,5.096 C 159.934,72.74 158,71.3 156,71.3 l 0,-18.157 z m 0,29.643 c 1,0 2.862,-0.799 3.923,-2.049 l 32.252,20.239 c -0.831,1.544 -1.418,3.31 -1.418,5.191 0,2.532 0.805,4.854 2.234,6.704 l -9.023,8.428 c -1.167,-0.904 -2.636,-1.462 -4.234,-1.462 -2.89,0 -5.363,1.787 -6.372,4.319 l -13.919,-3.636 c -0.042,-2.375 -1.442,-4.329 -3.442,-4.761 l 0,-32.973 z m -0.449,70.11 0.449,-0.01 0,-27.384 c 1,-0.169 1.191,-0.536 1.79,-1.062 l 22.595,23.716 -2.574,-0.577 c -0.126,-0.032 -0.341,0.03 -0.415,0.146 l -1.342,2.29 c -0.063,0.127 -0.041,0.306 0.065,0.4 l 2.013,1.944 c 0.104,0.094 0.144,0.283 0.112,0.421 l -0.284,1.155 c -0.032,0.136 -0.159,0.283 -0.295,0.336 l -2.712,0.936 c -0.126,0.042 -0.231,0.2 -0.231,0.336 0,0 0.389,0.799 0.441,1.629 l -12.389,1.965 -0.999,-1.545 c -0.032,-0.073 -0.325,-0.137 -0.409,-0.126 l -1.829,0.157 c -0.084,0.011 -0.241,-0.042 -0.294,-0.104 l -0.315,-0.399 c -0.052,-0.063 -0.084,-0.179 -0.052,-0.263 l 0.62,-1.587 c 0.032,-0.083 0.01,-0.189 -0.053,-0.241 l -1.355,-1.009 c -0.074,-0.042 -0.179,-0.042 -0.252,0.01 l -1.355,1.062 c -0.073,0.053 -0.189,0.063 -0.263,0.031 l -0.441,-0.157 c -0.074,-0.031 -0.157,-0.115 -0.168,-0.199 l -0.189,-1.702 c -0.014,-0.086 0.215,-0.159 0.131,-0.169 z m 0.449,13.513 0,-9.71 c 1,0.568 3.205,2.082 3.52,4.067 0.389,2.533 -1.52,4.908 -3.52,5.643 z m 40.894,10.077 -1.565,1.482 c -0.084,0.084 -0.105,0.23 -0.042,0.325 l 1.124,1.997 c 0.052,0.094 0.042,0.252 -0.01,0.347 l -0.505,0.851 c -0.052,0.095 -0.189,0.179 -0.304,0.189 l -2.333,0.095 c -0.115,0 -0.231,0.095 -0.273,0.199 0,0 -0.41,1.377 -0.525,2.218 0,0.01 0.084,0.052 0.179,0.104 l 2.017,1.072 c 0.106,0.052 0.189,0.188 0.189,0.305 l 0.053,1.113 c 0.01,0.116 -0.063,0.263 -0.158,0.326 l -1.902,1.334 c -0.095,0.074 -0.136,0.211 -0.105,0.315 l 0.673,1.913 c 0.042,0.104 0.167,0.179 0.283,0.179 l 1.598,-0.137 c -4.614,4.654 -11.353,9.898 -20.043,9.898 -12.725,0 -18.244,-6.967 -19.244,-9.068 l 0,-21.384 c 0,-0.105 0.697,-0.294 0.697,-0.294 0.083,-0.022 -0.082,-0.106 -0.072,-0.19 l -0.03,-1.723 c 0.01,-0.084 0.016,-0.189 0.09,-0.221 l 0.666,-0.399 c 0.073,-0.042 0.18,-0.053 0.242,-0.01 l 1.467,0.851 c 0.074,0.042 0.176,0.031 0.24,-0.032 l 1.08,-1.113 c 0.053,-0.063 0.063,-0.179 0.021,-0.252 l -0.862,-1.503 c -0.042,-0.074 -0.042,-0.2 0,-0.272 l 0.315,-0.61 c 0.042,-0.073 0.136,-0.147 0.221,-0.147 l 1.702,-0.084 c 0.084,0 0.168,-0.073 0.19,-0.157 l 0.315,-1.576 c 0.01,-0.084 -0.042,-0.179 -0.116,-0.221 l -1.418,-0.746 16.813,-2.595 0.315,0.063 c 0.136,0.021 0.283,0.158 0.325,0.294 l 0.441,1.282 c 0.053,0.137 0.032,0.325 -0.063,0.441 l -1.754,2.238 c -0.084,0.105 -0.095,0.294 -0.011,0.41 l 1.46,1.996 c 0.084,0.115 0.263,0.158 0.389,0.105 l 2.617,-1.03 c 0.126,-0.053 0.325,-0.021 0.43,0.063 l 1.167,0.884 c 0.116,0.084 0.2,0.263 0.179,0.398 l -0.263,2.816 c -0.01,0.137 0.074,0.295 0.21,0.347 l 2.302,0.862 c 0.125,0.042 0.305,-0.012 0.388,-0.127 l 1.65,-2.301 c 0.084,-0.105 0.263,-0.189 0.399,-0.179 l 1.439,0.094 c 0.147,0 0.305,0.106 0.369,0.232 l 1.292,2.489 c 0.063,0.126 0.231,0.211 0.367,0.2 0,0 0.074,-0.021 0.232,-0.042 0.851,-0.126 2.196,-0.525 2.196,-0.525 0.137,-0.042 0.253,-0.188 0.253,-0.325 l 0.084,-1.524 4.57,9.195 -1.313,-0.768 c -0.096,-0.051 -0.254,-0.04 -0.338,0.033 z m 14.102,10.298 c -0.01,0.084 -0.031,0.179 -0.053,0.263 -0.64,3.646 -4.035,6.148 -7.733,5.633 -0.358,-0.053 -0.694,-0.126 -1.031,-0.23 -2.175,-0.632 -3.846,-2.302 -4.56,-4.372 -0.336,-0.988 -0.452,-2.07 -0.305,-3.174 0.525,-3.772 4.003,-6.42 7.787,-5.895 1.618,0.221 3.026,0.987 4.055,2.091 1.399,1.47 2.135,3.531 1.84,5.684 z m 22.708,-29.937 c -3.541,13.209 -12.367,19.535 -19.586,22.571 l -1.146,-1.544 c -0.073,-0.084 -0.221,-0.126 -0.325,-0.084 l -2.175,0.84 c -0.105,0.042 -0.263,0.021 -0.347,-0.052 l -0.504,-0.389 c -0.094,-0.064 -0.158,-0.211 -0.146,-0.327 l 0.231,-2.322 c 0.01,-0.114 -0.064,-0.241 -0.168,-0.293 l -2.112,-0.82 c -0.106,-0.042 -0.252,0.011 -0.315,0.095 l -1.367,1.871 c -0.063,0.094 -0.167,0.168 -0.221,0.156 l -0.052,-0.01 c -0.315,-0.042 -0.736,-0.073 -0.736,-0.073 -0.115,0 -0.241,-0.095 -0.293,-0.189 l -1.072,-2.102 c -0.042,-0.095 -0.179,-0.169 -0.294,-0.157 l -2.186,0.42 c -0.104,0.031 -0.199,0.147 -0.209,0.263 l -0.116,1.849 -5.348,-10.738 0.22,-0.127 c 0.116,-0.084 0.315,-0.084 0.431,-0.01 l 2.427,1.397 c 0.116,0.074 0.305,0.042 0.399,-0.052 l 1.787,-1.85 c 0.094,-0.105 0.105,-0.284 0.042,-0.41 l -1.418,-2.491 c -0.074,-0.114 -0.074,-0.314 -0.011,-0.441 l 0.525,-1.009 c 0.063,-0.126 0.22,-0.23 0.368,-0.24 l 2.806,-0.137 c 0.136,0 0.273,-0.116 0.315,-0.253 l 0.515,-2.616 c 0.01,-0.137 -0.074,-0.305 -0.189,-0.357 l -2.554,-1.335 c -0.126,-0.063 -0.23,-0.231 -0.241,-0.367 l -0.084,-0.957 c -0.021,-0.136 0.063,-0.314 0.168,-0.389 l 2.301,-1.639 c 0.116,-0.084 0.168,-0.253 0.126,-0.389 l -0.987,-2.554 c -0.063,-0.126 -0.221,-0.221 -0.358,-0.21 l -0.472,0.042 5.6,-3.615 0.21,0.23 c 0.074,0.064 0.116,0.2 0.084,0.295 l -0.557,1.955 c -0.031,0.094 0.011,0.23 0.095,0.283 0,0 0.042,0.031 0.147,0.094 0.505,0.358 1.408,0.82 1.408,0.82 0.095,0.042 0.231,0.021 0.294,-0.053 l 1.492,-1.418 c 0.074,-0.073 0.21,-0.105 0.315,-0.073 l 0.936,0.22 c 0.094,0.021 0.199,0.116 0.231,0.211 l 0.578,1.943 c 0.032,0.095 0.137,0.179 0.242,0.179 l 1.849,-0.095 c 0.105,-0.01 0.199,-0.094 0.231,-0.199 l 0.483,-2.018 c 0.021,-0.095 0.126,-0.199 0.221,-0.231 l 0.778,-0.272 c 0.094,-0.032 0.231,-0.011 0.305,0.052 l 1.544,1.324 c 0.084,0.063 0.21,0.073 0.294,0.021 l 1.566,-1.125 c 0.084,-0.063 0.115,-0.188 0.084,-0.283 l -0.684,-1.965 c -0.032,-0.095 0,-0.242 0.063,-0.315 l 0.421,-0.547 c 0.063,-0.074 0.188,-0.137 0.294,-0.116 l 2.018,0.274 c 0.094,0.021 0.21,-0.053 0.263,-0.137 l 0.746,-1.839 c 0.032,-0.096 -0.01,-0.221 -0.084,-0.284 l -1.544,-1.208 -0.095,-0.216 c -0.044,-0.037 -0.077,-0.311 -0.098,-0.311 l 0.193,0 9.604,0.232 0.116,0.31 c 0.049,0.074 4.83,7.436 2.728,15.306 z"
-              id="path46" inkscape:connector-curvature="0" style="fill:#526479;fill-opacity:1"/></g></g></g></svg>
-      </svg>
-    </div>
-    <h1>Welcome to the GEO Knowledge Hub!</h1>
-  </div>
-  {% if security.confirmable %}
-  <div class="main-content">
-    <div>
-      <p>
-        To start using the GEO Knowledge Hub, you can confirm your account by clicking on the button below:
-      </p>
-    </div>
-    <div>
-      <a href="{{ confirmation_link }}" class="btn" target="_blank">Confirm your account</a>
-    </div>
-  </div>
-  {% endif %}
-  <div class="footer">
-    <p>
-      This email was sent by <strong>GEO Knowledge Hub</strong>
-    </p>
-  </div>
-</div>
+<body style="width: 100% !important; height: 100%; -webkit-text-size-adjust: none; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; background-color: #F4F4F7; color: #51545E; margin: 0;" bgcolor="#F4F4F7">
+<span class="preheader" style="display: none !important; visibility: hidden; mso-hide: all; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; opacity: 0; overflow: hidden;">Thanks for trying out [Product Name]. We’ve pulled together some information and resources to help you get started.</span>
+<table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #F4F4F7; margin: 0; padding: 0;" bgcolor="#F4F4F7">
+  <tr>
+    <td align="center" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px;">
+      <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; margin: 0; padding: 0;">
+        <tr>
+          <td class="email-masthead" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px; text-align: center; padding: 25px 0;" align="center">
+            <a href="https://gkhub.earthobservations.org/" class="f-fallback email-masthead_name" style="color: #A8AAAF; font-size: 16px; font-weight: bold; text-decoration: none; text-shadow: 0 1px 0 white;">
+              GEO Knowledge Hub
+            </a>
+          </td>
+        </tr>
+        <!-- Email Body -->
+        <tr>
+          <td class="email-body" width="100%" cellpadding="0" cellspacing="0" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px; width: 100%; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #FFFFFF; margin: 0; padding: 0;" bgcolor="#FFFFFF">
+            <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="width: 570px; -premailer-width: 570px; -premailer-cellpadding: 0; -premailer-cellspacing: 0; background-color: #FFFFFF; margin: 0 auto; padding: 0;" bgcolor="#FFFFFF">
+              <!-- Body content -->
+              <tr>
+                <td class="content-cell" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px; padding: 35px;">
+                  <div class="f-fallback">
+                    <h1 style="margin-top: 0; color: #333333; font-size: 22px; font-weight: bold; text-align: left;" align="left">Welcome to the GEO Knowledge Hub!</h1>
+                    <p style="font-size: 16px; line-height: 1.625; color: #51545E; margin: .4em 0 1.1875em;">
+                    
+                      Thanks for your registration on the GEO Knowledge Hub. We are delighted to have you here. To start using the features available in the digital library. Please, active your account:
+                      
+                    </p>
+                    <!-- Action -->
+                    <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; -premailer-width: 100%; -premailer-cellpadding: 0; -premailer-cellspacing: 0; text-align: center; margin: 30px auto; padding: 0;">
+                      <tr>
+                        <td align="center" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px;">
+
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                            <tr>
+                              <td align="center" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px;">
+                                <a href="{{ confirmation_link }}" class="f-fallback button" target="_blank" style="color: #FFF; background-color: #3869D4; display: inline-block; text-decoration: none; border-radius: 3px; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16); -webkit-text-size-adjust: none; box-sizing: border-box; border-color: #3869D4; border-style: solid; border-width: 10px 18px;">
+                                  Active your account
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <p style="font-size: 16px; line-height: 1.625; color: #51545E; margin: .4em 0 1.1875em;">
+                      After activating your account, you can <a href="{{ url_for('invenio_userprofiles.profile', _external=True) }}" style="color: #3869D4;">update your profile</a>. If you want people to invite you to collaborate, remember to update the visibility of your profile.
+                    </p>
+                    <p style="font-size: 16px; line-height: 1.625; color: #51545E; margin: .4em 0 1.1875em;">
+                      If you have any questions, feel free to <a href="mailto:secretariat@geosec.org" style="color: #3869D4;">email us</a>. (We're lightning quick at replying.) We also have a <a href="https://discord.gg/wfPQHWNRkV">Discord group</a> where you can find community help.
+                    </p>
+                    <p style="font-size: 16px; line-height: 1.625; color: #51545E; margin: .4em 0 1.1875em;">Thanks,
+                      <br />The GEO Knowledge Hub team</p>
+                    <p style="font-size: 16px; line-height: 1.625; color: #51545E; margin: .4em 0 1.1875em;"><strong>P.S.</strong> Need immediate help getting started? Check out our <a href="https://gkhub.earthobservations.org/doc/" style="color: #3869D4;">help documentation</a>.</p>
+                    <!-- Sub copy -->
+                    <table class="body-sub" role="presentation" style="margin-top: 25px; padding-top: 25px; border-top-width: 1px; border-top-color: #EAEAEC; border-top-style: solid;">
+                      <tr>
+                        <td style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px;">
+                          <p class="f-fallback sub" style="font-size: 13px; line-height: 1.625; color: #6B6E76; margin: .4em 0 1.1875em;">If you’re having trouble with the button above, copy and paste the URL below into your web browser.</p>
+                          <p class="f-fallback sub" style="font-size: 13px; line-height: 1.625; color: #6B6E76; margin: .4em 0 1.1875em;">{{ confirmation_link }}</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px;">
+            <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="width: 570px; -premailer-width: 570px; -premailer-cellpadding: 0; -premailer-cellspacing: 0; text-align: center; margin: 0 auto; padding: 0;">
+              <tr>
+                <td class="content-cell" align="center" style="word-break: break-word; font-family: &quot;Nunito Sans&quot;, Helvetica, Arial, sans-serif; font-size: 16px; padding: 35px;">
+                  <p class="f-fallback sub align-center" style="font-size: 13px; line-height: 1.625; text-align: center; color: #6B6E76; margin: .4em 0 1.1875em;" align="center">
+                    This email was sent by <strong>GEO Knowledge Hub</strong>
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
 </body>
 </html>
