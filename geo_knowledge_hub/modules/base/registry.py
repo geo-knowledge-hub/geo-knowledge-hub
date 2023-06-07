@@ -9,6 +9,7 @@
 """GEO Knowledge Hub Detail (page) toolbox."""
 
 from geo_rdm_records.proxies import current_geo_packages_service
+from invenio_communities.proxies import current_communities
 from invenio_rdm_records.proxies import current_rdm_records_service
 
 
@@ -21,6 +22,7 @@ class ServiceRegistry:
     services = {
         "record": current_rdm_records_service,
         "package": current_geo_packages_service,
+        "community": current_communities,
     }
 
     @classmethod
@@ -37,10 +39,10 @@ def get_record_service(record_type):
 def get_files_service(record_type):
     """Files record service factory."""
     base_service = ServiceRegistry.get_service(record_type)
-    return base_service.files
+    return base_service.files if hasattr(base_service, "files") else None
 
 
 def get_draft_files_service(record_type):
     """(Draft) Files record service factory."""
     base_service = ServiceRegistry.get_service(record_type)
-    return base_service.draft_files
+    return base_service.draft_files if hasattr(base_service, "draft_files") else None

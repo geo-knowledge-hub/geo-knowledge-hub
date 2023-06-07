@@ -22,6 +22,16 @@ def init_bp(app):
         view_func=views.user_dashboard_request_view,
     )
 
+    bp.add_url_rule(
+        "/communities/<pid_value>/requests/<request_pid_value>",
+        view_func=views.community_dashboard_request_view,
+    )
+
+    bp.add_url_rule(
+        "/communities/<pid_value>/invitations/<request_pid_value>",
+        view_func=views.community_dashboard_request_view,
+    )
+
     app.register_blueprint(bp)
 
 
