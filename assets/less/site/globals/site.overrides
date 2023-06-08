@@ -132,6 +132,11 @@ a {
   text-decoration: underline dashed;
 }
 
+#resource-form .ui.menu .item {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
 /*------------------------------------------------------
  Record Landing page definitions (Packages and records)
 -------------------------------------------------------*/

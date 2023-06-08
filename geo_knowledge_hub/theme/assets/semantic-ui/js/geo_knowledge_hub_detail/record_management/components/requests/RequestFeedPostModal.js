@@ -77,22 +77,11 @@ export const RequestFeedPostModal = ({ record, open, handleClose }) => {
       value: "CMS",
       onClick: () => {
         window.open(
-          "https://gkhub.earthobservations.org/doc/docs/introduction",
+          "/feed/introducing-the-geo-knowledge-hub-feed",
           "_blank"
         );
       },
-    },
-    {
-      key: "Review",
-      text: "Learn about our Review Process",
-      value: "Review",
-      onClick: () => {
-        window.open(
-          "https://gkhub.earthobservations.org/doc/docs/introduction",
-          "_blank"
-        );
-      },
-    },
+    }
   ];
 
   const validationSchema = Yup.object().shape({
@@ -138,7 +127,7 @@ export const RequestFeedPostModal = ({ record, open, handleClose }) => {
                     <Trans>
                       By making this request, your package will be presented on
                       the{" "}
-                      <a href={"/overview"} target={"_blank"}>
+                      <a href={"/feed"} target={"_blank"}>
                         Feed
                       </a>
                       , a place where the community can stay updated about the
