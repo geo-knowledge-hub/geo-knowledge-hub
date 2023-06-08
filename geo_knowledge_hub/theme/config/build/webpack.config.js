@@ -16,6 +16,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const safePostCssParser = require("postcss-safe-parser");
 const TerserPlugin = require("terser-webpack-plugin");
 const webpack = require("webpack");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 // Load aliases from config and resolve their full path
 let aliases = {};
@@ -131,22 +132,6 @@ var webpackConfig = {
         ],
       },
       {
-        test: /\.(js|jsx)$/,
-        enforce: "pre",
-        exclude: /node_modules/,
-        use: [
-          {
-            options: {
-              emitWarning: true,
-              quiet: true,
-              formatter: require("eslint-friendly-formatter"),
-              eslintPath: require.resolve("eslint"),
-            },
-            loader: require.resolve("eslint-loader"),
-          },
-        ],
-      },
-      {
         test: /\.(scss|css)$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
@@ -185,6 +170,11 @@ var webpackConfig = {
   devtool:
     process.env.NODE_ENV === "production" ? "source-map" : "inline-source-map",
   plugins: [
+    new ESLintPlugin({emitWarning: true,
+        quiet: true,
+        formatter: require("eslint-friendly-formatter"),
+        eslintPath: require.resolve("eslint")}
+    ),
     // Pragmas
     // Modified to be used with the leaflet-geoman:
     // https://webpack.js.org/plugins/define-plugin/#usage
@@ -199,6 +189,8 @@ var webpackConfig = {
     }),
     // Removes the dist folder before each run.
     new CleanWebpackPlugin({
+      dry: false,
+      verbose: false,
       dangerouslyAllowCleanPatternsOutsideProject: true,
     }),
     // Automatically inject jquery

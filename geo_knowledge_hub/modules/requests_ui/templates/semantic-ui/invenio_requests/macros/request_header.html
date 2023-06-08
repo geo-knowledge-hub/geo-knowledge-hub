@@ -56,10 +56,10 @@
 
   <div id="request-actions" class="flex align-items-start ml-auto rel-mt-1 ">
     {% if draft_is_accepted %}
-      {% set is_knowledge_package = "package" in request.topic %}
+      {% set is_knowledge_package = "package" in request.topic or "package_record" in request.topic %}
 
       {% if is_knowledge_package %}
-        <a href="{{ url_for('geokhub_packages_ui_bp.geokhub_package_view', pid_value=request.topic.package) }}"
+        <a href="{{ url_for('geokhub_packages_ui_bp.geokhub_package_view', pid_value=request.topic.package or request.topic.package_record) }}"
            class="ui button"
            rel="noopener noreferrer" target="_blank"
            title="{{ _('Opens in new tab') }}"

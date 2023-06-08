@@ -1,165 +1,204 @@
 - id: iscitedby
   props:
-     datacite: Is cited by
+    datacite: IsCitedBy
   title:
-     en: Is cited by
+    en: Is cited by
+    de: Wird zitiert von
 - id: cites
   props:
-     datacite: Cites
+    datacite: Cites
   title:
-     en: Cites
+    en: Cites
+    de: Zitiert
 - id: issupplementto
   props:
-     datacite: Is supplement to
+    datacite: IsSupplementTo
   title:
-     en: Is supplement to
+    en: Is supplement to
+    de: Ergänzt
 - id: issupplementedby
   props:
-     datacite: Is supplemented by
+    datacite: IsSupplementedBy
   title:
-     en: Is supplemented by
+    en: Is supplemented by
+    de: Wird ergänzt durch
 - id: iscontinuedby
   props:
-     datacite: Is continued by
+    datacite: IsContinuedBy
   title:
-     en: Is continued by
+    en: Is continued by
+    de: Wird fortgesetzt durch
 - id: continues
   props:
-     datacite: Continues
+    datacite: Continues
   title:
-     en: Continues
+    en: Continues
+    de: Setzt fort
 - id: isdescribedby
   props:
-     datacite: Is described by
+    datacite: IsDescribedBy
   title:
-     en: Is described by
+    en: Is described by
+    de: Wird beschrieben von
 - id: describes
   props:
-     datacite: Describes
+    datacite: Describes
   title:
-     en: Describes
+    en: Describes
+    de: Beschreibt
 - id: hasmetadata
   props:
-     datacite: Has metadata
+    datacite: HasMetadata
   title:
-     en: Has metadata
+    en: Has metadata
+    de: Hat Metadaten in
 - id: ismetadatafor
   props:
-     datacite: Is metadata for
+    datacite: IsMetadataFor
   title:
-     en: Is metadata for
+    en: Is metadata for
+    de: Hat Metadaten für
 - id: hasversion
   props:
-     datacite: Has version
+    datacite: HasVersion
   title:
-     en: Has version
+    en: Has version
+    de: Hat versionierte Instanz
 - id: isversionof
   props:
-     datacite: Is version of
+    datacite: IsVersionOf
   title:
-     en: Is version of
+    en: Is version of
+    de: Ist eine Version von
 - id: isnewversionof
   props:
-     datacite: Is new version of
+    datacite: IsNewVersionOf
   title:
-     en: Is new version of
+    en: Is new version of
+    de: Ist eine neue Version von
 - id: ispreviousversionof
   props:
-     datacite: Is previous version of
+    datacite: IsPreviousVersionOf
   title:
-     en: Is previous version of
+    en: Is previous version of
+    de: Ist eine vorherige Version von
 - id: ispartof
   props:
-     datacite: Is part of
+    datacite: IsPartOf
   title:
-     en: Is part of
+    en: Is part of
+    de: Ist Teil von
 - id: haspart
   props:
-     datacite: Has part
+    datacite: HasPart
   title:
-     en: Has part
+    en: Has part
+    de: Umfasst folgenden Teil
+- id: ispublishedin
+  props:
+    datacite: IsPublishedIn
+  title:
+    en: Is published in
+    de: Ist veröffentlicht in
 - id: isreferencedby
   props:
-     datacite: Is referenced by
+    datacite: IsReferencedBy
   title:
-     en: Is referenced by
+    en: Is referenced by
+    de: Wird referenziert von
 - id: references
   props:
-     datacite: References
+    datacite: References
   title:
-     en: References
+    en: References
+    de: Referenziert
 - id: isdocumentedby
   props:
-     datacite: Is documented by
+    datacite: IsDocumentedBy
   title:
-     en: Is documented by
+    en: Is documented by
+    de: Wird dokumentiert von
 - id: documents
   props:
-     datacite: Documents
+    datacite: Documents
   title:
-     en: Documents
+    en: Documents
+    de: Dokumentiert
 - id: iscompiledby
   props:
-     datacite: Is compiled by
+    datacite: IsCompiledBy
   title:
-     en: Is compiled by
+    en: Is compiled by
+    de: Kompiliert durch
 - id: compiles
   props:
-     datacite: Compiles
+    datacite: Compiles
   title:
-     en: Compiles
+    en: Compiles
+    de: Kompiliert
 - id: isvariantformof
   props:
-     datacite: Is variant form of
+    datacite: IsVariantFormOf
   title:
-     en: Is variant form of
+    en: Is variant form of
+    de: Ist eine Variante von
 - id: isoriginalformof
   props:
-     datacite: Is original form of
+    datacite: IsOriginalFormOf
   title:
-     en: Is original form of
+    en: Is original form of
+    de: Ist das Orginal von
 - id: isidenticalto
   props:
-     datacite: Is identical to
+    datacite: IsIdenticalTo
   title:
-     en: Is identical to
+    en: Is identical to
+    de: Ist identisch mit
 - id: isreviewedby
   props:
-     datacite: Is reviewed by
+    datacite: IsReviewedBy
   title:
-     en: Is reviewed by
+    en: Is reviewed by
+    de: Wird begutachtet von
 - id: reviews
   props:
-     datacite: Reviews
+    datacite: Reviews
   title:
-     en: Reviews
+    en: Reviews
+    de: Begutachtet
 - id: isderivedfrom
   props:
-     datacite: Is derived from
+    datacite: IsDerivedFrom
   title:
-     en: Is derived from
+    en: Is derived from
+    de: Wird abgeleitet von
 - id: issourceof
   props:
-     datacite: Is source of
+    datacite: IsSourceOf
   title:
-     en: Is source of
+    en: Is source of
+    de: Ist Quelle von
 - id: isrequiredby
   props:
-     datacite: Is required by
+    datacite: IsRequiredBy
   title:
-     en: Is required by
+    en: Is required by
+    de: Wird gefordert von
 - id: requires
   props:
-     datacite: Requires
+    datacite: Requires
   title:
-     en: Requires
+    en: Requires
+    de: Setzt voraus
 - id: isobsoletedby
   props:
-     datacite: Is obsoleted by
+    datacite: IsObsoletedBy
   title:
-     en: Is obsoleted by
+    en: Is obsoleted by
+    de: Wird ersetzt durch
 - id: obsoletes
   props:
-     datacite: Obsoletes
+    datacite: Obsoletes
   title:
-     en: Obsoletes
+    en: Obsoletes
+    de: Ersetzt
