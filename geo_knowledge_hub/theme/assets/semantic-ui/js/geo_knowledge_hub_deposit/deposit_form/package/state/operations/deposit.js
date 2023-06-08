@@ -412,7 +412,7 @@ export const depositResourceSaveDraft = (recordData, operationMetadata) => {
     try {
       // 1. Checking if is a draft
       let recordDraft = recordData;
-      const isDraft = recordData.status === "draft";
+      const isDraft = ["draft", "new_version_draft"].includes(recordData.status);
 
       if (!isDraft) {
         // We need to create a draft to edit it
@@ -615,7 +615,7 @@ export const depositResourcesEdit = (recordData, operationMetadata) => {
       try {
         // 2. Checking if is a draft
         let recordDraft = resourceData;
-        const isDraft = resourceData.status === "draft";
+        const isDraft = ["draft", "new_version_draft"].includes(resourceData.status);
 
         if (!isDraft) {
           // 2.1. We need to create a draft to edit it
