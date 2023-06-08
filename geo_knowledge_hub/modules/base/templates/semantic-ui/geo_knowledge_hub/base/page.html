@@ -8,4 +8,11 @@
 {% block javascript %}
   {{ super() }}
   {{ webpack["geo-knowledge-hub-base.js"] }}
+
+  <!-- AddAny added to the GEO Knowledge Hub by default -->
+  <script>
+    var a2a_config = a2a_config || {};
+    a2a_config.num_services = 6;
+  </script>
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
 {% endblock javascript %}

@@ -1,23 +1,25 @@
 {#
     Copyright (C) 2021-2022 GEO Secretariat.
-  
+
     geo-knowledge-hub is free software; you can redistribute it and/or modify
     it under the terms of the MIT License; see LICENSE file for more details.
 #}
 
 {% if not is_preview %}
 <section id="record-versions" aria-label="{{ _('Share the record') }}" class="ui segment rdm-sidebar">
-    <h2 class="ui small header">{{ _('Share')}}</h2>
+  <h2 class="ui small header">{{ _('Share')}}</h2>
 
-    <div class="ui centered">
-        <div class="addthis_toolbox addthis_32x32_style">
-            <a class="addthis_button_twitter"></a>
-            <a class="addthis_button_facebook"></a>
-            <a class="addthis_button_email"></a>
-            <a class="addthis_button_linkedin"></a>
-            <a class="addthis_button_preferred_1"></a>
-            <a class="addthis_button_compact"></a>
-          </div>
+  <div class="ui centered grid">
+    <div class="eleven wide column">
+      <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="https://gkhub.earthobservations.org/" data-a2a-title="GEO Knowledge Hub">
+        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+        <a class="a2a_button_linkedin"></a>
+        <a class="a2a_button_twitter"></a>
+        <a class="a2a_button_email"></a>
+        <a class="a2a_button_telegram"></a>
+        <a class="a2a_button_facebook"></a>
+      </div>
     </div>
+  </div>
 </section>
 {% endif %}
