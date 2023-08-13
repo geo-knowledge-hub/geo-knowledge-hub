@@ -35,7 +35,7 @@ a {
 }
 
 .section-subtitle-content {
-  font-size: 2em;
+  font-size: 2.1em;
   padding-top: 0.2em;
   color: @primaryColor;
 }
@@ -43,6 +43,9 @@ a {
 #frontpage-search-bar.frontpage-header {
   background-image: @navbarBackgroundImage;
   background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #frontpage-search-bar.ui.container {
@@ -62,6 +65,10 @@ a {
   margin-left: auto !important;
   margin-right: auto !important;
   margin-bottom: 2em !important;
+}
+
+#frontpage-search-bar .frontpage-header-container {
+    height: 25rem
 }
 
 .float-section-buttons {
@@ -92,6 +99,10 @@ a {
 
 .carousel-section {
   margin-top: 15px;
+}
+
+.carousel-container {
+  max-width: 1024px
 }
 
 /* Communities carousel definitions */

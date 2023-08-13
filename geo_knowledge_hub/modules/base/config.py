@@ -8,7 +8,7 @@
 
 """GEO Knowledge Hub Deposit (page) configuration handler."""
 
-from flask import g
+from flask import current_app, g
 from invenio_app_rdm.records_ui.views.deposits import (
     VocabulariesOptions as BaseVocabulariesOptions,
 )
@@ -81,3 +81,8 @@ def get_form_config(**kwargs):
         **base_configuration,
         **{"vocabularies": VocabulariesOptions().dump()},
     }
+
+
+def load_from_config(key):
+    """Load configuration from the current application config."""
+    return current_app.config.get(key)

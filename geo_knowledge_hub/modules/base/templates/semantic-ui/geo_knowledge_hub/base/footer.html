@@ -1,49 +1,57 @@
 {%- extends "invenio_app_rdm/footer.html" %}
 
-<footer class="footer-global">
-  <div class="ui grid">
-    {%- block footer_top %}
-    {%- endblock footer_top %}
-    {%- block footer_bottom %}
-    <div class="footer-bottom sub-footer">
-      <div class="ui container">
-        <div class="ui grid">
+{%- block footer_top_left %}
+  <div class="ui equal width stackable grid">
+  <div class="column">
+    <h4 class="ui inverted header">{{_('About')}}</h4>
+    <div class="ui inverted link list">
+      <a class="item" href="https://gkhub.earthobservations.org/doc">{{_('About')}}</a>
+    </div>
+  </div>
+  <div class="column">
+    <h4 class="ui inverted header">{{_('Communication')}}</h4>
+    <div class="ui inverted link list">
+      <a class="item" href="https://gkhub.earthobservations.org/feed/">{{_('Feed')}}</a>
 
-          <div class="four wide column middle aligned left aligned">
-            <div>
-              <a class="logo-link" href="https://www.earthobservations.org/index.php" target="_blank">
-                <img class="icon"
-                     src="{{ url_for('static', filename='images/project/logo-geo.png') }}"/>
-              </a>
-            </div>
-          </div>
+    </div>
+  </div>
+  <div class="column">
+    <h4 class="ui inverted header">{{_('Help')}}</h4>
+    <div class="ui inverted link list ">
+      <a class="item" href="https://gkhub.earthobservations.org/doc/docs/why">{{_('FAQ')}}</a>
+      <a class="item" href="https://discord.gg/wfPQHWNRkV">{{_('Forum')}}</a>
+      <a class="item" href="https://gkhub.earthobservations.org/doc/">{{_('Documentation')}}</a>
+    </div>
+  </div>
+  <div class="column">
+    <h4 class="ui inverted header">{{_('Developers')}}</h4>
+    <div class="ui inverted link list ">
+      <a class="item" href="https://github.com/geo-knowledge-hub"><i class="fa fa-external-link"></i> {{_('GitHub')}}</a>
+      <a class="item" href="https://gkhub.earthobservations.org/doc/development/introduction">{{_('REST API')}}</a>
+      <a class="item" href="#">{{_('OAI-PMH')}}</a>
+    </div>
+  </div>
+{%- endblock footer_top_left %}
 
-          <div class="eight wide column center aligned middle aligned">
-            {% trans invenio_rdm="" %}Powered by <a href="{{ invenio_rdm }}">InvenioRDM</a>{% endtrans %}
-          </div>
+{%- block footer_top_right %}
+  <h4 class="ui inverted header">{{_('Brought to you by')}}</h4>
+  <div class="ui horizontal link list centered">
+    <a class="item" href="https://earthobservations.org/">
+      <img src="{{ url_for('static', filename='images/project/logo-geo-full.png') }}" width="240" height="90" />
+    </a>
+  </div>
+{%- endblock footer_top_right %}
+</div>
 
-          <div class="four wide column middle aligned right aligned">
-            <a href="https://gkhub.earthobservations.org/doc/" data-tooltip="More information about the GEO Knowledge Hub"><i
-              class="info icon big"></i></a>
-
-            <a href="https://gkhub.earthobservations.org/doc/docs/introduction" target="_blank" data-tooltip="Access the GEO Knowledge Hub guidelines"><i
-              class="file alternate outline icon big"></i></a>
-
-            <a href="https://github.com/geo-knowledge-hub/geo-knowledge-hub" target="_blank" data-tooltip="Contribute with the Digital Library development on GitHub"><i
-              class="github icon big"></i></a>
-
-            <a href="https://discord.com/channels/730739436551143514#" target="_blank" data-tooltip="Keep in touch with the community on Discord"><i
-              class="discord icon big"></i></a>
-
-            <a href="https://twitter.com/geosec2025" target="_blank" data-tooltip="Access the GEO Twitter"><i class="twitter icon big"></i></a>
-
-            <a href="https://www.youtube.com/channel/UCFJ97Bp2XXA5p7ik_wWSoqg" target="_blank"  data-tooltip="Access the GEO YouTube channel"><i
-              class="youtube icon big"></i></a>
-
-          </div>
+{%- block footer_bottom %}
+  <div class="row footer-bottom">
+    <div class="ui inverted container">
+      <div class="ui grid">
+        <div class="eight wide column left middle aligned">
+          Powered by
+          <a href="https://earthobservations.org/">Group on Earth Observations</a> & <a href="https://inveniordm.docs.cern.ch/">InvenioRDM</a>
         </div>
       </div>
     </div>
-    {%- endblock footer_bottom %}
   </div>
-</footer>
+{%- endblock footer_bottom %}

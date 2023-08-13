@@ -32,19 +32,14 @@
 </script>
 
 <script>
-  document.querySelector('.featured-communities-opt').addEventListener("click", (e) => {
+  document.querySelector(".engagement-priorities-opt").addEventListener("click", (e) => {
     e.preventDefault();
     swiper.slideTo(0);
   });
 
-  document.querySelector(".engagement-priorities-opt").addEventListener("click", (e) => {
-    e.preventDefault();
-    swiper.slideTo(1);
-  });
-
   document.querySelector(".engagement-priorities-conventions-opt").addEventListener("click", (e) => {
     e.preventDefault();
-    swiper.slideTo(2);
+    swiper.slideTo(1);
   });
 </script>
 {%- endblock javascript %}
@@ -54,26 +49,20 @@
 {%- endblock page_header %}
 
 {%- block page_body %}
-<section>
+
+<section class="rel-pt-1 rel-pb-3">
   <div class="ui grid">
     <div class="row">
-      <div class="centered column" style="background-color: #f1f2f66e;">
-        <div class="ui large compact menu" style="margin-top: -15px;">
-          <div data-tooltip="Search resources by featured communities">
-            <a class="item featured-communities-opt">
-              <i class="group icon"></i>
-              <div class="floating ui teal label">New</div>
-            </a>
-          </div>
-          <div data-tooltip="Search resources by engagement priorities">
-            <a class="item engagement-priorities-opt">
-              <i class="flag icon"></i>
-            </a>
-          </div>
-          <div data-tooltip="Search resources by conventions">
-            <a class="item engagement-priorities-conventions-opt">
-              <i class="handshake icon"></i>
-            </a>
+      <div class="column centered">
+        <div class="section-subtitle-content">{{ _("Featured communities") }}</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column centered">
+        <div class="ui container">
+          <div class="ui padded relaxed centered grid">
+            {{ communities_carousel() }}
           </div>
         </div>
       </div>
@@ -81,7 +70,27 @@
   </div>
 </section>
 
-<section class="rel-pt-1 rel-pb-3" style="background-color: #f1f2f66e;">
+<section class="rel-pb-3">
+  <div class="ui grid">
+    <div class="row">
+      <div class="centered column">
+        <div class="section-subtitle-content">{{ _("Browse available topics") }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui grid rel-pb-3">
+    <div class="row">
+      <div class="centered column">
+        <div class="ui large breadcrumb">
+          <a class="section engagement-priorities-opt">Engagement priorities</a>
+          <div class="divider"> / </div>
+          <a class="section engagement-priorities-conventions-opt">Conventions</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="swiper swiper-container">
     <div class="swiper-wrapper">
 
@@ -89,15 +98,9 @@
         <div class="ui grid">
           <div class="row">
             <div class="column centered">
-              <div class="section-subtitle-content">{{ _("Featured communities") }}</div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="column centered">
               <div class="ui container">
                 <div class="ui padded relaxed centered grid">
-                  {{ communities_carousel() }}
+                  <div id="engagementsSearchOptions" data-search-config={{ carousel_engagement_config }}></div>
                 </div>
               </div>
             </div>
@@ -107,37 +110,11 @@
 
       <div class="swiper-slide">
         <div class="ui grid">
-          <div class="row">
-            <div class="column centered">
-              <div class="section-subtitle-content">{{ _("Engagement priorities") }}</div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="column centered">
-              <div class="ui container">
-                <div class="ui padded relaxed centered grid">
-                  <div id="engagementsSearchOptions"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="ui grid">
-          <div class="row">
-            <div class="column centered">
-              <div class="section-subtitle-content">{{ _("Conventions") }}</div>
-            </div>
-          </div>
-
           <div class="row">
             <div class="column">
               <div class="ui container">
                 <div class="ui padded relaxed centered grid">
-                  <div id="engagementsConventionSearchOptions"></div>
+                  <div id="engagementsConventionSearchOptions" data-search-config={{ carousel_conventions_config }}></div>
                 </div>
               </div>
             </div>
@@ -148,27 +125,41 @@
   </div>
 </section>
 
-{%- block grid_section %}
-  <div class="ui stackable grid container rel-mt-2">
-
-    {% block main_column %}
-      <div class="sixteen wide computer sixteen wide tablet column">
-
-        {% block main_column_content %}
-          {{ records_list() }}
-        {% endblock main_column_content %}
-
+<section class="rel-pt-1 rel-pb-3">
+  <div class="ui grid">
+    <div class="row">
+      <div class="centered column">
+        <div class="section-subtitle-content">{{ _("Latest packages") }}</div>
       </div>
-    {% endblock main_column %}
-
-    {% block side_column %}
-      <aside class="five wide computer sixteen wide tablet column">
-
-        {% block side_column_content %}{% endblock side_column_content %}
-
-      </aside>
-    {% endblock side_column %}
+    </div>
   </div>
-{%- endblock grid_section %}
+
+  <div class="ui stackable grid container rel-mt-2">
+    <div class="sixteen wide computer sixteen wide tablet column">
+      <div id="latestRecordsSearchOptions" data-search-config="{{ list_latest_records_config }}"></div>
+    </div>
+
+    <aside class="five wide computer sixteen wide tablet column">
+    </aside>
+  </div>
+</section>
+
+<section class="rel-pb-3">
+  <div class="ui grid">
+    <div class="row">
+      <div class="centered column">
+        <div class="section-subtitle-content">{{ _("Upcoming training and events") }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui stackable grid container rel-mt-2">
+    <div class="sixteen wide computer sixteen wide tablet column">
+      <div id="latestEventsSearchOptions" data-search-config="{{ list_latest_events_config  }}"></div>
+    </div>
+    <aside class="five wide computer sixteen wide tablet column">
+    </aside>
+  </div>
+</section>
 
 {%- endblock page_body %}

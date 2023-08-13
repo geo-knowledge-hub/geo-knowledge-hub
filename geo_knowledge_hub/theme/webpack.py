@@ -40,7 +40,6 @@ theme = WebpackThemeBundle(
                 "geo-knowledge-hub-detail": "./js/geo_knowledge_hub_detail/index.js",
                 # Front page
                 "geo-knowledge-hub-front": "./js/geo_knowledge_hub_front/index.js",
-                "geo-knowledge-hub-front-records": "./js/geo_knowledge_hub_front/records/index.js",
                 # Deposit
                 "geo-knowledge-hub-deposit-package": "./js/geo_knowledge_hub_deposit/deposit_form/package/index.js",
                 "geo-knowledge-hub-deposit-record": "./js/geo_knowledge_hub_deposit/deposit_form/record/index.js",
@@ -60,7 +59,6 @@ theme = WebpackThemeBundle(
                 "@react-leaflet/core": "1.0.2",
                 "natsort": "^2.0.3",
                 "lodash": "^4.17.0",
-                "pure-react-carousel": "^1.28.1",
                 "minisearch": "^4.0.3",
                 "react-minisearch": "^5.0.0-beta1",
                 "react-table": "^7.7.0",
@@ -80,6 +78,9 @@ theme = WebpackThemeBundle(
                 "@turf/centroid": "^6.5.0",
                 "@mapbox/geojsonhint": "^3.0.1",
                 "@geoman-io/leaflet-geoman-free": "^2.13.0",
+                "@tanstack/react-query": "^4.32.6",
+                "slick-carousel": "^1.8.1",
+                "react-slick": "^0.29.0",
             },
             aliases={
                 "@invenio-app-rdm": "js/invenio_app_rdm",
