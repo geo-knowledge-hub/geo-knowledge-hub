@@ -23,7 +23,7 @@ export const renderComponent = (...args) => {
         record={JSON.parse(recordVersionsAppDiv.dataset.record)}
         isPreview={JSON.parse(recordVersionsAppDiv.dataset.preview)}
       />,
-      recordVersionsAppDiv
+      recordVersionsAppDiv,
     );
   }
 };

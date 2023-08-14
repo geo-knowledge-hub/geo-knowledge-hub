@@ -115,7 +115,7 @@ export const RecordVersionsList = (props) => {
             Accept: "application/vnd.inveniordm.v1+json",
           },
           withCredentials: true,
-        }
+        },
       );
       let { hits, total } = result.data.hits;
       hits = hits.map(deserializeRecord);

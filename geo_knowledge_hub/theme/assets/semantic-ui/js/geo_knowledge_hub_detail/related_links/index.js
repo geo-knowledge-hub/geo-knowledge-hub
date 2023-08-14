@@ -21,6 +21,6 @@ export const renderComponent = (...args) => {
     <ExternalResourceTable
       tableData={JSON.parse(detailsListDiv.dataset.relatedidentifiers)}
     />,
-    detailsListDiv
+    detailsListDiv,
   );
 };

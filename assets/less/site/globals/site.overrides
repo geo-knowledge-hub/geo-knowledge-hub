@@ -159,6 +159,14 @@ a {
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
 }
 
+section#user-stories > .ui.container > .grid > .column {
+    padding: 0px;
+}
+
+.details-engagement-images {
+    max-width: 20em;
+}
+
 /*------------------------------------------------------
  Record Landing Feedback component (Packages and records)
 -------------------------------------------------------*/

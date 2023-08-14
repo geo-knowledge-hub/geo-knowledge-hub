@@ -12,7 +12,7 @@ import ReactDOM from "react-dom";
 import { RelatedPackagesTable } from "@geo-knowledge-hub/geo-components-react";
 
 const detailsRelatedPackagesDiv = document.getElementById(
-  "details-related-packages-div"
+  "details-related-packages-div",
 );
 
 /**
@@ -23,6 +23,6 @@ export const renderComponent = (...args) => {
     <RelatedPackagesTable
       tableData={JSON.parse(detailsRelatedPackagesDiv.dataset.relatedpackages)}
     />,
-    detailsRelatedPackagesDiv
+    detailsRelatedPackagesDiv,
   );
 };

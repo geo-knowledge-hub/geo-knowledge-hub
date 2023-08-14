@@ -39,7 +39,7 @@ export const renderComponent = (...args) => {
             }}
           />
         </>,
-        componentDiv
+        componentDiv,
       );
     }
   }
