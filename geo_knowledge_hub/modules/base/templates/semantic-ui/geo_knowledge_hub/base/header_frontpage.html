@@ -2,7 +2,7 @@
 
 {%- block frontpage_search %}
 <div id="frontpage-search-bar" class="ui container fluid frontpage-header">
-  <div class="ui container grid rel-mt-5 frontpage-header-container">
+  <div class="ui container grid rel-mt-5 rel-mb-2 frontpage-header-container">
     <div class="row">
       <div class="sixteen wide column stackable center aligned">
         {%- block frontpage_title %}
@@ -27,13 +27,43 @@
     <div class="row">
       <div class="sixteen wide mobile four wide computer column"></div>
       <div class="sixteen wide mobile eight wide computer column center aligned">
+
         <div class="search-bar">
           <div id="advanced-search-div"><!--Rendered via React--></div>
           <input id="front-search-data" type="hidden" name="deposits-record" value="{{ url_for('invenio_search_ui.search') }}"></input>
         </div>
+
+        <div class="ui grid search-bar-extras">
+          <div class="row">
+            <div class="centered column">
+              <div class="ui large compact menu">
+                <div data-tooltip="Explore the currently featured communities">
+                  <a class="item" href="#featured-communities">
+                    <i class="group icon"></i>
+                  </a>
+                </div>
+                <div data-tooltip="Explore resources by themes">
+                  <a class="item" href="#thematic-search">
+                    <i class="search icon"></i>
+                  </a>
+                </div>
+                <div data-tooltip="Explore the latest Knowledge Packages">
+                  <a class="item" href="#latest-packages">
+                    <i class="boxes icon"></i>
+                  </a>
+                </div>
+                <div data-tooltip="See the upcoming training and events">
+                  <a class="item" href="#training-and-events">
+                    <i class="calendar icon"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="ui divider hidden"></div>
     {%- endblock frontpage_form %}
   </div>
 </div>

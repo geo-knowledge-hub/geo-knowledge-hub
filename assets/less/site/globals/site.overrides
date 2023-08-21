@@ -13,6 +13,10 @@
 /*--------------
  Links (General)
 ---------------*/
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none !important;
 }
@@ -22,9 +26,8 @@ a {
 --------------------------*/
 
 /* Tailoring InvenioRDM classes for the GEO Knowledge Hub */
-
-.invenio-page-body {
-    padding-bottom: 0;
+.invenio-page-body.front-body {
+  padding-bottom: 0;
 }
 
 .row.mt-em-1 {
@@ -37,6 +40,16 @@ a {
 
 .search-bar-form {
   text-align: center;
+}
+
+.search-bar-extras.ui.grid {
+  padding: 0.1px 0 0 0;
+}
+
+.search-bar-extras .ui.menu.compact {
+  border: none;
+  box-shadow: none;
+  border-radius: 0 0 0.3rem 0.3rem;
 }
 
 .section-subtitle-content {
@@ -73,7 +86,6 @@ a {
 #frontpage-search-bar .ui.grid {
   margin-left: auto !important;
   margin-right: auto !important;
-  margin-bottom: 2em !important;
 }
 
 #frontpage-search-bar .frontpage-header-container {

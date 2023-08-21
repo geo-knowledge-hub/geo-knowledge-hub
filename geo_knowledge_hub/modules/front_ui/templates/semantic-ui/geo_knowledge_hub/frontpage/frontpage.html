@@ -41,6 +41,8 @@
     e.preventDefault();
     swiper.slideTo(1);
   });
+
+  document.querySelector('#featured-communities').parentElement.classList.add('front-body');
 </script>
 {%- endblock javascript %}
 
@@ -49,8 +51,7 @@
 {%- endblock page_header %}
 
 {%- block page_body %}
-
-<section class="rel-mt-2 rel-pt-1 rel-pb-3">
+<section id="featured-communities" class="rel-mt-2 rel-pt-1 rel-pb-3">
   <div class="ui grid">
     <div class="row">
       <div class="column centered">
@@ -60,17 +61,13 @@
 
     <div class="row">
       <div class="column centered">
-        <div class="ui container">
-          <div class="ui padded relaxed centered grid">
-            {{ communities_carousel() }}
-          </div>
-        </div>
+        {{ communities_carousel() }}
       </div>
     </div>
   </div>
 </section>
 
-<section class="rel-pt-3 rel-pb-3 section-backgrounded">
+<section id="thematic-search" class="rel-pt-3 rel-pb-3 section-backgrounded">
   <div class="ui grid">
     <div class="row">
       <div class="centered column">
@@ -125,7 +122,7 @@
   </div>
 </section>
 
-<section class="rel-pt-3">
+<section id="latest-packages" class="rel-pt-3">
   <div class="ui grid">
     <div class="row">
       <div class="centered column">
@@ -144,7 +141,7 @@
   </div>
 </section>
 
-<section class="rel-pt-3 section-backgrounded">
+<section id="training-and-events" class="rel-pt-3 section-backgrounded">
   <div class="ui grid">
     <div class="row">
       <div class="centered column">
@@ -161,5 +158,4 @@
     </aside>
   </div>
 </section>
-
 {%- endblock page_body %}
