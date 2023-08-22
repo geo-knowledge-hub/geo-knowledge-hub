@@ -16,7 +16,7 @@ Version 1.6.1 (2023-08-22)
 
   - **Front page**:
 
-    - Reviewed page structure based on new UI components from `GEO Components React package <https://github.com/geo-knowledge-hub/geo-components-react.git>`_ (`#213 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/213>`_, `#306 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/306>`_)
+    - Reviewed page structure based on new UI components from `GEO Components React package <https://github.com/geo-knowledge-hub/geo-components-react.git>`_ (`#213 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/213>`_)
 
   - **Landing page**:
 
@@ -26,7 +26,7 @@ Version 1.6.1 (2023-08-22)
 
   - **Front page**:
 
-    - Added new ``Upcoming training and events`` component based on `GEO Components React components <https://github.com/geo-knowledge-hub/geo-components-react.git>`_
+    - Added new ``Upcoming training and events`` component based on `GEO Components React components <https://github.com/geo-knowledge-hub/geo-components-react.git>`_ (`#306 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/306>`_)
 
 
 Version 1.6.0 (2023-06-10)
