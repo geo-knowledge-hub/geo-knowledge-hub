@@ -26,7 +26,7 @@ Version 1.6.1 (2023-08-22)
 
   - **Front page**:
 
-    - Added new ``Ongoing events and actions`` component based on `GEO Components React components <https://github.com/geo-knowledge-hub/geo-components-react.git>`_
+    - Added new ``Upcoming training and events`` component based on `GEO Components React components <https://github.com/geo-knowledge-hub/geo-components-react.git>`_
 
 
 Version 1.6.0 (2023-06-10)
