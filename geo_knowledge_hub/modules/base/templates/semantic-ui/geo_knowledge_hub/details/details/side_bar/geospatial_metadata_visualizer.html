@@ -6,13 +6,14 @@
 #}
 
 {% set locations = record.metadata.locations %}
-
 {% if locations %}
+{% set hasFeatureWithGeometry = locations.features | selectattr('geometry', 'defined') | list | length > 0 %}
 
+{% if hasFeatureWithGeometry %}
 <section id="geospatial-locations" aria-label="{{ _('Geographic Locations') }}" class="ui segment rdm-sidebar">
   <h2 class="ui small header">{{ _('Geographic Locations') }}</h2>
 
   <div id="mapContainer"></div>
 </section>
-
+{% endif %}
 {% endif %}

@@ -542,6 +542,8 @@ export class PackageDepositFormComponentBase extends Component {
                 <RelatedWorksField
                   fieldPath="metadata.related_identifiers"
                   options={this.vocabularies.metadata.identifiers}
+                  label={i18next.t("Related links")}
+                  labelIcon="linkify"
                   showEmptyValue
                 />
               </AccordionField>

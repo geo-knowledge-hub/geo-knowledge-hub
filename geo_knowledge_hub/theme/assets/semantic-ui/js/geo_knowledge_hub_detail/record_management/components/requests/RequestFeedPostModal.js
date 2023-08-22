@@ -76,21 +76,7 @@ export const RequestFeedPostModal = ({ record, open, handleClose }) => {
       text: "Learn about the GEO Knowledge Hub Feed",
       value: "CMS",
       onClick: () => {
-        window.open(
-          "https://gkhub.earthobservations.org/doc/docs/introduction",
-          "_blank"
-        );
-      },
-    },
-    {
-      key: "Review",
-      text: "Learn about our Review Process",
-      value: "Review",
-      onClick: () => {
-        window.open(
-          "https://gkhub.earthobservations.org/doc/docs/introduction",
-          "_blank"
-        );
+        window.open("/feed/introducing-the-geo-knowledge-hub-feed", "_blank");
       },
     },
   ];
@@ -98,7 +84,7 @@ export const RequestFeedPostModal = ({ record, open, handleClose }) => {
   const validationSchema = Yup.object().shape({
     payload: Yup.object().shape({
       content: Yup.string().required(
-        "Please, provide some details around your Knowledge Package"
+        "Please, provide some details around your Knowledge Package",
       ),
       format: Yup.string().required(),
     }),
@@ -131,14 +117,14 @@ export const RequestFeedPostModal = ({ record, open, handleClose }) => {
               <Message
                 icon={"bullhorn"}
                 header={i18next.t(
-                  "We'd love to help you share your Knowledge Package!"
+                  "We'd love to help you share your Knowledge Package!",
                 )}
                 content={
                   <div className={"mt-10"}>
                     <Trans>
                       By making this request, your package will be presented on
                       the{" "}
-                      <a href={"/overview"} target={"_blank"}>
+                      <a href={"/feed"} target={"_blank"}>
                         Feed
                       </a>
                       , a place where the community can stay updated about the

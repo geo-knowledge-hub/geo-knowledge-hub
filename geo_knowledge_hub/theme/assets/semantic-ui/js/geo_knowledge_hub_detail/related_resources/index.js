@@ -47,7 +47,7 @@ export const renderComponent = (...args) => {
           }}
         />
       </ThemeProvider>,
-      componentDiv
+      componentDiv,
     );
   }
 };

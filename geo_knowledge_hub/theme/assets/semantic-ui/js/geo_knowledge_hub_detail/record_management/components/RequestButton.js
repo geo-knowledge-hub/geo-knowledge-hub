@@ -91,7 +91,7 @@ export const RequestButton = ({ record, assistanceRequests }) => {
 
 RequestButton.propTypes = {
   record: PropTypes.object.isRequired,
-  assistanceRequests: PropTypes.object
+  assistanceRequests: PropTypes.object,
 };
 
 RequestButton.defaultProps = {

@@ -1,6 +1,6 @@
 /*
  * This file is part of GEO Knowledge Hub.
- * Copyright (C) 2021-2022 GEO Secretariat.
+ * Copyright (C) 2021-2023 GEO Secretariat.
  *
  * GEO Knowledge Hub is free software; you can redistribute it and/or modify it
  * under the terms of the MIT License; see LICENSE file for more details.
@@ -9,74 +9,47 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { css } from "@emotion/css";
-import styled from "@emotion/styled";
-import { ThemeProvider } from "@emotion/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import {
+  LatestEvents,
+  LatestRecords,
   AdvancedSearchBar,
-  EngagementPrioritiesNestedCarousel,
+  EngagementCarousel,
+  ConventionsCarousel,
 } from "@geo-knowledge-hub/geo-components-react";
 
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 
-/**
- * Styles
- */
-const theme = {
-  slides: {
-    headerClass: "",
-    slideBodyClass: css`
-      margin: 5px;
-    `,
-    slideContainerClass: "",
-    slideImageClass: "",
-  },
-  carousels: {},
-};
-
-/**
- * Styled components
- */
-const EngagementCarouselDiv = styled("div")`
-  width: 780px;
-  height: auto;
-`;
-
-const ConventionsCarouselDiv = styled("div")`
-  width: 600px;
-  height: auto;
-`;
-
+//
+// DOM element selection
+//
 const searchDiv = document.getElementById("advanced-search-div");
 const searchData = document.getElementById("front-search-data");
 
 const engagementsDiv = document.getElementById("engagementsSearchOptions");
 const conventionsDiv = document.getElementById(
-  "engagementsConventionSearchOptions"
+  "engagementsConventionSearchOptions",
 );
 
-// carousel components configuration
-const nestedCarouselContainerProps = {
-  animation: "scale down",
-  direction: "bottom",
-};
+const latestRecordsDiv = document.getElementById("latestRecordsSearchOptions");
+const latestNewsDiv = document.getElementById("latestEventsSearchOptions");
 
-const nestedCarouselProps = {
-  visibleSlides: 6,
-};
+//
+// Configuration
+//
 
-const proxies = {
-  dataProxyProcessor: (dataset) => {
-    return dataset.map((data) => ({
-      ...data,
-      props: {
-        ...data.props,
-        icon: data.props.icon ? `/static/${data.props.icon}` : "",
-      },
-    }));
+// Query client (Dynamic)
+const dynamicQueryClient = new QueryClient();
+
+// Query client (Persistent)
+const persistentQueryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      cacheTime: 604800000, // 1 week
+    },
   },
-};
+});
 
 // rendering!
 if (searchDiv && searchData) {
@@ -88,7 +61,7 @@ if (searchDiv && searchData) {
         window.location.assign(`${baseUrl}?${query}`);
       }}
       searchPlaceholder={i18next.t(
-        "Search for Earth Observations Applications"
+        "Search for Earth Observations Applications",
       )}
       formInitialValues={{
         form: {
@@ -103,66 +76,60 @@ if (searchDiv && searchData) {
         },
       }}
     />,
-    searchDiv
+    searchDiv,
   );
 }
 
 if (engagementsDiv) {
   ReactDOM.render(
-    <ThemeProvider theme={theme}>
-      <EngagementCarouselDiv>
-        <EngagementPrioritiesNestedCarousel
-          nestedCarouselContainerProps={nestedCarouselContainerProps}
-          mainCarouselProps={{
-            naturalSlideWidth: 1,
-            naturalSlideHeight: 1.15,
-            visibleSlides: 4,
-          }}
-          nestedCarouselProps={nestedCarouselProps}
-          proxies={{
-            ...proxies,
-            prepareSearchParams: (searchParams, isPrincipalCarousel) => {
-              // specific rules
-              if (!isPrincipalCarousel) {
-                if (searchParams.params.q.includes("sdg")) {
-                  // to avoid errors in the front page
-                  searchParams.params.q = `${searchParams.params.q} AND props.subtype:sdg-goal`;
-                }
-              } else {
-                searchParams.params.q = `${searchParams.params.q} AND (NOT props.engagement_type:convention)`;
-              }
-              return searchParams;
-            },
-          }}
-        />
-      </EngagementCarouselDiv>
-    </ThemeProvider>,
-    engagementsDiv
+    <QueryClientProvider client={persistentQueryClient}>
+      <div className={"carousel-container"}>
+        <EngagementCarousel filterUrl={engagementsDiv.dataset.searchConfig} />
+      </div>
+    </QueryClientProvider>,
+    engagementsDiv,
   );
 }
 
 if (conventionsDiv) {
   ReactDOM.render(
-    <ThemeProvider theme={theme}>
-      <ConventionsCarouselDiv>
-        <EngagementPrioritiesNestedCarousel
-          mainCarouselProps={{
-            naturalSlideWidth: 1,
-            naturalSlideHeight: 1.15,
-            visibleSlides: 3,
-          }}
-          nestedCarouselProps={nestedCarouselProps}
-          proxies={{
-            ...proxies,
-            prepareSearchParams: (searchParams, isPrincipalCarousel) => {
-              // specific rules
-              searchParams.params.q = `${searchParams.params.q} AND props.engagement_type:convention`;
-              return searchParams;
-            },
-          }}
+    <QueryClientProvider client={persistentQueryClient}>
+      <div className={"carousel-container"}>
+        <ConventionsCarousel filterUrl={conventionsDiv.dataset.searchConfig} />
+      </div>
+    </QueryClientProvider>,
+    conventionsDiv,
+  );
+}
+
+if (latestRecordsDiv) {
+  const latestRecordsConfig = JSON.parse(latestRecordsDiv.dataset.searchConfig);
+
+  ReactDOM.render(
+    <QueryClientProvider client={dynamicQueryClient}>
+      <div className={"latest-records-container"}>
+        <LatestRecords
+          fetchUrl={latestRecordsConfig.url}
+          moreUrl={latestRecordsConfig.url_more}
         />
-      </ConventionsCarouselDiv>
-    </ThemeProvider>,
-    conventionsDiv
+      </div>
+    </QueryClientProvider>,
+    latestRecordsDiv,
+  );
+}
+
+if (latestNewsDiv) {
+  const latestNewsConfig = JSON.parse(latestNewsDiv.dataset.searchConfig);
+
+  ReactDOM.render(
+    <QueryClientProvider client={dynamicQueryClient}>
+      <div className={"latest-events-container"}>
+        <LatestEvents
+          fetchUrl={latestNewsConfig.url}
+          moreUrl={latestNewsConfig.url_more}
+        />
+      </div>
+    </QueryClientProvider>,
+    latestNewsDiv,
   );
 }

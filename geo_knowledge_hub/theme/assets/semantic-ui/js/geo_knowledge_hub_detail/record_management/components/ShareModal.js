@@ -84,7 +84,7 @@ export const ShareModal = ({ record, open, handleClose }) => {
             "Content-Type": "application/json",
           },
           withCredentials: true,
-        }
+        },
       )
       .then((resp) => {
         setAccessLinkObj(resp.data);
@@ -134,7 +134,7 @@ export const ShareModal = ({ record, open, handleClose }) => {
             },
             withCredentials: true,
             cancelToken: source.token,
-          }
+          },
         );
       })();
     }
@@ -249,7 +249,7 @@ export const ShareModal = ({ record, open, handleClose }) => {
             <Icon name="warning circle" />
             {!accessLinkObj
               ? i18next.t(
-                  "No link has been created. Click on 'Get a Link' to make a new link."
+                  "No link has been created. Click on 'Get a Link' to make a new link.",
                 )
               : message[shareMode]}
           </p>

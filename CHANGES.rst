@@ -9,6 +9,75 @@
 Changes
 =======
 
+Version 1.6.1 (2023-08-22)
+---------------------------
+
+- General changes
+
+  - **Front page**:
+
+    - Reviewed page structure based on new UI components from `GEO Components React package (v0.5.0) <https://github.com/geo-knowledge-hub/geo-components-react/tree/b-0.5>`_ (`#213 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/213>`_)
+
+  - **Landing page**:
+
+    - Added new User stories component based on `GEO Components React components (v0.5.0) <https://github.com/geo-knowledge-hub/geo-components-react/tree/b-0.5>`_.
+
+- Introduced features
+
+  - **Front page**:
+
+    - Added new ``Upcoming training and events`` component based on `GEO Components React components (v0.5.0) <https://github.com/geo-knowledge-hub/geo-components-react/tree/b-0.5>`_ (`#306 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/306>`_)
+
+
+Version 1.6.0 (2023-06-10)
+---------------------------
+
+- General changes
+
+  - **Front page**:
+
+    - Replace the `Overview page <https://gkhub.earthobservations.org/doc/>`_ with the new documentation page overview (`#258 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/258>`_) (Based on `GEO Knowledge Hub Docs <https://github.com/geo-knowledge-hub/geo-knowledge-hub-docs>`_).
+
+  - **Vocabulary**:
+
+    - Updated ``Relation types`` vocabulary based on InvenioRDM updates.
+
+  - **Landing page**:
+
+    - ``Related works`` field labels renamed to ``Related links`` (`#275 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/275>`_);
+    - Added new ``Related links`` visualization (`#275 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/275>`_);
+    - Added DOI solver for Packages (`#286 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/286>`_);
+
+    - Introduced initial integration with `GEO Knowledge Hub Feed <https://github.com/geo-knowledge-hub/geo-knowledge-hub-feed>`_ using `Invenio Requests <https://github.com/inveniosoftware/invenio-requests>`_ (`#203 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/203>`_)
+
+      - Added ``Available Requests`` feature for Knowledge Packages (`#284 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/pull/284>`_).
+
+    - Fixed error in state handling on the Knowledge Package deposit page;
+
+    - Added validations to avoid map rendering when geometries are not available in the record ``features field``.
+
+  - **Communities**:
+
+    - Fixed rendering error with Knowledge Packages on the community requests page (`#295 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/pull/295>`_).
+
+  - **E-mail**:
+
+    - New e-mail templates based on `Postmark Transactional Email Templates <https://github.com/activecampaign/postmark-templates>`_ (`#292 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/pull/292>`_ and `#293 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/pull/293>`_).
+
+- Infrastructure
+
+  - Replaced ``CentOS`` image with ``AlmaLinux`` (`#277 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/277>`_, `#280 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/280>`_)
+
+    - Python version upgraded  to ``3.9.0``;
+    - Node JS version upgraded to version ``16`` (`#278 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/278>`_).
+
+  - Reviewed CSP policies;
+
+  - Replaced ``AddThis`` with ``AddToAny`` (`#298 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/298>`_);
+
+  - Added prefix to the search indices (`#285 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/285>`_).
+
+
 Version 1.5.0 (2023-03-17)
 ---------------------------
 

@@ -9,15 +9,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { css } from "@emotion/css";
-import { ThemeProvider } from "@emotion/react";
-
 import { getInputFromDOM } from "react-invenio-deposit";
 
-import { UserStoryCarousel as UserStoriesCarousel } from "@geo-knowledge-hub/geo-components-react";
+import { UserStoriesTable } from "@geo-knowledge-hub/geo-components-react";
 
 /**
- * Render the Usert Stories component.
+ * Render the User Stories component.
  */
 export const renderComponent = (...args) => {
   // Extracting the engagement values
@@ -25,38 +22,10 @@ export const renderComponent = (...args) => {
   const userStoriesData = getInputFromDOM("userStoriesData") || [];
 
   if (componentDiv && userStoriesData.length > 0) {
-    // Preparing the theme
-    const theme = {
-      slides: {
-        slideBodyClass: css`
-          margin: 10px;
-        `,
-        slideContainerClass: css`
-          width: 95%;
-        `,
-      },
-    };
-
     // Rendering!
     ReactDOM.render(
-      <ThemeProvider theme={theme}>
-        <UserStoriesCarousel
-          userStories={userStoriesData}
-          carouselProviderProps={{
-            visibleSlides: 2,
-            naturalSlideWidth: 1,
-            naturalSlideHeight: 0.7,
-            dragEnabled: false,
-          }}
-          cardProps={{
-            style: {
-              width: "95%",
-              height: "85%",
-            },
-          }}
-        />
-      </ThemeProvider>,
-      componentDiv
+      <UserStoriesTable tableData={userStoriesData} />,
+      componentDiv,
     );
   }
 };
