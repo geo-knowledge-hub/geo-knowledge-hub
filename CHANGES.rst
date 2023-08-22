@@ -9,6 +9,26 @@
 Changes
 =======
 
+Version 1.6.1 (2023-08-22)
+---------------------------
+
+- General changes
+
+  - **Front page**:
+
+    - Reviewed page structure based on new UI components from `GEO Components React package <https://github.com/geo-knowledge-hub/geo-components-react.git>`_ (`#213 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/213>`_, `#306 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/306>`_)
+
+  - **Landing page**:
+
+    - Added new User stories component based on `GEO Components React components <https://github.com/geo-knowledge-hub/geo-components-react.git>`_.
+
+- Introduced features
+
+  - **Front page**:
+
+    - Added new ``Ongoing events and actions`` component based on `GEO Components React components <https://github.com/geo-knowledge-hub/geo-components-react.git>`_
+
+
 Version 1.6.0 (2023-06-10)
 ---------------------------
 
