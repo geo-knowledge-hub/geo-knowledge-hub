@@ -236,7 +236,7 @@
             {# User Stories (Draft version) #}
             {%- block user_stories -%}
               {% if is_knowledge_package and user_stories %}
-                <section id="user-stories" class="rel-mt-2" aria-label="{{ _('User Stories') }}">
+                <section id="user-stories" class="rel-mt-3" aria-label="{{ _('User Stories') }}">
                   {%- include "geo_knowledge_hub/details/details/user-stories.html" %}
                 </section>
               {% endif %}
@@ -246,7 +246,7 @@
             {%- block record_knowledge_elements -%}
               {% if is_knowledge_package %}
                 {%- set knowledge_elements_title = _("Elements of the Knowledge Package") -%}
-                <section id="knowledge-elements" class="rel-mt-2" aria-label="{{ knowledge_elements_title }}">
+                <section id="knowledge-elements" class="rel-mt-5" aria-label="{{ knowledge_elements_title }}">
                   {%- include "geo_knowledge_hub/details/details/elements.html" %}
                 </section>
               {% endif %}

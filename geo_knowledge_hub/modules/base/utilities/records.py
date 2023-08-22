@@ -165,19 +165,7 @@ def get_engagement_priority_from_record(
             ids=record_engagement_priorities_ids,
         ).to_dict()
 
-        result = (
-            py_.chain(record_engagement_priorities)
-            .get("hits.hits", [])
-            .map(
-                lambda x: py_.set_(
-                    x,
-                    "props.icon",
-                    url_for("static", filename=py_.get(x, "props.icon")),
-                )
-                if py_.get(x, "props.icon") != ""
-                else x,
-            )
-        ).value()
+        result = (py_.chain(record_engagement_priorities).get("hits.hits", [])).value()
     return result
 
 

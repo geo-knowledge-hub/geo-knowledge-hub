@@ -13,7 +13,7 @@ import { RecordManagement } from "./RecordManagement";
 
 const recordManagementAppDiv = document.getElementById("recordManagement");
 const recordManagementMobile = document.getElementById(
-  "recordManagementMobile"
+  "recordManagementMobile",
 );
 
 function renderRecordManagement(element) {
@@ -23,13 +23,13 @@ function renderRecordManagement(element) {
       permissions={JSON.parse(recordManagementAppDiv.dataset.permissions)}
       isDraft={JSON.parse(recordManagementAppDiv.dataset.isDraft)}
       isPreviewSubmissionRequest={JSON.parse(
-        recordManagementAppDiv.dataset.isPreviewSubmissionRequest
+        recordManagementAppDiv.dataset.isPreviewSubmissionRequest,
       )}
       assistanceRequests={JSON.parse(
-        recordManagementAppDiv.dataset.assistanceRequests
+        recordManagementAppDiv.dataset.assistanceRequests,
       )}
     />,
-    element
+    element,
   );
 }
 

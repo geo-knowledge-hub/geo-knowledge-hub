@@ -10,14 +10,14 @@
     id="recordEngagementsData"
     type="hidden"
     name="recordEngagementsData"
-    value='{{related_engagement_priorities | tojson }}'>
-  </input>
+    value='{{related_engagement_priorities | tojson }}'
+  />
 
   <section id="engagement-priorities-sidebar" aria-label="{{ _('Engagement Priorities') }}" class="ui segment rdm-sidebar">
     <h2 class="ui small header">{{ _('Engagement Priorities') }}</h2>
 
     <div align="center">
-      <div id="recordEngagements" style="width: 17rem"></div>
+      <div id="recordEngagements"></div>
     </div>
   </section>
 {% endif %}

@@ -5,10 +5,10 @@
 /*-------------------
     Brand Colors
 --------------------*/
-@primaryColor: #406078;
+@primaryColor: #334D61;
 @secondaryColor: #f2711c;
 @featuredListBackgroundColor: #4899DB;
-@primaryDarkenColor: #0267b2;
+@primaryDarkenColor: #406078;
 
 /*-------------------
       Site Colors
@@ -20,7 +20,8 @@
 
 @accessRightMetadataOnly: #767676;
 
+@footerLightColor: @primaryDarkenColor;
 @footerDarkColor: @primaryColor;
 
 @navbarBackgroundColor: @primaryColor;
-@navbarBackgroundImage: url("../../../../static/images/background/Mecklenburg_West_Pomerania_Germany.jpg");
+@navbarBackgroundImage: url("../../../../static/images/background/background_cook_strait_new_zealand.jpg");

@@ -13,6 +13,10 @@
 /*--------------
  Links (General)
 ---------------*/
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none !important;
 }
@@ -22,6 +26,10 @@ a {
 --------------------------*/
 
 /* Tailoring InvenioRDM classes for the GEO Knowledge Hub */
+.invenio-page-body.front-body {
+  padding-bottom: 0;
+}
+
 .row.mt-em-1 {
   margin-top: 1.1em;
 }
@@ -34,15 +42,32 @@ a {
   text-align: center;
 }
 
+.search-bar-extras.ui.grid {
+  padding: 0.1px 0 0 0;
+}
+
+.search-bar-extras .ui.menu.compact {
+  border: none;
+  box-shadow: none;
+  border-radius: 0 0 0.3rem 0.3rem;
+}
+
 .section-subtitle-content {
-  font-size: 2em;
+  font-size: 2.1em;
   padding-top: 0.2em;
   color: @primaryColor;
+}
+
+.section-backgrounded {
+    background-color: rgba(51, 77, 97, 0.04);
 }
 
 #frontpage-search-bar.frontpage-header {
   background-image: @navbarBackgroundImage;
   background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #frontpage-search-bar.ui.container {
@@ -61,7 +86,10 @@ a {
 #frontpage-search-bar .ui.grid {
   margin-left: auto !important;
   margin-right: auto !important;
-  margin-bottom: 2em !important;
+}
+
+#frontpage-search-bar .frontpage-header-container {
+    height: 25rem
 }
 
 .float-section-buttons {
@@ -92,6 +120,10 @@ a {
 
 .carousel-section {
   margin-top: 15px;
+}
+
+.carousel-container {
+  max-width: 1024px
 }
 
 /* Communities carousel definitions */
@@ -146,6 +178,14 @@ a {
 
 .invenio-page-body .ui.basic.grey.button {
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset !important;
+}
+
+section#user-stories > .ui.container > .grid > .column {
+    padding: 0px;
+}
+
+.details-engagement-images {
+    max-width: 20em;
 }
 
 /*------------------------------------------------------

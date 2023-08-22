@@ -9,16 +9,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { css } from "@emotion/css";
-import { ThemeProvider } from "@emotion/react";
-
 import { getInputFromDOM } from "react-invenio-deposit";
 
-import { EngagementPrioritiesCarousel } from "@geo-knowledge-hub/geo-components-react";
+import { EngagementImages } from "@geo-knowledge-hub/geo-components-react";
 
-/**
- * Render the Engagement Priorities component.
- */
+//
+// Constants
+//
+const engagementSearchQuery = "/search?q=metadata.engagement_priorities.id";
+
+//
+// Render the Engagement Priorities component.
+//
 export const renderComponent = (...args) => {
   // Extracting the engagement values
   const componentDiv = document.getElementById("recordEngagements");
@@ -29,35 +31,22 @@ export const renderComponent = (...args) => {
   // Removing data to avoid errors in the interface
   if (recordEngagements) {
     recordEngagementsData = recordEngagements.filter(
-      (x) => !(["", null].indexOf(x.props.icon) > -1)
+      (x) => !(["", null].indexOf(x.props.icon) > -1),
     );
   }
 
   if (recordEngagementsData.length > 0) {
-    // Preparing the theme
-    const theme = {
-      slides: {
-        slideImageClass: css`
-          transform: scale(0.8, 0.8);
-          -ms-transform: scale(0.8, 0.8);
-          -webkit-transform: scale(0.8, 0.8);
-        `,
-      },
-    };
-
     // Rendering!
     ReactDOM.render(
-      <ThemeProvider theme={theme}>
-        <EngagementPrioritiesCarousel
-          engagementPriorities={recordEngagementsData}
-          cardProps={{ header: null, style: { boxShadow: "none" } }}
-          carouselProviderProps={{ naturalSlideHeight: 1 }}
+      <div className={"details-engagement-images"}>
+        <EngagementImages
+          engagements={recordEngagementsData}
+          filterUrl={engagementSearchQuery}
         />
-      </ThemeProvider>,
-      componentDiv
+      </div>,
+      componentDiv,
     );
   } else {
-    // temporary
     document.getElementById("engagement-priorities-sidebar").remove();
   }
 };
