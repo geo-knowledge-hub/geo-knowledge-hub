@@ -30,6 +30,10 @@
 {%- endfor %}
 
 {%- if current_user.is_authenticated and is_knowledge_provider %}
+<div class="item">
+  <a role="menuitem" href="/dashboard" target="_blank">{{ _("User management") }}</a>
+</div>
+
 {% for item in current_menu.submenu('actions').children|sort(attribute='order') if item.visible recursive %}
 <div class="item">
   <a role="menuitem" href="{{ item.url }}">{{ item.text|safe }}</a>
