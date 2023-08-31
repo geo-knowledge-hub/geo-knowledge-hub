@@ -18,7 +18,7 @@ const availableRequests = [
   {
     key: 1,
     text: i18next.t("Feed post"),
-    value: "feed-post-creation",
+    value: "requests-assistance-feed-creation",
     icon: "rss",
     component: RequestFeedPostModal,
   },
@@ -64,9 +64,20 @@ export const RequestButton = ({ record, assistanceRequests }) => {
             <Dropdown.Item
               fluid
               key={option.key}
-              onClick={() => handleOpen(option.key)}
+              onClick={() => {
+                // Validating if user have request
+                const userRequestId = assistanceRequests[option.value];
+                const userHasRequest = !!userRequestId;
+
+                if (userHasRequest) {
+                  // If user already have a request, redirect to it
+                  window.location.href = `/me/requests/${userRequestId}`;
+                } else {
+                  // Create a new one
+                  handleOpen(option.key)
+                }
+              }}
               icon
-              disabled={assistanceRequests[option.value]}
             >
               <Icon name={option.icon} /> {option.text}
             </Dropdown.Item>

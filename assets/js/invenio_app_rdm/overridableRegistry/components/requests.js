@@ -10,10 +10,16 @@ import React from "react";
 import { Label } from "semantic-ui-react";
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 
-const LabelTypeFeedPostCreation = (props) => (
-  <Label {...props}>{i18next.t("New feed post")}</Label>
+/**
+ * Feed post request label for the requests page.
+ */
+export const FeedPostCreationLabel = () => (
+  <Label className="primary" size="small">{i18next.t("New feed post")}</Label>
 )
 
-export const FeedPostCreation = () => (
-  <LabelTypeFeedPostCreation className="primary" size="small" />
+/**
+ * Training request label for the requests page.
+ */
+export const TrainingRequestLabel = () => (
+  <Label className="primary" size="small">{i18next.t("Training request")}</Label>
 )

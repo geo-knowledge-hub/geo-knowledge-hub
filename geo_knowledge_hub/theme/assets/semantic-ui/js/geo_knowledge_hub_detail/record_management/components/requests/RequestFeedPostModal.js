@@ -29,8 +29,8 @@ export const RequestFeedPostModal = ({ record, open, handleClose }) => {
   const onSubmit = (props) => {
     // Preparing data to create the feed post request
     const recordId = record.id;
-    const recordFeedUrl = record.links.feed;
     const recordApiUrl = record.links.self;
+    const recordFeedUrl = record.links.requests;
 
     // Creating the request
     http
@@ -38,10 +38,10 @@ export const RequestFeedPostModal = ({ record, open, handleClose }) => {
         topic: {
           package_record: recordId,
         },
-        type: "feed-post-creation",
+        type: "requests-assistance-feed-creation",
       })
       .then((createRequestResponse) => {
-        const feedRequestSubmissionUrl = `${recordApiUrl}/actions/submit-feed`;
+        const feedRequestSubmissionUrl = `${recordApiUrl}/actions/submit-request`;
 
         // Submitting request
         http

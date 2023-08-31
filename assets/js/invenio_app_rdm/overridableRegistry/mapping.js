@@ -7,11 +7,12 @@
  */
 
 import React from "react";
-import { FeedPostCreation } from "./components";
+import { FeedPostCreationLabel, TrainingRequestLabel } from "./components";
 
 /**
  * Overriding Components
  */
 export const overriddenComponents = {
-  "RequestTypeLabel.layout.feed-post-creation": FeedPostCreation
+  "RequestTypeLabel.layout.requests-assistance-feed-creation": FeedPostCreationLabel,
+  "RequestTypeLabel.layout.requests-assistance-training-creation": TrainingRequestLabel
 };
