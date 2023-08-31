@@ -188,6 +188,10 @@ section#user-stories > .ui.container > .grid > .column {
     max-width: 20em;
 }
 
+.details-request-training-button {
+  height: 90px;
+}
+
 /*------------------------------------------------------
  Record Landing Feedback component (Packages and records)
 -------------------------------------------------------*/

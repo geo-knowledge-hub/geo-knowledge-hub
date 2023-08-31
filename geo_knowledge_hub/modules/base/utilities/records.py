@@ -406,12 +406,20 @@ def record_file_download(pid_value, file_item=None, is_preview=False, **kwargs):
     return file_item.send_file(as_attachment=download)
 
 
-def check_requests(record, request_types):
+def extract_requests(identity, record, request_types):
     """Check which type of request has made for the record."""
     res = {}
-    for request_type in request_types:
-        res[request_type] = any(
-            map(lambda x: x["type"] == request_type, record["assistance_requests"])
-        )
+    requests = record.assistance_requests
+
+    for request_ in requests:
+        request_object = request_.get_object()
+
+        request_type = request_object.type.type_id
+        request_user = int(request_object.created_by._parse_ref_dict_id())
+        request_status = request_object.status
+
+        if request_type in request_types and request_user == identity.id:
+            if request_status != "cancelled":
+                res[request_type] = str(request_object.id)
 
     return res

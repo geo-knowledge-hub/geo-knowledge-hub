@@ -16,6 +16,8 @@ from geo_config.security.permissions import need_permission
 from geo_rdm_records.base.resources.serializers import (
     UIRecordJSONSerializer as UIJSONSerializer,
 )
+from geo_rdm_records.modules.packages.requests.feed import FeedPostRequest
+from geo_rdm_records.modules.packages.requests.training import TrainingSessionRequest
 from invenio_app_rdm.records_ui.views.decorators import (
     pass_draft_community,
     pass_is_preview,
@@ -72,8 +74,10 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
     ) = metadata_utilities.expand_metadata_from_package(identity, record_ui)
 
     # Check requests on the package
-    package_requests = record_utilities.check_requests(
-        record_data, ["feed-post-creation"]
+    package_requests = record_utilities.extract_requests(
+        identity,
+        record._record,
+        [FeedPostRequest.type_id, TrainingSessionRequest.type_id],
     )
     package_requests = json.dumps(package_requests)
 
@@ -90,7 +94,7 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
                 "update_draft",
                 "read_files",
                 "review",
-                "request",
+                "request_feed",
             ]
         ),
         is_draft=record_is_draft,
