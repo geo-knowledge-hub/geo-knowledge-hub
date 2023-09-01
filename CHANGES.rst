@@ -9,6 +9,27 @@
 Changes
 =======
 
+Version 1.6.2 (2023-09-01)
+---------------------------
+
+- General changes
+
+  - **Landing page**:
+
+    - Updated ``Related Packages`` component based on `GEO Components React components (v0.5.1) <https://github.com/geo-knowledge-hub/geo-components-react/blob/master/CHANGES.md#version-051-2023-08-31>`_.
+
+
+- Introduced features
+
+  - **Front page**:
+
+    - Added new ``User management`` option based on `GEO User Dashboard (v0.1.0) <https://github.com/geo-knowledge-hub/geo-user-dashboard/blob/main/CHANGES.md#version-010-20230830>`_ (`#313 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/313>`_)
+
+  - **Landing page**:
+
+    - Added new ``Request training`` option. (`#305 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/305>`_)
+
+
 Version 1.6.1 (2023-08-22)
 ---------------------------
 
