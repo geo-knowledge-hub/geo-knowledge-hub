@@ -53,7 +53,7 @@ under the terms of the MIT License; see LICENSE file for more details.
   </div>
 </div>
 <div class="ui container communities-frontpage rel-mt-3 rel-mb-2">
-  {% if current_user.is_authenticated %}
+  {% if is_geo_secretariat %}
   <div class="flex">
     <h2 class="ui header mb-0 align-self-center">{{_('My communities')}}</h2>
     <a class="align-self-center rel-ml-1 " href="{{url_for('invenio_app_rdm_users.communities')}}">
