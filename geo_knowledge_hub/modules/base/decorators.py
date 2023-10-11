@@ -339,3 +339,14 @@ def pass_record_from_pid(f):
         return f(**kwargs)
 
     return view
+
+
+def pass_package_id(f):
+    """Decorate a view to check if package is defined."""
+
+    @wraps(f)
+    def view(**kwargs):
+        kwargs["package_id"] = request.args.get("package")
+        return f(**kwargs)
+
+    return view

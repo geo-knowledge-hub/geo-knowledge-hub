@@ -26,6 +26,7 @@ from geo_knowledge_hub.modules.base.decorators import (
     pass_draft,
     pass_draft_files,
     pass_is_resource_preview,
+    pass_package_id,
     pass_record_files,
     pass_record_or_draft,
 )
@@ -40,6 +41,7 @@ from geo_knowledge_hub.modules.base.utilities import (
 # Record Landing page views
 #
 @pass_is_preview
+@pass_package_id
 @pass_is_resource_preview
 @pass_record_or_draft(record_type="record", expand=True)
 @pass_record_files(record_type="record")
@@ -50,6 +52,7 @@ def geo_record_detail(
     is_preview=False,
     navigate=False,
     package=None,
+    package_id=None,
 ):
     """Record detail page (aka landing page)."""
     # Base definitions
@@ -90,6 +93,7 @@ def geo_record_detail(
         related_engagement_priorities=engagement_priorities,
         navigate=navigate,
         package=package,
+        current_package=package_id,
         assistance_requests=[],
     )
 

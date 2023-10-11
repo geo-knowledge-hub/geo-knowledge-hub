@@ -9,6 +9,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import _last from "lodash/last";
 import { ThemeProvider } from "@emotion/react";
 
 import { resourceTypeDefinitions } from "./cache";
@@ -18,6 +19,9 @@ import { RelatedResourceTable } from "@geo-knowledge-hub/geo-components-react";
  * Render the Engagement Priorities component.
  */
 export const renderComponent = (...args) => {
+  // Extracting package info (Assuming the url is the package id)
+  const currentPackageId = _last(window.location.pathname.split("/"));
+
   // Extracting the engagement values
   const componentDiv = document.getElementById("relatedRecordsDiv");
   let relatedRecordsData = [];
@@ -36,6 +40,7 @@ export const renderComponent = (...args) => {
     ReactDOM.render(
       <ThemeProvider theme={theme}>
         <RelatedResourceTable
+          packageId={currentPackageId}
           records={relatedRecordsData}
           resourceTypeDefinitions={resourceTypeDefinitions}
           transitionProps={{
@@ -45,6 +50,7 @@ export const renderComponent = (...args) => {
               hide: 580,
             },
           }}
+          paginationSizes={[5, 10, 15, 50, 100]}
         />
       </ThemeProvider>,
       componentDiv,
