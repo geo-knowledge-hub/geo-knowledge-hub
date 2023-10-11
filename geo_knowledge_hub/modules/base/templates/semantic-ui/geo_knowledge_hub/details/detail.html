@@ -150,10 +150,18 @@
 
                     {% if not navigate %}
                       <a class="ui button small compact" href="{{ back_page }}"><i class="ui icon angle left"></i> {{ back_btn_label }}</a>
+
+                    {% elif current_package %}
+                      <a class="ui button small compact" href="/packages/{{ current_package }}?preview=1"><i class="ui icon angle left"></i> {{ _('Back to package') }}</a>
                     {% endif %}
                   </nav>
                 {% endif %}
 
+                {% if current_package and not is_draft %}
+                  <nav class="back-navigation rel-pb-2 pl-0" aria-label="{{ _('Back-navigation') }}">
+                    <a class="ui button small compact" href="/packages/{{ current_package }}"><i class="ui icon angle left"></i> {{ _('Back to package') }}</a>
+                  </nav>
+                {% endif %}
               {%- endblock record_header_button -%}
 
               {% if show_record_management_menu %}
@@ -230,7 +238,7 @@
                 {%- include "invenio_app_rdm/records/details/citation.html" %}
               </section>
 
-              {%- include "invenio_app_rdm/records/details/description.html" %}
+              {%- include "geo_knowledge_hub/details/details/description.html" %}
             {%- endblock record_content -%}
 
             {# User Stories (Draft version) #}
