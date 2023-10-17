@@ -307,7 +307,7 @@ def pass_is_resource_preview(f):
 
             try:
                 package = service.read_draft(id_=package, identity=g.identity)
-            except NoResultFound:
+            except:
                 package = service.read(id_=package, identity=g.identity)
 
         kwargs.update(dict(navigate=navigate, package=package))
