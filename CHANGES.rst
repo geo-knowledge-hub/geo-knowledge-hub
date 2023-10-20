@@ -12,6 +12,8 @@ Changes
 Version 1.6.4 (2023-10-20)
 ---------------------------
 
+- General changes
+
   - **Landing page**:
 
     - Added new link processor. Now, all links in the description section are opened in a new tab;
