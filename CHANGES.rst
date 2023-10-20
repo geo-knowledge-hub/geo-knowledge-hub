@@ -9,6 +9,18 @@
 Changes
 =======
 
+Version 1.6.4 (2023-10-20)
+---------------------------
+
+  - **Landing page**:
+
+    - Added new link processor. Now, all links in the description section are opened in a new tab;
+
+    - Added the `Return to package` button, enabling users to return to a Knowledge Package from a resource;
+
+    - Changed from `3` to `5` the default number of resources presented in the `RelatedResourceTable`.
+
+
 Version 1.6.3 (2023-09-21)
 ---------------------------
 
