@@ -506,3 +506,21 @@
     type: target-audience
   title:
     en: Ministries of Health Officials
+- id: tu-mining-companies
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Mining companies
+- id: tu-mining-technology-providers
+  props:
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: target-audience
+  title:
+    en: Mining technology providers
