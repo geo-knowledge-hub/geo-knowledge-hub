@@ -1,0 +1,20 @@
+{#
+Copyright (C) 2022 CERN.
+
+Invenio RDM Records is free software; you can redistribute it and/or modify
+it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{% if not is_preview and is_knowledge_package and not is_user_dashboard and not show_record_management_menu %}
+  <section id="record-request-training"
+           aria-label="{{ _('Request Training section') }}"
+           class="ui grid segment rdm-sidebar"
+  >
+    <div class="column"
+         id="requestTraining"
+         data-user-is-authenticated='{{ current_user.is_authenticated | tojson }}'
+         data-assistance-requests="{{ assistance_requests }}"
+    >
+    </div>
+  </section>
+{% endif %}

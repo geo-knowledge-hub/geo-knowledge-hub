@@ -82,7 +82,7 @@ export const RecordManagement = ({
           </Grid.Column>
 
           <Grid.Column className="pt-5">
-            {permissions.can_request && (
+            {permissions.can_request_feed && (
               <RequestButton
                 disabled={false}
                 record={record}

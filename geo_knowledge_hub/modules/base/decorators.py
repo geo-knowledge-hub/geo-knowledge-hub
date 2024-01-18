@@ -307,7 +307,7 @@ def pass_is_resource_preview(f):
 
             try:
                 package = service.read_draft(id_=package, identity=g.identity)
-            except NoResultFound:
+            except:
                 package = service.read(id_=package, identity=g.identity)
 
         kwargs.update(dict(navigate=navigate, package=package))
@@ -336,6 +336,17 @@ def pass_record_from_pid(f):
             record = _resolve(service)
 
         kwargs["record"] = record
+        return f(**kwargs)
+
+    return view
+
+
+def pass_package_id(f):
+    """Decorate a view to check if package is defined."""
+
+    @wraps(f)
+    def view(**kwargs):
+        kwargs["package_id"] = request.args.get("package")
         return f(**kwargs)
 
     return view

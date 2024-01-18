@@ -26,6 +26,7 @@ const componentsAvailable = [
   "record_management",
   "related_links",
   "related_packages",
+  "request_training",
 ];
 
 renderFactory(componentsAvailable);

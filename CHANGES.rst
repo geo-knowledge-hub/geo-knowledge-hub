@@ -9,6 +9,53 @@
 Changes
 =======
 
+Version 1.6.4 (2023-10-20)
+---------------------------
+
+- General changes
+
+  - **Landing page**:
+
+    - Added new link processor. Now, all links in the description section are opened in a new tab;
+
+    - Added the ``Return to package`` button, enabling users to return to a Knowledge Package from a resource;
+
+    - Changed from ``3`` to ``5`` the default number of resources presented in the ``RelatedResourceTable``.
+
+
+Version 1.6.3 (2023-09-21)
+---------------------------
+
+- General changes
+
+  - **Landing page**:
+
+    - Added locations attribute visualization support based on `Invenio Geographic Components React (v0.2.4) <https://github.com/geo-knowledge-hub/invenio-geographic-components-react/blob/master/CHANGES.md#version-024-2023-09-14>`_ (`#249 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/249>`_)
+
+    - Improved ``Related links`` component behavior on mobile based on `GEO Components React components (v0.5.2) <https://github.com/geo-knowledge-hub/geo-components-react/blob/master/CHANGES.md#version-052-2023-09-14>`_ (`#318 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/318>`_)
+
+
+Version 1.6.2 (2023-09-01)
+---------------------------
+
+- General changes
+
+  - **Landing page**:
+
+    - Updated ``Related Packages`` component based on `GEO Components React components (v0.5.1) <https://github.com/geo-knowledge-hub/geo-components-react/blob/master/CHANGES.md#version-051-2023-08-31>`_.
+
+
+- Introduced features
+
+  - **Front page**:
+
+    - Added new ``User management`` option based on `GEO User Dashboard (v0.1.0) <https://github.com/geo-knowledge-hub/geo-user-dashboard/blob/main/CHANGES.md#version-010-20230830>`_ (`#313 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/313>`_)
+
+  - **Landing page**:
+
+    - Added new ``Request training`` option. (`#305 <https://github.com/geo-knowledge-hub/geo-knowledge-hub/issues/305>`_)
+
+
 Version 1.6.1 (2023-08-22)
 ---------------------------
 

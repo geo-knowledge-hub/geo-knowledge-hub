@@ -9,6 +9,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import _last from "lodash/last";
 import { getInputFromDOM } from "react-invenio-deposit";
 
 import { UserStoriesTable } from "@geo-knowledge-hub/geo-components-react";
@@ -17,6 +18,9 @@ import { UserStoriesTable } from "@geo-knowledge-hub/geo-components-react";
  * Render the User Stories component.
  */
 export const renderComponent = (...args) => {
+  // Extracting package info (Assuming the url is the package id)
+  const currentPackageId = _last(window.location.pathname.split("/"));
+
   // Extracting the engagement values
   const componentDiv = document.getElementById("usertStories");
   const userStoriesData = getInputFromDOM("userStoriesData") || [];
@@ -24,7 +28,7 @@ export const renderComponent = (...args) => {
   if (componentDiv && userStoriesData.length > 0) {
     // Rendering!
     ReactDOM.render(
-      <UserStoriesTable tableData={userStoriesData} />,
+      <UserStoriesTable tableData={userStoriesData} packageId={currentPackageId} />,
       componentDiv,
     );
   }
