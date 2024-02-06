@@ -16,7 +16,6 @@ uwsgi-tools = ">=1.1.1"
 invenio-app-rdm = {version = "~=11.0.0", extras = ["opensearch2", "postgresql", "s3"]}
 
 # Extra dependencies
-invenio-previewer = { git = "https://github.com/geo-knowledge-hub/invenio-previewer.git", editable = false, ref = "preview/simple-video" }
 invenio-rdm-records = { git = "https://github.com/geo-knowledge-hub/invenio-rdm-records.git", editable = false, ref = "b-1.6" }
 
 [requires]
