@@ -50,9 +50,11 @@ jobs:
 
       - name: Generate dependencies
         run: |
-          pip install wheel requirements-builder
+          cd site
+          pip install wheel requirements-builder \
           requirements-builder -e "$EXTRAS" --level=${{ matrix.requirements-level }} setup.py --req requirements-devel.txt > .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt
           cat .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt
+
       - name: Cache pip
         uses: actions/cache@v2
         with:
