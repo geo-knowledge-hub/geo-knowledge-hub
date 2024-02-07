@@ -13,10 +13,10 @@ uwsgitop = ">=0.11"
 uwsgi-tools = ">=1.1.1"
 
 # Invenio RDM dependencies
-invenio-app-rdm = {version = "~=11.0.0", extras = ["opensearch2", "postgresql", "s3"]}
+invenio-app-rdm = {version = "~=11.0.0", extras = ["opensearch2", "s3"]}
 
-# Extra dependencies
-invenio-rdm-records = { git = "https://github.com/geo-knowledge-hub/invenio-rdm-records.git", editable = false, ref = "b-1.6" }
+# GEO Knowledge Hub dependencies
+geo-knowledge-hub = { editable = false, path = "./site" }
 
 [requires]
 python_version = "3.9"
