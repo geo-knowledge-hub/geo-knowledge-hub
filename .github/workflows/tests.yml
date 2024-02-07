@@ -48,10 +48,13 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Generate dependencies
+      - name: Accessing site directory
         run: |
           cd site
-          pip install wheel requirements-builder \
+
+      - name: Generate dependencies
+        run: |
+          pip install wheel requirements-builder
           requirements-builder -e "$EXTRAS" --level=${{ matrix.requirements-level }} setup.py --req requirements-devel.txt > .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt
           cat .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt
 
