@@ -14,10 +14,22 @@ FROM registry.cern.ch/inveniosoftware/almalinux:1
 ENV NODE_OPTIONS="--max-old-space-size=8192"
 
 #
+# Base update
+#
+RUN dnf update -y \
+    && dnf clean all
+
+#
 # Base Dependencies
 #
+COPY site ./site
 COPY Pipfile Pipfile.lock ./
-RUN pipenv install --deploy --system --pre
+
+#
+# Installing the InvenioRDM + GEO Knowledge Hub customization
+#
+RUN pip uninstall invenio-rdm-records --yes \
+    && pipenv install --deploy --system --pre
 
 #
 # Auxiliary files
@@ -27,11 +39,6 @@ COPY ./invenio.cfg ${INVENIO_INSTANCE_PATH}
 COPY ./templates/ ${INVENIO_INSTANCE_PATH}/templates/
 COPY ./app_data/ ${INVENIO_INSTANCE_PATH}/app_data/
 COPY ./ .
-
-#
-# Installing the GEO Knowledge Hub package
-#
-RUN pip uninstall invenio-rdm-records --yes && pip install .
 
 #
 # Building the InvenioRDM based application

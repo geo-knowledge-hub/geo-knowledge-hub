@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "01aa10de42eeee43d02cc67b09ac0bf954e757131a10d19e6e6a5520fb5c62ac"
+            "sha256": "85d9975623149a43ebeb42f17d36815d2d4eb072c95455f02c68fd013bb90e87"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -795,8 +795,24 @@
             "hashes": [
                 "sha256:34a17436ed1e96697a86f9de3d15a3b0be01d8bc8de9c1dffd59fb8234ed5307"
             ],
-            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2'",
             "version": "==0.18.3"
+        },
+        "geo-comments": {
+            "git": "git+https://github.com/geo-knowledge-hub/geo-comments@b-0.5",
+            "ref": "4042f6881936784d232f8b28394de75c48c6c1bc"
+        },
+        "geo-config": {
+            "git": "git+https://github.com/geo-knowledge-hub/geo-config@b-0.5",
+            "ref": "3ab9a638f834087bb2e994b2b04823ec30672477"
+        },
+        "geo-knowledge-hub": {
+            "editable": false,
+            "path": "./site"
+        },
+        "geo-rdm-records": {
+            "git": "git+https://github.com/geo-knowledge-hub/geo-rdm-records@b-0.7",
+            "ref": "a32d1ed7e0f0c304192ea34aeda9dd3b2ef54a1c"
         },
         "geojson": {
             "hashes": [
@@ -875,7 +891,7 @@
                 "sha256:fd096eb7ffef17c456cfa587523c5f92321ae02427ff955bebe9e3c63bc9f0da",
                 "sha256:fe754d231288e1e64323cfad462fcee8f0288654c10bdf4f603a39ed923bef33"
             ],
-            "markers": "python_version >= '3' and platform_machine == 'aarch64' or (platform_machine == 'ppc64le' or (platform_machine == 'x86_64' or (platform_machine == 'amd64' or (platform_machine == 'AMD64' or (platform_machine == 'win32' or platform_machine == 'WIN32')))))",
+            "markers": "python_version >= '3' and (platform_machine == 'aarch64' or (platform_machine == 'ppc64le' or (platform_machine == 'x86_64' or (platform_machine == 'amd64' or (platform_machine == 'AMD64' or (platform_machine == 'win32' or platform_machine == 'WIN32'))))))",
             "version": "==3.0.3"
         },
         "html5lib": {
@@ -973,7 +989,6 @@
         "invenio-app-rdm": {
             "extras": [
                 "opensearch2",
-                "postgresql",
                 "s3"
             ],
             "hashes": [
@@ -1067,6 +1082,10 @@
             "markers": "python_version >= '3.7'",
             "version": "==1.1.6"
         },
+        "invenio-geographic-identifiers": {
+            "git": "git+https://github.com/geo-knowledge-hub/invenio-geographic-identifiers@b-0.3",
+            "ref": "dae0de88fca264e813d980cb4cd525d0bb95809d"
+        },
         "invenio-i18n": {
             "hashes": [
                 "sha256:2fe68fbd16ecb1f3781dda596bc442c393e73a546ec06138becb95f921c50f9d",
@@ -1155,8 +1174,7 @@
             "version": "==1.3.10"
         },
         "invenio-rdm-records": {
-            "editable": false,
-            "git": "https://github.com/geo-knowledge-hub/invenio-rdm-records.git",
+            "git": "git+https://github.com/geo-knowledge-hub/invenio-rdm-records@b-1.6",
             "markers": "python_version >= '3.7'",
             "ref": "8034839ed8dbcf9d9785db05022a986c812b0195"
         },
@@ -2043,6 +2061,14 @@
             ],
             "version": "==2.21"
         },
+        "pydash": {
+            "hashes": [
+                "sha256:c3c5b54eec0a562e0080d6f82a14ad4d5090229847b7e554235b5c1558c745e1",
+                "sha256:cc935d5ac72dd41fb4515bdf982e7c864c8b5eeea16caffbab1936b849aaa49a"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==7.0.7"
+        },
         "pygments": {
             "hashes": [
                 "sha256:b27c2826c47d0f3219f29554824c30c5e8945175d888647acd804ddd04af846c",
@@ -2090,7 +2116,7 @@
                 "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86",
                 "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
             "version": "==2.8.2"
         },
         "pytz": {
@@ -2421,10 +2447,10 @@
                 "flask"
             ],
             "hashes": [
-                "sha256:34ad8cfc9b877aaa2a8eb86bfe5296a467fffe0619b931a05b181c45f6da59bf",
-                "sha256:78575620331186d32f34b7ece6edea97ce751f58df822547d3ab85517881a27a"
+                "sha256:1bb9cf4ac317906d20787693b5e7f3e42160a90e8bbf1fc544f91c52fa76b68f",
+                "sha256:69fc5e7512371547207821d801485f45e3c62db629f02f56f58431a10864ac34"
             ],
-            "version": "==1.40.0"
+            "version": "==1.40.1"
         },
         "setuptools": {
             "hashes": [
@@ -2535,7 +2561,7 @@
                 "sha256:febffa5b1eda6622d44b245b0685aff6fb555ce0ed734e2d7b1c3acd018a2cff",
                 "sha256:ff836cd4041e16003549449cc0a5e372f6b6f871eb89007ab0ee18fb2800fded"
             ],
-            "markers": "python_version >= '2.5' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "markers": "python_version >= '2.5' and python_version not in '3.0, 3.1, 3.2'",
             "version": "==3.19.2"
         },
         "simplekv": {
@@ -2551,7 +2577,7 @@
                 "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926",
                 "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
             "version": "==1.16.0"
         },
         "soupsieve": {
@@ -2688,7 +2714,7 @@
                 "sha256:23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783",
                 "sha256:af72aea155e91adfc61c3ae9e0e342dbc0cba726d6cba4b6c72c1f34e47291cd"
             ],
-            "markers": "python_version < '3.10'",
+            "markers": "python_version >= '3.8'",
             "version": "==4.9.0"
         },
         "ua-parser": {

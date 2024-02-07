@@ -7,35 +7,14 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 #
 
-exclude .invenio
-exclude isso.cfg invenio.cfg
-exclude Pipfile Pipfile.lock
-exclude Dockerfile docker-*
+exclude *.sh
 
-recursive-exclude static *
-recursive-exclude templates *
-recursive-exclude docker *
-recursive-exclude assets *
-recursive-exclude app_data *
-
-include .isort.cfg
-include .dockerignore
 include .editorconfig
 include .tx/config
 include *.rst
-include *.sh
 include *.txt
 include babel.ini
-include docs/requirements.txt
-include LICENSE
-include pytest.ini
-prune docs/_build
-recursive-include .github/workflows *.yml
-recursive-include .github/workflows-disabled *.yml
-recursive-include docs *.bat
-recursive-include docs *.py
-recursive-include docs *.rst
-recursive-include docs Makefile
+
 recursive-include geo_knowledge_hub *.babelrc *.eslintignore *.json *.patch
 recursive-include geo_knowledge_hub/translations *.po *.pot *.mo
 recursive-include geo_knowledge_hub *.html *.js *.less

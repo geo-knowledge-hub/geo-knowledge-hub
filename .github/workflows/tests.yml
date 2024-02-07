@@ -50,9 +50,11 @@ jobs:
 
       - name: Generate dependencies
         run: |
-          pip install wheel requirements-builder
-          requirements-builder -e "$EXTRAS" --level=${{ matrix.requirements-level }} setup.py --req requirements-devel.txt > .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt
-          cat .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt
+          cd site \
+            && pip install wheel requirements-builder \
+            && requirements-builder -e "$EXTRAS" --level=${{ matrix.requirements-level }} setup.py --req requirements-devel.txt > .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt \
+            && cat .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt
+
       - name: Cache pip
         uses: actions/cache@v2
         with:
@@ -61,11 +63,14 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt
-          pip install ".[$EXTRAS]"
-          pip freeze
-          docker --version
-          docker-compose --version
+          cd site \
+            && pip install -r .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt \
+            && pip install ".[$EXTRAS]" \
+            && pip freeze \
+            && docker --version \
+            && docker-compose --version
+
       - name: Run tests
         run: |
-          ./run-tests.sh
+          cd site \
+            && ./run-tests.sh
