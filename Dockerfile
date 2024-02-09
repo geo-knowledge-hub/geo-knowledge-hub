@@ -28,8 +28,7 @@ COPY Pipfile Pipfile.lock ./
 #
 # Installing the InvenioRDM + GEO Knowledge Hub customization
 #
-RUN pip uninstall invenio-rdm-records --yes \
-    && pipenv install --deploy --system --pre
+RUN pipenv install --deploy --system --pre
 
 #
 # Auxiliary files

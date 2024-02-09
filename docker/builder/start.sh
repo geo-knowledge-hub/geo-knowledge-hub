@@ -65,7 +65,7 @@ echo "legacy-peer-deps=true" >> ~/.npmrc
 
 # extract the dependencies from the `geo-knowledge-hub`
 # note: `@geo` is the scope defined to the `geo-knowledge-hub` packages
-JAVASCRIPT_DEPENDENCIES_VERSION=`cat geo_knowledge_hub/theme/webpack.py | grep -e @geo-knowledge-hub`
+JAVASCRIPT_DEPENDENCIES_VERSION=`cat site/geo_knowledge_hub/theme/webpack.py | grep -e @geo-knowledge-hub`
 JAVASCRIPT_DEPENDENCIES_ARRAY=(${JAVASCRIPT_DEPENDENCIES_VERSION//,/ })
 
 INTEGRITY_REGULARIZER=${PWD}/docker/builder/services/integrity-regularizer/app.py
