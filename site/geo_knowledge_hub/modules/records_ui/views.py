@@ -10,10 +10,10 @@
 
 from flask import g, render_template
 from flask_login import login_required
-from geo_config.security.permissions import need_permission
 from geo_rdm_records.base.resources.serializers import (
     UIRecordJSONSerializer as UIJSONSerializer,
 )
+from geo_rdm_records.modules.security.permissions import need_permission
 from invenio_app_rdm.records_ui.views.decorators import (
     pass_draft_community,
     pass_is_preview,
