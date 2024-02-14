@@ -9,7 +9,7 @@
 """GEO Knowledge Hub context."""
 
 from flask import Blueprint, g
-from geo_config.security.permissions import (
+from geo_rdm_records.modules.security.permissions import (
     provider_user_permission,
     secretariat_user_permission,
 )

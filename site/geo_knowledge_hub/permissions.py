@@ -8,7 +8,7 @@
 
 """GEO Knowledge Hub permissions module."""
 
-from geo_config.security.generators import GeoSecretariat
+from geo_rdm_records.modules.security.generators import GeoSecretariat
 from invenio_communities.permissions import CommunityPermissionPolicy
 from invenio_records_permissions.generators import SystemProcess
 
