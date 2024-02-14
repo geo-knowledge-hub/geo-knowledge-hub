@@ -7,4 +7,4 @@
 # details.
 #
 
--e git+https://github.com/geo-knowledge-hub/geo-comments@b-0.4#egg=geo-comments
+-e git+https://github.com/geo-knowledge-hub/geo-comments@b-0.6#egg=geo-comments
