@@ -42,8 +42,8 @@ def can_open_without_bomb_error(file, max_pixels=178956970):
 #
 # This code is an adaptation of the Invenio App RDM.
 # In the GEO Knowledge Hub, some users upload GeoTiff files. IIIF can be used to preview them.
-# But, for some cases, the GeoTiff is huge (> 4GB). To avoid errors, we adapted the `simple_iiif` to don't
-# preview bug files (`.tiff` > 4GB).
+# But, for some cases, the GeoTiff is huge with many pixels. To avoid errors, we adapted the `simple_iiif` to don't
+# preview those files.
 preview = base_preview
 
 
