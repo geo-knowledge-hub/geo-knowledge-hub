@@ -12,6 +12,7 @@ services:
             context: ./
             args:
                 - ENVIRONMENT=DEV
+            network: host
         image: geo-knowledge-hub
         restart: "unless-stopped"
         environment:
