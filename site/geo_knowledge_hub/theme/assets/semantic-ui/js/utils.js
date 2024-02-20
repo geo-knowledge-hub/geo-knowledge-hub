@@ -8,6 +8,32 @@
 
 import _get from "lodash/get";
 
+
+/**
+ * Extract Record badge.
+ *
+ * @param {string} recordType String containing the type of record.
+ */
+export const extractRecordBadge = (recordType) => {
+  let recordBadge = {
+    name: "Open",
+    color: "green",
+    icon: "lock open"
+  };
+
+  // Currently, we only have "Marketplace Item" as closed records
+  if (recordType === "marketplace-item") {
+    recordBadge = {
+      name: "Marketplace",
+      color: "olive",
+      icon: "building"
+    }
+  }
+
+  return recordBadge;
+}
+
+
 /**
  * Extract a GEO Work Programme Activity Name from a String
  *
@@ -47,6 +73,16 @@ export const recordTypeLinksFactory = (recordId, recordType) => {
         ui: `/uploads/${recordId}`,
       },
     },
+    "marketplace-item": {
+      published: {
+        api: `/api/marketplace/items/${recordId}`,
+        ui: `/marketplace/items/${recordId}`,
+      },
+      draft: {
+        api: `/api/marketplace/items/${recordId}/draft`,
+        ui: `/uploads/marketplace/items/${recordId}`,
+      },
+    }
   };
 
   return recordLinks[recordType];

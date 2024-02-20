@@ -51,6 +51,8 @@ theme = WebpackThemeBundle(
                 "geo-knowledge-hub-details-search": "./js/geo_knowledge_hub_community/details-search.js",
                 "geo-knowledge-hub-community-search": "./js/geo_knowledge_hub_community/communities_search/index.js",
                 "geo-knowledge-hub-community-carousel": "./js/geo_knowledge_hub_community/communities_carousel/index.js",
+                # Marketplace
+                "geo-knowledge-hub-marketplace-item-deposit": "./js/geo_knowledge_hub_deposit/marketplace/index.js"
             },
             dependencies={
                 "react-semantic-toasts": "^0.6.6",
@@ -77,7 +79,7 @@ theme = WebpackThemeBundle(
                 "@turf/bbox-polygon": "^6.5.0",
                 "@turf/centroid": "^6.5.0",
                 "@mapbox/geojsonhint": "^3.0.1",
-                "@geoman-io/leaflet-geoman-free": "^2.13.0",
+                "@geoman-io/leaflet-geoman-free": ">2.14.0 <2.15.0",
                 "@tanstack/react-query": "^4.32.6",
                 "slick-carousel": "^1.8.1",
                 "react-slick": "^0.29.0",
