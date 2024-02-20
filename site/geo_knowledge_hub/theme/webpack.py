@@ -52,7 +52,7 @@ theme = WebpackThemeBundle(
                 "geo-knowledge-hub-community-search": "./js/geo_knowledge_hub_community/communities_search/index.js",
                 "geo-knowledge-hub-community-carousel": "./js/geo_knowledge_hub_community/communities_carousel/index.js",
                 # Marketplace
-                "geo-knowledge-hub-marketplace-item-deposit": "./js/geo_knowledge_hub_deposit/marketplace/index.js"
+                "geo-knowledge-hub-marketplace-item-deposit": "./js/geo_knowledge_hub_deposit/marketplace/index.js",
             },
             dependencies={
                 "react-semantic-toasts": "^0.6.6",

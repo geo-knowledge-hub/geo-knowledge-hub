@@ -55,9 +55,7 @@ def geo_marketplace_item_create(community=None):
 @need_permission("geo-provider-access")
 @pass_draft(record_type="marketplace-item", expand=True)
 @pass_draft_files(record_type="marketplace-item")
-def geo_marketplace_item_edit(
-    draft=None, draft_files=None, pid_value=None
-):
+def geo_marketplace_item_edit(draft=None, draft_files=None, pid_value=None):
     """Edit an existing record resource deposit."""
     record = UIJSONSerializer().dump_obj(draft.to_dict())
 
@@ -69,7 +67,7 @@ def geo_marketplace_item_edit(
         record=record,
         files=draft_files.to_dict(),
         searchbar_config=dict(searchUrl=get_search_url()),
-        permissions=draft.has_permissions_to(["new_version"])
+        permissions=draft.has_permissions_to(["new_version"]),
     )
 
 
