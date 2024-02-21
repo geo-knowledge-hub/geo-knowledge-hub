@@ -29,6 +29,8 @@ from geo_knowledge_hub.modules.base.decorators import (
     pass_record_files,
     pass_record_or_draft,
 )
+from geo_knowledge_hub.modules.base.utilities import endpoint as endpoint_utilities
+from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
 from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 from geo_knowledge_hub.modules.base.utilities import (
     serialization as serialization_utilities,
@@ -100,12 +102,10 @@ def geo_marketplace_item_detail(
     record_is_draft = record_ui.get("is_draft")
 
     # Expanding record metadata
-    # Extract extra tags (e.g., GEO Work Programme Activity, Target users) from record
-    (
-        engagement_priorities,
-        programme_activity,
-        record_tags,
-    ) = record_utilities.extract_extra_record_tags(identity, record)
+    record_metadata = metadata_utilities.expand_metadata_from_marketplace_item(
+        identity, record
+    )
+    record_endpoint = endpoint_utilities.generate_marketplace_item_endpoint()
 
     return render_template(
         "geo_knowledge_hub/marketplace/details/index.html",
@@ -119,16 +119,10 @@ def geo_marketplace_item_detail(
         is_preview=is_preview,
         # GEO Knowledge Hub template variables
         is_knowledge_package=False,
-        record_topics=record_tags,
-        programme_activity=programme_activity,
-        related_engagement_priorities=engagement_priorities,
         navigate=navigate,
         assistance_requests=[],
-        # Files
-        files_preview_endpoint="geokhub_marketplace_ui_bp.geokhub_marketplace_file_preview",
-        files_download_endpoint="geokhub_marketplace_ui_bp.geokhub_marketplace_file_download",
-        # Export
-        export_endpoint="geokhub_marketplace_ui_bp.geokhub_marketplace_item_export",
+        **record_metadata,
+        **record_endpoint,
     )
 
 
