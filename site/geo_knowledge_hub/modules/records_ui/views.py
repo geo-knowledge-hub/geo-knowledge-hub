@@ -95,6 +95,11 @@ def geo_record_detail(
         package=package,
         current_package=package_id,
         assistance_requests=[],
+        # Files
+        files_preview_endpoint="invenio_app_rdm_records.record_file_preview",
+        files_download_endpoint="invenio_app_rdm_records.record_file_download",
+        # Export
+        export_endpoint="geokhub_records_ui_bp.geokhub_record_export",
     )
 
 

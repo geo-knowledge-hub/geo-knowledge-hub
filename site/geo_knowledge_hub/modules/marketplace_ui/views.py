@@ -24,6 +24,8 @@ from geo_knowledge_hub.modules.base.config import get_form_config
 from geo_knowledge_hub.modules.base.decorators import (
     pass_draft,
     pass_draft_files,
+    pass_file_item,
+    pass_file_metadata,
     pass_record_files,
     pass_record_or_draft,
 )
@@ -122,6 +124,11 @@ def geo_marketplace_item_detail(
         related_engagement_priorities=engagement_priorities,
         navigate=navigate,
         assistance_requests=[],
+        # Files
+        files_preview_endpoint="geokhub_marketplace_ui_bp.geokhub_marketplace_file_preview",
+        files_download_endpoint="geokhub_marketplace_ui_bp.geokhub_marketplace_file_download",
+        # Export
+        export_endpoint="geokhub_marketplace_ui_bp.geokhub_marketplace_item_export",
     )
 
 
@@ -129,9 +136,42 @@ def geo_marketplace_item_detail(
 # Export metadata views
 #
 @pass_is_preview
-@pass_record_or_draft(record_type="metadata-item", expand=False)
-def record_export(
+@pass_record_or_draft(record_type="marketplace-item", expand=False)
+def geo_marketplace_item_export(
     pid_value, record, export_format=None, permissions=None, is_preview=False
 ):
     """Export metadata view."""
     return record_utilities.record_export(pid_value, record, export_format)
+
+
+#
+# File views
+#
+@pass_is_preview
+@pass_record_or_draft("marketplace-item")
+@pass_file_metadata("marketplace-item")
+def geo_marketplace_file_preview(
+    pid_value,
+    record=None,
+    pid_type="recid",
+    file_metadata=None,
+    is_preview=False,
+    **kwargs,
+):
+    """Render a preview of the specified file."""
+    base_url = "geokhub_marketplace_ui_bp.geokhub_marketplace_file_download"
+
+    return record_utilities.record_file_preview(
+        base_url, pid_value, record, pid_type, file_metadata, is_preview, **kwargs
+    )
+
+
+@pass_is_preview
+@pass_file_item("marketplace-item")
+def geo_marketplace_file_download(
+    pid_value, file_item=None, is_preview=False, **kwargs
+):
+    """Download a file from a record."""
+    return record_utilities.record_file_download(
+        pid_value, file_item, is_preview, **kwargs
+    )

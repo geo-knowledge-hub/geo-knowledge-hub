@@ -28,7 +28,7 @@
 {%- endmacro %}
 
 
-{% macro preview_file_box(file, pid, is_preview, record) %}
+{% macro preview_file_box(file, pid, is_preview, record, preview_endpoint) %}
   <div class="">
     <div class="ui accordion panel mb-10 {{record.ui.access_status.id}}" id="preview" href="#collapsablePreview">
       <div class="active title trigger panel-heading {{record.ui.access_status.id}} truncated" tabindex="0" aria-label="{{ _('File preview') }}">
@@ -37,14 +37,6 @@
       </div>
       <div id="collapsablePreview" class="active content pt-0">
         <div>
-          {% set is_knowledge_package = record.parent.type == "package" %}
-
-          {% if is_knowledge_package %}
-            {% set preview_endpoint = "geokhub_packages_ui_bp.record_file_preview" %}
-          {% else %}
-            {% set preview_endpoint = "invenio_app_rdm_records.record_file_preview" %}
-          {% endif %}
-
           {{ preview_file(preview_endpoint, pid_value=pid, filename=file.key, is_preview=is_preview) }}
         </div>
       </div>
@@ -105,7 +97,7 @@
 {%- endmacro %}
 
 
-{% macro file_list_box(files, pid, is_preview, record) %}
+{% macro file_list_box(files, pid, is_preview, record, download_endpoint, preview_endpoint) %}
   {%- set binary_sizes = not config.APP_RDM_DISPLAY_DECIMAL_FILE_SIZES %}
   <div class="">
     <div class="ui accordion panel mb-10 {{record.ui.access_status.id}}" id="preview" href="#collapsablePreview">
@@ -125,16 +117,6 @@
           </div>
         {% endif %}
         <div id="collapsableFiles">
-          {% set is_knowledge_package = record.parent.type == "package" %}
-
-          {% if is_knowledge_package %}
-            {% set preview_endpoint = "geokhub_packages_ui_bp.record_file_preview" %}
-            {% set download_endpoint = "geokhub_packages_ui_bp.record_file_download" %}
-          {% else %}
-            {% set preview_endpoint = "invenio_app_rdm_records.record_file_preview" %}
-            {% set download_endpoint = "invenio_app_rdm_records.record_file_download" %}
-          {% endif %}
-
           {{ file_list(files, pid, is_preview, download_endpoint=download_endpoint, preview_endpoint=preview_endpoint) }}
         </div>
       </div>
