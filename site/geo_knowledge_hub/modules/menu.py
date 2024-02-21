@@ -37,6 +37,13 @@ def init_bp(app):
             order=2,
         )
 
+        item = current_menu.submenu("plus-menu.deposit-marketplace-item")
+        item.register(
+            "geokhub_marketplace_ui_bp.geokhub_marketplace_item_create",
+            _("Marketplace <b>Item</b>"),
+            order=3,
+        )
+
     app.register_blueprint(bp)
 
 
