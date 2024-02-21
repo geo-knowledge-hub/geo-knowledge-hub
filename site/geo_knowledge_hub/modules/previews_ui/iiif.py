@@ -10,6 +10,7 @@
 
 from flask import current_app
 from invenio_app_rdm.records_ui.previewer.iiif_simple import preview as base_preview
+from pydash import py_
 from werkzeug.local import LocalProxy
 
 previewable_extensions = LocalProxy(lambda: current_app.config["IIIF_FORMATS"].keys())
@@ -31,10 +32,10 @@ def can_open_without_bomb_error(file, max_pixels=178956970):
     Returns:
         Bool: Flag indicating if the file can be open without `DecompressionBombError`.
     """
-    width = file.data["metadata"]["width"]
-    height = file.data["metadata"]["height"]
+    width = py_.get(file.data, "metadata.width")
+    height = py_.get(file.data, "metadata.height")
 
-    return not ((width * height) > max_pixels)
+    return (width and height) and not ((width * height) > max_pixels)
 
 
 #

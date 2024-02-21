@@ -107,6 +107,11 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
         related_elements_information=related_records_metadata,
         related_engagement_priorities=engagement_priorities,
         assistance_requests=package_requests,
+        # Files
+        files_preview_endpoint="geokhub_packages_ui_bp.record_file_preview",
+        files_download_endpoint="geokhub_packages_ui_bp.record_file_download",
+        # Export
+        export_endpoint="geokhub_packages_ui_bp.geokhub_package_export",
     )
 
 
