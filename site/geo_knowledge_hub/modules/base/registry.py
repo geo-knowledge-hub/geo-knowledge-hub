@@ -8,7 +8,10 @@
 
 """GEO Knowledge Hub Detail (page) toolbox."""
 
-from geo_rdm_records.proxies import current_geo_packages_service
+from geo_rdm_records.proxies import (
+    current_geo_packages_service,
+    current_marketplace_service,
+)
 from invenio_communities.proxies import current_communities
 from invenio_rdm_records.proxies import current_rdm_records_service
 
@@ -23,6 +26,7 @@ class ServiceRegistry:
         "record": current_rdm_records_service,
         "package": current_geo_packages_service,
         "community": current_communities,
+        "marketplace-item": current_marketplace_service,
     }
 
     @classmethod

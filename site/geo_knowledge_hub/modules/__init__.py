@@ -23,6 +23,7 @@ MODULES = [
     "geo_knowledge_hub.modules.packages_ui",
     "geo_knowledge_hub.modules.requests_ui",
     "geo_knowledge_hub.modules.previews_ui",
+    "geo_knowledge_hub.modules.marketplace_ui",
 ]
 
 

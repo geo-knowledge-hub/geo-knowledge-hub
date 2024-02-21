@@ -18,11 +18,14 @@ import { SearchItemCreators } from "@invenio-app-rdm/utils";
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 
 import {
+  extractRecordBadge,
   extractProgrammeActivityAcronym,
   recordTypeLinksFactory,
 } from "../utils";
 
 export const CustomRecordResultsListItem = ({ result }) => {
+  const recordBadge = extractRecordBadge(result.parent.type);
+
   const recordLinks = recordTypeLinksFactory(result.id, result.parent.type);
 
   const accessStatusId = _get(result, "ui.access_status.id", "open");
@@ -66,6 +69,9 @@ export const CustomRecordResultsListItem = ({ result }) => {
     <Item>
       <Item.Content>
         <Item.Extra className="labels-actions">
+          <Label size="tiny" color={recordBadge.color}>
+            <i className={`icon ${recordBadge.icon}`}></i>{recordBadge.name}
+          </Label>
           {programmeActivityAcronym && (
             <Label size="tiny" color="programme-activity-label">
               {programmeActivityAcronym}
@@ -77,10 +83,10 @@ export const CustomRecordResultsListItem = ({ result }) => {
           <Label size="tiny" className="neutral">
             {resourceType}
           </Label>
-          <Label size="tiny" className={`access-status ${accessStatusId}`}>
-            {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}
-            {accessStatus}
-          </Label>
+          {/*<Label size="tiny" className={`access-status ${accessStatusId}`}>*/}
+          {/*  {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}*/}
+          {/*  {accessStatus}*/}
+          {/*</Label>*/}
         </Item.Extra>
         <Item.Header as="h2">
           <a href={viewLink}>{title}</a>

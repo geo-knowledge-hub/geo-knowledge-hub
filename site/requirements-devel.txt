@@ -8,3 +8,4 @@
 #
 
 -e git+https://github.com/geo-knowledge-hub/geo-comments@b-0.6#egg=geo-comments
+-e git+https://github.com/geo-knowledge-hub/invenio-geographic-identifiers@b-0.4#egg=invenio-geographic-identifiers
