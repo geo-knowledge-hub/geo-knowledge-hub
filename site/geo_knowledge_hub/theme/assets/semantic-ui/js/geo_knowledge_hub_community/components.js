@@ -17,6 +17,7 @@ import { SearchItemCreators } from "@js/invenio_communities/details_search/compo
 import { Item, Label } from "semantic-ui-react";
 
 import {
+  extractRecordBadge,
   extractProgrammeActivityAcronym,
   recordTypeLinksFactory,
 } from "../utils";
@@ -25,6 +26,7 @@ import {
  * `CommunityRecordResultsListItem` adapted from Invenio Communities.
  */
 export const CommunityRecordResultsListItem = ({ result }) => {
+  const recordBadge = extractRecordBadge(result.parent.type);
   const recordLinks = recordTypeLinksFactory(result.id, result.parent.type);
 
   const access_status_id = _get(result, "ui.access_status.id", "open");
@@ -67,6 +69,9 @@ export const CommunityRecordResultsListItem = ({ result }) => {
     <Item>
       <Item.Content>
         <Item.Extra className="labels-actions">
+          <Label size="tiny" color={recordBadge.color}>
+            <i className={`icon ${recordBadge.icon}`}></i>{recordBadge.name}
+          </Label>
           {programmeActivityAcronym && (
             <Label size="tiny" className={"programme-activity-label"}>
               {programmeActivityAcronym}
@@ -78,12 +83,12 @@ export const CommunityRecordResultsListItem = ({ result }) => {
           <Label size="tiny" className="neutral">
             {resource_type}
           </Label>
-          <Label size="tiny" className={`access-status ${access_status_id}`}>
-            {access_status_icon && (
-              <i className={`icon ${access_status_icon}`} />
-            )}
-            {access_status}
-          </Label>
+          {/*<Label size="tiny" className={`access-status ${access_status_id}`}>*/}
+          {/*  {access_status_icon && (*/}
+          {/*    <i className={`icon ${access_status_icon}`} />*/}
+          {/*  )}*/}
+          {/*  {access_status}*/}
+          {/*</Label>*/}
         </Item.Extra>
         <Item.Header as="h2">
           <a href={viewLink}>{title}</a>
