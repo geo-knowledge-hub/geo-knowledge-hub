@@ -25,7 +25,6 @@ import {
 
 export const CustomRecordResultsListItem = ({ result }) => {
   const recordBadge = extractRecordBadge(result.parent.type);
-
   const recordLinks = recordTypeLinksFactory(result.id, result.parent.type);
 
   const accessStatusId = _get(result, "ui.access_status.id", "open");
