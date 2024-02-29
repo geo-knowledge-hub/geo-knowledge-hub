@@ -29,5 +29,4 @@ const componentsAvailable = [
   "request_training",
 ];
 
-console.log("Rendering!")
 renderFactory(componentsAvailable);
