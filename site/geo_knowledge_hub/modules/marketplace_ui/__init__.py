@@ -40,6 +40,13 @@ def init_bp(app):
         views.geo_marketplace_item_detail,
     )
 
+    # Visualization (Latest version)
+    bp.add_url_rule(
+        "/marketplace/items/<pid_value>/latest",
+        "geokhub_marketplace_item_view_latest",
+        views.geo_marketplace_item_detail_latest,
+    )
+
     # Exportation
     bp.add_url_rule(
         "/marketplace/items/<pid_value>/export/<export_format>",
