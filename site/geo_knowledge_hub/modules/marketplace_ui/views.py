@@ -8,7 +8,7 @@
 
 """GEO Knowledge Hub Marketplace (page) views."""
 
-from flask import g, render_template
+from flask import g, redirect, render_template
 from flask_login import login_required
 from geo_rdm_records.base.resources.serializers import (
     UIRecordJSONSerializer as UIJSONSerializer,
@@ -27,6 +27,7 @@ from geo_knowledge_hub.modules.base.decorators import (
     pass_file_item,
     pass_file_metadata,
     pass_record_files,
+    pass_record_latest,
     pass_record_or_draft,
 )
 from geo_knowledge_hub.modules.base.utilities import endpoint as endpoint_utilities
@@ -78,6 +79,12 @@ def geo_marketplace_item_edit(draft=None, draft_files=None, pid_value=None):
 #
 # Record Landing page views
 #
+@pass_record_latest(record_type="marketplace-item")
+def geo_marketplace_item_detail_latest(record=None, **kwargs):
+    """Redirect to record's latest version page."""
+    return redirect(record["links"]["self_html"], code=301)
+
+
 @pass_is_preview
 @pass_record_or_draft(record_type="marketplace-item", expand=True)
 @pass_record_files(record_type="marketplace-item")

@@ -105,6 +105,7 @@ def user_dashboard_request_view(request, **kwargs):
             is_user_dashboard=True,
             is_knowledge_package=is_knowledge_package,
             custom_fields_ui=load_custom_fields()["ui"],
+            assistance_requests=[],  # Defining it to avoid errors with the components, but it is not used
             **record_metadata,
             **record_endpoints,
         )

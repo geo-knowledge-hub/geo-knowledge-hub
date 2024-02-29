@@ -57,6 +57,7 @@
   <div id="request-actions" class="flex align-items-start ml-auto rel-mt-1 ">
     {% if draft_is_accepted %}
       {% set is_knowledge_package = "package" in request.topic or "package_record" in request.topic %}
+      {% set is_marketplace_item = "marketplace_item" in request.topic %}
 
       {% if is_knowledge_package %}
         <a href="{{ url_for('geokhub_packages_ui_bp.geokhub_package_view', pid_value=request.topic.package or request.topic.package_record) }}"
@@ -64,7 +65,13 @@
            rel="noopener noreferrer" target="_blank"
            title="{{ _('Opens in new tab') }}"
         >
-          {% else %}
+      {% elif is_marketplace_item %}
+        <a href="{{ url_for('geokhub_marketplace_ui_bp.geokhub_marketplace_item_view', pid_value=request.topic.marketplace_item) }}"
+           class="ui button"
+           rel="noopener noreferrer" target="_blank"
+           title="{{ _('Opens in new tab') }}"
+        >
+      {% else %}
         <a href="{{ url_for('invenio_app_rdm_records.record_detail', pid_value=request.topic.record) }}"
            class="ui button"
            rel="noopener noreferrer" target="_blank"
