@@ -49,6 +49,7 @@ def preview(file):
         html_tags='dir="ltr" mozdisallowselectionprint moznomarginboxes',
     )
 
+
 #
 # Validation
 #
@@ -56,6 +57,7 @@ def preview(file):
 # In the GEO Knowledge Hub, some users upload GeoTiff files. IIIF can be used to preview them.
 # But, for some cases, the GeoTiff is huge with many pixels. To avoid errors, we adapted the `simple_iiif` to don't
 # preview those files.
+
 
 def can_preview(file):
     """Check if file can be previewed by this previewer.
