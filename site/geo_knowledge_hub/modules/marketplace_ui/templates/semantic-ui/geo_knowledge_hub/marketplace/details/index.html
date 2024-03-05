@@ -26,48 +26,7 @@
 {%- set show_record_management_menu = can_manage_record and (not is_preview or is_preview_submission_request) and not hide_management_menu %}
 
 {%- block page_body %}
-
   <section id="banners" class="banners" aria-label="{{ _('Information banner') }}">
-    <!-- COMMUNITY HEADER: hide it when displaying the submission request -->
-    {% if not is_preview_submission_request %}
-
-      {%- set parent = record.get("parent", {}) %}
-      {%- set community_review = parent.get("review", {}).get("receiver", {}).get("community") %}
-      {%- set community_default = parent.get("communities", {}).get("default") %}
-      {%- set has_community = community_review or community_default %}
-
-      {% if has_community %}
-        {%- set expanded_parent = record.get("expanded", {}).get("parent", {}) %}
-        {%- set community = expanded_parent.get("review", {}).get("receiver") or expanded_parent.get("communities", {}).get("default") %}
-        {% set is_community_restricted = community.access.visibility == 'restricted' %}
-        <div class="ui fluid container page-subheader-outer with-submenu compact ml-0-mobile mr-0-mobile">
-          <div class="ui container page-subheader">
-            <div class="page-subheader-element ">
-              <img
-                class="ui tiny image community-header-logo"
-                src="{{ community.links.logo }}"
-                alt=""
-                onerror="this.onerror=null;this.src='/static/images/square-placeholder.png'"
-              />
-            </div>
-            <div class="page-subheader-element">
-              <a
-                href="{{ url_for('invenio_app_rdm_communities.communities_detail', pid_value=community.slug) }}"> {{ community.metadata.title }}</a>
-              {% if is_community_restricted %}
-                <span class="ui label small access-status restricted rel-ml-1"
-                      title="{{ _('Community visibility') }}"
-                      data-tooltip="{{ _('The community is restricted to users with access.') }}"
-                      data-inverted="">
-                  <i class="icon ban" aria-hidden="true"></i> {{ _("Restricted") }}
-                </span>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      {% endif %}
-    {% endif %}
-    <!-- /COMMUNITY HEADER -->
-
     <!-- PREVIEW HEADER -->
     {% if is_preview %}
       <div class="ui info flashed top attached manage message">
@@ -133,9 +92,7 @@
           {% endif %}
 
           {%- block record_body -%}
-
             {%- block record_header -%}
-
               {%- block record_header_button -%}
 
                 {% if is_preview and not is_preview_submission_request and can_manage_record and is_draft %}
@@ -197,21 +154,19 @@
                       <span class="label text-muted"> | {{ _('Version {version_number}').format(version_number=record.ui.version) }}</span>
                     </div>
                     <div class="right floated right aligned column">
-                      {%- if programme_activity %}
-                        <span class="ui label small programme-activity-label" title="{{ _('GEO Work Programme Activity') }}">{{programme_activity.props.acronym}}</span>
-                      {% endif %}
                       {% if record.ui.resource_type %}
                         <span class="ui label small grey" title="{{ _('Resource type') }}">{{ record.ui.resource_type.title_l10n }}</span>
                       {% endif %}
-                      <span class="ui label small access-status {{ record.ui.access_status.id }}"
-                            title="{{ _('Access status') }}"
-                            data-tooltip="{{ record.ui.access_status.description_l10n }}"
-                            data-inverted=""
+                      {%- if programme_activity %}
+                        <span class="ui label small grey" title="{{ _('GEO Work Programme Activity') }}">{{programme_activity.props.acronym}}</span>
+                      {% endif %}
+                      <span
+                        class="ui label small olive"
+                        title="{{ _('Marketplace') }}"
+                        data-tooltip="Closed application shared with the GEO Community"
+                        data-inverted=""
                       >
-                        {% if record.ui.access_status.icon %}
-                          <i class="icon {{ record.ui.access_status.icon }}"></i>
-                        {% endif %}
-                        {{ record.ui.access_status.title_l10n }}
+                        <i class="icon building"></i> Marketplace
                       </span>
                     </div>
                   </div>
@@ -232,13 +187,35 @@
               </section>
             {%- endblock record_title -%}
 
-            {# Citation & Description #}
+            {# Description #}
             {%- block record_content -%}
-              <section id="citation" aria-label="{{ _('Record citations') }}">
-                {%- include "invenio_app_rdm/records/details/citation.html" %}
+              <section class="ui container">
+                <div class="ui info message">
+                  <div class="header">
+                    <i class="gift icon"></i> Free commercial application
+                  </div>
+                  <p>This is a commercial application you can use for free. Enjoy our features and services without any cost!</p>
+                </div>
               </section>
 
               {%- include "geo_knowledge_hub/details/details/description.html" %}
+
+              {# Locations #}
+              {% set locations = record.metadata.locations %}
+              {% if locations %}
+                {% set hasFeatureWithGeometry = locations.features | selectattr('geometry', 'defined') | list | length > 0 %}
+                {% if hasFeatureWithGeometry %}
+                  <section class="rel-mt-2 geospatial" aria-label="{{ _('Data availability') }}">
+                    <h2 id="description-heading">{{ _('Data availability') }}</h2>
+
+                    <p>
+                      Dive into our interactive map to see where our application's data is globally available. Click on any highlighted region to discover the types of information we offer there. Our map is constantly updated, so check back often to find new data availability in your area of interest.
+                    </p>
+
+                    <div id="mapContainer" class="ui segment map-container"></div>
+                  </section>
+                {% endif %}
+              {% endif %}
             {%- endblock record_content -%}
 
             {# Files #}
@@ -248,7 +225,13 @@
                 <section id="record-files" class="rel-mt-2" aria-label="{{ _('Files') }}">
                   {%- if permissions.can_read_files -%}
                     {# record has files AND user can see files #}
-                    <h2 id="files-heading">{{ _('Files') }}</h2>
+                    <h2 id="files-heading">{{ _('Auxiliary files') }}</h2>
+
+                    <p>
+                      Effortlessly preview and download auxiliary files you need with our intuitive interface. Browse available
+                      files, get a sneak peek of their contents, and secure your downloads in just a few clicks.
+                    </p>
+
                     {%- set files = files|order_entries %}
 
                     {%- if files|has_previewable_files -%}
@@ -256,6 +239,7 @@
                       {{ preview_file_box(preview_file, record.id, is_preview, record, files_preview_endpoint) }}
                     {%- endif -%}
                     {{ file_list_box(files, record.id, is_preview, record, files_download_endpoint, files_preview_endpoint) }}
+
                   {% else %}
                     {# record has files BUT user cannot see files #}
                     <div class="pt-0 pb-20">
@@ -274,7 +258,6 @@
                             {% if record.access.embargo.reason %}
                               <p>{{ _("Reason") }}: {{ record.access.embargo.reason }}</p>
                             {% endif %}
-
                           </div>
                         </div>
                       </div>
@@ -290,6 +273,10 @@
                 <div class="ui divider"></div>
                 <h2 id="related-identifiers-heading">{{ _('Related links') }}</h2>
 
+                <p>
+                  For a comprehensive understanding of this application, we encourage you to leverage the valuable resources available through the links provided below.
+                </p>
+
                 {{ show_related_identifiers(record.ui.related_identifiers) }}
               </section>
             {% endif %}
@@ -301,6 +288,17 @@
               </section>
             {%- endblock record_details -%}
 
+            {# Contact #}
+            <section class="ui container contact">
+              <h2 id="contact-vendor">{{ _('Contact') }}</h2>
+              <div class="ui segment contact-section">
+                <div class="contact-message">
+                  <p>Want to learn more ? Contact the vendor and start using this application today!</p>
+                </div>
+                <a href="mailto:{{ marketplace_app_vendor_mail }}" class="ui button olive contact-button">Contact vendor</a>
+              </div>
+            </section>
+
             {# Record footer #}
             {%- block record_footer -%}
             {%- endblock record_footer -%}
@@ -311,7 +309,7 @@
         {# Sidebar #}
         <aside class="sixteen wide tablet five wide computer column sidebar" aria-label="{{ _('Record details') }}">
           {% block record_sidebar %}
-            {%- include "invenio_app_rdm/records/details/side_bar.html" %}
+            {%- include "geo_knowledge_hub/marketplace/details/side_bar.html" %}
           {% endblock record_sidebar %}
         </aside>
       </div>
@@ -379,5 +377,5 @@
   {{ webpack['geo-comments-details.js'] }}
 
   <!-- Addthis -->
-{#  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-627fb9ee797c3e18"></script>#}
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-627fb9ee797c3e18"></script>
 {%- endblock javascript %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html {% block html_tags %}{% endblock %}>
+<head>
+  <title>{{_('Preview')}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% block head %}
+    {% for css_bundle in css_bundles %}
+      {{ webpack[css_bundle] }}
+    {% endfor %}
+  {% endblock %}
+</head>
+
+<body>
+{%- if request.args.get('embed') %}
+  {%- include 'invenio_previewer/top.html' %}
+{%- endif %}
+<p>loading...</p>
+<div class="ui container">
+  <div class="ui grid column">
+    <div class="column">
+      <div id="m3-dist">
+        <script src="/static/third-party/mirador3/main.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+{%- if request.args.get('embed') %}
+  {%- include 'invenio_previewer/bottom.html' %}
+{%- endif %}
+</body>
+</html>
