@@ -32,14 +32,16 @@
               <i class="icon ban" aria-hidden="true"></i> {{ _("Restricted") }}
             </span>
             {% endif %}
+            {% if marketplace.vendor_contact %}
             <a class="ui label medium access-status olive rel-ml-1"
                title="{{ _('Community contact') }}"
                data-tooltip="{{ _('Want to learn more ? Contact the vendor now!') }}"
                data-inverted=""
-               href="mailto:{{ marketplace_app_vendor_mail }}"
+               href="mailto:{{ marketplace.vendor_contact }}"
             >
               <i class="icon mail" aria-hidden="true"></i> {{ _("Contact") }}
             </a>
+            {% endif %}
           </div>
         </div>
 
