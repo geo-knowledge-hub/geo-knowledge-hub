@@ -14,7 +14,7 @@
 {% endif %}
 
 {%- from "geo_knowledge_hub/details/macros/detail.html" import show_related_identifiers %}
-{%- from "invenio_app_rdm/records/macros/files.html" import file_list_box, preview_file_box %}
+{%- from "geo_knowledge_hub/marketplace/details/macros/files.html" import file_list_box, preview_file_box %}
 
 {%- set title = record.metadata.title %}
 {%- set metadata = record.metadata %}
@@ -199,24 +199,20 @@
               </section>
 
               {%- include "geo_knowledge_hub/details/details/description.html" %}
-
-              {# Locations #}
-              {% set locations = record.metadata.locations %}
-              {% if locations %}
-                {% set hasFeatureWithGeometry = locations.features | selectattr('geometry', 'defined') | list | length > 0 %}
-                {% if hasFeatureWithGeometry %}
-                  <section class="rel-mt-2 geospatial" aria-label="{{ _('Data availability') }}">
-                    <h2 id="description-heading">{{ _('Data availability') }}</h2>
-
-                    <p>
-                      Dive into our interactive map to see where our application's data is globally available. Click on any highlighted region to discover the types of information we offer there. Our map is constantly updated, so check back often to find new data availability in your area of interest.
-                    </p>
-
-                    <div id="mapContainer" class="ui segment map-container"></div>
-                  </section>
-                {% endif %}
-              {% endif %}
             {%- endblock record_content -%}
+
+            {# Locations #}
+            {% set locations = record.metadata.locations %}
+            {% if locations %}
+              {% set hasFeatureWithGeometry = locations.features | selectattr('geometry', 'defined') | list | length > 0 %}
+              {% if hasFeatureWithGeometry %}
+                <section class="rel-mt-2 geospatial" aria-label="{{ _('Data availability') }}">
+                  <h2 id="description-heading">{{ _('Data availability') }}</h2>
+
+                  <div id="mapContainer" class="ui segment map-container" data-record='{{ record | tojson }}'></div>
+                </section>
+              {% endif %}
+            {% endif %}
 
             {# Files #}
             {%- block record_files -%}
@@ -225,21 +221,14 @@
                 <section id="record-files" class="rel-mt-2" aria-label="{{ _('Files') }}">
                   {%- if permissions.can_read_files -%}
                     {# record has files AND user can see files #}
-                    <h2 id="files-heading">{{ _('Auxiliary files') }}</h2>
-
-                    <p>
-                      Effortlessly preview and download auxiliary files you need with our intuitive interface. Browse available
-                      files, get a sneak peek of their contents, and secure your downloads in just a few clicks.
-                    </p>
+                    <h2 id="files-heading">{{ _('Resources') }}</h2>
 
                     {%- set files = files|order_entries %}
-
                     {%- if files|has_previewable_files -%}
                       {%-set preview_file = files|select_preview_file(default_preview=record.files.default_preview) %}
                       {{ preview_file_box(preview_file, record.id, is_preview, record, files_preview_endpoint) }}
                     {%- endif -%}
                     {{ file_list_box(files, record.id, is_preview, record, files_download_endpoint, files_preview_endpoint) }}
-
                   {% else %}
                     {# record has files BUT user cannot see files #}
                     <div class="pt-0 pb-20">
@@ -269,13 +258,8 @@
 
             {# External resources #}
             {% if record.ui.related_identifiers %}
-              <section id="related-identifiers">
-                <div class="ui divider"></div>
+              <section id="related-identifiers" class="rel-mt-2">
                 <h2 id="related-identifiers-heading">{{ _('Related links') }}</h2>
-
-                <p>
-                  For a comprehensive understanding of this application, we encourage you to leverage the valuable resources available through the links provided below.
-                </p>
 
                 {{ show_related_identifiers(record.ui.related_identifiers) }}
               </section>
@@ -283,21 +267,19 @@
 
             {# Additional details #}
             {%- block record_details -%}
-              <section id="additional-details" class="rel-mt-2" aria-label="{{ _('Additional record details') }}">
-                {%- include "geo_knowledge_hub/details/details/details.html" %}
+              <section id="additional-details" class="rel-mt-3" aria-label="{{ _('Additional record details') }}">
+                {%- include "geo_knowledge_hub/marketplace/details/details.html" %}
               </section>
             {%- endblock record_details -%}
 
-            {# Contact #}
-            <section class="ui container contact">
-              <h2 id="contact-vendor">{{ _('Contact') }}</h2>
-              <div class="ui segment contact-section">
-                <div class="contact-message">
-                  <p>Want to learn more ? Contact the vendor and start using this application today!</p>
-                </div>
-                <a href="mailto:{{ marketplace_app_vendor_mail }}" class="ui button olive contact-button">Contact vendor</a>
-              </div>
-            </section>
+            {# More like this records #}
+            {% if more_like_this_records %}
+              <section class="ui container rel-mt-2">
+                <h2>Explore similar content</h2>
+
+                <div id="details-more-like-this-records-div" class="rel-mt-2" data-moreLikeThisRecords='{{ more_like_this_records | tojson }}'></div>
+              </section>
+            {% endif %}
 
             {# Record footer #}
             {%- block record_footer -%}
@@ -377,5 +359,5 @@
   {{ webpack['geo-comments-details.js'] }}
 
   <!-- Addthis -->
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-627fb9ee797c3e18"></script>
+  {#  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-627fb9ee797c3e18"></script>#}
 {%- endblock javascript %}
