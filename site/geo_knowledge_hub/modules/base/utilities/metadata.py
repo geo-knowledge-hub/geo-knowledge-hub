@@ -8,6 +8,8 @@
 
 """GEO Knowledge Hub Deposit (page) Package handler."""
 
+from pydash import py_
+
 from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 from geo_knowledge_hub.modules.base.utilities import (
     relationship as relationship_utilities,
@@ -121,8 +123,12 @@ def expand_metadata_from_marketplace_item(identity, record):
         record_tags,
     ) = record_utilities.extract_extra_record_tags(identity, record)
 
+    launch_url = py_.get(record, "metadata.marketplace.launch_url")
+    vendor_contact = py_.get(record, "metadata.marketplace.vendor_contact")
+
     return dict(
         related_engagement_priorities=engagement_priorities,
         programme_activity=programme_activity,
         record_topics=record_tags,
+        marketplace=dict(launch_url=launch_url, vendor_contact=vendor_contact),
     )
