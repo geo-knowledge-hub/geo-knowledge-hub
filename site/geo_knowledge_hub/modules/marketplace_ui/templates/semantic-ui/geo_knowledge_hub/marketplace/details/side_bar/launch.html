@@ -6,13 +6,11 @@
 #}
 
 <section
-   aria-label="{{ _('Request Training section') }}"
-   class="ui rdm-sidebar"
+   aria-label="{{ _('Launch application section') }}"
+   class="ui grid segment marketplace rdm-sidebar"
 >
-  <div class="ui container center aligned fluid">
-    <a href="{{ marketplace_app_url }}" target="_blank" class="ui huge olive fluid button">
-      <i class="rocket icon"></i>
-      Launch now
-    </a>
-  </div>
+  <a href="{{ marketplace_app_url }}" target="_blank" class="ui huge olive fluid button">
+    <i class="rocket icon"></i>
+    {{ _("Launch now") }}
+  </a>
 </section>

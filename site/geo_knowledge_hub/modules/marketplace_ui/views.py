@@ -14,6 +14,7 @@ from geo_rdm_records.base.resources.serializers import (
     UIRecordJSONSerializer as UIJSONSerializer,
 )
 from geo_rdm_records.modules.security.permissions import need_permission
+from geo_rdm_records.proxies import current_marketplace_service
 from invenio_app_rdm.records_ui.views.decorators import (
     pass_draft_community,
     pass_is_preview,
@@ -114,6 +115,17 @@ def geo_marketplace_item_detail(
     )
     record_endpoint = endpoint_utilities.generate_marketplace_item_endpoint()
 
+    # Searching records like the current one
+    more_like_this_records = []
+
+    if not is_preview:
+        more_like_this_records = current_marketplace_service.search_more_like_this(
+            identity, record_data["id"], size=3
+        )
+        more_like_this_records = record_utilities.serializer_dump_records(
+            more_like_this_records
+        )
+
     return render_template(
         "geo_knowledge_hub/marketplace/details/index.html",
         # Invenio App RDM template variables
@@ -128,6 +140,7 @@ def geo_marketplace_item_detail(
         is_knowledge_package=False,
         navigate=navigate,
         assistance_requests=[],
+        more_like_this_records=more_like_this_records,
         **record_metadata,
         **record_endpoint,
     )

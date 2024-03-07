@@ -16,28 +16,37 @@
     {%- set community = expanded_parent.get("review", {}).get("receiver") or expanded_parent.get("communities", {}).get("default") %}
     {% set is_community_restricted = community.access.visibility == 'restricted' %}
 
-    <section aria-label="{{ _('Record community') }}" class="ui segment">
+    <section aria-label="{{ _('Record community') }}" class="ui segment marketplace community">
       <h2 class="ui small header">
-        <div class="marketplace-community-container">
+        <div class="community-container">
           <span>
             {{ _('Managed by') }}
           </span>
 
-          {% if is_community_restricted %}
-            <span class="ui label small access-status restricted rel-ml-1"
-                  title="{{ _('Community visibility') }}"
-                  data-tooltip="{{ _('The community is restricted to users with access.') }}"
-                  data-inverted="">
-                  <i class="icon ban" aria-hidden="true"></i> {{ _("Restricted") }}
-                </span>
-          {% endif %}
+          <div class="label-container">
+            {% if is_community_restricted %}
+              <span class="ui label small access-status restricted rel-ml-1"
+                    title="{{ _('Community visibility') }}"
+                    data-tooltip="{{ _('The community is restricted to users with access.') }}"
+                    data-inverted="">
+              <i class="icon ban" aria-hidden="true"></i> {{ _("Restricted") }}
+            </span>
+            {% endif %}
+            <a class="ui label medium access-status olive rel-ml-1"
+               title="{{ _('Community contact') }}"
+               data-tooltip="{{ _('Want to learn more ? Contact the vendor now!') }}"
+               data-inverted=""
+               href="mailto:{{ marketplace_app_vendor_mail }}"
+            >
+              <i class="icon mail" aria-hidden="true"></i> {{ _("Contact") }}
+            </a>
+          </div>
         </div>
 
         <div class="ui container">
           <div class="ui padded-image">
             <img
               class="ui fluid image"
-              style="border-radius: 5px;"
               src="{{ community.links.logo }}"
               alt=""
               onerror="this.onerror=null;this.src='/static/images/square-placeholder.png'"

@@ -149,10 +149,11 @@ a {
   width: auto;
   height: 30em;
   z-index: 0;
+  border-radius: 5px;
 }
 
-.geospatial .map-container {
-  padding: 1px;
+.geospatial .ui.segment.map-container {
+  padding: 0.2em;
 }
 
 /*-------------------------------------
@@ -251,25 +252,68 @@ section#user-stories > .ui.container > .grid > .column {
 /*-----------------------------
  Marketplace Items Landing page
 -------------------------------*/
-.container.contact {
-  margin-top: 3em;
+.marketplace.files {
+  display: flex;
+  overflow-y: auto;
+  white-space: nowrap;
+  margin-bottom: 20px;
+  max-height: 22em;
 }
 
-.container.contact .contact-section {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
+.marketplace.files .ui.list {
+  width: 100%;
+  border-radius: 5px;
+  scrollbar-width: auto;
+  scrollbar-color: #888 #f1f1f1;
 }
 
-.container.contact .contact-message {
-    flex: 1;
-    font-size: 16px;
-    color: #555;
+.marketplace.ui.accordion.panel {
+  border-radius: 0;
 }
 
-.marketplace-community-container {
+.marketplace.ui.accordion.panel .title.panel-heading {
+  background-color: white;
+  cursor: unset;
+}
+
+.marketplace.ui.accordion.panel .item {
+  padding: 1.2em;
+}
+
+.marketplace.ui.accordion.panel .item .content.mini {
   display: flex;
   justify-content: space-between;
+}
+
+.marketplace.ui.accordion.panel .item .metadata {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marketplace.ui.accordion.panel .metadata .file-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.marketplace.ui.accordion.panel .file-info .file-key {
+  max-width: 30em;
+}
+
+.marketplace.community .community-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.marketplace.community .label-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.marketplace.community .ui.image img {
+  border-radius: 5px;
+}
+
+.marketplace.rdm-sidebar .ui.button {
+  margin-right: 0;
 }
