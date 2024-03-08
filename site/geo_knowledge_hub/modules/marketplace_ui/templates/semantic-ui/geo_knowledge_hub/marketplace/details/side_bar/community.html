@@ -48,12 +48,12 @@
         <div class="ui container">
           <div class="ui padded-image">
             <img
-              class="ui fluid image"
+              class="ui fluid image logo"
               src="{{ community.links.logo }}"
               alt=""
               onerror="this.onerror=null;this.src='/static/images/square-placeholder.png'"
             />
-            <h3 class="ui header centered">
+            <h3 class="ui header centered name">
               <a href="{{ url_for('invenio_app_rdm_communities.communities_detail', pid_value=community.slug) }}">
                 {{ community.metadata.title }}
               </a>
