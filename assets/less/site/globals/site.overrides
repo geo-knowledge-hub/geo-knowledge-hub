@@ -305,13 +305,18 @@ section#user-stories > .ui.container > .grid > .column {
   justify-content: space-between;
 }
 
+.marketplace.community .name {
+  margin-top: 0.8em;
+}
+
+.marketplace.community .image.logo {
+  border-radius: 5px;
+}
+
 .marketplace.community .label-container {
   display: flex;
   flex-direction: row;
-}
-
-.marketplace.community .ui.image img {
-  border-radius: 5px;
+  margin-bottom: 1em;
 }
 
 .marketplace.rdm-sidebar .ui.button {
