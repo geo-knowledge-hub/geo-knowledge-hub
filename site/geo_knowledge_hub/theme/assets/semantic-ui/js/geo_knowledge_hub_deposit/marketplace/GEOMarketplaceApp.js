@@ -290,10 +290,9 @@ export class GEOMarketplaceApp extends Component {
               >
                 <SubjectsField
                   fieldPath="metadata.subjects"
-                  initialOptions={_get(record, "ui.subjects", null)}
+                  initialSuggestions={_get(record, "metadata.subjects", null)}
                   limitToOptions={this.vocabularies.metadata.subjects.limit_to}
                 />
-
                 <WorkProgrammeActivityField
                   required={false}
                   initialSuggestions={
