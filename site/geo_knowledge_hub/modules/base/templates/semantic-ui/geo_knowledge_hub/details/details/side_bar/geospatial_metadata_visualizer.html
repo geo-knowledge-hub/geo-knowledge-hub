@@ -13,7 +13,7 @@
 <section id="geospatial-locations" aria-label="{{ _('Geographic Locations') }}" class="ui segment rdm-sidebar">
   <h2 class="ui small header">{{ _('Geographic Locations') }}</h2>
 
-  <div id="mapContainer"></div>
+  <div id="mapContainer" data-record='{{ record | tojson }}'></div>
 </section>
 {% endif %}
 {% endif %}

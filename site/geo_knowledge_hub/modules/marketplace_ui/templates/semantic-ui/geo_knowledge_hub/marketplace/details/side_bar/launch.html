@@ -1,0 +1,18 @@
+{#
+  Copyright (C) 2024 GEO Secretariat.
+
+  GEO Knowledge Hub is free software; you can redistribute it and/or modify
+  it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{% if marketplace.vendor_contact %}
+<section
+   aria-label="{{ _('Launch application section') }}"
+   class="ui grid segment marketplace rdm-sidebar"
+>
+  <a href="{{ marketplace.launch_url }}" target="_blank" class="ui huge olive fluid button">
+    <i class="rocket icon"></i>
+    {{ _("Launch now") }}
+  </a>
+</section>
+{% endif %}

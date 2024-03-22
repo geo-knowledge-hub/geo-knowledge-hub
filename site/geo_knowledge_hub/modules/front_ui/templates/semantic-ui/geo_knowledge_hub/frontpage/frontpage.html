@@ -5,7 +5,7 @@
 {%- block css %}
 {{ super() }}
 <!-- Temporary solution! This is not the best way to do this! -->
-<link rel="stylesheet" href="/static/third-party/swiper-bundle.min.css" />
+<link rel="stylesheet" href="/static/third-party/swiper/swiper-bundle.min.css" />
 {%- endblock css %}
 
 {%- block javascript %}
@@ -13,7 +13,7 @@
 {{ webpack["geo-knowledge-hub-front.js"] }}
 
 <!-- Temporary solution! This is not the best way to do this! -->
-<script src="/static/third-party/swiper-bundle.min.js"></script>
+<script src="/static/third-party/swiper/swiper-bundle.min.js"></script>
 <script>
   const swiper = new Swiper('.swiper-container', {
     // Navigation arrows

@@ -8,6 +8,8 @@
 
 """GEO Knowledge Hub Deposit (page) Package handler."""
 
+from pydash import py_
+
 from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 from geo_knowledge_hub.modules.base.utilities import (
     relationship as relationship_utilities,
@@ -15,7 +17,16 @@ from geo_knowledge_hub.modules.base.utilities import (
 
 
 def expand_metadata_from_package(identity, package):
-    """Expand Knowledge Package metadata."""
+    """Expand Knowledge Package metadata.
+
+    Args:
+        identity (flask_principal.Identity): User identity
+
+        package (dict): Base record metadata.
+
+    Returns:
+        dict: record metadata expanded.
+    """
     # Expanding associated records (if defined)
     user_stories = []
     related_records_metadata = []
@@ -51,17 +62,26 @@ def expand_metadata_from_package(identity, package):
         record_tags,
     ) = record_utilities.extract_extra_record_tags(identity, package)
 
-    return (
-        engagement_priorities,
-        programme_activity,
-        record_tags,
-        user_stories,
-        related_records_metadata,
+    return dict(
+        record_topics=record_tags,
+        related_engagement_priorities=engagement_priorities,
+        programme_activity=programme_activity,
+        user_stories=user_stories,
+        related_elements_information=related_records_metadata,
     )
 
 
 def expand_metadata_from_record(identity, record):
-    """Expand Knowledge Resource (Record) metadata."""
+    """Expand Knowledge Resource (Record) metadata.
+
+    Args:
+        identity (flask_principal.Identity): User identity
+
+        record (dict): Base record metadata.
+
+    Returns:
+        dict: record metadata expanded.
+    """
     # Extract associate package (if defined)
     related_package_metadata = relationship_utilities.get_related_package_metadata(
         identity, record
@@ -78,9 +98,37 @@ def expand_metadata_from_record(identity, record):
         record_tags,
     ) = record_utilities.extract_extra_record_tags(identity, record)
 
-    return (
+    return dict(
+        related_engagement_priorities=engagement_priorities,
+        programme_activity=programme_activity,
+        record_topics=record_tags,
+        related_elements_information=related_package_metadata,
+    )
+
+
+def expand_metadata_from_marketplace_item(identity, record):
+    """Expand Marketplace Item metadata.
+
+    Args:
+        identity (flask_principal.Identity): User identity
+
+        record (dict): Base record metadata.
+
+    Returns:
+        dict: record metadata expanded.
+    """
+    (
         engagement_priorities,
         programme_activity,
         record_tags,
-        related_package_metadata,
+    ) = record_utilities.extract_extra_record_tags(identity, record)
+
+    launch_url = py_.get(record, "metadata.marketplace.launch_url")
+    vendor_contact = py_.get(record, "metadata.marketplace.vendor_contact")
+
+    return dict(
+        related_engagement_priorities=engagement_priorities,
+        programme_activity=programme_activity,
+        record_topics=record_tags,
+        marketplace=dict(launch_url=launch_url, vendor_contact=vendor_contact),
     )

@@ -24,10 +24,11 @@ from geo_knowledge_hub.modules.base.registry import (
     get_files_service,
     get_record_service,
 )
-from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
-from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 
+from .toolbox import endpoint as endpoint_utilities
+from .toolbox import metadata as metadata_utilities
 from .toolbox import requests as requests_utilities
+from .toolbox import types as types_utilities
 
 
 @login_required
@@ -48,35 +49,27 @@ def user_dashboard_request_view(request, **kwargs):
 
     request_type = request["type"]
 
+    request_is_accepted = request["status"] == AcceptAction.status_to
     is_draft_submission = request_type == CommunitySubmission.type_id
     is_invitation = request_type == CommunityInvitation.type_id
     is_assistance = "assistance" in request_type
     is_preview = not is_assistance
 
-    request_is_accepted = request["status"] == AcceptAction.status_to
-
     # Loading services based on record type
-    record_type = list(request["topic"].keys())
-    record_type = record_type[0]
+    record_type = types_utilities.resolve_resource_type(request)
 
     # handling "various types" of packages (e.g., 'package draft' or 'package record')
-    is_knowledge_package = "package" in record_type
-    record_type = "package" if is_knowledge_package else record_type
-
     service = get_record_service(record_type)
     files_service = get_files_service(record_type)
     draft_files_service = get_draft_files_service(record_type)
 
-    if is_draft_submission or is_assistance:
-        # Getting related data for packages and resources
-        related_records_metadata = []
-        related_package_metadata = []
-        engagement_priorities = []
-        programme_activity = []
-        record_tags = []
-        user_stories = []
-        package_requests = []
+    # define if the record is knowledge package
+    is_knowledge_package = "package" in record_type
 
+    # generate endpoints (files and export)
+    record_endpoints = endpoint_utilities.generate_endpoint(record_type)
+
+    if is_draft_submission or is_assistance:
         topic = requests_utilities.resolve_topic(
             request, service, draft=is_draft_submission
         )
@@ -85,25 +78,12 @@ def user_dashboard_request_view(request, **kwargs):
             record, files_service, draft_files_service
         )
 
-        if record:  # when accepted, the request don't return the record object.
-            if record_type == "package":  # Especial validation for packages
-                # Expanding package metadata
-                (
-                    engagement_priorities,
-                    programme_activity,
-                    record_tags,
-                    user_stories,
-                    related_records_metadata,
-                ) = metadata_utilities.expand_metadata_from_package(identity, record)
-
-            elif record_type == "record":
-                # Expanding record metadata
-                (
-                    engagement_priorities,
-                    programme_activity,
-                    record_tags,
-                    related_package_metadata,
-                ) = metadata_utilities.expand_metadata_from_record(identity, record)
+        # when accepted, the request don't return the record object.
+        record_metadata = (
+            metadata_utilities.expand_metadata(identity, record, record_type)
+            if record
+            else {}
+        )
 
         # Defining template
         template = (
@@ -123,14 +103,11 @@ def user_dashboard_request_view(request, **kwargs):
             draft_is_accepted=request_is_accepted,
             files=files,
             is_user_dashboard=True,
-            programme_activity=programme_activity,
-            record_tags=record_tags,
-            user_stories=user_stories,
             is_knowledge_package=is_knowledge_package,
-            related_package_information=related_package_metadata,
-            related_elements_information=related_records_metadata,
-            related_engagement_priorities=engagement_priorities,
             custom_fields_ui=load_custom_fields()["ui"],
+            assistance_requests=[],  # Defining it to avoid errors with the components, but it is not used
+            **record_metadata,
+            **record_endpoints,
         )
 
     elif is_invitation:
@@ -163,57 +140,35 @@ def community_dashboard_request_view(request, community, community_ui, **kwargs)
     request_is_accepted = request["status"] == AcceptAction.status_to
 
     # Loading services based on record type
-    record_type = list(request["topic"].keys())
-    record_type = record_type[0]
+    record_type = types_utilities.resolve_resource_type(request)
 
     # handling "various types" of packages (e.g., 'package draft' or 'package record')
-    is_knowledge_package = "package" in record_type
-    record_type = "package" if is_knowledge_package else record_type
-
     service = get_record_service(record_type)
     files_service = get_files_service(record_type)
     draft_files_service = get_draft_files_service(record_type)
 
-    if is_draft_submission:
-        # Getting related data for packages and resources
-        related_records_metadata = []
-        related_package_metadata = []
-        engagement_priorities = []
-        programme_activity = []
-        record_tags = []
-        user_stories = []
-        package_requests = []
-        files = []
+    # define if the record is knowledge package
+    is_knowledge_package = "package" in record_type
 
+    # generate endpoints (files and export)
+    record_endpoints = endpoint_utilities.generate_endpoint(record_type)
+
+    if is_draft_submission:
         topic = requests_utilities.resolve_topic(
             request, service, draft=is_draft_submission
         )
+
         record = topic["record_ui"]
+        files = requests_utilities.resolve_record_or_draft_files(
+            record, files_service, draft_files_service
+        )
 
-        if files_service and draft_files_service:
-            files = requests_utilities.resolve_record_or_draft_files(
-                record, files_service, draft_files_service
-            )
-
-        if record:  # when accepted, the request don't return the record object.
-            if record_type == "package":  # Especial validation for packages
-                # Expanding package metadata
-                (
-                    engagement_priorities,
-                    programme_activity,
-                    record_tags,
-                    user_stories,
-                    related_records_metadata,
-                ) = metadata_utilities.expand_metadata_from_package(identity, record)
-
-            elif record_type == "record":
-                # Expanding record metadata
-                (
-                    engagement_priorities,
-                    programme_activity,
-                    record_tags,
-                    related_package_metadata,
-                ) = metadata_utilities.expand_metadata_from_record(identity, record)
+        # when accepted, the request don't return the record object.
+        record_metadata = (
+            metadata_utilities.expand_metadata(identity, record, record_type)
+            if record
+            else {}
+        )
 
         permissions = community.has_permissions_to(
             ["update", "read", "search_requests", "search_invites"]
@@ -231,14 +186,10 @@ def community_dashboard_request_view(request, community, community_ui, **kwargs)
             draft_is_accepted=request_is_accepted,
             files=files,
             is_user_dashboard=True,
-            programme_activity=programme_activity,
-            record_tags=record_tags,
-            user_stories=user_stories,
             is_knowledge_package=is_knowledge_package,
-            related_package_information=related_package_metadata,
-            related_elements_information=related_records_metadata,
-            related_engagement_priorities=engagement_priorities,
             custom_fields_ui=load_custom_fields()["ui"],
+            **record_metadata,
+            **record_endpoints,
         )
 
     elif is_invitation:

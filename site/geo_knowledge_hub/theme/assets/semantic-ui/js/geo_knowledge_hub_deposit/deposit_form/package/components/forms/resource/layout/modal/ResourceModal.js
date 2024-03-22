@@ -859,9 +859,15 @@ export class ResourceModalContent extends Component {
               </Grid.Row>
 
               <Grid.Row>
-                <Grid.Column width={16}>
+                <Grid.Column width={15}>
                   <LocationsField
                     label={"Locations"}
+                    fieldPath={"metadata.locations.features"}
+                  />
+                </Grid.Column>
+                <Grid.Column width={1} textAlign={"top"}>
+                  <MetadataImporter
+                    metadataStorage={modalPackageRecord}
                     fieldPath={"metadata.locations.features"}
                   />
                 </Grid.Column>

@@ -49,6 +49,7 @@ import {
 import { createSearchAppInit } from "@js/invenio_search_ui";
 
 import {
+  extractRecordBadge,
   extractProgrammeActivityAcronym,
   recordTypeLinksFactory,
 } from "../utils";
@@ -73,6 +74,7 @@ const ContribSearchAppFacetsWithConfig = parametrize(ContribSearchAppFacets, {
  * `RDMRecordResultsListItem` component adapted from Invenio App RDM.
  */
 export const RDMRecordResultsListItem = ({ result, index }) => {
+  const recordBadge = extractRecordBadge(result.parent.type);
   const recordLinks = recordTypeLinksFactory(result.id, result.parent.type);
 
   const accessStatusId = _get(result, "ui.access_status.id", "open");
@@ -144,7 +146,9 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
       </div>
       <Item.Content style={{ cursor: "default" }}>
         <Item.Extra className="labels-actions">
-          {/* For reduced spacing between labels. */}
+          <Label size="tiny" color={recordBadge.color}>
+            <i className={`icon ${recordBadge.icon}`}></i>{recordBadge.name}
+          </Label>
           {programmeActivityAcronym && (
             <Label size="tiny" className={"programme-activity-label"}>
               {programmeActivityAcronym}
@@ -161,10 +165,10 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
           <Label size="tiny" className="neutral">
             {resourceType}
           </Label>
-          <Label size="tiny" className={`access-status ${accessStatusId}`}>
-            {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}
-            {accessStatus}
-          </Label>
+          {/*<Label size="tiny" className={`access-status ${accessStatusId}`}>*/}
+          {/*  {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}*/}
+          {/*  {accessStatus}*/}
+          {/*</Label>*/}
           {isPackage && (
             <Button
               compact

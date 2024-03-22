@@ -40,11 +40,31 @@ def init_bp(app):
         views.geo_marketplace_item_detail,
     )
 
+    # Visualization (Latest version)
+    bp.add_url_rule(
+        "/marketplace/items/<pid_value>/latest",
+        "geokhub_marketplace_item_view_latest",
+        views.geo_marketplace_item_detail_latest,
+    )
+
     # Exportation
     bp.add_url_rule(
         "/marketplace/items/<pid_value>/export/<export_format>",
         "geokhub_marketplace_item_export",
-        views.record_export,
+        views.geo_marketplace_item_export,
+    )
+
+    # Files
+    bp.add_url_rule(
+        "/marketplace/items/<pid_value>/preview/<path:filename>",
+        "geokhub_marketplace_file_preview",
+        views.geo_marketplace_file_preview,
+    )
+
+    bp.add_url_rule(
+        "/marketplace/items/<pid_value>/files/<path:filename>",
+        "geokhub_marketplace_file_download",
+        views.geo_marketplace_file_download,
     )
 
     app.register_blueprint(bp)

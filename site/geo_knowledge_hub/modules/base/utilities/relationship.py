@@ -27,7 +27,7 @@ def get_related_package_metadata(identity, record: Record) -> List:
         dict: Loaded metadata
     """
     packages_metadata = []
-    record_relationship = record.get("relationship")
+    record_relationship = record["relationship"]
 
     if record_relationship:
         packages = record_relationship.get("packages", [])

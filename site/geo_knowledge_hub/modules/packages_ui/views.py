@@ -34,6 +34,7 @@ from geo_knowledge_hub.modules.base.decorators import (
     pass_record_latest,
     pass_record_or_draft,
 )
+from geo_knowledge_hub.modules.base.utilities import endpoint as endpoint_utilities
 from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
 from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 from geo_knowledge_hub.modules.base.utilities import (
@@ -65,13 +66,10 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
     record_is_draft = record_ui.get("is_draft")
 
     # Expanding package metadata
-    (
-        engagement_priorities,
-        programme_activity,
-        record_tags,
-        user_stories,
-        related_records_metadata,
-    ) = metadata_utilities.expand_metadata_from_package(identity, record_ui)
+    record_metadata = metadata_utilities.expand_metadata_from_package(
+        identity, record_ui
+    )
+    record_endpoint = endpoint_utilities.generate_package_endpoint()
 
     # Check requests on the package
     package_requests = record_utilities.extract_requests(
@@ -101,12 +99,9 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
         is_preview=is_preview,
         # GEO Knowledge Hub template variables
         is_knowledge_package=True,
-        user_stories=user_stories,
-        record_topics=record_tags,
-        programme_activity=programme_activity,
-        related_elements_information=related_records_metadata,
-        related_engagement_priorities=engagement_priorities,
         assistance_requests=package_requests,
+        **record_metadata,
+        **record_endpoint,
     )
 
 

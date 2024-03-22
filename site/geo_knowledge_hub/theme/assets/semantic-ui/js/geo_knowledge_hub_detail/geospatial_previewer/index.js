@@ -19,11 +19,10 @@ import { GeographicMetadataLocationViewer } from "@geo-knowledge-hub/invenio-geo
  */
 export const renderComponent = (...args) => {
   const componentDiv = document.getElementById("mapContainer");
-  const recordVersionAppDiv = document.getElementById("recordVersionsData");
 
-  if (recordVersionAppDiv) {
+  if (componentDiv) {
     // parsing the record document
-    const recordDocument = JSON.parse(recordVersionAppDiv.dataset.record);
+    const recordDocument = JSON.parse(componentDiv.dataset.record);
 
     // looking for valid locations data
     const featureData = _get(recordDocument, "metadata.locations.features", []);

@@ -145,6 +145,17 @@ a {
   z-index: 0;
 }
 
+.geospatial .leaflet-container {
+  width: auto;
+  height: 30em;
+  z-index: 0;
+  border-radius: 5px;
+}
+
+.geospatial .ui.segment.map-container {
+  padding: 0.2em;
+}
+
 /*-------------------------------------
  Deposit definitions (Package version)
 --------------------------------------*/
@@ -236,4 +247,78 @@ section#user-stories > .ui.container > .grid > .column {
     font-weight: 300;
     width: 100%;
   }
+}
+
+/*-----------------------------
+ Marketplace Items Landing page
+-------------------------------*/
+.marketplace.files {
+  display: flex;
+  overflow-y: auto;
+  white-space: nowrap;
+  margin-bottom: 20px;
+  max-height: 22em;
+}
+
+.marketplace.files .ui.list {
+  width: 100%;
+  border-radius: 5px;
+  scrollbar-width: auto;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.marketplace.ui.accordion.panel {
+  border-radius: 0;
+}
+
+.marketplace.ui.accordion.panel .title.panel-heading {
+  background-color: white;
+  cursor: unset;
+}
+
+.marketplace.ui.accordion.panel .item {
+  padding: 1.2em;
+}
+
+.marketplace.ui.accordion.panel .item .content.mini {
+  display: flex;
+  justify-content: space-between;
+}
+
+.marketplace.ui.accordion.panel .item .metadata {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marketplace.ui.accordion.panel .metadata .file-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.marketplace.ui.accordion.panel .file-info .file-key {
+  max-width: 30em;
+}
+
+.marketplace.community .community-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.marketplace.community .name {
+  margin-top: 0.8em;
+}
+
+.marketplace.community .image.logo {
+  border-radius: 5px;
+}
+
+.marketplace.community .label-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1em;
+}
+
+.marketplace.rdm-sidebar .ui.button {
+  margin-right: 0;
 }

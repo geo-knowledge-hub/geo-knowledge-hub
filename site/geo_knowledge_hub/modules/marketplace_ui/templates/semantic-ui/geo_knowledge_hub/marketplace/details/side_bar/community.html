@@ -1,0 +1,66 @@
+{#
+  Copyright (C) 2024 GEO Secretariat.
+
+  GEO Knowledge Hub is free software; you can redistribute it and/or modify
+  it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{% if not is_preview_submission_request %}
+  {%- set parent = record.get("parent", {}) %}
+  {%- set community_review = parent.get("review", {}).get("receiver", {}).get("community") %}
+  {%- set community_default = parent.get("communities", {}).get("default") %}
+  {%- set has_community = community_review or community_default %}
+
+  {% if has_community %}
+    {%- set expanded_parent = record.get("expanded", {}).get("parent", {}) %}
+    {%- set community = expanded_parent.get("review", {}).get("receiver") or expanded_parent.get("communities", {}).get("default") %}
+    {% set is_community_restricted = community.access.visibility == 'restricted' %}
+
+    <section aria-label="{{ _('Record community') }}" class="ui segment marketplace community">
+      <h2 class="ui small header">
+        <div class="community-container">
+          <span>
+            {{ _('Managed by') }}
+          </span>
+
+          <div class="label-container">
+            {% if is_community_restricted %}
+              <span class="ui label small access-status restricted rel-ml-1"
+                    title="{{ _('Community visibility') }}"
+                    data-tooltip="{{ _('The community is restricted to users with access.') }}"
+                    data-inverted="">
+              <i class="icon ban" aria-hidden="true"></i> {{ _("Restricted") }}
+            </span>
+            {% endif %}
+            {% if marketplace.vendor_contact %}
+            <a class="ui label medium access-status olive rel-ml-1"
+               title="{{ _('Vendor contact') }}"
+               data-tooltip="{{ _('Want to learn more ? Contact the vendor now!') }}"
+               data-inverted=""
+               href="mailto:{{ marketplace.vendor_contact }}"
+            >
+              <i class="icon mail" aria-hidden="true"></i> {{ _("Contact") }}
+            </a>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="ui container">
+          <div class="ui padded-image">
+            <img
+              class="ui fluid image logo"
+              src="{{ community.links.logo }}"
+              alt=""
+              onerror="this.onerror=null;this.src='/static/images/square-placeholder.png'"
+            />
+            <h3 class="ui header centered name">
+              <a href="{{ url_for('invenio_app_rdm_communities.communities_detail', pid_value=community.slug) }}">
+                {{ community.metadata.title }}
+              </a>
+            </h3>
+          </div>
+        </div>
+      </h2>
+    </section>
+  {% endif %}
+{% endif %}

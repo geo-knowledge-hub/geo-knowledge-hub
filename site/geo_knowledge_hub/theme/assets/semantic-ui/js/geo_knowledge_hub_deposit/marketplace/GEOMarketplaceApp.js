@@ -58,6 +58,8 @@ import { LocationsField } from "@geo-knowledge-hub/invenio-geographic-components
 
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 
+import { MarketplaceVendorContact, MarketplaceLaunch } from './components';
+
 /**
  * Deposit Application for Marketplace Items.
  *
@@ -165,6 +167,7 @@ export class GEOMarketplaceApp extends Component {
                   "metadata.publication_date",
                   "metadata.additional_titles",
                   "metadata.resource_type",
+                  "metadata.marketplace.launch_url"
                 ]}
                 active
                 label={i18next.t("Basic information")}
@@ -186,6 +189,8 @@ export class GEOMarketplaceApp extends Component {
                   required
                   fieldPath="metadata.publication_date"
                 />
+
+                <MarketplaceLaunch />
               </AccordionField>
 
               <AccordionField
@@ -233,9 +238,9 @@ export class GEOMarketplaceApp extends Component {
               </AccordionField>
 
               <AccordionField
-                includesPaths={["metadata.creators", "metadata.contributors"]}
+                includesPaths={["metadata.creators", "metadata.contributors", "metadata.marketplace.vendor_contact"]}
                 active
-                label={i18next.t("People")}
+                label={i18next.t("People / Company")}
               >
                 <Grid columns={2} divided>
                   <Grid.Row>
@@ -270,6 +275,7 @@ export class GEOMarketplaceApp extends Component {
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
+                <MarketplaceVendorContact />
               </AccordionField>
 
               <AccordionField
@@ -284,10 +290,9 @@ export class GEOMarketplaceApp extends Component {
               >
                 <SubjectsField
                   fieldPath="metadata.subjects"
-                  initialOptions={_get(record, "ui.subjects", null)}
+                  initialSuggestions={_get(record, "metadata.subjects", null)}
                   limitToOptions={this.vocabularies.metadata.subjects.limit_to}
                 />
-
                 <WorkProgrammeActivityField
                   required={false}
                   initialSuggestions={

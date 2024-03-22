@@ -8,8 +8,9 @@
 
 """Simple IIIF image previewer."""
 
-from flask import current_app
+from flask import current_app, render_template
 from invenio_app_rdm.records_ui.previewer.iiif_simple import preview as base_preview
+from pydash import py_
 from werkzeug.local import LocalProxy
 
 previewable_extensions = LocalProxy(lambda: current_app.config["IIIF_FORMATS"].keys())
@@ -31,20 +32,31 @@ def can_open_without_bomb_error(file, max_pixels=178956970):
     Returns:
         Bool: Flag indicating if the file can be open without `DecompressionBombError`.
     """
-    width = file.data["metadata"]["width"]
-    height = file.data["metadata"]["height"]
+    width = py_.get(file.data, "metadata.width")
+    height = py_.get(file.data, "metadata.height")
 
-    return not ((width * height) > max_pixels)
+    return (width and height) and not ((width * height) > max_pixels)
 
 
 #
 # Previewer
 #
+def preview(file):
+    """Preview file."""
+    return render_template(
+        "invenio_previewer/mirador3.html",
+        file=file,
+        html_tags='dir="ltr" mozdisallowselectionprint moznomarginboxes',
+    )
+
+
+#
+# Validation
+#
 # This code is an adaptation of the Invenio App RDM.
 # In the GEO Knowledge Hub, some users upload GeoTiff files. IIIF can be used to preview them.
 # But, for some cases, the GeoTiff is huge with many pixels. To avoid errors, we adapted the `simple_iiif` to don't
 # preview those files.
-preview = base_preview
 
 
 def can_preview(file):
