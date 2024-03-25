@@ -11,6 +11,7 @@ import PropTypes from "prop-types";
 
 import _get from "lodash/get";
 import _isNil from "lodash/isNil";
+import _filter from "lodash/filter";
 import _compact from "lodash/compact";
 
 import { AccordionField, CustomFields } from "react-invenio-forms";
@@ -382,7 +383,7 @@ export class GEOResourceApp extends Component {
               >
                 <SubjectsField
                   fieldPath="metadata.subjects"
-                  initialSuggestions={_get(record, "metadata.subjects", null)}
+                  initialSuggestions={_filter(_get(record, "metadata.subjects", []))}
                   limitToOptions={this.vocabularies.metadata.subjects.limit_to}
                 />
                 <WorkProgrammeActivityField
