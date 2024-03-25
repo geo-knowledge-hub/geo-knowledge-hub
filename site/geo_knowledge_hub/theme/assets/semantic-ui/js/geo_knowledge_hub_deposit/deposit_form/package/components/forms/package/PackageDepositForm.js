@@ -9,6 +9,7 @@
 import React, { Component, createRef, Fragment } from "react";
 
 import _get from "lodash/get";
+import _filter from "lodash/filter";
 import _compact from "lodash/compact";
 
 import { Provider, connect, useStore } from "react-redux";
@@ -347,7 +348,7 @@ export class PackageDepositFormComponentBase extends Component {
               >
                 <SubjectsField
                   fieldPath="metadata.subjects"
-                  initialSuggestions={_get(record, "metadata.subjects", null)}
+                  initialSuggestions={_filter(_get(record, "metadata.subjects", []))}
                   limitToOptions={this.vocabularies.metadata.subjects.limit_to}
                 />
                 <WorkProgrammeActivityField

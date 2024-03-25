@@ -198,7 +198,12 @@
                     </div>
                     <div class="right floated right aligned column">
                       {%- if programme_activity %}
-                      <span class="ui label small programme-activity-label" title="{{ _('GEO Work Programme Activity') }}">{{programme_activity.props.acronym}}</span>
+                      <a class="ui label small programme-activity-label"
+                         title="{{ _('GEO Work Programme Activity') }}"
+                         href="{{ programme_activity.props.uri }}"
+                         target="_blank">
+                        {{programme_activity.props.acronym}}
+                      </a>
                       {% endif %}
                       {% if record.ui.resource_type %}
                         <span class="ui label small grey" title="{{ _('Resource type') }}">{{ record.ui.resource_type.title_l10n }}</span>
