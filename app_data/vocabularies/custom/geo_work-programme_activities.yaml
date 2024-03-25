@@ -28,7 +28,7 @@
     icon: ''
     subtype: ''
     type: geo-work-programme-activities
-    uri: https://earthobservations.org/uploads/wp23_25_global_forest_observation_initiative_implementation_plan.pdf
+    uri: https://old.earthobservations.org/uploads/wp23_25_global_forest_observation_initiative_implementation_plan.pdf
   title:
     en: Global Forest Observation Initiative (GFOI)
 - id: geo-activities-gos4m
@@ -631,7 +631,7 @@
     type: geo-work-programme-activities
     uri: www.earthobservations.org/documents/gwp20_22/SCO.pdf
   title:
-    en: Space Climate Observatory (SCO)
+    en: Space for Climate Observatory (SCO)
 - id: geo-activities-tigge
   props:
     acronym: TIGGE
