@@ -12,7 +12,12 @@
   <!-- AddAny added to the GEO Knowledge Hub by default -->
   <script>
     var a2a_config = a2a_config || {};
-    a2a_config.num_services = 6;
+    a2a_config.num_services = {{ share_widget.config.number_of_services }};
   </script>
-  <script async src="https://static.addtoany.com/menu/page.js"></script>
+
+  <!-- Addthis: Base -->
+  <script async src="{{ share_widget.base.script }}"></script>
+
+  <!-- Plausible: Analytics script -->
+  <script defer data-domain="{{ analytics.domain }}" src="{{ analytics.script }}"></script>
 {% endblock javascript %}
