@@ -11,6 +11,9 @@
 from importlib import import_module
 
 MODULES = [
+    # Analytics and Share widget
+    "geo_knowledge_hub.modules.analytics",
+    "geo_knowledge_hub.modules.share",
     # Configurations and context
     "geo_knowledge_hub.modules.menu",
     "geo_knowledge_hub.modules.context",
