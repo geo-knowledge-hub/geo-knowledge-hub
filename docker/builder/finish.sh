@@ -10,4 +10,4 @@
 #
 # 1. Stopping the services
 #
-docker-compose -f docker/builder/docker-compose.yml down
+docker compose -f docker/builder/docker-compose.yml down
