@@ -325,6 +325,15 @@
               </section>
             {%- endblock record_details -%}
 
+            {# More like this records #}
+            {% if more_like_this_records %}
+              <section class="ui container rel-mt-2">
+                <h2>Explore similar content</h2>
+
+                <div id="details-more-like-this-records-div" class="rel-mt-2" data-moreLikeThisRecords='{{ more_like_this_records | tojson }}'></div>
+              </section>
+            {% endif %}
+
             {# Record footer #}
             {%- block record_footer -%}
             {%- endblock record_footer -%}
