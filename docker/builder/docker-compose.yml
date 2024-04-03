@@ -13,7 +13,7 @@ services:
     build:
       context: ${PWD}/docker/builder/services/verdaccio/
       dockerfile: ${PWD}/docker/builder/services/verdaccio/Dockerfile
-    image: verdaccio-registry:5.10
+    image: verdaccio-registry:5.10.2
     hostname: "verdaccio-registry"
     container_name: "verdaccio-registry"
     network_mode: bridge

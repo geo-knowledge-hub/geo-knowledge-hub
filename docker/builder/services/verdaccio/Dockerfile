@@ -10,7 +10,7 @@
 
 FROM node:12
 
-RUN npm install -g verdaccio \
+RUN npm install -g verdaccio@5.10.2 \
     && npm install -g verdaccio-auth-memory \
     && npm install -g verdaccio-memory \
     && npm install -g npm-auth-to-token@1.0.0
