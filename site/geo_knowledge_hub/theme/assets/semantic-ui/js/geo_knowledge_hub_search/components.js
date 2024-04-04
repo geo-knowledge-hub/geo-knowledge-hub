@@ -71,21 +71,17 @@ export const CustomRecordResultsListItem = ({ result }) => {
           <Label size="tiny" color={recordBadge.color}>
             <i className={`icon ${recordBadge.icon}`}></i>{recordBadge.name}
           </Label>
-          {programmeActivityAcronym && (
-            <Label size="tiny" color="programme-activity-label">
-              {programmeActivityAcronym}
-            </Label>
-          )}
-          <Label size="tiny" className="primary">
+          <Label size="tiny" className="neutral">
             {publicationDate} ({version})
           </Label>
           <Label size="tiny" className="neutral">
             {resourceType}
           </Label>
-          {/*<Label size="tiny" className={`access-status ${accessStatusId}`}>*/}
-          {/*  {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}*/}
-          {/*  {accessStatus}*/}
-          {/*</Label>*/}
+          {programmeActivityAcronym && (
+            <Label size="tiny" className="neutral">
+              {programmeActivityAcronym}
+            </Label>
+          )}
         </Item.Extra>
         <Item.Header as="h2">
           <a href={viewLink}>{title}</a>

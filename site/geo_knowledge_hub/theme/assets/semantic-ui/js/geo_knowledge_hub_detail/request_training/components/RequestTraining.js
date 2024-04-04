@@ -36,7 +36,6 @@ export const RequestTraining = ({
       <Button
         fluid
         size={"huge"}
-        color={"teal"}
         animated={"fade"}
         className={"details-request-training-button"}
         onClick={() => {

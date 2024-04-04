@@ -181,7 +181,7 @@ a {
 }
 
 /*------------------------------------------------------
- Record Landing page definitions (Packages and records)
+ Record Landing page definitions (General)
 -------------------------------------------------------*/
 #record-title-section {
   margin-top: 2em;
@@ -199,8 +199,63 @@ section#user-stories > .ui.container > .grid > .column {
     max-width: 20em;
 }
 
-.details-request-training-button {
+.rdm-sidebar .ui.button.details-request-training-button {
   height: 90px;
+
+  color: white;
+  background-color: @primaryDarkenColor;
+}
+
+// Previewer style
+.pfiles.files {
+  display: flex;
+  overflow-y: auto;
+  white-space: nowrap;
+  margin-bottom: 20px;
+  max-height: 23em;
+}
+
+.pfiles.files .ui.list {
+  width: 100%;
+  scrollbar-width: auto;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.pfiles.plist.ui.accordion.panel {
+  border-radius: 0px 0px 5px 5px;
+}
+
+.pfiles.pview.ui.accordion.panel {
+  border-radius: 5px 5px 0px 0px;
+}
+
+.pfiles.ui.accordion.panel .title.panel-heading {
+  background-color: white;
+  cursor: unset;
+}
+
+.pfiles.ui.accordion.panel .item {
+  padding: 1.2em;
+}
+
+.pfiles.ui.accordion.panel .item .content.mini {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pfiles.ui.accordion.panel .item .metadata {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pfiles.ui.accordion.panel .metadata .file-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.pfiles.ui.accordion.panel .file-info .file-key {
+  max-width: 30em;
 }
 
 /*------------------------------------------------------
@@ -252,73 +307,22 @@ section#user-stories > .ui.container > .grid > .column {
 /*-----------------------------
  Marketplace Items Landing page
 -------------------------------*/
-.marketplace.files {
-  display: flex;
-  overflow-y: auto;
-  white-space: nowrap;
-  margin-bottom: 20px;
-  max-height: 22em;
-}
-
-.marketplace.files .ui.list {
-  width: 100%;
-  border-radius: 5px;
-  scrollbar-width: auto;
-  scrollbar-color: #888 #f1f1f1;
-}
-
-.marketplace.ui.accordion.panel {
-  border-radius: 0;
-}
-
-.marketplace.ui.accordion.panel .title.panel-heading {
-  background-color: white;
-  cursor: unset;
-}
-
-.marketplace.ui.accordion.panel .item {
-  padding: 1.2em;
-}
-
-.marketplace.ui.accordion.panel .item .content.mini {
+.marketplace.ui.message {
   display: flex;
   justify-content: space-between;
-}
-
-.marketplace.ui.accordion.panel .item .metadata {
-  display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.marketplace.ui.accordion.panel .metadata .file-info {
-  display: flex;
-  flex-direction: column;
-}
+.marketplace.rdm-sidebar .ui.button.launch-button {
+  height: 90px;
 
-.marketplace.ui.accordion.panel .file-info .file-key {
-  max-width: 30em;
-}
-
-.marketplace.community .community-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.marketplace.community .name {
-  margin-top: 0.8em;
-}
-
-.marketplace.community .image.logo {
-  border-radius: 5px;
-}
-
-.marketplace.community .label-container {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 1em;
-}
-
-.marketplace.rdm-sidebar .ui.button {
   margin-right: 0;
+
+  display: inline-flex;
+  vertical-align: middle;
+  justify-content: center;
+  flex-direction: column;
+
+  color: white;
+  background-color: @primaryDarkenColor;
 }
