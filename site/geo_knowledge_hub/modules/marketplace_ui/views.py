@@ -35,6 +35,9 @@ from geo_knowledge_hub.modules.base.utilities import endpoint as endpoint_utilit
 from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
 from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 from geo_knowledge_hub.modules.base.utilities import (
+    related_records as related_records_utilities,
+)
+from geo_knowledge_hub.modules.base.utilities import (
     serialization as serialization_utilities,
 )
 
@@ -119,11 +122,8 @@ def geo_marketplace_item_detail(
     more_like_this_records = []
 
     if not is_preview:
-        more_like_this_records = current_marketplace_service.search_more_like_this(
-            identity, record_data["id"], size=3
-        )
-        more_like_this_records = record_utilities.serializer_dump_records(
-            more_like_this_records
+        more_like_this_records = related_records_utilities.more_like_this_record(
+            identity, record_data["id"], current_marketplace_service, 3
         )
 
     return render_template(

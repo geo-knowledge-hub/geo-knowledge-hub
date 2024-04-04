@@ -18,6 +18,7 @@ from geo_rdm_records.base.resources.serializers import (
 from geo_rdm_records.modules.packages.requests.feed import FeedPostRequest
 from geo_rdm_records.modules.packages.requests.training import TrainingSessionRequest
 from geo_rdm_records.modules.security.permissions import need_permission
+from geo_rdm_records.proxies import current_geo_packages_service
 from invenio_app_rdm.records_ui.views.decorators import (
     pass_draft_community,
     pass_is_preview,
@@ -37,6 +38,9 @@ from geo_knowledge_hub.modules.base.decorators import (
 from geo_knowledge_hub.modules.base.utilities import endpoint as endpoint_utilities
 from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
 from geo_knowledge_hub.modules.base.utilities import records as record_utilities
+from geo_knowledge_hub.modules.base.utilities import (
+    related_records as related_records_utilities,
+)
 from geo_knowledge_hub.modules.base.utilities import (
     relationship as relationship_utilities,
 )
@@ -79,6 +83,14 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
     )
     package_requests = json.dumps(package_requests)
 
+    # Searching records like the current one
+    more_like_this_records = []
+
+    if not is_preview:
+        more_like_this_records = related_records_utilities.more_like_this_record(
+            identity, record_data["id"], current_geo_packages_service, 3
+        )
+
     return render_template(
         "geo_knowledge_hub/details/detail.html",
         # Invenio App RDM template variables
@@ -100,6 +112,7 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
         # GEO Knowledge Hub template variables
         is_knowledge_package=True,
         assistance_requests=package_requests,
+        more_like_this_records=more_like_this_records,
         **record_metadata,
         **record_endpoint,
     )

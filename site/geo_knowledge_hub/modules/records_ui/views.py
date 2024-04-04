@@ -19,6 +19,7 @@ from invenio_app_rdm.records_ui.views.decorators import (
     pass_is_preview,
 )
 from invenio_app_rdm.records_ui.views.deposits import get_search_url, new_record
+from invenio_rdm_records.proxies import current_rdm_records_service
 
 from geo_knowledge_hub.modules.base.config import get_form_config
 from geo_knowledge_hub.modules.base.decorators import (
@@ -33,6 +34,9 @@ from geo_knowledge_hub.modules.base.decorators import (
 from geo_knowledge_hub.modules.base.utilities import endpoint as endpoint_utilities
 from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
 from geo_knowledge_hub.modules.base.utilities import records as record_utilities
+from geo_knowledge_hub.modules.base.utilities import (
+    related_records as related_records_utilities,
+)
 from geo_knowledge_hub.modules.base.utilities import (
     serialization as serialization_utilities,
 )
@@ -72,6 +76,14 @@ def geo_record_detail(
     record_metadata = metadata_utilities.expand_metadata_from_record(identity, record)
     record_endpoint = endpoint_utilities.generate_record_endpoint()
 
+    # Searching records like the current one
+    more_like_this_records = []
+
+    if not is_preview:
+        more_like_this_records = related_records_utilities.more_like_this_record(
+            identity, record_data["id"], current_rdm_records_service, 3
+        )
+
     return render_template(
         "geo_knowledge_hub/details/detail.html",
         # Invenio App RDM template variables
@@ -88,6 +100,7 @@ def geo_record_detail(
         package=package,
         current_package=package_id,
         assistance_requests=[],
+        more_like_this_records=more_like_this_records,
         **record_metadata,
         **record_endpoint,
     )
