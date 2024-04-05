@@ -9,18 +9,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { MoreLikeThisRecords } from "@geo-knowledge-hub/geo-components-react";
+import { RecordsTable } from "@geo-knowledge-hub/geo-components-react";
 
 const detailsMoreLikeThisRecordsDiv = document.getElementById("details-more-like-this-records-div");
 
 /**
- * Render `More Like This` component
+ * Render `More like this component` component
  */
 export const renderComponent = (...args) => {
   if (detailsMoreLikeThisRecordsDiv) {
     ReactDOM.render(
-      <MoreLikeThisRecords
-        records={JSON.parse(detailsMoreLikeThisRecordsDiv.dataset.morelikethisrecords)}
+      <RecordsTable
+        tableData={JSON.parse(detailsMoreLikeThisRecordsDiv.dataset.morelikethisrecords)}
       />,
       detailsMoreLikeThisRecordsDiv,
     );

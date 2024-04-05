@@ -299,7 +299,7 @@
 
             {# External resources #}
             {% if record.ui.related_identifiers %}
-              <section id="related-identifiers" class="rel-mt-2">
+              <section id="related-identifiers" class="rel-mt-3">
                 <h2 id="related-identifiers-heading">{{ _('Useful links') }}</h2>
 
                 {{ show_related_identifiers(record.ui.related_identifiers) }}
@@ -308,18 +308,13 @@
 
             {# Additional details #}
             {%- block record_details -%}
-              <section id="additional-details" class="rel-mt-2" aria-label="{{ _('Additional record details') }}">
+              <section id="additional-details" class="rel-mt-3" aria-label="{{ _('Additional record details') }}">
                 {%- include "geo_knowledge_hub/details/details/details.html" %}
               </section>
             {%- endblock record_details -%}
 
-            {# More like this records #}
-            {% if more_like_this_records %}
-              <section class="ui container rel-mt-2">
-                <h2>See also</h2>
-                <div id="details-more-like-this-records-div" class="rel-mt-2" data-moreLikeThisRecords='{{ more_like_this_records | tojson }}'></div>
-              </section>
-            {% endif %}
+            {# See also #}
+            {%- include "geo_knowledge_hub/details/details/more_like_this.html" %}
 
             {# Record footer #}
             {%- block record_footer -%}

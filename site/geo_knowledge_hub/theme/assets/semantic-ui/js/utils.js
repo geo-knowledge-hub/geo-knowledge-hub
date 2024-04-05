@@ -17,7 +17,7 @@ import _get from "lodash/get";
 export const extractRecordBadge = (recordType) => {
   let recordBadge = {
     name: "Open",
-    color: "green",
+    color: "primary",
     icon: "lock open"
   };
 
@@ -25,7 +25,7 @@ export const extractRecordBadge = (recordType) => {
   if (recordType === "marketplace-item") {
     recordBadge = {
       name: "Marketplace",
-      color: "olive",
+      color: "primary",
       icon: "building"
     }
   }

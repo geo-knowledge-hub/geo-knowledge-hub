@@ -198,7 +198,7 @@
                     </div>
                     <div class="right floated right aligned column">
                       {%- if programme_activity %}
-                        <a class="ui label small grey"
+                        <a class="ui label small gray"
                            title="{{ _('GEO Work Programme Activity') }}"
                            href="{{ programme_activity.props.uri }}"
                            target="_blank">
@@ -206,21 +206,21 @@
                         </a>
                       {% endif %}
                       {% if record.ui.resource_type %}
-                        <span class="ui label small grey" title="{{ _('Resource type') }}">{{ record.ui.resource_type.title_l10n }}</span>
+                        <span class="ui label small gray" title="{{ _('Resource type') }}">{{ record.ui.resource_type.title_l10n }}</span>
                       {% endif %}
                       {% if record.access.record == 'restricted' %}
                         <span
-                          class="ui label small grey"
-                          title="{{ _('Restricted') }}"
-                          data-tooltip="Application restricted to users with access"
+                          class="ui label small red"
+                          title="{{ _('Open') }}"
+                          data-tooltip="Application in Open category, with restrict access"
                           data-inverted=""
                         >
-                        <i class="icon lock"></i> Restricted
+                        <i class="icon lock open"></i> Open
                       </span>
 
                       {% else %}
                         <span
-                          class="ui label small grey"
+                          class="ui label small primary"
                           title="{{ _('Open') }}"
                           data-tooltip="Open application shared with the GEO Community"
                           data-inverted=""
@@ -256,20 +256,11 @@
               {%- include "geo_knowledge_hub/details/details/description.html" %}
             {%- endblock record_content -%}
 
-            {# User Stories (Draft version) #}
-            {%- block user_stories -%}
-              {% if is_knowledge_package and user_stories %}
-                <section id="user-stories" class="rel-mt-3" aria-label="{{ _('User Stories') }}">
-                  {%- include "geo_knowledge_hub/details/details/user-stories.html" %}
-                </section>
-              {% endif %}
-            {%- endblock user_stories -%}
-
             {# Knowledge Resources #}
             {%- block record_knowledge_elements -%}
               {% if is_knowledge_package %}
                 {%- set knowledge_elements_title = _("Knowledge Resources") -%}
-                <section id="knowledge-elements" class="rel-mt-5" aria-label="{{ knowledge_elements_title }}">
+                <section id="knowledge-elements" class="rel-mt-3" aria-label="{{ knowledge_elements_title }}">
                   {%- include "geo_knowledge_hub/details/details/elements.html" %}
                 </section>
               {% endif %}
@@ -317,11 +308,19 @@
               {%- endif %}
             {%- endblock record_files -%}
 
+            {# User Stories#}
+            {%- block user_stories -%}
+              {% if is_knowledge_package and user_stories %}
+                <section id="user-stories" class="rel-mt-3" aria-label="{{ _('User Stories') }}">
+                  {%- include "geo_knowledge_hub/details/details/user-stories.html" %}
+                </section>
+              {% endif %}
+            {%- endblock user_stories -%}
+
             {# External resources #}
             {% if record.ui.related_identifiers %}
-              <section id="related-identifiers">
-                <div class="ui divider"></div>
-                <h2 id="related-identifiers-heading">{{ _('Useful links') }}</h2>
+              <section id="related-identifiers" class="rel-mt-3">
+                <h2 id="related-identifiers-heading">{{ _('Associated links') }}</h2>
 
                 {{ show_related_identifiers(record.ui.related_identifiers) }}
               </section>
@@ -329,18 +328,13 @@
 
             {# Additional details #}
             {%- block record_details -%}
-              <section id="additional-details" class="rel-mt-2" aria-label="{{ _('Additional details') }}">
+              <section id="additional-details" class="rel-mt-3" aria-label="{{ _('Additional details') }}">
                 {%- include "geo_knowledge_hub/details/details/details.html" %}
               </section>
             {%- endblock record_details -%}
 
-            {# More like this records #}
-            {% if more_like_this_records %}
-              <section class="ui container rel-mt-2">
-                <h2>See also</h2>
-                <div id="details-more-like-this-records-div" class="rel-mt-2" data-moreLikeThisRecords='{{ more_like_this_records | tojson }}'></div>
-              </section>
-            {% endif %}
+            {# See also #}
+            {%- include "geo_knowledge_hub/details/details/more_like_this.html" %}
 
             {# Record footer #}
             {%- block record_footer -%}
