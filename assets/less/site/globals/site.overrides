@@ -211,7 +211,6 @@ section#user-stories > .ui.container > .grid > .column {
   display: flex;
   overflow-y: auto;
   white-space: nowrap;
-  margin-bottom: 20px;
   max-height: 23em;
 }
 
@@ -247,6 +246,11 @@ section#user-stories > .ui.container > .grid > .column {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.pfiles.ui.accordion.panel .item .content .actions {
+  display: flex;
+  align-items: center;
 }
 
 .pfiles.ui.accordion.panel .metadata .file-info {
