@@ -29,9 +29,9 @@ export const CommunityRecordResultsListItem = ({ result }) => {
   const recordBadge = extractRecordBadge(result.parent.type);
   const recordLinks = recordTypeLinksFactory(result.id, result.parent.type);
 
-  const access_status_id = _get(result, "ui.access_status.id", "open");
-  const access_status = _get(result, "ui.access_status.title_l10n", "Open");
-  const access_status_icon = _get(result, "ui.access_status.icon", "unlock");
+  const accessStatusId = _get(result, "ui.access_status.id", "open");
+  const accessStatus = _get(result, "ui.access_status.title_l10n", "Open");
+  const accessStatusIcon = _get(result, "ui.access_status.icon", "unlock");
   const createdDate = _get(
     result,
     "ui.created_date_l10n_long",
@@ -50,7 +50,7 @@ export const CommunityRecordResultsListItem = ({ result }) => {
     "ui.publication_date_l10n_long",
     "No publication date found."
   );
-  const resource_type = _get(
+  const resourceType = _get(
     result,
     "ui.resource_type.title_l10n",
     "No resource type"
@@ -72,23 +72,23 @@ export const CommunityRecordResultsListItem = ({ result }) => {
           <Label size="tiny" color={recordBadge.color}>
             <i className={`icon ${recordBadge.icon}`}></i>{recordBadge.name}
           </Label>
+          <Label size="tiny" color={"gray"}>
+            {publicationDate} ({version})
+          </Label>
+          <Label size="tiny" color={"gray"}>
+            {resourceType}
+          </Label>
           {programmeActivityAcronym && (
-            <Label size="tiny" className={"programme-activity-label"}>
+            <Label size="tiny" color={"gray"}>
               {programmeActivityAcronym}
             </Label>
           )}
-          <Label size="tiny" className="primary">
-            {publicationDate} ({version})
-          </Label>
-          <Label size="tiny" className="neutral">
-            {resource_type}
-          </Label>
-          {/*<Label size="tiny" className={`access-status ${access_status_id}`}>*/}
-          {/*  {access_status_icon && (*/}
-          {/*    <i className={`icon ${access_status_icon}`} />*/}
-          {/*  )}*/}
-          {/*  {access_status}*/}
-          {/*</Label>*/}
+          {accessStatusId === "restricted" && (
+            <Label size="tiny" className={`access-status ${accessStatusId}`}>
+              {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}
+              {accessStatus}
+            </Label>
+          )}
         </Item.Extra>
         <Item.Header as="h2">
           <a href={viewLink}>{title}</a>

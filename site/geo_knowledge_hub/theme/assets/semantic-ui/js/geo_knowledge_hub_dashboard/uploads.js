@@ -149,8 +149,14 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
           <Label size="tiny" color={recordBadge.color}>
             <i className={`icon ${recordBadge.icon}`}></i>{recordBadge.name}
           </Label>
+          <Label size="tiny" color={"gray"}>
+            {publicationDate} ({version})
+          </Label>
+          <Label size="tiny" color={"gray"}>
+            {resourceType}
+          </Label>
           {programmeActivityAcronym && (
-            <Label size="tiny" className={"programme-activity-label"}>
+            <Label size="tiny" color={"gray"}>
               {programmeActivityAcronym}
             </Label>
           )}
@@ -159,16 +165,12 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
               {RECORD_STATUS[result.status].title}
             </Label>
           )}
-          <Label size="tiny" className="primary">
-            {publicationDate} ({version})
-          </Label>
-          <Label size="tiny" className="neutral">
-            {resourceType}
-          </Label>
-          {/*<Label size="tiny" className={`access-status ${accessStatusId}`}>*/}
-          {/*  {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}*/}
-          {/*  {accessStatus}*/}
-          {/*</Label>*/}
+          {accessStatusId === "restricted" && (
+            <Label size="tiny" className={`access-status ${accessStatusId}`}>
+              {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}
+              {accessStatus}
+            </Label>
+          )}
           {isPackage && (
             <Button
               compact
