@@ -22,8 +22,8 @@ RDM_COMMUNITIES_ROUTES = {
 
 # GEO Components React
 # ====================
-GKH_CAROUSEL_ENGAGEMENTS_URL = "/search?q=metadata.engagement_priorities.id:"
-GKH_CAROUSEL_CONVENTIONS_URL = "/search?q=metadata.engagement_priorities.id:"
+GKH_CAROUSEL_ENGAGEMENTS_URL = "/search?q=metadata.engagement_priorities.id"
+GKH_CAROUSEL_CONVENTIONS_URL = "/search?q=metadata.engagement_priorities.id"
 
 GKH_LATEST_RECORDS_URL = "/api/packages?sort=newest&size=3"
 GKH_LATEST_RECORDS_MORE_URL = "/search"
