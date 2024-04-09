@@ -30,9 +30,9 @@ export const EmptyResultsElement = ({ queryString, searchPath }) => {
             <Header as="h2">
               {queryString.trim()
                 ? i18next.t(
-                    "We couldn't find any matches for your search query"
+                    "We could not find any matches for your search query"
                   )
-                : i18next.t("This package don't have associated resources yet")}
+                : i18next.t("This Package does not have Knowledge Resources yet")}
             </Header>
           </Segment>
         </Grid.Column>
