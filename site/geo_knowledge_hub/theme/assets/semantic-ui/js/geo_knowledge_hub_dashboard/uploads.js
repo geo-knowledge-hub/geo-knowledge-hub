@@ -14,19 +14,26 @@ import PropTypes from "prop-types";
 
 import {
   Button,
-  Divider,
   Header,
   Icon,
   Item,
   Label,
   Segment,
   Dropdown,
+  Grid,
 } from "semantic-ui-react";
+
+import { Trans } from "react-i18next";
 
 import { http } from "react-invenio-forms";
 import { parametrize } from "react-overridable";
 
+import { SearchBar } from "react-searchkit";
+import { GridResponsiveSidebarColumn } from "react-invenio-forms";
+
 import {
+  SearchAppFacets,
+  SearchAppResultsPane,
   ContribSearchAppFacets,
   ContribBucketAggregationElement,
   ContribBucketAggregationValuesElement,
@@ -42,10 +49,7 @@ import {
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 import { SearchItemCreators } from "@invenio-app-rdm/utils";
 
-import {
-  DashboardResultView,
-  DashboardSearchLayoutHOC,
-} from "@invenio-app-rdm/user_dashboard/base";
+import { DashboardResultView } from "@invenio-app-rdm/user_dashboard/base";
 import { createSearchAppInit } from "@js/invenio_search_ui";
 
 import {
@@ -83,25 +87,25 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
   const createdDate = _get(
     result,
     "ui.created_date_l10n_long",
-    i18next.t("No creation date found.")
+    i18next.t("No creation date found."),
   );
   const creators = _get(result, "ui.creators.creators", []).slice(0, 3);
 
   const descriptionStripped = _get(
     result,
     "ui.description_stripped",
-    i18next.t("No description")
+    i18next.t("No description"),
   );
 
   const publicationDate = _get(
     result,
     "ui.publication_date_l10n_long",
-    i18next.t("No publication date found.")
+    i18next.t("No publication date found."),
   );
   const resourceType = _get(
     result,
     "ui.resource_type.title_l10n",
-    i18next.t("No resource type")
+    i18next.t("No resource type"),
   );
   const title = _get(result, "metadata.title", i18next.t("No title"));
   const subjects = _get(result, "ui.subjects", []);
@@ -109,7 +113,7 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
   const isPublished = result.is_published;
 
   const programmeActivityAcronym = extractProgrammeActivityAcronym(
-    _get(result, "metadata.geo_work_programme_activity.title.en")
+    _get(result, "metadata.geo_work_programme_activity.title.en"),
   );
 
   const isPackage = _get(result, "parent.type", null) === "package";
@@ -147,7 +151,8 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
       <Item.Content style={{ cursor: "default" }}>
         <Item.Extra className="labels-actions">
           <Label size="tiny" color={recordBadge.color}>
-            <i className={`icon ${recordBadge.icon}`}></i>{recordBadge.name}
+            <i className={`icon ${recordBadge.icon}`}></i>
+            {recordBadge.name}
           </Label>
           <Label size="tiny" color={"gray"}>
             {publicationDate} ({version})
@@ -241,35 +246,63 @@ RDMRecordResultsListItem.defaultProps = {
 
 export const RDMEmptyResults = (props) => {
   const { queryString } = props;
+  const recordTypes = [
+    {
+      key: 1,
+      text: (
+        <p>
+          Knowledge <b>Package</b>
+        </p>
+      ),
+      value: 1,
+      as: "a",
+      href: "/uploads/packages/new",
+    },
+    {
+      key: 2,
+      text: (
+        <p>
+          Knowledge <b>Resource</b>
+        </p>
+      ),
+      value: 2,
+      as: "a",
+      href: "/uploads/new",
+    },
+    {
+      key: 3,
+      text: (
+        <p>
+          Marketplace <b>Item</b>
+        </p>
+      ),
+      value: 3,
+      as: "a",
+      href: "/uploads/marketplace/items/new",
+    },
+  ];
+
   return queryString === "" ? (
     <Segment.Group>
       <Segment placeholder textAlign="center" padded="very">
         <Header as="h1" align="center">
           <Header.Content>
-            {i18next.t("Get started!")}
-            <Header.Subheader>
-              {i18next.t("Make your first upload!")}
-            </Header.Subheader>
+            {i18next.t("You do not have any records yet")}
           </Header.Content>
         </Header>
-        <Divider hidden />
-        <Button.Group>
-          <Button
-            positive
-            icon="upload"
-            floated="right"
-            href="/uploads/packages/new"
-            content={i18next.t("New package")}
-          />
-          <Button.Or />
-          <Button
-            positive
-            icon="upload"
-            floated="right"
-            href="/uploads/new"
-            content={i18next.t("New resource")}
-          />
-        </Button.Group>
+        <div>
+          <Trans>
+            Click{" "}
+            <Dropdown
+              className={"selector"}
+              text="here"
+              as="a"
+              icon={false}
+              options={recordTypes}
+            />{" "}
+            to create your first record
+          </Trans>
+        </div>
       </Segment>
     </Segment.Group>
   ) : (
@@ -283,36 +316,43 @@ RDMEmptyResults.propTypes = {
   queryString: PropTypes.string.isRequired,
 };
 
-export const DashboardUploadsSearchLayout = DashboardSearchLayoutHOC({
-  searchBarPlaceholder: i18next.t("Search in my uploads..."),
-  newBtn: (
-    <Dropdown
-      text="New upload"
-      icon="upload"
-      floating
-      labeled
-      button
-      className="icon green"
-    >
-      <Dropdown.Menu>
-        <Dropdown.Item
-          icon="box"
-          text="Package"
-          onClick={() => {
-            window.location = "/uploads/packages/new";
-          }}
+const DashboardUploadsSearchLayout = (props) => {
+  const [sidebarVisible, setSidebarVisible] = React.useState(false);
+  const { config } = props;
+
+  return (
+    <Grid>
+      <Grid.Column only="mobile tablet" mobile={2} tablet={1}>
+        <Button
+          basic
+          icon="sliders"
+          onClick={() => setSidebarVisible(true)}
+          aria-label={i18next.t("Filter results")}
         />
-        <Dropdown.Item
-          icon="boxes"
-          text="Resource"
-          onClick={() => {
-            window.location = "/uploads/new";
-          }}
-        />
-      </Dropdown.Menu>
-    </Dropdown>
-  ),
-});
+      </Grid.Column>
+
+      <Grid.Column mobile={14} tablet={14} computer={12} floated="right">
+        <SearchBar placeholder={i18next.t("Search in my uploads...")} />
+      </Grid.Column>
+
+      <Grid.Row>
+        <GridResponsiveSidebarColumn
+          width={4}
+          open={sidebarVisible}
+          onHideClick={() => setSidebarVisible(false)}
+        >
+          <SearchAppFacets aggs={config.aggs} appName={undefined} />
+        </GridResponsiveSidebarColumn>
+        <Grid.Column mobile={16} tablet={16} computer={12}>
+          <SearchAppResultsPane
+            layoutOptions={config.layoutOptions}
+            appName={undefined}
+          />
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
+  );
+};
 
 export const defaultComponents = {
   "BucketAggregation.element": ContribBucketAggregationElement,

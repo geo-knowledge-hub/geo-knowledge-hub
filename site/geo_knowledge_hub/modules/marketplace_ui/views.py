@@ -50,11 +50,17 @@ from geo_knowledge_hub.modules.base.utilities import (
 @pass_draft_community
 def geo_marketplace_item_create(community=None):
     """Deposit page to create resources."""
+    new_record_configuration = new_record()
+
+    # Removing default `license` from the marketplace interface
+    if "rights" in new_record_configuration["metadata"]:
+        del new_record_configuration["metadata"]["rights"]
+
     return render_template(
         "geo_knowledge_hub/marketplace/deposit/index.html",
         forms_config=get_form_config(createUrl=("/api/marketplace/items")),
         searchbar_config=dict(searchUrl=get_search_url()),
-        record=new_record(),
+        record=new_record_configuration,
         files=dict(default_preview=None, entries=[], links={}),
         preselectedCommunity=community,
     )

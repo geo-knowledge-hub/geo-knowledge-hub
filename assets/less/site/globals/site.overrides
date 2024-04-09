@@ -136,6 +136,13 @@ a {
   height: 45vh;
 }
 
+/*------------------------------------
+ User Dashboard definitions (General)
+--------------------------------------*/
+.ui.dropdown.selector i.icon.dropdown {
+  margin: 0 0 0 0;
+}
+
 /*-------------------------------------------------
  Deposit definitions (General - Packages and records)
 ---------------------------------------------------*/
@@ -165,6 +172,11 @@ a {
 
 .ui.steps .link.step, .ui.steps a.step {
   text-decoration: none;
+}
+
+.ui.grid .row.highlight-background .column {
+  padding-left: 0.7em;
+  padding-right: 0.7em;
 }
 
 /*-------------------------------------
