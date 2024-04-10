@@ -325,7 +325,7 @@ export class PackageDepositFormComponentBase extends Component {
                 active
                 label={i18next.t("People")}
               >
-                <Grid columns={2} divided>
+                <Grid columns={2} divided stackable>
                   <Grid.Row>
                     <Grid.Column>
                       <CreatibutorsField
@@ -370,7 +370,7 @@ export class PackageDepositFormComponentBase extends Component {
                 active
                 label={i18next.t("Initiatives, audiences, and subjects")}
               >
-                <Grid columns={2} divided>
+                <Grid columns={2} divided stackable>
                   <Grid.Row columns={1}>
                     <Grid.Column>
                       <SubjectsField

@@ -332,7 +332,7 @@ const DashboardUploadsSearchLayout = (props) => {
       </Grid.Column>
 
       <Grid.Column mobile={14} tablet={14} computer={12} floated="right">
-        <SearchBar placeholder={i18next.t("Search in my uploads...")} />
+        <SearchBar placeholder={i18next.t("Search your uploads")} />
       </Grid.Column>
 
       <Grid.Row>
