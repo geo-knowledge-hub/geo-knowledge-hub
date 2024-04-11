@@ -58,6 +58,8 @@ import {
   recordTypeLinksFactory,
 } from "../utils";
 
+import { DisplayPartOfCommunity } from "../components/search";
+
 const RECORD_STATUS = {
   in_review: { color: "warning", title: i18next.t("In review") },
   declined: { color: "negative", title: i18next.t("Declined") },
@@ -118,6 +120,12 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
 
   const isPackage = _get(result, "parent.type", null) === "package";
   const packageDashboard = `/packages/${result.id}/dashboard`;
+
+  const recordCommunity = _get(
+    result,
+    "expanded.parent.communities.default",
+    null,
+  );
 
   // Derivatives
   const editRecord = () => {
@@ -222,13 +230,23 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
               {subject.title_l10n}
             </Label>
           ))}
-          {createdDate && (
-            <div>
-              <small>
-                {i18next.t("Uploaded on")} <span>{createdDate}</span>
-              </small>
-            </div>
-          )}
+
+          <div className="flex justify-space-between align-items-end">
+            <small>
+              {recordCommunity && (
+                <DisplayPartOfCommunity community={recordCommunity} />
+              )}
+              <p>
+                {createdDate && (
+                  <>
+                    {i18next.t("Uploaded on {{uploadDate}}", {
+                      uploadDate: createdDate,
+                    })}
+                  </>
+                )}
+              </p>
+            </small>
+          </div>
         </Item.Extra>
       </Item.Content>
     </Item>
