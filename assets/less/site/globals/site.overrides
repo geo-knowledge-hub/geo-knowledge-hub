@@ -361,6 +361,8 @@ section#user-stories > .ui.container > .grid > .column {
  Marketplace Items Landing page
 -------------------------------*/
 .marketplace.ui.message {
+  padding: 0 0.7em 0 0.7em;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
