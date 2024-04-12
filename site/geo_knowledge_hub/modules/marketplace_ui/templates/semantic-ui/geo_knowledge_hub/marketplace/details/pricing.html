@@ -1,0 +1,15 @@
+{#
+    Copyright (C) 2024 GEO Secretariat.
+
+    geo-knowledge-hub is free software; you can redistribute it and/or modify
+    it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{# Pricing plans #}
+{% if record.metadata.marketplace.pricing %}
+  <section id="pricing-plans" class="rel-mt-3" aria-label="{{ _('Pricing plans table') }}">
+    <h2 id="pricing-plans-heading">{{ _('Pricing') }}</h2>
+
+    <div id="details-pricing-plans-div" data-record='{{ record | tojson }}'></div>
+  </section>
+{% endif %}

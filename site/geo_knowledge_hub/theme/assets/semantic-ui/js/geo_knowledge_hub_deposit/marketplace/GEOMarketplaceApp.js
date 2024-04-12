@@ -53,6 +53,7 @@ import {
   TargetAudienceField,
   EngagementPriorityField,
   WorkProgrammeActivityField,
+  MarketplacePricingPlansField
 } from "@geo-knowledge-hub/geo-components-react";
 
 import { LocationsField } from "@geo-knowledge-hub/invenio-geographic-components-react";
@@ -423,6 +424,16 @@ export class GEOMarketplaceApp extends Component {
                     id: result.id,
                     link: result.props.url,
                   })}
+                />
+              </AccordionField>
+
+              <AccordionField
+                includesPaths={["metadata.marketplace.pricing"]}
+                active
+                label={i18next.t("Pricing plans")}
+              >
+                <MarketplacePricingPlansField
+                  fieldPath="metadata.marketplace.pricing"
                 />
               </AccordionField>
 
