@@ -195,7 +195,7 @@
                     </div>
                     <div class="right floated right aligned column">
                       {%- if programme_activity %}
-                        <a class="ui label small grey"
+                        <a class="ui label small gray"
                            title="{{ _('GEO Work Programme Activity') }}"
                            href="{{ programme_activity.props.uri }}"
                            target="_blank">
@@ -203,10 +203,10 @@
                         </a>
                       {% endif %}
                       {% if record.ui.resource_type %}
-                        <span class="ui label small grey" title="{{ _('Resource type') }}">{{ record.ui.resource_type.title_l10n }}</span>
+                        <span class="ui label small gray" title="{{ _('Resource type') }}">{{ record.ui.resource_type.title_l10n }}</span>
                       {% endif %}
                       <span
-                        class="ui label small grey"
+                        class="ui label small primary"
                         title="{{ _('Marketplace') }}"
                         data-tooltip="Closed application shared with the GEO Community"
                         data-inverted=""
@@ -235,20 +235,23 @@
             {# Description #}
             {%- block record_content -%}
               <section class="ui container">
-                <div class="ui info message marketplace">
-                  <div >
+                <div class="ui stackable grid info message marketplace centered" >
+                  <div class="thirteen wide computer sixteen wide tablet sixteen wide mobile column">
                     <div class="header">
-                      <i class="gift icon"></i> Free commercial application
+                      <i class="building outline icon"></i> Commercial application
                     </div>
-                    <p>This is a commercial application you can use for free. Enjoy our features and services without any cost!</p>
+                    <p>
+                      This is a commercial application for developing Earth Observation Applications. Its use may
+                      require payments. Before using it, please confirm the details below or contact the vendor.
+                    </p>
                   </div>
                   {% if marketplace.vendor_contact %}
-                    <div>
-                      <a class="ui button primary" href="mailto:{{ marketplace.vendor_contact }}">
-                        <i class="icon mail"></i> Contact vendor
-                      </a>
-                    </div>
-                  {% endif %}
+                  <div class="three wide computer sixteen wide tablet sixteen wide mobile column right aligned">
+                    <a class="ui button primary fluid" href="mailto:{{ marketplace.vendor_contact }}">
+                      <i class="icon mail"></i> Contact vendor
+                    </a>
+                  </div>
+                {% endif %}
                 </div>
               </section>
 
