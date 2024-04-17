@@ -159,8 +159,8 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
       <Item.Content style={{ cursor: "default" }}>
         <Item.Extra className="labels-actions mb-0">
           <Grid columns={2} className={"mb-0"}>
-            <Grid.Row className={"pt-0"} only={"computer tablet"}>
-              <Grid.Column className={"pl-0"}>
+            <Grid.Row className={"pt-0"}>
+              <Grid.Column computer={8} tablet={8} mobile={16} className={"pl-0"}>
                 <Label size="tiny" color={recordBadge.color}>
                   <i className={`icon ${recordBadge.icon}`}></i>
                   {recordBadge.name}
@@ -197,7 +197,7 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
                   </Label>
                 )}
               </Grid.Column>
-              <Grid.Column>
+              <Grid.Column width={8} only={"computer tablet"}>
                 {isPackage && (
                   <Button
                     compact
