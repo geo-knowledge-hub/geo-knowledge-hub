@@ -157,59 +157,76 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
         </Item.Content>
       </div>
       <Item.Content style={{ cursor: "default" }}>
-        <Item.Extra className="labels-actions">
-          <Label size="tiny" color={recordBadge.color}>
-            <i className={`icon ${recordBadge.icon}`}></i>
-            {recordBadge.name}
-          </Label>
-          <Label size="tiny" color={"gray"}>
-            {publicationDate} ({version})
-          </Label>
-          <Label size="tiny" color={"gray"}>
-            {resourceType}
-          </Label>
-          {programmeActivityAcronym && (
-            <Label size="tiny" color={"gray"}>
-              {programmeActivityAcronym}
-            </Label>
-          )}
-          {result.status in RECORD_STATUS && result.status !== "published" && (
-            <Label size="tiny" className={RECORD_STATUS[result.status].color}>
-              {RECORD_STATUS[result.status].title}
-            </Label>
-          )}
-          {accessStatusId === "restricted" && (
-            <Label size="tiny" className={`access-status ${accessStatusId}`}>
-              {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}
-              {accessStatus}
-            </Label>
-          )}
-          {isPackage && (
-            <Button
-              compact
-              size="small"
-              floated="right"
-              href={packageDashboard}
-            >
-              <Icon name="dashboard" />
-              {i18next.t("Dashboard")}
-            </Button>
-          )}
-          <Button
-            compact
-            size="small"
-            floated="right"
-            onClick={() => editRecord()}
-          >
-            <Icon name="edit" />
-            {i18next.t("Edit")}
-          </Button>
-          {isPublished && (
-            <Button compact size="small" floated="right" href={viewLink}>
-              <Icon name="eye" />
-              {i18next.t("View")}
-            </Button>
-          )}
+        <Item.Extra className="labels-actions mb-0">
+          <Grid columns={2} className={"mb-0"}>
+            <Grid.Row className={"pt-0"} only={"computer tablet"}>
+              <Grid.Column className={"pl-0"}>
+                <Label size="tiny" color={recordBadge.color}>
+                  <i className={`icon ${recordBadge.icon}`}></i>
+                  {recordBadge.name}
+                </Label>
+                <Label size="tiny" color={"gray"}>
+                  {publicationDate} ({version})
+                </Label>
+                <Label size="tiny" color={"gray"}>
+                  {resourceType}
+                </Label>
+                {programmeActivityAcronym && (
+                  <Label size="tiny" color={"gray"}>
+                    {programmeActivityAcronym}
+                  </Label>
+                )}
+                {result.status in RECORD_STATUS &&
+                  result.status !== "published" && (
+                    <Label
+                      size="tiny"
+                      className={RECORD_STATUS[result.status].color}
+                    >
+                      {RECORD_STATUS[result.status].title}
+                    </Label>
+                  )}
+                {accessStatusId === "restricted" && (
+                  <Label
+                    size="tiny"
+                    className={`access-status ${accessStatusId}`}
+                  >
+                    {accessStatusIcon && (
+                      <i className={`icon ${accessStatusIcon}`} />
+                    )}
+                    {accessStatus}
+                  </Label>
+                )}
+              </Grid.Column>
+              <Grid.Column>
+                {isPackage && (
+                  <Button
+                    compact
+                    size="small"
+                    floated="right"
+                    href={packageDashboard}
+                  >
+                    <Icon name="dashboard" />
+                    {i18next.t("Dashboard")}
+                  </Button>
+                )}
+                <Button
+                  compact
+                  size="small"
+                  floated="right"
+                  onClick={() => editRecord()}
+                >
+                  <Icon name="edit" />
+                  {i18next.t("Edit")}
+                </Button>
+                {isPublished && (
+                  <Button compact size="small" floated="right" href={viewLink}>
+                    <Icon name="eye" />
+                    {i18next.t("View")}
+                  </Button>
+                )}
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
         </Item.Extra>
         <Item.Header as="h2">
           <a href={viewLink}>{title}</a>
@@ -247,6 +264,43 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
               </p>
             </small>
           </div>
+
+          <Grid columns={1} stackable className={"record-result-actions"}>
+            <Grid.Row only={"mobile"} width={16}>
+              {isPackage && (
+                <Grid.Column padded={false}>
+                  <Button
+                    fluid
+                    size={"tiny"}
+                    href={packageDashboard}
+                  >
+                    <Icon name="dashboard" />
+                    {i18next.t("Dashboard")}
+                  </Button>
+                </Grid.Column>
+              )}
+
+              <Grid.Column padded={false}>
+                <Button
+                  fluid
+                  size={"tiny"}
+                  onClick={() => editRecord()}
+                >
+                  <Icon name="edit" />
+                  {i18next.t("Edit")}
+                </Button>
+              </Grid.Column>
+
+              {isPublished && (
+                <Grid.Column padded={false}>
+                  <Button fluid size={"tiny"} href={viewLink}>
+                    <Icon name="eye" />
+                    {i18next.t("View")}
+                  </Button>
+                </Grid.Column>
+              )}
+            </Grid.Row>
+          </Grid>
         </Item.Extra>
       </Item.Content>
     </Item>

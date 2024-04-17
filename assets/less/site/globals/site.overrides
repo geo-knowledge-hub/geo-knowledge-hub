@@ -143,6 +143,11 @@ a {
   margin: 0 0 0 0;
 }
 
+.item.deposits-list-item .extra .ui.grid.record-result-actions .column {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem !important;
+}
+
 /*-------------------------------------------------
  Deposit definitions (General - Packages and records)
 ---------------------------------------------------*/
@@ -259,7 +264,7 @@ section#user-stories > .ui.container > .grid > .column {
 .pfiles.files {
   display: flex;
   overflow-y: auto;
-  white-space: nowrap;
+  //white-space: nowrap;
   max-height: 23em;
 }
 
@@ -309,6 +314,26 @@ section#user-stories > .ui.container > .grid > .column {
 
 .pfiles.ui.accordion.panel .file-info .file-key {
   max-width: 30em;
+}
+
+.pfiles.plist .list .item .extra {
+  display: flex;
+  align-items: center;
+}
+
+.pfiles.plist .list .item .grid.mobile .column {
+  padding-top: 0 !important;
+}
+
+#record-share .share.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#record-share .ui.grid {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 /*------------------------------------------------------
