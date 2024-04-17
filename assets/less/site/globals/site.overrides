@@ -347,6 +347,15 @@ section#user-stories > .ui.container > .grid > .column {
   font-size: 1em;
 }
 
+.requests-event-item .ui.grid .mobile.tablet.column {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+
+.requests-event-item .ui.grid .mobile.tablet.column .list .item .header {
+  text-transform: capitalize;
+}
+
 /*------------
  Overview page
 --------------*/
