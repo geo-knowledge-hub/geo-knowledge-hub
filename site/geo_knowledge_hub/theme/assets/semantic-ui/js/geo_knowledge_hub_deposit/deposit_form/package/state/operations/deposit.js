@@ -400,8 +400,8 @@ export const depositResourceSaveDraft = (recordData, operationMetadata) => {
     // Base definitions
     const recordApiClient = new RecordApiClient();
 
-    const operationTitleSuccess = i18next.t("Draft saved successfully!");
-    const operationTitleError = i18next.t("Error in saving the draft");
+    const operationTitleSuccess = i18next.t("Modification saved");
+    const operationTitleError = i18next.t("Error in saving the modification");
 
     // Operating
     dispatch({

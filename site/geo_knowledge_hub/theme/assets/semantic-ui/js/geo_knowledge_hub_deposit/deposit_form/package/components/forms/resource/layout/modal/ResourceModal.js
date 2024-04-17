@@ -1205,7 +1205,7 @@ export class ResourceModalContent extends Component {
               <Segment attached basic>
                 <Grid verticalAlign="middle" centered>
                   <Grid.Row fluid>
-                    <Grid.Column width={8}>
+                    <Grid.Column width={16}>
                       <AccessRightFieldResource
                         // label={i18next.t("Visibility")}
                         // labelIcon="shield"
@@ -1219,7 +1219,7 @@ export class ResourceModalContent extends Component {
           </>
 
           <Segment basic attached className="mt-0">
-            <Grid>
+            <Grid stackable>
               <Grid.Row>
                 <Grid.Column width={4} floated={"right"}>
                   <div>
