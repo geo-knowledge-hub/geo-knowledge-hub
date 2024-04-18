@@ -201,7 +201,7 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
                 {isPackage && (
                   <Button
                     compact
-                    size="small"
+                    size="tiny"
                     floated="right"
                     href={packageDashboard}
                   >
@@ -211,7 +211,7 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
                 )}
                 <Button
                   compact
-                  size="small"
+                  size="tiny"
                   floated="right"
                   onClick={() => editRecord()}
                 >
@@ -219,7 +219,7 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
                   {i18next.t("Edit")}
                 </Button>
                 {isPublished && (
-                  <Button compact size="small" floated="right" href={viewLink}>
+                  <Button compact size="tiny" floated="right" href={viewLink}>
                     <Icon name="eye" />
                     {i18next.t("View")}
                   </Button>
