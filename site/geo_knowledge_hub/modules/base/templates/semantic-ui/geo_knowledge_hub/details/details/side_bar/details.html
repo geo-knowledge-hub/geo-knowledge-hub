@@ -11,8 +11,7 @@
   This file was adapted from the Invenio RDM Records.
 #}
 
-{%- from "invenio_app_rdm/records/macros/detail.html" import list_formats, list_languages,
-  list_sizes, show_dates, show_detail %}
+{%- from "invenio_app_rdm/records/macros/detail.html" import list_formats, list_languages, show_dates, show_detail %}
 
 {%- set id_doi = record.pids.get('doi', {}).get('identifier') %}
 
@@ -29,7 +28,7 @@
     {{ show_detail(_('Publisher'), metadata.publisher) if metadata.publisher }}
     {{ show_detail(_('Languages'), list_languages(record.ui.languages)) if record.ui.languages }}
     {{ show_detail(_('Formats'), list_formats(metadata.formats)) if metadata.formats }}
-    {{ show_detail(_('Sizes'), list_sizes(metadata.sizes)) if metadata.sizes }}
+    {# {{ show_detail(_('Sizes'), list_sizes(metadata.sizes)) if metadata.sizes }}#}
   </dl>
 
   {%- include "geo_knowledge_hub/details/details/subjects.html" %}
