@@ -136,6 +136,17 @@ a {
   height: 45vh;
 }
 
+.ui.segment.bottom.attached {
+  border-radius: 0.28em !important;
+}
+
+.leaflet-text-tooltip.leaflet-pm-toolbar .leaflet-pm-icon-rectangle.rectangle-icon {
+  padding-left: 15px;
+  background-position: left center;
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+}
+
 /*------------------------------------
  User Dashboard definitions (General)
 --------------------------------------*/
