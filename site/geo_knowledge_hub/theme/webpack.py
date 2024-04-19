@@ -53,6 +53,9 @@ theme = WebpackThemeBundle(
                 "geo-knowledge-hub-community-carousel": "./js/geo_knowledge_hub_community/communities_carousel/index.js",
                 # Marketplace
                 "geo-knowledge-hub-marketplace-item-deposit": "./js/geo_knowledge_hub_deposit/marketplace/index.js",
+                # Previewer
+                "videojs_js": "./node_modules/video.js/dist/video.min.js",
+                "videojs_css": "./less/preview.less",
             },
             dependencies={
                 "react-semantic-toasts": "^0.6.6",
@@ -83,6 +86,7 @@ theme = WebpackThemeBundle(
                 "@tanstack/react-query": "^4.32.6",
                 "slick-carousel": "^1.8.1",
                 "react-slick": "^0.29.0",
+                "video.js": "^8.6.1",
             },
             aliases={
                 "@invenio-app-rdm": "js/invenio_app_rdm",

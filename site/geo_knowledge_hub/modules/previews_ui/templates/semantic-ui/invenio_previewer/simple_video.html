@@ -10,9 +10,7 @@ under the terms of the MIT License; see LICENSE file for more details.
 {%- extends config.PREVIEWER_ABSTRACT_TEMPLATE %}
 
 {% block panel %}
-  <div class="p-5">
-    <video controls class="ui x-large bordered rounded image">
-      <source src="{{ file.uri }}" type="video/{{ extension }}">
-    </video>
-  </div>
+  <video-js id="inveniordm-video-previewer" data-setup='{{ data_setup | tojson }}'>
+    <source src="{{ file.uri }}" type="{{ file.mimetype }}">
+  </video-js>
 {% endblock %}
