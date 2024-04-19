@@ -75,6 +75,23 @@ if (searchDiv && searchData) {
           ],
         },
       }}
+      tabConfigurations={{
+        tabPaneConfig: {
+          basicFormPane: {},
+          spatialFormPane: {
+            fieldConfig: {
+              label: (
+                <span className={"leaflet-text-tooltip leaflet-pm-toolbar"}>
+                  You can select the area you want to search by using the rectangle icon (
+                  <span className="rectangle-icon leaflet-pm-icon-rectangle"></span>
+                  ) in the map below.
+                </span>
+              ),
+              labelIcon: "map",
+            },
+          },
+        },
+      }}
     />,
     searchDiv,
   );

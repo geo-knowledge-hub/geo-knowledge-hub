@@ -70,7 +70,7 @@ export const recordTypeLinksFactory = (recordId, recordType) => {
       },
       draft: {
         api: `/api/records/${recordId}/draft`,
-        ui: `/uploads/${recordId}`,
+        ui: `/records/${recordId}?preview=1`,
       },
     },
     "marketplace-item": {
