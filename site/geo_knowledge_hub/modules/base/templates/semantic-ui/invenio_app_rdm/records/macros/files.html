@@ -29,16 +29,15 @@
 
 
 {% macro preview_file_box(file, pid, is_preview, record, preview_endpoint) %}
-  <div class="">
-    <div class="ui accordion panel mb-10 {{record.ui.access_status.id}}" id="preview" href="#collapsablePreview">
-      <div class="active title trigger panel-heading {{record.ui.access_status.id}} truncated" tabindex="0" aria-label="{{ _('File preview') }}">
-        <span id="preview-file-title">{{file.key}}</span>
-        <i class="ui angle right icon"></i>
-      </div>
-      <div id="collapsablePreview" class="active content pt-0">
-        <div>
-          {{ preview_file(preview_endpoint, pid_value=pid, filename=file.key, is_preview=is_preview) }}
-        </div>
+  <div class="ui accordion panel pfiles pview {{record.ui.access_status.id}}">
+    <div class="title panel-heading {{record.ui.access_status.id}} truncated"
+         tabindex="0" aria-label="{{ _('File preview') }}"
+    >
+      <span id="preview-file-title"><i class="eye icon"></i> File view</span>
+    </div>
+    <div class="active content pt-0">
+      <div>
+        {{ preview_file(preview_endpoint, pid_value=pid, filename=file.key, is_preview=is_preview) }}
       </div>
     </div>
   </div>
@@ -46,16 +45,8 @@
 
 
 {%- macro file_list(files, pid, is_preview, with_preview=true, download_endpoint='invenio_app_rdm_records.record_file_download', preview_endpoint='invenio_app_rdm_records.record_file_preview') %}
-  <table class="ui striped table files fluid">
-    <thead>
-    <tr>
-      <th>{{_('Name')}}</th>
-      <th>{{_('Size')}}</th>
-      <th class="hidden">{{_('Actions')}}</th>
-    </tr>
-    </thead>
-    <tbody>
-    {%- set binary_sizes = not config.APP_RDM_DISPLAY_DECIMAL_FILE_SIZES %}
+  {%- set binary_sizes = not config.APP_RDM_DISPLAY_DECIMAL_FILE_SIZES %}
+  <div class="ui large middle aligned divided list">
     {% for file in files %}
       {% if is_preview %}
         {%- set file_url_download = url_for(download_endpoint, pid_value=pid, filename=file.key, download=1, preview=1) %}
@@ -65,60 +56,73 @@
         {%- set file_url_preview = url_for(preview_endpoint, pid_value=pid, filename=file.key) %}
       {% endif %}
       {%- set file_type = file.key.split('.')[-1] %}
-      <tr>
-        <td>
-          <div class="truncated">
-            <a href="{{ file_url_download }}">{{ file.key }}</a>
-          </div>
-          <small class="ui text-muted font-tiny">{{ file.checksum }}
-            <div class="ui icon inline-block" data-tooltip="{{_('This is the file fingerprint (checksum), which can be used to verify the file integrity.')}}">
-              <i class="question circle checksum icon"></i>
+
+      <div class="item">
+        <div class="content mini">
+          <div class="metadata">
+            <i class="file alternate outline large icon"></i>
+
+            <div class="file-info">
+              <div class="truncated file-key">
+                <a href="{{ file_url_download }}">{{ file.key }}</a>
+              </div>
+
+              <small class="ui text-muted font-tiny">
+                Size: {{ file.size|filesizeformat(binary=binary_sizes) }}
+              </small>
+
+              <small class="ui text-muted font-tiny">
+                {{ file.checksum }}
+                <div class="ui icon inline-block" data-tooltip="{{_('This is the file fingerprint (checksum), which can be used to verify the file integrity.')}}">
+                  <i class="question circle checksum icon"></i>
+                </div>
+              </small>
             </div>
-          </small>
-        </td>
-        <td>{{ file.size|filesizeformat(binary=binary_sizes) }}</td>
-        <td class="right aligned">
-          <span>
-            {% if with_preview and file_type|lower is previewable %}
-              <a role="button" class="ui compact mini button preview-link" href="{{ file_url_preview }}" target="preview-iframe" data-file-key="{{file.key}}">
-              <i class="eye icon"></i> {{_("Preview")}}
-            </a>
-            {% endif %}
-            <a role="button" class="ui compact mini button" href="{{ file_url_download }}">
-              <i class="download icon"></i>
-              {{_('Download')}}
-            </a>
-          </span>
-        </td>
-      </tr>
+          </div>
+
+          <div class="extra">
+            <div class="grid">
+              <div class="computer only tablet only">
+                <div class="ui buttons mini">
+                  <a class="ui mini button" href="{{ file_url_preview }}" target="preview-iframe" data-file-key="{{file.key}}"><i class="eye icon"></i> View</a>
+                  <a class="ui mini button" href="{{ file_url_download }}"><i class="download icon"></i> Download</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui stackable grid mobile only rel-mt-1">
+          <div class="row">
+            <div class="sixteen wide column">
+              <a class="ui mini button fluid" href="{{ file_url_preview }}" target="preview-iframe" data-file-key="{{file.key}}"><i class="eye icon"></i> View</a>
+            </div>
+            <div class="sixteen wide column">
+              <a class="ui mini button fluid" href="{{ file_url_download }}"><i class="download icon"></i> Download</a>
+            </div>
+          </div>
+        </div>
+      </div>
     {% endfor %}
-    </tbody>
-  </table>
+  </div>
 {%- endmacro %}
 
 
 {% macro file_list_box(files, pid, is_preview, record, download_endpoint, preview_endpoint) %}
   {%- set binary_sizes = not config.APP_RDM_DISPLAY_DECIMAL_FILE_SIZES %}
-  <div class="">
-    <div class="ui accordion panel mb-10 {{record.ui.access_status.id}}" id="preview" href="#collapsablePreview">
-      <div class="active title trigger panel-heading {{record.ui.access_status.id}}" tabindex="0">
-        {{ _("Files") }}
-        <small class="text-muted">{% if files %} ({{files|sum(attribute='size')|filesizeformat(binary=binary_sizes)}}){% endif %}</small>
-        <i class="angle right icon"></i>
-      </div>
-      <div class="active content pt-0">
-        {% if record.access.files == 'restricted' %}
-          <div class="ui {{ record.ui.access_status.message_class }} message file-box-message">
-            <i class="ui {{ record.ui.access_status.icon }} icon"></i><b>{{ record.ui.access_status.title_l10n }}</b>
-            <p>{{ record.ui.access_status.description_l10n }}</p>
-            {% if record.access.embargo.reason %}
-              <p>{{_("Reason")}}: {{record.access.embargo.reason}}</p>
-            {% endif%}
-          </div>
-        {% endif %}
-        <div id="collapsableFiles">
-          {{ file_list(files, pid, is_preview, download_endpoint=download_endpoint, preview_endpoint=preview_endpoint) }}
+  <div class="ui accordion panel pfiles plist">
+    <div class="ui active content pt-0">
+      {% if record.access.files == 'restricted' %}
+        <div class="ui {{ record.ui.access_status.message_class }} message file-box-message">
+          <i class="ui {{ record.ui.access_status.icon }} icon"></i><b>{{ record.ui.access_status.title_l10n }}</b>
+          <p>{{ record.ui.access_status.description_l10n }}</p>
+          {% if record.access.embargo.reason %}
+            <p>{{_("Reason")}}: {{record.access.embargo.reason}}</p>
+          {% endif%}
         </div>
+      {% endif %}
+
+      <div class="pfiles files custom-scroll">
+        {{ file_list(files, pid, is_preview, download_endpoint=download_endpoint, preview_endpoint=preview_endpoint) }}
       </div>
     </div>
   </div>

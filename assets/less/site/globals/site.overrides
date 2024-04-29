@@ -136,6 +136,29 @@ a {
   height: 45vh;
 }
 
+.ui.segment.bottom.attached {
+  border-radius: 0.28em !important;
+}
+
+.leaflet-text-tooltip.leaflet-pm-toolbar .leaflet-pm-icon-rectangle.rectangle-icon {
+  padding-left: 15px;
+  background-position: left center;
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+}
+
+/*------------------------------------
+ User Dashboard definitions (General)
+--------------------------------------*/
+.ui.dropdown.selector i.icon.dropdown {
+  margin: 0 0 0 0;
+}
+
+.item.deposits-list-item .extra .ui.grid.record-result-actions .column {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem !important;
+}
+
 /*-------------------------------------------------
  Deposit definitions (General - Packages and records)
 ---------------------------------------------------*/
@@ -167,6 +190,11 @@ a {
   text-decoration: none;
 }
 
+.ui.grid .row.highlight-background .column {
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+}
+
 /*-------------------------------------
  Deposit definitions (Resources version)
 --------------------------------------*/
@@ -180,8 +208,45 @@ a {
   padding-right: 10px !important;
 }
 
+#resource-form .ui.segment.attached {
+  border-radius: 0.2em;
+}
+
+#resource-form .ui.grid .metadata-importer {
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Specific class to handle publisher component
+// when used with metadata importer
+#resource-form .field.publisher .metadata-importer {
+  margin-top: 1.6em;
+}
+
+// Section with very specific queries to change components from invenio
+// without recreate them
+#resource-form .field.dates .field .fields :nth-child(4) {
+  display: flex;
+  align-items: center;
+  margin-top: 1.2em;
+}
+
+#resource-form .field.identifiers .field .fields :nth-child(3) {
+  display: flex;
+  align-items: center;
+  margin-top: 1.2em;
+}
+
+#resource-form .field.links .field .fields :nth-child(7) {
+  display: flex;
+  align-items: center;
+  margin-top: 1.2em;
+}
+
 /*------------------------------------------------------
- Record Landing page definitions (Packages and records)
+ Record Landing page definitions (General)
 -------------------------------------------------------*/
 #record-title-section {
   margin-top: 2em;
@@ -199,8 +264,87 @@ section#user-stories > .ui.container > .grid > .column {
     max-width: 20em;
 }
 
-.details-request-training-button {
+.rdm-sidebar .ui.button.details-request-training-button {
   height: 90px;
+
+  color: white;
+  background-color: @primaryDarkenColor;
+}
+
+// Previewer style
+.pfiles.files {
+  display: flex;
+  overflow-y: auto;
+  //white-space: nowrap;
+  max-height: 23em;
+}
+
+.pfiles.files .ui.list {
+  width: 100%;
+  scrollbar-width: auto;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.pfiles.plist.ui.accordion.panel {
+  border-radius: 0px 0px 5px 5px;
+}
+
+.pfiles.pview.ui.accordion.panel {
+  border-radius: 5px 5px 0px 0px;
+}
+
+.pfiles.ui.accordion.panel .title.panel-heading {
+  background-color: white;
+  cursor: unset;
+}
+
+.pfiles.ui.accordion.panel .item {
+  padding: 1.2em;
+}
+
+.pfiles.ui.accordion.panel .item .content.mini {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pfiles.ui.accordion.panel .item .metadata {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pfiles.ui.accordion.panel .item .content .actions {
+  display: flex;
+  align-items: center;
+}
+
+.pfiles.ui.accordion.panel .metadata .file-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.pfiles.ui.accordion.panel .file-info .file-key {
+  max-width: 30em;
+}
+
+.pfiles.plist .list .item .extra {
+  display: flex;
+  align-items: center;
+}
+
+.pfiles.plist .list .item .grid.mobile .column {
+  padding-top: 0 !important;
+}
+
+#record-share .share.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#record-share .ui.grid {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 /*------------------------------------------------------
@@ -212,6 +356,15 @@ section#user-stories > .ui.container > .grid > .column {
 
 .feedback.feedback-metrics-empty {
   font-size: 1em;
+}
+
+.requests-event-item .ui.grid .mobile.tablet.column {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+
+.requests-event-item .ui.grid .mobile.tablet.column .list .item .header {
+  text-transform: capitalize;
 }
 
 /*------------
@@ -252,73 +405,24 @@ section#user-stories > .ui.container > .grid > .column {
 /*-----------------------------
  Marketplace Items Landing page
 -------------------------------*/
-.marketplace.files {
-  display: flex;
-  overflow-y: auto;
-  white-space: nowrap;
-  margin-bottom: 20px;
-  max-height: 22em;
-}
+.marketplace.ui.message {
+  padding: 0 0.7em 0 0.7em;
 
-.marketplace.files .ui.list {
-  width: 100%;
-  border-radius: 5px;
-  scrollbar-width: auto;
-  scrollbar-color: #888 #f1f1f1;
-}
-
-.marketplace.ui.accordion.panel {
-  border-radius: 0;
-}
-
-.marketplace.ui.accordion.panel .title.panel-heading {
-  background-color: white;
-  cursor: unset;
-}
-
-.marketplace.ui.accordion.panel .item {
-  padding: 1.2em;
-}
-
-.marketplace.ui.accordion.panel .item .content.mini {
   display: flex;
   justify-content: space-between;
-}
-
-.marketplace.ui.accordion.panel .item .metadata {
-  display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.marketplace.ui.accordion.panel .metadata .file-info {
-  display: flex;
-  flex-direction: column;
-}
+.marketplace.rdm-sidebar .ui.button.launch-button {
+  height: 90px;
 
-.marketplace.ui.accordion.panel .file-info .file-key {
-  max-width: 30em;
-}
-
-.marketplace.community .community-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.marketplace.community .name {
-  margin-top: 0.8em;
-}
-
-.marketplace.community .image.logo {
-  border-radius: 5px;
-}
-
-.marketplace.community .label-container {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 1em;
-}
-
-.marketplace.rdm-sidebar .ui.button {
   margin-right: 0;
+
+  display: inline-flex;
+  vertical-align: middle;
+  justify-content: center;
+  flex-direction: column;
+
+  color: white;
+  background-color: @primaryDarkenColor;
 }

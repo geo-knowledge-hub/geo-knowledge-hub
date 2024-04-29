@@ -31,6 +31,7 @@ import { i18next } from "@translations/invenio_app_rdm/i18next";
 import { SearchItemCreators } from "@invenio-app-rdm/utils";
 
 import {
+  extractRecordBadge,
   extractProgrammeActivityAcronym,
   recordTypeLinksFactory,
 } from "../../../../../../../../utils";
@@ -259,6 +260,7 @@ class ResultsListItemComponent extends Component {
       this.props;
 
     // Extracting information to render the result.
+    const recordBadge = extractRecordBadge(result.parent.type);
     const recordLinks = recordTypeLinksFactory(result.id, result.parent.type);
 
     const accessStatusId = _get(result, "ui.access_status.id", "open");
@@ -503,34 +505,32 @@ class ResultsListItemComponent extends Component {
           </div>
           <Item.Content style={{ cursor: "default" }}>
             <Item.Extra className="labels-actions">
-              {/* For reduced spacing between labels. */}
+              <Label size="tiny" color={recordBadge.color}>
+                <i className={`icon ${recordBadge.icon}`}></i>
+                {recordBadge.name}
+              </Label>
+              <Label size="tiny" color={"gray"}>
+                {publicationDate} ({version})
+              </Label>
+              <Label size="tiny" color={"gray"}>
+                {resourceType}
+              </Label>
               {programmeActivityAcronym && (
-                <Label size="tiny" className={"programme-activity-label"}>
+                <Label size="tiny" color={"gray"}>
                   {programmeActivityAcronym}
                 </Label>
               )}
-              {result.status in RECORD_STATUS &&
-                result.status !== "published" && (
-                  <Label
-                    size="tiny"
-                    className={RECORD_STATUS[result.status].color}
-                  >
-                    {RECORD_STATUS[result.status].title}
-                  </Label>
-                )}
-              <Label size="tiny" className="primary">
-                {publicationDate} ({version})
-              </Label>
-              <Label size="tiny" className="neutral">
-                {resourceType}
-              </Label>
-              <Label size="tiny" className={`access-status ${accessStatusId}`}>
-                {accessStatusIcon && (
-                  <i className={`icon ${accessStatusIcon}`} />
-                )}
-                {accessStatus}
-              </Label>
-              {/* Extra options to manage the resource. */}
+              {result.status in RECORD_STATUS && result.status !== "published" && (
+                <Label size="tiny" className={RECORD_STATUS[result.status].color}>
+                  {RECORD_STATUS[result.status].title}
+                </Label>
+              )}
+              {accessStatusId === "restricted" && (
+                <Label size="tiny" className={`access-status ${accessStatusId}`}>
+                  {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}
+                  {accessStatus}
+                </Label>
+              )}
               {buttonOptions}
             </Item.Extra>
             <Item.Header as="h2">

@@ -6,18 +6,20 @@
 #}
 
 {% if not is_preview %}
-<section id="record-versions" aria-label="{{ _('Share the record') }}" class="ui segment rdm-sidebar">
+<section id="record-share" aria-label="{{ _('Share the record') }}" class="ui segment rdm-sidebar">
   <h2 class="ui small header">{{ _('Share')}}</h2>
 
-  <div class="ui centered grid">
-    <div class="eleven wide column">
-      <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-        <a class="a2a_button_linkedin"></a>
-        <a class="a2a_button_twitter"></a>
-        <a class="a2a_button_email"></a>
-        <a class="a2a_button_telegram"></a>
-        <a class="a2a_button_facebook"></a>
+  <div class="ui center aligned grid">
+    <div class="row">
+      <div class="ten wide column">
+        <div class="a2a_kit a2a_kit_size_32 a2a_default_style share buttons">
+          <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+          <a class="a2a_button_linkedin"></a>
+          <a class="a2a_button_twitter"></a>
+          <a class="a2a_button_email"></a>
+          <a class="a2a_button_telegram"></a>
+          <a class="a2a_button_facebook"></a>
+        </div>
       </div>
     </div>
   </div>

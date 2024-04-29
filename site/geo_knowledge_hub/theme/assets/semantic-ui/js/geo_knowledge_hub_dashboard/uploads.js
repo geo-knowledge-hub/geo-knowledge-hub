@@ -14,19 +14,26 @@ import PropTypes from "prop-types";
 
 import {
   Button,
-  Divider,
   Header,
   Icon,
   Item,
   Label,
   Segment,
   Dropdown,
+  Grid,
 } from "semantic-ui-react";
+
+import { Trans } from "react-i18next";
 
 import { http } from "react-invenio-forms";
 import { parametrize } from "react-overridable";
 
+import { SearchBar } from "react-searchkit";
+import { GridResponsiveSidebarColumn } from "react-invenio-forms";
+
 import {
+  SearchAppFacets,
+  SearchAppResultsPane,
   ContribSearchAppFacets,
   ContribBucketAggregationElement,
   ContribBucketAggregationValuesElement,
@@ -42,10 +49,7 @@ import {
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 import { SearchItemCreators } from "@invenio-app-rdm/utils";
 
-import {
-  DashboardResultView,
-  DashboardSearchLayoutHOC,
-} from "@invenio-app-rdm/user_dashboard/base";
+import { DashboardResultView } from "@invenio-app-rdm/user_dashboard/base";
 import { createSearchAppInit } from "@js/invenio_search_ui";
 
 import {
@@ -53,6 +57,8 @@ import {
   extractProgrammeActivityAcronym,
   recordTypeLinksFactory,
 } from "../utils";
+
+import { DisplayPartOfCommunity } from "../components/search";
 
 const RECORD_STATUS = {
   in_review: { color: "warning", title: i18next.t("In review") },
@@ -83,25 +89,25 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
   const createdDate = _get(
     result,
     "ui.created_date_l10n_long",
-    i18next.t("No creation date found.")
+    i18next.t("No creation date found."),
   );
   const creators = _get(result, "ui.creators.creators", []).slice(0, 3);
 
   const descriptionStripped = _get(
     result,
     "ui.description_stripped",
-    i18next.t("No description")
+    i18next.t("No description"),
   );
 
   const publicationDate = _get(
     result,
     "ui.publication_date_l10n_long",
-    i18next.t("No publication date found.")
+    i18next.t("No publication date found."),
   );
   const resourceType = _get(
     result,
     "ui.resource_type.title_l10n",
-    i18next.t("No resource type")
+    i18next.t("No resource type"),
   );
   const title = _get(result, "metadata.title", i18next.t("No title"));
   const subjects = _get(result, "ui.subjects", []);
@@ -109,11 +115,17 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
   const isPublished = result.is_published;
 
   const programmeActivityAcronym = extractProgrammeActivityAcronym(
-    _get(result, "metadata.geo_work_programme_activity.title.en")
+    _get(result, "metadata.geo_work_programme_activity.title.en"),
   );
 
   const isPackage = _get(result, "parent.type", null) === "package";
   const packageDashboard = `/packages/${result.id}/dashboard`;
+
+  const recordCommunity = _get(
+    result,
+    "expanded.parent.communities.default",
+    null,
+  );
 
   // Derivatives
   const editRecord = () => {
@@ -145,56 +157,76 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
         </Item.Content>
       </div>
       <Item.Content style={{ cursor: "default" }}>
-        <Item.Extra className="labels-actions">
-          <Label size="tiny" color={recordBadge.color}>
-            <i className={`icon ${recordBadge.icon}`}></i>{recordBadge.name}
-          </Label>
-          {programmeActivityAcronym && (
-            <Label size="tiny" className={"programme-activity-label"}>
-              {programmeActivityAcronym}
-            </Label>
-          )}
-          {result.status in RECORD_STATUS && result.status !== "published" && (
-            <Label size="tiny" className={RECORD_STATUS[result.status].color}>
-              {RECORD_STATUS[result.status].title}
-            </Label>
-          )}
-          <Label size="tiny" className="primary">
-            {publicationDate} ({version})
-          </Label>
-          <Label size="tiny" className="neutral">
-            {resourceType}
-          </Label>
-          {/*<Label size="tiny" className={`access-status ${accessStatusId}`}>*/}
-          {/*  {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}*/}
-          {/*  {accessStatus}*/}
-          {/*</Label>*/}
-          {isPackage && (
-            <Button
-              compact
-              size="small"
-              floated="right"
-              href={packageDashboard}
-            >
-              <Icon name="dashboard" />
-              {i18next.t("Dashboard")}
-            </Button>
-          )}
-          <Button
-            compact
-            size="small"
-            floated="right"
-            onClick={() => editRecord()}
-          >
-            <Icon name="edit" />
-            {i18next.t("Edit")}
-          </Button>
-          {isPublished && (
-            <Button compact size="small" floated="right" href={viewLink}>
-              <Icon name="eye" />
-              {i18next.t("View")}
-            </Button>
-          )}
+        <Item.Extra className="labels-actions mb-0">
+          <Grid columns={2} className={"mb-0"}>
+            <Grid.Row className={"pt-0"}>
+              <Grid.Column computer={8} tablet={8} mobile={16} className={"pl-0"}>
+                <Label size="tiny" color={recordBadge.color}>
+                  <i className={`icon ${recordBadge.icon}`}></i>
+                  {recordBadge.name}
+                </Label>
+                <Label size="tiny" color={"gray"}>
+                  {publicationDate} ({version})
+                </Label>
+                <Label size="tiny" color={"gray"}>
+                  {resourceType}
+                </Label>
+                {programmeActivityAcronym && (
+                  <Label size="tiny" color={"gray"}>
+                    {programmeActivityAcronym}
+                  </Label>
+                )}
+                {result.status in RECORD_STATUS &&
+                  result.status !== "published" && (
+                    <Label
+                      size="tiny"
+                      className={RECORD_STATUS[result.status].color}
+                    >
+                      {RECORD_STATUS[result.status].title}
+                    </Label>
+                  )}
+                {accessStatusId === "restricted" && (
+                  <Label
+                    size="tiny"
+                    className={`access-status ${accessStatusId}`}
+                  >
+                    {accessStatusIcon && (
+                      <i className={`icon ${accessStatusIcon}`} />
+                    )}
+                    {accessStatus}
+                  </Label>
+                )}
+              </Grid.Column>
+              <Grid.Column width={8} only={"computer tablet"}>
+                {isPackage && (
+                  <Button
+                    compact
+                    size="tiny"
+                    floated="right"
+                    href={packageDashboard}
+                  >
+                    <Icon name="dashboard" />
+                    {i18next.t("Dashboard")}
+                  </Button>
+                )}
+                <Button
+                  compact
+                  size="tiny"
+                  floated="right"
+                  onClick={() => editRecord()}
+                >
+                  <Icon name="edit" />
+                  {i18next.t("Edit")}
+                </Button>
+                {isPublished && (
+                  <Button compact size="tiny" floated="right" href={viewLink}>
+                    <Icon name="eye" />
+                    {i18next.t("View")}
+                  </Button>
+                )}
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
         </Item.Extra>
         <Item.Header as="h2">
           <a href={viewLink}>{title}</a>
@@ -215,13 +247,60 @@ export const RDMRecordResultsListItem = ({ result, index }) => {
               {subject.title_l10n}
             </Label>
           ))}
-          {createdDate && (
-            <div>
-              <small>
-                {i18next.t("Uploaded on")} <span>{createdDate}</span>
-              </small>
-            </div>
-          )}
+
+          <div className="flex justify-space-between align-items-end">
+            <small>
+              {recordCommunity && (
+                <DisplayPartOfCommunity community={recordCommunity} />
+              )}
+              <p>
+                {createdDate && (
+                  <>
+                    {i18next.t("Uploaded on {{uploadDate}}", {
+                      uploadDate: createdDate,
+                    })}
+                  </>
+                )}
+              </p>
+            </small>
+          </div>
+
+          <Grid columns={1} stackable className={"record-result-actions"}>
+            <Grid.Row only={"mobile"} width={16}>
+              {isPackage && (
+                <Grid.Column padded={false}>
+                  <Button
+                    fluid
+                    size={"tiny"}
+                    href={packageDashboard}
+                  >
+                    <Icon name="dashboard" />
+                    {i18next.t("Dashboard")}
+                  </Button>
+                </Grid.Column>
+              )}
+
+              <Grid.Column padded={false}>
+                <Button
+                  fluid
+                  size={"tiny"}
+                  onClick={() => editRecord()}
+                >
+                  <Icon name="edit" />
+                  {i18next.t("Edit")}
+                </Button>
+              </Grid.Column>
+
+              {isPublished && (
+                <Grid.Column padded={false}>
+                  <Button fluid size={"tiny"} href={viewLink}>
+                    <Icon name="eye" />
+                    {i18next.t("View")}
+                  </Button>
+                </Grid.Column>
+              )}
+            </Grid.Row>
+          </Grid>
         </Item.Extra>
       </Item.Content>
     </Item>
@@ -239,35 +318,63 @@ RDMRecordResultsListItem.defaultProps = {
 
 export const RDMEmptyResults = (props) => {
   const { queryString } = props;
+  const recordTypes = [
+    {
+      key: 1,
+      text: (
+        <p>
+          Knowledge <b>Package</b>
+        </p>
+      ),
+      value: 1,
+      as: "a",
+      href: "/uploads/packages/new",
+    },
+    {
+      key: 2,
+      text: (
+        <p>
+          Knowledge <b>Resource</b>
+        </p>
+      ),
+      value: 2,
+      as: "a",
+      href: "/uploads/new",
+    },
+    {
+      key: 3,
+      text: (
+        <p>
+          Marketplace <b>Item</b>
+        </p>
+      ),
+      value: 3,
+      as: "a",
+      href: "/uploads/marketplace/items/new",
+    },
+  ];
+
   return queryString === "" ? (
     <Segment.Group>
       <Segment placeholder textAlign="center" padded="very">
         <Header as="h1" align="center">
           <Header.Content>
-            {i18next.t("Get started!")}
-            <Header.Subheader>
-              {i18next.t("Make your first upload!")}
-            </Header.Subheader>
+            {i18next.t("You do not have any records yet")}
           </Header.Content>
         </Header>
-        <Divider hidden />
-        <Button.Group>
-          <Button
-            positive
-            icon="upload"
-            floated="right"
-            href="/uploads/packages/new"
-            content={i18next.t("New package")}
-          />
-          <Button.Or />
-          <Button
-            positive
-            icon="upload"
-            floated="right"
-            href="/uploads/new"
-            content={i18next.t("New resource")}
-          />
-        </Button.Group>
+        <div>
+          <Trans>
+            Click{" "}
+            <Dropdown
+              className={"selector"}
+              text="here"
+              as="a"
+              icon={false}
+              options={recordTypes}
+            />{" "}
+            to create your first record
+          </Trans>
+        </div>
       </Segment>
     </Segment.Group>
   ) : (
@@ -281,36 +388,43 @@ RDMEmptyResults.propTypes = {
   queryString: PropTypes.string.isRequired,
 };
 
-export const DashboardUploadsSearchLayout = DashboardSearchLayoutHOC({
-  searchBarPlaceholder: i18next.t("Search in my uploads..."),
-  newBtn: (
-    <Dropdown
-      text="New upload"
-      icon="upload"
-      floating
-      labeled
-      button
-      className="icon green"
-    >
-      <Dropdown.Menu>
-        <Dropdown.Item
-          icon="box"
-          text="Package"
-          onClick={() => {
-            window.location = "/uploads/packages/new";
-          }}
+const DashboardUploadsSearchLayout = (props) => {
+  const [sidebarVisible, setSidebarVisible] = React.useState(false);
+  const { config } = props;
+
+  return (
+    <Grid>
+      <Grid.Column only="mobile tablet" mobile={2} tablet={1}>
+        <Button
+          basic
+          icon="sliders"
+          onClick={() => setSidebarVisible(true)}
+          aria-label={i18next.t("Filter results")}
         />
-        <Dropdown.Item
-          icon="boxes"
-          text="Resource"
-          onClick={() => {
-            window.location = "/uploads/new";
-          }}
-        />
-      </Dropdown.Menu>
-    </Dropdown>
-  ),
-});
+      </Grid.Column>
+
+      <Grid.Column mobile={14} tablet={14} computer={12} floated="right">
+        <SearchBar placeholder={i18next.t("Search your uploads")} />
+      </Grid.Column>
+
+      <Grid.Row>
+        <GridResponsiveSidebarColumn
+          width={4}
+          open={sidebarVisible}
+          onHideClick={() => setSidebarVisible(false)}
+        >
+          <SearchAppFacets aggs={config.aggs} appName={undefined} />
+        </GridResponsiveSidebarColumn>
+        <Grid.Column mobile={16} tablet={16} computer={12}>
+          <SearchAppResultsPane
+            layoutOptions={config.layoutOptions}
+            appName={undefined}
+          />
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
+  );
+};
 
 export const defaultComponents = {
   "BucketAggregation.element": ContribBucketAggregationElement,

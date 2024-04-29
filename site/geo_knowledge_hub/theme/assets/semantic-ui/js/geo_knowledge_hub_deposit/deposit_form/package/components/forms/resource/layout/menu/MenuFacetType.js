@@ -135,16 +135,16 @@ class MenuFacetTypeComponent extends Component {
         <Grid stackable>
           <Grid.Row className={"highlight-background"}>
             <Grid.Column>
-              <Grid stackable>
-                <Grid.Row>
-                  <Grid.Column width={12} verticalAlign="middle">
-                    <Header as={"h4"}>{i18next.t("Resources")}</Header>
-                  </Grid.Column>
-                  <Grid.Column width={2} verticalAlign="middle">
-                    <Icon name={"archive"} size={"large"} />
-                  </Grid.Column>
-                </Grid.Row>
+
+              <Grid columns={2}>
+                <Grid.Column verticalAlign={"middle"}>
+                  <Header as={"h4"}>{i18next.t("Resources")}</Header>
+                </Grid.Column>
+                <Grid.Column verticalAlign={"right"}>
+                  <Icon name={"archive"} size={"large"} />
+                </Grid.Column>
               </Grid>
+
             </Grid.Column>
           </Grid.Row>
 

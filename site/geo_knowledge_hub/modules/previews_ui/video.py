@@ -8,17 +8,29 @@
 
 """Video previewer."""
 
+"""
+This code to preview video using video.js was imported into the GEO Knowledge Hub prior to the launch of
+InvenioRDM v12. So, we should revisit this code and remove it as soon as we update it to v12.
+
+We thank all InvenioRDM colleagues.
+"""
+
 from pathlib import Path
 
-from flask import render_template
+from flask import current_app, render_template
 from invenio_previewer.proxies import current_previewer
 
-previewable_extensions = ["mp4", "webm", "ogg"]
+# The video file world is complex, because support depends on
+# hardware, OS, software and browser. A reasonable choice of supported
+# extensions (https://en.wikipedia.org/wiki/HTML5_video#Browser_support) that
+# are least likely to lead to an unsupported warning for end-users are
+# mp4 and webm files. However, this is made customizable per instance.
+previewable_extensions = current_app.config.get("PREVIEWER_VIDEO_EXTS", ["mp4", "webm"])
 
 
 def can_preview(file):
     """Determine if the given file can be previewed."""
-    supported_extensions = (".mp4", ".webm", ".ogg")
+    supported_extensions = (".mp4", ".webm")
     return file.has_extensions(*supported_extensions)
 
 
@@ -29,10 +41,18 @@ def preview(file):
     #       `extension` or `type` attribute with the file extension.
     extension = Path(file.filename).suffix.replace(".", "")
 
+    data_setup = {
+        "controls": True,
+        "preload": "metadata",
+        "fill": True,
+        **current_app.config.get("PREVIEWER_VIDEO_DATA_SETUP", {}),
+    }
+
     return render_template(
         "semantic-ui/invenio_previewer/simple_video.html",
         file=file,
         extension=extension,
-        js_bundles=current_previewer.js_bundles,
-        css_bundles=current_previewer.css_bundles,
+        data_setup=data_setup,
+        js_bundles=current_previewer.js_bundles + ["videojs_js.js"],
+        css_bundles=current_previewer.css_bundles + ["videojs_css.css"],
     )

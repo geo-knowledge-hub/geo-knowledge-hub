@@ -34,7 +34,7 @@ extract_from_quotes() {
 #
 # 1. Configuring the required services to build
 #
-docker-compose -f docker/builder/docker-compose.yml up -d
+docker compose -f docker/builder/docker-compose.yml up -d
 
 #
 # 2. Authenticating on registry

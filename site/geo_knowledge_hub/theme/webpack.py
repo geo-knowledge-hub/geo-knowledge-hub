@@ -53,6 +53,9 @@ theme = WebpackThemeBundle(
                 "geo-knowledge-hub-community-carousel": "./js/geo_knowledge_hub_community/communities_carousel/index.js",
                 # Marketplace
                 "geo-knowledge-hub-marketplace-item-deposit": "./js/geo_knowledge_hub_deposit/marketplace/index.js",
+                # Previewer
+                "videojs_js": "./node_modules/video.js/dist/video.min.js",
+                "videojs_css": "./less/preview.less",
             },
             dependencies={
                 "react-semantic-toasts": "^0.6.6",
@@ -64,9 +67,9 @@ theme = WebpackThemeBundle(
                 "minisearch": "^4.0.3",
                 "react-minisearch": "^5.0.0-beta1",
                 "react-table": "^7.7.0",
-                "@geo-knowledge-hub/invenio-geographic-components-react": "0.2.4",
-                "@geo-knowledge-hub/geo-components-react": "0.5.4",
-                "@geo-knowledge-hub/geo-deposit-react": "1.2.8",
+                "@geo-knowledge-hub/invenio-geographic-components-react": "0.2.5",
+                "@geo-knowledge-hub/geo-components-react": "0.5.6",
+                "@geo-knowledge-hub/geo-deposit-react": "1.2.10",
                 "@geo-knowledge-hub/geo-comments-react": "0.2.5",
                 "@emotion/react": "^11.9.0",
                 "@emotion/css": "^11.9.0",
@@ -83,6 +86,7 @@ theme = WebpackThemeBundle(
                 "@tanstack/react-query": "^4.32.6",
                 "slick-carousel": "^1.8.1",
                 "react-slick": "^0.29.0",
+                "video.js": "^8.6.1",
             },
             aliases={
                 "@invenio-app-rdm": "js/invenio_app_rdm",

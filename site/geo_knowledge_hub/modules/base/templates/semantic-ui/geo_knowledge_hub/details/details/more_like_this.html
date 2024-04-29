@@ -1,0 +1,14 @@
+{#
+    Copyright (C) 2024 GEO Secretariat.
+
+    geo-knowledge-hub is free software; you can redistribute it and/or modify
+    it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{# More like this (See also) #}
+{% if more_like_this_records %}
+  <section class="ui rel-mt-3 rel-mb-3" aria-label="{{ _('See other records related to this') }}">
+    <h2>See also</h2>
+    <div id="details-more-like-this-records-div" data-moreLikeThisRecords='{{ more_like_this_records | tojson }}'></div>
+  </section>
+{% endif %}

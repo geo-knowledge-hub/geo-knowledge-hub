@@ -110,16 +110,18 @@ class MenuOperationsComponent extends Component {
           <Grid stackable>
             <Grid.Row className={"highlight-background"}>
               <Grid.Column>
-                <Grid stackable>
+
+                <Grid columns={2}>
                   <Grid.Row>
-                    <Grid.Column width={12} verticalAlign="middle">
+                    <Grid.Column verticalAlign={"middle"}>
                       <Header as={"h4"}>{i18next.t("Operations")}</Header>
                     </Grid.Column>
-                    <Grid.Column width={2} verticalAlign="middle">
+                    <Grid.Column verticalAlign="right">
                       <Icon name={"plus square"} size={"large"} />
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
+
               </Grid.Column>
             </Grid.Row>
 

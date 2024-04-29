@@ -9,6 +9,7 @@
 import React, { Component, createRef, Fragment } from "react";
 
 import _get from "lodash/get";
+import _filter from "lodash/filter";
 import _compact from "lodash/compact";
 
 import { Provider, connect, useStore } from "react-redux";
@@ -216,39 +217,53 @@ export class PackageDepositFormComponentBase extends Component {
                 active
                 label={i18next.t("Basic information")}
               >
-                <TitlesField
-                  options={this.vocabularies.metadata.titles}
-                  fieldPath="metadata.title"
-                  recordUI={record.ui}
-                  required
-                />
+                <Grid>
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <TitlesField
+                        options={this.vocabularies.metadata.titles}
+                        fieldPath="metadata.title"
+                        recordUI={record.ui}
+                        required
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
 
-                <PublicationDateField
-                  required
-                  fieldPath="metadata.publication_date"
-                />
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <PublicationDateField
+                        required
+                        fieldPath="metadata.publication_date"
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
 
-                {this.config.pids.map((pid) => (
-                  <Fragment key={pid.scheme}>
-                    <PIDField
-                      btnLabelDiscardPID={pid.btn_label_discard_pid}
-                      btnLabelGetPID={pid.btn_label_get_pid}
-                      canBeManaged={pid.can_be_managed}
-                      canBeUnmanaged={pid.can_be_unmanaged}
-                      fieldPath={`pids.${pid.scheme}`}
-                      fieldLabel={pid.field_label}
-                      isEditingPublishedRecord={
-                        record.is_published === true // is_published is `null` at first upload
-                      }
-                      managedHelpText={pid.managed_help_text}
-                      pidLabel={pid.pid_label}
-                      pidPlaceholder={pid.pid_placeholder}
-                      pidType={pid.scheme}
-                      unmanagedHelpText={pid.unmanaged_help_text}
-                      required
-                    />
-                  </Fragment>
-                ))}
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      {this.config.pids.map((pid) => (
+                        <Fragment key={pid.scheme}>
+                          <PIDField
+                            btnLabelDiscardPID={pid.btn_label_discard_pid}
+                            btnLabelGetPID={pid.btn_label_get_pid}
+                            canBeManaged={pid.can_be_managed}
+                            canBeUnmanaged={pid.can_be_unmanaged}
+                            fieldPath={`pids.${pid.scheme}`}
+                            fieldLabel={pid.field_label}
+                            isEditingPublishedRecord={
+                              record.is_published === true // is_published is `null` at first upload
+                            }
+                            managedHelpText={pid.managed_help_text}
+                            pidLabel={pid.pid_label}
+                            pidPlaceholder={pid.pid_placeholder}
+                            pidType={pid.scheme}
+                            unmanagedHelpText={pid.unmanaged_help_text}
+                            required
+                          />
+                        </Fragment>
+                      ))}
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
               </AccordionField>
 
               <AccordionField
@@ -260,39 +275,49 @@ export class PackageDepositFormComponentBase extends Component {
                 active
                 label={i18next.t("Description and languages")}
               >
-                <LanguagesField
-                  fieldPath="metadata.languages"
-                  initialOptions={_get(record, "ui.languages", []).filter(
-                    (lang) => lang !== null
-                  )} // needed because dumped empty record from backend gives [null]
-                  serializeSuggestions={(suggestions) =>
-                    suggestions.map((item) => ({
-                      text: item.title_l10n,
-                      value: item.id,
-                      key: item.id,
-                    }))
-                  }
-                />
+                <Grid>
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <LanguagesField
+                        fieldPath="metadata.languages"
+                        initialOptions={_get(record, "ui.languages", []).filter(
+                          (lang) => lang !== null
+                        )} // needed because dumped empty record from backend gives [null]
+                        serializeSuggestions={(suggestions) =>
+                          suggestions.map((item) => ({
+                            text: item.title_l10n,
+                            value: item.id,
+                            key: item.id,
+                          }))
+                        }
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
 
-                <DescriptionsField
-                  fieldPath="metadata.description"
-                  options={this.vocabularies.metadata.descriptions}
-                  recordUI={_get(record, "ui", null)}
-                  editorConfig={{
-                    removePlugins: [
-                      "Image",
-                      "ImageCaption",
-                      "ImageStyle",
-                      "ImageToolbar",
-                      "ImageUpload",
-                      "MediaEmbed",
-                      "Table",
-                      "TableToolbar",
-                      "TableProperties",
-                      "TableCellProperties",
-                    ],
-                  }}
-                />
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <DescriptionsField
+                        fieldPath="metadata.description"
+                        options={this.vocabularies.metadata.descriptions}
+                        recordUI={_get(record, "ui", null)}
+                        editorConfig={{
+                          removePlugins: [
+                            "Image",
+                            "ImageCaption",
+                            "ImageStyle",
+                            "ImageToolbar",
+                            "ImageUpload",
+                            "MediaEmbed",
+                            "Table",
+                            "TableToolbar",
+                            "TableProperties",
+                            "TableCellProperties",
+                          ],
+                        }}
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
               </AccordionField>
 
               <AccordionField
@@ -300,7 +325,7 @@ export class PackageDepositFormComponentBase extends Component {
                 active
                 label={i18next.t("People")}
               >
-                <Grid columns={2} divided>
+                <Grid columns={2} divided stackable>
                   <Grid.Row>
                     <Grid.Column>
                       <CreatibutorsField
@@ -345,21 +370,30 @@ export class PackageDepositFormComponentBase extends Component {
                 active
                 label={i18next.t("Initiatives, audiences, and subjects")}
               >
-                <SubjectsField
-                  fieldPath="metadata.subjects"
-                  initialSuggestions={_get(record, "metadata.subjects", null)}
-                  limitToOptions={this.vocabularies.metadata.subjects.limit_to}
-                />
-                <WorkProgrammeActivityField
-                  required={false}
-                  initialSuggestions={
-                    _compact([
-                      _get(record, "ui.geo_work_programme_activity", null),
-                    ]) || null
-                  }
-                />
+                <Grid columns={2} divided stackable>
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <SubjectsField
+                        fieldPath="metadata.subjects"
+                        initialSuggestions={_filter(_get(record, "metadata.subjects", []))}
+                        limitToOptions={this.vocabularies.metadata.subjects.limit_to}
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
 
-                <Grid columns={2} divided>
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <WorkProgrammeActivityField
+                        required={false}
+                        initialSuggestions={
+                          _compact([
+                            _get(record, "ui.geo_work_programme_activity", null),
+                          ]) || null
+                        }
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+
                   <Grid.Row>
                     <Grid.Column>
                       <EngagementPriorityField
@@ -383,6 +417,7 @@ export class PackageDepositFormComponentBase extends Component {
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
+
               </AccordionField>
 
               <AccordionField

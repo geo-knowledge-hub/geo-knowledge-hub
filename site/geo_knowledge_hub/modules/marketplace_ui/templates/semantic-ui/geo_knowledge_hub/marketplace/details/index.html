@@ -14,7 +14,7 @@
 {% endif %}
 
 {%- from "geo_knowledge_hub/details/macros/detail.html" import show_related_identifiers %}
-{%- from "geo_knowledge_hub/marketplace/details/macros/files.html" import file_list_box, preview_file_box %}
+{%- from "invenio_app_rdm/records/macros/files.html" import file_list_box, preview_file_box %}
 
 {%- set title = record.metadata.title %}
 {%- set metadata = record.metadata %}
@@ -27,6 +27,46 @@
 
 {%- block page_body %}
   <section id="banners" class="banners" aria-label="{{ _('Information banner') }}">
+    <!-- COMMUNITY HEADER: hide it when displaying the submission request -->
+    {% if not is_preview_submission_request %}
+
+      {%- set parent = record.get("parent", {}) %}
+      {%- set community_review = parent.get("review", {}).get("receiver", {}).get("community") %}
+      {%- set community_default = parent.get("communities", {}).get("default") %}
+      {%- set has_community = community_review or community_default %}
+
+      {% if has_community %}
+        {%- set expanded_parent = record.get("expanded", {}).get("parent", {}) %}
+        {%- set community = expanded_parent.get("review", {}).get("receiver") or expanded_parent.get("communities", {}).get("default") %}
+        {% set is_community_restricted = community.access.visibility == 'restricted' %}
+        <div class="ui fluid container page-subheader-outer with-submenu compact ml-0-mobile mr-0-mobile">
+          <div class="ui container page-subheader">
+            <div class="page-subheader-element ">
+              <img
+                class="ui tiny image community-header-logo"
+                src="{{ community.links.logo }}"
+                alt=""
+                onerror="this.onerror=null;this.src='/static/images/square-placeholder.png'"
+              />
+            </div>
+            <div class="page-subheader-element">
+              <a
+                href="{{ url_for('invenio_app_rdm_communities.communities_detail', pid_value=community.slug) }}"> {{ community.metadata.title }}</a>
+              {% if is_community_restricted %}
+                <span class="ui label small access-status restricted rel-ml-1"
+                      title="{{ _('Community visibility') }}"
+                      data-tooltip="{{ _('The community is restricted to users with access.') }}"
+                      data-inverted="">
+                  <i class="icon ban" aria-hidden="true"></i> {{ _("Restricted") }}
+                </span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
+    <!-- /COMMUNITY HEADER -->
+
     <!-- PREVIEW HEADER -->
     {% if is_preview %}
       <div class="ui info flashed top attached manage message">
@@ -99,7 +139,7 @@
                   <nav class="back-navigation rel-pb-2 pl-0" aria-label="{{ _('Back-navigation') }}">
                     {% if package %}
                       {%- set back_page = package.links.self_html -%}
-                      {%- set back_btn_label = _('Back to package edit') -%}
+                      {%- set back_btn_label = _('Back to edit') -%}
                     {% else %}
                       {%- set back_page = record.links.self_html -%}
                       {%- set back_btn_label = _('Back to edit') -%}
@@ -154,14 +194,19 @@
                       <span class="label text-muted"> | {{ _('Version {version_number}').format(version_number=record.ui.version) }}</span>
                     </div>
                     <div class="right floated right aligned column">
-                      {% if record.ui.resource_type %}
-                        <span class="ui label small grey" title="{{ _('Resource type') }}">{{ record.ui.resource_type.title_l10n }}</span>
-                      {% endif %}
                       {%- if programme_activity %}
-                        <span class="ui label small grey" title="{{ _('GEO Work Programme Activity') }}">{{programme_activity.props.acronym}}</span>
+                        <a class="ui label small gray"
+                           title="{{ _('GEO Work Programme Activity') }}"
+                           href="{{ programme_activity.props.uri }}"
+                           target="_blank">
+                          {{programme_activity.props.acronym}}
+                        </a>
+                      {% endif %}
+                      {% if record.ui.resource_type %}
+                        <span class="ui label small gray" title="{{ _('Resource type') }}">{{ record.ui.resource_type.title_l10n }}</span>
                       {% endif %}
                       <span
-                        class="ui label small olive"
+                        class="ui label small primary"
                         title="{{ _('Marketplace') }}"
                         data-tooltip="Closed application shared with the GEO Community"
                         data-inverted=""
@@ -190,29 +235,27 @@
             {# Description #}
             {%- block record_content -%}
               <section class="ui container">
-                <div class="ui info message">
-                  <div class="header">
-                    <i class="gift icon"></i> Free commercial application
+                <div class="ui stackable grid info message marketplace centered" >
+                  <div class="thirteen wide computer sixteen wide tablet sixteen wide mobile column">
+                    <div class="header">
+                      <i class="building outline icon"></i> Commercial application
+                    </div>
+                    <p>
+                      The usage of this application might have some associated costs. You can check the vendor resources to learn more.
+                    </p>
                   </div>
-                  <p>This is a commercial application you can use for free. Enjoy our features and services without any cost!</p>
+                  {% if marketplace.vendor_contact %}
+                  <div class="three wide computer sixteen wide tablet sixteen wide mobile column right aligned">
+                    <a class="ui button primary fluid" href="mailto:{{ marketplace.vendor_contact }}">
+                      <i class="icon mail"></i> Contact vendor
+                    </a>
+                  </div>
+                {% endif %}
                 </div>
               </section>
 
               {%- include "geo_knowledge_hub/details/details/description.html" %}
             {%- endblock record_content -%}
-
-            {# Locations #}
-            {% set locations = record.metadata.locations %}
-            {% if locations %}
-              {% set hasFeatureWithGeometry = locations.features | selectattr('geometry', 'defined') | list | length > 0 %}
-              {% if hasFeatureWithGeometry %}
-                <section class="rel-mt-2 geospatial" aria-label="{{ _('Data availability') }}">
-                  <h2 id="description-heading">{{ _('Data availability') }}</h2>
-
-                  <div id="mapContainer" class="ui segment map-container" data-record='{{ record | tojson }}'></div>
-                </section>
-              {% endif %}
-            {% endif %}
 
             {# Files #}
             {%- block record_files -%}
@@ -221,7 +264,7 @@
                 <section id="record-files" class="rel-mt-2" aria-label="{{ _('Files') }}">
                   {%- if permissions.can_read_files -%}
                     {# record has files AND user can see files #}
-                    <h2 id="files-heading">{{ _('Resources') }}</h2>
+                    <h2 id="files-heading">{{ _('Files') }}</h2>
 
                     {%- set files = files|order_entries %}
                     {%- if files|has_previewable_files -%}
@@ -258,7 +301,7 @@
 
             {# External resources #}
             {% if record.ui.related_identifiers %}
-              <section id="related-identifiers" class="rel-mt-2">
+              <section id="related-identifiers" class="rel-mt-3">
                 <h2 id="related-identifiers-heading">{{ _('Related links') }}</h2>
 
                 {{ show_related_identifiers(record.ui.related_identifiers) }}
@@ -267,19 +310,13 @@
 
             {# Additional details #}
             {%- block record_details -%}
-              <section id="additional-details" class="rel-mt-2" aria-label="{{ _('Additional record details') }}">
+              <section id="additional-details" class="rel-mt-3" aria-label="{{ _('Additional record details') }}">
                 {%- include "geo_knowledge_hub/details/details/details.html" %}
               </section>
             {%- endblock record_details -%}
 
-            {# More like this records #}
-            {% if more_like_this_records %}
-              <section class="ui container rel-mt-2">
-                <h2>Explore similar content</h2>
-
-                <div id="details-more-like-this-records-div" class="rel-mt-2" data-moreLikeThisRecords='{{ more_like_this_records | tojson }}'></div>
-              </section>
-            {% endif %}
+            {# See also #}
+            {%- include "geo_knowledge_hub/details/details/more_like_this.html" %}
 
             {# Record footer #}
             {%- block record_footer -%}
@@ -358,6 +395,6 @@
   <!-- GEO Comments -->
   {{ webpack['geo-comments-details.js'] }}
 
-  <!-- Addthis -->
-  {#  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-627fb9ee797c3e18"></script>#}
+  <!-- Addthis: Widget -->
+  <script type="text/javascript" src="{{ share_widget.widget.script }}"></script>
 {%- endblock javascript %}

@@ -24,5 +24,6 @@ def search_app_context():
             current_app.config["RDM_SORT_OPTIONS"],
             "/api/search",
             {"Accept": "application/vnd.inveniordm.v1+json"},
+            hidden_params=[["expand", "1"]],
         ),
     }

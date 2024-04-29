@@ -151,7 +151,7 @@ const MetadataImporter = ({
   const [field, meta, helpers] = useField(fieldPath);
 
   return (
-    <Dropdown icon={"configure"} floating button basic className="icon">
+    <Dropdown icon={"configure"} floating button basic className="icon metadata-importer">
       <Dropdown.Menu>
         <Dropdown.Header content={"Options"} />
         <Dropdown.Item
@@ -431,7 +431,7 @@ export class ResourceModalContent extends Component {
         render: () => (
           <Tab.Pane>
             <FormFeedback fieldPath="message" />
-            <Grid>
+            <Grid stackable>
               <Grid.Row centered>
                 <Grid.Column width={16}>
                   <TitlesField
@@ -443,8 +443,8 @@ export class ResourceModalContent extends Component {
                 </Grid.Column>
               </Grid.Row>
 
-              <Grid.Row verticalAlign={"bottom"}>
-                <Grid.Column width={14}>
+              <Grid.Row verticalAlign={"bottom"} columns={2}>
+                <Grid.Column computer={14} tablet={14} mobile={16}>
                   <ResourceTypeField
                     options={resourceTypeSelected}
                     required
@@ -452,7 +452,7 @@ export class ResourceModalContent extends Component {
                     fieldPath="metadata.resource_type"
                   />
                 </Grid.Column>
-                <Grid.Column width={2} textAlign={"right"}>
+                <Grid.Column computer={2} tablet={2} mobile={16} textAlign={"right"}>
                   <Dropdown
                     text={null}
                     icon={<></>}
@@ -503,16 +503,16 @@ export class ResourceModalContent extends Component {
 
               <Grid.Row centered>
                 <Grid.Column width={16}>
-                  <Grid divided>
+                  <Grid divided stackable>
                     <Grid.Row>
-                      <Grid.Column width={8}>
+                      <Grid.Column computer={8} tablet={8} mobile={16}>
                         <PublicationDateField
                           required
                           fieldPath="metadata.publication_date"
                         />
                       </Grid.Column>
 
-                      <Grid.Column width={8}>
+                      <Grid.Column computer={8} tablet={8} mobile={16}>
                         {this.config.pids.map((pid) => (
                           <Fragment key={pid.scheme}>
                             <PIDField
@@ -550,33 +550,31 @@ export class ResourceModalContent extends Component {
             <Grid>
               <Grid.Row>
                 <Grid.Column width={16}>
-                  <Grid stackable>
-                    <Grid.Row verticalAlign={"bottom"}>
-                      <Grid.Column width={15}>
-                        <LanguagesField
-                          fieldPath="metadata.languages"
-                          initialOptions={_compact(
-                            _concat(
-                              _get(record, "ui.languages"),
-                              _get(modalPackageRecord, "ui.languages")
-                            )
-                          ).filter((lang) => lang !== null)} // needed because dumped empty record from backend gives [null]
-                          serializeSuggestions={(suggestions) =>
-                            suggestions.map((item) => ({
-                              text: item.title_l10n,
-                              value: item.id,
-                              key: item.id,
-                            }))
-                          }
-                        />
-                      </Grid.Column>
-                      <Grid.Column width={1} textAlign={"center"}>
-                        <MetadataImporter
-                          metadataStorage={modalPackageRecord}
-                          fieldPath={"metadata.languages"}
-                        />
-                      </Grid.Column>
-                    </Grid.Row>
+                  <Grid>
+                    <Grid.Column computer={15} tablet={14} mobile={12}>
+                      <LanguagesField
+                        fieldPath="metadata.languages"
+                        initialOptions={_compact(
+                          _concat(
+                            _get(record, "ui.languages"),
+                            _get(modalPackageRecord, "ui.languages")
+                          )
+                        ).filter((lang) => lang !== null)} // needed because dumped empty record from backend gives [null]
+                        serializeSuggestions={(suggestions) =>
+                          suggestions.map((item) => ({
+                            text: item.title_l10n,
+                            value: item.id,
+                            key: item.id,
+                          }))
+                        }
+                      />
+                    </Grid.Column>
+                    <Grid.Column computer={1} tablet={2} mobile={4} verticalAlign={"bottom"} floated={"right"}>
+                      <MetadataImporter
+                        metadataStorage={modalPackageRecord}
+                        fieldPath={"metadata.languages"}
+                      />
+                    </Grid.Column>
                   </Grid>
                 </Grid.Column>
               </Grid.Row>
@@ -612,12 +610,12 @@ export class ResourceModalContent extends Component {
         menuItem: i18next.t("3. People"),
         render: () => (
           <Tab.Pane>
-            <Grid columns={2} divided>
+            <Grid columns={2} divided stackable>
               <Grid.Row>
                 <Grid.Column>
-                  <Grid>
-                    <Grid.Row verticalAlign={"bottom"}>
-                      <Grid.Column width={14}>
+                  <Grid stackable>
+                    <Grid.Row verticalAlign={"middle"}>
+                      <Grid.Column computer={14} tablet={13} mobile={16}>
                         <CreatibutorsField
                           label={i18next.t("Creators")}
                           labelIcon="user"
@@ -628,7 +626,7 @@ export class ResourceModalContent extends Component {
                           required
                         />
                       </Grid.Column>
-                      <Grid.Column width={2} textAlign={"center"}>
+                      <Grid.Column computer={2} tablet={3} mobile={16} verticalAlign={"top"}>
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.creators"}
@@ -648,9 +646,9 @@ export class ResourceModalContent extends Component {
                 </Grid.Column>
 
                 <Grid.Column>
-                  <Grid>
+                  <Grid stackable>
                     <Grid.Row verticalAlign={"bottom"}>
-                      <Grid.Column width={14}>
+                      <Grid.Column computer={14} tablet={13} mobile={16}>
                         <CreatibutorsField
                           addButtonLabel={i18next.t("Add contributor")}
                           label={i18next.t("Contributors")}
@@ -667,7 +665,7 @@ export class ResourceModalContent extends Component {
                           }}
                         />
                       </Grid.Column>
-                      <Grid.Column width={2} textAlign={"center"}>
+                      <Grid.Column computer={2} tablet={3} mobile={16} verticalAlign={"top"}>
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.contributors"}
@@ -697,9 +695,9 @@ export class ResourceModalContent extends Component {
             <Grid>
               <Grid.Row>
                 <Grid.Column width={16}>
-                  <Grid>
+                  <Grid stackable>
                     <Grid.Row verticalAlign={"middle"}>
-                      <Grid.Column width={15}>
+                      <Grid.Column computer={15} tablet={14} mobile={16}>
                         <SubjectsField
                           metadataStorage={modalPackageRecord}
                           fieldPath="metadata.subjects"
@@ -714,7 +712,7 @@ export class ResourceModalContent extends Component {
                           }
                         />
                       </Grid.Column>
-                      <Grid.Column width={1} textAlign={"center"}>
+                      <Grid.Column computer={1} tablet={2} mobile={16} verticalAlign={"middle"} floated={"right"}>
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.subjects"}
@@ -726,9 +724,9 @@ export class ResourceModalContent extends Component {
               </Grid.Row>
               <Grid.Row>
                 <Grid.Column width={16}>
-                  <Grid>
+                  <Grid stackable>
                     <Grid.Row verticalAlign={"bottom"}>
-                      <Grid.Column width={15}>
+                      <Grid.Column computer={15} tablet={14} mobile={16}>
                         <WorkProgrammeActivityField
                           required={false}
                           initialSuggestions={
@@ -749,7 +747,7 @@ export class ResourceModalContent extends Component {
                           }
                         />
                       </Grid.Column>
-                      <Grid.Column width={1} textAlign={"center"}>
+                      <Grid.Column computer={1} tablet={2} mobile={16} verticalAlign={"middle"} floated={"right"} >
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.geo_work_programme_activity"}
@@ -768,12 +766,12 @@ export class ResourceModalContent extends Component {
               </Grid.Row>
             </Grid>
 
-            <Grid columns={2} divided>
+            <Grid columns={2} divided stackable>
               <Grid.Row>
                 <Grid.Column>
-                  <Grid>
+                  <Grid stackable>
                     <Grid.Row verticalAlign={"bottom"}>
-                      <Grid.Column width={14}>
+                      <Grid.Column computer={14} tablet={13} mobile={16}>
                         <EngagementPriorityField
                           required={false}
                           initialSuggestions={_compact(
@@ -789,7 +787,7 @@ export class ResourceModalContent extends Component {
                           )}
                         />
                       </Grid.Column>
-                      <Grid.Column width={2} textAlign={"center"}>
+                      <Grid.Column computer={2} tablet={3} mobile={16} verticalAlign={"top"}>
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.engagement_priorities"}
@@ -804,7 +802,7 @@ export class ResourceModalContent extends Component {
                 <Grid.Column>
                   <Grid>
                     <Grid.Row verticalAlign={"bottom"}>
-                      <Grid.Column width={14}>
+                      <Grid.Column computer={14} tablet={13} mobile={16}>
                         <TargetAudienceField
                           required={false}
                           initialSuggestions={_compact(
@@ -820,7 +818,7 @@ export class ResourceModalContent extends Component {
                           )}
                         />
                       </Grid.Column>
-                      <Grid.Column width={2} textAlign={"center"}>
+                      <Grid.Column computer={2} tablet={3} mobile={16} verticalAlign={"top"}>
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.target_audiences"}
@@ -841,7 +839,7 @@ export class ResourceModalContent extends Component {
         menuItem: i18next.t("5. Additional details"),
         render: () => (
           <Tab.Pane>
-            <Grid>
+            <Grid stackable>
               <Grid.Row>
                 <Grid.Column width={16}>
                   <VersionField fieldPath="metadata.version" />
@@ -850,22 +848,24 @@ export class ResourceModalContent extends Component {
 
               <Grid.Row>
                 <Grid.Column width={16}>
-                  <DatesField
-                    fieldPath="metadata.dates"
-                    options={this.vocabularies.metadata.dates}
-                    showEmptyValue
-                  />
+                  <div className={"field dates"}>
+                    <DatesField
+                      fieldPath="metadata.dates"
+                      options={this.vocabularies.metadata.dates}
+                      showEmptyValue
+                    />
+                  </div>
                 </Grid.Column>
               </Grid.Row>
 
-              <Grid.Row>
-                <Grid.Column width={15}>
+              <Grid.Row verticalAlign={"middle"}>
+                <Grid.Column computer={15} tablet={14} mobile={16}>
                   <LocationsField
                     label={"Locations"}
                     fieldPath={"metadata.locations.features"}
                   />
                 </Grid.Column>
-                <Grid.Column width={1} textAlign={"top"}>
+                <Grid.Column computer={1} tablet={2} mobile={16}>
                   <MetadataImporter
                     metadataStorage={modalPackageRecord}
                     fieldPath={"metadata.locations.features"}
@@ -885,14 +885,16 @@ export class ResourceModalContent extends Component {
                 <Grid.Column width={16}>
                   <Grid>
                     <Grid.Row verticalAlign={"top"}>
-                      <Grid.Column width={15}>
+                      <Grid.Column computer={15} tablet={14} mobile={16}>
                         <PublisherField fieldPath="metadata.publisher" />
                       </Grid.Column>
-                      <Grid.Column width={1} textAlign={"center"}>
-                        <MetadataImporter
-                          metadataStorage={modalPackageRecord}
-                          fieldPath={"metadata.publisher"}
-                        />
+                      <Grid.Column computer={1} tablet={2} mobile={16} verticalAlign={"top"}>
+                        <div className={"field publisher"}>
+                          <MetadataImporter
+                            metadataStorage={modalPackageRecord}
+                            fieldPath={"metadata.publisher"}
+                          />
+                        </div>
                       </Grid.Column>
                     </Grid.Row>
                   </Grid>
@@ -901,9 +903,9 @@ export class ResourceModalContent extends Component {
 
               <Grid.Row centered>
                 <Grid.Column width={16}>
-                  <Grid>
-                    <Grid.Row verticalAlign={"bottom"}>
-                      <Grid.Column width={15}>
+                  <Grid stackable>
+                    <Grid.Row verticalAlign={"middle"}>
+                      <Grid.Column computer={15} tablet={14} mobile={16}>
                         <LicenseField
                           fieldPath="metadata.rights"
                           searchConfig={{
@@ -928,7 +930,7 @@ export class ResourceModalContent extends Component {
                           })}
                         />
                       </Grid.Column>
-                      <Grid.Column width={1} textAlign={"center"}>
+                      <Grid.Column computer={1} tablet={2} mobile={16}>
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.rights"}
@@ -962,9 +964,9 @@ export class ResourceModalContent extends Component {
 
               <Grid.Row>
                 <Grid.Column>
-                  <Grid>
-                    <Grid.Row verticalAlign={"bottom"}>
-                      <Grid.Column width={15}>
+                  <Grid stackable>
+                    <Grid.Row verticalAlign={"middle"}>
+                      <Grid.Column computer={15} tablet={14} mobile={16}>
                         <FundingField
                           fieldPath="metadata.funding"
                           searchConfig={{
@@ -1046,7 +1048,7 @@ export class ResourceModalContent extends Component {
                           }}
                         />
                       </Grid.Column>
-                      <Grid.Column width={1} textAlign={"center"}>
+                      <Grid.Column computer={1} tablet={2} mobile={16}>
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.funding"}
@@ -1080,13 +1082,15 @@ export class ResourceModalContent extends Component {
         menuItem: i18next.t("7. Extra identifiers"),
         render: () => (
           <Tab.Pane>
-            <IdentifiersField
-              fieldPath="metadata.identifiers"
-              label={i18next.t("Alternate identifiers")}
-              labelIcon="barcode"
-              schemeOptions={this.vocabularies.metadata.identifiers.scheme}
-              showEmptyValue
-            />
+            <div className={"field identifiers"}>
+              <IdentifiersField
+                fieldPath="metadata.identifiers"
+                label={i18next.t("Alternate identifiers")}
+                labelIcon="barcode"
+                schemeOptions={this.vocabularies.metadata.identifiers.scheme}
+                showEmptyValue
+              />
+            </div>
           </Tab.Pane>
         ),
       },
@@ -1094,13 +1098,15 @@ export class ResourceModalContent extends Component {
         menuItem: i18next.t("8. Related links"),
         render: () => (
           <Tab.Pane>
-            <RelatedWorksField
-              fieldPath="metadata.related_identifiers"
-              options={this.vocabularies.metadata.identifiers}
-              label={i18next.t("Related links")}
-              labelIcon="linkify"
-              showEmptyValue
-            />
+            <div className={"field links"}>
+              <RelatedWorksField
+                fieldPath="metadata.related_identifiers"
+                options={this.vocabularies.metadata.identifiers}
+                label={i18next.t("Related links")}
+                labelIcon="linkify"
+                showEmptyValue
+              />
+            </div>
           </Tab.Pane>
         ),
       },
@@ -1199,7 +1205,7 @@ export class ResourceModalContent extends Component {
               <Segment attached basic>
                 <Grid verticalAlign="middle" centered>
                   <Grid.Row fluid>
-                    <Grid.Column width={8}>
+                    <Grid.Column width={16}>
                       <AccessRightFieldResource
                         // label={i18next.t("Visibility")}
                         // labelIcon="shield"
@@ -1212,8 +1218,8 @@ export class ResourceModalContent extends Component {
             )}
           </>
 
-          <Segment basic className="mt-0">
-            <Grid>
+          <Segment basic attached className="mt-0">
+            <Grid stackable>
               <Grid.Row>
                 <Grid.Column width={4} floated={"right"}>
                   <div>

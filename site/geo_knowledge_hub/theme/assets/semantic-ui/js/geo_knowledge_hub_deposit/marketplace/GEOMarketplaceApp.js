@@ -10,6 +10,7 @@ import React, { Component, createRef, Fragment } from "react";
 import PropTypes from "prop-types";
 
 import _get from "lodash/get";
+import _filter from "lodash/filter";
 import _compact from "lodash/compact";
 
 import { AccordionField, CustomFields } from "react-invenio-forms";
@@ -51,7 +52,7 @@ import {
 import {
   TargetAudienceField,
   EngagementPriorityField,
-  WorkProgrammeActivityField,
+  WorkProgrammeActivityField
 } from "@geo-knowledge-hub/geo-components-react";
 
 import { LocationsField } from "@geo-knowledge-hub/invenio-geographic-components-react";
@@ -172,25 +173,36 @@ export class GEOMarketplaceApp extends Component {
                 active
                 label={i18next.t("Basic information")}
               >
-                <TitlesField
-                  options={this.vocabularies.metadata.titles}
-                  fieldPath="metadata.title"
-                  recordUI={record.ui}
-                  required
-                />
+                <Grid>
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <TitlesField
+                        options={this.vocabularies.metadata.titles}
+                        fieldPath="metadata.title"
+                        recordUI={record.ui}
+                        required
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <ResourceTypeField
+                        options={this.vocabularies.metadata.resource_type}
+                        fieldPath="metadata.resource_type"
+                        required
+                      />
 
-                <ResourceTypeField
-                  options={this.vocabularies.metadata.resource_type}
-                  fieldPath="metadata.resource_type"
-                  required
-                />
-
-                <PublicationDateField
-                  required
-                  fieldPath="metadata.publication_date"
-                />
-
-                <MarketplaceLaunch />
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <PublicationDateField
+                        required
+                        fieldPath="metadata.publication_date"
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
               </AccordionField>
 
               <AccordionField
@@ -202,39 +214,48 @@ export class GEOMarketplaceApp extends Component {
                 active
                 label={i18next.t("Description and languages")}
               >
-                <LanguagesField
-                  fieldPath="metadata.languages"
-                  initialOptions={_get(record, "ui.languages", []).filter(
-                    (lang) => lang !== null
-                  )} // needed because dumped empty record from backend gives [null]
-                  serializeSuggestions={(suggestions) =>
-                    suggestions.map((item) => ({
-                      text: item.title_l10n,
-                      value: item.id,
-                      key: item.id,
-                    }))
-                  }
-                />
-
-                <DescriptionsField
-                  fieldPath="metadata.description"
-                  options={this.vocabularies.metadata.descriptions}
-                  recordUI={_get(record, "ui", null)}
-                  editorConfig={{
-                    removePlugins: [
-                      "Image",
-                      "ImageCaption",
-                      "ImageStyle",
-                      "ImageToolbar",
-                      "ImageUpload",
-                      "MediaEmbed",
-                      "Table",
-                      "TableToolbar",
-                      "TableProperties",
-                      "TableCellProperties",
-                    ],
-                  }}
-                />
+                <Grid>
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <LanguagesField
+                        fieldPath="metadata.languages"
+                        initialOptions={_get(record, "ui.languages", []).filter(
+                          (lang) => lang !== null
+                        )} // needed because dumped empty record from backend gives [null]
+                        serializeSuggestions={(suggestions) =>
+                          suggestions.map((item) => ({
+                            text: item.title_l10n,
+                            value: item.id,
+                            key: item.id,
+                          }))
+                        }
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <DescriptionsField
+                        fieldPath="metadata.description"
+                        options={this.vocabularies.metadata.descriptions}
+                        recordUI={_get(record, "ui", null)}
+                        editorConfig={{
+                          removePlugins: [
+                            "Image",
+                            "ImageCaption",
+                            "ImageStyle",
+                            "ImageToolbar",
+                            "ImageUpload",
+                            "MediaEmbed",
+                            "Table",
+                            "TableToolbar",
+                            "TableProperties",
+                            "TableCellProperties",
+                          ],
+                        }}
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
               </AccordionField>
 
               <AccordionField
@@ -242,7 +263,7 @@ export class GEOMarketplaceApp extends Component {
                 active
                 label={i18next.t("People / Company")}
               >
-                <Grid columns={2} divided>
+                <Grid columns={2} divided stackable>
                   <Grid.Row>
                     <Grid.Column>
                       <CreatibutorsField
@@ -274,8 +295,12 @@ export class GEOMarketplaceApp extends Component {
                       />
                     </Grid.Column>
                   </Grid.Row>
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <MarketplaceVendorContact />
+                    </Grid.Column>
+                  </Grid.Row>
                 </Grid>
-                <MarketplaceVendorContact />
               </AccordionField>
 
               <AccordionField
@@ -288,21 +313,30 @@ export class GEOMarketplaceApp extends Component {
                 active
                 label={i18next.t("Initiatives, audiences, and subjects")}
               >
-                <SubjectsField
-                  fieldPath="metadata.subjects"
-                  initialSuggestions={_get(record, "metadata.subjects", null)}
-                  limitToOptions={this.vocabularies.metadata.subjects.limit_to}
-                />
-                <WorkProgrammeActivityField
-                  required={false}
-                  initialSuggestions={
-                    _compact([
-                      _get(record, "ui.geo_work_programme_activity", null),
-                    ]) || null
-                  }
-                />
+                <Grid columns={2} divided stackable>
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <SubjectsField
+                        fieldPath="metadata.subjects"
+                        initialSuggestions={_filter(_get(record, "metadata.subjects", []))}
+                        limitToOptions={this.vocabularies.metadata.subjects.limit_to}
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
 
-                <Grid columns={2} divided>
+                  <Grid.Row columns={1}>
+                    <Grid.Column>
+                      <WorkProgrammeActivityField
+                        required={false}
+                        initialSuggestions={
+                          _compact([
+                            _get(record, "ui.geo_work_programme_activity", null),
+                          ]) || null
+                        }
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+
                   <Grid.Row>
                     <Grid.Column>
                       <EngagementPriorityField
@@ -329,11 +363,19 @@ export class GEOMarketplaceApp extends Component {
               </AccordionField>
 
               <AccordionField
-                includesPaths={["metadata.version", "metadata.dates"]}
+                includesPaths={["metadata.version", "metadata.marketplace.launch_url"]}
                 active
-                label={i18next.t("Dates and version")}
+                label={i18next.t("Software information")}
               >
+                <MarketplaceLaunch />
                 <VersionField fieldPath="metadata.version" />
+              </AccordionField>
+
+              <AccordionField
+                includesPaths={["metadata.dates"]}
+                active
+                label={i18next.t("Dates")}
+              >
                 <DatesField
                   fieldPath="metadata.dates"
                   options={this.vocabularies.metadata.dates}

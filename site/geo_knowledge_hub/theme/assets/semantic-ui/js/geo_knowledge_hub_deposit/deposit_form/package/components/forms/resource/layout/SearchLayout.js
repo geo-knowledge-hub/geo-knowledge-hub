@@ -40,26 +40,26 @@ export class SearchLayout extends Component {
       <>
         <Grid stackable>
           <Grid.Row>
-            <Grid.Column mobile={14} tablet={10} computer={4}>
+            <Grid.Column mobile={16} tablet={16} computer={4}>
               {formActivator}
             </Grid.Column>
             <Grid.Column
-              mobile={14}
-              tablet={10}
+              mobile={16}
+              tablet={16}
               computer={12}
               floated={"right"}
               verticalAlign={"middle"}
             >
               <SearchBar
                 placeholder={i18next.t(
-                  "Search for resources inside the package"
+                  "Search for Knowledge Resources available in the Package"
                 )}
               />
             </Grid.Column>
           </Grid.Row>
 
           <Grid.Row>
-            <Grid.Column mobile={14} tablet={10} computer={4} centered>
+            <Grid.Column mobile={16} tablet={16} computer={4} centered>
               <MenuFacetType />
               <MenuManagement />
               <MenuOperations />

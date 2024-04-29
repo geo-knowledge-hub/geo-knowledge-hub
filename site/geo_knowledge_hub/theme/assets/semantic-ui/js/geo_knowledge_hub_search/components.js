@@ -17,6 +17,8 @@ import { Item, Label } from "semantic-ui-react";
 import { SearchItemCreators } from "@invenio-app-rdm/utils";
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 
+import { DisplayPartOfCommunity } from "../components/search";
+
 import {
   extractRecordBadge,
   extractProgrammeActivityAcronym,
@@ -33,25 +35,25 @@ export const CustomRecordResultsListItem = ({ result }) => {
   const createdDate = _get(
     result,
     "ui.created_date_l10n_long",
-    "No creation date found."
+    "No creation date found.",
   );
   const creators = result.ui.creators.creators.slice(0, 3);
 
   const descriptionStripped = _get(
     result,
     "ui.description_stripped",
-    "No description"
+    "No description",
   );
 
   const publicationDate = _get(
     result,
     "ui.publication_date_l10n_long",
-    "No publication date found."
+    "No publication date found.",
   );
   const resourceType = _get(
     result,
     "ui.resource_type.title_l10n",
-    "No resource type"
+    "No resource type",
   );
   const subjects = _get(result, "ui.subjects", []);
   const title = _get(result, "metadata.title", "No title");
@@ -59,7 +61,13 @@ export const CustomRecordResultsListItem = ({ result }) => {
 
   // preparing the GEO Work programme activity badge
   const programmeActivityAcronym = extractProgrammeActivityAcronym(
-    _get(result, "metadata.geo_work_programme_activity.title.en")
+    _get(result, "metadata.geo_work_programme_activity.title.en"),
+  );
+
+  const recordCommunity = _get(
+    result,
+    "expanded.parent.communities.default",
+    null,
   );
 
   // Derivatives
@@ -69,23 +77,26 @@ export const CustomRecordResultsListItem = ({ result }) => {
       <Item.Content>
         <Item.Extra className="labels-actions">
           <Label size="tiny" color={recordBadge.color}>
-            <i className={`icon ${recordBadge.icon}`}></i>{recordBadge.name}
+            <i className={`icon ${recordBadge.icon}`}></i>
+            {recordBadge.name}
+          </Label>
+          <Label size="tiny" color={"gray"}>
+            {publicationDate} ({version})
+          </Label>
+          <Label size="tiny" color={"gray"}>
+            {resourceType}
           </Label>
           {programmeActivityAcronym && (
-            <Label size="tiny" color="programme-activity-label">
+            <Label size="tiny" color={"gray"}>
               {programmeActivityAcronym}
             </Label>
           )}
-          <Label size="tiny" className="primary">
-            {publicationDate} ({version})
-          </Label>
-          <Label size="tiny" className="neutral">
-            {resourceType}
-          </Label>
-          {/*<Label size="tiny" className={`access-status ${accessStatusId}`}>*/}
-          {/*  {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}*/}
-          {/*  {accessStatus}*/}
-          {/*</Label>*/}
+          {accessStatusId === "restricted" && (
+            <Label size="tiny" className={`access-status ${accessStatusId}`}>
+              {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}
+              {accessStatus}
+            </Label>
+          )}
         </Item.Extra>
         <Item.Header as="h2">
           <a href={viewLink}>{title}</a>
@@ -102,13 +113,23 @@ export const CustomRecordResultsListItem = ({ result }) => {
               {subject.title_l10n}
             </Label>
           ))}
-          {createdDate && (
-            <div>
-              <small>
-                {i18next.t("Uploaded on")} <span>{createdDate}</span>
-              </small>
-            </div>
-          )}
+
+          <div className="flex justify-space-between align-items-end">
+            <small>
+              {recordCommunity && (
+                <DisplayPartOfCommunity community={recordCommunity} />
+              )}
+              <p>
+                {createdDate && (
+                  <>
+                    {i18next.t("Uploaded on {{uploadDate}}", {
+                      uploadDate: createdDate,
+                    })}
+                  </>
+                )}
+              </p>
+            </small>
+          </div>
         </Item.Extra>
       </Item.Content>
     </Item>
