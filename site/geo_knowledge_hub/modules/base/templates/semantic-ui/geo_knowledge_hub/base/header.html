@@ -29,6 +29,10 @@
 {%- endif %}
 {%- endfor %}
 
+<div class="item">
+  <a role="menuitem" href="/marketplace">{{ _("Marketplace") }}</a>
+</div>
+
 {%- if current_user.is_authenticated and is_knowledge_provider %}
 <div class="item">
   <a role="menuitem" href="/dashboard" target="_blank">{{ _("User management") }}</a>
