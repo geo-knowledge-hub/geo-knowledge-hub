@@ -24,7 +24,6 @@ def init_bp(app):
 
     # registration
     bp.add_url_rule("/", "front_page", views.frontpage)
-    bp.add_url_rule("/overview", "overview", views.overview_page)
 
     app.register_blueprint(bp)
 
