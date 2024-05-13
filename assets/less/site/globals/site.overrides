@@ -147,6 +147,72 @@ a {
   background-repeat: no-repeat;
 }
 
+/*-------------------------------------
+  Front page definitions (Marketplace)
+---------------------------------------*/
+.marketplace-frontpage.frontpage-header {
+  background-image: @navbarBackgroundImage;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.marketplace-frontpage.frontpage-header .ui.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.marketplace-frontpage.frontpage-header .ui.container p {
+  width: 60%;
+}
+
+.marketplace-frontpage.frontpage-header .ui.container .grid {
+  width: 100%;
+}
+
+.marketplace-frontpage.frontpage-header .ui.container .grid .search-bar {
+  padding-left: 0;
+  width: 30% !important;
+}
+
+.marketplace-frontpage .ui.message {
+  box-shadow: none;
+  border-radius: 0;
+  margin-bottom: 4rem;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  color: white;
+  height: 20em;
+}
+
+.marketplace-frontpage .ui.message .header {
+  color: white;
+}
+
+.marketplace-frontpage.features {
+  box-shadow: none;
+  border-radius: 0;
+  margin-bottom: 4rem;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
+
+.marketplace-frontpage.features .feature {
+  text-align: center;
+}
+
+.marketplace-frontpage.features .feature .ui.header {
+  font-size: 2.2em;
+}
+
+.marketplace-frontpage.features .feature p {
+  padding: 2em;
+  font-size: 1.15em;
+}
+
 /*------------------------------------
  User Dashboard definitions (General)
 --------------------------------------*/
