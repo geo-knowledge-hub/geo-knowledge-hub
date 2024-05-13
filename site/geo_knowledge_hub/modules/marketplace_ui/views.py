@@ -8,6 +8,8 @@
 
 """GEO Knowledge Hub Marketplace (page) views."""
 
+import json
+
 from flask import g, redirect, render_template
 from flask_login import login_required
 from geo_rdm_records.base.resources.serializers import (
@@ -21,7 +23,7 @@ from invenio_app_rdm.records_ui.views.decorators import (
 )
 from invenio_app_rdm.records_ui.views.deposits import get_search_url, new_record
 
-from geo_knowledge_hub.modules.base.config import get_form_config
+from geo_knowledge_hub.modules.base.config import get_form_config, load_from_config
 from geo_knowledge_hub.modules.base.decorators import (
     pass_draft,
     pass_draft_files,
@@ -40,6 +42,32 @@ from geo_knowledge_hub.modules.base.utilities import (
 from geo_knowledge_hub.modules.base.utilities import (
     serialization as serialization_utilities,
 )
+
+
+#
+# Utilities
+#
+def load_config():
+    """Load extra configurations for the Marketplace Frontpage."""
+    carousel_engagement_config = load_from_config(
+        "GKH_CAROUSEL_ENGAGEMENTS_MARKETPLACE_ITEMS_URL"
+    )
+    carousel_conventions_config = load_from_config(
+        "GKH_CAROUSEL_CONVENTIONS_MARKETPLACE_ITEMS_URL"
+    )
+
+    list_latest_records_url = load_from_config("GKH_LATEST_MARKETPLACE_ITEMS_URL")
+    list_latest_records_more_url = load_from_config(
+        "GKH_LATEST_MARKETPLACE_ITEMS_MORE_URL"
+    )
+
+    return dict(
+        carousel_engagement_config=carousel_engagement_config,
+        carousel_conventions_config=carousel_conventions_config,
+        list_latest_records_config=json.dumps(
+            {"url": list_latest_records_url, "url_more": list_latest_records_more_url}
+        ),
+    )
 
 
 #
@@ -194,4 +222,14 @@ def geo_marketplace_file_download(
     """Download a file from a record."""
     return record_utilities.record_file_download(
         pid_value, file_item, is_preview, **kwargs
+    )
+
+
+def frontpage():
+    """Render the marketplace front-page."""
+    # loading configurations
+    configuration = load_config()
+
+    return render_template(
+        "geo_knowledge_hub/marketplace/frontpage/frontpage.html", **configuration
     )
