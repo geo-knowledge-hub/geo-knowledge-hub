@@ -17,8 +17,14 @@ def init_bp(app):
     """Initialize Marketplace (deposit and details pages)."""
     bp = Blueprint("geokhub_marketplace_ui_bp", __name__, template_folder="templates")
 
-    # Registration
+    # Front page
+    bp.add_url_rule(
+        "/marketplace",
+        "geokhub_marketplace_front_page",
+        views.frontpage,
+    )
 
+    # Registration
     # Deposit (Create)
     bp.add_url_rule(
         "/uploads/marketplace/items/new",
