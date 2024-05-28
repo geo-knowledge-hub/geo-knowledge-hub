@@ -24,7 +24,7 @@ export const extractRecordBadge = (recordType) => {
   // Currently, we only have "Marketplace Item" as closed records
   if (recordType === "marketplace-item") {
     recordBadge = {
-      name: "Marketplace",
+      name: "Commercial",
       color: "primary",
       icon: "building"
     }
