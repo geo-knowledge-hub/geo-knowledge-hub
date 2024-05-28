@@ -345,7 +345,7 @@ export const RDMEmptyResults = (props) => {
       key: 3,
       text: (
         <p>
-          Marketplace <b>Item</b>
+          Commercial <b>Item</b>
         </p>
       ),
       value: 3,
