@@ -92,6 +92,10 @@ a {
     height: 25rem
 }
 
+#frontpage-search-bar .ui.message {
+  background: unset;
+}
+
 .float-section-buttons {
   position: relative;
   margin-top: -2em;
