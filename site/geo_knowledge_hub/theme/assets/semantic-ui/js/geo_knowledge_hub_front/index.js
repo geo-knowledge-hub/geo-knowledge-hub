@@ -22,6 +22,11 @@ import {
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 
 //
+// URL element
+//
+const isMarketplace = window.location.pathname.includes("marketplace");
+
+//
 // DOM element selection
 //
 const searchDiv = document.getElementById("advanced-search-div");
@@ -51,6 +56,13 @@ const persistentQueryClient = new QueryClient({
   },
 });
 
+// Default Record type
+let recordType = "package";
+
+if (isMarketplace) {
+  recordType = "marketplace-item";
+}
+
 // rendering!
 if (searchDiv && searchData) {
   const baseUrl = searchData.value;
@@ -58,6 +70,10 @@ if (searchDiv && searchData) {
   ReactDOM.render(
     <AdvancedSearchBar
       onSearch={(query) => {
+        if (query === "q=" && isMarketplace) {
+          query = "q=parent.type:(marketplace-item)"
+        }
+
         window.location.assign(`${baseUrl}?${query}`);
       }}
       searchPlaceholder={i18next.t(
@@ -65,13 +81,8 @@ if (searchDiv && searchData) {
       )}
       formInitialValues={{
         form: {
-          resourceTypes: [
-            {
-              id: "knowledge",
-              key: "knowledge",
-              text: "Knowledge Package",
-              value: "knowledge",
-            },
+          recordTypes: [
+            recordType
           ],
         },
       }}

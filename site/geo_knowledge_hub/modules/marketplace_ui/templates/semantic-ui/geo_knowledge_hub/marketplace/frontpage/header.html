@@ -2,16 +2,22 @@
 
 {%- block frontpage_search %}
   <div id="frontpage-search-bar" class="ui container fluid frontpage-header marketplace-frontpage">
-    <div class="ui massive message marketplace-frontpage">
-      <div class="ui container">
+    <div class="ui massive message marketplace-frontpage" style="min-height: 15em; height: unset">
+      <div class="ui container rel-mt-2">
         <h1 class="ui huge header">GKH Marketplace</h1>
-        <p>
-          The GKH Marketplace is a new space inside the GEO Knowledge Hub, where you can find commercial
-          applications created by members of the GEO Community. Enjoy!
-        </p>
+        <div class="ui grid">
+          <div class="row">
+            <div class="sixteen wide mobile ten wide computer column" style="padding: 0">
+              <p>
+                The GKH Marketplace is a new space inside the GEO Knowledge Hub, where you can find commercial
+                applications created by members of the GEO Community. Enjoy!
+              </p>
+            </div>
+          </div>
+        </div>
         <div class="ui grid mt-20">
           <div class="row">
-            <div class="sixteen wide mobile eight wide computer column center aligned search-bar">
+            <div class="sixteen wide mobile five wide computer column center aligned search-bar">
               <div id="advanced-search-div"><!--Rendered via React--></div>
               <input id="front-search-data" type="hidden" name="deposits-record" value="{{ url_for('invenio_search_ui.search') }}"></input>
             </div>

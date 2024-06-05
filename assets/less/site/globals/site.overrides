@@ -169,17 +169,12 @@ a {
   justify-content: center;
 }
 
-.marketplace-frontpage.frontpage-header .ui.container p {
-  width: 60%;
-}
-
 .marketplace-frontpage.frontpage-header .ui.container .grid {
   width: 100%;
 }
 
 .marketplace-frontpage.frontpage-header .ui.container .grid .search-bar {
   padding-left: 0;
-  width: 30% !important;
 }
 
 .marketplace-frontpage .ui.message {
@@ -201,7 +196,6 @@ a {
   border-radius: 0;
   margin-bottom: 4rem;
   padding-top: 6rem;
-  padding-bottom: 4rem;
 }
 
 .marketplace-frontpage.features .feature {
@@ -209,7 +203,8 @@ a {
 }
 
 .marketplace-frontpage.features .feature .ui.header {
-  font-size: 2.2em;
+  font-size: 2em;
+  color: @primaryColor;
 }
 
 .marketplace-frontpage.features .feature p {

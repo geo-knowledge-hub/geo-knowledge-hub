@@ -11,12 +11,22 @@ import ReactDOM from "react-dom";
 
 import { RecordManagement } from "./RecordManagement";
 
+//
+// URL element
+//
+const isMarketplace = window.location.pathname.includes("marketplace");
+
+//
+// DOM element selection
+//
 const recordManagementAppDiv = document.getElementById("recordManagement");
 const recordManagementMobile = document.getElementById(
   "recordManagementMobile",
 );
 
 function renderRecordManagement(element) {
+  console.log("is to show share")
+  console.log(isMarketplace)
   ReactDOM.render(
     <RecordManagement
       record={JSON.parse(recordManagementAppDiv.dataset.record)}
@@ -28,6 +38,7 @@ function renderRecordManagement(element) {
       assistanceRequests={JSON.parse(
         recordManagementAppDiv.dataset.assistanceRequests,
       )}
+      showShare={!isMarketplace}
     />,
     element,
   );
