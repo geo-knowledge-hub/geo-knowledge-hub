@@ -128,6 +128,8 @@ export class GEOMarketplaceApp extends Component {
 
     const customFieldsUI = this.config.custom_fields.ui;
 
+    console.log(this.config.custom_fields.error_labels);
+
     return (
       <DepositFormApp
         config={this.config}
@@ -138,7 +140,11 @@ export class GEOMarketplaceApp extends Component {
       >
         <FormFeedback
           fieldPath="message"
-          labels={this.config.custom_fields.error_labels}
+          labels={[
+            [
+                "metadata.marketplace.launch_url", "Launch URL"
+            ]
+          ]}
         />
         <CommunityHeader imagePlaceholderLink="/static/images/square-placeholder.png" />
 

@@ -27,6 +27,7 @@ export const RecordManagement = ({
   permissions,
   isDraft,
   isPreviewSubmissionRequest,
+  showShare,
   assistanceRequests,
 }) => {
   const { id: recid } = record;
@@ -72,14 +73,14 @@ export const RecordManagement = ({
             />
           </Grid.Column>
 
-          <Grid.Column className="pt-5 pb-5">
-            {permissions.can_manage && (
+          {(permissions.can_manage && showShare) && (
+            <Grid.Column className="pt-5 pb-5">
               <ShareButton
                 disabled={!permissions.can_update_draft}
                 record={record}
               />
-            )}
-          </Grid.Column>
+            </Grid.Column>
+          )}
 
           <Grid.Column className="pt-5">
             {permissions.can_request_feed && (
