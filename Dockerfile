@@ -13,6 +13,8 @@ FROM registry.cern.ch/inveniosoftware/almalinux:1
 #
 ENV NODE_OPTIONS="--max-old-space-size=8192"
 
+ENV NPM_CONFIG_LEGACY_PEER_DEPS=true
+
 #
 # Base update
 #
