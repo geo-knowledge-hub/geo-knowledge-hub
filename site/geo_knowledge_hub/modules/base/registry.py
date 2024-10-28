@@ -8,12 +8,40 @@
 
 """GEO Knowledge Hub Detail (page) toolbox."""
 
+from geo_rdm_records.base.records.types import GEORecordTypes
 from geo_rdm_records.proxies import (
     current_geo_packages_service,
     current_marketplace_service,
 )
 from invenio_communities.proxies import current_communities
 from invenio_rdm_records.proxies import current_rdm_records_service
+
+
+#
+# Templates
+#
+class TemplateRegistry:
+    """Template registry."""
+
+    types = {
+        GEORecordTypes.package: "geo_knowledge_hub/details/detail.html",
+        GEORecordTypes.resource: "geo_knowledge_hub/details/detail.html",
+        GEORecordTypes.marketplace_item: "geo_knowledge_hub/marketplace/details/index.html",
+    }
+    """Record types."""
+
+    default_template = "geo_knowledge_hub/details/detail.html"
+    """Default template."""
+
+    @classmethod
+    def get_template(cls, record_type, use_default=False):
+        """Get service by record type."""
+        record_template = cls.types.get(record_type)
+
+        if not record_template and use_default:
+            record_template = cls.default_template
+
+        return record_template
 
 
 #
