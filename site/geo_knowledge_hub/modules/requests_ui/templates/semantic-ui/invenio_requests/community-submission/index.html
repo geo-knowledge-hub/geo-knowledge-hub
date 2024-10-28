@@ -77,7 +77,7 @@ request=invenio_request, record=record, draft_is_accepted=draft_is_accepted, bac
     {% set preview_submission_request = true %}
     {% set is_draft = true %}
 
-    {% include "geo_knowledge_hub/details/detail.html" %}
+    {% include record_template %}
 
   </div>
   {% endif %}

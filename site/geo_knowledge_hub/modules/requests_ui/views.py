@@ -20,6 +20,7 @@ from invenio_requests.views.decorators import pass_request
 from invenio_users_resources.proxies import current_user_resources
 
 from geo_knowledge_hub.modules.base.registry import (
+    TemplateRegistry,
     get_draft_files_service,
     get_files_service,
     get_record_service,
@@ -92,9 +93,12 @@ def user_dashboard_request_view(request, **kwargs):
             else "invenio_requests/community-submission/index.html"
         )
 
+        record_template = TemplateRegistry.get_template(record_type, use_default=True)
+
         return render_template(
             template,
             base_template="invenio_app_rdm/users/base.html",
+            record_template=record_template,
             user_avatar=avatar,
             invenio_request=request.to_dict(),
             record=record,
