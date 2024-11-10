@@ -49,6 +49,13 @@ licenses:
   data-file: vocabularies/licenses/licenses.csv
 
 #
+# Description types
+#
+descriptiontypes:
+  pid-type: dty
+  data-file: vocabularies/descriptions/description_types.yaml
+
+#
 # Roles
 #
 contributorsroles:
