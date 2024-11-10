@@ -36,6 +36,7 @@ from geo_knowledge_hub.modules.base.decorators import (
     pass_record_or_draft,
 )
 from geo_knowledge_hub.modules.base.utilities import endpoint as endpoint_utilities
+from geo_knowledge_hub.modules.base.utilities import harvest as harvest_utilities
 from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
 from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 from geo_knowledge_hub.modules.base.utilities import (
@@ -83,6 +84,13 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
     )
     package_requests = json.dumps(package_requests)
 
+    # Harvest-related content
+    harvest_source_record = harvest_utilities.get_record_address(record_data)
+    harvest_source_files = harvest_utilities.get_external_files(record_data)
+    harvest_source_metadata = harvest_utilities.get_source_config_from_record(
+        record_data
+    )
+
     # Searching records like the current one
     more_like_this_records = []
 
@@ -113,6 +121,9 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
         is_knowledge_package=True,
         assistance_requests=package_requests,
         more_like_this_records=more_like_this_records,
+        harvest_source_record=harvest_source_record,
+        harvest_source_files=harvest_source_files,
+        harvest_source_metadata=harvest_source_metadata,
         **record_metadata,
         **record_endpoint,
     )
