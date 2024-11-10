@@ -7,6 +7,7 @@
 # details.
 
 """Files utilities."""
+
 from os.path import splitext
 
 from invenio_files_rest.models import ObjectVersion
@@ -26,7 +27,7 @@ class PreviewFileRemote:
 
     @property
     def data(self):
-        """Metadata property"""
+        """Metadata property."""
         return self.file
 
     @property
