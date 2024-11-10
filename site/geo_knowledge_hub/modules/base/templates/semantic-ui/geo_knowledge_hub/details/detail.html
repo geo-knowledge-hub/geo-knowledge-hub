@@ -13,7 +13,7 @@
 {%- extends config.BASE_TEMPLATE %}
 {% endif %}
 
-{%- from "geo_knowledge_hub/details/macros/detail.html" import show_related_identifiers %}
+{%- from "geo_knowledge_hub/details/macros/detail.html" import show_related_identifiers, show_external_files %}
 {%- from "invenio_app_rdm/records/macros/files.html" import file_list_box, preview_file_box %}
 
 {%- set title = record.metadata.title %}
@@ -307,6 +307,15 @@
                 </section>
               {%- endif %}
             {%- endblock record_files -%}
+
+            {# External Files #}
+            {% if harvest_source_files %}
+            <section id="record-external-files" class="rel-mt-3">
+              <h2 id="external-files-heading">{{ _('Remote files') }}</h2>
+
+              {{ show_external_files(harvest_source_files) }}
+            </section>
+            {% endif %}
 
             {# User Stories#}
             {%- block user_stories -%}

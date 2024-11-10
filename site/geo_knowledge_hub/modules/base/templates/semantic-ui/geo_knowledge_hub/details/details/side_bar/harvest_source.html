@@ -1,0 +1,22 @@
+{#
+Copyright (C) 2021-2024 GEO Secretariat.
+
+geo-knowledge-hub is free software; you can redistribute it and/or modify
+it under the terms of the MIT License; see LICENSE file for more details.
+#}
+
+{% if harvest_source_metadata and harvest_source_record %}
+<section id="engagement-priorities-sidebar" aria-label="{{ _('Sources') }}" class="ui segment rdm-sidebar">
+    <h2 class="ui small header">{{ _('Source') }}</h2>
+
+    <a href="{{ harvest_source_record }}" target="_blank">
+        <img src="{{ harvest_source_metadata.logo }}" class="img-thumbnail" width="100%"/>
+    </a>
+
+    <small class="text-muted">
+        This content was harvested from <a href="{{harvest_source_metadata.url}}" target="_blank">
+        {{ harvest_source_metadata.name }}</a>. You can check it <a href="{{ harvest_source_record }}" target="_blank">
+        there</a> to explore this and other related content.
+    </small>
+</section>
+{% endif %}

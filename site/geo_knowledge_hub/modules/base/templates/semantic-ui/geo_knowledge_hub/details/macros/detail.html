@@ -30,6 +30,10 @@
   <div id="details-list-div" data-relatedIdentifiers='{{ related_identifiers | tojson }}'></div>
 {% endmacro %}
 
+{% macro show_external_files(external_files) %}
+  <div id="details-list-div-external-files" data-external-files='{{ external_files | tojson }}'></div>
+{% endmacro %}
+
 {% macro show_knowledge_packages(related_knowledge_packages, is_preview) %}
   <div id="details-related-packages-div" data-relatedPackages='{{ related_knowledge_packages | tojson }}'></div>
 {% endmacro %}

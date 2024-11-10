@@ -19,14 +19,14 @@ previewable_extensions = LocalProxy(lambda: current_app.config["IIIF_FORMATS"].k
 #
 # Auxiliary functions
 #
-def can_open_without_bomb_error(file, max_pixels=178956970):
+def can_open_without_bomb_error(file, max_pixels=1000000000):
     """
     Check if an image file can be opened without causing a 'PIL.Image.DecompressionBombError' error.
 
     Args:
         file (PreviewFile): PreviewFile object
 
-        max_pixels (int): Maximum number of pixels allowed for the image. Default is set to `178956970`, which is the
+        max_pixels (int): Maximum number of pixels allowed for the image. Default is set to `1000000000`, which is the
                           default in Pillow.
 
     Returns:
