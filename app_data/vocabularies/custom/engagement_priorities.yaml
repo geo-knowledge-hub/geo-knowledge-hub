@@ -6603,3 +6603,115 @@
     has_subtype: 'false'
   title:
     en: SDG 17 - Indicator 17.19.2
+- id: geo-focus-agriculture-and-food-security
+  props:
+    type: geo-focus-agriculture-and-food-security
+    subtype: ''
+
+    icon: ''
+    uri: https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: Agriculture & Food Security
+- id: geo-focus-water-and-land-sustainability
+  props:
+    type: geo-focus-water-and-land-sustainability
+    subtype: ''
+
+    icon: ''
+    uri: https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: Water & Land Sustainability
+- id: geo-focus-ecosystems-biodiversity-and-carbon-management
+  props:
+    type: geo-focus-ecosystems-biodiversity-and-carbon-management
+    subtype: ''
+
+    icon: ''
+    uri: https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: Ecosystems-biodiversity & Carbon Management
+- id: geo-focus-weather-and-disaster-resilience
+  props:
+    type: geo-focus-weather-and-disaster-resilience
+    subtype: ''
+
+    icon: ''
+    uri: https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: Weather & Disaster Resilience
+- id: geo-focus-climate-energy-and-urbanization
+  props:
+    type: geo-focus-climate-energy-and-urbanization
+    subtype: ''
+
+    icon: ''
+    uri: https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: Climate, Energy & Urbanization
+- id: geo-focus-one-health
+  props:
+    type: geo-focus-one-health
+    subtype: ''
+
+    icon: ''
+    uri: https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: One Health
+- id: geo-focus-equity-and-inclusion
+  props:
+    type: geo-focus-equity-and-inclusion
+    subtype: ''
+
+    icon: ''
+    uri: https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: Equity & Inclusion
+- id: geo-focus-open-data-and-knowledge
+  props:
+    type: geo-focus-open-data-and-knowledge
+    subtype: ''
+
+    icon: ''
+    uri: https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: Open Data & Knowledge
