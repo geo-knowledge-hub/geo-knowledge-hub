@@ -73,3 +73,7 @@ GKH_SOURCES_CONFIG = {
         },
     }
 }
+
+# GEO Marketplace
+# ===============
+GKH_MARKETPLACE_FRONTPAGE_LINK_ENABLE = True

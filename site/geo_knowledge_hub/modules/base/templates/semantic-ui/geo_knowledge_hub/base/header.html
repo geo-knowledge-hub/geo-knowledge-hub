@@ -29,9 +29,11 @@
 {%- endif %}
 {%- endfor %}
 
+{%- if config.GKH_MARKETPLACE_FRONTPAGE_LINK_ENABLE %}
 <div class="item">
   <a role="menuitem" href="/marketplace">{{ _("Marketplace") }}</a>
 </div>
+{% endif %}
 
 {%- if current_user.is_authenticated and is_knowledge_provider %}
 <div class="item">
