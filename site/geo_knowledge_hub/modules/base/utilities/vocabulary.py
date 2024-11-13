@@ -23,7 +23,6 @@ def get_resource_type_definitions(identity, limit=100):
     Returns:
         list: List of resource types available in the instance.
     """
-
     # load resource types
     resource_types = vocabulary_service.search(
         identity=identity, type="resourcetypes", size=limit
