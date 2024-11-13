@@ -9,7 +9,11 @@
 
 {% if is_knowledge_package and related_elements_information %}
 
-<div id="relatedRecordsDiv" data-record='{{ related_elements_information | tojson }}'></div>
+<div
+  id="relatedRecordsDiv"
+  data-record='{{ related_elements_information | tojson }}'
+  data-resource-types='{{ resource_types_definition | tojson }}'>
+</div>
 
 {% else %}
 

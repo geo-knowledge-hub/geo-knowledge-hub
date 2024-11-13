@@ -1114,3 +1114,223 @@
     - linkable
   title:
     en: Case Study
+- id: software-computationalnotebook
+  title:
+    de: Computational Notebook
+    en: Computational notebook
+  icon: code
+  tags:
+    - depositable
+    - linkable
+  props:
+    csl: software
+    type: software
+    eurepo: info:eu-repo/semantics/other
+    subtype: software-computationalnotebook
+    schema.org: https://schema.org/SoftwareSourceCode
+    datacite_type: ''
+    openaire_type: software
+    datacite_general: ComputationalNotebook
+    openaire_resourceType: '40'
+    basetype: software
+  type: resourcetypes
+- id: publication-conferenceproceeding
+  title:
+    de: Tagungsband
+    en: Conference proceeding
+  icon: file alternate
+  tags:
+    - depositable
+    - linkable
+  props:
+    csl: paper-conference
+    type: publication
+    eurepo: info:eu-repo/semantics/conferenceProceedings
+    subtype: publication-conferenceproceeding
+    schema.org: https://schema.org/ScholarlyArticle
+    datacite_type: ''
+    openaire_type: publication
+    datacite_general: ConferenceProceeding
+    openaire_resourceType: '0004'
+    basetype: publication
+  type: resourcetypes
+- id: publication-datapaper
+  title:
+    de: Datenpapier
+    en: Data paper
+  icon: file alternate
+  tags:
+    - depositable
+    - linkable
+  props:
+    csl: article
+    type: publication
+    eurepo: info:eu-repo/semantics/workingPaper
+    subtype: publication-datapaper
+    schema.org: https://schema.org/ScholarlyArticle
+    datacite_type: Data paper
+    openaire_type: publication
+    datacite_general: Text
+    openaire_resourceType: '0031'
+    basetype: publication
+  type: resourcetypes
+- id: publication-dissertation
+  title:
+    de: Dissertation
+    en: Dissertation
+  icon: file alternate
+  tags:
+    - depositable
+    - linkable
+  props:
+    csl: article
+    type: publication
+    eurepo: info:eu-repo/semantics/other
+    subtype: publication-dissertation
+    schema.org: https://schema.org/thesis
+    datacite_type: ''
+    openaire_type: publication
+    datacite_general: Dissertation
+    openaire_resourceType: '0044'
+    basetype: publication
+  type: resourcetypes
+- id: event
+  title:
+    de: Veranstaltung
+    en: Event
+  icon: calendar alternate outline
+  tags:
+    - depositable
+    - linkable
+  props:
+    csl: event
+    type: event
+    eurepo: info:eu-repo/semantics/other
+    subtype: ''
+    schema.org: https://schema.org/event
+    datacite_type: ''
+    openaire_type: publication
+    datacite_general: Event
+    openaire_resourceType: '0023'
+    basetype: other
+  type: resourcetypes
+- id: publication-journal
+  title:
+    de: Zeitschrift
+    en: Journal
+  icon: file alternate
+  tags:
+    - depositable
+    - linkable
+  props:
+    csl: journal
+    type: publication
+    eurepo: info:eu-repo/semantics/article
+    subtype: publication-journal
+    schema.org: https://schema.org/ScholarlyArticle
+    datacite_type: ''
+    openaire_type: publication
+    datacite_general: Journal
+    openaire_resourceType: '0043'
+    basetype: publication
+  type: resourcetypes
+- id: model
+  title:
+    de: Modell
+    en: Model
+  icon: chart bar outline
+  tags:
+    - depositable
+    - linkable
+  props:
+    csl: figure
+    type: model
+    eurepo: info:eu-repo/semantics/other
+    subtype: ''
+    schema.org: https://schema.org/CreativeWork
+    datacite_type: ''
+    openaire_type: dataset
+    datacite_general: Model
+    openaire_resourceType: '0027'
+    basetype: other
+  type: resourcetypes
+- id: publication-peerreview
+  title:
+    de: Peer Review
+    en: Peer review
+  icon: file alternate
+  tags:
+    - depositable
+    - linkable
+  props:
+    csl: article
+    type: publication
+    eurepo: info:eu-repo/semantics/review
+    subtype: publication-peerreview
+    schema.org: https://schema.org/ScholarlyArticle
+    datacite_type: ''
+    openaire_type: publication
+    datacite_general: PeerReview
+    openaire_resourceType: '0015'
+    basetype: publication
+  type: resourcetypes
+- id: physicalobject
+  title:
+    de: Physikalisches Objekt
+    en: Physical object
+  icon: cube
+  tags:
+    - depositable
+    - linkable
+  props:
+    csl: graphic
+    type: physicalobject
+    eurepo: info:eu-repo/semantics/other
+    subtype: ''
+    schema.org: https://schema.org/CreativeWork
+    datacite_type: ''
+    openaire_type: other
+    datacite_general: PhysicalObject
+    openaire_resourceType: '0010'
+    basetype: other
+  type: resourcetypes
+- id: publication-standard
+  title:
+    de: Standard
+    en: Standard
+  icon: file alternate
+  tags:
+    - depositable
+    - linkable
+  props:
+    csl: article
+    type: publication
+    eurepo: info:eu-repo/semantics/other
+    subtype: publication-standard
+    schema.org: https://schema.org/other
+    datacite_type: ''
+    openaire_type: publication
+    datacite_general: Standard
+    openaire_resourceType: '0038'
+    basetype: publication
+  type: resourcetypes
+- id: workflow
+  title:
+    de: Workflow
+    en: Workflow
+  icon: code fork
+  tags:
+    - depositable
+    - linkable
+  props:
+    csl: software
+    type: workflow
+    eurepo: info:eu-repo/semantics/other
+    subtype: ''
+    schema.org: https://schema.org/CreativeWork
+    datacite_type: ''
+    openaire_type: other
+    datacite_general: Workflow
+    openaire_resourceType: '0020'
+    basetype: software
+  type: resourcetypes
