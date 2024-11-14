@@ -242,7 +242,7 @@ def prepare_record_topics(
         List: List with the topics associated with the record
     """
     # preparing the engagement priorities topics
-    default_scheme = "Engagement Priorities"  # for engagements
+    default_scheme = "GEO Theme"  # for engagements
 
     # getting the engagement objects with titles l10n
     engagement_titles_l10n = py_.get(record, "ui.engagement_priorities", [])
