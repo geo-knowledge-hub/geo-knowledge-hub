@@ -57,3 +57,23 @@ GKH_SHARE_WIDGET_CONFIG = {
     "widget": {"script": "//s7.addthis.com/js/300/addthis_widget.js#pubid=id-here"},
     "config": {"number_of_services": 6},
 }
+
+# GEO Harvester + Sources
+# =======================
+GKH_SOURCES_CONFIG = {
+    "zenodo": {
+        "name": "Zenodo",
+        "logo": "/static/images/harvest/zenodo-logo.png",
+        "url": "https://zenodo.org",
+        "service": {
+            "record": "https://zenodo.org/records/{record_id}",
+            "file_api": "https://zenodo.org/api/records/{record_id}/files",
+            "file_download": "https://zenodo.org/records/{record_id}/files/{file_key}?download=1",
+            "file_preview": "https://zenodo.org/records/{record_id}/preview/{file_key}?include_deleted=0",
+        },
+    }
+}
+
+# GEO Marketplace
+# ===============
+GKH_MARKETPLACE_FRONTPAGE_LINK_ENABLED = True

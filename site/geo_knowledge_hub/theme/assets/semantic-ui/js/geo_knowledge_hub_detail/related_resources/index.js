@@ -12,7 +12,6 @@ import ReactDOM from "react-dom";
 import _last from "lodash/last";
 import { ThemeProvider } from "@emotion/react";
 
-import { resourceTypeDefinitions } from "./cache";
 import { RelatedResourceTable } from "@geo-knowledge-hub/geo-components-react";
 
 /**
@@ -22,12 +21,14 @@ export const renderComponent = (...args) => {
   // Extracting package info (Assuming the url is the package id)
   const currentPackageId = _last(window.location.pathname.split("/"));
 
-  // Extracting the engagement values
+  // Extracting record values
   const componentDiv = document.getElementById("relatedRecordsDiv");
   let relatedRecordsData = [];
+  let resourceTypeDefinitions = [];
 
   if (componentDiv) {
     relatedRecordsData = JSON.parse(componentDiv.dataset.record) || [];
+    resourceTypeDefinitions = JSON.parse(componentDiv.dataset.resourceTypes) || [];
   }
 
   if (relatedRecordsData.length > 0) {

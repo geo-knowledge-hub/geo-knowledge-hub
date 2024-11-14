@@ -36,6 +36,7 @@ from geo_knowledge_hub.modules.base.decorators import (
     pass_record_or_draft,
 )
 from geo_knowledge_hub.modules.base.utilities import endpoint as endpoint_utilities
+from geo_knowledge_hub.modules.base.utilities import harvest as harvest_utilities
 from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
 from geo_knowledge_hub.modules.base.utilities import records as record_utilities
 from geo_knowledge_hub.modules.base.utilities import (
@@ -47,6 +48,7 @@ from geo_knowledge_hub.modules.base.utilities import (
 from geo_knowledge_hub.modules.base.utilities import (
     serialization as serialization_utilities,
 )
+from geo_knowledge_hub.modules.base.utilities import vocabulary as vocabulary_utilities
 
 
 #
@@ -83,6 +85,18 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
     )
     package_requests = json.dumps(package_requests)
 
+    # Harvest-related content
+    harvest_source_record = harvest_utilities.get_record_address(record_data)
+    harvest_source_files = harvest_utilities.get_external_files(record_data)
+    harvest_source_metadata = harvest_utilities.get_source_config_from_record(
+        record_data
+    )
+
+    # Resource types
+    resource_types = vocabulary_utilities.get_resource_type_definitions(
+        identity=identity
+    )
+
     # Searching records like the current one
     more_like_this_records = []
 
@@ -113,6 +127,10 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
         is_knowledge_package=True,
         assistance_requests=package_requests,
         more_like_this_records=more_like_this_records,
+        harvest_source_record=harvest_source_record,
+        harvest_source_files=harvest_source_files,
+        harvest_source_metadata=harvest_source_metadata,
+        resource_types_definition=resource_types,
         **record_metadata,
         **record_endpoint,
     )
@@ -132,6 +150,9 @@ def geo_package_detail_latest(record=None, **kwargs):
 @pass_draft_community
 def geo_package_deposit_create(community=None):
     """Deposit page to create packages."""
+    # Base definitions
+    identity = g.identity
+    # Render
     return render_template(
         "geo_knowledge_hub/packages/deposit/index.html",
         forms_package_config=get_form_config(createUrl="/api/packages"),
@@ -145,6 +166,10 @@ def geo_package_deposit_create(community=None):
         # For the "creation" interface, this is generated automatically after the package
         # creation.
         forms_package_records_endpoint=None,
+        # Resource Type definition
+        resource_types_definition=vocabulary_utilities.get_resource_type_definitions(
+            identity=identity
+        ),
     )
 
 

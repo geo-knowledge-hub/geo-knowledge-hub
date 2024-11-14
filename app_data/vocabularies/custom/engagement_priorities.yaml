@@ -11,7 +11,7 @@
     has_subtype: 'false'
     engagement_type: 'convention'
   title:
-    en: Convention on Biological Diversity
+    en: 'GEO Engagement Priority: Convention on Biological Diversity'
 
 - id: convention-ramsar
   props:
@@ -26,7 +26,7 @@
     has_subtype: 'false'
     engagement_type: 'convention'
   title:
-    en: Ramsar Convention on Wetlands
+    en: 'GEO Engagement Priority: Ramsar Convention on Wetlands'
 
 - id: convention-minamata-mercury
   props:
@@ -41,7 +41,7 @@
     has_subtype: 'false'
     engagement_type: 'convention'
   title:
-    en: Minamata Convention on Mercury
+    en: 'GEO Engagement Priority: Minamata Convention on Mercury'
 
 - id: sdg
   props:
@@ -62,7 +62,7 @@
     is_subtype: 'false'
     has_subtype: 'true'
   title:
-    en: Sustainable Development Goals (SDGs)
+    en: 'GEO Engagement Priority: Sustainable Development Goals (SDGs)'
 
 - id: sdg-target
   props:
@@ -76,7 +76,7 @@
     is_subtype: 'false'
     has_subtype: 'true'
   title:
-    en: SDG Target
+    en: 'GEO Engagement Priority: SDG Target'
 
 - id: sdg-indicator
   props:
@@ -90,7 +90,7 @@
     is_subtype: 'false'
     has_subtype: 'true'
   title:
-    en: SDG Indicator
+    en: 'GEO Engagement Priority: SDG Indicator'
 
 - id: new-urban-agenda
   props:
@@ -105,7 +105,7 @@
     is_subtype: 'false'
     has_subtype: 'false'
   title:
-    en: New Urban Agenda
+    en: 'GEO Engagement Priority: New Urban Agenda'
 
 - id: sendai-framework
   props:
@@ -120,7 +120,7 @@
     is_subtype: 'false'
     has_subtype: 'false'
   title:
-    en: Sendai Framework
+    en: 'GEO Engagement Priority: Sendai Framework'
 
 - id: paris-agreement
   props:
@@ -139,7 +139,7 @@
     is_subtype: 'false'
     has_subtype: 'false'
   title:
-    en: Paris Agreement
+    en: 'GEO Engagement Priority: Paris Agreement'
 
 - id: sdg-goal-1
   props:
@@ -152,7 +152,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 1 - No Poverty
+    en: 'GEO Engagement Priority: SDG Goal 1 - No Poverty'
 - id: sdg-goal-2
   props:
     description_long: End hunger, achieve food security and improved nutrition and
@@ -165,7 +165,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 2 - Zero Hunger
+    en: 'GEO Engagement Priority: SDG Goal 2 - Zero Hunger'
 - id: sdg-goal-3
   props:
     description_long: Ensure healthy lives and promote well-being for all at all ages
@@ -177,7 +177,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 3 - Good Health and Well-being
+    en: 'GEO Engagement Priority: SDG Goal 3 - Good Health and Well-being'
 - id: sdg-goal-4
   props:
     description_long: 'Ensure inclusive and equitable quality education and promote
@@ -190,7 +190,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 4 - Quality Education
+    en: 'GEO Engagement Priority: SDG Goal 4 - Quality Education'
 - id: sdg-goal-5
   props:
     description_long: Achieve gender equality and empower all women and girls
@@ -202,7 +202,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 5 - Gender Equality
+    en: 'GEO Engagement Priority: SDG Goal 5 - Gender Equality'
 - id: sdg-goal-6
   props:
     description_long: Ensure availability and sustainable management of water and
@@ -215,7 +215,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 6 - Clean water and sanitation
+    en: 'GEO Engagement Priority: SDG Goal 6 - Clean water and sanitation'
 - id: sdg-goal-7
   props:
     description_long: Ensure access to affordable, reliable, sustainable and modern
@@ -228,7 +228,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 7 - Affordable and clean energy
+    en: 'GEO Engagement Priority: SDG Goal 7 - Affordable and clean energy'
 - id: sdg-goal-8
   props:
     description_long: Promote sustained, inclusive and sustainable economic growth,
@@ -241,7 +241,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 8 - Decent jobs and economic growth
+    en: 'GEO Engagement Priority: SDG Goal 8 - Decent jobs and economic growth'
 - id: sdg-goal-9
   props:
     description_long: Build resilient infrastructure, promote inclusive and sustainable
@@ -254,7 +254,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 9 - Industry, innovation and infrastructure
+    en: 'GEO Engagement Priority: SDG Goal 9 - Industry, innovation and infrastructure'
 - id: sdg-goal-10
   props:
     description_long: Reduce inequality within and among countries
@@ -266,7 +266,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 10 - Reduced inequalities
+    en: 'GEO Engagement Priority: SDG Goal 10 - Reduced inequalities'
 - id: sdg-goal-11
   props:
     description_long: Make cities and human settlements inclusive, safe, resilient
@@ -279,7 +279,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 11 - Sustainable cities and communities
+    en: 'GEO Engagement Priority: SDG Goal 11 - Sustainable cities and communities'
 - id: sdg-goal-12
   props:
     description_long: Ensure sustainable consumption and production patterns
@@ -291,7 +291,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 12 - Responsible consumption and production
+    en: 'GEO Engagement Priority: SDG Goal 12 - Responsible consumption and production'
 - id: sdg-goal-13
   props:
     description_long: Take urgent action to combat climate change and its impacts
@@ -303,7 +303,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 13 - Climate action
+    en: 'GEO Engagement Priority: SDG Goal 13 - Climate action'
 - id: sdg-goal-14
   props:
     description_long: Conserve and sustainably use the oceans, seas and marine resources
@@ -316,7 +316,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 14 - Life below water
+    en: 'GEO Engagement Priority: SDG Goal 14 - Life below water'
 - id: sdg-goal-15
   props:
     description_long: Protect, restore and promote sustainable use of terrestrial
@@ -330,7 +330,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 15 - Life on land
+    en: 'GEO Engagement Priority: SDG Goal 15 - Life on land'
 - id: sdg-goal-16
   props:
     description_long: Promote peaceful and inclusive societies for sustainable development,
@@ -344,7 +344,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 16 - Peace And Justice - Strong Institutions
+    en: 'GEO Engagement Priority: SDG Goal 16 - Peace And Justice - Strong Institutions'
 - id: sdg-goal-17
   props:
     description_long: Strengthen the means of implementation and revitalize the global
@@ -357,7 +357,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: (SDG) Goal 17 - Partnerships for the goals
+    en: 'GEO Engagement Priority: SDG Goal 17 - Partnerships for the goals'
 - id: sdg-target-1.1
   props:
     description_long: By 2030, eradicate extreme poverty for all people everywhere,
@@ -371,7 +371,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Target 1.1
+    en: 'GEO Engagement Priority: SDG 1 - Target 1.1'
 - id: sdg-target-1.2
   props:
     description_long: By 2030, reduce at least by half the proportion of men, women
@@ -387,7 +387,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Target 1.2
+    en: 'GEO Engagement Priority: SDG 1 - Target 1.2'
 - id: sdg-target-1.3
   props:
     description_long: Implement nationally appropriate social protection systems and
@@ -403,7 +403,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Target 1.3
+    en: 'GEO Engagement Priority: SDG 1 - Target 1.3'
 - id: sdg-target-1.4
   props:
     description_long: By 2030, ensure that all men and women, in particular the poor
@@ -423,7 +423,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Target 1.4
+    en: 'GEO Engagement Priority: SDG 1 - Target 1.4'
 - id: sdg-target-1.5
   props:
     description_long: By 2030, build the resilience of the poor and those in vulnerable
@@ -439,7 +439,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Target 1.5
+    en: 'GEO Engagement Priority: SDG 1 - Target 1.5'
 - id: sdg-target-1.a
   props:
     description_long: Ensure significant mobilization of resources from a variety
@@ -459,7 +459,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Target 1.a
+    en: 'GEO Engagement Priority: SDG 1 - Target 1.a'
 - id: sdg-target-1.b
   props:
     description_long: Create sound policy frameworks at the national, regional and
@@ -475,7 +475,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Target 1.b
+    en: 'GEO Engagement Priority: SDG 1 - Target 1.b'
 - id: sdg-target-2.1
   props:
     description_long: By 2030, end hunger and ensure access by all people, in particular
@@ -491,7 +491,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Target 2.1
+    en: 'GEO Engagement Priority: SDG 2 - Target 2.1'
 - id: sdg-target-2.2
   props:
     description_long: By 2030, end all forms of malnutrition, including achieving,
@@ -509,7 +509,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Target 2.2
+    en: 'GEO Engagement Priority: SDG 2 - Target 2.2'
 - id: sdg-target-2.3
   props:
     description_long: By 2030, double the agricultural productivity and incomes of
@@ -529,7 +529,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Target 2.3
+    en: 'GEO Engagement Priority: SDG 2 - Target 2.3'
 - id: sdg-target-2.4
   props:
     description_long: By 2030, ensure sustainable food production systems and implement
@@ -549,7 +549,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Target 2.4
+    en: 'GEO Engagement Priority: SDG 2 - Target 2.4'
 - id: sdg-target-2.5
   props:
     description_long: By 2020, maintain the genetic diversity of seeds, cultivated
@@ -571,7 +571,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Target 2.5
+    en: 'GEO Engagement Priority: SDG 2 - Target 2.5'
 - id: sdg-target-2.a
   props:
     description_long: Increase investment, including through enhanced international
@@ -591,7 +591,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Target 2.a
+    en: 'GEO Engagement Priority: SDG 2 - Target 2.a'
 - id: sdg-target-2.b
   props:
     description_long: Correct and prevent trade restrictions and distortions in world
@@ -609,7 +609,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Target 2.b
+    en: 'GEO Engagement Priority: SDG 2 - Target 2.b'
 - id: sdg-target-2.c
   props:
     description_long: Adopt measures to ensure the proper functioning of food commodity
@@ -625,7 +625,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Target 2.c
+    en: 'GEO Engagement Priority: SDG 2 - Target 2.c'
 - id: sdg-target-3.1
   props:
     description_long: By 2030, reduce the global maternal mortality ratio to less
@@ -639,7 +639,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Target 3.1
+    en: 'GEO Engagement Priority: SDG 3 - Target 3.1'
 - id: sdg-target-3.2
   props:
     description_long: By 2030, end preventable deaths of newborns and children under
@@ -657,7 +657,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Target 3.2
+    en: 'GEO Engagement Priority: SDG 3 - Target 3.2'
 - id: sdg-target-3.3
   props:
     description_long: By 2030, end the epidemics of AIDS, tuberculosis, malaria and
@@ -673,7 +673,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Target 3.3
+    en: 'GEO Engagement Priority: SDG 3 - Target 3.3'
 - id: sdg-target-3.4
   props:
     description_long: By 2030, reduce by one third premature mortality from non-communicable
@@ -687,7 +687,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Target 3.4
+    en: 'GEO Engagement Priority: SDG 3 - Target 3.4'
 - id: sdg-target-3.5
   props:
     description_long: Strengthen the prevention and treatment of substance abuse,
@@ -701,7 +701,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Target 3.5
+    en: 'GEO Engagement Priority: SDG 3 - Target 3.5'
 - id: sdg-target-3.6
   props:
     description_long: By 2020, halve the number of global deaths and injuries from
@@ -715,7 +715,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Target 3.6
+    en: 'GEO Engagement Priority: SDG 3 - Target 3.6'
 - id: sdg-target-3.7
   props:
     description_long: By 2030, ensure universal access to sexual and reproductive
@@ -731,7 +731,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Target 3.7
+    en: 'GEO Engagement Priority: SDG 3 - Target 3.7'
 - id: sdg-target-3.8
   props:
     description_long: Achieve universal health coverage, including financial risk
@@ -747,7 +747,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Target 3.8
+    en: 'GEO Engagement Priority: SDG 3 - Target 3.8'
 - id: sdg-target-3.9
   props:
     description_long: By 2030, substantially reduce the number of deaths and illnesses
@@ -761,7 +761,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Target 3.9
+    en: 'GEO Engagement Priority: SDG 3 - Target 3.9'
 - id: sdg-target-3.a
   props:
     description_long: Strengthen the implementation of the World Health Organization
@@ -775,7 +775,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Target 3.a
+    en: 'GEO Engagement Priority: SDG 3 - Target 3.a'
 - id: sdg-target-3.b
   props:
     description_long: Support the research and development of vaccines and medicines
@@ -801,7 +801,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Target 3.b
+    en: 'GEO Engagement Priority: SDG 3 - Target 3.b'
 - id: sdg-target-3.c
   props:
     description_long: Substantially increase health financing and the recruitment,
@@ -817,7 +817,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Target 3.c
+    en: 'GEO Engagement Priority: SDG 3 - Target 3.c'
 - id: sdg-target-3.d
   props:
     description_long: Strengthen the capacity of all countries, in particular developing
@@ -833,7 +833,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Target 3.d
+    en: 'GEO Engagement Priority: SDG 3 - Target 3.d'
 - id: sdg-target-4.1
   props:
     description_long: By 2030, ensure that all girls and boys complete free, equitable
@@ -849,7 +849,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Target 4.1
+    en: 'GEO Engagement Priority: SDG 4 - Target 4.1'
 - id: sdg-target-4.2
   props:
     description_long: By 2030, ensure that all girls and boys have access to quality
@@ -865,7 +865,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Target 4.2
+    en: 'GEO Engagement Priority: SDG 4 - Target 4.2'
 - id: sdg-target-4.3
   props:
     description_long: By 2030, ensure equal access for all women and men to affordable
@@ -879,7 +879,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Target 4.3
+    en: 'GEO Engagement Priority: SDG 4 - Target 4.3'
 - id: sdg-target-4.4
   props:
     description_long: By 2030, substantially increase the number of youth and adults
@@ -895,7 +895,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Target 4.4
+    en: 'GEO Engagement Priority: SDG 4 - Target 4.4'
 - id: sdg-target-4.5
   props:
     description_long: By 2030, eliminate gender disparities in education and ensure
@@ -913,7 +913,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Target 4.5
+    en: 'GEO Engagement Priority: SDG 4 - Target 4.5'
 - id: sdg-target-4.6
   props:
     description_long: By 2030, ensure that all youth and a substantial proportion
@@ -927,7 +927,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Target 4.6
+    en: 'GEO Engagement Priority: SDG 4 - Target 4.6'
 - id: sdg-target-4.7
   props:
     description_long: By 2030, ensure that all learners acquire the knowledge and
@@ -949,7 +949,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Target 4.7
+    en: 'GEO Engagement Priority: SDG 4 - Target 4.7'
 - id: sdg-target-4.a
   props:
     description_long: Build and upgrade education facilities that are child, disability
@@ -965,7 +965,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Target 4.a
+    en: 'GEO Engagement Priority: SDG 4 - Target 4.a'
 - id: sdg-target-4.b
   props:
     description_long: By 2020, substantially expand globally the number of scholarships
@@ -987,7 +987,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Target 4.b
+    en: 'GEO Engagement Priority: SDG 4 - Target 4.b'
 - id: sdg-target-4.c
   props:
     description_long: By 2030, substantially increase the supply of qualified teachers,
@@ -1005,7 +1005,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Target 4.c
+    en: 'GEO Engagement Priority: SDG 4 - Target 4.c'
 - id: sdg-target-5.1
   props:
     description_long: End all forms of discrimination against all women and girls
@@ -1019,7 +1019,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Target 5.1
+    en: 'GEO Engagement Priority: SDG 5 - Target 5.1'
 - id: sdg-target-5.2
   props:
     description_long: Eliminate all forms of violence against all women and girls
@@ -1035,7 +1035,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Target 5.2
+    en: 'GEO Engagement Priority: SDG 5 - Target 5.2'
 - id: sdg-target-5.3
   props:
     description_long: Eliminate all harmful practices, such as child, early and forced
@@ -1049,7 +1049,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Target 5.3
+    en: 'GEO Engagement Priority: SDG 5 - Target 5.3'
 - id: sdg-target-5.4
   props:
     description_long: Recognize and value unpaid care and domestic work through the
@@ -1067,7 +1067,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Target 5.4
+    en: 'GEO Engagement Priority: SDG 5 - Target 5.4'
 - id: sdg-target-5.5
   props:
     description_long: Ensure women's full and effective participation and equal opportunities
@@ -1083,7 +1083,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Target 5.5
+    en: 'GEO Engagement Priority: SDG 5 - Target 5.5'
 - id: sdg-target-5.6
   props:
     description_long: Ensure universal access to sexual and reproductive health and
@@ -1101,7 +1101,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Target 5.6
+    en: 'GEO Engagement Priority: SDG 5 - Target 5.6'
 - id: sdg-target-5.a
   props:
     description_long: Undertake reforms to give women equal rights to economic resources,
@@ -1119,7 +1119,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Target 5.a
+    en: 'GEO Engagement Priority: SDG 5 - Target 5.a'
 - id: sdg-target-5.b
   props:
     description_long: Enhance the use of enabling technology, in particular information
@@ -1133,7 +1133,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Target 5.b
+    en: 'GEO Engagement Priority: SDG 5 - Target 5.b'
 - id: sdg-target-5.c
   props:
     description_long: Adopt and strengthen sound policies and enforceable legislation
@@ -1149,7 +1149,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Target 5.c
+    en: 'GEO Engagement Priority: SDG 5 - Target 5.c'
 - id: sdg-target-6.1
   props:
     description_long: By 2030, achieve universal and equitable access to safe and
@@ -1163,7 +1163,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Target 6.1
+    en: 'GEO Engagement Priority: SDG 6 - Target 6.1'
 - id: sdg-target-6.2
   props:
     description_long: By 2030, achieve access to adequate and equitable sanitation
@@ -1179,7 +1179,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Target 6.2
+    en: 'GEO Engagement Priority: SDG 6 - Target 6.2'
 - id: sdg-target-6.3
   props:
     description_long: By 2030, improve water quality by reducing pollution, eliminating
@@ -1197,7 +1197,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Target 6.3
+    en: 'GEO Engagement Priority: SDG 6 - Target 6.3'
 - id: sdg-target-6.4
   props:
     description_long: By 2030, substantially increase water-use efficiency across
@@ -1215,7 +1215,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Target 6.4
+    en: 'GEO Engagement Priority: SDG 6 - Target 6.4'
 - id: sdg-target-6.5
   props:
     description_long: By 2030, implement integrated water resources management at
@@ -1229,7 +1229,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Target 6.5
+    en: 'GEO Engagement Priority: SDG 6 - Target 6.5'
 - id: sdg-target-6.6
   props:
     description_long: By 2020, protect and restore water-related ecosystems, including
@@ -1243,7 +1243,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Target 6.6
+    en: 'GEO Engagement Priority: SDG 6 - Target 6.6'
 - id: sdg-target-6.a
   props:
     description_long: By 2030, expand international cooperation and capacity-building
@@ -1261,7 +1261,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Target 6.a
+    en: 'GEO Engagement Priority: SDG 6 - Target 6.a'
 - id: sdg-target-6.b
   props:
     description_long: Support and strengthen the participation of local communities
@@ -1275,7 +1275,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Target 6.b
+    en: 'GEO Engagement Priority: SDG 6 - Target 6.b'
 - id: sdg-target-7.1
   props:
     description_long: By 2030, ensure universal access to affordable, reliable and
@@ -1289,7 +1289,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 7 - Target 7.1
+    en: 'GEO Engagement Priority: SDG 7 - Target 7.1'
 - id: sdg-target-7.2
   props:
     description_long: By 2030, increase substantially the share of renewable energy
@@ -1303,7 +1303,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 7 - Target 7.2
+    en: 'GEO Engagement Priority: SDG 7 - Target 7.2'
 - id: sdg-target-7.3
   props:
     description_long: By 2030, double the global rate of improvement in energy efficiency
@@ -1315,7 +1315,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 7 - Target 7.3
+    en: 'GEO Engagement Priority: SDG 7 - Target 7.3'
 - id: sdg-target-7.a
   props:
     description_long: By 2030, enhance international cooperation to facilitate access
@@ -1333,7 +1333,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 7 - Target 7.a
+    en: 'GEO Engagement Priority: SDG 7 - Target 7.a'
 - id: sdg-target-7.b
   props:
     description_long: By 2030, expand infrastructure and upgrade technology for supplying
@@ -1351,7 +1351,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 7 - Target 7.b
+    en: 'GEO Engagement Priority: SDG 7 - Target 7.b'
 - id: sdg-target-8.2
   props:
     description_long: Achieve higher levels of economic productivity through diversification,
@@ -1367,7 +1367,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Target 8.2
+    en: 'GEO Engagement Priority: SDG 8 - Target 8.2'
 - id: sdg-target-8.3
   props:
     description_long: Promote development-oriented policies that support productive
@@ -1385,7 +1385,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Target 8.3
+    en: 'GEO Engagement Priority: SDG 8 - Target 8.3'
 - id: sdg-target-8.4
   props:
     description_long: Improve progressively, through 2030, global resource efficiency
@@ -1405,7 +1405,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Target 8.4
+    en: 'GEO Engagement Priority: SDG 8 - Target 8.4'
 - id: sdg-target-8.5
   props:
     description_long: By 2030, achieve full and productive employment and decent work
@@ -1421,7 +1421,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Target 8.5
+    en: 'GEO Engagement Priority: SDG 8 - Target 8.5'
 - id: sdg-target-8.6
   props:
     description_long: By 2020, substantially reduce the proportion of youth not in
@@ -1435,7 +1435,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Target 8.6
+    en: 'GEO Engagement Priority: SDG 8 - Target 8.6'
 - id: sdg-target-8.7
   props:
     description_long: Take immediate and effective measures to eradicate forced labour,
@@ -1453,7 +1453,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Target 8.7
+    en: 'GEO Engagement Priority: SDG 8 - Target 8.7'
 - id: sdg-target-8.1
   props:
     description_long: Sustain per capita economic growth in accordance with national
@@ -1469,7 +1469,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Target 8.1
+    en: 'GEO Engagement Priority: SDG 8 - Target 8.1'
 - id: sdg-target-8.8
   props:
     description_long: Protect labour rights and promote safe and secure working environments
@@ -1485,7 +1485,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Target 8.8
+    en: 'GEO Engagement Priority: SDG 8 - Target 8.8'
 - id: sdg-target-8.9
   props:
     description_long: By 2030, devise and implement policies to promote sustainable
@@ -1499,7 +1499,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Target 8.9
+    en: 'GEO Engagement Priority: SDG 8 - Target 8.9'
 - id: sdg-target-8.10
   props:
     description_long: Strengthen the capacity of domestic financial institutions to
@@ -1515,7 +1515,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Target 8.10
+    en: 'GEO Engagement Priority: SDG 8 - Target 8.10'
 - id: sdg-target-8.a
   props:
     description_long: Increase Aid for Trade support for developing countries, in
@@ -1531,7 +1531,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Target 8.a
+    en: 'GEO Engagement Priority: SDG 8 - Target 8.a'
 - id: sdg-target-8.b
   props:
     description_long: By 2020, develop and operationalize a global strategy for youth
@@ -1545,7 +1545,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Target 8.b
+    en: 'GEO Engagement Priority: SDG 8 - Target 8.b'
 - id: sdg-target-9.1
   props:
     description_long: Develop quality, reliable, sustainable and resilient infrastructure,
@@ -1561,7 +1561,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Target 9.1
+    en: 'GEO Engagement Priority: SDG 9 - Target 9.1'
 - id: sdg-target-9.2
   props:
     description_long: Promote inclusive and sustainable industrialization and, by
@@ -1579,7 +1579,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Target 9.2
+    en: 'GEO Engagement Priority: SDG 9 - Target 9.2'
 - id: sdg-target-9.3
   props:
     description_long: Increase the access of small-scale industrial and other enterprises,
@@ -1595,7 +1595,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Target 9.3
+    en: 'GEO Engagement Priority: SDG 9 - Target 9.3'
 - id: sdg-target-9.4
   props:
     description_long: By 2030, upgrade infrastructure and retrofit industries to make
@@ -1613,7 +1613,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Target 9.4
+    en: 'GEO Engagement Priority: SDG 9 - Target 9.4'
 - id: sdg-target-9.5
   props:
     description_long: Enhance scientific research, upgrade the technological capabilities
@@ -1633,7 +1633,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Target 9.5
+    en: 'GEO Engagement Priority: SDG 9 - Target 9.5'
 - id: sdg-target-9.a
   props:
     description_long: Facilitate sustainable and resilient infrastructure development
@@ -1651,7 +1651,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Target 9.a
+    en: 'GEO Engagement Priority: SDG 9 - Target 9.a'
 - id: sdg-target-9.b
   props:
     description_long: Support domestic technology development, research and innovation
@@ -1667,7 +1667,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Target 9.b
+    en: 'GEO Engagement Priority: SDG 9 - Target 9.b'
 - id: sdg-target-9.c
   props:
     description_long: Significantly increase access to information and communications
@@ -1683,7 +1683,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Target 9.c
+    en: 'GEO Engagement Priority: SDG 9 - Target 9.c'
 - id: sdg-target-10.1
   props:
     description_long: By 2030, progressively achieve and sustain income growth of
@@ -1699,7 +1699,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Target 10.1
+    en: 'GEO Engagement Priority: SDG 10 - Target 10.1'
 - id: sdg-target-10.2
   props:
     description_long: By 2030, empower and promote the social, economic and political
@@ -1715,7 +1715,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Target 10.2
+    en: 'GEO Engagement Priority: SDG 10 - Target 10.2'
 - id: sdg-target-10.3
   props:
     description_long: Ensure equal opportunity and reduce inequalities of outcome,
@@ -1731,7 +1731,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Target 10.3
+    en: 'GEO Engagement Priority: SDG 10 - Target 10.3'
 - id: sdg-target-10.4
   props:
     description_long: Adopt policies, especially fiscal, wage and social protection
@@ -1745,7 +1745,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Target 10.4
+    en: 'GEO Engagement Priority: SDG 10 - Target 10.4'
 - id: sdg-target-10.5
   props:
     description_long: Improve the regulation and monitoring of global financial markets
@@ -1759,7 +1759,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Target 10.5
+    en: 'GEO Engagement Priority: SDG 10 - Target 10.5'
 - id: sdg-target-10.6
   props:
     description_long: Ensure enhanced representation and voice for developing countries
@@ -1775,7 +1775,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Target 10.6
+    en: 'GEO Engagement Priority: SDG 10 - Target 10.6'
 - id: sdg-target-10.7
   props:
     description_long: Facilitate orderly, safe, regular and responsible migration
@@ -1791,7 +1791,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Target 10.7
+    en: 'GEO Engagement Priority: SDG 10 - Target 10.7'
 - id: sdg-target-10.a
   props:
     description_long: Implement the principle of special and differential treatment
@@ -1807,7 +1807,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Target 10.a
+    en: 'GEO Engagement Priority: SDG 10 - Target 10.a'
 - id: sdg-target-10.b
   props:
     description_long: Encourage official development assistance and financial flows,
@@ -1827,7 +1827,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Target 10.b
+    en: 'GEO Engagement Priority: SDG 10 - Target 10.b'
 - id: sdg-target-10.c
   props:
     description_long: By 2030, reduce to less than 3 per cent the transaction costs
@@ -1843,7 +1843,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Target 10.c
+    en: 'GEO Engagement Priority: SDG 10 - Target 10.c'
 - id: sdg-target-11.1
   props:
     description_long: By 2030, ensure access for all to adequate, safe and affordable
@@ -1857,7 +1857,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Target 11.1
+    en: 'GEO Engagement Priority: SDG 11 - Target 11.1'
 - id: sdg-target-11.2
   props:
     description_long: By 2030, provide access to safe, affordable, accessible and
@@ -1875,7 +1875,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Target 11.2
+    en: 'GEO Engagement Priority: SDG 11 - Target 11.2'
 - id: sdg-target-11.3
   props:
     description_long: By 2030, enhance inclusive and sustainable urbanization and
@@ -1891,7 +1891,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Target 11.3
+    en: 'GEO Engagement Priority: SDG 11 - Target 11.3'
 - id: sdg-target-11.4
   props:
     description_long: Strengthen efforts to protect and safeguard the world's cultural
@@ -1905,7 +1905,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Target 11.4
+    en: 'GEO Engagement Priority: SDG 11 - Target 11.4'
 - id: sdg-target-11.5
   props:
     description_long: By 2030, significantly reduce the number of deaths and the number
@@ -1923,7 +1923,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Target 11.5
+    en: 'GEO Engagement Priority: SDG 11 - Target 11.5'
 - id: sdg-target-11.6
   props:
     description_long: By 2030, reduce the adverse per capita environmental impact
@@ -1939,7 +1939,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Target 11.6
+    en: 'GEO Engagement Priority: SDG 11 - Target 11.6'
 - id: sdg-target-11.7
   props:
     description_long: By 2030, provide universal access to safe, inclusive and accessible,
@@ -1955,7 +1955,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Target 11.7
+    en: 'GEO Engagement Priority: SDG 11 - Target 11.7'
 - id: sdg-target-11.a
   props:
     description_long: Support positive economic, social and environmental links between
@@ -1971,7 +1971,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Target 11.a
+    en: 'GEO Engagement Priority: SDG 11 - Target 11.a'
 - id: sdg-target-11.b
   props:
     description_long: By 2020, substantially increase the number of cities and human
@@ -1993,7 +1993,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Target 11.b
+    en: 'GEO Engagement Priority: SDG 11 - Target 11.b'
 - id: sdg-target-11.c
   props:
     description_long: Support least developed countries, including through financial
@@ -2009,7 +2009,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Target 11.c
+    en: 'GEO Engagement Priority: SDG 11 - Target 11.c'
 - id: sdg-target-12.1
   props:
     description_long: Implement the 10-Year Framework of Programmes on Sustainable
@@ -2027,7 +2027,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Target 12.1
+    en: 'GEO Engagement Priority: SDG 12 - Target 12.1'
 - id: sdg-target-12.2
   props:
     description_long: By 2030, achieve the sustainable management and efficient use
@@ -2041,7 +2041,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Target 12.2
+    en: 'GEO Engagement Priority: SDG 12 - Target 12.2'
 - id: sdg-target-12.3
   props:
     description_long: By 2030, halve per capita global food waste at the retail and
@@ -2057,7 +2057,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Target 12.3
+    en: 'GEO Engagement Priority: SDG 12 - Target 12.3'
 - id: sdg-target-12.4
   props:
     description_long: By 2020, achieve the environmentally sound management of chemicals
@@ -2075,7 +2075,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Target 12.4
+    en: 'GEO Engagement Priority: SDG 12 - Target 12.4'
 - id: sdg-target-12.5
   props:
     description_long: By 2030, substantially reduce waste generation through prevention,
@@ -2089,7 +2089,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Target 12.5
+    en: 'GEO Engagement Priority: SDG 12 - Target 12.5'
 - id: sdg-target-12.6
   props:
     description_long: Encourage companies, especially large and transnational companies,
@@ -2105,7 +2105,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Target 12.6
+    en: 'GEO Engagement Priority: SDG 12 - Target 12.6'
 - id: sdg-target-12.7
   props:
     description_long: Promote public procurement practices that are sustainable, in
@@ -2119,7 +2119,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Target 12.7
+    en: 'GEO Engagement Priority: SDG 12 - Target 12.7'
 - id: sdg-target-12.8
   props:
     description_long: By 2030, ensure that people everywhere have the relevant information
@@ -2133,7 +2133,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Target 12.8
+    en: 'GEO Engagement Priority: SDG 12 - Target 12.8'
 - id: sdg-target-12.a
   props:
     description_long: Support developing countries to strengthen their scientific
@@ -2149,7 +2149,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Target 12.a
+    en: 'GEO Engagement Priority: SDG 12 - Target 12.a'
 - id: sdg-target-12.b
   props:
     description_long: Develop and implement tools to monitor sustainable development
@@ -2165,7 +2165,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Target 12.b
+    en: 'GEO Engagement Priority: SDG 12 - Target 12.b'
 - id: sdg-target-12.c
   props:
     description_long: Rationalize inefficient fossil-fuel subsidies that encourage
@@ -2189,7 +2189,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Target 12.c
+    en: 'GEO Engagement Priority: SDG 12 - Target 12.c'
 - id: sdg-target-13.1
   props:
     description_long: Strengthen resilience and adaptive capacity to climate-related
@@ -2203,7 +2203,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 13 - Target 13.1
+    en: 'GEO Engagement Priority: SDG 13 - Target 13.1'
 - id: sdg-target-13.2
   props:
     description_long: Integrate climate change measures into national policies, strategies
@@ -2217,7 +2217,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 13 - Target 13.2
+    en: 'GEO Engagement Priority: SDG 13 - Target 13.2'
 - id: sdg-target-13.3
   props:
     description_long: Improve education, awareness-raising and human and institutional
@@ -2233,7 +2233,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 13 - Target 13.3
+    en: 'GEO Engagement Priority: SDG 13 - Target 13.3'
 - id: sdg-target-13.a
   props:
     description_long: Implement the commitment undertaken by developed-country parties
@@ -2255,7 +2255,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 13 - Target 13.a
+    en: 'GEO Engagement Priority: SDG 13 - Target 13.a'
 - id: sdg-target-13.b
   props:
     description_long: Promote mechanisms for raising capacity for effective climate
@@ -2273,7 +2273,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 13 - Target 13.b
+    en: 'GEO Engagement Priority: SDG 13 - Target 13.b'
 - id: sdg-target-14.1
   props:
     description_long: By 2025, prevent and significantly reduce marine pollution of
@@ -2289,7 +2289,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Target 14.1
+    en: 'GEO Engagement Priority: SDG 14 - Target 14.1'
 - id: sdg-target-14.6
   props:
     description_long: By 2020, prohibit certain forms of fisheries subsidies which
@@ -2311,7 +2311,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Target 14.6
+    en: 'GEO Engagement Priority: SDG 14 - Target 14.6'
 - id: sdg-target-14.2
   props:
     description_long: By 2020, sustainably manage and protect marine and coastal ecosystems
@@ -2329,7 +2329,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Target 14.2
+    en: 'GEO Engagement Priority: SDG 14 - Target 14.2'
 - id: sdg-target-14.7
   props:
     description_long: By 2030, increase the economic benefits to small island developing
@@ -2345,7 +2345,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Target 14.7
+    en: 'GEO Engagement Priority: SDG 14 - Target 14.7'
 - id: sdg-target-14.3
   props:
     description_long: Minimize and address the impacts of ocean acidification, including
@@ -2359,7 +2359,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Target 14.3
+    en: 'GEO Engagement Priority: SDG 14 - Target 14.3'
 - id: sdg-target-14.a
   props:
     description_long: Increase scientific knowledge, develop research capacity and
@@ -2381,7 +2381,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Target 14.a
+    en: 'GEO Engagement Priority: SDG 14 - Target 14.a'
 - id: sdg-target-14.4
   props:
     description_long: By 2020, effectively regulate harvesting and end overfishing,
@@ -2401,7 +2401,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Target 14.4
+    en: 'GEO Engagement Priority: SDG 14 - Target 14.4'
 - id: sdg-target-14.b
   props:
     description_long: Provide access for small-scale artisanal fishers to marine resources
@@ -2415,7 +2415,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Target 14.b
+    en: 'GEO Engagement Priority: SDG 14 - Target 14.b'
 - id: sdg-target-14.5
   props:
     description_long: By 2020, conserve at least 10 per cent of coastal and marine
@@ -2431,7 +2431,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Target 14.5
+    en: 'GEO Engagement Priority: SDG 14 - Target 14.5'
 - id: sdg-target-14.c
   props:
     description_long: Enhance the conservation and sustainable use of oceans and their
@@ -2451,7 +2451,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Target 14.c
+    en: 'GEO Engagement Priority: SDG 14 - Target 14.c'
 - id: sdg-target-15.1
   props:
     description_long: By 2020, ensure the conservation, restoration and sustainable
@@ -2469,7 +2469,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Target 15.1
+    en: 'GEO Engagement Priority: SDG 15 - Target 15.1'
 - id: sdg-target-15.2
   props:
     description_long: By 2020, promote the implementation of sustainable management
@@ -2485,7 +2485,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Target 15.2
+    en: 'GEO Engagement Priority: SDG 15 - Target 15.2'
 - id: sdg-target-15.3
   props:
     description_long: By 2030, combat desertification, restore degraded land and soil,
@@ -2501,7 +2501,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Target 15.3
+    en: 'GEO Engagement Priority: SDG 15 - Target 15.3'
 - id: sdg-target-15.4
   props:
     description_long: By 2030, ensure the conservation of mountain ecosystems, including
@@ -2517,7 +2517,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Target 15.4
+    en: 'GEO Engagement Priority: SDG 15 - Target 15.4'
 - id: sdg-target-15.5
   props:
     description_long: Take urgent and significant action to reduce the degradation
@@ -2533,7 +2533,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Target 15.5
+    en: 'GEO Engagement Priority: SDG 15 - Target 15.5'
 - id: sdg-target-15.6
   props:
     description_long: Promote fair and equitable sharing of the benefits arising from
@@ -2549,7 +2549,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Target 15.6
+    en: 'GEO Engagement Priority: SDG 15 - Target 15.6'
 - id: sdg-target-15.7
   props:
     description_long: Take urgent action to end poaching and trafficking of protected
@@ -2565,7 +2565,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Target 15.7
+    en: 'GEO Engagement Priority: SDG 15 - Target 15.7'
 - id: sdg-target-15.8
   props:
     description_long: By 2020, introduce measures to prevent the introduction and
@@ -2581,7 +2581,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Target 15.8
+    en: 'GEO Engagement Priority: SDG 15 - Target 15.8'
 - id: sdg-target-15.9
   props:
     description_long: By 2020, integrate ecosystem and biodiversity values into national
@@ -2597,7 +2597,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Target 15.9
+    en: 'GEO Engagement Priority: SDG 15 - Target 15.9'
 - id: sdg-target-15.a
   props:
     description_long: Mobilize and significantly increase financial resources from
@@ -2611,7 +2611,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Target 15.a
+    en: 'GEO Engagement Priority: SDG 15 - Target 15.a'
 - id: sdg-target-15.b
   props:
     description_long: Mobilize significant resources from all sources and at all levels
@@ -2629,7 +2629,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Target 15.b
+    en: 'GEO Engagement Priority: SDG 15 - Target 15.b'
 - id: sdg-target-15.c
   props:
     description_long: Enhance global support for efforts to combat poaching and trafficking
@@ -2645,7 +2645,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Target 15.c
+    en: 'GEO Engagement Priority: SDG 15 - Target 15.c'
 - id: sdg-target-16.1
   props:
     description_long: Significantly reduce all forms of violence and related death
@@ -2659,7 +2659,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Target 16.1
+    en: 'GEO Engagement Priority: SDG 16 - Target 16.1'
 - id: sdg-target-16.2
   props:
     description_long: End abuse, exploitation, trafficking and all forms of violence
@@ -2673,7 +2673,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Target 16.2
+    en: 'GEO Engagement Priority: SDG 16 - Target 16.2'
 - id: sdg-target-16.3
   props:
     description_long: Promote the rule of law at the national and international levels
@@ -2687,7 +2687,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Target 16.3
+    en: 'GEO Engagement Priority: SDG 16 - Target 16.3'
 - id: sdg-target-16.4
   props:
     description_long: By 2030, significantly reduce illicit financial and arms flows,
@@ -2703,7 +2703,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Target 16.4
+    en: 'GEO Engagement Priority: SDG 16 - Target 16.4'
 - id: sdg-target-16.5
   props:
     description_long: Substantially reduce corruption and bribery in all their forms
@@ -2715,7 +2715,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Target 16.5
+    en: 'GEO Engagement Priority: SDG 16 - Target 16.5'
 - id: sdg-target-16.6
   props:
     description_long: Develop effective, accountable and transparent institutions
@@ -2729,7 +2729,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Target 16.6
+    en: 'GEO Engagement Priority: SDG 16 - Target 16.6'
 - id: sdg-target-16.7
   props:
     description_long: Ensure responsive, inclusive, participatory and representative
@@ -2743,7 +2743,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Target 16.7
+    en: 'GEO Engagement Priority: SDG 16 - Target 16.7'
 - id: sdg-target-16.8
   props:
     description_long: Broaden and strengthen the participation of developing countries
@@ -2757,7 +2757,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Target 16.8
+    en: 'GEO Engagement Priority: SDG 16 - Target 16.8'
 - id: sdg-target-16.9
   props:
     description_long: By 2030, provide legal identity for all, including birth registration
@@ -2769,7 +2769,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Target 16.9
+    en: 'GEO Engagement Priority: SDG 16 - Target 16.9'
 - id: sdg-target-16.10
   props:
     description_long: Ensure public access to information and protect fundamental
@@ -2783,7 +2783,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Target 16.10
+    en: 'GEO Engagement Priority: SDG 16 - Target 16.10'
 - id: sdg-target-16.a
   props:
     description_long: Strengthen relevant national institutions, including through
@@ -2799,7 +2799,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Target 16.a
+    en: 'GEO Engagement Priority: SDG 16 - Target 16.a'
 - id: sdg-target-16.b
   props:
     description_long: Promote and enforce non-discriminatory laws and policies for
@@ -2813,7 +2813,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Target 16.b
+    en: 'GEO Engagement Priority: SDG 16 - Target 16.b'
 - id: sdg-target-17.1
   props:
     description_long: Strengthen domestic resource mobilization, including through
@@ -2829,7 +2829,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.1
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.1'
 - id: sdg-target-17.2
   props:
     description_long: Developed countries to implement fully their official development
@@ -2853,7 +2853,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.2
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.2'
 - id: sdg-target-17.3
   props:
     description_long: Mobilize additional financial resources for developing countries
@@ -2867,7 +2867,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.3
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.3'
 - id: sdg-target-17.4
   props:
     description_long: Assist developing countries in attaining long-term debt sustainability
@@ -2885,7 +2885,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.4
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.4'
 - id: sdg-target-17.5
   props:
     description_long: Adopt and implement investment promotion regimes for least developed
@@ -2899,7 +2899,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.5
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.5'
 - id: sdg-target-17.6
   props:
     description_long: Enhance North-South, South-South and triangular regional and
@@ -2919,7 +2919,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.6
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.6'
 - id: sdg-target-17.7
   props:
     description_long: Promote the development, transfer, dissemination and diffusion
@@ -2935,7 +2935,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.7
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.7'
 - id: sdg-target-17.8
   props:
     description_long: Fully operationalize the technology bank and science, technology
@@ -2953,7 +2953,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.8
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.8'
 - id: sdg-target-17.9
   props:
     description_long: Enhance international support for implementing effective and
@@ -2971,7 +2971,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.9
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.9'
 - id: sdg-target-17.10
   props:
     description_long: Promote a universal, rules-based, open, non-discriminatory and
@@ -2988,7 +2988,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.10
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.10'
 - id: sdg-target-17.11
   props:
     description_long: Significantly increase the exports of developing countries,
@@ -3004,7 +3004,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.11
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.11'
 - id: sdg-target-17.12
   props:
     description_long: Realize timely implementation of duty-free and quota-free market
@@ -3024,7 +3024,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.12
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.12'
 - id: sdg-target-17.13
   props:
     description_long: Enhance global macroeconomic stability, including through policy
@@ -3038,7 +3038,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.13
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.13'
 - id: sdg-target-17.14
   props:
     description_long: Enhance policy coherence for sustainable development
@@ -3050,7 +3050,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.14
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.14'
 - id: sdg-target-17.15
   props:
     description_long: Respect each country's policy space and leadership to establish
@@ -3064,7 +3064,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.15
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.15'
 - id: sdg-target-17.16
   props:
     description_long: Enhance the Global Partnership for Sustainable Development,
@@ -3084,7 +3084,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.16
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.16'
 - id: sdg-target-17.17
   props:
     description_long: Encourage and promote effective public, public-private and civil
@@ -3100,7 +3100,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.17
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.17'
 - id: sdg-target-17.18
   props:
     description_long: By 2020, enhance capacity-building support to developing countries,
@@ -3122,7 +3122,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.18
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.18'
 - id: sdg-target-17.19
   props:
     description_long: By 2030, build on existing initiatives to develop measurements
@@ -3138,7 +3138,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Target 17.19
+    en: 'GEO Engagement Priority: SDG 17 - Target 17.19'
 - id: sdg-indicator-1.1.1
   props:
     description_long: Proportion of the population living below the international
@@ -3152,7 +3152,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Indicator 1.1.1
+    en: 'GEO Engagement Priority: SDG 1 - Indicator 1.1.1'
 - id: sdg-indicator-1.2.1
   props:
     description_long: Proportion of population living below the national poverty line,
@@ -3166,7 +3166,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Indicator 1.2.1
+    en: 'GEO Engagement Priority: SDG 1 - Indicator 1.2.1'
 - id: sdg-indicator-1.2.2
   props:
     description_long: Proportion of men, women and children of all ages living in
@@ -3180,7 +3180,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Indicator 1.2.2
+    en: 'GEO Engagement Priority: SDG 1 - Indicator 1.2.2'
 - id: sdg-indicator-1.3.1
   props:
     description_long: Proportion of population covered by social protection floors/systems,
@@ -3198,7 +3198,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Indicator 1.3.1
+    en: 'GEO Engagement Priority: SDG 1 - Indicator 1.3.1'
 - id: sdg-indicator-1.4.1
   props:
     description_long: Proportion of population living in households with access to
@@ -3212,7 +3212,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Indicator 1.4.1
+    en: 'GEO Engagement Priority: SDG 1 - Indicator 1.4.1'
 - id: sdg-indicator-1.4.2
   props:
     description_long: Proportion of total adult population with secure tenure rights
@@ -3228,7 +3228,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Indicator 1.4.2
+    en: 'GEO Engagement Priority: SDG 1 - Indicator 1.4.2'
 - id: sdg-indicator-1.5.1
   props:
     description_long: Number of deaths, missing persons and directly affected persons
@@ -3242,7 +3242,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Indicator 1.5.1
+    en: 'GEO Engagement Priority: SDG 1 - Indicator 1.5.1'
 - id: sdg-indicator-1.5.2
   props:
     description_long: Direct economic loss attributed to disasters in relation to
@@ -3256,7 +3256,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Indicator 1.5.2
+    en: 'GEO Engagement Priority: SDG 1 - Indicator 1.5.2'
 - id: sdg-indicator-1.5.3
   props:
     description_long: Number of countries that adopt and implement national disaster
@@ -3272,7 +3272,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Indicator 1.5.3
+    en: 'GEO Engagement Priority: SDG 1 - Indicator 1.5.3'
 - id: sdg-indicator-1.5.4
   props:
     description_long: Proportion of local governments that adopt and implement local
@@ -3288,7 +3288,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Indicator 1.5.4
+    en: 'GEO Engagement Priority: SDG 1 - Indicator 1.5.4'
 - id: sdg-indicator-1.a.2
   props:
     description_long: Proportion of total government spending on essential services
@@ -3302,7 +3302,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Indicator 1.a.2
+    en: 'GEO Engagement Priority: SDG 1 - Indicator 1.a.2'
 - id: sdg-indicator-1.a.1
   props:
     description_long: Total official development assistance grants from all donors
@@ -3318,7 +3318,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Indicator 1.a.1
+    en: 'GEO Engagement Priority: SDG 1 - Indicator 1.a.1'
 - id: sdg-indicator-1.b.1
   props:
     description_long: Pro-poor public social spending
@@ -3330,7 +3330,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 1 - Indicator 1.b.1
+    en: 'GEO Engagement Priority: SDG 1 - Indicator 1.b.1'
 - id: sdg-indicator-2.1.1
   props:
     description_long: Prevalence of undernourishment
@@ -3342,7 +3342,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Indicator 2.1.1
+    en: 'GEO Engagement Priority: SDG 2 - Indicator 2.1.1'
 - id: sdg-indicator-2.1.2
   props:
     description_long: Prevalence of moderate or severe food insecurity in the population,
@@ -3356,7 +3356,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Indicator 2.1.2
+    en: 'GEO Engagement Priority: SDG 2 - Indicator 2.1.2'
 - id: sdg-indicator-2.2.1
   props:
     description_long: Prevalence of stunting (height for age <-2 standard deviation
@@ -3372,7 +3372,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Indicator 2.2.1
+    en: 'GEO Engagement Priority: SDG 2 - Indicator 2.2.1'
 - id: sdg-indicator-2.2.2
   props:
     description_long: Prevalence of malnutrition (weight for height >+2 or <-2 standard
@@ -3388,7 +3388,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Indicator 2.2.2
+    en: 'GEO Engagement Priority: SDG 2 - Indicator 2.2.2'
 - id: sdg-indicator-2.2.3
   props:
     description_long: Prevalence of anaemia in women aged 15 to 49 years, by pregnancy
@@ -3402,7 +3402,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Indicator 2.2.3
+    en: 'GEO Engagement Priority: SDG 2 - Indicator 2.2.3'
 - id: sdg-indicator-2.3.1
   props:
     description_long: Volume of production per labour unit by classes of farming/pastoral/forestry
@@ -3416,7 +3416,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Indicator 2.3.1
+    en: 'GEO Engagement Priority: SDG 2 - Indicator 2.3.1'
 - id: sdg-indicator-2.3.2
   props:
     description_long: Average income of small-scale food producers, by sex and indigenous
@@ -3430,7 +3430,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Indicator 2.3.2
+    en: 'GEO Engagement Priority: SDG 2 - Indicator 2.3.2'
 - id: sdg-indicator-2.4.1
   props:
     description_long: Proportion of agricultural area under productive and sustainable
@@ -3444,7 +3444,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Indicator 2.4.1
+    en: 'GEO Engagement Priority: SDG 2 - Indicator 2.4.1'
 - id: sdg-indicator-2.5.1
   props:
     description_long: Number of (a) plant and (b) animal genetic resources for food
@@ -3458,7 +3458,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Indicator 2.5.1
+    en: 'GEO Engagement Priority: SDG 2 - Indicator 2.5.1'
 - id: sdg-indicator-2.5.2
   props:
     description_long: Proportion of local breeds classified as being at risk of extinction
@@ -3470,7 +3470,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Indicator 2.5.2
+    en: 'GEO Engagement Priority: SDG 2 - Indicator 2.5.2'
 - id: sdg-indicator-2.a.1
   props:
     description_long: The agriculture orientation index for government expenditures
@@ -3482,7 +3482,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Indicator 2.a.1
+    en: 'GEO Engagement Priority: SDG 2 - Indicator 2.a.1'
 - id: sdg-indicator-2.a.2
   props:
     description_long: Total official flows (official development assistance plus other
@@ -3496,7 +3496,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Indicator 2.a.2
+    en: 'GEO Engagement Priority: SDG 2 - Indicator 2.a.2'
 - id: sdg-indicator-2.b.1
   props:
     description_long: Agricultural export subsidies
@@ -3508,7 +3508,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Indicator 2.b.1
+    en: 'GEO Engagement Priority: SDG 2 - Indicator 2.b.1'
 - id: sdg-indicator-2.c.1
   props:
     description_long: Indicator of food price anomalies
@@ -3520,7 +3520,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 2 - Indicator 2.c.1
+    en: 'GEO Engagement Priority: SDG 2 - Indicator 2.c.1'
 - id: sdg-indicator-3.1.1
   props:
     description_long: Maternal mortality ratio
@@ -3532,7 +3532,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.1.1
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.1.1'
 - id: sdg-indicator-3.1.2
   props:
     description_long: Proportion of births attended by skilled health personnel
@@ -3544,7 +3544,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.1.2
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.1.2'
 - id: sdg-indicator-3.2.1
   props:
     description_long: Under‑5 mortality rate
@@ -3556,7 +3556,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.2.1
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.2.1'
 - id: sdg-indicator-3.2.2
   props:
     description_long: Neonatal mortality rate
@@ -3568,7 +3568,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.2.2
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.2.2'
 - id: sdg-indicator-3.3.1
   props:
     description_long: Number of new HIV infections per 1,000 uninfected population,
@@ -3582,7 +3582,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.3.1
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.3.1'
 - id: sdg-indicator-3.3.2
   props:
     description_long: Tuberculosis incidence per 100,000 population
@@ -3594,7 +3594,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.3.2
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.3.2'
 - id: sdg-indicator-3.3.3
   props:
     description_long: Malaria incidence per 1,000 population
@@ -3606,7 +3606,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.3.3
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.3.3'
 - id: sdg-indicator-3.3.5
   props:
     description_long: Number of people requiring interventions against neglected tropical
@@ -3620,7 +3620,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.3.5
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.3.5'
 - id: sdg-indicator-3.3.4
   props:
     description_long: Hepatitis B incidence per 100,000 population
@@ -3632,7 +3632,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.3.4
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.3.4'
 - id: sdg-indicator-3.4.1
   props:
     description_long: Mortality rate attributed to cardiovascular disease, cancer,
@@ -3646,7 +3646,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.4.1
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.4.1'
 - id: sdg-indicator-3.4.2
   props:
     description_long: Suicide mortality rate
@@ -3658,7 +3658,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.4.2
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.4.2'
 - id: sdg-indicator-3.5.2
   props:
     description_long: Alcohol per capita consumption (aged 15 years and older) within
@@ -3672,7 +3672,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.5.2
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.5.2'
 - id: sdg-indicator-3.5.1
   props:
     description_long: Coverage of treatment interventions (pharmacological, psychosocial
@@ -3686,7 +3686,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.5.1
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.5.1'
 - id: sdg-indicator-3.6.1
   props:
     description_long: Death rate due to road traffic injuries
@@ -3698,7 +3698,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.6.1
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.6.1'
 - id: sdg-indicator-3.7.1
   props:
     description_long: Proportion of women of reproductive age (aged 15-49 years) who
@@ -3712,7 +3712,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.7.1
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.7.1'
 - id: sdg-indicator-3.7.2
   props:
     description_long: Adolescent birth rate (aged 10-14 years; aged 15-19 years) per
@@ -3726,7 +3726,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.7.2
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.7.2'
 - id: sdg-indicator-3.8.2
   props:
     description_long: Proportion of population with large household expenditures on
@@ -3740,7 +3740,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.8.2
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.8.2'
 - id: sdg-indicator-3.8.1
   props:
     description_long: Coverage of essential health services
@@ -3752,7 +3752,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.8.1
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.8.1'
 - id: sdg-indicator-3.9.1
   props:
     description_long: Mortality rate attributed to household and ambient air pollution
@@ -3764,7 +3764,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.9.1
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.9.1'
 - id: sdg-indicator-3.9.2
   props:
     description_long: Mortality rate attributed to unsafe water, unsafe sanitation
@@ -3780,7 +3780,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.9.2
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.9.2'
 - id: sdg-indicator-3.9.3
   props:
     description_long: Mortality rate attributed to unintentional poisoning
@@ -3792,7 +3792,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.9.3
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.9.3'
 - id: sdg-indicator-3.a.1
   props:
     description_long: Age-standardized prevalence of current tobacco use among persons
@@ -3806,7 +3806,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.a.1
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.a.1'
 - id: sdg-indicator-3.b.2
   props:
     description_long: Total net official development assistance to medical research
@@ -3820,7 +3820,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.b.2
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.b.2'
 - id: sdg-indicator-3.b.1
   props:
     description_long: Proportion of the target population covered by all vaccines
@@ -3834,7 +3834,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.b.1
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.b.1'
 - id: sdg-indicator-3.b.3
   props:
     description_long: Proportion of health facilities that have a core set of relevant
@@ -3848,7 +3848,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.b.3
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.b.3'
 - id: sdg-indicator-3.c.1
   props:
     description_long: Health worker density and distribution
@@ -3860,7 +3860,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.c.1
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.c.1'
 - id: sdg-indicator-3.d.1
   props:
     description_long: International Health Regulations (IHR) capacity and health emergency
@@ -3874,7 +3874,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.d.1
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.d.1'
 - id: sdg-indicator-3.d.2
   props:
     description_long: Percentage of bloodstream infections due to selected antimicrobial-resistant
@@ -3888,7 +3888,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 3 - Indicator 3.d.2
+    en: 'GEO Engagement Priority: SDG 3 - Indicator 3.d.2'
 - id: sdg-indicator-4.1.1
   props:
     description_long: Proportion of children and young people (a) in grades 2/3; (b)
@@ -3904,7 +3904,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Indicator 4.1.1
+    en: 'GEO Engagement Priority: SDG 4 - Indicator 4.1.1'
 - id: sdg-indicator-4.1.2
   props:
     description_long: Completion rate (primary education, lower secondary education,
@@ -3918,7 +3918,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Indicator 4.1.2
+    en: 'GEO Engagement Priority: SDG 4 - Indicator 4.1.2'
 - id: sdg-indicator-4.2.1
   props:
     description_long: Proportion of children aged 24-59 months who are developmentally
@@ -3932,7 +3932,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Indicator 4.2.1
+    en: 'GEO Engagement Priority: SDG 4 - Indicator 4.2.1'
 - id: sdg-indicator-4.2.2
   props:
     description_long: Participation rate in organized learning (one year before the
@@ -3946,7 +3946,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Indicator 4.2.2
+    en: 'GEO Engagement Priority: SDG 4 - Indicator 4.2.2'
 - id: sdg-indicator-4.3.1
   props:
     description_long: Participation rate of youth and adults in formal and non-formal
@@ -3960,7 +3960,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Indicator 4.3.1
+    en: 'GEO Engagement Priority: SDG 4 - Indicator 4.3.1'
 - id: sdg-indicator-4.4.1
   props:
     description_long: Proportion of youth and adults with information and communications
@@ -3974,7 +3974,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Indicator 4.4.1
+    en: 'GEO Engagement Priority: SDG 4 - Indicator 4.4.1'
 - id: sdg-indicator-4.5.1
   props:
     description_long: Parity indices (female/male, rural/urban, bottom/top wealth
@@ -3992,7 +3992,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Indicator 4.5.1
+    en: 'GEO Engagement Priority: SDG 4 - Indicator 4.5.1'
 - id: sdg-indicator-4.6.1
   props:
     description_long: Proportion of population in a given age group achieving at least
@@ -4008,7 +4008,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Indicator 4.6.1
+    en: 'GEO Engagement Priority: SDG 4 - Indicator 4.6.1'
 - id: sdg-indicator-4.7.1
   props:
     description_long: Extent to which (i) global citizenship education and (ii) education
@@ -4024,7 +4024,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Indicator 4.7.1
+    en: 'GEO Engagement Priority: SDG 4 - Indicator 4.7.1'
 - id: sdg-indicator-4.a.1
   props:
     description_long: Proportion of schools offering basic services, by type of service
@@ -4036,7 +4036,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Indicator 4.a.1
+    en: 'GEO Engagement Priority: SDG 4 - Indicator 4.a.1'
 - id: sdg-indicator-4.b.1
   props:
     description_long: Volume of official development assistance flows for scholarships
@@ -4050,7 +4050,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Indicator 4.b.1
+    en: 'GEO Engagement Priority: SDG 4 - Indicator 4.b.1'
 - id: sdg-indicator-4.c.1
   props:
     description_long: Proportion of teachers with the minimum required qualifications,
@@ -4064,7 +4064,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 4 - Indicator 4.c.1
+    en: 'GEO Engagement Priority: SDG 4 - Indicator 4.c.1'
 - id: sdg-indicator-5.1.1
   props:
     description_long: Whether or not legal frameworks are in place to promote, enforce
@@ -4078,7 +4078,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Indicator 5.1.1
+    en: 'GEO Engagement Priority: SDG 5 - Indicator 5.1.1'
 - id: sdg-indicator-5.2.1
   props:
     description_long: Proportion of ever-partnered women and girls aged 15 years and
@@ -4096,7 +4096,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Indicator 5.2.1
+    en: 'GEO Engagement Priority: SDG 5 - Indicator 5.2.1'
 - id: sdg-indicator-5.2.2
   props:
     description_long: Proportion of women and girls aged 15 years and older subjected
@@ -4112,7 +4112,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Indicator 5.2.2
+    en: 'GEO Engagement Priority: SDG 5 - Indicator 5.2.2'
 - id: sdg-indicator-5.3.1
   props:
     description_long: Proportion of women aged 20-24 years who were married or in
@@ -4126,7 +4126,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Indicator 5.3.1
+    en: 'GEO Engagement Priority: SDG 5 - Indicator 5.3.1'
 - id: sdg-indicator-5.3.2
   props:
     description_long: Proportion of girls and women aged 15-49 years who have undergone
@@ -4140,7 +4140,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Indicator 5.3.2
+    en: 'GEO Engagement Priority: SDG 5 - Indicator 5.3.2'
 - id: sdg-indicator-5.4.1
   props:
     description_long: Proportion of time spent on unpaid domestic and care work, by
@@ -4154,7 +4154,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Indicator 5.4.1
+    en: 'GEO Engagement Priority: SDG 5 - Indicator 5.4.1'
 - id: sdg-indicator-5.5.1
   props:
     description_long: Proportion of seats held by women in (a) national parliaments
@@ -4168,7 +4168,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Indicator 5.5.1
+    en: 'GEO Engagement Priority: SDG 5 - Indicator 5.5.1'
 - id: sdg-indicator-5.5.2
   props:
     description_long: Proportion of women in managerial positions
@@ -4180,7 +4180,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Indicator 5.5.2
+    en: 'GEO Engagement Priority: SDG 5 - Indicator 5.5.2'
 - id: sdg-indicator-5.6.1
   props:
     description_long: Proportion of women aged 15-49 years who make their own informed
@@ -4196,7 +4196,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Indicator 5.6.1
+    en: 'GEO Engagement Priority: SDG 5 - Indicator 5.6.1'
 - id: sdg-indicator-5.6.2
   props:
     description_long: Number of countries with laws and regulations that guarantee
@@ -4212,7 +4212,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Indicator 5.6.2
+    en: 'GEO Engagement Priority: SDG 5 - Indicator 5.6.2'
 - id: sdg-indicator-5.a.1
   props:
     description_long: (a) Proportion of total agricultural population with ownership
@@ -4228,7 +4228,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Indicator 5.a.1
+    en: 'GEO Engagement Priority: SDG 5 - Indicator 5.a.1'
 - id: sdg-indicator-5.a.2
   props:
     description_long: Proportion of countries where the legal framework (including
@@ -4242,7 +4242,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Indicator 5.a.2
+    en: 'GEO Engagement Priority: SDG 5 - Indicator 5.a.2'
 - id: sdg-indicator-5.b.1
   props:
     description_long: Proportion of individuals who own a mobile telephone, by sex
@@ -4254,7 +4254,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Indicator 5.b.1
+    en: 'GEO Engagement Priority: SDG 5 - Indicator 5.b.1'
 - id: sdg-indicator-5.c.1
   props:
     description_long: Proportion of countries with systems to track and make public
@@ -4268,7 +4268,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 5 - Indicator 5.c.1
+    en: 'GEO Engagement Priority: SDG 5 - Indicator 5.c.1'
 - id: sdg-indicator-6.1.1
   props:
     description_long: Proportion of population using safely managed drinking water
@@ -4282,7 +4282,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Indicator 6.1.1
+    en: 'GEO Engagement Priority: SDG 6 - Indicator 6.1.1'
 - id: sdg-indicator-6.2.1
   props:
     description_long: Proportion of population using (a) safely managed sanitation
@@ -4296,7 +4296,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Indicator 6.2.1
+    en: 'GEO Engagement Priority: SDG 6 - Indicator 6.2.1'
 - id: sdg-indicator-6.3.2
   props:
     description_long: Proportion of bodies of water with good ambient water quality
@@ -4308,7 +4308,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Indicator 6.3.2
+    en: 'GEO Engagement Priority: SDG 6 - Indicator 6.3.2'
 - id: sdg-indicator-6.3.1
   props:
     description_long: Proportion of domestic and industrial wastewater flows safely
@@ -4322,7 +4322,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Indicator 6.3.1
+    en: 'GEO Engagement Priority: SDG 6 - Indicator 6.3.1'
 - id: sdg-indicator-6.4.2
   props:
     description_long: 'Level of water stress: freshwater withdrawal as a proportion
@@ -4336,7 +4336,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Indicator 6.4.2
+    en: 'GEO Engagement Priority: SDG 6 - Indicator 6.4.2'
 - id: sdg-indicator-6.4.1
   props:
     description_long: Change in water-use efficiency over time
@@ -4348,7 +4348,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Indicator 6.4.1
+    en: 'GEO Engagement Priority: SDG 6 - Indicator 6.4.1'
 - id: sdg-indicator-6.5.1
   props:
     description_long: Degree of integrated water resources management
@@ -4360,7 +4360,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Indicator 6.5.1
+    en: 'GEO Engagement Priority: SDG 6 - Indicator 6.5.1'
 - id: sdg-indicator-6.5.2
   props:
     description_long: Proportion of transboundary basin area with an operational arrangement
@@ -4374,7 +4374,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Indicator 6.5.2
+    en: 'GEO Engagement Priority: SDG 6 - Indicator 6.5.2'
 - id: sdg-indicator-6.6.1
   props:
     description_long: Change in the extent of water-related ecosystems over time
@@ -4386,7 +4386,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Indicator 6.6.1
+    en: 'GEO Engagement Priority: SDG 6 - Indicator 6.6.1'
 - id: sdg-indicator-6.a.1
   props:
     description_long: Amount of water- and sanitation-related official development
@@ -4400,7 +4400,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Indicator 6.a.1
+    en: 'GEO Engagement Priority: SDG 6 - Indicator 6.a.1'
 - id: sdg-indicator-6.b.1
   props:
     description_long: Proportion of local administrative units with established and
@@ -4416,7 +4416,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 6 - Indicator 6.b.1
+    en: 'GEO Engagement Priority: SDG 6 - Indicator 6.b.1'
 - id: sdg-indicator-7.1.1
   props:
     description_long: Proportion of population with access to electricity
@@ -4428,7 +4428,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 7 - Indicator 7.1.1
+    en: 'GEO Engagement Priority: SDG 7 - Indicator 7.1.1'
 - id: sdg-indicator-7.1.2
   props:
     description_long: Proportion of population with primary reliance on clean fuels
@@ -4442,7 +4442,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 7 - Indicator 7.1.2
+    en: 'GEO Engagement Priority: SDG 7 - Indicator 7.1.2'
 - id: sdg-indicator-7.2.1
   props:
     description_long: Renewable energy share in the total final energy consumption
@@ -4454,7 +4454,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 7 - Indicator 7.2.1
+    en: 'GEO Engagement Priority: SDG 7 - Indicator 7.2.1'
 - id: sdg-indicator-7.3.1
   props:
     description_long: Energy intensity measured in terms of primary energy and GDP
@@ -4466,7 +4466,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 7 - Indicator 7.3.1
+    en: 'GEO Engagement Priority: SDG 7 - Indicator 7.3.1'
 - id: sdg-indicator-7.a.1
   props:
     description_long: International financial flows to developing countries in support
@@ -4482,7 +4482,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 7 - Indicator 7.a.1
+    en: 'GEO Engagement Priority: SDG 7 - Indicator 7.a.1'
 - id: sdg-indicator-7.b.1
   props:
     description_long: Installed renewable energy-generating capacity in developing
@@ -4496,7 +4496,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 7 - Indicator 7.b.1
+    en: 'GEO Engagement Priority: SDG 7 - Indicator 7.b.1'
 - id: sdg-indicator-8.2.1
   props:
     description_long: Annual growth rate of real GDP per employed person
@@ -4508,7 +4508,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.2.1
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.2.1'
 - id: sdg-indicator-8.3.1
   props:
     description_long: Proportion of informal employment in total employment, by sector
@@ -4522,7 +4522,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.3.1
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.3.1'
 - id: sdg-indicator-8.4.1
   props:
     description_long: Material footprint, material footprint per capita, and material
@@ -4536,7 +4536,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.4.1
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.4.1'
 - id: sdg-indicator-8.4.2
   props:
     description_long: Domestic material consumption, domestic material consumption
@@ -4550,7 +4550,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.4.2
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.4.2'
 - id: sdg-indicator-8.5.1
   props:
     description_long: Average hourly earnings of employees, by sex, age, occupation
@@ -4564,7 +4564,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.5.1
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.5.1'
 - id: sdg-indicator-8.5.2
   props:
     description_long: Unemployment rate, by sex, age and persons with disabilities
@@ -4576,7 +4576,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.5.2
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.5.2'
 - id: sdg-indicator-8.6.1
   props:
     description_long: Proportion of youth (aged 15-24 years) not in education, employment
@@ -4590,7 +4590,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.6.1
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.6.1'
 - id: sdg-indicator-8.7.1
   props:
     description_long: Proportion and number of children aged 5-17 years engaged in
@@ -4604,7 +4604,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.7.1
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.7.1'
 - id: sdg-indicator-8.1.1
   props:
     description_long: Annual growth rate of real GDP per capita
@@ -4616,7 +4616,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.1.1
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.1.1'
 - id: sdg-indicator-8.8.1
   props:
     description_long: Fatal and non-fatal occupational injuries per 100,000 workers,
@@ -4630,7 +4630,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.8.1
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.8.1'
 - id: sdg-indicator-8.8.2
   props:
     description_long: Level of national compliance with labour rights (freedom of
@@ -4646,7 +4646,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.8.2
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.8.2'
 - id: sdg-indicator-8.9.1
   props:
     description_long: Tourism direct GDP as a proportion of total GDP and in growth
@@ -4660,7 +4660,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.9.1
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.9.1'
 - id: sdg-indicator-8.10.1
   props:
     description_long: (a) Number of commercial bank branches per 100,000 adults and
@@ -4674,7 +4674,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.10.1
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.10.1'
 - id: sdg-indicator-8.10.2
   props:
     description_long: Proportion of adults (15 years and older) with an account at
@@ -4688,7 +4688,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.10.2
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.10.2'
 - id: sdg-indicator-8.a.1
   props:
     description_long: Aid for Trade commitments and disbursements
@@ -4700,7 +4700,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.a.1
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.a.1'
 - id: sdg-indicator-8.b.1
   props:
     description_long: Existence of a developed and operationalized national strategy
@@ -4716,7 +4716,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 8 - Indicator 8.b.1
+    en: 'GEO Engagement Priority: SDG 8 - Indicator 8.b.1'
 - id: sdg-indicator-9.1.2
   props:
     description_long: Passenger and freight volumes, by mode of transport
@@ -4728,7 +4728,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Indicator 9.1.2
+    en: 'GEO Engagement Priority: SDG 9 - Indicator 9.1.2'
 - id: sdg-indicator-9.1.1
   props:
     description_long: Proportion of the rural population who live within 2 km of an
@@ -4742,7 +4742,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Indicator 9.1.1
+    en: 'GEO Engagement Priority: SDG 9 - Indicator 9.1.1'
 - id: sdg-indicator-9.2.1
   props:
     description_long: Manufacturing value added as a proportion of GDP and per capita
@@ -4754,7 +4754,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Indicator 9.2.1
+    en: 'GEO Engagement Priority: SDG 9 - Indicator 9.2.1'
 - id: sdg-indicator-9.2.2
   props:
     description_long: Manufacturing employment as a proportion of total employment
@@ -4766,7 +4766,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Indicator 9.2.2
+    en: 'GEO Engagement Priority: SDG 9 - Indicator 9.2.2'
 - id: sdg-indicator-9.3.1
   props:
     description_long: Proportion of small-scale industries in total industry value
@@ -4780,7 +4780,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Indicator 9.3.1
+    en: 'GEO Engagement Priority: SDG 9 - Indicator 9.3.1'
 - id: sdg-indicator-9.3.2
   props:
     description_long: Proportion of small-scale industries with a loan or line of
@@ -4794,7 +4794,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Indicator 9.3.2
+    en: 'GEO Engagement Priority: SDG 9 - Indicator 9.3.2'
 - id: sdg-indicator-9.4.1
   props:
     description_long: CO2 emission per unit of value added
@@ -4806,7 +4806,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Indicator 9.4.1
+    en: 'GEO Engagement Priority: SDG 9 - Indicator 9.4.1'
 - id: sdg-indicator-9.5.1
   props:
     description_long: Research and development expenditure as a proportion of GDP
@@ -4818,7 +4818,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Indicator 9.5.1
+    en: 'GEO Engagement Priority: SDG 9 - Indicator 9.5.1'
 - id: sdg-indicator-9.5.2
   props:
     description_long: Researchers (in full-time equivalent) per million inhabitants
@@ -4830,7 +4830,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Indicator 9.5.2
+    en: 'GEO Engagement Priority: SDG 9 - Indicator 9.5.2'
 - id: sdg-indicator-9.a.1
   props:
     description_long: Total official international support (official development assistance
@@ -4844,7 +4844,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Indicator 9.a.1
+    en: 'GEO Engagement Priority: SDG 9 - Indicator 9.a.1'
 - id: sdg-indicator-9.b.1
   props:
     description_long: Proportion of medium and high-tech industry value added in total
@@ -4858,7 +4858,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Indicator 9.b.1
+    en: 'GEO Engagement Priority: SDG 9 - Indicator 9.b.1'
 - id: sdg-indicator-9.c.1
   props:
     description_long: Proportion of population covered by a mobile network, by technology
@@ -4870,7 +4870,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 9 - Indicator 9.c.1
+    en: 'GEO Engagement Priority: SDG 9 - Indicator 9.c.1'
 - id: sdg-indicator-10.1.1
   props:
     description_long: Growth rates of household expenditure or income per capita among
@@ -4884,7 +4884,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Indicator 10.1.1
+    en: 'GEO Engagement Priority: SDG 10 - Indicator 10.1.1'
 - id: sdg-indicator-10.2.1
   props:
     description_long: Proportion of people living below 50 per cent of median income,
@@ -4898,7 +4898,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Indicator 10.2.1
+    en: 'GEO Engagement Priority: SDG 10 - Indicator 10.2.1'
 - id: sdg-indicator-10.3.1
   props:
     description_long: Proportion of population reporting having personally felt discriminated
@@ -4914,7 +4914,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Indicator 10.3.1
+    en: 'GEO Engagement Priority: SDG 10 - Indicator 10.3.1'
 - id: sdg-indicator-10.4.1
   props:
     description_long: Labour share of GDP
@@ -4926,7 +4926,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Indicator 10.4.1
+    en: 'GEO Engagement Priority: SDG 10 - Indicator 10.4.1'
 - id: sdg-indicator-10.4.2
   props:
     description_long: Redistributive impact of fiscal policy
@@ -4938,7 +4938,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Indicator 10.4.2
+    en: 'GEO Engagement Priority: SDG 10 - Indicator 10.4.2'
 - id: sdg-indicator-10.5.1
   props:
     description_long: Financial Soundness Indicators
@@ -4950,7 +4950,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Indicator 10.5.1
+    en: 'GEO Engagement Priority: SDG 10 - Indicator 10.5.1'
 - id: sdg-indicator-10.6.1
   props:
     description_long: Proportion of members and voting rights of developing countries
@@ -4964,7 +4964,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Indicator 10.6.1
+    en: 'GEO Engagement Priority: SDG 10 - Indicator 10.6.1'
 - id: sdg-indicator-10.7.2
   props:
     description_long: Number of countries with migration policies that facilitate
@@ -4978,7 +4978,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Indicator 10.7.2
+    en: 'GEO Engagement Priority: SDG 10 - Indicator 10.7.2'
 - id: sdg-indicator-10.7.3
   props:
     description_long: Number of people who died or disappeared in the process of migration
@@ -4992,7 +4992,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Indicator 10.7.3
+    en: 'GEO Engagement Priority: SDG 10 - Indicator 10.7.3'
 - id: sdg-indicator-10.7.4
   props:
     description_long: Proportion of the population who are refugees, by country of
@@ -5006,7 +5006,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Indicator 10.7.4
+    en: 'GEO Engagement Priority: SDG 10 - Indicator 10.7.4'
 - id: sdg-indicator-10.7.1
   props:
     description_long: Recruitment cost borne by employee as a proportion of monthly
@@ -5020,7 +5020,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Indicator 10.7.1
+    en: 'GEO Engagement Priority: SDG 10 - Indicator 10.7.1'
 - id: sdg-indicator-10.a.1
   props:
     description_long: Proportion of tariff lines applied to imports from least developed
@@ -5034,7 +5034,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Indicator 10.a.1
+    en: 'GEO Engagement Priority: SDG 10 - Indicator 10.a.1'
 - id: sdg-indicator-10.b.1
   props:
     description_long: Total resource flows for development, by recipient and donor
@@ -5050,7 +5050,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Indicator 10.b.1
+    en: 'GEO Engagement Priority: SDG 10 - Indicator 10.b.1'
 - id: sdg-indicator-10.c.1
   props:
     description_long: Remittance costs as a proportion of the amount remitted
@@ -5062,7 +5062,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 10 - Indicator 10.c.1
+    en: 'GEO Engagement Priority: SDG 10 - Indicator 10.c.1'
 - id: sdg-indicator-11.1.1
   props:
     description_long: Proportion of urban population living in slums, informal settlements
@@ -5076,7 +5076,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Indicator 11.1.1
+    en: 'GEO Engagement Priority: SDG 11 - Indicator 11.1.1'
 - id: sdg-indicator-11.2.1
   props:
     description_long: Proportion of population that has convenient access to public
@@ -5090,7 +5090,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Indicator 11.2.1
+    en: 'GEO Engagement Priority: SDG 11 - Indicator 11.2.1'
 - id: sdg-indicator-11.3.1
   props:
     description_long: Ratio of land consumption rate to population growth rate
@@ -5102,7 +5102,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Indicator 11.3.1
+    en: 'GEO Engagement Priority: SDG 11 - Indicator 11.3.1'
 - id: sdg-indicator-11.3.2
   props:
     description_long: Proportion of cities with a direct participation structure of
@@ -5117,7 +5117,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Indicator 11.3.2
+    en: 'GEO Engagement Priority: SDG 11 - Indicator 11.3.2'
 - id: sdg-indicator-11.4.1
   props:
     description_long: Total per capita expenditure on the preservation, protection
@@ -5135,7 +5135,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Indicator 11.4.1
+    en: 'GEO Engagement Priority: SDG 11 - Indicator 11.4.1'
 - id: sdg-indicator-11.5.1
   props:
     description_long: Number of deaths, missing persons and directly affected persons
@@ -5149,7 +5149,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Indicator 11.5.1
+    en: 'GEO Engagement Priority: SDG 11 - Indicator 11.5.1'
 - id: sdg-indicator-11.5.2
   props:
     description_long: Direct economic loss in relation to global GDP, damage to critical
@@ -5163,7 +5163,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Indicator 11.5.2
+    en: 'GEO Engagement Priority: SDG 11 - Indicator 11.5.2'
 - id: sdg-indicator-11.6.1
   props:
     description_long: Proportion of municipal solid waste collected and managed in
@@ -5177,7 +5177,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Indicator 11.6.1
+    en: 'GEO Engagement Priority: SDG 11 - Indicator 11.6.1'
 - id: sdg-indicator-11.6.2
   props:
     description_long: Annual mean levels of fine particulate matter (e.g. PM2.5 and
@@ -5191,7 +5191,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Indicator 11.6.2
+    en: 'GEO Engagement Priority: SDG 11 - Indicator 11.6.2'
 - id: sdg-indicator-11.7.1
   props:
     description_long: Average share of the built-up area of cities that is open space
@@ -5205,7 +5205,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Indicator 11.7.1
+    en: 'GEO Engagement Priority: SDG 11 - Indicator 11.7.1'
 - id: sdg-indicator-11.7.2
   props:
     description_long: Proportion of persons victim of physical or sexual harassment,
@@ -5219,7 +5219,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Indicator 11.7.2
+    en: 'GEO Engagement Priority: SDG 11 - Indicator 11.7.2'
 - id: sdg-indicator-11.a.1
   props:
     description_long: Number of countries that have national urban policies or regional
@@ -5235,7 +5235,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Indicator 11.a.1
+    en: 'GEO Engagement Priority: SDG 11 - Indicator 11.a.1'
 - id: sdg-indicator-11.b.1
   props:
     description_long: Number of countries that adopt and implement national disaster
@@ -5251,7 +5251,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Indicator 11.b.1
+    en: 'GEO Engagement Priority: SDG 11 - Indicator 11.b.1'
 - id: sdg-indicator-11.b.2
   props:
     description_long: Proportion of local governments that adopt and implement local
@@ -5267,7 +5267,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 11 - Indicator 11.b.2
+    en: 'GEO Engagement Priority: SDG 11 - Indicator 11.b.2'
 - id: sdg-indicator-12.1.1
   props:
     description_long: Number of countries developing, adopting or implementing policy
@@ -5281,7 +5281,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Indicator 12.1.1
+    en: 'GEO Engagement Priority: SDG 12 - Indicator 12.1.1'
 - id: sdg-indicator-12.2.1
   props:
     description_long: Material footprint, material footprint per capita, and material
@@ -5295,7 +5295,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Indicator 12.2.1
+    en: 'GEO Engagement Priority: SDG 12 - Indicator 12.2.1'
 - id: sdg-indicator-12.2.2
   props:
     description_long: Domestic material consumption, domestic material consumption
@@ -5309,7 +5309,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Indicator 12.2.2
+    en: 'GEO Engagement Priority: SDG 12 - Indicator 12.2.2'
 - id: sdg-indicator-12.3.1
   props:
     description_long: (a) Food loss index and (b) food waste index
@@ -5321,7 +5321,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Indicator 12.3.1
+    en: 'GEO Engagement Priority: SDG 12 - Indicator 12.3.1'
 - id: sdg-indicator-12.4.1
   props:
     description_long: Number of parties to international multilateral environmental
@@ -5337,7 +5337,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Indicator 12.4.1
+    en: 'GEO Engagement Priority: SDG 12 - Indicator 12.4.1'
 - id: sdg-indicator-12.4.2
   props:
     description_long: (a) Hazardous waste generated per capita; and (b) proportion
@@ -5351,7 +5351,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Indicator 12.4.2
+    en: 'GEO Engagement Priority: SDG 12 - Indicator 12.4.2'
 - id: sdg-indicator-12.5.1
   props:
     description_long: National recycling rate, tons of material recycled
@@ -5363,7 +5363,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Indicator 12.5.1
+    en: 'GEO Engagement Priority: SDG 12 - Indicator 12.5.1'
 - id: sdg-indicator-12.6.1
   props:
     description_long: Number of companies publishing sustainability reports
@@ -5375,7 +5375,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Indicator 12.6.1
+    en: 'GEO Engagement Priority: SDG 12 - Indicator 12.6.1'
 - id: sdg-indicator-12.7.1
   props:
     description_long: Degree of sustainable public procurement policies and action
@@ -5389,7 +5389,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Indicator 12.7.1
+    en: 'GEO Engagement Priority: SDG 12 - Indicator 12.7.1'
 - id: sdg-indicator-12.8.1
   props:
     description_long: Extent to which (i) global citizenship education and (ii) education
@@ -5405,7 +5405,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Indicator 12.8.1
+    en: 'GEO Engagement Priority: SDG 12 - Indicator 12.8.1'
 - id: sdg-indicator-12.a.1
   props:
     description_long: Installed renewable energy-generating capacity in developing
@@ -5419,7 +5419,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Indicator 12.a.1
+    en: 'GEO Engagement Priority: SDG 12 - Indicator 12.a.1'
 - id: sdg-indicator-12.b.1
   props:
     description_long: Implementation of standard accounting tools to monitor the economic
@@ -5433,7 +5433,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Indicator 12.b.1
+    en: 'GEO Engagement Priority: SDG 12 - Indicator 12.b.1'
 - id: sdg-indicator-12.c.1
   props:
     description_long: Amount of fossil-fuel subsidies (production and consumption)
@@ -5447,7 +5447,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 12 - Indicator 12.c.1
+    en: 'GEO Engagement Priority: SDG 12 - Indicator 12.c.1'
 - id: sdg-indicator-13.1.1
   props:
     description_long: Number of deaths, missing persons and directly affected persons
@@ -5461,7 +5461,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 13 - Indicator 13.1.1
+    en: 'GEO Engagement Priority: SDG 13 - Indicator 13.1.1'
 - id: sdg-indicator-13.1.2
   props:
     description_long: Number of countries that adopt and implement national disaster
@@ -5477,7 +5477,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 13 - Indicator 13.1.2
+    en: 'GEO Engagement Priority: SDG 13 - Indicator 13.1.2'
 - id: sdg-indicator-13.1.3
   props:
     description_long: Proportion of local governments that adopt and implement local
@@ -5493,7 +5493,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 13 - Indicator 13.1.3
+    en: 'GEO Engagement Priority: SDG 13 - Indicator 13.1.3'
 - id: sdg-indicator-13.2.2
   props:
     description_long: Total greenhouse gas emissions per year
@@ -5505,7 +5505,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 13 - Indicator 13.2.2
+    en: 'GEO Engagement Priority: SDG 13 - Indicator 13.2.2'
 - id: sdg-indicator-13.2.1
   props:
     description_long: Number of countries with nationally determined contributions,
@@ -5523,7 +5523,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 13 - Indicator 13.2.1
+    en: 'GEO Engagement Priority: SDG 13 - Indicator 13.2.1'
 - id: sdg-indicator-13.3.1
   props:
     description_long: Extent to which (i) global citizenship education and (ii) education
@@ -5539,7 +5539,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 13 - Indicator 13.3.1
+    en: 'GEO Engagement Priority: SDG 13 - Indicator 13.3.1'
 - id: sdg-indicator-13.a.1
   props:
     description_long: Amounts provided and mobilized in United States dollars per
@@ -5555,7 +5555,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 13 - Indicator 13.a.1
+    en: 'GEO Engagement Priority: SDG 13 - Indicator 13.a.1'
 - id: sdg-indicator-13.b.1
   props:
     description_long: Number of least developed countries and small island developing
@@ -5573,7 +5573,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 13 - Indicator 13.b.1
+    en: 'GEO Engagement Priority: SDG 13 - Indicator 13.b.1'
 - id: sdg-indicator-14.1.1
   props:
     description_long: (a) Index of coastal eutrophication; and (b) plastic debris
@@ -5587,7 +5587,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Indicator 14.1.1
+    en: 'GEO Engagement Priority: SDG 14 - Indicator 14.1.1'
 - id: sdg-indicator-14.6.1
   props:
     description_long: Degree of implementation of international instruments aiming
@@ -5601,7 +5601,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Indicator 14.6.1
+    en: 'GEO Engagement Priority: SDG 14 - Indicator 14.6.1'
 - id: sdg-indicator-14.2.1
   props:
     description_long: Number of countries using ecosystem-based approaches to managing
@@ -5615,7 +5615,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Indicator 14.2.1
+    en: 'GEO Engagement Priority: SDG 14 - Indicator 14.2.1'
 - id: sdg-indicator-14.7.1
   props:
     description_long: Sustainable fisheries as a proportion of GDP in small island
@@ -5629,7 +5629,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Indicator 14.7.1
+    en: 'GEO Engagement Priority: SDG 14 - Indicator 14.7.1'
 - id: sdg-indicator-14.3.1
   props:
     description_long: Average marine acidity (pH) measured at agreed suite of representative
@@ -5643,7 +5643,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Indicator 14.3.1
+    en: 'GEO Engagement Priority: SDG 14 - Indicator 14.3.1'
 - id: sdg-indicator-14.a.1
   props:
     description_long: Proportion of total research budget allocated to research in
@@ -5657,7 +5657,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Indicator 14.a.1
+    en: 'GEO Engagement Priority: SDG 14 - Indicator 14.a.1'
 - id: sdg-indicator-14.4.1
   props:
     description_long: Proportion of fish stocks within biologically sustainable levels
@@ -5669,7 +5669,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Indicator 14.4.1
+    en: 'GEO Engagement Priority: SDG 14 - Indicator 14.4.1'
 - id: sdg-indicator-14.b.1
   props:
     description_long: Degree of application of a legal/regulatory/policy/institutional
@@ -5683,7 +5683,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Indicator 14.b.1
+    en: 'GEO Engagement Priority: SDG 14 - Indicator 14.b.1'
 - id: sdg-indicator-14.5.1
   props:
     description_long: Coverage of protected areas in relation to marine areas
@@ -5695,7 +5695,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Indicator 14.5.1
+    en: 'GEO Engagement Priority: SDG 14 - Indicator 14.5.1'
 - id: sdg-indicator-14.c.1
   props:
     description_long: Number of countries making progress in ratifying, accepting
@@ -5715,7 +5715,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 14 - Indicator 14.c.1
+    en: 'GEO Engagement Priority: SDG 14 - Indicator 14.c.1'
 - id: sdg-indicator-15.1.1
   props:
     description_long: Forest area as a proportion of total land area
@@ -5727,7 +5727,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Indicator 15.1.1
+    en: 'GEO Engagement Priority: SDG 15 - Indicator 15.1.1'
 - id: sdg-indicator-15.1.2
   props:
     description_long: Proportion of important sites for terrestrial and freshwater
@@ -5741,7 +5741,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Indicator 15.1.2
+    en: 'GEO Engagement Priority: SDG 15 - Indicator 15.1.2'
 - id: sdg-indicator-15.2.1
   props:
     description_long: Progress towards sustainable forest management
@@ -5753,7 +5753,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Indicator 15.2.1
+    en: 'GEO Engagement Priority: SDG 15 - Indicator 15.2.1'
 - id: sdg-indicator-15.3.1
   props:
     description_long: Proportion of land that is degraded over total land area
@@ -5765,7 +5765,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Indicator 15.3.1
+    en: 'GEO Engagement Priority: SDG 15 - Indicator 15.3.1'
 - id: sdg-indicator-15.4.1
   props:
     description_long: Coverage by protected areas of important sites for mountain
@@ -5779,7 +5779,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Indicator 15.4.1
+    en: 'GEO Engagement Priority: SDG 15 - Indicator 15.4.1'
 - id: sdg-indicator-15.4.2
   props:
     description_long: Mountain Green Cover Index
@@ -5791,7 +5791,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Indicator 15.4.2
+    en: 'GEO Engagement Priority: SDG 15 - Indicator 15.4.2'
 - id: sdg-indicator-15.5.1
   props:
     description_long: Red List Index
@@ -5803,7 +5803,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Indicator 15.5.1
+    en: 'GEO Engagement Priority: SDG 15 - Indicator 15.5.1'
 - id: sdg-indicator-15.6.1
   props:
     description_long: Number of countries that have adopted legislative, administrative
@@ -5817,7 +5817,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Indicator 15.6.1
+    en: 'GEO Engagement Priority: SDG 15 - Indicator 15.6.1'
 - id: sdg-indicator-15.7.1
   props:
     description_long: Proportion of traded wildlife that was poached or illicitly
@@ -5831,7 +5831,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Indicator 15.7.1
+    en: 'GEO Engagement Priority: SDG 15 - Indicator 15.7.1'
 - id: sdg-indicator-15.8.1
   props:
     description_long: Proportion of countries adopting relevant national legislation
@@ -5845,7 +5845,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Indicator 15.8.1
+    en: 'GEO Engagement Priority: SDG 15 - Indicator 15.8.1'
 - id: sdg-indicator-15.9.1
   props:
     description_long: (a) Number of countries that have established national targets
@@ -5867,7 +5867,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Indicator 15.9.1
+    en: 'GEO Engagement Priority: SDG 15 - Indicator 15.9.1'
 - id: sdg-indicator-15.a.1
   props:
     description_long: (a) Official development assistance on conservation and sustainable
@@ -5883,7 +5883,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Indicator 15.a.1
+    en: 'GEO Engagement Priority: SDG 15 - Indicator 15.a.1'
 - id: sdg-indicator-15.b.1
   props:
     description_long: (a) Official development assistance on conservation and sustainable
@@ -5899,7 +5899,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Indicator 15.b.1
+    en: 'GEO Engagement Priority: SDG 15 - Indicator 15.b.1'
 - id: sdg-indicator-15.c.1
   props:
     description_long: Proportion of traded wildlife that was poached or illicitly
@@ -5913,7 +5913,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 15 - Indicator 15.c.1
+    en: 'GEO Engagement Priority: SDG 15 - Indicator 15.c.1'
 - id: sdg-indicator-16.1.1
   props:
     description_long: Number of victims of intentional homicide per 100,000 population,
@@ -5927,7 +5927,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.1.1
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.1.1'
 - id: sdg-indicator-16.1.3
   props:
     description_long: Proportion of population subjected to (a) physical violence,
@@ -5941,7 +5941,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.1.3
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.1.3'
 - id: sdg-indicator-16.1.4
   props:
     description_long: Proportion of population that feel safe walking alone around
@@ -5955,7 +5955,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.1.4
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.1.4'
 - id: sdg-indicator-16.1.2
   props:
     description_long: Conflict-related deaths per 100,000 population, by sex, age
@@ -5969,7 +5969,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.1.2
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.1.2'
 - id: sdg-indicator-16.2.1
   props:
     description_long: Proportion of children aged 1-17 years who experienced any physical
@@ -5984,7 +5984,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.2.1
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.2.1'
 - id: sdg-indicator-16.2.2
   props:
     description_long: Number of victims of human trafficking per 100,000 population,
@@ -5998,7 +5998,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.2.2
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.2.2'
 - id: sdg-indicator-16.2.3
   props:
     description_long: Proportion of young women and men aged 18-29 years who experienced
@@ -6012,7 +6012,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.2.3
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.2.3'
 - id: sdg-indicator-16.3.2
   props:
     description_long: Unsentenced detainees as a proportion of overall prison population
@@ -6024,7 +6024,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.3.2
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.3.2'
 - id: sdg-indicator-16.3.1
   props:
     description_long: Proportion of victims of violence in the previous 12 months
@@ -6040,7 +6040,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.3.1
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.3.1'
 - id: sdg-indicator-16.3.3
   props:
     description_long: Proportion of the population who have experienced a dispute
@@ -6056,7 +6056,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.3.3
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.3.3'
 - id: sdg-indicator-16.4.2
   props:
     description_long: Proportion of seized, found or surrendered arms whose illicit
@@ -6072,7 +6072,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.4.2
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.4.2'
 - id: sdg-indicator-16.4.1
   props:
     description_long: Total value of inward and outward illicit financial flows (in
@@ -6086,7 +6086,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.4.1
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.4.1'
 - id: sdg-indicator-16.5.2
   props:
     description_long: Proportion of businesses that had at least one contact with
@@ -6102,7 +6102,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.5.2
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.5.2'
 - id: sdg-indicator-16.5.1
   props:
     description_long: Proportion of persons who had at least one contact with a public
@@ -6118,7 +6118,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.5.1
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.5.1'
 - id: sdg-indicator-16.6.1
   props:
     description_long: Primary government expenditures as a proportion of original
@@ -6132,7 +6132,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.6.1
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.6.1'
 - id: sdg-indicator-16.6.2
   props:
     description_long: Proportion of population satisfied with their last experience
@@ -6146,7 +6146,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.6.2
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.6.2'
 - id: sdg-indicator-16.7.1
   props:
     description_long: Proportions of positions in national and local institutions,
@@ -6164,7 +6164,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.7.1
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.7.1'
 - id: sdg-indicator-16.7.2
   props:
     description_long: Proportion of population who believe decisionmaking is inclusive
@@ -6178,7 +6178,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.7.2
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.7.2'
 - id: sdg-indicator-16.8.1
   props:
     description_long: Proportion of members and voting rights of developing countries
@@ -6192,7 +6192,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.8.1
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.8.1'
 - id: sdg-indicator-16.9.1
   props:
     description_long: Proportion of children under 5 years of age whose births have
@@ -6206,7 +6206,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.9.1
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.9.1'
 - id: sdg-indicator-16.10.1
   props:
     description_long: Number of verified cases of killing, kidnapping, enforced disappearance,
@@ -6222,7 +6222,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.10.1
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.10.1'
 - id: sdg-indicator-16.10.2
   props:
     description_long: Number of countries that adopt and implement constitutional,
@@ -6236,7 +6236,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.10.2
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.10.2'
 - id: sdg-indicator-16.a.1
   props:
     description_long: Existence of independent national human rights institutions
@@ -6250,7 +6250,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.a.1
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.a.1'
 - id: sdg-indicator-16.b.1
   props:
     description_long: Proportion of population reporting having personally felt discriminated
@@ -6266,7 +6266,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 16 - Indicator 16.b.1
+    en: 'GEO Engagement Priority: SDG 16 - Indicator 16.b.1'
 - id: sdg-indicator-17.1.1
   props:
     description_long: Total government revenue as a proportion of GDP, by source
@@ -6278,7 +6278,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.1.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.1.1'
 - id: sdg-indicator-17.1.2
   props:
     description_long: Proportion of domestic budget funded by domestic taxes
@@ -6290,7 +6290,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.1.2
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.1.2'
 - id: sdg-indicator-17.2.1
   props:
     description_long: Net official development assistance, total and to least developed
@@ -6308,7 +6308,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.2.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.2.1'
 - id: sdg-indicator-17.3.2
   props:
     description_long: Volume of remittances (in United States dollars) as a proportion
@@ -6322,7 +6322,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.3.2
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.3.2'
 - id: sdg-indicator-17.3.1
   props:
     description_long: Foreign direct investment, official development assistance and
@@ -6336,7 +6336,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.3.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.3.1'
 - id: sdg-indicator-17.4.1
   props:
     description_long: Debt service as a proportion of exports of goods and services
@@ -6348,7 +6348,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.4.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.4.1'
 - id: sdg-indicator-17.5.1
   props:
     description_long: Number of countries that adopt and implement investment promotion
@@ -6362,7 +6362,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.5.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.5.1'
 - id: sdg-indicator-17.6.1
   props:
     description_long: Fixed Internet broadband subscriptions per 100 inhabitants,
@@ -6376,7 +6376,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.6.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.6.1'
 - id: sdg-indicator-17.7.1
   props:
     description_long: Total amount of funding for developing countries to promote
@@ -6392,7 +6392,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.7.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.7.1'
 - id: sdg-indicator-17.8.1
   props:
     description_long: Proportion of individuals using the Internet
@@ -6404,7 +6404,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.8.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.8.1'
 - id: sdg-indicator-17.9.1
   props:
     description_long: Dollar value of financial and technical assistance (including
@@ -6420,7 +6420,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.9.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.9.1'
 - id: sdg-indicator-17.10.1
   props:
     description_long: Worldwide weighted tariff-average
@@ -6432,7 +6432,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.10.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.10.1'
 - id: sdg-indicator-17.11.1
   props:
     description_long: Developing countries’ and least developed countries’ share of
@@ -6446,7 +6446,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.11.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.11.1'
 - id: sdg-indicator-17.12.1
   props:
     description_long: Weighted average tariffs faced by developing countries, least
@@ -6460,7 +6460,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.12.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.12.1'
 - id: sdg-indicator-17.13.1
   props:
     description_long: Macroeconomic Dashboard
@@ -6472,7 +6472,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.13.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.13.1'
 - id: sdg-indicator-17.14.1
   props:
     description_long: Number of countries with mechanisms in place to enhance policy
@@ -6486,7 +6486,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.14.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.14.1'
 - id: sdg-indicator-17.15.1
   props:
     description_long: Extent of use of country-owned results frameworks and planning
@@ -6500,7 +6500,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.15.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.15.1'
 - id: sdg-indicator-17.16.1
   props:
     description_long: Number of countries reporting progress in multi-stakeholder
@@ -6516,7 +6516,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.16.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.16.1'
 - id: sdg-indicator-17.17.1
   props:
     description_long: Amount in United States dollars committed to public-private
@@ -6530,7 +6530,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.17.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.17.1'
 - id: sdg-indicator-17.18.2
   props:
     description_long: Number of countries that have national statistical legislation
@@ -6544,7 +6544,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.18.2
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.18.2'
 - id: sdg-indicator-17.18.3
   props:
     description_long: Number of countries with a national statistical plan that is
@@ -6558,7 +6558,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.18.3
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.18.3'
 - id: sdg-indicator-17.18.1
   props:
     description_long: Statistical capacity indicator for Sustainable Development Goal
@@ -6572,7 +6572,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.18.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.18.1'
 - id: sdg-indicator-17.19.1
   props:
     description_long: Dollar value of all resources made available to strengthen statistical
@@ -6586,7 +6586,7 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.19.1
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.19.1'
 - id: sdg-indicator-17.19.2
   props:
     description_long: Proportion of countries that (a) have conducted at least one
@@ -6602,4 +6602,116 @@
     is_subtype: 'true'
     has_subtype: 'false'
   title:
-    en: SDG 17 - Indicator 17.19.2
+    en: 'GEO Engagement Priority: SDG 17 - Indicator 17.19.2'
+- id: geo-focus-agriculture-and-food-security
+  props:
+    type: geo-focus-agriculture-and-food-security
+    subtype: ''
+
+    icon: ''
+    uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: 'GEO Focus Area: Agriculture & Food Security'
+- id: geo-focus-water-and-land-sustainability
+  props:
+    type: geo-focus-water-and-land-sustainability
+    subtype: ''
+
+    icon: ''
+    uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: 'GEO Focus Area: Water & Land Sustainability'
+- id: geo-focus-ecosystems-biodiversity-and-carbon-management
+  props:
+    type: geo-focus-ecosystems-biodiversity-and-carbon-management
+    subtype: ''
+
+    icon: ''
+    uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: 'GEO Focus Area: Ecosystems-biodiversity & Carbon Management'
+- id: geo-focus-weather-and-disaster-resilience
+  props:
+    type: geo-focus-weather-and-disaster-resilience
+    subtype: ''
+
+    icon: ''
+    uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: 'GEO Focus Area: Weather & Disaster Resilience'
+- id: geo-focus-climate-energy-and-urbanization
+  props:
+    type: geo-focus-climate-energy-and-urbanization
+    subtype: ''
+
+    icon: ''
+    uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: 'GEO Focus Area: Climate, Energy & Urbanization'
+- id: geo-focus-one-health
+  props:
+    type: geo-focus-one-health
+    subtype: ''
+
+    icon: ''
+    uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: 'GEO Focus Area: One Health'
+- id: geo-focus-equity-and-inclusion
+  props:
+    type: geo-focus-equity-and-inclusion
+    subtype: ''
+
+    icon: ''
+    uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: 'GEO Focus Area: Equity & Inclusion'
+- id: geo-focus-open-data-and-knowledge
+  props:
+    type: geo-focus-open-data-and-knowledge
+    subtype: ''
+
+    icon: ''
+    uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
+
+    description_short: ''
+    description_long: ''
+    is_subtype: 'false'
+    has_subtype: 'false'
+  title:
+    en: 'GEO Focus Area: Open Data & Knowledge'
