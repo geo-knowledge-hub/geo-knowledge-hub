@@ -26,11 +26,11 @@
         },
         "amqp": {
             "hashes": [
-                "sha256:827cb12fb0baa892aad844fd95258143bce4027fdac4fccddbc43330fd281637",
-                "sha256:a1ecff425ad063ad42a486c902807d1482311481c8ad95a72694b2975e75f7fd"
+                "sha256:43b3319e1b4e7d1251833a93d672b4af1e40f3d632d479b98661a95f117880a2",
+                "sha256:cddc00c725449522023bad949f70fff7b48f0b1ade74d170a6f10ab044739432"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==5.2.0"
+            "version": "==5.3.1"
         },
         "aniso8601": {
             "hashes": [
@@ -124,27 +124,27 @@
         },
         "blinker": {
             "hashes": [
-                "sha256:1779309f71bf239144b9399d06ae925637cf6634cf6bd131104184531bf67c01",
-                "sha256:8f77b09d3bf7c795e969e9486f39c2c5e9c39d4ee07424be2bc594ece9642d83"
+                "sha256:b4ce2265a7abece45e7cc896e98dbebe6cead56bcf805a3d23136d145f5445bf",
+                "sha256:ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc"
             ],
-            "markers": "python_version >= '3.8'",
-            "version": "==1.8.2"
+            "markers": "python_version >= '3.9'",
+            "version": "==1.9.0"
         },
         "boto3": {
             "hashes": [
-                "sha256:6fcc510a4e747e85f84046b0ba0e5b178e89ba0f8ac9e2b6ebb4cc925c68c23b",
-                "sha256:d04608cf40f429025eb66b52b835bdc333436022918788853ed0bbbba6dd2f09"
+                "sha256:b86ddb1bb903fd0cd8fe69dc73ec2d317133f6731e90c0781f23398025471e64",
+                "sha256:b9d3c7c65182bcb63c48ee959abbcf4ef293c1e3f7cb866a0de4684345b5a16e"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==1.35.56"
+            "version": "==1.35.61"
         },
         "botocore": {
             "hashes": [
-                "sha256:4be97f7bc1fbf33ad71ee1b678cea0ecf9638e61d5f566a46f261cde969dd690",
-                "sha256:8a9e752c8e87a423575ac528340a35d4318b8576ae4c6e0acfe5a3867f6bbccf"
+                "sha256:6bf15cb459d71e53239474bf8a47c1cda0e309b8e05cbe61561fd70cf0c4551d",
+                "sha256:f6ddaa5f5eca2829ce5ed798d1cfee99479d5d4fb6d05fc20ca918d0dbe98d8f"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==1.35.56"
+            "version": "==1.35.61"
         },
         "cachelib": {
             "hashes": [
@@ -606,11 +606,11 @@
         },
         "faker": {
             "hashes": [
-                "sha256:4a82b2908cd19f3bba1a4da2060cc4eb18a40410ccdf9350d071d79dc92fe3ce",
-                "sha256:aa31b52cdae3673d6a78b4857c7bcdc0e98f201a5cb77d7827fa9e6b5876da94"
+                "sha256:68e5580cb6b4226710886e595eabc13127149d6e71e9d1db65506a7fbe2c7fce",
+                "sha256:9b01019c1ddaf2253ca2308c0472116e993f4ad8fc9905f82fa965e0c6f932e9"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==30.8.2"
+            "version": "==33.0.0"
         },
         "fastjsonschema": {
             "hashes": [
@@ -841,7 +841,7 @@
         },
         "geo-comments": {
             "git": "git+https://github.com/geo-knowledge-hub/geo-comments",
-            "ref": "e837750ab241236cfdf6a552f2193f96a167a9ad"
+            "ref": "f8b5ce25d394662cb03ebc49551e3c9ab74e3320"
         },
         "geo-knowledge-hub": {
             "editable": false,
@@ -1228,7 +1228,7 @@
         "invenio-rdm-records": {
             "git": "git+https://github.com/geo-knowledge-hub/invenio-rdm-records",
             "markers": "python_version >= '3.7'",
-            "ref": "db7dd74f41950e8dbb3670a0228a6042cbbc0d98"
+            "ref": "c248641ea1e4fd65172031f748f1bb2acaa2c66c"
         },
         "invenio-records": {
             "hashes": [
@@ -1375,11 +1375,11 @@
         },
         "jedi": {
             "hashes": [
-                "sha256:cf0496f3651bc65d7174ac1b7d043eff454892c708a87d1b683e57b569927ffd",
-                "sha256:e983c654fe5c02867aef4cdfce5a2fbb4a50adc0af145f70504238f18ef5e7e0"
+                "sha256:4770dc3de41bde3966b02eb84fbcf557fb33cce26ad23da12c742fb50ecb11f0",
+                "sha256:a8ef22bde8490f57fe5c7681a3c83cb58874daf72b4784de3cce5b6ef6edb5b9"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==0.19.1"
+            "version": "==0.19.2"
         },
         "jinja2": {
             "hashes": [
@@ -1583,10 +1583,10 @@
         },
         "lxml-html-clean": {
             "hashes": [
-                "sha256:081e6378c68ebb4113940ed82a3534c99e24ba1ca5ad5ce8868c7c4d264618f1",
-                "sha256:d9f7d8ae36092f4ed5079cfbf95ff06d3c6fd04f4a861422ce251ece72d3c4b5"
+                "sha256:3b5aedb6c2b4b684c0fbc8d4f1b901aae0a92c1ce525de84e71cc6dd1d9d4e3d",
+                "sha256:a8b517d3f46c19e9303eafb2a1b4b422fe724ad42ae53793637a8e5cc36ffbc1"
             ],
-            "version": "==0.3.1"
+            "version": "==0.4.0"
         },
         "mako": {
             "hashes": [
@@ -2571,11 +2571,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:f2504966861356aa38616760c0f66568e535562374995367b4e69c7143cf6bcd",
-                "sha256:fba5dd4d766e97be1b1681d98712680ae8f2f26d7881245f2ce9e40714f1a686"
+                "sha256:5c4ccb41111392671f02bb5f8436dfc5a9a7185e80500531b133f5775c4163ef",
+                "sha256:87cb777c3b96d638ca02031192d40390e0ad97737e27b6b4fa831bea86f2f829"
             ],
-            "markers": "python_version >= '3.8'",
-            "version": "==75.3.0"
+            "markers": "python_version >= '3.9'",
+            "version": "==75.5.0"
         },
         "simplejson": {
             "hashes": [
@@ -3036,11 +3036,11 @@
         },
         "zipp": {
             "hashes": [
-                "sha256:a817ac80d6cf4b23bf7f2828b7cabf326f15a001bea8b1f9b49631780ba28350",
-                "sha256:bc9eb26f4506fda01b81bcde0ca78103b6e62f991b381fec825435c836edbc29"
+                "sha256:2c9958f6430a2040341a52eb608ed6dd93ef4392e02ffe219417c1b28b5dd1f4",
+                "sha256:ac1bbe05fd2991f160ebce24ffbac5f6d11d83dc90891255885223d42b3cd931"
             ],
-            "markers": "python_version >= '3.8'",
-            "version": "==3.20.2"
+            "markers": "python_version >= '3.9'",
+            "version": "==3.21.0"
         },
         "zipstream-ng": {
             "hashes": [
@@ -3095,27 +3095,27 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:f2504966861356aa38616760c0f66568e535562374995367b4e69c7143cf6bcd",
-                "sha256:fba5dd4d766e97be1b1681d98712680ae8f2f26d7881245f2ce9e40714f1a686"
+                "sha256:5c4ccb41111392671f02bb5f8436dfc5a9a7185e80500531b133f5775c4163ef",
+                "sha256:87cb777c3b96d638ca02031192d40390e0ad97737e27b6b4fa831bea86f2f829"
             ],
-            "markers": "python_version >= '3.8'",
-            "version": "==75.3.0"
+            "markers": "python_version >= '3.9'",
+            "version": "==75.5.0"
         },
         "tomli": {
             "hashes": [
-                "sha256:2ebe24485c53d303f690b0ec092806a085f07af5a5aa1464f3931eec36caaa38",
-                "sha256:d46d457a85337051c36524bc5349dd91b1877838e2979ac5ced3e710ed8a60ed"
+                "sha256:3f646cae2aec94e17d04973e4249548320197cfabdf130015d023de4b74d8ab8",
+                "sha256:a5c57c3d1c56f5ccdf89f6523458f60ef716e210fc47c4cfb188c5ba473e0391"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==2.0.2"
+            "version": "==2.1.0"
         },
         "zipp": {
             "hashes": [
-                "sha256:a817ac80d6cf4b23bf7f2828b7cabf326f15a001bea8b1f9b49631780ba28350",
-                "sha256:bc9eb26f4506fda01b81bcde0ca78103b6e62f991b381fec825435c836edbc29"
+                "sha256:2c9958f6430a2040341a52eb608ed6dd93ef4392e02ffe219417c1b28b5dd1f4",
+                "sha256:ac1bbe05fd2991f160ebce24ffbac5f6d11d83dc90891255885223d42b3cd931"
             ],
-            "markers": "python_version >= '3.8'",
-            "version": "==3.20.2"
+            "markers": "python_version >= '3.9'",
+            "version": "==3.21.0"
         }
     }
 }
