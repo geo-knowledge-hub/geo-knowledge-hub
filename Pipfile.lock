@@ -132,19 +132,19 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:b86ddb1bb903fd0cd8fe69dc73ec2d317133f6731e90c0781f23398025471e64",
-                "sha256:b9d3c7c65182bcb63c48ee959abbcf4ef293c1e3f7cb866a0de4684345b5a16e"
+                "sha256:d0f938d4f6f392b6ffc5e75fff14a42e5bbb5228675a0367c8af55398abadbec",
+                "sha256:deb593d9a0fb240deb4c43e4da8e6626d7c36be7b2fd2fe28f49d44d395b7de0"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==1.35.61"
+            "version": "==1.35.63"
         },
         "botocore": {
             "hashes": [
-                "sha256:6bf15cb459d71e53239474bf8a47c1cda0e309b8e05cbe61561fd70cf0c4551d",
-                "sha256:f6ddaa5f5eca2829ce5ed798d1cfee99479d5d4fb6d05fc20ca918d0dbe98d8f"
+                "sha256:0ca1200694a4c0a3fa846795d8e8a08404c214e21195eb9e010c4b8a4ca78a4a",
+                "sha256:2b8196bab0a997d206c3d490b52e779ef47dffb68c57c685443f77293aca1589"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==1.35.61"
+            "version": "==1.35.63"
         },
         "cachelib": {
             "hashes": [
@@ -849,7 +849,7 @@
         },
         "geo-rdm-records": {
             "git": "git+https://github.com/geo-knowledge-hub/geo-rdm-records",
-            "ref": "d10b3b997157c536624bf18fd7d7eb6affce94c2"
+            "ref": "858daf521bb219f65acf4da85349474be1aa57f2"
         },
         "geojson": {
             "hashes": [
@@ -1583,10 +1583,10 @@
         },
         "lxml-html-clean": {
             "hashes": [
-                "sha256:3b5aedb6c2b4b684c0fbc8d4f1b901aae0a92c1ce525de84e71cc6dd1d9d4e3d",
-                "sha256:a8b517d3f46c19e9303eafb2a1b4b422fe724ad42ae53793637a8e5cc36ffbc1"
+                "sha256:40c838bbcf1fc72ba4ce811fbb3135913017b27820d7c16e8bc412ae1d8bc00b",
+                "sha256:b704f2757e61d793b1c08bf5ad69e4c0b68d6696f4c3c1429982caf90050bcaf"
             ],
-            "version": "==0.4.0"
+            "version": "==0.4.1"
         },
         "mako": {
             "hashes": [
@@ -2172,11 +2172,11 @@
                 "crypto"
             ],
             "hashes": [
-                "sha256:3b02fb0f44517787776cf48f2ae25d8e14f300e6d7545a4315cee571a415e850",
-                "sha256:7e1e5b56cc735432a7369cbfa0efe50fa113ebecdc04ae6922deba8b84582d0c"
+                "sha256:543b77207db656de204372350926bed5a86201c4cbff159f623f79c7bb487a15",
+                "sha256:7628a7eb7938959ac1b26e819a1df0fd3259505627b575e4bad6d08f76db695c"
             ],
-            "markers": "python_version >= '3.8'",
-            "version": "==2.9.0"
+            "markers": "python_version >= '3.9'",
+            "version": "==2.10.0"
         },
         "pymysql": {
             "hashes": [

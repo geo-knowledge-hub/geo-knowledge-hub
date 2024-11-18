@@ -7,6 +7,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_geo_biodiversity_observation_network_implementation_plan.pdf
+  tags:
+    - geo-focus-ecosystems-biodiversity-and-carbon-management
   title:
     en: GEO Biodiversity Observation Network (GEO BON)
 - id: geo-activities-geoglam
@@ -18,6 +20,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_geo_global_agricultural_monitoring_implementation_plan.pdf
+  tags:
+    - geo-focus-agriculture-and-food-security
   title:
     en: GEO Global Agricultural Monitoring (GEOGLAM)
 - id: geo-activities-gfoi
@@ -29,6 +33,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_global_forest_observation_initiative_implementation_plan.pdf
+  tags:
+    - geo-focus-ecosystems-biodiversity-and-carbon-management
   title:
     en: Global Forest Observation Initiative (GFOI)
 - id: geo-activities-gos4m
@@ -40,6 +46,9 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_global_observation_system_for_mercury_implementation_plan.pdf
+  tags:
+    - geo-focus-water-and-land-sustainability
+    - geo-focus-one-health
   title:
     en: Global Observation System for Mercury (GOS4M)
 - id: geo-activities-aquawatch
@@ -51,6 +60,9 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_aquawatch_implementation_plan.pdf
+  tags:
+    - geo-focus-water-and-land-sustainability
+    - geo-focus-one-health
   title:
     en: AquaWatch (AQUAWATCH)
 - id: geo-activities-geo-darma
@@ -62,6 +74,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/GEO-DARMA.pdf
+  tags: []
   title:
     en: Data Access for Risk Management (GEO-DARMA)
 - id: geo-activities-dias
@@ -73,6 +86,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_data_integration_and_analysis_system_implementation_plan.pdf
+  tags:
+    - geo-focus-weather-and-disaster-resilience
   title:
     en: Data Integration and Analysis System (DIAS)
 - id: geo-activities-de-africa
@@ -84,6 +99,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_digital_earth_africa_implementation_plan.pdf
+  tags:
+    - geo-focus-open-data-and-knowledge
   title:
     en: Digital Earth Africa (DE-AFRICA)
 - id: geo-activities-eo4ea
@@ -95,6 +112,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_earth_observations_for_ecosystem_accounting_implementation_plan.pdf
+  tags:
+    - geo-focus-ecosystems-biodiversity-and-carbon-management
   title:
     en: Earth Observations for Ecosystem Accounting (EO4EA)
 - id: geo-activities-eo4health
@@ -106,6 +125,9 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_earth_observations_for_health_implementation_plan.pdf
+  tags:
+    - geo-focus-one-health
+    - geo-focus-water-and-land-sustainability
   title:
     en: Earth Observations for Health (EO4HEALTH)
 - id: geo-activities-eo4sdg
@@ -117,6 +139,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_earth_observations_for_the_sustainable_development_goals_implementation_plan.pdf
+  tags: []
   title:
     en: Earth Observations for the Sustainable Development Goals (EO4SDG)
 - id: geo-activities-geo-cradle
@@ -128,6 +151,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_geo_capacity_building_in_north_africa_middle_east_balkans_and_black_sea_region_implementation_plan.pdf
+  tags:
+    - geo-focus-climate-energy-and-urbanization
   title:
     en: GEO Capacity Building in North Africa, Middle East, Balkans and Black Sea
       Region (GEO-CRADLE)
@@ -140,6 +165,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_geo_global_water_sustainability_implementation_plan.pdf
+  tags:
+    - geo-focus-water-and-land-sustainability
   title:
     en: GEO Global Water Sustainability (GEOGLOWS)
 - id: geo-activities-human-planet
@@ -151,6 +178,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_geo_human_planet_implementation_plan.pdf
+  tags:
+    - geo-focus-climate-energy-and-urbanization
   title:
     en: GEO Human Planet (HUMAN-PLANET)
 - id: geo-activities-geo-ldn
@@ -162,6 +191,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_geo_land_degradation_neutrality_implementation_plan.pdf
+  tags:
+    - geo-focus-agriculture-and-food-security
   title:
     en: GEO Land Degradation Neutrality (GEO-LDN)
 - id: geo-activities-geo-vener
@@ -173,6 +204,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_geo_vision_for_energy_implementation_plan.pdf
+  tags:
+    - geo-focus-climate-energy-and-urbanization
   title:
     en: GEO Vision for Energy (GEO-VENER)
 - id: geo-activities-geo-wetlands
@@ -184,6 +217,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_geo_wetlands_implementation_plan.pdf
+  tags: []
   title:
     en: GEO Wetlands (GEO-WETLANDS)
 - id: geo-activities-gsnl
@@ -195,6 +229,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_geohazard_supersites_and_natural_laboratories_implementation_plan.pdf
+  tags:
+    - geo-focus-weather-and-disaster-resilience
   title:
     en: Geohazard Supersites and Natural Laboratories (GSNL)
 - id: geo-activities-gdis
@@ -206,6 +242,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_global_drought_information_system_implementation_plan.pdf
+  tags:
+    - geo-focus-weather-and-disaster-resilience
   title:
     en: Global Drought Information System (GDIS)
 - id: geo-activities-geo-mountains
@@ -217,6 +255,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_global_network_for_observations_and_information_in_mountain_environments_implementation_plan.pdf
+  tags:
+    - geo-focus-climate-energy-and-urbanization
   title:
     en: Global Network for Observations and Information in Mountain Environments (GEO-MOUNTAINS)
 - id: geo-activities-gos4pops
@@ -228,6 +268,9 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_global_observation_system_for_persistent_organic_pollutants_implementation_plan.pdf
+  tags:
+    - geo-focus-one-health
+    - geo-focus-water-and-land-sustainability
   title:
     en: Global Observation System for Persistent Organic Pollutants (GOS4POPS)
 - id: geo-activities-guoi
@@ -239,6 +282,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_global_urban_observation_and_information_implementation_plan.pdf
+  tags:
+    - geo-focus-climate-energy-and-urbanization
   title:
     en: Global Urban Observation and Information (GUOI)
 - id: geo-activities-gwis
@@ -250,6 +295,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_global_wildfire_information_system_implementation_plan.pdf
+  tags:
+    - geo-focus-weather-and-disaster-resilience
   title:
     en: Global Wildfire Information System (GWIS)
 - id: geo-activities-blue-planet
@@ -261,6 +308,9 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_geo_blue_planet_implementation_plan.pdf
+  tags:
+    - geo-focus-water-and-land-sustainability
+    - geo-focus-ecosystems-biodiversity-and-carbon-management
   title:
     en: 'Oceans and Society: Blue Planet (BLUE-PLANET)'
 - id: geo-activities-acis
@@ -272,6 +322,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/ACIS.pdf
+  tags: []
   title:
     en: Advancing Communication Infrastructure and Services (ACIS)
 - id: geo-activities-arctic-geoss
@@ -283,6 +334,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_arctic_geoss_implementation_plan.pdf
+  tags:
+    - geo-focus-climate-energy-and-urbanization
   title:
     en: Arctic GEOSS (ARCTIC-GEOSS)
 - id: geo-activities-csdr
@@ -294,6 +347,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/CSDR.pdf
+  tags: []
   title:
     en: Chinese High-resolution Satellite Data Resources (CSDR)
 - id: geo-activities-climate-obs
@@ -305,6 +359,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/CLIMATE-OBS.pdf
+  tags: []
   title:
     en: Climate Observation, Simulation and Impacts (CLIMATE-OBS)
 - id: geo-activities-cams
@@ -316,6 +371,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/CAMS.pdf
+  tags: []
   title:
     en: Copernicus Atmosphere Monitoring Service (CAMS)
 - id: geo-activities-c3s
@@ -327,6 +383,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/C3S.pdf
+  tags: []
   title:
     en: Copernicus Climate Change Service (C3S)
 - id: geo-activities-de-pacific
@@ -338,6 +395,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_digital_earth_pacific_implementation_plan.pdf
+  tags:
+    - geo-focus-open-data-and-knowledge
   title:
     en: Digital Earth Pacific (DE-PACIFIC)
 - id: geo-activities-eo4sendai-monitoring
@@ -349,6 +408,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/EO4SENDAI-MONITORING.pdf
+  tags: []
   title:
     en: Earth Observation and Copernicus in support of Sendai Monitoring (EO4SENDAI-MONITORING)
 - id: geo-activities-eo-iip
@@ -360,6 +420,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/EO-IIP.pdf
+  tags: []
   title:
     en: Earth Observation Industrial Innovation Platform for Sustainable Development
       (EO-IIP)
@@ -372,6 +433,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_earth_observations_for_disaster_risk_management_implementation_plan.pdf
+  tags:
+    - geo-focus-weather-and-disaster-resilience
   title:
     en: Earth Observations for Disaster Risk Management (EO4DRM)
 - id: geo-activities-eo4min
@@ -383,6 +446,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_earth_observations_for_multi_scale_monitoring_of_mining_impacts_implementation_plan.pdf
+  tags:
+    - geo-focus-climate-energy-and-urbanization
   title:
     en: Earth Observations for Managing Mineral and Non-Renewable Energy Resources
       (EO4MIN)
@@ -395,6 +460,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/ATLANTIC-EO.pdf
+  tags: []
   title:
     en: Earth Observations for the Atlantic Region (ATLANTIC-EO)
 - id: geo-activities-eo4wef
@@ -406,6 +472,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_earth_observations_for_the_water_energy_food_nexus_implementation_plan.pdf
+  tags:
+    - geo-focus-agriculture-and-food-security
   title:
     en: Earth Observations for the Water-Energy-Food Nexus (EO4WEF)
 - id: geo-activities-africultures
@@ -417,6 +485,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/AFRICULTURES.pdf
+  tags: []
   title:
     en: Enhancing Food Security in African Agricultural Systems with the Support of
       Remote Sensing (AFRICULTURES)
@@ -429,6 +498,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_forest_biomass_reference_system_from_tree_by_tree_inventory_data_implementation_plan.pdf
+  tags:
+    - geo-focus-ecosystems-biodiversity-and-carbon-management
   title:
     en: Forest Biomass Reference System from Tree-by-Tree Inventory Data (GEO-TREES)
 - id: geo-activities-geo-citsci
@@ -440,6 +511,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_geo_citizen_science_implementation_plan.pdf
+  tags:
+    - geo-focus-open-data-and-knowledge
   title:
     en: GEO Citizen Science (GEO-CITSCI)
 - id: geo-activities-geo-ev
@@ -451,6 +524,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_geo_essential_variables_implementation_plan.pdf
+  tags:
+    - geo-focus-open-data-and-knowledge
   title:
     en: GEO Essential Variables (GEO-EV)
 - id: geo-activities-geo-eco
@@ -462,6 +537,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/GEO-ECO.pdf
+  tags: []
   title:
     en: GEO Global Ecosystems (GEO-ECO)
 - id: geo-activities-geodesy4sendai
@@ -473,6 +549,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_geodesy_for_the_sendai_framework_implementation_plan.pdf
+  tags:
+    - geo-focus-weather-and-disaster-resilience
   title:
     en: Geodesy for the Sendai Framework (GEODESY4SENDAI)
 - id: geo-activities-agri-drought
@@ -484,6 +562,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/AGRI-DROUGHT.pdf
+  tags: []
   title:
     en: Global Agricultural Drought Monitoring (AGRI-DROUGHT)
 - id: geo-activities-crop-pest-monitoring
@@ -495,6 +574,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/CROP-PEST-MONITORING.pdf
+  tags: []
   title:
     en: Global Crop Pest and Disease Habitat Monitoring and Risk Forecasting (CROP-PEST-MONITORING)
 - id: geo-activities-geoarc
@@ -506,6 +586,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_global_ecosystems_and_environment_observation_analysis_research_cooperation_implementation_plan.pdf
+  tags:
+    - geo-focus-ecosystems-biodiversity-and-carbon-management
   title:
     en: Global Ecosystems and Environment Observation Analysis Research Cooperation
       (GEOARC)
@@ -518,6 +600,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/GLOFAS.pdf
+  tags: []
   title:
     en: Global Flood Awareness System (GLOFAS)
 - id: geo-activities-gfrm
@@ -529,6 +612,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/GFRM.pdf
+  tags: []
   title:
     en: Global Flood Risk Monitoring (GFRM)
 - id: geo-activities-land-cover
@@ -540,6 +624,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/LAND-COVER.pdf
+  tags: []
   title:
     en: Global Land Cover (LAND-COVER)
 - id: geo-activities-delta-estuary
@@ -551,6 +636,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/DELTA-ESTUARY.pdf
+  tags: []
   title:
     en: Global Observation of Deltas and Estuaries (DELTA-ESTUARY)
 - id: geo-activities-in-situ-esc
@@ -562,6 +648,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_in_situ_observations_and_applications_for_ecosystem_status_of_china_and_central_asia_implementation_plan.pdf
+  tags:
+    - geo-focus-ecosystems-biodiversity-and-carbon-management
   title:
     en: In-Situ Observations and Applications for Ecosystem Status of China and Central
       Asia (IN-SITU-ESC)
@@ -574,6 +662,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/MUSYQ.pdf
+  tags: []
   title:
     en: Multi-source Synergized Quantitative Remote Sensing Products and Services
       (MUSYQ)
@@ -586,6 +675,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/NEXT-EOS.pdf
+  tags: []
   title:
     en: Next Generation Earth Observation Services (NEXT-EOS)
 - id: geo-activities-night-light
@@ -597,6 +687,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_night_time_light_remote_sensing_for_sustainable_development_goals_implementation_plan.pdf
+  tags:
+    - geo-focus-weather-and-disaster-resilience
   title:
     en: Night-Time Light Remote Sensing for Sustainable Development Goals (NIGHT-LIGHT)
 - id: geo-activities-oea
@@ -608,6 +700,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_open_earth_alliance_implementation_plan.pdf
+  tags:
+    - geo-focus-open-data-and-knowledge
   title:
     en: Open Earth Alliance (OEA)
 - id: geo-activities-space-security
@@ -619,6 +713,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_space_and_security_implementation_plan.pdf
+  tags:
+    - geo-focus-weather-and-disaster-resilience
   title:
     en: Space and Security (SPACE-SECURITY)
 - id: geo-activities-sco
@@ -630,6 +726,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/SCO.pdf
+  tags: []
   title:
     en: Space for Climate Observatory (SCO)
 - id: geo-activities-tigge
@@ -641,6 +738,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/TIGGE.pdf
+  tags: []
   title:
     en: The International Grand Global Ensemble (TIGGE)
 - id: geo-activities-geo-value
@@ -652,6 +750,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/documents/gwp20_22/GEO-VALUE.pdf
+  tags: []
   title:
     en: Understanding the Impacts and Value of Earth Observations (GEO-VALUE)
 - id: geo-activities-uhco
@@ -663,63 +762,77 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_urban_heritage_climate_observatory_implementation_plan.pdf
+  tags:
+    - geo-focus-climate-energy-and-urbanization
   title:
     en: Urban Heritage Climate Observatory (UHCO)
-- id: geo-activities-afrigeo
-  props:
-    acronym: AFRIGEO
-    description_long: ''
-    description_short: ''
-    icon: ''
-    subtype: ''
-    type: geo-work-programme-activities
-    uri: https://old.earthobservations.org/uploads/wp23_25_african_group_on_earth_observations_implementation_plan.pdf
-  title:
-    en: African Group on Earth Observations (AFRIGEO)
-- id: geo-activities-amerigeo
-  props:
-    acronym: AMERIGEO
-    description_long: ''
-    description_short: ''
-    icon: ''
-    subtype: ''
-    type: geo-work-programme-activities
-    uri: https://old.earthobservations.org/uploads/wp23_25_americas_group_on_earth_observations_implementation_plan.pdf
-  title:
-    en: Americas Group on Earth Observations (AMERIGEO)
-- id: geo-activities-aogeo
-  props:
-    acronym: AOGEO
-    description_long: ''
-    description_short: ''
-    icon: ''
-    subtype: ''
-    type: geo-work-programme-activities
-    uri: https://old.earthobservations.org/uploads/wp23_25_asia_oceania_group_on_earth_observations_implementation_plan.pdf
-  title:
-    en: Asia-Oceania Group on Earth Observations (AOGEO)
-- id: geo-activities-eurogeo
-  props:
-    acronym: EUROGEO
-    description_long: ''
-    description_short: ''
-    icon: ''
-    subtype: ''
-    type: geo-work-programme-activities
-    uri: https://old.earthobservations.org/uploads/wp23_25_european_group_on_earth_observations_implementation_plan.pdf
-  title:
-    en: European Group on Earth Observations (EUROGEO)
 - id: geo-activities-dwg
   props:
-    acronym: DATA-WG
+    acronym: DATA-KNOWLEDGE-WG
     description_long: ''
     description_short: ''
     icon: ''
     subtype: ''
     type: geo-work-programme-activities
-    uri: https://old.earthobservations.org/data_wg.php
+    uri: https://earthobservations.org/organization/working-groups/geo-data-working-group
+  tags:
+    - geo-focus-open-data-and-knowledge
   title:
-    en: Data Working Group (DATA-WG)
+    en: Data and Knowledge Working Group (DATA-KNOWLEDGE-WG)
+- id: geo-activities-ccwg
+  props:
+    acronym: CLIMATE-CHANGE-WG
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: https://earthobservations.org/organization/working-groups/geo-climate-change-working-group
+  tags:
+    - geo-focus-weather-and-disaster-resilience
+    - geo-focus-climate-energy-and-urbanization
+  title:
+    en: Climate Change Working Group (CLIMATE-CHANGE-WG)
+- id: geo-activities-cdwg
+  props:
+    acronym: CAPACITY-DEVELOPMENT-WG
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: https://earthobservations.org/organization/working-groups/geo-capacity-development-working-group
+  tags:
+    - geo-focus-open-data-and-knowledge
+  title:
+    en: Capacity Development Working Group (CAPACITY-DEVELOPMENT-WG)
+- id: geo-activities-drrwg
+  props:
+    acronym: DISASTER-RISK-REDUCTION-WG
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: https://earthobservations.org/organization/working-groups/geo-disaster-risk-reduction-working-group
+  tags:
+    - geo-focus-weather-and-disaster-resilience
+    - geo-focus-climate-energy-and-urbanization
+  title:
+    en: Disaster Risk Reduction Working Group (DISASTER-RISK-REDUCTION-WG)
+- id: geo-activities-rchswg
+  props:
+    acronym: RESILIENT-CITIES-HUMAN-SETTLEMENT-WG
+    description_long: ''
+    description_short: ''
+    icon: ''
+    subtype: ''
+    type: geo-work-programme-activities
+    uri: https://earthobservations.org/organization/working-groups/resilient-cities-and-human-settlement-working-group
+  tags:
+    - geo-focus-weather-and-disaster-resilience
+  title:
+    en: Resilient Cities and Human Settlement Working Group (RESILIENT-CITIES-HUMAN-SETTLEMENT-WG)
 - id: geo-activities-eo4karst
   props:
     acronym: EO4KARST
@@ -729,6 +842,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_earth_observations_for_global_typical_karst_implementation_plan.pdf
+  tags:
+    - geo-focus-weather-and-disaster-resilience
   title:
     en: Earth Observations for Global Typical Karst (EO4KARST)
 - id: geo-activities-geo-ev-products
@@ -740,6 +855,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_global_products_of_common_essential_variables_from_multiple_satellite_data_implementation_plan.pdf
+  tags:
+    - geo-focus-open-data-and-knowledge
   title:
     en: Global Products of Common Essential Variables from Multiple Satellite Data
       (GEO-EV-PRODUCTS)
@@ -752,6 +869,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_global_vegetation_pest_and_disease_dynamic_remote_sensing_monitoring_and_forecasting_implementation_plan.pdf
+  tags:
+    - geo-focus-agriculture-and-food-security
   title:
     en: Global Vegetation Pest and Disease Dynamic Remote Sensing Monitoring and Forecasting
       (GEO-PDRS)
@@ -764,6 +883,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_antarctic_ice_sheet_monitoring_implementation_plan.pdf
+  tags:
+    - geo-focus-climate-energy-and-urbanization
   title:
     en: Antarctic Ice Sheet Monitoring (AIS-MONITORING)
 - id: geo-activities-chemical-earth
@@ -775,6 +896,9 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_global_geochemical_observation_network_and_digital_chemical_earth_implementation_plan.pdf
+  tags:
+    - geo-focus-water-and-land-sustainability
+    - geo-focus-one-health
   title:
     en: Global Geochemical Observation Network and Digital Chemical Earth (CHEMICAL-EARTH)
 - id: geo-activities-geocri
@@ -786,6 +910,8 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_geo_cold_regions_initiative_implementation_plan.pdf
+  tags:
+    - geo-focus-climate-energy-and-urbanization
   title:
     en: GEO Cold Regions Initiative (GEOCRI)
 - id: geo-activities-geomin
@@ -797,5 +923,7 @@
     subtype: ''
     type: geo-work-programme-activities
     uri: https://old.earthobservations.org/uploads/wp23_25_earth_observations_for_multi_scale_monitoring_of_mining_impacts_implementation_plan.pdf
+  tags:
+    - geo-focus-climate-energy-and-urbanization
   title:
     en: Earth Observations for multi-scale monitoring of mining impacts (GEOMIN)
