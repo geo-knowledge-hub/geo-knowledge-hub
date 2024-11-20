@@ -5,7 +5,7 @@
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@geo-knowledge-hub/invenio-geographic-components-react": "github:geo-knowledge-hub/invenio-geographic-components-react#72482a689d2011c27d59fc97c676e5c2e1218a01",
-    "@geo-knowledge-hub/geo-components-react": "github:geo-knowledge-hub/geo-components-react#384e572732b117bcf5a05377e1c36386a2c90cbd",
+    "@geo-knowledge-hub/geo-components-react": "github:geo-knowledge-hub/geo-components-react#279dc4dcf7507eaca34db221d2b6e38db327f591",
     "@geo-knowledge-hub/geo-deposit-react": "github:geo-knowledge-hub/geo-deposit-react#2e039fd85d37ea701cc1dedab303a22979d8c561",
     "@geo-knowledge-hub/geo-comments-react": "github:geo-knowledge-hub/geo-comments-react#44287d698b40840f45e4bd4fb5cbcfe41f3b1657",
     "@geoman-io/leaflet-geoman-free": "^2.13.0",
