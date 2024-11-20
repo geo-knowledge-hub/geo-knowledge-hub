@@ -130,6 +130,15 @@ a {
   max-width: 1024px
 }
 
+.carousel-container.carousel-paginated {
+  max-width: 1250px;
+}
+
+.carousel-container .ui.grid.carousel {
+  display: flex;
+  justify-content: center;
+}
+
 /* Communities carousel definitions */
 .ui.container.carousel {
   background-color: transparent !important;
