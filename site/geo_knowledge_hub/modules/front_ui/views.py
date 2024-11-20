@@ -17,6 +17,7 @@ from geo_knowledge_hub.modules.base.config import load_from_config
 
 def load_config():
     """Load extra configurations for the Frontpage components."""
+    carousel_focus_config = load_from_config("GKH_CAROUSEL_FOCUS_URL")
     carousel_engagement_config = load_from_config("GKH_CAROUSEL_ENGAGEMENTS_URL")
     carousel_conventions_config = load_from_config("GKH_CAROUSEL_CONVENTIONS_URL")
 
@@ -27,6 +28,7 @@ def load_config():
     list_latest_events_more_url = load_from_config("GKH_LATEST_EVENTS_MORE_URL")
 
     return dict(
+        carousel_focus_config=carousel_focus_config,
         carousel_engagement_config=carousel_engagement_config,
         carousel_conventions_config=carousel_conventions_config,
         list_latest_records_config=json.dumps(

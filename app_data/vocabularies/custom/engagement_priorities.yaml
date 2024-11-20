@@ -6608,13 +6608,14 @@
     type: geo-focus-agriculture-and-food-security
     subtype: ''
 
-    icon: ''
+    icon: 'images/labels/focus-areas/agriculture-food-security/agriculture-food-security.png'
     uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
 
     description_short: ''
     description_long: ''
     is_subtype: 'false'
     has_subtype: 'false'
+    theme: 'focus-areas'
   title:
     en: 'GEO Focus Area: Agriculture & Food Security'
 - id: geo-focus-water-and-land-sustainability
@@ -6622,13 +6623,14 @@
     type: geo-focus-water-and-land-sustainability
     subtype: ''
 
-    icon: ''
+    icon: 'images/labels/focus-areas/water-land-sustainability/water-land-sustainability.png'
     uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
 
     description_short: ''
     description_long: ''
     is_subtype: 'false'
     has_subtype: 'false'
+    theme: 'focus-areas'
   title:
     en: 'GEO Focus Area: Water & Land Sustainability'
 - id: geo-focus-ecosystems-biodiversity-and-carbon-management
@@ -6636,13 +6638,14 @@
     type: geo-focus-ecosystems-biodiversity-and-carbon-management
     subtype: ''
 
-    icon: ''
+    icon: 'images/labels/focus-areas/ecosystems-biodiversity-carbon/ecosystems-biodiversity-carbon.png'
     uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
 
     description_short: ''
     description_long: ''
     is_subtype: 'false'
     has_subtype: 'false'
+    theme: 'focus-areas'
   title:
     en: 'GEO Focus Area: Ecosystems-biodiversity & Carbon Management'
 - id: geo-focus-weather-and-disaster-resilience
@@ -6650,13 +6653,14 @@
     type: geo-focus-weather-and-disaster-resilience
     subtype: ''
 
-    icon: ''
+    icon: 'images/labels/focus-areas/weather-hazard-disaster/weather-hazard-disaster.png'
     uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
 
     description_short: ''
     description_long: ''
     is_subtype: 'false'
     has_subtype: 'false'
+    theme: 'focus-areas'
   title:
     en: 'GEO Focus Area: Weather & Disaster Resilience'
 - id: geo-focus-climate-energy-and-urbanization
@@ -6664,13 +6668,14 @@
     type: geo-focus-climate-energy-and-urbanization
     subtype: ''
 
-    icon: ''
+    icon: 'images/labels/focus-areas/climate-energy-urban/climate-energy-urban.png'
     uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
 
     description_short: ''
     description_long: ''
     is_subtype: 'false'
     has_subtype: 'false'
+    theme: 'focus-areas'
   title:
     en: 'GEO Focus Area: Climate, Energy & Urbanization'
 - id: geo-focus-one-health
@@ -6678,13 +6683,14 @@
     type: geo-focus-one-health
     subtype: ''
 
-    icon: ''
+    icon: 'images/labels/focus-areas/one-health/one-health.png'
     uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
 
     description_short: ''
     description_long: ''
     is_subtype: 'false'
     has_subtype: 'false'
+    theme: 'focus-areas'
   title:
     en: 'GEO Focus Area: One Health'
 - id: geo-focus-equity-and-inclusion
@@ -6692,13 +6698,14 @@
     type: geo-focus-equity-and-inclusion
     subtype: ''
 
-    icon: ''
+    icon: 'images/labels/focus-areas/equity-inclusion/equity-inclusion.png'
     uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
 
     description_short: ''
     description_long: ''
     is_subtype: 'false'
     has_subtype: 'false'
+    theme: 'focus-areas'
   title:
     en: 'GEO Focus Area: Equity & Inclusion'
 - id: geo-focus-open-data-and-knowledge
@@ -6706,12 +6713,13 @@
     type: geo-focus-open-data-and-knowledge
     subtype: ''
 
-    icon: ''
+    icon: 'images/labels/focus-areas/open-data-knowledge/open-data-knowledge.png'
     uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
 
     description_short: ''
     description_long: ''
     is_subtype: 'false'
     has_subtype: 'false'
+    theme: 'focus-areas'
   title:
-    en: 'GEO Focus Area: Open Data & Knowledge'
+    en: 'GEO Focus Area: Open Data, Knowledge and Infrastructure'
