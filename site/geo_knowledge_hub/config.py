@@ -22,6 +22,7 @@ RDM_COMMUNITIES_ROUTES = {
 
 # GEO Components React (Open solutions)
 # =====================================
+GKH_CAROUSEL_FOCUS_URL = "/search?q=metadata.engagement_priorities.id"
 GKH_CAROUSEL_ENGAGEMENTS_URL = "/search?q=metadata.engagement_priorities.id"
 GKH_CAROUSEL_CONVENTIONS_URL = "/search?q=metadata.engagement_priorities.id"
 

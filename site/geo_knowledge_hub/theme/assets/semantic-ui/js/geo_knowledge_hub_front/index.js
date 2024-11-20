@@ -17,6 +17,7 @@ import {
   AdvancedSearchBar,
   EngagementCarousel,
   ConventionsCarousel,
+  FocusAreasCarousel
 } from "@geo-knowledge-hub/geo-components-react";
 
 import { i18next } from "@translations/invenio_app_rdm/i18next";
@@ -32,6 +33,7 @@ const isMarketplace = window.location.pathname.includes("marketplace");
 const searchDiv = document.getElementById("advanced-search-div");
 const searchData = document.getElementById("front-search-data");
 
+const focusAreasDiv = document.getElementById("focusAreasSearchOptions");
 const engagementsDiv = document.getElementById("engagementsSearchOptions");
 const conventionsDiv = document.getElementById(
   "engagementsConventionSearchOptions",
@@ -108,10 +110,21 @@ if (searchDiv && searchData) {
   );
 }
 
+if (focusAreasDiv) {
+  ReactDOM.render(
+    <QueryClientProvider client={persistentQueryClient}>
+      <div className={"carousel-wrapper"}>
+        <FocusAreasCarousel filterUrl={focusAreasDiv.dataset.searchConfig} />
+      </div>
+    </QueryClientProvider>,
+    focusAreasDiv,
+  );
+}
+
 if (engagementsDiv) {
   ReactDOM.render(
     <QueryClientProvider client={persistentQueryClient}>
-      <div className={"carousel-container"}>
+      <div className={"carousel-wrapper"}>
         <EngagementCarousel filterUrl={engagementsDiv.dataset.searchConfig} />
       </div>
     </QueryClientProvider>,
@@ -122,7 +135,7 @@ if (engagementsDiv) {
 if (conventionsDiv) {
   ReactDOM.render(
     <QueryClientProvider client={persistentQueryClient}>
-      <div className={"carousel-container"}>
+      <div className={"carousel-wrapper"}>
         <ConventionsCarousel filterUrl={conventionsDiv.dataset.searchConfig} />
       </div>
     </QueryClientProvider>,
