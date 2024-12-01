@@ -22,7 +22,14 @@ def init_bp(app):
 
     # Registration
 
-    # Deposit (Create)
+    # Community frontpage
+    bp.add_url_rule(
+        routes["community-frontpage"],
+        "geokhub_communities_frontpage",
+        views.geo_communities_frontpage,
+    )
+
+    # Community detail
     bp.add_url_rule(
         routes["community-detail"],
         "geokhub_communities_details",
