@@ -11,7 +11,7 @@
     has_subtype: 'false'
     engagement_type: 'convention'
   title:
-    en: 'GEO Engagement Priority: Convention on Biological Diversity'
+    en: 'Convention on Biological Diversity'
 
 - id: convention-ramsar
   props:
@@ -26,7 +26,7 @@
     has_subtype: 'false'
     engagement_type: 'convention'
   title:
-    en: 'GEO Engagement Priority: Ramsar Convention on Wetlands'
+    en: 'Ramsar Convention on Wetlands'
 
 - id: convention-minamata-mercury
   props:
@@ -41,7 +41,7 @@
     has_subtype: 'false'
     engagement_type: 'convention'
   title:
-    en: 'GEO Engagement Priority: Minamata Convention on Mercury'
+    en: 'Minamata Convention on Mercury'
 
 - id: sdg
   props:
