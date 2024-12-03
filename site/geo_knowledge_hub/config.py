@@ -13,14 +13,6 @@
 # See https://flask-webpackext.readthedocs.io/en/latest/configuration.html
 WEBPACKEXT_PROJECT = "geo_knowledge_hub.theme.webpack:project"
 
-
-# Invenio-RDM-Records
-# ====================
-RDM_COMMUNITIES_ROUTES = {
-    "community-frontpage": "/communities",
-    "community-detail": "/communities/<pid_value>",
-}
-
 # GEO Components React (Open solutions)
 # =====================================
 GKH_CAROUSEL_FOCUS_URL = "/search?q=metadata.engagement_priorities.id"

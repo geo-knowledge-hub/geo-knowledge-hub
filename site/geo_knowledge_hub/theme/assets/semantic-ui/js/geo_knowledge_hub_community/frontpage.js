@@ -142,7 +142,7 @@ if (engagedCommunitiesContainer) {
   ReactDOM.render(
     <CommunitiesCardGroupLocal
       communities={communitiesData}
-      emptyMessage="You are not a member of any community."
+      emptyMessage="There are no communities available."
       defaultLogo="/static/images/square-placeholder.png"
     />,
     engagedCommunitiesContainer

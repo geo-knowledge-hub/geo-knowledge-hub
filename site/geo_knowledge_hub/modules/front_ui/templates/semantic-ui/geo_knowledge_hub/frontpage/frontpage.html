@@ -29,22 +29,45 @@
     },
     simulateTouch: false,
   });
+
+  const reduceElementSize = (currentId) => {
+    // IDs of the current carousel elements
+    const elementIDs = [
+      "focusAreasSearchOptions",
+      "engagementsSearchOptions",
+      "engagementsConventionSearchOptions"
+    ];
+
+    // Reduce height of carousel items to avoid interface rendering issues
+    elementIDs.filter(e => e !== currentId).forEach(e => {
+      document.getElementById(e).style.height = "0px"
+    })
+
+    // The height of the current ID is reset
+    document.getElementById(currentId).style.height = "";
+  }
 </script>
 
 <script>
   document.querySelector(".focus-areas-opt").addEventListener("click", (e) => {
     e.preventDefault();
     swiper.slideTo(0);
+
+    reduceElementSize("focusAreasSearchOptions");
   });
 
   document.querySelector(".engagement-priorities-opt").addEventListener("click", (e) => {
     e.preventDefault();
     swiper.slideTo(1);
+
+    reduceElementSize("engagementsSearchOptions");
   });
 
   document.querySelector(".engagement-priorities-conventions-opt").addEventListener("click", (e) => {
     e.preventDefault();
     swiper.slideTo(2);
+
+    reduceElementSize("engagementsConventionSearchOptions");
   });
 
   document.querySelector('#featured-communities').parentElement.classList.add('front-body');
