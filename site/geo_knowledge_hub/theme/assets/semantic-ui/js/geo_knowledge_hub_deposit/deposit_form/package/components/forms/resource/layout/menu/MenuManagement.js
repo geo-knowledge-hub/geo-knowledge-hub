@@ -70,7 +70,7 @@ class MenuManagementComponent extends Component {
                   <List.Content>
                     <Popup
                       content={i18next.t(
-                        "Visualize and manage the permissions used in the resources of the package."
+                        "Visualize and manage the permissions used in the resources of the package.",
                       )}
                       trigger={<span>Permissions</span>}
                     />
@@ -92,7 +92,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 export const MenuManagement = connect(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(MenuManagementComponent);
 
 export const MenuManagementHOC = (store) => {

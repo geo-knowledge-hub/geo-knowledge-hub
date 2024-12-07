@@ -28,7 +28,10 @@ export const renderComponent = (...args) => {
   if (componentDiv && userStoriesData.length > 0) {
     // Rendering!
     ReactDOM.render(
-      <UserStoriesTable tableData={userStoriesData} packageId={currentPackageId} />,
+      <UserStoriesTable
+        tableData={userStoriesData}
+        packageId={currentPackageId}
+      />,
       componentDiv,
     );
   }

@@ -52,7 +52,7 @@ export class SearchLayout extends Component {
             >
               <SearchBar
                 placeholder={i18next.t(
-                  "Search for Knowledge Resources available in the Package"
+                  "Search for Knowledge Resources available in the Package",
                 )}
               />
             </Grid.Column>

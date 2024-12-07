@@ -11,8 +11,9 @@ import ReactDOM from "react-dom";
 
 import { ExternalFilesTable } from "@geo-knowledge-hub/geo-components-react";
 
-const detailsListDiv = document.getElementById("details-list-div-external-files");
-
+const detailsListDiv = document.getElementById(
+  "details-list-div-external-files",
+);
 
 /**
  * Render the external files table component.
@@ -25,7 +26,7 @@ export const renderComponent = (...args) => {
       <ExternalFilesTable
         tableData={externalFiles}
         tableConfig={{
-          pageSizes: [3, 5, 10, 20, 50]
+          pageSizes: [3, 5, 10, 20, 50],
         }}
       />,
       detailsListDiv,

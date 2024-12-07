@@ -8,7 +8,6 @@
 
 import _get from "lodash/get";
 
-
 /**
  * Extract Record badge.
  *
@@ -18,7 +17,7 @@ export const extractRecordBadge = (recordType) => {
   let recordBadge = {
     name: "Open",
     color: "primary",
-    icon: "lock open"
+    icon: "lock open",
   };
 
   // Currently, we only have "Marketplace Item" as closed records
@@ -26,13 +25,12 @@ export const extractRecordBadge = (recordType) => {
     recordBadge = {
       name: "Commercial",
       color: "primary",
-      icon: "building"
-    }
+      icon: "building",
+    };
   }
 
   return recordBadge;
-}
-
+};
 
 /**
  * Extract a GEO Work Programme Activity Name from a String
@@ -82,7 +80,7 @@ export const recordTypeLinksFactory = (recordId, recordType) => {
         api: `/api/marketplace/items/${recordId}/draft`,
         ui: `/uploads/marketplace/items/${recordId}`,
       },
-    }
+    },
   };
 
   return recordLinks[recordType];

@@ -52,7 +52,7 @@ const mapStateToProps = (state) => ({
 
 export const ResourceFormActivator = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(ResourceFormActivatorComponent);
 
 ResourceFormActivator.propTypes = {

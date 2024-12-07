@@ -18,5 +18,5 @@ ReactDOM.render(
     config={getInputFromDOM("deposits-config")}
     permissions={getInputFromDOM("deposits-record-permissions")}
   />,
-  document.getElementById("deposit-form")
+  document.getElementById("deposit-form"),
 );

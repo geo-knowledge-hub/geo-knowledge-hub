@@ -51,10 +51,10 @@ import {
   SubjectsField,
   TitlesField,
   VersionField,
-  FundingField,
 } from "@geo-knowledge-hub/geo-deposit-react";
 
 import {
+  FundingField,
   TargetAudienceField,
   EngagementPriorityField,
   WorkProgrammeActivityField,
@@ -75,7 +75,12 @@ export class GEOResourceApp extends Component {
   constructor(props) {
     super(props);
     this.config = props.config || {};
-    const { files, record } = this.props;
+    const { files, record, awardsConfig } = this.props;
+
+    // Define extra configurations
+    this.configExtras = {
+      awards: awardsConfig,
+    };
 
     // TODO: retrieve from backend
     this.config["canHaveMetadataOnlyRecords"] = true;
@@ -138,7 +143,7 @@ export class GEOResourceApp extends Component {
     const isManagedByAPackage = _get(
       record,
       "parent.relationship.managed_by.id",
-      null
+      null,
     );
 
     // Check if the record have a package associated
@@ -182,7 +187,7 @@ export class GEOResourceApp extends Component {
                       <Step.Title>
                         <Popup
                           content={i18next.t(
-                            "Select the package to which you want to add your resource."
+                            "Select the package to which you want to add your resource.",
                           )}
                           trigger={
                             <span>{i18next.t("Associate a package")}</span>
@@ -320,7 +325,7 @@ export class GEOResourceApp extends Component {
                       <LanguagesField
                         fieldPath="metadata.languages"
                         initialOptions={_get(record, "ui.languages", []).filter(
-                          (lang) => lang !== null
+                          (lang) => lang !== null,
                         )} // needed because dumped empty record from backend gives [null]
                         serializeSuggestions={(suggestions) =>
                           suggestions.map((item) => ({
@@ -330,7 +335,6 @@ export class GEOResourceApp extends Component {
                           }))
                         }
                       />
-
                     </Grid.Column>
                   </Grid.Row>
 
@@ -415,8 +419,12 @@ export class GEOResourceApp extends Component {
                     <Grid.Column>
                       <SubjectsField
                         fieldPath="metadata.subjects"
-                        initialSuggestions={_filter(_get(record, "metadata.subjects", []))}
-                        limitToOptions={this.vocabularies.metadata.subjects.limit_to}
+                        initialSuggestions={_filter(
+                          _get(record, "metadata.subjects", []),
+                        )}
+                        limitToOptions={
+                          this.vocabularies.metadata.subjects.limit_to
+                        }
                       />
                     </Grid.Column>
                   </Grid.Row>
@@ -427,7 +435,11 @@ export class GEOResourceApp extends Component {
                         required={false}
                         initialSuggestions={
                           _compact([
-                            _get(record, "ui.geo_work_programme_activity", null),
+                            _get(
+                              record,
+                              "ui.geo_work_programme_activity",
+                              null,
+                            ),
                           ]) || null
                         }
                       />
@@ -441,7 +453,7 @@ export class GEOResourceApp extends Component {
                         initialSuggestions={_get(
                           record,
                           "ui.engagement_priorities",
-                          null
+                          null,
                         )}
                       />
                     </Grid.Column>
@@ -451,7 +463,7 @@ export class GEOResourceApp extends Component {
                         initialSuggestions={_get(
                           record,
                           "ui.target_audiences",
-                          null
+                          null,
                         )}
                       />
                     </Grid.Column>
@@ -542,6 +554,7 @@ export class GEOResourceApp extends Component {
                   }}
                   label="Awards"
                   labelIcon="money bill alternate outline"
+                  extraConfig={_get(this.configExtras, "awards", {})}
                   deserializeAward={(award) => {
                     return {
                       title: award.title_l10n,
@@ -552,6 +565,8 @@ export class GEOResourceApp extends Component {
                         identifiers: award.identifiers,
                       }),
                       ...(award.acronym && { acronym: award.acronym }),
+                      ...(award.icon && { icon: award.icon }),
+                      ...(award.disclaimer && { icon: award.disclaimer }),
                     };
                   }}
                   deserializeFunder={(funder) => {

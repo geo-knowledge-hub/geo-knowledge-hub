@@ -152,7 +152,7 @@ class ResourceSearchModalComponent extends Component {
             this.openConfirmationModal(
               i18next.t("Attach resource"),
               i18next.t(
-                "Are you sure you want to associate the selected resource?"
+                "Are you sure you want to associate the selected resource?",
               ),
               async () => {
                 onResourceSelection(values?.selectedResource, {
@@ -168,7 +168,7 @@ class ResourceSearchModalComponent extends Component {
               },
               async () => {
                 await this.closeConfirmationModal();
-              }
+              },
             );
           }
         }}
@@ -211,7 +211,7 @@ class ResourceSearchModalComponent extends Component {
                           </Message.Header>
                           <p>
                             {i18next.t(
-                              "You should select a resource before attaching it"
+                              "You should select a resource before attaching it",
                             )}
                           </p>
                         </Message>

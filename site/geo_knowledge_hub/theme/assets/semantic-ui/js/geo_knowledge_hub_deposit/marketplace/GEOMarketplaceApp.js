@@ -14,13 +14,7 @@ import _filter from "lodash/filter";
 import _compact from "lodash/compact";
 
 import { AccordionField, CustomFields } from "react-invenio-forms";
-import {
-  Card,
-  Container,
-  Grid,
-  Ref,
-  Sticky,
-} from "semantic-ui-react";
+import { Card, Container, Grid, Ref, Sticky } from "semantic-ui-react";
 
 import {
   AccessRightFieldResource,
@@ -52,14 +46,14 @@ import {
 import {
   TargetAudienceField,
   EngagementPriorityField,
-  WorkProgrammeActivityField
+  WorkProgrammeActivityField,
 } from "@geo-knowledge-hub/geo-components-react";
 
 import { LocationsField } from "@geo-knowledge-hub/invenio-geographic-components-react";
 
 import { i18next } from "@translations/invenio_app_rdm/i18next";
 
-import { MarketplaceVendorContact, MarketplaceLaunch } from './components';
+import { MarketplaceVendorContact, MarketplaceLaunch } from "./components";
 
 /**
  * Deposit Application for Marketplace Items.
@@ -119,12 +113,7 @@ export class GEOMarketplaceApp extends Component {
   formFeedbackRef = createRef();
 
   render() {
-    const {
-      record,
-      files,
-      permissions,
-      preselectedCommunity,
-    } = this.props;
+    const { record, files, permissions, preselectedCommunity } = this.props;
 
     const customFieldsUI = this.config.custom_fields.ui;
 
@@ -140,11 +129,7 @@ export class GEOMarketplaceApp extends Component {
       >
         <FormFeedback
           fieldPath="message"
-          labels={[
-            [
-                "metadata.marketplace.launch_url", "Launch URL"
-            ]
-          ]}
+          labels={[["metadata.marketplace.launch_url", "Launch URL"]]}
         />
         <CommunityHeader imagePlaceholderLink="/static/images/square-placeholder.png" />
 
@@ -174,7 +159,7 @@ export class GEOMarketplaceApp extends Component {
                   "metadata.publication_date",
                   "metadata.additional_titles",
                   "metadata.resource_type",
-                  "metadata.marketplace.launch_url"
+                  "metadata.marketplace.launch_url",
                 ]}
                 active
                 label={i18next.t("Basic information")}
@@ -197,7 +182,6 @@ export class GEOMarketplaceApp extends Component {
                         fieldPath="metadata.resource_type"
                         required
                       />
-
                     </Grid.Column>
                   </Grid.Row>
                   <Grid.Row columns={1}>
@@ -226,7 +210,7 @@ export class GEOMarketplaceApp extends Component {
                       <LanguagesField
                         fieldPath="metadata.languages"
                         initialOptions={_get(record, "ui.languages", []).filter(
-                          (lang) => lang !== null
+                          (lang) => lang !== null,
                         )} // needed because dumped empty record from backend gives [null]
                         serializeSuggestions={(suggestions) =>
                           suggestions.map((item) => ({
@@ -265,7 +249,11 @@ export class GEOMarketplaceApp extends Component {
               </AccordionField>
 
               <AccordionField
-                includesPaths={["metadata.creators", "metadata.contributors", "metadata.marketplace.vendor_contact"]}
+                includesPaths={[
+                  "metadata.creators",
+                  "metadata.contributors",
+                  "metadata.marketplace.vendor_contact",
+                ]}
                 active
                 label={i18next.t("People / Company")}
               >
@@ -324,8 +312,12 @@ export class GEOMarketplaceApp extends Component {
                     <Grid.Column>
                       <SubjectsField
                         fieldPath="metadata.subjects"
-                        initialSuggestions={_filter(_get(record, "metadata.subjects", []))}
-                        limitToOptions={this.vocabularies.metadata.subjects.limit_to}
+                        initialSuggestions={_filter(
+                          _get(record, "metadata.subjects", []),
+                        )}
+                        limitToOptions={
+                          this.vocabularies.metadata.subjects.limit_to
+                        }
                       />
                     </Grid.Column>
                   </Grid.Row>
@@ -336,7 +328,11 @@ export class GEOMarketplaceApp extends Component {
                         required={false}
                         initialSuggestions={
                           _compact([
-                            _get(record, "ui.geo_work_programme_activity", null),
+                            _get(
+                              record,
+                              "ui.geo_work_programme_activity",
+                              null,
+                            ),
                           ]) || null
                         }
                       />
@@ -350,7 +346,7 @@ export class GEOMarketplaceApp extends Component {
                         initialSuggestions={_get(
                           record,
                           "ui.engagement_priorities",
-                          null
+                          null,
                         )}
                       />
                     </Grid.Column>
@@ -360,7 +356,7 @@ export class GEOMarketplaceApp extends Component {
                         initialSuggestions={_get(
                           record,
                           "ui.target_audiences",
-                          null
+                          null,
                         )}
                       />
                     </Grid.Column>
@@ -369,7 +365,10 @@ export class GEOMarketplaceApp extends Component {
               </AccordionField>
 
               <AccordionField
-                includesPaths={["metadata.version", "metadata.marketplace.launch_url"]}
+                includesPaths={[
+                  "metadata.version",
+                  "metadata.marketplace.launch_url",
+                ]}
                 active
                 label={i18next.t("Software information")}
               >
@@ -577,9 +576,7 @@ export class GEOMarketplaceApp extends Component {
                         </Grid.Column>
 
                         <Grid.Column width={16} className="pt-10">
-                          <PublishButton
-                            fluid
-                          />
+                          <PublishButton fluid />
                         </Grid.Column>
                       </Grid>
                     </Card.Content>
@@ -589,7 +586,9 @@ export class GEOMarketplaceApp extends Component {
                     label={i18next.t("Visibility")}
                     labelIcon="shield"
                     fieldPath="access"
-                    packageRecord={{ access: { record: "public", files: "public" } }}
+                    packageRecord={{
+                      access: { record: "public", files: "public" },
+                    }}
                   />
 
                   {permissions?.can_delete_draft && (

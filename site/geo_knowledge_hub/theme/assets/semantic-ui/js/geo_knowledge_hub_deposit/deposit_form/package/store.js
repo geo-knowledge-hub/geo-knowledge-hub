@@ -33,6 +33,6 @@ export function configureStore(config) {
         activeFormName,
       },
     },
-    composeEnhancers(applyMiddleware(thunk.withExtraArgument(config)))
+    composeEnhancers(applyMiddleware(thunk.withExtraArgument(config))),
   );
 }

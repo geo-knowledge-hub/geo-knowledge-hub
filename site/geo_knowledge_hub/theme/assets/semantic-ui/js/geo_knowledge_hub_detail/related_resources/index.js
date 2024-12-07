@@ -28,7 +28,8 @@ export const renderComponent = (...args) => {
 
   if (componentDiv) {
     relatedRecordsData = JSON.parse(componentDiv.dataset.record) || [];
-    resourceTypeDefinitions = JSON.parse(componentDiv.dataset.resourceTypes) || [];
+    resourceTypeDefinitions =
+      JSON.parse(componentDiv.dataset.resourceTypes) || [];
   }
 
   if (relatedRecordsData.length > 0) {

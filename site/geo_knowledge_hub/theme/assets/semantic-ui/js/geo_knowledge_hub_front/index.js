@@ -17,7 +17,7 @@ import {
   AdvancedSearchBar,
   EngagementCarousel,
   ConventionsCarousel,
-  FocusAreasCarousel
+  FocusAreasCarousel,
 } from "@geo-knowledge-hub/geo-components-react";
 
 import { i18next } from "@translations/invenio_app_rdm/i18next";
@@ -73,7 +73,7 @@ if (searchDiv && searchData) {
     <AdvancedSearchBar
       onSearch={(query) => {
         if (query === "q=" && isMarketplace) {
-          query = "q=parent.type:(marketplace-item)"
+          query = "q=parent.type:(marketplace-item)";
         }
 
         window.location.assign(`${baseUrl}?${query}`);
@@ -83,9 +83,7 @@ if (searchDiv && searchData) {
       )}
       formInitialValues={{
         form: {
-          recordTypes: [
-            recordType
-          ],
+          recordTypes: [recordType],
         },
       }}
       tabConfigurations={{
@@ -95,7 +93,8 @@ if (searchDiv && searchData) {
             fieldConfig: {
               label: (
                 <span className={"leaflet-text-tooltip leaflet-pm-toolbar"}>
-                  You can select the area you want to search by using the rectangle icon (
+                  You can select the area you want to search by using the
+                  rectangle icon (
                   <span className="rectangle-icon leaflet-pm-icon-rectangle"></span>
                   ) in the map below.
                 </span>

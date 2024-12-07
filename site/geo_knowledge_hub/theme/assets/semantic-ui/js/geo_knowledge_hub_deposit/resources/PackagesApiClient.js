@@ -33,13 +33,13 @@ export class PackagesApiClient {
       return new PackagesApiClientResponse(
         response.data,
         response.data.errors,
-        response.status
+        response.status,
       );
     } catch (error) {
       return new PackagesApiClientResponse(
         error.response.data,
         error.response.data.errors,
-        error.response.status
+        error.response.status,
       );
     }
   }
@@ -55,7 +55,7 @@ export class PackagesApiClient {
         params: {
           expand: 1,
         },
-      })
+      }),
     );
   }
 
@@ -72,7 +72,7 @@ export class PackagesApiClient {
     return this.createResponse(() =>
       this.httpClient.post(operationUrl, {
         records: recordsToBeAssociated,
-      })
+      }),
     );
   }
 
@@ -89,7 +89,7 @@ export class PackagesApiClient {
     return this.createResponse(() =>
       this.httpClient.post(operationUrl, {
         records: recordsToBeDissociated,
-      })
+      }),
     );
   }
 
@@ -106,7 +106,7 @@ export class PackagesApiClient {
     return this.createResponse(() =>
       this.httpClient.post(operationUrl, {
         resources: resourcesToBeAdded,
-      })
+      }),
     );
   }
 
@@ -125,7 +125,7 @@ export class PackagesApiClient {
         data: {
           resources: resourcesToBeAdded,
         },
-      })
+      }),
     );
   }
 

@@ -112,7 +112,7 @@ class CommunitiesCarousel extends Component {
             defaultLogo={defaultLogo}
             key={community.id}
           />
-        )
+        ),
     );
 
     return (

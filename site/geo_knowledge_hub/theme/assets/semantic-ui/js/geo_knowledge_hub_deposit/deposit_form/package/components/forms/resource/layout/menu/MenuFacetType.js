@@ -121,7 +121,7 @@ class MenuFacetTypeComponent extends Component {
     // Props (Operation identifier)
     let operationInProgress = null;
     const operationIsValid = this.checkOperationIsValid(
-      stateDepositOperationMetadata
+      stateDepositOperationMetadata,
     );
 
     if (operationIsValid && stateDepositOperationInProgress) {
@@ -135,7 +135,6 @@ class MenuFacetTypeComponent extends Component {
         <Grid stackable>
           <Grid.Row className={"highlight-background"}>
             <Grid.Column>
-
               <Grid columns={2}>
                 <Grid.Column verticalAlign={"middle"}>
                   <Header as={"h4"}>{i18next.t("Resources")}</Header>
@@ -144,7 +143,6 @@ class MenuFacetTypeComponent extends Component {
                   <Icon name={"archive"} size={"large"} />
                 </Grid.Column>
               </Grid>
-
             </Grid.Column>
           </Grid.Row>
 
@@ -267,7 +265,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 export const MenuFacetType = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(MenuFacetTypeComponent);
 
 export const MenuFacetTypeHOC = (store) => {

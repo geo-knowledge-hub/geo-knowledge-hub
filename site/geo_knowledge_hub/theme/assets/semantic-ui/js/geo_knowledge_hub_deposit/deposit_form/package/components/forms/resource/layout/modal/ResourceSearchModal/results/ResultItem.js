@@ -45,7 +45,7 @@ class ResultItemComponent extends Component {
     // Preparing the package resources to be used
     const packageResourcesIds =
       statePackageRecord?.relationship?.resources.map(
-        (resource) => resource.id
+        (resource) => resource.id,
       ) || [];
 
     return (
@@ -56,64 +56,64 @@ class ResultItemComponent extends Component {
               // Extracting information to be rendered
               const recordLinks = recordTypeLinksFactory(
                 result.id,
-                result.parent.type
+                result.parent.type,
               );
 
               const accessStatusId = _get(
                 result,
                 "ui.access_status.id",
-                "open"
+                "open",
               );
               const accessStatus = _get(
                 result,
                 "ui.access_status.title_l10n",
-                "Open"
+                "Open",
               );
               const accessStatusIcon = _get(
                 result,
                 "ui.access_status.icon",
-                "unlock"
+                "unlock",
               );
 
               const createdDate = _get(
                 result,
                 "ui.created_date_l10n_long",
-                i18next.t("No creation date found.")
+                i18next.t("No creation date found."),
               );
 
               const creators = _get(result, "ui.creators.creators", []).slice(
                 0,
-                3
+                3,
               );
 
               const descriptionStripped = _get(
                 result,
                 "ui.description_stripped",
-                i18next.t("No description")
+                i18next.t("No description"),
               );
 
               const publicationDate = _get(
                 result,
                 "ui.publication_date_l10n_long",
-                i18next.t("No publication date found.")
+                i18next.t("No publication date found."),
               );
               const resourceType = _get(
                 result,
                 "ui.resource_type.title_l10n",
-                i18next.t("No resource type")
+                i18next.t("No resource type"),
               );
 
               const title = _get(
                 result,
                 "metadata.title",
-                i18next.t("No title")
+                i18next.t("No title"),
               );
               const subjects = _get(result, "ui.subjects", []);
               const version = _get(result, "ui.version", null);
               const isPublished = result.is_published;
 
               const programmeActivityAcronym = extractProgrammeActivityAcronym(
-                _get(result, "metadata.geo_work_programme_activity.title.en")
+                _get(result, "metadata.geo_work_programme_activity.title.en"),
               );
 
               const viewLink = isPublished
@@ -131,7 +131,7 @@ class ResultItemComponent extends Component {
                     if (!isAlreadyImported) {
                       setFieldValue(
                         "selectedResource",
-                        serializeSelectedResourceResult(result)
+                        serializeSelectedResourceResult(result),
                       );
                     }
                   }}
@@ -150,7 +150,7 @@ class ResultItemComponent extends Component {
                             if (!isAlreadyImported) {
                               setFieldValue(
                                 "selectedResource",
-                                serializeSelectedResourceResult(result)
+                                serializeSelectedResourceResult(result),
                               );
                             }
                           }}

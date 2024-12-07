@@ -51,13 +51,13 @@ import {
   SubjectsField,
   TitlesField,
   VersionField,
-  FundingField,
   DeleteButton,
   SaveButtonResource,
   connect,
 } from "@geo-knowledge-hub/geo-deposit-react";
 
 import {
+  FundingField,
   TargetAudienceField,
   EngagementPriorityField,
   WorkProgrammeActivityField,
@@ -151,7 +151,13 @@ const MetadataImporter = ({
   const [field, meta, helpers] = useField(fieldPath);
 
   return (
-    <Dropdown icon={"configure"} floating button basic className="icon metadata-importer">
+    <Dropdown
+      icon={"configure"}
+      floating
+      button
+      basic
+      className="icon metadata-importer"
+    >
       <Dropdown.Menu>
         <Dropdown.Header content={"Options"} />
         <Dropdown.Item
@@ -231,10 +237,16 @@ export class ResourceModalContent extends Component {
   constructor(props) {
     super(props);
 
+    // Base storage objects.
+    const { depositConfig } = this.props;
     const { files, record, resourceType } = this.props;
 
     this.config = props.config || {};
+    this.configExtras = depositConfig.resource.extra || {};
     this.config["canHaveMetadataOnlyRecords"] = true;
+
+    console.log("Extra configs");
+    console.log(this.configExtras);
 
     // Processing vocabularies
     this.vocabularies = {
@@ -268,11 +280,11 @@ export class ResourceModalContent extends Component {
     // Grouping and sorting
     this.resourceTypeGroupped = _groupBy(
       this.resourceTypeAvailable,
-      "basetype"
+      "basetype",
     );
 
     this.resourceTypeGroups = Object.keys(this.resourceTypeGroupped).sort(
-      (a, b) => natsort({ insensitive: true })(a, b)
+      (a, b) => natsort({ insensitive: true })(a, b),
     );
 
     // Processing resource types
@@ -381,7 +393,7 @@ export class ResourceModalContent extends Component {
   filterResourceTypes = async (baseType) => {
     let selectedResourceTypeData = [];
     const isResourceTypeValid = Object.keys(this.resourceTypeGroupped).includes(
-      baseType
+      baseType,
     );
 
     selectedResourceTypeData = this.resourceTypeGroupped[baseType];
@@ -452,7 +464,12 @@ export class ResourceModalContent extends Component {
                     fieldPath="metadata.resource_type"
                   />
                 </Grid.Column>
-                <Grid.Column computer={2} tablet={2} mobile={16} textAlign={"right"}>
+                <Grid.Column
+                  computer={2}
+                  tablet={2}
+                  mobile={16}
+                  textAlign={"right"}
+                >
                   <Dropdown
                     text={null}
                     icon={<></>}
@@ -557,8 +574,8 @@ export class ResourceModalContent extends Component {
                         initialOptions={_compact(
                           _concat(
                             _get(record, "ui.languages"),
-                            _get(modalPackageRecord, "ui.languages")
-                          )
+                            _get(modalPackageRecord, "ui.languages"),
+                          ),
                         ).filter((lang) => lang !== null)} // needed because dumped empty record from backend gives [null]
                         serializeSuggestions={(suggestions) =>
                           suggestions.map((item) => ({
@@ -569,7 +586,13 @@ export class ResourceModalContent extends Component {
                         }
                       />
                     </Grid.Column>
-                    <Grid.Column computer={1} tablet={2} mobile={4} verticalAlign={"bottom"} floated={"right"}>
+                    <Grid.Column
+                      computer={1}
+                      tablet={2}
+                      mobile={4}
+                      verticalAlign={"bottom"}
+                      floated={"right"}
+                    >
                       <MetadataImporter
                         metadataStorage={modalPackageRecord}
                         fieldPath={"metadata.languages"}
@@ -626,7 +649,12 @@ export class ResourceModalContent extends Component {
                           required
                         />
                       </Grid.Column>
-                      <Grid.Column computer={2} tablet={3} mobile={16} verticalAlign={"top"}>
+                      <Grid.Column
+                        computer={2}
+                        tablet={3}
+                        mobile={16}
+                        verticalAlign={"top"}
+                      >
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.creators"}
@@ -665,7 +693,12 @@ export class ResourceModalContent extends Component {
                           }}
                         />
                       </Grid.Column>
-                      <Grid.Column computer={2} tablet={3} mobile={16} verticalAlign={"top"}>
+                      <Grid.Column
+                        computer={2}
+                        tablet={3}
+                        mobile={16}
+                        verticalAlign={"top"}
+                      >
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.contributors"}
@@ -704,15 +737,21 @@ export class ResourceModalContent extends Component {
                           initialSuggestions={_compact(
                             _concat(
                               _get(record, "metadata.subjects", []),
-                              _get(modalPackageRecord, "metadata.subjects", [])
-                            )
+                              _get(modalPackageRecord, "metadata.subjects", []),
+                            ),
                           )}
                           limitToOptions={
                             this.vocabularies.metadata.subjects.limit_to
                           }
                         />
                       </Grid.Column>
-                      <Grid.Column computer={1} tablet={2} mobile={16} verticalAlign={"middle"} floated={"right"}>
+                      <Grid.Column
+                        computer={1}
+                        tablet={2}
+                        mobile={16}
+                        verticalAlign={"middle"}
+                        floated={"right"}
+                      >
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.subjects"}
@@ -735,19 +774,25 @@ export class ResourceModalContent extends Component {
                                 _get(
                                   record,
                                   "ui.geo_work_programme_activity",
-                                  null
+                                  null,
                                 ),
                                 _get(
                                   modalPackageRecord,
                                   "ui.geo_work_programme_activity",
-                                  null
-                                )
-                              )
+                                  null,
+                                ),
+                              ),
                             ) || null
                           }
                         />
                       </Grid.Column>
-                      <Grid.Column computer={1} tablet={2} mobile={16} verticalAlign={"middle"} floated={"right"} >
+                      <Grid.Column
+                        computer={1}
+                        tablet={2}
+                        mobile={16}
+                        verticalAlign={"middle"}
+                        floated={"right"}
+                      >
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.geo_work_programme_activity"}
@@ -781,13 +826,18 @@ export class ResourceModalContent extends Component {
                               _get(
                                 modalPackageRecord,
                                 "ui.engagement_priorities",
-                                null
-                              )
-                            )
+                                null,
+                              ),
+                            ),
                           )}
                         />
                       </Grid.Column>
-                      <Grid.Column computer={2} tablet={3} mobile={16} verticalAlign={"top"}>
+                      <Grid.Column
+                        computer={2}
+                        tablet={3}
+                        mobile={16}
+                        verticalAlign={"top"}
+                      >
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.engagement_priorities"}
@@ -812,13 +862,18 @@ export class ResourceModalContent extends Component {
                               _get(
                                 modalPackageRecord,
                                 "ui.target_audiences",
-                                null
-                              )
-                            )
+                                null,
+                              ),
+                            ),
                           )}
                         />
                       </Grid.Column>
-                      <Grid.Column computer={2} tablet={3} mobile={16} verticalAlign={"top"}>
+                      <Grid.Column
+                        computer={2}
+                        tablet={3}
+                        mobile={16}
+                        verticalAlign={"top"}
+                      >
                         <MetadataImporter
                           metadataStorage={modalPackageRecord}
                           fieldPath={"metadata.target_audiences"}
@@ -888,7 +943,12 @@ export class ResourceModalContent extends Component {
                       <Grid.Column computer={15} tablet={14} mobile={16}>
                         <PublisherField fieldPath="metadata.publisher" />
                       </Grid.Column>
-                      <Grid.Column computer={1} tablet={2} mobile={16} verticalAlign={"top"}>
+                      <Grid.Column
+                        computer={1}
+                        tablet={2}
+                        mobile={16}
+                        verticalAlign={"top"}
+                      >
                         <div className={"field publisher"}>
                           <MetadataImporter
                             metadataStorage={modalPackageRecord}
@@ -989,6 +1049,7 @@ export class ResourceModalContent extends Component {
                           }}
                           label="Awards"
                           labelIcon="money bill alternate outline"
+                          extraConfig={_get(this.configExtras, "awards", {})}
                           deserializeAward={(award) => {
                             return {
                               title: award.title_l10n,
@@ -999,6 +1060,10 @@ export class ResourceModalContent extends Component {
                                 identifiers: award.identifiers,
                               }),
                               ...(award.acronym && { acronym: award.acronym }),
+                              ...(award.icon && { icon: award.icon }),
+                              ...(award.disclaimer && {
+                                icon: award.disclaimer,
+                              }),
                             };
                           }}
                           deserializeFunder={(funder) => {
@@ -1060,9 +1125,11 @@ export class ResourceModalContent extends Component {
                                 award: {
                                   number: _get(value, "award.number"),
                                   title: _get(value, "award.title.en"),
+                                  icon: _get(value, "award.icon"),
+                                  disclaimer: _get(value, "award.disclaimer"),
                                   url: _get(
                                     value,
-                                    "award.identifiers.0.identifier"
+                                    "award.identifiers.0.identifier",
                                   ),
                                 },
                               };
@@ -1120,13 +1187,13 @@ export class ResourceModalContent extends Component {
     // Defining the message for the confirmation button
     let modalTitle = i18next.t("Add resource");
     let modalDescription = i18next.t(
-      "Are you sure you want to add this new resource to the package ?"
+      "Are you sure you want to add this new resource to the package ?",
     );
 
     if (this.recordAlreadyExists) {
       modalTitle = i18next.t("Save modifications");
       modalDescription = i18next.t(
-        "Are you sure you want to save the modifications in the resources ?"
+        "Are you sure you want to save the modifications in the resources ?",
       );
     }
 
@@ -1136,7 +1203,7 @@ export class ResourceModalContent extends Component {
     if (!_isNil(modalResourcesPermissions)) {
       permissions =
         _head(
-          modalResourcesPermissions.filter((obj) => obj.id === record.id)
+          modalResourcesPermissions.filter((obj) => obj.id === record.id),
         ) || {};
     }
 
@@ -1298,6 +1365,7 @@ export class ResourceModalContent extends Component {
  * Resource Modal Content Component.
  */
 export const ResourceModal = ({
+  depositConfig,
   modalOpen,
   modalOnClose,
   modalData,
@@ -1316,7 +1384,7 @@ export const ResourceModal = ({
     content: i18next.t(
       "Are you sure you want to leave? You " +
         "will lose all edits, and the resource will " +
-        "not be saved in the package."
+        "not be saved in the package.",
     ),
     onAccept: (e) => {
       modalOnClose();
@@ -1345,6 +1413,7 @@ export const ResourceModal = ({
       >
         <Modal.Content style={{ padding: 0 }}>
           <ResourceModalContent
+            depositConfig={depositConfig}
             onFinishDeposit={depositOnFinish}
             onDepositDelete={depositOnDelete}
             onDepositSaveDraft={depositOnSaveDraft}

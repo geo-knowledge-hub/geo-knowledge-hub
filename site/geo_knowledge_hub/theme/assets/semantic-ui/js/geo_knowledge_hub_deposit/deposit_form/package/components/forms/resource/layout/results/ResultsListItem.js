@@ -74,7 +74,7 @@ class ResultsListItemComponent extends Component {
         confirmationModalOpen: true,
         confirmationModalDefinitions: modalDefinition,
       },
-      callback
+      callback,
     );
   }
 
@@ -88,7 +88,7 @@ class ResultsListItemComponent extends Component {
         confirmationModalOpen: false,
         confirmationModalDefinitions: {},
       },
-      callback
+      callback,
     );
   }
 
@@ -125,7 +125,7 @@ class ResultsListItemComponent extends Component {
         record,
         menuLoading: true,
         componentId: ComponentMessageId,
-      }
+      },
     );
   }
 
@@ -162,7 +162,7 @@ class ResultsListItemComponent extends Component {
         record,
         menuLoading: true,
         componentId: ComponentMessageId,
-      }
+      },
     );
   }
 
@@ -188,7 +188,7 @@ class ResultsListItemComponent extends Component {
         record,
         menuLoading: true,
         componentId: ComponentMessageId,
-      }
+      },
     );
   }
 
@@ -210,7 +210,7 @@ class ResultsListItemComponent extends Component {
         record,
         menuLoading: true,
         componentId: ComponentMessageId,
-      }
+      },
     );
   }
 
@@ -270,7 +270,7 @@ class ResultsListItemComponent extends Component {
     const createdDate = _get(
       result,
       "ui.created_date_l10n_long",
-      i18next.t("No creation date found.")
+      i18next.t("No creation date found."),
     );
 
     const creators = _get(result, "ui.creators.creators", []).slice(0, 3);
@@ -278,18 +278,18 @@ class ResultsListItemComponent extends Component {
     const descriptionStripped = _get(
       result,
       "ui.description_stripped",
-      i18next.t("No description")
+      i18next.t("No description"),
     );
 
     const publicationDate = _get(
       result,
       "ui.publication_date_l10n_long",
-      i18next.t("No publication date found.")
+      i18next.t("No publication date found."),
     );
     const resourceType = _get(
       result,
       "ui.resource_type.title_l10n",
-      i18next.t("No resource type")
+      i18next.t("No resource type"),
     );
 
     const title = _get(result, "metadata.title", i18next.t("No title"));
@@ -298,7 +298,7 @@ class ResultsListItemComponent extends Component {
     const isPublished = result.is_published;
 
     const programmeActivityAcronym = extractProgrammeActivityAcronym(
-      _get(result, "metadata.geo_work_programme_activity.title.en")
+      _get(result, "metadata.geo_work_programme_activity.title.en"),
     );
 
     const viewLink = isPublished
@@ -374,7 +374,7 @@ class ResultsListItemComponent extends Component {
               this.openConfirmationModal({
                 title: i18next.t("New resource version"),
                 content: i18next.t(
-                  "Are you sure you want to create a new version for this resource ?"
+                  "Are you sure you want to create a new version for this resource ?",
                 ),
                 onAccept: (e) => {
                   this.closeConfirmationModal(() => {
@@ -402,7 +402,7 @@ class ResultsListItemComponent extends Component {
               this.openConfirmationModal({
                 title: i18next.t("Resource exclusion"),
                 content: i18next.t(
-                  "Are you sure you want to exclude this resource ? This action cannot be undone."
+                  "Are you sure you want to exclude this resource ? This action cannot be undone.",
                 ),
                 onAccept: (e) => {
                   this.closeConfirmationModal(() => {
@@ -433,7 +433,7 @@ class ResultsListItemComponent extends Component {
             this.openConfirmationModal({
               title: i18next.t("Detach the selected resource from the package"),
               content: i18next.t(
-                "Are you sure you want to detach this resource from the package ?"
+                "Are you sure you want to detach this resource from the package ?",
               ),
               onAccept: (e) => {
                 this.closeConfirmationModal(() => {
@@ -520,14 +520,23 @@ class ResultsListItemComponent extends Component {
                   {programmeActivityAcronym}
                 </Label>
               )}
-              {result.status in RECORD_STATUS && result.status !== "published" && (
-                <Label size="tiny" className={RECORD_STATUS[result.status].color}>
-                  {RECORD_STATUS[result.status].title}
-                </Label>
-              )}
+              {result.status in RECORD_STATUS &&
+                result.status !== "published" && (
+                  <Label
+                    size="tiny"
+                    className={RECORD_STATUS[result.status].color}
+                  >
+                    {RECORD_STATUS[result.status].title}
+                  </Label>
+                )}
               {accessStatusId === "restricted" && (
-                <Label size="tiny" className={`access-status ${accessStatusId}`}>
-                  {accessStatusIcon && <i className={`icon ${accessStatusIcon}`} />}
+                <Label
+                  size="tiny"
+                  className={`access-status ${accessStatusId}`}
+                >
+                  {accessStatusIcon && (
+                    <i className={`icon ${accessStatusIcon}`} />
+                  )}
                   {accessStatus}
                 </Label>
               )}
@@ -592,7 +601,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 export const ResultsListItem = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(ResultsListItemComponent);
 
 export const ResultsListItemHOC = (store) => {
