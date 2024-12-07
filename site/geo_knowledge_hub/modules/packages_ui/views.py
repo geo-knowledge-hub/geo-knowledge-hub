@@ -100,6 +100,7 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
 
     # Extra configurations
     config_awards = awards_utilities.get_configurations()
+    config_awards = json.dumps(config_awards)
 
     # Searching records like the current one
     more_like_this_records = []
@@ -160,6 +161,7 @@ def geo_package_deposit_create(community=None):
 
     # Extra configurations
     config_awards = awards_utilities.get_configurations()
+    config_awards = json.dumps(config_awards)
 
     # Render
     return render_template(
@@ -205,6 +207,7 @@ def geo_package_deposit_edit(draft=None, draft_files=None, pid_value=None):
 
     # Extra configurations
     config_awards = awards_utilities.get_configurations()
+    config_awards = json.dumps(config_awards)
 
     return render_template(
         "geo_knowledge_hub/packages/deposit/index.html",

@@ -37,3 +37,7 @@
 {% macro show_knowledge_packages(related_knowledge_packages, is_preview) %}
   <div id="details-related-packages-div" data-relatedPackages='{{ related_knowledge_packages | tojson }}'></div>
 {% endmacro %}
+
+{% macro show_funding_awards(funding_awards, config_awards) %}
+  <div id="details-funding-awards-div" data-funding-awards='{{ funding_awards | tojson }}' data-config-awards="{{ config_awards }}"></div>
+{% endmacro %}

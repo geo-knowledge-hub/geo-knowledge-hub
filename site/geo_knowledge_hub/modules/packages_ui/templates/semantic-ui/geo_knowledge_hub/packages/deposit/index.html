@@ -48,7 +48,7 @@
     <input id="deposits-related-record-permissions" type="hidden" name="deposits-related-record-permissions" value='{{permissions_related_resources | tojson }}'></input>
   {%- endif %}
   {%- if config_awards %}
-    <input type="hidden" name="deposits-awards-config" value='{{config_awards | tojson}}'></input>
+    <input type="hidden" name="deposits-awards-config" value='{{config_awards}}'></input>
   {%- endif %}
   <div id="deposit-form"></div>
 {%- endblock page_body %}
