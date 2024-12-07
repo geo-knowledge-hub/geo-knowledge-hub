@@ -33,13 +33,13 @@ export class RecordApiClient {
       return new RecordApiClientResponse(
         response.data,
         response.data.errors,
-        response.status
+        response.status,
       );
     } catch (error) {
       return new RecordApiClientResponse(
         error.response.data,
         error.response.data.errors,
-        error.response.status
+        error.response.status,
       );
     }
   }
@@ -60,7 +60,7 @@ export class RecordApiClient {
     const operationUrl = recordObj.links.self;
 
     return this.createResponse(() =>
-      this.httpClient.put(operationUrl, recordObj)
+      this.httpClient.put(operationUrl, recordObj),
     );
   }
 
@@ -102,7 +102,7 @@ export class RecordApiClient {
         headers: {
           Accept: "application/json",
         },
-      })
+      }),
     );
   }
 }

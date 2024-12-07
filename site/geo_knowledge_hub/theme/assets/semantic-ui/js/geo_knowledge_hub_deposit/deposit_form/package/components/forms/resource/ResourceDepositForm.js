@@ -97,6 +97,9 @@ export const ResourcesDepositFormComponent = ({ ...props }) => {
     dispatchStorageCleanResourceTemporaryData,
   } = props;
 
+  // Props (Deposit config)
+  const { stateDepositConfig } = props;
+
   // Configuring search layout
   overwriteSearchLayoutComponents(reduxStore, formActivator);
 
@@ -118,6 +121,7 @@ export const ResourcesDepositFormComponent = ({ ...props }) => {
               <SearchApp config={stateDepositConfigResourceSearch} />
 
               <ResourceModal
+                depositConfig={stateDepositConfig}
                 modalPackageRecord={statePackageRecord}
                 modalOpen={stateResourceModalOpen}
                 modalData={stateResourceModalData}
@@ -129,7 +133,7 @@ export const ResourcesDepositFormComponent = ({ ...props }) => {
                 depositOnFinish={(recordData, operationMetadata) => {
                   dispatchDepositResourceAssociateAndAttachDraft(
                     recordData,
-                    operationMetadata
+                    operationMetadata,
                   );
                   dispatchStorageCleanResourceTemporaryData();
                 }}
@@ -195,10 +199,10 @@ const mapDispatchToProps = (dispatch) => ({
   // Deposit operation: Association and attachment between package and resources
   dispatchDepositResourceAssociateAndAttachDraft: (
     recordData,
-    operationMetadata
+    operationMetadata,
   ) =>
     dispatch(
-      depositResourceAssociateAndAttachDraft(recordData, operationMetadata)
+      depositResourceAssociateAndAttachDraft(recordData, operationMetadata),
     ),
   // Deposit operation: Modal layout to create/edit resources
   dispatchLayoutResourcesCloseModal: (modalData) =>
@@ -213,6 +217,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
   // Storage
+  stateDepositConfig: state.storage.depositConfig,
   statePackageRecord: state.storage.packageObject.record,
   stateDepositConfigResourceSearch: state.storage.depositConfig.resource.search,
   // Deposit operation: Modal Layout to create/edit resources.
@@ -231,5 +236,5 @@ const mapStateToProps = (state) => ({
 
 export const ResourceDepositForm = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(ResourcesDepositFormComponent);

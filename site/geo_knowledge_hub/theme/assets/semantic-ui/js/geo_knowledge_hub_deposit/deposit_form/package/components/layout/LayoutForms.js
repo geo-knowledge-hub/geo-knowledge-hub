@@ -33,7 +33,7 @@ export const LayoutFormsComponent = ({ activeFormName }) => {
   const packageFormActivator =
     wrapComponentWithStoreContext(PackageFormActivator);
   const resourceFormActivator = wrapComponentWithStoreContext(
-    ResourceFormActivator
+    ResourceFormActivator,
   );
 
   //  Rendering

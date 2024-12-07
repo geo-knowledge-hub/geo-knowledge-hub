@@ -73,7 +73,7 @@ export const RecordManagement = ({
             />
           </Grid.Column>
 
-          {(permissions.can_manage && showShare) && (
+          {permissions.can_manage && showShare && (
             <Grid.Column className="pt-5 pb-5">
               <ShareButton
                 disabled={!permissions.can_update_draft}

@@ -44,7 +44,7 @@ export const layoutReducer = (state = initialLayoutState, action) => {
 
 export const layoutResourcesReducer = (
   state = initialLayoutResourceReducer,
-  action
+  action,
 ) => {
   switch (action.type) {
     // Deposit operation: Modal Layout to create/edit resources.

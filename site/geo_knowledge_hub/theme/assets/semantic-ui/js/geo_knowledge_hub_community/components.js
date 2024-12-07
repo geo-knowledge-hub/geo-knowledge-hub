@@ -35,32 +35,32 @@ export const CommunityRecordResultsListItem = ({ result }) => {
   const createdDate = _get(
     result,
     "ui.created_date_l10n_long",
-    "No creation date found."
+    "No creation date found.",
   );
   const creators = result.ui.creators.creators.slice(0, 3);
 
   const description_stripped = _get(
     result,
     "ui.description_stripped",
-    "No description"
+    "No description",
   );
 
   const publicationDate = _get(
     result,
     "ui.publication_date_l10n_long",
-    "No publication date found."
+    "No publication date found.",
   );
   const resourceType = _get(
     result,
     "ui.resource_type.title_l10n",
-    "No resource type"
+    "No resource type",
   );
   const subjects = _get(result, "ui.subjects", []);
   const title = _get(result, "metadata.title", "No title");
   const version = _get(result, "ui.version", null);
 
   const programmeActivityAcronym = extractProgrammeActivityAcronym(
-    _get(result, "metadata.geo_work_programme_activity.title.en")
+    _get(result, "metadata.geo_work_programme_activity.title.en"),
   );
 
   // Derivatives
@@ -70,7 +70,8 @@ export const CommunityRecordResultsListItem = ({ result }) => {
       <Item.Content>
         <Item.Extra className="labels-actions">
           <Label size="tiny" color={recordBadge.color}>
-            <i className={`icon ${recordBadge.icon}`}></i>{recordBadge.name}
+            <i className={`icon ${recordBadge.icon}`}></i>
+            {recordBadge.name}
           </Label>
           <Label size="tiny" color={"gray"}>
             {publicationDate} ({version})

@@ -23,11 +23,12 @@ ReactDOM.render(
     depositConfigPackage={getInputFromDOM("deposits-package-config")}
     depositConfigResource={getInputFromDOM("deposits-record-config")}
     depositConfigResourceSearch={getInputFromDOM(
-      "deposits-record-search-config"
+      "deposits-record-search-config",
     )}
     resourceRecordsPermissions={getInputFromDOM(
-      "deposits-related-record-permissions"
+      "deposits-related-record-permissions",
     )}
+    awardsConfig={getInputFromDOM("deposits-awards-config")}
   />,
-  document.getElementById("deposit-form")
+  document.getElementById("deposit-form"),
 );

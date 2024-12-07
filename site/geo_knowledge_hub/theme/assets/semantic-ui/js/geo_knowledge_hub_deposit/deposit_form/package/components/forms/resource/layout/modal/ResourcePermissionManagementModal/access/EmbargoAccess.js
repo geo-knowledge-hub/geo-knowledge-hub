@@ -93,7 +93,7 @@ export const EmbargoAccess = ({
                   label={i18next.t("Embargo reason")}
                   fieldPath="access.embargo.reason"
                   placeholder={i18next.t(
-                    "Optionally, describe the reason for the embargo."
+                    "Optionally, describe the reason for the embargo.",
                   )}
                   optimized="true"
                 />

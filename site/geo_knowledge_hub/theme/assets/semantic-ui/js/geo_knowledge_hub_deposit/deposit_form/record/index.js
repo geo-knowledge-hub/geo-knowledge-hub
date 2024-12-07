@@ -18,6 +18,7 @@ ReactDOM.render(
     config={getInputFromDOM("deposits-config")}
     permissions={getInputFromDOM("deposits-record-permissions")}
     packageAssociated={getInputFromDOM("deposits-record-package")}
+    awardsConfig={getInputFromDOM("deposits-awards-config")}
   />,
-  document.getElementById("deposit-form")
+  document.getElementById("deposit-form"),
 );

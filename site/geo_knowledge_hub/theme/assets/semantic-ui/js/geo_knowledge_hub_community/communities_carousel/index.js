@@ -11,15 +11,15 @@ import CommunitiesCarousel from "./CommunitiesCarousel";
 import { OverridableContext, overrideStore } from "react-overridable";
 
 const communitiesCarouselContainer = document.getElementById(
-  "communities-carousel"
+  "communities-carousel",
 );
 const title = communitiesCarouselContainer.dataset.title;
 const fetchUrl = communitiesCarouselContainer.dataset.fetchUrl;
 const intervalDelay = parseInt(
-  communitiesCarouselContainer.dataset.intervalDelay
+  communitiesCarouselContainer.dataset.intervalDelay,
 );
 const animationSpeed = parseInt(
-  communitiesCarouselContainer.dataset.animationSpeed
+  communitiesCarouselContainer.dataset.animationSpeed,
 );
 const defaultLogo = communitiesCarouselContainer.dataset.defaultLogo;
 
@@ -35,5 +35,5 @@ ReactDOM.render(
       defaultLogo={defaultLogo}
     />
   </OverridableContext.Provider>,
-  communitiesCarouselContainer
+  communitiesCarouselContainer,
 );

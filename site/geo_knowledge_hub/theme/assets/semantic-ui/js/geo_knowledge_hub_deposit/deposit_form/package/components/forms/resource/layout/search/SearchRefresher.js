@@ -52,7 +52,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 export const SearchRefresher = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(SearchRefresherComponent);
 
 export const SearchRefresherHOC = (store) => {

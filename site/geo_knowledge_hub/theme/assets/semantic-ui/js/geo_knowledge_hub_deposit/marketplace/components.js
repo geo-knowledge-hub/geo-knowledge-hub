@@ -23,7 +23,7 @@ export class MarketplaceVendorContact extends Component {
         label={<FieldLabel htmlFor={fieldPath} icon={icon} label={label} />}
         required={required}
         helpText={i18next.t(
-          "Support e-mail for the application, available for queries and assistance."
+          "Support e-mail for the application, available for queries and assistance.",
         )}
         optimized
       />
@@ -41,7 +41,7 @@ export class MarketplaceLaunch extends Component {
         label={<FieldLabel htmlFor={fieldPath} icon={icon} label={label} />}
         required={required}
         helpText={i18next.t(
-          "Direct link to quickly access/launch/use the application (e.g., service URL, magnet link)."
+          "Direct link to quickly access/launch/use the application (e.g., service URL, magnet link).",
         )}
         optimized
       />

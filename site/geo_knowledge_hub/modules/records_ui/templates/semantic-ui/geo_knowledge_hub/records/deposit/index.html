@@ -33,6 +33,9 @@
   {%- if package %}
     <input id="deposits-record-package" type="hidden" name="deposits-record-package" value='{{package | tojson }}'></input>
   {%- endif %}
+  {%- if config_awards %}
+    <input type="hidden" name="deposits-awards-config" value='{{config_awards | tojson}}'></input>
+  {%- endif %}
   <div id="deposit-form"></div>
 {%- endblock page_body %}
 

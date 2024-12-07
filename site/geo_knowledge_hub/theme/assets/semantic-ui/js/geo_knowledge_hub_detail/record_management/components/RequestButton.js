@@ -74,7 +74,7 @@ export const RequestButton = ({ record, assistanceRequests }) => {
                   window.location.href = `/me/requests/${userRequestId}`;
                 } else {
                   // Create a new one
-                  handleOpen(option.key)
+                  handleOpen(option.key);
                 }
               }}
               icon

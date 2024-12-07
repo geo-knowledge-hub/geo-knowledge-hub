@@ -22,7 +22,7 @@ export const renderComponent = (...args) => {
       <ExternalResourceTable
         tableData={JSON.parse(detailsListDiv.dataset.relatedidentifiers)}
         tableConfig={{
-          pageSizes: [3, 5, 10, 20, 50]
+          pageSizes: [3, 5, 10, 20, 50],
         }}
       />,
       detailsListDiv,
