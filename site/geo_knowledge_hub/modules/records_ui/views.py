@@ -8,6 +8,8 @@
 
 """GEO Knowledge Hub Deposit (page) views."""
 
+import json
+
 from flask import g, render_template
 from flask_login import login_required
 from geo_rdm_records.base.resources.serializers import (
@@ -87,6 +89,7 @@ def geo_record_detail(
 
     # Extra configurations
     config_awards = awards_utilities.get_configurations()
+    config_awards = json.dumps(config_awards)
 
     # Searching records like the current one
     more_like_this_records = []
@@ -132,6 +135,7 @@ def geo_record_deposit_create(community=None):
     """Deposit page to create resources."""
     # Extra configurations
     config_awards = awards_utilities.get_configurations()
+    config_awards = json.dumps(config_awards)
 
     return render_template(
         "geo_knowledge_hub/records/deposit/index.html",
@@ -158,6 +162,7 @@ def geo_record_deposit_edit(draft=None, draft_files=None, pid_value=None, packag
 
     # Extra configurations
     config_awards = awards_utilities.get_configurations()
+    config_awards = json.dumps(config_awards)
 
     return render_template(
         "geo_knowledge_hub/records/deposit/index.html",

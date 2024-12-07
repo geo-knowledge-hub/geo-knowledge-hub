@@ -29,6 +29,7 @@ const componentsAvailable = [
   "request_training",
   "more_like_this_cards",
   "external_files",
+  "funding_awards"
 ];
 
 renderFactory(componentsAvailable);
