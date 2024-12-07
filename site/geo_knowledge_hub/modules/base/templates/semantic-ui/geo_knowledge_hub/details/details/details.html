@@ -8,7 +8,7 @@
 #}
 
 {%- from "invenio_app_rdm/records/macros/detail.html" import show_references, show_add_titles,
-show_alternate_identifiers, show_funding, show_dates %}
+show_alternate_identifiers, show_dates %}
 
 {%- from "geo_knowledge_hub/details/macros/detail.html" import show_related_identifiers, show_knowledge_packages %}
 
@@ -17,13 +17,11 @@ show_alternate_identifiers, show_funding, show_dates %}
 {% set hasContent = (related_elements_information and is_knowledge_resource) or
                     record.ui.additional_titles or
                     metadata.identifiers or
-                    metadata.funding or
                     record.ui.dates or
                     metadata.references
 %}
 
 {% set rights = record.ui.get('rights') %}
-{% set funding = record.ui.get('funding') %}
 {% set active = true %}
 
 {% if hasContent %}
@@ -70,20 +68,6 @@ show_alternate_identifiers, show_funding, show_dates %}
            id="identifiers-tab"
         >
           {{ _('Identifiers') }}
-        </a>
-        {% set active = false %}
-      {% endif %}
-
-      {% if metadata.funding %}
-        <a role="tab"
-           aria-selected="{{ active }}"
-           aria-controls="funding-tab-panel"
-           data-tab="funding"
-           tabindex="0"
-           class="{{ 'active' if active }} item"
-           id="funding-tab"
-        >
-          {{ _('Funding') }}
         </a>
         {% set active = false %}
       {% endif %}
@@ -161,21 +145,6 @@ show_alternate_identifiers, show_funding, show_dates %}
     >
       <dl class="details-list">
         {{ show_alternate_identifiers(metadata.identifiers) }}
-      </dl>
-    </div>
-    {% set active = false %}
-  {% endif %}
-
-  {% if funding %}
-    <div role="tabpanel"
-         class="ui bottom {{ 'active' if active }} tab segment"
-         data-tab="funding"
-         aria-labelledby="funding-tab"
-         id="funding-tab-panel"
-         hidden="{{ not active }}"
-    >
-      <dl class="details-list">
-        {{ show_funding(metadata.funding) }}
       </dl>
     </div>
     {% set active = false %}

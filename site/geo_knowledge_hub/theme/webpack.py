@@ -69,7 +69,7 @@ theme = WebpackThemeBundle(
                 "react-minisearch": "^5.0.0-beta1",
                 "react-table": "^7.7.0",
                 "@geo-knowledge-hub/invenio-geographic-components-react": "github:geo-knowledge-hub/invenio-geographic-components-react#72482a689d2011c27d59fc97c676e5c2e1218a01",
-                "@geo-knowledge-hub/geo-components-react": "github:geo-knowledge-hub/geo-components-react#4b1736407e7c91eb5941d5443f40a26b6d4fca4f",
+                "@geo-knowledge-hub/geo-components-react": "github:geo-knowledge-hub/geo-components-react#fb89be0bf1c2e2019e67486b8155d18bfc59defe",
                 "@geo-knowledge-hub/geo-deposit-react": "github:geo-knowledge-hub/geo-deposit-react#b6ade61f23eb137de7f38de6769db678dc950bc1",
                 "@geo-knowledge-hub/geo-comments-react": "github:geo-knowledge-hub/geo-comments-react#44287d698b40840f45e4bd4fb5cbcfe41f3b1657",
                 "@emotion/react": "^11.9.0",
