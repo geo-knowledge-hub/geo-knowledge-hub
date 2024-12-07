@@ -28,7 +28,7 @@ const componentsAvailable = [
   "related_packages",
   "request_training",
   "more_like_this_cards",
-  "external_files"
+  "external_files",
 ];
 
 renderFactory(componentsAvailable);

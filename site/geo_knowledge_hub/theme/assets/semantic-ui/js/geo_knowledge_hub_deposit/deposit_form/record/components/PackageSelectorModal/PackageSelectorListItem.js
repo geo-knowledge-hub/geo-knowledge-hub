@@ -40,7 +40,7 @@ export const PackageSelectorListItem = ({ result, index }) => {
   const createdDate = _get(
     result,
     "ui.created_date_l10n_long",
-    i18next.t("No creation date found.")
+    i18next.t("No creation date found."),
   );
 
   const creators = _get(result, "ui.creators.creators", []).slice(0, 3);
@@ -48,7 +48,7 @@ export const PackageSelectorListItem = ({ result, index }) => {
   const publicationDate = _get(
     result,
     "ui.publication_date_l10n_long",
-    i18next.t("No publication date found.")
+    i18next.t("No publication date found."),
   );
 
   const title = _get(result, "metadata.title", i18next.t("No title"));
@@ -56,7 +56,7 @@ export const PackageSelectorListItem = ({ result, index }) => {
   const isPublished = result.is_published;
 
   const programmeActivityAcronym = extractProgrammeActivityAcronym(
-    _get(result, "metadata.geo_work_programme_activity.title.en")
+    _get(result, "metadata.geo_work_programme_activity.title.en"),
   );
 
   const viewLink = isPublished

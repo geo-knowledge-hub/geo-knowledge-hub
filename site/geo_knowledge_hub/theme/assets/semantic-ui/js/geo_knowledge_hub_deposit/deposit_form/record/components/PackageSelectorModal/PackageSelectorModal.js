@@ -104,7 +104,7 @@ const PackageSelectorModalComponent = ({
                   <Message
                     error
                     header={i18next.t(
-                      "Error to associate the resource with the package."
+                      "Error to associate the resource with the package.",
                     )}
                     list={errors}
                   />
@@ -130,7 +130,7 @@ const PackageSelectorModalComponent = ({
                   title: i18next.t("Package association"),
                   content: i18next.t(
                     "Are you sure you want to add " +
-                      "your resource to the selected package ?"
+                      "your resource to the selected package ?",
                   ),
                   onAccept: async (e) => {
                     setInOperation(true);
@@ -142,36 +142,36 @@ const PackageSelectorModalComponent = ({
                     const isAlreadyPublished =
                       modalRecord?.id !== undefined &&
                       !["new_version_draft", "draft"].includes(
-                        modalRecord?.status
+                        modalRecord?.status,
                       );
 
                     const isAssociatedWithCommunities = !_isEmpty(
-                      modalRecord?.parent?.communities
+                      modalRecord?.parent?.communities,
                     );
 
                     const isAssociatedWithAPackage = !_isEmpty(
-                      modalRecord?.parent?.relationship?.managed_by
+                      modalRecord?.parent?.relationship?.managed_by,
                     );
 
                     if (isAlreadyPublished) {
                       associationErrors.push(
-                        i18next.t("Only drafts can be added to a package")
+                        i18next.t("Only drafts can be added to a package"),
                       );
                     }
 
                     if (isAssociatedWithAPackage) {
                       associationErrors.push(
                         i18next.t(
-                          "Resource is already associated with a package"
-                        )
+                          "Resource is already associated with a package",
+                        ),
                       );
                     }
 
                     if (isAssociatedWithCommunities) {
                       associationErrors.push(
                         i18next.t(
-                          "Resource can't be associated with a community"
-                        )
+                          "Resource can't be associated with a community",
+                        ),
                       );
                     }
 
@@ -189,7 +189,7 @@ const PackageSelectorModalComponent = ({
                         if (_isNil(modalRecord?.id)) {
                           const draftResponse = await http.post(
                             "/api/records",
-                            modalRecord
+                            modalRecord,
                           );
 
                           if (draftResponse.status !== 201) {
@@ -208,13 +208,13 @@ const PackageSelectorModalComponent = ({
                           selectedPackage.links.context_associate,
                           {
                             records: [{ id: draftData.id }],
-                          }
+                          },
                         );
 
                         if (associateResponse.status !== 204) {
                           return setErrors([
                             i18next.t(
-                              "Error to associate the draft with the package"
+                              "Error to associate the draft with the package",
                             ),
                           ]);
                         }
@@ -230,7 +230,7 @@ const PackageSelectorModalComponent = ({
                           if (attachResponse.status !== 200) {
                             return setErrors([
                               i18next.t(
-                                "Error to attach the draft in the selected package"
+                                "Error to attach the draft in the selected package",
                               ),
                             ]);
                           } else {
@@ -240,7 +240,7 @@ const PackageSelectorModalComponent = ({
                       } catch (error) {
                         return setErrors([
                           i18next.t(
-                            "Error to connect with the GEO Knowledge Hub API"
+                            "Error to connect with the GEO Knowledge Hub API",
                           ),
                         ]);
                       }

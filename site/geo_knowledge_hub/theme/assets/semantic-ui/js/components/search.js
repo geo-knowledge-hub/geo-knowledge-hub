@@ -10,7 +10,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { i18next } from "@translations/geo_knowledge_hub/i18next";
 
-
 /**
  * Show metadata from a community associated with a record.
  *
@@ -27,12 +26,10 @@ export const DisplayPartOfCommunity = ({ community }) => {
   return (
     <>
       {i18next.t("Part of ")}
-      <a href={`/communities/${community.slug}`}>
-        {community.metadata?.title}
-      </a>
+      <a href={`/communities/${community.slug}`}>{community.metadata?.title}</a>
     </>
-  )
-}
+  );
+};
 
 DisplayPartOfCommunity.propTypes = {
   community: PropTypes.object.isRequired,

@@ -78,7 +78,7 @@ export const storageUpdateConfigResourceSearch = (packageRecord) => {
     _set(
       depositConfig,
       "resource.search.searchApi.axios.url",
-      resourceSearchLink
+      resourceSearchLink,
     );
 
     dispatch({
@@ -104,7 +104,7 @@ export const storageReloadPackageRecord = (baseRecord = null) => {
     }
 
     const operationTitleError = i18next.t(
-      "Error to synchronize the package with the GEO Knowledge Hub API."
+      "Error to synchronize the package with the GEO Knowledge Hub API.",
     );
 
     // Reloading package from server
@@ -123,7 +123,7 @@ export const storageReloadPackageRecord = (baseRecord = null) => {
             errors: [
               {
                 message: i18next.t(
-                  "Error in connecting with the GEO Knowledge Hub API"
+                  "Error in connecting with the GEO Knowledge Hub API",
                 ),
               },
             ],
@@ -139,7 +139,7 @@ export const storageReloadPackageRecord = (baseRecord = null) => {
             record: newRecordData,
             files: newRecordData?.files,
             permissions: packageObject?.permissions,
-          })
+          }),
         );
       }
     } catch (error) {
@@ -150,7 +150,7 @@ export const storageReloadPackageRecord = (baseRecord = null) => {
           errors: [
             {
               message: i18next.t(
-                "Error in connecting with the GEO Knowledge Hub API"
+                "Error in connecting with the GEO Knowledge Hub API",
               ),
             },
           ],

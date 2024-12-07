@@ -16,22 +16,20 @@ from .searchapp import search_app_context
 
 def init_bp(app):
     """Initialize Deposit (page) module blueprint."""
-    routes = app.config["RDM_COMMUNITIES_ROUTES"]
-
     bp = Blueprint("geokhub_communities_ui_bp", __name__, template_folder="templates")
 
     # Registration
 
     # Community frontpage
     bp.add_url_rule(
-        routes["community-frontpage"],
+        "/communities",
         "geokhub_communities_frontpage",
         views.geo_communities_frontpage,
     )
 
     # Community detail
     bp.add_url_rule(
-        routes["community-detail"],
+        "/communities/<pid_value>",
         "geokhub_communities_details",
         views.geo_communities_detail,
     )

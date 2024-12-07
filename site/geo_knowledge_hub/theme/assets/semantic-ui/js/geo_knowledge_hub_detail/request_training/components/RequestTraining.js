@@ -41,9 +41,7 @@ export const RequestTraining = ({
         onClick={() => {
           if (userHasRequest) {
             window.location.href = `/me/requests/${userRequestId}`;
-          }
-
-          else {
+          } else {
             setIsModalOpen(true);
           }
         }}

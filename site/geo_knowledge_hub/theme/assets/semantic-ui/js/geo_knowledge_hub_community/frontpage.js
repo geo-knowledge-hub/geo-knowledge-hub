@@ -82,7 +82,9 @@ class CommunityCard extends Component {
           </Card.Header>
           {community.metadata.description && (
             <Card.Description>
-              <div className="truncate-lines-2">{community.metadata.description}</div>
+              <div className="truncate-lines-2">
+                {community.metadata.description}
+              </div>
             </Card.Description>
           )}
         </Card.Content>
@@ -96,8 +98,11 @@ CommunityCard.propTypes = {
   defaultLogo: PropTypes.string.isRequired,
 };
 
-const CommunitiesCardGroupLocal = ({ communities, emptyMessage, defaultLogo }) => {
-
+const CommunitiesCardGroupLocal = ({
+  communities,
+  emptyMessage,
+  defaultLogo,
+}) => {
   console.log("CommuntiesCardGroupLocal");
   console.log(communities.hits.hits.length);
 
@@ -125,8 +130,7 @@ const CommunitiesCardGroupLocal = ({ communities, emptyMessage, defaultLogo }) =
       )}
     </PlaceholderLoader>
   );
-
-}
+};
 
 CommunitiesCardGroupLocal.propTypes = {
   communities: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -134,17 +138,21 @@ CommunitiesCardGroupLocal.propTypes = {
   emptyMessage: PropTypes.string.isRequired,
 };
 
-const engagedCommunitiesContainer = document.getElementById("engaged-communities");
+const engagedCommunitiesContainer = document.getElementById(
+  "engaged-communities",
+);
 
 if (engagedCommunitiesContainer) {
-  const communitiesData = JSON.parse(engagedCommunitiesContainer.dataset.communities);
+  const communitiesData = JSON.parse(
+    engagedCommunitiesContainer.dataset.communities,
+  );
 
   ReactDOM.render(
     <CommunitiesCardGroupLocal
       communities={communitiesData}
-      emptyMessage="You are not a member of any community."
+      emptyMessage="There are no communities available."
       defaultLogo="/static/images/square-placeholder.png"
     />,
-    engagedCommunitiesContainer
+    engagedCommunitiesContainer,
   );
 }

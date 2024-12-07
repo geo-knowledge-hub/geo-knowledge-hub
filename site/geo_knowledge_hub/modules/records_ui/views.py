@@ -31,6 +31,7 @@ from geo_knowledge_hub.modules.base.decorators import (
     pass_record_files,
     pass_record_or_draft,
 )
+from geo_knowledge_hub.modules.base.utilities import awards as awards_utilities
 from geo_knowledge_hub.modules.base.utilities import endpoint as endpoint_utilities
 from geo_knowledge_hub.modules.base.utilities import harvest as harvest_utilities
 from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
@@ -84,6 +85,9 @@ def geo_record_detail(
         record_data
     )
 
+    # Extra configurations
+    config_awards = awards_utilities.get_configurations()
+
     # Searching records like the current one
     more_like_this_records = []
 
@@ -112,6 +116,7 @@ def geo_record_detail(
         harvest_source_record=harvest_source_record,
         harvest_source_files=harvest_source_files,
         harvest_source_metadata=harvest_source_metadata,
+        config_awards=config_awards,
         **record_metadata,
         **record_endpoint,
     )
@@ -125,6 +130,9 @@ def geo_record_detail(
 @pass_draft_community
 def geo_record_deposit_create(community=None):
     """Deposit page to create resources."""
+    # Extra configurations
+    config_awards = awards_utilities.get_configurations()
+
     return render_template(
         "geo_knowledge_hub/records/deposit/index.html",
         forms_config=get_form_config(createUrl=("/api/records")),
@@ -132,6 +140,7 @@ def geo_record_deposit_create(community=None):
         record=new_record(),
         files=dict(default_preview=None, entries=[], links={}),
         preselectedCommunity=community,
+        config_awards=config_awards,
     )
 
 
@@ -147,6 +156,9 @@ def geo_record_deposit_edit(draft=None, draft_files=None, pid_value=None, packag
     if package:
         package = UIJSONSerializer().dump_obj(package.to_dict())
 
+    # Extra configurations
+    config_awards = awards_utilities.get_configurations()
+
     return render_template(
         "geo_knowledge_hub/records/deposit/index.html",
         forms_config=get_form_config(apiUrl=f"/api/records/{pid_value}/draft"),
@@ -155,6 +167,7 @@ def geo_record_deposit_edit(draft=None, draft_files=None, pid_value=None, packag
         searchbar_config=dict(searchUrl=get_search_url()),
         permissions=draft.has_permissions_to(["new_version"]),
         package=package,
+        config_awards=config_awards,
     )
 
 

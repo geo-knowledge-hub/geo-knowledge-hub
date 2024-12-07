@@ -13,14 +13,6 @@
 # See https://flask-webpackext.readthedocs.io/en/latest/configuration.html
 WEBPACKEXT_PROJECT = "geo_knowledge_hub.theme.webpack:project"
 
-
-# Invenio-RDM-Records
-# ====================
-RDM_COMMUNITIES_ROUTES = {
-    "community-frontpage": "/communities",
-    "community-detail": "/communities/<pid_value>",
-}
-
 # GEO Components React (Open solutions)
 # =====================================
 GKH_CAROUSEL_FOCUS_URL = "/search?q=metadata.engagement_priorities.id"
@@ -76,6 +68,45 @@ GKH_SOURCES_CONFIG = {
     }
 }
 
+
 # GEO Marketplace
 # ===============
 GKH_MARKETPLACE_FRONTPAGE_LINK_ENABLED = True
+
+
+# GEO Deposit Config
+# ==================
+GKH_DEPOSIT_FUNDING_CONFIG = {
+    "awards": {
+        "eu-funder-ids": [
+            "00k4n6c32",  # European Commission
+        ],
+        "eu-funding-logos": [
+            {
+                "id": "eu-fundedby-2014-2020",
+                "text": "Funded by the European Union",
+                "logo": "/static/images/funding/eu/eu-fundedby-2014-2020.png",
+                "programme": "2014 - 2020",
+            },
+            {
+                "id": "eu-fundedby-2021-2027",
+                "text": "Funded by the European Union",
+                "logo": "/static/images/funding/eu/eu-fundedby-2021-2027.png",
+                "programme": "2021 - 2027",
+            },
+            {
+                "id": "eu-cofundedby-2021-2027",
+                "text": "Co-funded by the European Union",
+                "logo": "/static/images/funding/eu/eu-cofundedby-2021-2027.png",
+                "programme": "2021-2027",
+            },
+            {
+                "id": "eu-ng-fundedby-2021-2027",
+                "text": "Funded by the European Union (NextGenerationEU)",
+                "logo": "/static/images/funding/eu/eu-ng-fundedby-2021-2027.png",
+                "programme": "2021 - 2027",
+            },
+        ],
+        "eu-visibility-doc": "https://commission.europa.eu/funding-tenders/managing-your-project/communicating-and-raising-eu-visibility_en",
+    }
+}

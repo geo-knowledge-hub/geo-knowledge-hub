@@ -161,5 +161,5 @@ createSearchAppInit(
   { ...defaultComponents, ...overriddenComponents },
   true,
   "invenio-search-config",
-  true
+  true,
 );

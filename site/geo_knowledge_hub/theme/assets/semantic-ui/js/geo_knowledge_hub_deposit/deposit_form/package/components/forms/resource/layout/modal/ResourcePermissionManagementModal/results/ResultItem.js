@@ -150,14 +150,14 @@ class TableRowItem extends Component {
     const communityAccess = _get(
       statePackageRecordCommunity,
       "access.visibility",
-      "public"
+      "public",
     );
 
     const recordDataAccess = _omit(
       _get(recordData, "access", {
         embargo: { active: false },
       }),
-      "status"
+      "status",
     );
 
     return (
@@ -301,18 +301,18 @@ class ResultItemComponent extends Component {
                 const packageParentId = _get(
                   statePackageRecord,
                   "parent.id",
-                  null
+                  null,
                 );
 
                 const recordPackageId = _get(
                   result,
                   "relationship.packages.0.id",
-                  null
+                  null,
                 );
                 const recordManagerId = _get(
                   result,
                   "parent.relationship.managed_by.id",
-                  null
+                  null,
                 );
 
                 const packageIsNotNull = packageId !== null;
@@ -369,7 +369,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 export const ResultItem = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(ResultItemComponent);
 
 export const ResultItemHOC = (store) => {

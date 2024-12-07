@@ -68,7 +68,7 @@ class MenuOperationsComponent extends Component {
     const operationModalDescription = {
       title: i18next.t("Import resources"),
       content: i18next.t(
-        "Would you like to import the resources from the previous package into this new version?"
+        "Would you like to import the resources from the previous package into this new version?",
       ),
       onAccept: (e) => {
         dispatchDepositImportResources(statePackageRecord, {
@@ -110,7 +110,6 @@ class MenuOperationsComponent extends Component {
           <Grid stackable>
             <Grid.Row className={"highlight-background"}>
               <Grid.Column>
-
                 <Grid columns={2}>
                   <Grid.Row>
                     <Grid.Column verticalAlign={"middle"}>
@@ -121,7 +120,6 @@ class MenuOperationsComponent extends Component {
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
-
               </Grid.Column>
             </Grid.Row>
 
@@ -152,7 +150,7 @@ class MenuOperationsComponent extends Component {
                     <List.Content>
                       <Popup
                         content={i18next.t(
-                          "Operation used to import resources from a previous version of the package"
+                          "Operation used to import resources from a previous version of the package",
                         )}
                         trigger={<span>Import resources</span>}
                       />
@@ -187,7 +185,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 export const MenuOperations = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(MenuOperationsComponent);
 
 export const MenuOperationsHOC = (store) => {

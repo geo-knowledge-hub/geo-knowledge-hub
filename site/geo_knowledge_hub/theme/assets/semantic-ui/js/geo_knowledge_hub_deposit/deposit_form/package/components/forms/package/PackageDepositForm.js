@@ -41,11 +41,11 @@ import {
   SubjectsField,
   TitlesField,
   VersionField,
-  FundingField,
   connect as connectToDepositContext,
 } from "@geo-knowledge-hub/geo-deposit-react";
 
 import {
+  FundingField,
   TargetAudienceField,
   EngagementPriorityField,
   WorkProgrammeActivityField,
@@ -87,7 +87,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 export const PackageRefresher = connect(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(PackageRefresherComponent);
 
 export const PackageRefresherHOC = (store) => {
@@ -117,6 +117,7 @@ export class PackageDepositFormComponentBase extends Component {
 
     // Defining properties.
     this.config = depositConfig.package.record || {};
+    this.configExtras = depositConfig.package.extra || {};
     this.packageObject = packageObject;
 
     // Configuring.
@@ -281,7 +282,7 @@ export class PackageDepositFormComponentBase extends Component {
                       <LanguagesField
                         fieldPath="metadata.languages"
                         initialOptions={_get(record, "ui.languages", []).filter(
-                          (lang) => lang !== null
+                          (lang) => lang !== null,
                         )} // needed because dumped empty record from backend gives [null]
                         serializeSuggestions={(suggestions) =>
                           suggestions.map((item) => ({
@@ -375,8 +376,12 @@ export class PackageDepositFormComponentBase extends Component {
                     <Grid.Column>
                       <SubjectsField
                         fieldPath="metadata.subjects"
-                        initialSuggestions={_filter(_get(record, "metadata.subjects", []))}
-                        limitToOptions={this.vocabularies.metadata.subjects.limit_to}
+                        initialSuggestions={_filter(
+                          _get(record, "metadata.subjects", []),
+                        )}
+                        limitToOptions={
+                          this.vocabularies.metadata.subjects.limit_to
+                        }
                       />
                     </Grid.Column>
                   </Grid.Row>
@@ -387,7 +392,11 @@ export class PackageDepositFormComponentBase extends Component {
                         required={false}
                         initialSuggestions={
                           _compact([
-                            _get(record, "ui.geo_work_programme_activity", null),
+                            _get(
+                              record,
+                              "ui.geo_work_programme_activity",
+                              null,
+                            ),
                           ]) || null
                         }
                       />
@@ -401,7 +410,7 @@ export class PackageDepositFormComponentBase extends Component {
                         initialSuggestions={_get(
                           record,
                           "ui.engagement_priorities",
-                          null
+                          null,
                         )}
                       />
                     </Grid.Column>
@@ -411,13 +420,12 @@ export class PackageDepositFormComponentBase extends Component {
                         initialSuggestions={_get(
                           record,
                           "ui.target_audiences",
-                          null
+                          null,
                         )}
                       />
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
-
               </AccordionField>
 
               <AccordionField
@@ -503,6 +511,7 @@ export class PackageDepositFormComponentBase extends Component {
                   }}
                   label="Awards"
                   labelIcon="money bill alternate outline"
+                  extraConfig={_get(this.configExtras, "awards", {})}
                   deserializeAward={(award) => {
                     return {
                       title: award.title_l10n,
@@ -513,6 +522,8 @@ export class PackageDepositFormComponentBase extends Component {
                         identifiers: award.identifiers,
                       }),
                       ...(award.acronym && { acronym: award.acronym }),
+                      ...(award.icon && { icon: award.icon }),
+                      ...(award.disclaimer && { icon: award.disclaimer }),
                     };
                   }}
                   deserializeFunder={(funder) => {
@@ -687,7 +698,7 @@ const mapStateToProps = (state) => ({
 
 export const PackageDepositForm = connect(
   mapStateToProps,
-  null
+  null,
 )(PackageDepositFormComponent);
 
 // ToDo

@@ -57,7 +57,7 @@ const mapStateToProps = (state) => ({
 
 export const DepositMessage = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(DepositMessageComponent);
 
 DepositMessage.propTypes = {

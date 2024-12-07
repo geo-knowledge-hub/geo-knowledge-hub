@@ -28,6 +28,7 @@ export class GEOPackageApp extends Component {
       depositConfigResource,
       depositConfigResourceSearch,
       resourceRecordsPermissions,
+      awardsConfig,
     } = this.props;
 
     const appConfig = {
@@ -47,6 +48,9 @@ export class GEOPackageApp extends Component {
       depositConfig: {
         package: {
           record: depositConfigPackage,
+          extra: {
+            awards: awardsConfig,
+          },
         },
         resource: {
           record: depositConfigResource,
@@ -55,6 +59,9 @@ export class GEOPackageApp extends Component {
             default_preview: null,
             entries: [],
             links: {},
+          },
+          extra: {
+            awards: awardsConfig,
           },
         },
         templates: {

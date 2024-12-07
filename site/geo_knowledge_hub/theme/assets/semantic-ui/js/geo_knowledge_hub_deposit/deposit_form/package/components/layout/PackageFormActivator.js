@@ -50,7 +50,7 @@ const mapStateToProps = (state) => ({
 
 export const PackageFormActivator = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(PackageFormActivatorComponent);
 
 PackageFormActivator.propTypes = {

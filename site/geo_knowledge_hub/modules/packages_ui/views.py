@@ -35,6 +35,7 @@ from geo_knowledge_hub.modules.base.decorators import (
     pass_record_latest,
     pass_record_or_draft,
 )
+from geo_knowledge_hub.modules.base.utilities import awards as awards_utilities
 from geo_knowledge_hub.modules.base.utilities import endpoint as endpoint_utilities
 from geo_knowledge_hub.modules.base.utilities import harvest as harvest_utilities
 from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
@@ -97,6 +98,9 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
         identity=identity
     )
 
+    # Extra configurations
+    config_awards = awards_utilities.get_configurations()
+
     # Searching records like the current one
     more_like_this_records = []
 
@@ -131,6 +135,7 @@ def geo_package_detail(record=None, files=None, pid_value=None, is_preview=False
         harvest_source_files=harvest_source_files,
         harvest_source_metadata=harvest_source_metadata,
         resource_types_definition=resource_types,
+        config_awards=config_awards,
         **record_metadata,
         **record_endpoint,
     )
@@ -152,6 +157,10 @@ def geo_package_deposit_create(community=None):
     """Deposit page to create packages."""
     # Base definitions
     identity = g.identity
+
+    # Extra configurations
+    config_awards = awards_utilities.get_configurations()
+
     # Render
     return render_template(
         "geo_knowledge_hub/packages/deposit/index.html",
@@ -170,6 +179,8 @@ def geo_package_deposit_create(community=None):
         resource_types_definition=vocabulary_utilities.get_resource_type_definitions(
             identity=identity
         ),
+        # Awards config
+        config_awards=config_awards,
     )
 
 
@@ -192,6 +203,9 @@ def geo_package_deposit_edit(draft=None, draft_files=None, pid_value=None):
         )
     )
 
+    # Extra configurations
+    config_awards = awards_utilities.get_configurations()
+
     return render_template(
         "geo_knowledge_hub/packages/deposit/index.html",
         forms_package_config=get_form_config(
@@ -206,6 +220,8 @@ def geo_package_deposit_edit(draft=None, draft_files=None, pid_value=None):
         forms_package_records_endpoint=f"/api/packages/{pid_value}/draft/resources",
         # `Package resource permissions`
         permissions_related_resources=related_resources_permissions,
+        # Awards config
+        config_awards=config_awards,
     )
 
 

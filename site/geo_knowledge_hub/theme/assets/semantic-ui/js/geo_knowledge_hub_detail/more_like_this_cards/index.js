@@ -11,7 +11,9 @@ import ReactDOM from "react-dom";
 
 import { RecordsTable } from "@geo-knowledge-hub/geo-components-react";
 
-const detailsMoreLikeThisRecordsDiv = document.getElementById("details-more-like-this-records-div");
+const detailsMoreLikeThisRecordsDiv = document.getElementById(
+  "details-more-like-this-records-div",
+);
 
 /**
  * Render `More like this component` component
@@ -20,7 +22,9 @@ export const renderComponent = (...args) => {
   if (detailsMoreLikeThisRecordsDiv) {
     ReactDOM.render(
       <RecordsTable
-        tableData={JSON.parse(detailsMoreLikeThisRecordsDiv.dataset.morelikethisrecords)}
+        tableData={JSON.parse(
+          detailsMoreLikeThisRecordsDiv.dataset.morelikethisrecords,
+        )}
       />,
       detailsMoreLikeThisRecordsDiv,
     );

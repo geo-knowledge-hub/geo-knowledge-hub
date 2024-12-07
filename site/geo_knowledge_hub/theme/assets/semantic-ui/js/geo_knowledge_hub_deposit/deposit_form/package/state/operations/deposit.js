@@ -99,10 +99,10 @@ export const depositResourcesAttach = (recordData, operationMetadata) => {
     const { record: packageRecord } = packageObject;
 
     const operationTitleSuccess = i18next.t(
-      "Attaching resource operation was succeeded"
+      "Attaching resource operation was succeeded",
     );
     const operationTitleError = i18next.t(
-      "Attaching resource operation errors"
+      "Attaching resource operation errors",
     );
 
     // Operating!
@@ -117,7 +117,7 @@ export const depositResourcesAttach = (recordData, operationMetadata) => {
       // 1. Add the resource to the current version of the package
       const response = await packagesApiClient.packageAddResources(
         packageRecord,
-        [recordData]
+        [recordData],
       );
 
       // 2. Processing
@@ -160,7 +160,7 @@ export const depositResourcesAttach = (recordData, operationMetadata) => {
             errors: [
               {
                 message: i18next.t(
-                  "Error in connecting with the GEO Knowledge Hub API"
+                  "Error in connecting with the GEO Knowledge Hub API",
                 ),
               },
             ],
@@ -176,7 +176,7 @@ export const depositResourcesAttach = (recordData, operationMetadata) => {
           errors: [
             {
               message: i18next.t(
-                "Error in connecting with the GEO Knowledge Hub API"
+                "Error in connecting with the GEO Knowledge Hub API",
               ),
             },
           ],
@@ -224,7 +224,7 @@ export const depositDiscardTemporaryResource = () => {
         try {
           // 3. Deleting draft.
           const response = await recordApiClient.deleteDraft(
-            stateResourceTemporaryObject
+            stateResourceTemporaryObject,
           );
 
           if (response.code !== 204) {
@@ -236,7 +236,7 @@ export const depositDiscardTemporaryResource = () => {
                 errors: [
                   {
                     message: i18next.t(
-                      "Error in connecting with the GEO Knowledge Hub API"
+                      "Error in connecting with the GEO Knowledge Hub API",
                     ),
                   },
                 ],
@@ -251,7 +251,7 @@ export const depositDiscardTemporaryResource = () => {
               errors: [
                 {
                   message: i18next.t(
-                    "Error in connecting with the GEO Knowledge Hub API"
+                    "Error in connecting with the GEO Knowledge Hub API",
                   ),
                 },
               ],
@@ -275,7 +275,7 @@ export const depositDiscardTemporaryResource = () => {
 export const depositResourceAssociateAndAttachDraft = (
   recordData,
   operationMetadata,
-  updateInterface = true
+  updateInterface = true,
 ) => {
   return async (dispatch, getState) => {
     let status = true;
@@ -288,10 +288,10 @@ export const depositResourceAssociateAndAttachDraft = (
     const { record: packageRecord } = packageObject;
 
     const operationTitleSuccess = i18next.t(
-      "Attaching resource operation was succeeded"
+      "Attaching resource operation was succeeded",
     );
     const operationTitleError = i18next.t(
-      "Attaching resource operation errors"
+      "Attaching resource operation errors",
     );
 
     // Operating
@@ -306,7 +306,7 @@ export const depositResourceAssociateAndAttachDraft = (
       // 1. Associating the draft with the package.
       const associateResponse = await packagesApiClient.contextAssociateDrafts(
         packageRecord,
-        [recordData]
+        [recordData],
       );
 
       if (associateResponse.code !== 204) {
@@ -326,7 +326,7 @@ export const depositResourceAssociateAndAttachDraft = (
       else {
         const attachResponse = await packagesApiClient.packageAddResources(
           packageRecord,
-          [recordData]
+          [recordData],
         );
 
         if (attachResponse.code !== 200) {
@@ -372,7 +372,7 @@ export const depositResourceAssociateAndAttachDraft = (
           errors: [
             {
               message: i18next.t(
-                "Error in connecting with the GEO Knowledge Hub API"
+                "Error in connecting with the GEO Knowledge Hub API",
               ),
             },
           ],
@@ -412,7 +412,9 @@ export const depositResourceSaveDraft = (recordData, operationMetadata) => {
     try {
       // 1. Checking if is a draft
       let recordDraft = recordData;
-      const isDraft = ["draft", "new_version_draft"].includes(recordData.status);
+      const isDraft = ["draft", "new_version_draft"].includes(
+        recordData.status,
+      );
 
       if (!isDraft) {
         // We need to create a draft to edit it
@@ -485,7 +487,7 @@ export const depositResourceSaveDraft = (recordData, operationMetadata) => {
           errors: [
             {
               message: i18next.t(
-                "Error in connecting with the GEO Knowledge Hub API"
+                "Error in connecting with the GEO Knowledge Hub API",
               ),
             },
           ],
@@ -513,7 +515,7 @@ export const depositImportResources = (recordData, operationMetadata) => {
 
     const operationTitleSuccess = i18next.t("Resources imported successfully");
     const operationTitleError = i18next.t(
-      "Error in importing resources from the previous version"
+      "Error in importing resources from the previous version",
     );
 
     // Operating
@@ -561,7 +563,7 @@ export const depositImportResources = (recordData, operationMetadata) => {
           errors: [
             {
               message: i18next.t(
-                "Error in connecting with the GEO Knowledge Hub API"
+                "Error in connecting with the GEO Knowledge Hub API",
               ),
             },
           ],
@@ -615,7 +617,9 @@ export const depositResourcesEdit = (recordData, operationMetadata) => {
       try {
         // 2. Checking if is a draft
         let recordDraft = resourceData;
-        const isDraft = ["draft", "new_version_draft"].includes(resourceData.status);
+        const isDraft = ["draft", "new_version_draft"].includes(
+          resourceData.status,
+        );
 
         if (!isDraft) {
           // 2.1. We need to create a draft to edit it
@@ -648,9 +652,8 @@ export const depositResourcesEdit = (recordData, operationMetadata) => {
         const isFileEnabled = _get(recordDraft, "files.enabled");
 
         if (isFileEnabled) {
-          const recordFilesResponse = await recordApiClient.listFiles(
-            resourceData
-          );
+          const recordFilesResponse =
+            await recordApiClient.listFiles(resourceData);
 
           if (recordFilesResponse.code !== 200) {
             dispatch({
@@ -677,7 +680,7 @@ export const depositResourcesEdit = (recordData, operationMetadata) => {
             record: resourceData,
             config: resourceConfig,
             files: resourceData.files,
-          })
+          }),
         );
       } catch (error) {
         dispatch({
@@ -687,7 +690,7 @@ export const depositResourcesEdit = (recordData, operationMetadata) => {
             errors: [
               {
                 message: i18next.t(
-                  "Error in connecting with the GEO Knowledge Hub API"
+                  "Error in connecting with the GEO Knowledge Hub API",
                 ),
               },
             ],
@@ -703,7 +706,7 @@ export const depositResourcesEdit = (recordData, operationMetadata) => {
           errors: [
             {
               message: i18next.t(
-                "You can't edit a resource not managed by the current package."
+                "You can't edit a resource not managed by the current package.",
               ),
             },
           ],
@@ -734,7 +737,7 @@ export const depositResourcesDetach = (recordData, operationMetadata) => {
 
     const operationTitleSuccess = i18next.t("Resource Detached successfully");
     const operationTitleError = i18next.t(
-      "Error in detaching the selected resource"
+      "Error in detaching the selected resource",
     );
 
     // Operating!
@@ -747,7 +750,7 @@ export const depositResourcesDetach = (recordData, operationMetadata) => {
       // 1. Detaching resource from the current version of the package.
       const detachingResponse = await packagesApiClient.packageRemoveResources(
         packageRecord,
-        [resourceRecord]
+        [resourceRecord],
       );
 
       if (detachingResponse.code !== 200) {
@@ -784,7 +787,7 @@ export const depositResourcesDetach = (recordData, operationMetadata) => {
           errors: [
             {
               message: i18next.t(
-                "Error in connecting with the GEO Knowledge Hub API"
+                "Error in connecting with the GEO Knowledge Hub API",
               ),
             },
           ],
@@ -819,10 +822,10 @@ export const depositResourcesNewVersion = (recordData, operationMetadata) => {
     const packagesApiClient = new PackagesApiClient();
 
     const operationTitleSuccess = i18next.t(
-      "The new resource version was created successfully"
+      "The new resource version was created successfully",
     );
     const operationTitleError = i18next.t(
-      "Error to create a new version of the resource"
+      "Error to create a new version of the resource",
     );
 
     // Operating
@@ -854,7 +857,7 @@ export const depositResourcesNewVersion = (recordData, operationMetadata) => {
               errors: [
                 {
                   message: i18next.t(
-                    "You need to use a published resource to create a new version"
+                    "You need to use a published resource to create a new version",
                   ),
                 },
               ],
@@ -865,9 +868,8 @@ export const depositResourcesNewVersion = (recordData, operationMetadata) => {
 
         // 3. Creating the new version
         else {
-          const newVersionResponse = await recordApiClient.newVersion(
-            resourceData
-          );
+          const newVersionResponse =
+            await recordApiClient.newVersion(resourceData);
 
           if (newVersionResponse.code !== 201) {
             dispatch({
@@ -906,8 +908,8 @@ export const depositResourcesNewVersion = (recordData, operationMetadata) => {
                 depositResourceAssociateAndAttachDraft(
                   newVersionResponse.data,
                   operationMetadata,
-                  false
-                )
+                  false,
+                ),
               );
 
               // Finishing
@@ -930,7 +932,7 @@ export const depositResourcesNewVersion = (recordData, operationMetadata) => {
                     record: newVersion,
                     config: resourceConfig,
                     files: newVersion.files,
-                  })
+                  }),
                 );
               }
             }
@@ -944,7 +946,7 @@ export const depositResourcesNewVersion = (recordData, operationMetadata) => {
             errors: [
               {
                 message: i18next.t(
-                  "Error in connecting with the GEO Knowledge Hub API"
+                  "Error in connecting with the GEO Knowledge Hub API",
                 ),
               },
             ],
@@ -980,7 +982,7 @@ export const depositResourcesDelete = (recordData, operationMetadata) => {
 
     const operationTitleSuccess = i18next.t("Resource successfully deleted");
     const operationTitleError = i18next.t(
-      "Error to delete the selected resource"
+      "Error to delete the selected resource",
     );
 
     dispatch({
@@ -1021,9 +1023,8 @@ export const depositResourcesDelete = (recordData, operationMetadata) => {
         // 3. Deleting the draft record
         else {
           // The backup will remove the reference to the record from the package.
-          const deleteResponse = await recordApiClient.deleteDraft(
-            resourceData
-          );
+          const deleteResponse =
+            await recordApiClient.deleteDraft(resourceData);
 
           if (deleteResponse.code !== 204) {
             dispatch({
@@ -1058,7 +1059,7 @@ export const depositResourcesDelete = (recordData, operationMetadata) => {
             errors: [
               {
                 message: i18next.t(
-                  "Error in connecting with the GEO Knowledge Hub API"
+                  "Error in connecting with the GEO Knowledge Hub API",
                 ),
               },
             ],
