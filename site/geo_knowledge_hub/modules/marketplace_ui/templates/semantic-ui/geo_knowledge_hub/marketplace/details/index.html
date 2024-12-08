@@ -13,7 +13,7 @@
   {%- extends config.BASE_TEMPLATE %}
 {% endif %}
 
-{%- from "geo_knowledge_hub/details/macros/detail.html" import show_related_identifiers %}
+{%- from "geo_knowledge_hub/details/macros/detail.html" import show_related_identifiers, show_funding_awards %}
 {%- from "invenio_app_rdm/records/macros/files.html" import file_list_box, preview_file_box %}
 
 {%- set title = record.metadata.title %}
@@ -306,6 +306,15 @@
 
                 {{ show_related_identifiers(record.ui.related_identifiers) }}
               </section>
+            {% endif %}
+
+            {# Funding #}
+            {% if metadata.funding and config_awards %}
+            <section id="funding-awards" class="rel-mt-3">
+              <h2 id="funding-awards-heading">{{ _('Funding awards') }}</h2>
+
+              {{ show_funding_awards(metadata.funding, config_awards) }}
+            </section>
             {% endif %}
 
             {# Additional details #}

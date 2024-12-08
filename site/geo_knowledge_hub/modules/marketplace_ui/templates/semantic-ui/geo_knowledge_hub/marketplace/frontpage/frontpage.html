@@ -29,17 +29,45 @@
       },
       simulateTouch: false,
     });
+
+    const reduceElementSize = (currentId) => {
+      // IDs of the current carousel elements
+      const elementIDs = [
+        "focusAreasSearchOptions",
+        "engagementsSearchOptions",
+        "engagementsConventionSearchOptions"
+      ];
+
+      // Reduce height of carousel items to avoid interface rendering issues
+      elementIDs.filter(e => e !== currentId).forEach(e => {
+        document.getElementById(e).style.height = "0px"
+      })
+
+      // The height of the current ID is reset
+      document.getElementById(currentId).style.height = "";
+    }
   </script>
 
   <script>
-    document.querySelector(".engagement-priorities-opt").addEventListener("click", (e) => {
+    document.querySelector(".focus-areas-opt").addEventListener("click", (e) => {
       e.preventDefault();
       swiper.slideTo(0);
+
+      reduceElementSize("focusAreasSearchOptions");
+    });
+
+    document.querySelector(".engagement-priorities-opt").addEventListener("click", (e) => {
+      e.preventDefault();
+      swiper.slideTo(1);
+
+      reduceElementSize("engagementsSearchOptions");
     });
 
     document.querySelector(".engagement-priorities-conventions-opt").addEventListener("click", (e) => {
       e.preventDefault();
-      swiper.slideTo(1);
+      swiper.slideTo(2);
+
+      reduceElementSize("engagementsConventionSearchOptions");
     });
 
     document.querySelector('#featured-communities').parentElement.classList.add('front-body');
@@ -89,19 +117,31 @@
     </div>
 
     <div class="ui grid rel-pb-3">
-      <div class="row">
-        <div class="centered column">
-          <div class="ui large breadcrumb">
-            <a class="section engagement-priorities-opt">GEO Engagement Priorities</a>
-            <div class="divider"> / </div>
-            <a class="section engagement-priorities-conventions-opt">Conventions</a>
-          </div>
+      <div class="row centered">
+        <div class="ui stackable grid centered">
+          <button class="ui button basic tiny compact focus-areas-opt">GEO Focus Areas</button>
+          <button class="ui button basic tiny compact engagement-priorities-opt">GEO Engagement Priorities</button>
+          <button class="ui button basic tiny compact engagement-priorities-conventions-opt">Conventions</button>
         </div>
       </div>
     </div>
 
     <div class="swiper swiper-container">
       <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="ui grid">
+            <div class="row">
+              <div class="column centered">
+                <div class="ui container">
+                  <div class="ui padded relaxed centered grid">
+                    <div id="focusAreasSearchOptions" data-search-config={{ carousel_focus_config }}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="swiper-slide">
           <div class="ui grid">
