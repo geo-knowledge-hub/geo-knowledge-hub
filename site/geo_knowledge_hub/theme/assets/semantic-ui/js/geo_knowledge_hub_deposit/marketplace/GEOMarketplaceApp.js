@@ -40,10 +40,10 @@ import {
   SubjectsField,
   TitlesField,
   VersionField,
-  FundingField,
 } from "@geo-knowledge-hub/geo-deposit-react";
 
 import {
+  FundingField,
   TargetAudienceField,
   EngagementPriorityField,
   WorkProgrammeActivityField,
@@ -64,7 +64,12 @@ export class GEOMarketplaceApp extends Component {
   constructor(props) {
     super(props);
     this.config = props.config || {};
-    const { files, record } = this.props;
+    const { files, record, awardsConfig } = this.props;
+
+    // Define extra configurations
+    this.configExtras = {
+      awards: awardsConfig,
+    };
 
     // TODO: retrieve from backend
     this.config["canHaveMetadataOnlyRecords"] = true;
@@ -458,6 +463,7 @@ export class GEOMarketplaceApp extends Component {
                   }}
                   label="Awards"
                   labelIcon="money bill alternate outline"
+                  extraConfig={_get(this.configExtras, "awards", {})}
                   deserializeAward={(award) => {
                     return {
                       title: award.title_l10n,
@@ -468,6 +474,8 @@ export class GEOMarketplaceApp extends Component {
                         identifiers: award.identifiers,
                       }),
                       ...(award.acronym && { acronym: award.acronym }),
+                      ...(award.icon && { icon: award.icon }),
+                      ...(award.disclaimer && { icon: award.disclaimer }),
                     };
                   }}
                   deserializeFunder={(funder) => {

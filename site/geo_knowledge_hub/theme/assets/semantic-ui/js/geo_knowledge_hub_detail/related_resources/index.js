@@ -18,8 +18,17 @@ import { RelatedResourceTable } from "@geo-knowledge-hub/geo-components-react";
  * Render the Engagement Priorities component.
  */
 export const renderComponent = (...args) => {
-  // Extracting package info (Assuming the url is the package id)
-  const currentPackageId = _last(window.location.pathname.split("/"));
+  const packageMetadataDiv = document.getElementById("recordManagement");
+
+  let currentPackageId = null;
+
+  if (packageMetadataDiv) {
+    currentPackageId = JSON.parse(packageMetadataDiv.dataset.record);
+    currentPackageId = currentPackageId.id;
+  } else {
+    // Last case: use last part of the URL as the package ID. This is not ideal
+    currentPackageId = _last(window.location.pathname.split("/"));
+  }
 
   // Extracting record values
   const componentDiv = document.getElementById("relatedRecordsDiv");
