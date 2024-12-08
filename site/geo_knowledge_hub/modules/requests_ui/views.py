@@ -8,6 +8,8 @@
 
 """Record and Package Request related record."""
 
+import json
+
 from flask import g, render_template
 from flask_login import current_user, login_required
 from invenio_app_rdm.records_ui.views.deposits import load_custom_fields
@@ -25,6 +27,8 @@ from geo_knowledge_hub.modules.base.registry import (
     get_files_service,
     get_record_service,
 )
+from geo_knowledge_hub.modules.base.utilities import awards as awards_utilities
+from geo_knowledge_hub.modules.base.utilities import vocabulary as vocabulary_utilities
 
 from .toolbox import endpoint as endpoint_utilities
 from .toolbox import metadata as metadata_utilities
@@ -70,6 +74,15 @@ def user_dashboard_request_view(request, **kwargs):
     # generate endpoints (files and export)
     record_endpoints = endpoint_utilities.generate_endpoint(record_type)
 
+    # Resource types
+    resource_types = vocabulary_utilities.get_resource_type_definitions(
+        identity=identity
+    )
+
+    # extra configurations
+    config_awards = awards_utilities.get_configurations()
+    config_awards = json.dumps(config_awards)
+
     if is_draft_submission or is_assistance:
         topic = requests_utilities.resolve_topic(
             request, service, draft=is_draft_submission
@@ -110,6 +123,8 @@ def user_dashboard_request_view(request, **kwargs):
             is_knowledge_package=is_knowledge_package,
             custom_fields_ui=load_custom_fields()["ui"],
             assistance_requests=[],  # Defining it to avoid errors with the components, but it is not used
+            resource_types_definition=resource_types,
+            config_awards=config_awards,
             **record_metadata,
             **record_endpoints,
         )
@@ -157,6 +172,15 @@ def community_dashboard_request_view(request, community, community_ui, **kwargs)
     # generate endpoints (files and export)
     record_endpoints = endpoint_utilities.generate_endpoint(record_type)
 
+    # Resource types
+    resource_types = vocabulary_utilities.get_resource_type_definitions(
+        identity=identity
+    )
+
+    # extra configurations
+    config_awards = awards_utilities.get_configurations()
+    config_awards = json.dumps(config_awards)
+
     if is_draft_submission:
         topic = requests_utilities.resolve_topic(
             request, service, draft=is_draft_submission
@@ -192,6 +216,8 @@ def community_dashboard_request_view(request, community, community_ui, **kwargs)
             is_user_dashboard=True,
             is_knowledge_package=is_knowledge_package,
             custom_fields_ui=load_custom_fields()["ui"],
+            resource_types_definition=resource_types,
+            config_awards=config_awards,
             **record_metadata,
             **record_endpoints,
         )

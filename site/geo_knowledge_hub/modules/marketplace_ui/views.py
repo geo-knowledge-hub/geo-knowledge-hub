@@ -33,6 +33,7 @@ from geo_knowledge_hub.modules.base.decorators import (
     pass_record_latest,
     pass_record_or_draft,
 )
+from geo_knowledge_hub.modules.base.utilities import awards as awards_utilities
 from geo_knowledge_hub.modules.base.utilities import endpoint as endpoint_utilities
 from geo_knowledge_hub.modules.base.utilities import metadata as metadata_utilities
 from geo_knowledge_hub.modules.base.utilities import records as record_utilities
@@ -84,6 +85,10 @@ def geo_marketplace_item_create(community=None):
     if "rights" in new_record_configuration["metadata"]:
         del new_record_configuration["metadata"]["rights"]
 
+    # Extra configurations
+    config_awards = awards_utilities.get_configurations()
+    config_awards = json.dumps(config_awards)
+
     return render_template(
         "geo_knowledge_hub/marketplace/deposit/index.html",
         forms_config=get_form_config(createUrl=("/api/marketplace/items")),
@@ -91,6 +96,7 @@ def geo_marketplace_item_create(community=None):
         record=new_record_configuration,
         files=dict(default_preview=None, entries=[], links={}),
         preselectedCommunity=community,
+        config_awards=config_awards,
     )
 
 
@@ -102,6 +108,10 @@ def geo_marketplace_item_edit(draft=None, draft_files=None, pid_value=None):
     """Edit an existing record resource deposit."""
     record = UIJSONSerializer().dump_obj(draft.to_dict())
 
+    # Extra configurations
+    config_awards = awards_utilities.get_configurations()
+    config_awards = json.dumps(config_awards)
+
     return render_template(
         "geo_knowledge_hub/marketplace/deposit/index.html",
         forms_config=get_form_config(
@@ -111,6 +121,7 @@ def geo_marketplace_item_edit(draft=None, draft_files=None, pid_value=None):
         files=draft_files.to_dict(),
         searchbar_config=dict(searchUrl=get_search_url()),
         permissions=draft.has_permissions_to(["new_version"]),
+        config_awards=config_awards,
     )
 
 
@@ -152,6 +163,10 @@ def geo_marketplace_item_detail(
     )
     record_endpoint = endpoint_utilities.generate_marketplace_item_endpoint()
 
+    # Extra configurations
+    config_awards = awards_utilities.get_configurations()
+    config_awards = json.dumps(config_awards)
+
     # Searching records like the current one
     more_like_this_records = []
 
@@ -175,6 +190,7 @@ def geo_marketplace_item_detail(
         navigate=navigate,
         assistance_requests=[],
         more_like_this_records=more_like_this_records,
+        config_awards=config_awards,
         **record_metadata,
         **record_endpoint,
     )

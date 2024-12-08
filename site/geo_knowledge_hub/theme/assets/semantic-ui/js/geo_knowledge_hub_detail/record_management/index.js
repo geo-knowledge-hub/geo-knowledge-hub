@@ -25,8 +25,6 @@ const recordManagementMobile = document.getElementById(
 );
 
 function renderRecordManagement(element) {
-  console.log("is to show share");
-  console.log(isMarketplace);
   ReactDOM.render(
     <RecordManagement
       record={JSON.parse(recordManagementAppDiv.dataset.record)}
