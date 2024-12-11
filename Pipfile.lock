@@ -133,19 +133,19 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:31ddcdb6f15dace2b68f6a0f11bdb58dd3ae79b8a3ccb174ff811ef0bbf938e0",
-                "sha256:69458399f41f57a50770c8974796d96978bcca44915c260319696bb43e47dffd"
+                "sha256:5ef7166fe5060637b92af8dc152cd7acecf96b3fc9c5456706a886cadb534391",
+                "sha256:fc8001519c8842e766ad3793bde3fbd0bb39e821a582fc12cf67876b8f3cf7f1"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==1.35.76"
+            "version": "==1.35.78"
         },
         "botocore": {
             "hashes": [
-                "sha256:a75a42ae53395796b8300c5fefb2d65a8696dc40dc85e49cf3a769e0c0202b13",
-                "sha256:b4729d12d00267b3185628f83543917b6caae292385230ab464067621aa086af"
+                "sha256:41c37bd7c0326f25122f33ec84fb80fc0a14d7fcc9961431b0e57568e88c9cb5",
+                "sha256:6905036c25449ae8dba5e950e4b908e4b8a6fe6b516bf61e007ecb62fa21f323"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==1.35.76"
+            "version": "==1.35.78"
         },
         "cachelib": {
             "hashes": [
@@ -851,7 +851,7 @@
         },
         "geo-rdm-records": {
             "git": "git+https://github.com/geo-knowledge-hub/geo-rdm-records",
-            "ref": "46b6547733cae4b70551786738be2008284f43dc"
+            "ref": "90b67180584d9a1ab735a51e4aa127fc799ee746"
         },
         "geojson": {
             "hashes": [
