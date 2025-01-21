@@ -50,6 +50,7 @@ from geo_knowledge_hub.modules.base.utilities import (
 #
 def load_config():
     """Load extra configurations for the Marketplace Frontpage."""
+    carousel_focus_config = load_from_config("GKH_CAROUSEL_FOCUS_MARKETPLACE_ITEMS_URL")
     carousel_engagement_config = load_from_config(
         "GKH_CAROUSEL_ENGAGEMENTS_MARKETPLACE_ITEMS_URL"
     )
@@ -63,6 +64,7 @@ def load_config():
     )
 
     return dict(
+        carousel_focus_config=carousel_focus_config,
         carousel_engagement_config=carousel_engagement_config,
         carousel_conventions_config=carousel_conventions_config,
         list_latest_records_config=json.dumps(
