@@ -30,6 +30,9 @@ GKH_LATEST_EVENTS_MORE_URL = "https://gkhub.earthobservations.org/doc/events"
 GKH_LATEST_MARKETPLACE_ITEMS_URL = "/api/marketplace/items?sort=newest&size=3"
 GKH_LATEST_MARKETPLACE_ITEMS_MORE_URL = "/search?f=record_type:marketplace-item"
 
+GKH_CAROUSEL_FOCUS_MARKETPLACE_ITEMS_URL = (
+    "/search?f=record_type:marketplace-item&q=metadata.engagement_priorities.id"
+)
 GKH_CAROUSEL_ENGAGEMENTS_MARKETPLACE_ITEMS_URL = (
     "/search?f=record_type:marketplace-item&q=metadata.engagement_priorities.id"
 )
