@@ -6693,12 +6693,12 @@
     theme: 'focus-areas'
   title:
     en: 'GEO Focus Area: One Health'
-- id: geo-focus-equity-and-inclusion
+- id: geo-focus-community-impact
   props:
-    type: geo-focus-equity-and-inclusion
+    type: geo-focus-community-impact
     subtype: ''
 
-    icon: 'images/labels/focus-areas/equity-inclusion/equity-inclusion.png'
+    icon: 'images/labels/focus-areas/community-impact/community-impact.png'
     uri: 'https://earthobservations.org/storage/app/media/documents/Work-Programme/Post-2025/Post-2025%20GWP%20Focus%20Areas%20Description.pdf'
 
     description_short: ''
@@ -6707,7 +6707,7 @@
     has_subtype: 'false'
     theme: 'focus-areas'
   title:
-    en: 'GEO Focus Area: Equity & Inclusion'
+    en: 'GEO Focus Area: Community Impact'
 - id: geo-focus-open-data-and-knowledge
   props:
     type: geo-focus-open-data-and-knowledge
