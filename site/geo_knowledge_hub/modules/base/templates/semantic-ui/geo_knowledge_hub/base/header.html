@@ -2,7 +2,7 @@
 
 {%- block navbar_nav %}
 <div class="item">
-  <a role="menuitem" href="/doc/events/">{{ _("Events") }}</a>
+  <a role="menuitem" target = "_blank" href="/doc/events/">{{ _("Events") }}</a>
 </div>
 
 {%- for item in current_menu.submenu('main').children|sort(attribute='order') if item.visible recursive %}
