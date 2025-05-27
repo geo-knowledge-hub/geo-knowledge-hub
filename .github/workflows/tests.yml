@@ -56,7 +56,7 @@ jobs:
             && cat .${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt
 
       - name: Cache pip
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('.${{ matrix.requirements-level }}-${{ matrix.python-version }}-requirements.txt') }}
